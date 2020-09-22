@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../third/_group/ios_group_third.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/_group/ios_group_app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/_group/ios_group_simple.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/app/ios_app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/application/ios_application.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/drawing/ios_drawing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/form/ios_form.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/app/app_simple_app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/application/app_simple_application.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/drawing/app_simple_drawing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-simple/form/app_simple_form.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/aura/aura.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/coreimage_imaging/coreimage_imaging.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/experience_tranquillum/experience_tranquillum.xcodeproj">
+   </FileRef>
+</Workspace>

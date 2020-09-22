@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:../../app-core/hellomultiverse/ios_app_core_hellomultiverse.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/flag/ios_app_core_flag.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-cidadedecuritiba/alphaclock/ios_app_cidadedecuritiba_alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/projection/ios_app_core_projection.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/rdpclient/ios_app_core_rdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../game/tictactoe/ios_game_tictactoe.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/ace/ace.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-cidadedecuritiba/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/deepfish/app_core_deepfish.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/flag/app_core_flag.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/hellomultiverse/app_core_hellomultiverse.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/projection/app_core_projection.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-core/rdpclient/app_core_rdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-veriwell/mplite/app_veriwell_mplite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/atom/iconv/atomiconv.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../audio_core_audio/audio_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-veriwell/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/aura/aura.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/aura/charguess/auracharguess.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/aura/pcre/aurapcre.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/aura/sqlite/aurasqlite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/axis.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/bzip2/axisbzip2.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/clientchannels/axisclientchannels.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/crypto/axiscrypto.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/freeimage/axisfreeimage.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/freerdp/axisfreerdp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/freetype/axisfreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/idn/axisidn.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/image_jpeg/axis_image_jpeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/image_png/axis_image_png.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/openssl/axisopenssl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/rdpclient/axisrdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/winpr/axiswinpr.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/axis/zlib/axiszlib.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/base/base.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-veriwell/libmpg123/basempg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/core/core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../game/tictactoe/game_tictactoe.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app-core/gcom/gcom.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/multimedia/multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../music_midi_core_audio/music_midi_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/pcre/pcre.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app/sphere/sphere.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/tesseract/tesseract.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-veriwell/multimedia/veriwell_multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../app-core/wndfrm_core/wndfrm_core.xcodeproj">
+   </FileRef>
+</Workspace>

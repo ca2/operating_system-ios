@@ -38,9 +38,6 @@
       location = "container:../../app/aura/aura.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app/coreimage_imaging/coreimage_imaging.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../app/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef

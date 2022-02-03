@@ -21,7 +21,7 @@
 
 #define WCHAR_T_SIZE 32
 
-#define PLATFORM_NAMESPACE ios
+#define OPERATING_SYSTEM_NAMESPACE ios
 
 #if defined(_DEBUG) && !defined(DEBUG)
 #define DEBUG 1

@@ -1859,7 +1859,7 @@ bool interaction_impl::_is_window() const
 //
 //      // only OLE controls and permanent windows will get reflected msgs
 //      ASSERT(pWnd != nullptr);
-//      __throw(todo);
+//      throw ::exception(todo);;
 //      //return pWnd->SendChildNotifyLastMsg(pResult);
 //
 //      return false;
@@ -1976,7 +1976,7 @@ bool interaction_impl::_is_window() const
 //
 //   void interaction_impl::OnSysColorChange()
 //   {
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //      /*      application* pApp = ::aura::get_system();
 //       if (pApp != nullptr && pApp->GetMainWnd() == this)
@@ -2009,7 +2009,7 @@ bool interaction_impl::_is_window() const
    /*   void interaction_impl::OnDevModeChange(__in char * lpDeviceName)
     {
     UNREFERENCED_PARAMETER(lpDeviceName);
-    __throw(error_not_implemented);
+    throw ::exception(error_not_implemented);;
     application* pApp = ::aura::get_system();
     if (pApp != nullptr && pApp->GetMainWnd() == this)
     pApp->DevModeChange(lpDeviceName);
@@ -2056,7 +2056,7 @@ bool interaction_impl::_is_window() const
 //   LRESULT interaction_impl::OnDragList(WPARAM, lparam lparam)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //
 //      //      LPDRAGLISTINFO lpInfo = (LPDRAGLISTINFO)lparam;
 //      //      ASSERT(lpInfo != nullptr);
@@ -2265,7 +2265,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::get_app_wnda(user::oswindow_array & wnda)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      EnumWindows(GetAppsEnumWindowsProc, (LPARAM) &wnda);
 //   }
 
@@ -2345,14 +2345,14 @@ bool interaction_impl::_is_window() const
 
       //lock lock(m_puserinteraction, 2000);
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
 
    void interaction_impl::_001OnPrint(::message::message * pmessage)
    {
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
       //      __pointer(::user::message) pusermessage(pmessage);
       //
       //      if(pusermessage->m_wparam == nullptr)
@@ -2433,7 +2433,7 @@ bool interaction_impl::_is_window() const
 //      // that only one was really sent and dispatched.
 //      {
 //         //         MESSAGE msg;
-//         __throw(error_not_implemented);
+//         throw ::exception(error_not_implemented);;
 //         //while (PeekMessage(&msg, nullptr, WM_ENTERIDLE, WM_ENTERIDLE, PM_REMOVE))
 //         //while (PeekMessage(&msg, ::caNULL, WM_ENTERIDLE, WM_ENTERIDLE, true))
 //         // DispatchMessage(&msg);
@@ -2449,7 +2449,7 @@ bool interaction_impl::_is_window() const
 ////      if (pWnd->SendChildNotifyLastMsg(&lResult))
 ////         return (HBRUSH)lResult;     // eat it
 ////      return (HBRUSH)Default();
-//      __throw(todo);
+//      throw ::exception(todo);;
 //      return nullptr;
 //   }
 
@@ -2462,7 +2462,7 @@ bool interaction_impl::_is_window() const
 //         HBRUSH hbrGray, color32_t clrText)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      if (hDC == nullptr)
 //      //      {
 //      //         // sometimes Win32 passes a nullptr hDC in the WM_CTLCOLOR message.
@@ -2502,7 +2502,7 @@ bool interaction_impl::_is_window() const
 
 //   void interaction_impl::CenterWindow(::user::interaction *  pAlternateOwner)
 //   {
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //   }
 
 //   bool interaction_impl::CheckAutoCenter()
@@ -2540,7 +2540,7 @@ bool interaction_impl::_is_window() const
 //      // cleanup
 //      if (lpResource != nullptr && hResource != nullptr)
 //      {
-//         __throw(error_not_implemented);
+//         throw ::exception(error_not_implemented);;
 //         //         UnlockResource(hResource);
 //      }
 //      return bResult;
@@ -2548,7 +2548,7 @@ bool interaction_impl::_is_window() const
 //
 //   bool interaction_impl::ExecuteDlgInit(LPVOID lpResource)
 //   {
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //   }
 //
 //   void interaction_impl::UpdateDialogControls(channel* pTarget, bool bDisableIfNoHndler)
@@ -2623,14 +2623,14 @@ bool interaction_impl::_is_window() const
 //      // allow any other subclassing to occur
 //      pre_subclass_window();
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //   }
 //
 //   oswindow interaction_impl::UnsubclassWindow()
 //   {
 //      ASSERT(::is_window(get_handle()));
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      // set WNDPROC back to original value
 //      //      WNDPROC* lplpfn = GetSuperWndProcAddr();
 //      //      SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (iptr)*lplpfn);
@@ -2945,7 +2945,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::DragDetect(const ::point_i32 & point) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //      return true;
 //
@@ -2965,7 +2965,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::DragAcceptFiles(bool bAccept)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -2981,7 +2981,7 @@ bool interaction_impl::_is_window() const
 //   ::u32 interaction_impl::ArrangeIconicWindows()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 
@@ -2989,7 +2989,7 @@ bool interaction_impl::_is_window() const
 //   i32 interaction_impl::SetWindowRgn(HRGN hRgn, bool bRedraw)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -2997,7 +2997,7 @@ bool interaction_impl::_is_window() const
 //   i32 interaction_impl::GetWindowRgn(HRGN hRgn)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 
@@ -3034,7 +3034,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::MapWindowPoints(::user::interaction * puserinteractionTo, POINT_I32 * lpPoint, ::u32 nCount)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3042,7 +3042,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::MapWindowPoints(::user::interaction * puserinteractionTo, RECTANGLE_I32 * lpRect)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3081,7 +3081,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::UpdateWindow()
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3089,7 +3089,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::SetRedraw(bool bRedraw)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3121,7 +3121,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::InvalidateRect(const ::rectangle_i32 & rectangle, bool bErase)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3129,7 +3129,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::InvalidateRgn(::draw2d::region* pRgn, bool bErase)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3137,7 +3137,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::ValidateRect(const ::rectangle_i32 & rectangle)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3145,7 +3145,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::ValidateRgn(::draw2d::region* pRgn)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3194,7 +3194,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::ShowOwnedPopups(bool bShow)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
    }
 
@@ -3262,7 +3262,7 @@ bool interaction_impl::_is_window() const
 //   ::draw2d::graphics * interaction_impl::GetDCEx(::draw2d::region* prgnClip, ::u32 flags)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 
@@ -3411,7 +3411,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::DrawAnimatedRects(i32 idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 * lprcTo)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 
@@ -3419,7 +3419,7 @@ bool interaction_impl::_is_window() const
    bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::rectangle_i32 & rectangle, ::u32 uFlags)
    {
 
-      __throw(error_not_implemented);
+      throw ::exception(error_not_implemented);;
 
       return false;
 
@@ -3571,7 +3571,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::CheckDlgButton(i32 nIDButton, ::u32 nCheck)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3579,7 +3579,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::CheckRadioButton(i32 nIDFirstButton, i32 nIDLastButton, i32 nIDCheckButton)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3587,7 +3587,7 @@ bool interaction_impl::_is_window() const
 //   i32 interaction_impl::DlgDirList(char * lpPathSpec, i32 nIDListBox, i32 nIDStaticPath, ::u32 nFileType)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3595,7 +3595,7 @@ bool interaction_impl::_is_window() const
 //   i32 interaction_impl::DlgDirListComboBox(char * lpPathSpec, i32 nIDComboBox, i32 nIDStaticPath, ::u32 nFileType)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3603,7 +3603,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::DlgDirSelect(char * lpString, i32 nSize, i32 nIDListBox)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3611,7 +3611,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::DlgDirSelectComboBox(char * lpString, i32 nSize, i32 nIDComboBox)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3619,7 +3619,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * interaction_impl::GetNextDlgGroupItem(::user::interaction * pWndCtl, bool bPrevious) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3627,7 +3627,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * interaction_impl::GetNextDlgTabItem(::user::interaction * pWndCtl, bool bPrevious) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3635,7 +3635,7 @@ bool interaction_impl::_is_window() const
 //   ::u32 interaction_impl::IsDlgButtonChecked(i32 nIDButton) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3643,7 +3643,7 @@ bool interaction_impl::_is_window() const
 //   LPARAM interaction_impl::SendDlgItemMessage(i32 nID, const ::id & id, wparam wparam, lparam lparam)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3651,7 +3651,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::SetDlgItemInt(i32 nID, ::u32 nValue, bool bSigned)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3659,7 +3659,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::SetDlgItemText(i32 nID, const char * lpszString)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3667,7 +3667,7 @@ bool interaction_impl::_is_window() const
 //   i32 interaction_impl::ScrollWindowEx(i32 dx, i32 dy, const RECTANGLE_I32 * lpRectScroll, const RECTANGLE_I32 * lpRectClip, ::draw2d::region* prgnUpdate, RECTANGLE_I32 * lpRectUpdate, ::u32 flags)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3675,7 +3675,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::ShowScrollBar(::u32 nBar, bool bShow)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3683,7 +3683,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::point_i32 & point)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3691,7 +3691,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::point_i32 & point, ::u32 nFlags)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3735,7 +3735,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction *  interaction_impl::GetLastActivePopup()
 //   {
 //
-//      __throw(todo);
+//      throw ::exception(todo);;
 //
 //   }
 //
@@ -3762,7 +3762,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * PASCAL interaction_impl::oswindowFromPoint(POINT_I32 point_i32)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -3770,7 +3770,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::FlashWindow(bool bInvert)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::FlashWindow(get_handle(), bInvert) != false;
 //
@@ -3779,7 +3779,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::ChangeClipboardChain(oswindow hWndNext)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::ChangeClipboardChain(get_handle(), hWndNext) != false;
 //
@@ -3788,7 +3788,7 @@ bool interaction_impl::_is_window() const
 //   oswindow interaction_impl::SetClipboardViewer()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::SetClipboardViewer(get_handle());
 //
@@ -3797,7 +3797,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::OpenClipboard()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::OpenClipboard(get_handle()) != false;
 //
@@ -3806,7 +3806,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * PASCAL interaction_impl::GetOpenClipboardWindow()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      return ::macos::interaction_impl::from_handle(::GetOpenClipboardWindow());
 //
 //   }
@@ -3814,7 +3814,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * PASCAL interaction_impl::GetClipboardOwner()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      return ::macos::interaction_impl::from_handle(::GetClipboardOwner());
 //
 //   }
@@ -3822,7 +3822,7 @@ bool interaction_impl::_is_window() const
 //   ::user::interaction * PASCAL interaction_impl::GetClipboardViewer()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      return ::macos::interaction_impl::from_handle(::GetClipboardViewer());
 //
 //   }
@@ -3832,7 +3832,7 @@ bool interaction_impl::_is_window() const
 //   point_i32 PASCAL interaction_impl::GetCaretPos()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ::point_i32 point;
 //      //      ::GetCaretPos((POINT_I32 *)&point); return point;
 //
@@ -3841,7 +3841,7 @@ bool interaction_impl::_is_window() const
 //   void PASCAL interaction_impl::SetCaretPos(POINT_I32 point_i32)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ::SetCaretPos(point.x, point.y);
 //
 //   }
@@ -3849,7 +3849,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::HideCaret()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ::HideCaret(get_handle());
 //
 //   }
@@ -3857,7 +3857,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::ShowCaret()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //    ::ShowCaret(get_handle());
 //
 //   }
@@ -3884,7 +3884,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::SendNotifyMessage(const ::id & id, wparam wparam, lparam lparam)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      return ::SendNotifyMessage(get_handle(), message, wparam, lparam) != false;
 //
 //   }
@@ -3893,7 +3893,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::Print(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      const_cast < user::interaction * > (this)->send_message(WM_PRINT, (WPARAM)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), dwFlags);
 //
@@ -3902,7 +3902,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::PrintClient(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      const_cast < user::interaction * > (this)->send_message(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), dwFlags);
 //
@@ -3911,7 +3911,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::SetWindowContextHelpId(::u32 dwContextHelpId)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::SetWindowContextHelpId(get_handle(), dwContextHelpId) != false;
 //
@@ -3920,7 +3920,7 @@ bool interaction_impl::_is_window() const
 //   ::u32 interaction_impl::GetWindowContextHelpId() const
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::GetWindowContextHelpId(get_handle());
 //
@@ -4033,7 +4033,7 @@ bool interaction_impl::_is_window() const
 //            && psession->get_cursor()->m_ecursor != cursor_system)
 //      {
 //
-//         __throw(error_not_implemented);
+//         throw ::exception(error_not_implemented);;
 //         //         ::SetCursor(nullptr);
 //      }
 //      pusermessage->set_lresult(1);
@@ -4376,7 +4376,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::BeginModalState()
 //   {
 //
-//      __throw(todo);
+//      throw ::exception(todo);;
 //
 //      //::EnableWindow(get_handle(), false);
 //
@@ -4385,7 +4385,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::EndModalState()
 //   {
 //
-//      __throw(todo);
+//      throw ::exception(todo);;
 //
 //      //::EnableWindow(get_handle(), true);
 //
@@ -4409,7 +4409,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::CloseWindow()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      ::CloseWindow(get_handle());
 //
@@ -4418,7 +4418,7 @@ bool interaction_impl::_is_window() const
 //   bool interaction_impl::OpenIcon()
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //      ASSERT(::is_window(get_handle()));
 //      //      return ::OpenIcon(get_handle()) != false;
 //
@@ -4436,7 +4436,7 @@ bool interaction_impl::_is_window() const
 //   LRESULT CALLBACK __cbt_filter_hook(i32 code, wparam wparam, lparam lparam)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //
 //   }
 //
@@ -4464,7 +4464,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::_001OnTriggerMouseInside()
    {
 
-      //__throw(error_not_implemented);
+      //throw ::exception(error_not_implemented);;
       //      m_bMouseHover = true;
       //      TRACKMOUSEEVENT tme = { sizeof(tme) };
       //      tme.dwFlags = TME_LEAVE;
@@ -4503,7 +4503,7 @@ bool interaction_impl::_is_window() const
 //   __handle_activate(::user::interaction * pWnd, WPARAM nState, ::user::interaction * pWndOther)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //   ASSERT(pWnd != nullptr);
 //      //
 //      //   // m_puserinteraction->send WM_ACTIVATETOPLEVEL when top-level parents change
@@ -4534,7 +4534,7 @@ bool interaction_impl::_is_window() const
 //   __handle_set_cursor(::user::interaction * pWnd, ::u32 nHitTest, ::u32 nMsg)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //   if (nHitTest == HTERROR &&
 //      //      (nMsg == e_message_left_button_down || nMsg == e_message_middle_button_down ||
 //      //      nMsg == e_message_right_button_down))
@@ -4562,7 +4562,7 @@ bool interaction_impl::_is_window() const
 //   __activation_window_procedure(oswindow hWnd, ::u32 nMsg, wparam wparam, lparam lparam)
 //   {
 //
-//      __throw(error_not_implemented);
+//      throw ::exception(error_not_implemented);;
 //      //   WNDPROC oldWndProc = (WNDPROC)::GetProp(hWnd, gen_OldWndProc);
 //      //   ASSERT(oldWndProc != nullptr);
 //      //

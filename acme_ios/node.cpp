@@ -854,7 +854,7 @@ namespace acme
       bool node::process_modules(string_array& stra, u32 processID)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
          return false;
 
@@ -864,7 +864,7 @@ namespace acme
       bool node::load_modules_diff(string_array& straOld, string_array& straNew, const ::string & pszExceptDir)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
          return false;
 
@@ -898,7 +898,7 @@ namespace acme
       bool node::is_shared_library_busy(u32 processid, const string_array& stra)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
          return false;
 
@@ -908,7 +908,7 @@ namespace acme
       bool node::is_shared_library_busy(const string_array& stra)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
          return false;
 
@@ -918,7 +918,7 @@ namespace acme
       bool node::process_contains_module(string& strImage, ::u32 processID, const ::string & pszLibrary)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
          return false;
 
@@ -928,7 +928,7 @@ namespace acme
       void node::shared_library_process(dword_array& dwa, string_array& straProcesses, const ::string & pszLibrary)
       {
 
-         __throw(error_interface_only);
+         throw interface_only();
 
       }
 
@@ -936,7 +936,7 @@ namespace acme
    //   int_bool node::is_process_running(::u32 pid)
    //   {
    //
-   //      __throw(error_interface_only);
+   //      throw interface_only();
    //
    //      return false;
    //

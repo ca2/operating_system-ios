@@ -257,7 +257,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-					"$(WorkspaceDir)/time-$(PLATFORM_MODIFIER)/output",
+					"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_FAST_MATH = YES;
@@ -271,7 +271,7 @@
 					"$(WorkspaceDir)/source/include",
 					"$(WorkspaceDir)/source/app",
 					"$(WorkspaceDir)/source/app/_include",
-					"$(WorkspaceDir)/archive",
+					"$(WorkspaceDir)/operating-system",
 					"$(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)",
 					"$(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)/_include",
 					"$(WorkspaceDir)/operating-system/operating-system-apple",
@@ -340,7 +340,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-					"$(WorkspaceDir)/time-$(PLATFORM_MODIFIER)/output",
+					"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_FAST_MATH = YES;
@@ -353,7 +353,7 @@
 					"$(WorkspaceDir)/source/include",
 					"$(WorkspaceDir)/source/app",
 					"$(WorkspaceDir)/source/app/_include",
-					"$(WorkspaceDir)/archive",
+					"$(WorkspaceDir)/operating-system",
 					"$(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)",
 					"$(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)/_include",
 					"$(WorkspaceDir)/operating-system/operating-system-apple",

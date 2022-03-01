@@ -249,7 +249,7 @@ namespace macos
 
          }
 
-         ::file::patha  straPath;
+         ::file::path_array  straPath;
          
          auto pacmedir = m_psystem->m_pacmedir;
 
@@ -296,7 +296,7 @@ namespace macos
 
          }
 
-         ::file::patha  straPath;
+         ::file::path_array  straPath;
          
          auto pacmedir = m_psystem->m_pacmedir;
 
@@ -489,7 +489,7 @@ namespace macos
 
       }
 
-      ::file::patha stra;
+      ::file::path_array stra;
 
       pcsz.ascendants_path(stra);
 

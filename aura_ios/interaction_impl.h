@@ -32,7 +32,7 @@ namespace macos
       //virtual void construct(oswindow hwnd);
 
 
-      virtual void assert_valid() const override;
+      virtual void assert_ok() const override;
       virtual void dump(dump_context & dumpcontext) const override;
       
       virtual ::e_status on_destroy() override;

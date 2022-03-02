@@ -916,7 +916,7 @@ namespace windowing_macos
 
          auto pmouse = __create_new < ::message::mouse > ();
 
-         ::id id;
+         ::atom id;
          
          if (iButton == 1)
          {
@@ -949,7 +949,7 @@ namespace windowing_macos
       
       auto pmouse = __create_new < ::message::mouse >();
 
-      ::id id;
+      ::atom id;
 
       if (iButton == 1)
       {
@@ -976,7 +976,7 @@ namespace windowing_macos
 
       auto pmouse = __create_new < ::message::mouse >();
       
-      ::id id;
+      ::atom id;
 
       if (iButton == 1)
       {
@@ -1100,7 +1100,7 @@ namespace windowing_macos
 
       }
       
-      ::id id = e_message_mouse_move;
+      ::atom id = e_message_mouse_move;
       
       wparam wparam = 0;
       

@@ -734,7 +734,7 @@ bool interaction_impl::_is_window() const
    }
 
 
-   void interaction_impl::assert_valid() const
+   void interaction_impl::assert_ok() const
    {
       
       if (get_oswindow() == nullptr)
@@ -955,13 +955,13 @@ bool interaction_impl::_is_window() const
 //      if (pfnWndProc == nullptr)
 //      {
 //
-//         lresult = ::DefWindowProcW(m_oswindow, pmessage->m_id.i64(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::DefWindowProcW(m_oswindow, pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
 //      else
 //      {
 //
-//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, pmessage->m_id.i64(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
       
@@ -984,25 +984,25 @@ bool interaction_impl::_is_window() const
 
    }
 
-   if(pmessage->m_id == e_message_timer)
+   if(pmessage->m_atom == e_message_timer)
    {
 
       //m_pthread->step_timer();
 
    }
-   else if(pmessage->m_id == e_message_left_button_down)
+   else if(pmessage->m_atom == e_message_left_button_down)
    {
 
       output_debug_string("linux::interaction_impl::e_message_left_button_down\n");
 
    }
-   else if(pmessage->m_id == e_message_left_button_up)
+   else if(pmessage->m_atom == e_message_left_button_up)
    {
 
       output_debug_string("linux::interaction_impl::e_message_left_button_up\n");
 
    }
-   else if(pmessage->m_id == e_message_mouse_move)
+   else if(pmessage->m_atom == e_message_mouse_move)
    {
 
       g_iMouseMove++;
@@ -1011,18 +1011,18 @@ bool interaction_impl::_is_window() const
       //printf("g_iMouseMove = %d\n", g_iMouseMove);
 
    }
-   else if(pmessage->m_id == e_message_paint)
+   else if(pmessage->m_atom == e_message_paint)
    {
 
    }
-   else if(pmessage->m_id == e_message_left_button_up)
+   else if(pmessage->m_atom == e_message_left_button_up)
    {
 
       TRACE("e_message_left_button_up (0)");
 
    }
 
-      if (pmessage->m_id == e_message_size || pmessage->m_id == e_message_move)
+      if (pmessage->m_atom == e_message_size || pmessage->m_atom == e_message_move)
       {
 
          //         win_update_graqhics();
@@ -1045,7 +1045,7 @@ bool interaction_impl::_is_window() const
 //         if(pkey->m_ekey != ::user::e_key_refer_to_text_member)
 //         {
 //
-//            if (pmessage->m_id == e_message_key_down)
+//            if (pmessage->m_atom == e_message_key_down)
 //            {
 //
 //               try
@@ -1067,7 +1067,7 @@ bool interaction_impl::_is_window() const
 //               }
 //
 //            }
-//            else if (pmessage->m_id == e_message_key_up)
+//            else if (pmessage->m_atom == e_message_key_up)
 //            {
 //
 //               try
@@ -1120,15 +1120,15 @@ bool interaction_impl::_is_window() const
 
       }
 
-      if (pmessage->m_id == e_message_timer)
+      if (pmessage->m_atom == e_message_timer)
       {
          //         get_application()->get_application()->step_timer();
       }
-      else if (pmessage->m_id == e_message_left_button_down)
+      else if (pmessage->m_atom == e_message_left_button_down)
       {
          //  g_puserinteractionLastLButtonDown = this;
       }
-      else if (pmessage->m_id == e_message_size)
+      else if (pmessage->m_atom == e_message_size)
       {
          m_bUpdateGraphics = true;
       }
@@ -1265,15 +1265,15 @@ bool interaction_impl::_is_window() const
 //         return;
 //
 //      }
-      if(pmessage->m_id == e_message_left_button_down ||
-                 pmessage->m_id == e_message_left_button_up ||
-                 pmessage->m_id == e_message_middle_button_down ||
-                 pmessage->m_id == e_message_middle_button_up ||
-                 pmessage->m_id == e_message_right_button_down ||
-                 pmessage->m_id == e_message_right_button_up ||
-                 pmessage->m_id == e_message_mouse_move ||
-                 pmessage->m_id == e_message_mouse_move)
-     //         pmessage->m_id == e_message_mouse_wheel)
+      if(pmessage->m_atom == e_message_left_button_down ||
+                 pmessage->m_atom == e_message_left_button_up ||
+                 pmessage->m_atom == e_message_middle_button_down ||
+                 pmessage->m_atom == e_message_middle_button_up ||
+                 pmessage->m_atom == e_message_right_button_down ||
+                 pmessage->m_atom == e_message_right_button_up ||
+                 pmessage->m_atom == e_message_mouse_move ||
+                 pmessage->m_atom == e_message_mouse_move)
+     //         pmessage->m_atom == e_message_mouse_wheel)
            {
 
               if(::is_set(m_puserinteraction) && !m_puserinteraction->m_bUserElementOk)
@@ -1381,9 +1381,9 @@ bool interaction_impl::_is_window() const
 
               auto pwindowing = puser->windowing();
 
-              pwindowing->set(pmouse, get_oswindow(), m_pwindow, pmouse->m_id, pmouse->m_wparam, pmouse->m_lparam);
+              pwindowing->set(pmouse, get_oswindow(), m_pwindow, pmouse->m_atom, pmouse->m_wparam, pmouse->m_lparam);
 
-              if(pmessage->m_id == e_message_mouse_move)
+              if(pmessage->m_atom == e_message_mouse_move)
               {
 
                  // We are at the message handler routine.
@@ -1442,7 +1442,7 @@ bool interaction_impl::_is_window() const
               if(!puserinteractionMouse)
               {
                  
-                 if(pmouse->m_id == e_message_left_button_down)
+                 if(pmouse->m_atom == e_message_left_button_down)
                  {
 
                     puserinteractionMouse = m_puserinteraction->child_from_point(pmouse->m_point);
@@ -1468,13 +1468,13 @@ bool interaction_impl::_is_window() const
               //}
               
 
-              if(pmouse->m_id == e_message_left_button_down)
+              if(pmouse->m_atom == e_message_left_button_down)
               {
 
                  ::output_debug_string("left_button_down");
 
               }
-              else if(pmouse->m_id == e_message_left_button_up)
+              else if(pmouse->m_atom == e_message_left_button_up)
               {
 
                  ::output_debug_string("left_button_up");
@@ -1483,7 +1483,7 @@ bool interaction_impl::_is_window() const
 
               string strUserInteractionType(__type_name(puserinteractionMouse));
 
-              if(pmouse->m_id == e_message_mouse_move)
+              if(pmouse->m_atom == e_message_mouse_move)
               {
 
                  static int s_iMotionNotify = 0;
@@ -1571,7 +1571,7 @@ bool interaction_impl::_is_window() const
 
       }
 
-//      if (pmessage->m_id == e_message_event)
+//      if (pmessage->m_atom == e_message_event)
 //      {
 //
 //         if (m_puserinteraction != nullptr)

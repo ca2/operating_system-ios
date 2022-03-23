@@ -1,6 +1,6 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_dir.h"
-#include "acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme_directory.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme_path.h"
 //#include "copydesk.h"
@@ -42,7 +42,7 @@ __FACTORY_EXPORT void acme_macos_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < ::macos::stdio_file, ::file::text_file > ();
    pfactory->add_factory_item < ::macos::file, ::file::file > ();
    
-   pfactory->add_factory_item < ::macos::acme_dir, ::acme_dir > ();
+   pfactory->add_factory_item < ::macos::acme_directory, ::acme_directory > ();
    pfactory->add_factory_item < ::macos::acme_path, ::acme_path > ();
 
    //create_factory < ::macos::os_context         , ::os_context       > ();

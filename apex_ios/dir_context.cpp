@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 //#include "apex/os/_.h"
 //#include "apex/os/_os.h"
 //#include "apex/xml/_.h"
@@ -107,9 +107,9 @@ namespace macos
 
       auto psystem = m_psystem;
       
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedirectory = psystem->m_pacmedirectory;
 
-      auto strRelative = pacmedir->install();
+      auto strRelative = pacmedirectory->install();
       
       m_pdirsystem->m_strCommonAppData = str / strRelative / "commonappdata";
 
@@ -143,13 +143,13 @@ namespace macos
       if(m_pdirsystem->m_strNetSeedFolder.is_empty())
       {
          
-         m_pdirsystem->m_strNetSeedFolder = pacmedir->install() / "net";
+         m_pdirsystem->m_strNetSeedFolder = pacmedirectory->install() / "net";
          
       }
       
-      pacmedir->create(m_pdirsystem->m_strTimeFolder);
+      pacmedirectory->create(m_pdirsystem->m_strTimeFolder);
 
-      if(!pacmedir->is(m_pdirsystem->m_strTimeFolder))
+      if(!pacmedirectory->is(m_pdirsystem->m_strTimeFolder))
       {
          
          return false;
@@ -162,9 +162,9 @@ namespace macos
 
       strTime /= "time";
 
-      pacmedir->create(strTime);
+      pacmedirectory->create(strTime);
 
-      if(!pacmedir->is(strTime))
+      if(!pacmedirectory->is(strTime))
       {
          
          return false;
@@ -251,9 +251,9 @@ namespace macos
 
          ::file::path_array  straPath;
          
-         auto pacmedir = m_psystem->m_pacmedir;
+         auto pacmedirectory = m_psystem->m_pacmedirectory;
 
-         pacmedir->ls(straPath, listing.m_pathFinal);
+         pacmedirectory->ls(straPath, listing.m_pathFinal);
 
 //            file_find file_find;
 
@@ -298,9 +298,9 @@ namespace macos
 
          ::file::path_array  straPath;
          
-         auto pacmedir = m_psystem->m_pacmedir;
+         auto pacmedirectory = m_psystem->m_pacmedirectory;
 
-         pacmedir->ls(straPath, listing.m_pathFinal);
+         pacmedirectory->ls(straPath, listing.m_pathFinal);
 
          // file_find file_find;
 
@@ -348,9 +348,9 @@ namespace macos
 
       }
 
-      auto pacmedir = m_psystem->m_pacmedir;
+      auto pacmedirectory = m_psystem->m_pacmedirectory;
       
-      return pacmedir->_is(path);
+      return pacmedirectory->_is(path);
 
    }
 
@@ -499,9 +499,9 @@ namespace macos
          if(!is(stra[i]))
          {
             
-            auto pacmedir = m_psystem->m_pacmedir;
+            auto pacmedirectory = m_psystem->m_pacmedirectory;
 
-            if(!pacmedir->create_directory(stra[i]))
+            if(!pacmedirectory->create_directory(stra[i]))
             {
 
                auto estatus = ::get_last_status();
@@ -544,9 +544,9 @@ namespace macos
 
                   //if(::CreateDirectory(::str::international::utf8_to_unicode("\\\\?\\" + stra[i]), nullptr))
                   
-                  auto pacmedir = m_psystem->m_pacmedir;
+                  auto pacmedirectory = m_psystem->m_pacmedirectory;
 
-                  if(pacmedir->create_directory(stra[i]))
+                  if(pacmedirectory->create_directory(stra[i]))
                   {
 
                      //m_isdirmap.set(stra[i], true, 0);
@@ -1262,9 +1262,9 @@ try1:
       
 //      auto psystem = m_psystem;
 //
-//      auto pacmedir = psystem->m_pacmedir;
+//      auto pacmedirectory = psystem->m_pacmedirectory;
 //
-//      return pacmedir->appdata();
+//      return pacmedirectory->appdata();
 
    }
 

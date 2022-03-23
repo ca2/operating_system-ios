@@ -7,14 +7,14 @@ namespace macos
 {
 
 
-   class CLASS_DECL_ACME_MACOS acme_dir :
-      virtual public ::posix::acme_dir
+   class CLASS_DECL_ACME_MACOS acme_directory :
+      virtual public ::posix::acme_directory
    {
    public:
 
 
-      acme_dir();
-      virtual ~acme_dir();
+      acme_directory();
+      virtual ~acme_directory();
 
 
       virtual ::file::path install() override;

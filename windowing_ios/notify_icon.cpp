@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 
 
 static ::user::notify_icon * g_pnotifyiconLast = nullptr;
@@ -116,7 +116,7 @@ namespace windowing_macos
 //      }
    
    
-      ::file::path pathFolder = m_psystem->m_pacmedir->ca2roaming() / "matter/icon/128";
+      ::file::path pathFolder = m_psystem->m_pacmedirectory->ca2roaming() / "matter/icon/128";
 
       string strIconName = get_application()->m_strAppId;
 

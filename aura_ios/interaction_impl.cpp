@@ -1674,7 +1674,7 @@ bool interaction_impl::_is_window() const
 //      else
 //         lpszCaption = strCaption;
 //
-//      i32 nResult = ::os_message_box((oswindow)get_handle(), lpszText, lpszCaption, nType);
+//      i32 nResult = ::message_box_synchronous((oswindow)get_handle(), lpszText, lpszCaption, nType);
 //
 //      return nResult;
 //

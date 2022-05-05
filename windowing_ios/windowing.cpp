@@ -64,7 +64,7 @@ namespace windowing_macos
    }
 
 
-   ::e_status windowing::windowing_post(const ::routine & routine)
+   ::e_status windowing::windowing_post(const ::procedure & procedure)
    {
       
       auto routineLocal = routine;

@@ -6,14 +6,14 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		9A5FE1FC2689E0E7003682E6 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1A526542EA800CC8096 /* _.h */; };
-		9A5FE1FD2689E0F0003682E6 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D19926542EA800CC8096 /* framework.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		9AC2D1B326542F4400CC8096 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D19326542EA800CC8096 /* _factory.cpp */; };
-		9AC2D1B426542F4700CC8096 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D18E26542EA800CC8096 /* framework.cpp */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
+		9A8E9EEB282A34BF005FF778 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9E4AD52751A3F40094A04C;
+			remoteInfo = windowing_ios;
+		};
 		9AA14E04282A185C00B1621E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */;
@@ -24,12 +24,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A8E9D94282A2CE7005FF778 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A8E9D95282A2CE7005FF778 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		9A8E9D96282A2CE7005FF778 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
+		9A8E9D97282A2CE7005FF778 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
-		9AC2D16F26542E1000CC8096 /* libnode_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libnode_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AC2D18E26542EA800CC8096 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9AC2D19326542EA800CC8096 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
-		9AC2D19926542EA800CC8096 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
-		9AC2D1A526542EA800CC8096 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
+		9AC2D16F26542E1000CC8096 /* libnode_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libnode_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A8E9D8F282A2CE6005FF778 /* node_ios */ = {
+			isa = PBXGroup;
+			children = (
+				9A8E9D94282A2CE7005FF778 /* framework.cpp */,
+				9A8E9D95282A2CE7005FF778 /* framework.h */,
+				9A8E9D96282A2CE7005FF778 /* _factory.cpp */,
+				9A8E9D97282A2CE7005FF778 /* _.h */,
+			);
+			name = node_ios;
+			sourceTree = "<group>";
+		};
 		9AA14E00282A185C00B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -55,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */,
-				9AC2D18D26542EA800CC8096 /* node_macos */,
+				9A8E9D8F282A2CE6005FF778 /* node_ios */,
 				9AC2D17026542E1000CC8096 /* Products */,
 				9AC2D1B726542F6E00CC8096 /* Frameworks */,
 			);
@@ -64,20 +75,9 @@
 		9AC2D17026542E1000CC8096 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AC2D16F26542E1000CC8096 /* libnode_macos.dylib */,
+				9AC2D16F26542E1000CC8096 /* libnode_ios.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		9AC2D18D26542EA800CC8096 /* node_macos */ = {
-			isa = PBXGroup;
-			children = (
-				9AC2D1A526542EA800CC8096 /* _.h */,
-				9AC2D19326542EA800CC8096 /* _factory.cpp */,
-				9AC2D18E26542EA800CC8096 /* framework.cpp */,
-				9AC2D19926542EA800CC8096 /* framework.h */,
-			);
-			name = node_macos;
 			sourceTree = "<group>";
 		};
 		9AC2D1B726542F6E00CC8096 /* Frameworks */ = {
@@ -94,17 +94,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5FE1FD2689E0F0003682E6 /* framework.h in Headers */,
-				9A5FE1FC2689E0E7003682E6 /* _.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9AC2D16E26542E1000CC8096 /* node_macos */ = {
+		9AC2D16E26542E1000CC8096 /* node_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AC2D17826542E1000CC8096 /* Build configuration list for PBXNativeTarget "node_macos" */;
+			buildConfigurationList = 9AC2D17826542E1000CC8096 /* Build configuration list for PBXNativeTarget "node_ios" */;
 			buildPhases = (
 				9AC2D16B26542E1000CC8096 /* Headers */,
 				9AC2D16C26542E1000CC8096 /* Sources */,
@@ -113,10 +111,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				9A8E9EEC282A34BF005FF778 /* PBXTargetDependency */,
 			);
-			name = node_macos;
+			name = node_ios;
 			productName = node_macos;
-			productReference = 9AC2D16F26542E1000CC8096 /* libnode_macos.dylib */;
+			productReference = 9AC2D16F26542E1000CC8096 /* libnode_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +150,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				9AC2D16E26542E1000CC8096 /* node_macos */,
+				9AC2D16E26542E1000CC8096 /* node_ios */,
 			);
 		};
 /* End PBXProject section */
@@ -171,12 +170,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC2D1B426542F4700CC8096 /* framework.cpp in Sources */,
-				9AC2D1B326542F4400CC8096 /* _factory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A8E9EEC282A34BF005FF778 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = windowing_ios;
+			targetProxy = 9A8E9EEB282A34BF005FF778 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9AC2D17626542E1000CC8096 /* Debug */ = {
@@ -243,7 +248,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = (
 					.,
@@ -324,7 +329,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = (
 					.,
@@ -353,9 +358,12 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				INSTALL_PATH = "@executable_path";
-				PLATFORM_MODIFIER = macos;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -364,9 +372,12 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				INSTALL_PATH = "@executable_path";
-				PLATFORM_MODIFIER = macos;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -382,7 +393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9AC2D17826542E1000CC8096 /* Build configuration list for PBXNativeTarget "node_macos" */ = {
+		9AC2D17826542E1000CC8096 /* Build configuration list for PBXNativeTarget "node_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AC2D17926542E1000CC8096 /* Debug */,

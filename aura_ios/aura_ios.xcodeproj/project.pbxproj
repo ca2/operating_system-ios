@@ -8,56 +8,55 @@
 
 /* Begin PBXBuildFile section */
 		07B657CA190F3CBF002DAADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B657BA190F3CBF002DAADE /* Foundation.framework */; };
-		07B657CF190F3CBF002DAADE /* libios_aura_macos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B657B8190F3CBF002DAADE /* libios_aura_macos.a */; };
 		07B657D5190F3CBF002DAADE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B657D3190F3CBF002DAADE /* InfoPlist.strings */; };
 		07B657D7190F3CBF002DAADE /* music_midi_core_audio_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B657D6190F3CBF002DAADE /* music_midi_core_audio_iosTests.m */; };
-		9A00E60D26616C9C00517464 /* libacme.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E60C26616C9C00517464 /* libacme.dylib */; };
-		9A00E60F26616C9C00517464 /* libacme_apple.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E60E26616C9C00517464 /* libacme_apple.dylib */; };
-		9A00E61126616C9C00517464 /* libacme_macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61026616C9C00517464 /* libacme_macos.dylib */; };
-		9A00E61326616CA500517464 /* libacme_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61226616CA500517464 /* libacme_posix.dylib */; };
-		9A00E61526616CB800517464 /* libapex_apple.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61426616CB800517464 /* libapex_apple.dylib */; };
-		9A00E61726616CC500517464 /* libacme_apple.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61626616CC500517464 /* libacme_apple.dylib */; };
-		9A00E61926616CC500517464 /* libacme_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61826616CC500517464 /* libacme_posix.dylib */; };
-		9A00E61B26616CD300517464 /* libapex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61A26616CD300517464 /* libapex.dylib */; };
-		9A00E61D26616CD300517464 /* libapex_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61C26616CD300517464 /* libapex_posix.dylib */; };
-		9A00E62026616D1400517464 /* libaura.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E61F26616D1400517464 /* libaura.dylib */; };
-		9A00E62226616D1400517464 /* libaura_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A00E62126616D1400517464 /* libaura_posix.dylib */; };
-		9A07060C2662B1AC004E8CB4 /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A07060B2662B1AC004E8CB4 /* image.cpp */; };
-		9A440A6B2654E34A000C490B /* libaura_apple.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */; };
-		9A5A897226D2CA88004AF957 /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5A897026D2CA88004AF957 /* shell.h */; };
-		9A5A897326D2CA88004AF957 /* shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A897126D2CA88004AF957 /* shell.cpp */; };
-		9A5A897526D2CC6E004AF957 /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A897426D2CC6E004AF957 /* shell.mm */; };
-		9A5A897726D304B4004AF957 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */; };
-		9A5D73912656D1DC00D5C39E /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D738F2656D1DC00D5C39E /* node.cpp */; };
-		9A5D73922656D1DC00D5C39E /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5D73902656D1DC00D5C39E /* node.h */; };
-		9A6E49A626D327AC00D1845E /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E49A526D327AC00D1845E /* file_image.cpp */; };
-		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
-		9A941C501FF34F880028686E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A941C4F1FF34F880028686E /* CoreMIDI.framework */; };
-		9A941C521FF34F9E0028686E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A941C511FF34F9E0028686E /* CoreAudio.framework */; };
-		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
-		9AC2D1CF26542FBA00CC8096 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D1BB26542FBA00CC8096 /* framework.cpp */; };
-		9AC2D1D126542FBA00CC8096 /* interaction_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1C026542FBA00CC8096 /* interaction_impl.h */; };
-		9AC2D1D226542FBA00CC8096 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D1C126542FBA00CC8096 /* _factory.cpp */; };
-		9AC2D1D426542FBA00CC8096 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1C726542FBA00CC8096 /* framework.h */; };
-		9AC2D1D526542FBA00CC8096 /* interaction_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D1C826542FBA00CC8096 /* interaction_impl.cpp */; };
-		9AC2D1DC265431BD00CC8096 /* _aura_macos.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1DB265431BD00CC8096 /* _aura_macos.h */; };
-		9AC2D1F426543C7E00CC8096 /* _mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1F326543C7E00CC8096 /* _mm.h */; };
+		9AA14ECE282A284E00B1621E /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB4282A284D00B1621E /* shell.h */; };
+		9AA14ECF282A284E00B1621E /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EB6282A284D00B1621E /* image.cpp */; };
+		9AA14ED0282A284E00B1621E /* _mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB7282A284D00B1621E /* _mm.h */; };
+		9AA14ED1282A284E00B1621E /* _aura_macos.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB8282A284D00B1621E /* _aura_macos.h */; };
+		9AA14ED2282A284E00B1621E /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EB9282A284D00B1621E /* framework.cpp */; };
+		9AA14ED3282A284E00B1621E /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EBA282A284D00B1621E /* node.cpp */; };
+		9AA14ED4282A284E00B1621E /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EBB282A284D00B1621E /* node.h */; };
+		9AA14ED5282A284E00B1621E /* interaction_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EBF282A284D00B1621E /* interaction_impl.h */; };
+		9AA14ED7282A284E00B1621E /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EC5282A284E00B1621E /* framework.h */; };
+		9AA14ED8282A284E00B1621E /* _c_mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EC6282A284E00B1621E /* _c_mm.h */; };
+		9AA14ED9282A284E00B1621E /* interaction_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EC7282A284E00B1621E /* interaction_impl.cpp */; };
+		9AA14EDA282A284E00B1621E /* shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EC8282A284E00B1621E /* shell.cpp */; };
+		9AA14EDB282A284E00B1621E /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EC9282A284E00B1621E /* file_image.cpp */; };
+		9AA14EDC282A284E00B1621E /* aaa_factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14ECA282A284E00B1621E /* aaa_factory_exchange.h */; };
+		9AA14EDD282A284E00B1621E /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14ECB282A284E00B1621E /* _factory.cpp */; };
+		9AA14EDE282A284E00B1621E /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14ECC282A284E00B1621E /* shell.mm */; };
+		9AA14EDF282A284E00B1621E /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14ECD282A284E00B1621E /* _.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		07B657CD190F3CBF002DAADE /* PBXContainerItemProxy */ = {
+		9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A1CFD76F154F5EA7007447E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 07B657B7190F3CBF002DAADE;
-			remoteInfo = music_midi_core_audio_ios;
+			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A8E9E2F282A2FEB005FF778;
+			remoteInfo = ios_aura_apple;
 		};
-		9A440A6C2654E36C000C490B /* PBXContainerItemProxy */ = {
+		9A8E9EEF282A34DE005FF778 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A0C1694264A2AA700B5CC33;
+			remoteInfo = apex_ios;
+		};
+		9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A15A5AB264B54430080670E;
-			remoteInfo = aura_apple;
+			remoteGlobalIDString = 9A8E9E13282A2FEB005FF778;
+			remoteInfo = ios_aura_apple;
+		};
+		9AA14EA9282A27D400B1621E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A0C1695264A2AA700B5CC33;
+			remoteInfo = apex_macos;
 		};
 		9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -66,29 +65,9 @@
 			remoteGlobalIDString = 9A15A5AC264B54430080670E;
 			remoteInfo = aura_apple;
 		};
-		9AC2CFB62653DADC00CC8096 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A15A5AB264B54430080670E;
-			remoteInfo = aura_apple;
-		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		07B657B6190F3CBF002DAADE /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		07B657B8190F3CBF002DAADE /* libios_aura_macos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libios_aura_macos.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B657BA190F3CBF002DAADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07B657C7190F3CBF002DAADE /* music_midi_core_audio_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = music_midi_core_audio_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B657D2190F3CBF002DAADE /* music_midi_core_audio_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "music_midi_core_audio_iosTests-Info.plist"; sourceTree = "<group>"; };
@@ -105,44 +84,38 @@
 		9A00E61C26616CD300517464 /* libapex_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A00E61F26616D1400517464 /* libaura.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A00E62126616D1400517464 /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A07060B2662B1AC004E8CB4 /* image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
-		9A5A897026D2CA88004AF957 /* shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
-		9A5A897126D2CA88004AF957 /* shell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shell.cpp; sourceTree = "<group>"; };
-		9A5A897426D2CC6E004AF957 /* shell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
 		9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
-		9A5D738F2656D1DC00D5C39E /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
-		9A5D73902656D1DC00D5C39E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
-		9A6E49A526D327AC00D1845E /* file_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = "<group>"; };
+		9AA14EB4282A284D00B1621E /* shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
+		9AA14EB6282A284D00B1621E /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
+		9AA14EB7282A284D00B1621E /* _mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
+		9AA14EB8282A284D00B1621E /* _aura_macos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _aura_macos.h; sourceTree = "<group>"; };
+		9AA14EB9282A284D00B1621E /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9AA14EBA282A284D00B1621E /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		9AA14EBB282A284D00B1621E /* node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		9AA14EBF282A284D00B1621E /* interaction_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interaction_impl.h; sourceTree = "<group>"; };
+		9AA14EC5282A284E00B1621E /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		9AA14EC6282A284E00B1621E /* _c_mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _c_mm.h; sourceTree = "<group>"; };
+		9AA14EC7282A284E00B1621E /* interaction_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interaction_impl.cpp; sourceTree = "<group>"; };
+		9AA14EC8282A284E00B1621E /* shell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shell.cpp; sourceTree = "<group>"; };
+		9AA14EC9282A284E00B1621E /* file_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
+		9AA14ECA282A284E00B1621E /* aaa_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_factory_exchange.h; sourceTree = "<group>"; };
+		9AA14ECB282A284E00B1621E /* _factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
+		9AA14ECC282A284E00B1621E /* shell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
+		9AA14ECD282A284E00B1621E /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating-system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = "<group>"; };
-		9AC2D1BB26542FBA00CC8096 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9AC2D1C026542FBA00CC8096 /* interaction_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interaction_impl.h; sourceTree = "<group>"; };
-		9AC2D1C126542FBA00CC8096 /* _factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
-		9AC2D1C726542FBA00CC8096 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
-		9AC2D1C826542FBA00CC8096 /* interaction_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interaction_impl.cpp; sourceTree = "<group>"; };
-		9AC2D1DA2654309000CC8096 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9AC2D1DB265431BD00CC8096 /* _aura_macos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _aura_macos.h; sourceTree = "<group>"; };
-		9AC2D1F326543C7E00CC8096 /* _mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
-		9AC2D2012654615500CC8096 /* _c_mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _c_mm.h; sourceTree = "<group>"; };
-		A1CFD778154F5EAA007447E2 /* libaura_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1CFD778154F5EAA007447E2 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		07B657B5190F3CBF002DAADE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		07B657C4190F3CBF002DAADE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B657CF190F3CBF002DAADE /* libios_aura_macos.a in Frameworks */,
 				07B657CA190F3CBF002DAADE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,23 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5A897726D304B4004AF957 /* UniformTypeIdentifiers.framework in Frameworks */,
-				9A00E62026616D1400517464 /* libaura.dylib in Frameworks */,
-				9A440A6B2654E34A000C490B /* libaura_apple.dylib in Frameworks */,
-				9A00E62226616D1400517464 /* libaura_posix.dylib in Frameworks */,
-				9A00E61B26616CD300517464 /* libapex.dylib in Frameworks */,
-				9A00E61526616CB800517464 /* libapex_apple.dylib in Frameworks */,
-				9A00E61D26616CD300517464 /* libapex_posix.dylib in Frameworks */,
-				9A00E61726616CC500517464 /* libacme_apple.dylib in Frameworks */,
-				9A00E61126616C9C00517464 /* libacme_macos.dylib in Frameworks */,
-				9A00E61926616CC500517464 /* libacme_posix.dylib in Frameworks */,
-				9A00E61326616CA500517464 /* libacme_posix.dylib in Frameworks */,
-				9A00E60D26616C9C00517464 /* libacme.dylib in Frameworks */,
-				9A00E60F26616C9C00517464 /* libacme_apple.dylib in Frameworks */,
-				9A941C521FF34F9E0028686E /* CoreAudio.framework in Frameworks */,
-				9A941C501FF34F880028686E /* CoreMIDI.framework in Frameworks */,
-				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
-				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,44 +170,55 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9AC2CFB12653DAD200CC8096 /* Products */ = {
+		9AA14EA4282A27D400B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */,
+				9AA14EAA282A27D400B1621E /* libapex_macos.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9AC2D1B926542FBA00CC8096 /* aura_macos */ = {
+		9AA14EB3282A284D00B1621E /* aura_ios */ = {
 			isa = PBXGroup;
 			children = (
-				9AC2D1DA2654309000CC8096 /* _.h */,
-				9AC2D1DB265431BD00CC8096 /* _aura_macos.h */,
-				9AC2D2012654615500CC8096 /* _c_mm.h */,
-				9AC2D1F326543C7E00CC8096 /* _mm.h */,
-				9AC2D1C126542FBA00CC8096 /* _factory.cpp */,
-				9A6E49A526D327AC00D1845E /* file_image.cpp */,
-				9AC2D1BB26542FBA00CC8096 /* framework.cpp */,
-				9AC2D1C726542FBA00CC8096 /* framework.h */,
-				9AC2D1C826542FBA00CC8096 /* interaction_impl.cpp */,
-				9AC2D1C026542FBA00CC8096 /* interaction_impl.h */,
-				9A5D738F2656D1DC00D5C39E /* node.cpp */,
-				9A5D73902656D1DC00D5C39E /* node.h */,
-				9A07060B2662B1AC004E8CB4 /* image.cpp */,
-				9A5A897126D2CA88004AF957 /* shell.cpp */,
-				9A5A897026D2CA88004AF957 /* shell.h */,
-				9A5A897426D2CC6E004AF957 /* shell.mm */,
+				9AA14ECD282A284E00B1621E /* _.h */,
+				9AA14EB8282A284D00B1621E /* _aura_macos.h */,
+				9AA14EC6282A284E00B1621E /* _c_mm.h */,
+				9AA14ECB282A284E00B1621E /* _factory.cpp */,
+				9AA14EB7282A284D00B1621E /* _mm.h */,
+				9AA14ECA282A284E00B1621E /* aaa_factory_exchange.h */,
+				9AA14EC9282A284E00B1621E /* file_image.cpp */,
+				9AA14EB9282A284D00B1621E /* framework.cpp */,
+				9AA14EC5282A284E00B1621E /* framework.h */,
+				9AA14EB6282A284D00B1621E /* image.cpp */,
+				9AA14EC7282A284E00B1621E /* interaction_impl.cpp */,
+				9AA14EBF282A284D00B1621E /* interaction_impl.h */,
+				9AA14EBA282A284D00B1621E /* node.cpp */,
+				9AA14EBB282A284D00B1621E /* node.h */,
+				9AA14EC8282A284E00B1621E /* shell.cpp */,
+				9AA14EB4282A284D00B1621E /* shell.h */,
+				9AA14ECC282A284E00B1621E /* shell.mm */,
 			);
-			name = aura_macos;
+			name = aura_ios;
+			sourceTree = "<group>";
+		};
+		9AC2CFB12653DAD200CC8096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */,
+				9A8E9EC3282A32D1005FF778 /* libios_aura_apple.dylib */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */,
 				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
-				9AC2D1B926542FBA00CC8096 /* aura_macos */,
+				9AA14EB3282A284D00B1621E /* aura_ios */,
 				07B657D0190F3CBF002DAADE /* music_midi_core_audio_iosTests */,
 				07B657B9190F3CBF002DAADE /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
@@ -261,8 +228,7 @@
 		A1CFD779154F5EAA007447E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1CFD778154F5EAA007447E2 /* libaura_macos.dylib */,
-				07B657B8190F3CBF002DAADE /* libios_aura_macos.a */,
+				A1CFD778154F5EAA007447E2 /* libaura_ios.a */,
 				07B657C7190F3CBF002DAADE /* music_midi_core_audio_iosTests.xctest */,
 			);
 			name = Products;
@@ -275,36 +241,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC2D1F426543C7E00CC8096 /* _mm.h in Headers */,
-				9AC2D1D126542FBA00CC8096 /* interaction_impl.h in Headers */,
-				9AC2D1DC265431BD00CC8096 /* _aura_macos.h in Headers */,
-				9A5A897226D2CA88004AF957 /* shell.h in Headers */,
-				9AC2D1D426542FBA00CC8096 /* framework.h in Headers */,
-				9A5D73922656D1DC00D5C39E /* node.h in Headers */,
+				9AA14EDF282A284E00B1621E /* _.h in Headers */,
+				9AA14EDC282A284E00B1621E /* aaa_factory_exchange.h in Headers */,
+				9AA14ED0282A284E00B1621E /* _mm.h in Headers */,
+				9AA14ECE282A284E00B1621E /* shell.h in Headers */,
+				9AA14ED5282A284E00B1621E /* interaction_impl.h in Headers */,
+				9AA14ED7282A284E00B1621E /* framework.h in Headers */,
+				9AA14ED4282A284E00B1621E /* node.h in Headers */,
+				9AA14ED8282A284E00B1621E /* _c_mm.h in Headers */,
+				9AA14ED1282A284E00B1621E /* _aura_macos.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		07B657B7190F3CBF002DAADE /* ios_aura_macos */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 07B657DC190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "ios_aura_macos" */;
-			buildPhases = (
-				07B657B4190F3CBF002DAADE /* Sources */,
-				07B657B5190F3CBF002DAADE /* Frameworks */,
-				07B657B6190F3CBF002DAADE /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9AC2CFB72653DADC00CC8096 /* PBXTargetDependency */,
-			);
-			name = ios_aura_macos;
-			productName = music_midi_core_audio_ios;
-			productReference = 07B657B8190F3CBF002DAADE /* libios_aura_macos.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		07B657C6190F3CBF002DAADE /* music_midi_core_audio_iosTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07B657DD190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "music_midi_core_audio_iosTests" */;
@@ -316,16 +267,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				07B657CE190F3CBF002DAADE /* PBXTargetDependency */,
 			);
 			name = music_midi_core_audio_iosTests;
 			productName = music_midi_core_audio_iosTests;
 			productReference = 07B657C7190F3CBF002DAADE /* music_midi_core_audio_iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A1CFD777154F5EAA007447E2 /* aura_macos */ = {
+		A1CFD777154F5EAA007447E2 /* aura_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_macos" */;
+			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_ios" */;
 			buildPhases = (
 				A1CFD776154F5EAA007447E2 /* Headers */,
 				A1CFD774154F5EAA007447E2 /* Sources */,
@@ -334,11 +284,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				9A440A6D2654E36C000C490B /* PBXTargetDependency */,
+				9A8E9EF2282A34E8005FF778 /* PBXTargetDependency */,
+				9A8E9EF0282A34DE005FF778 /* PBXTargetDependency */,
 			);
-			name = aura_macos;
+			name = aura_ios;
 			productName = os;
-			productReference = A1CFD778154F5EAA007447E2 /* libaura_macos.dylib */;
+			productReference = A1CFD778154F5EAA007447E2 /* libaura_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -368,20 +319,37 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 9AA14EA4282A27D400B1621E /* Products */;
+					ProjectRef = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+				},
+				{
 					ProductGroup = 9AC2CFB12653DAD200CC8096 /* Products */;
 					ProjectRef = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				A1CFD777154F5EAA007447E2 /* aura_macos */,
-				07B657B7190F3CBF002DAADE /* ios_aura_macos */,
+				A1CFD777154F5EAA007447E2 /* aura_ios */,
 				07B657C6190F3CBF002DAADE /* music_midi_core_audio_iosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9A8E9EC3282A32D1005FF778 /* libios_aura_apple.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libios_aura_apple.dylib;
+			remoteRef = 9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AA14EAA282A27D400B1621E /* libapex_macos.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libapex_macos.dylib;
+			remoteRef = 9AA14EA9282A27D400B1621E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -403,13 +371,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07B657B4190F3CBF002DAADE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		07B657C3190F3CBF002DAADE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,34 +383,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC2D1D526542FBA00CC8096 /* interaction_impl.cpp in Sources */,
-				9A6E49A626D327AC00D1845E /* file_image.cpp in Sources */,
-				9AC2D1D226542FBA00CC8096 /* _factory.cpp in Sources */,
-				9A07060C2662B1AC004E8CB4 /* image.cpp in Sources */,
-				9AC2D1CF26542FBA00CC8096 /* framework.cpp in Sources */,
-				9A5A897326D2CA88004AF957 /* shell.cpp in Sources */,
-				9A5A897526D2CC6E004AF957 /* shell.mm in Sources */,
-				9A5D73912656D1DC00D5C39E /* node.cpp in Sources */,
+				9AA14ED2282A284E00B1621E /* framework.cpp in Sources */,
+				9AA14ECF282A284E00B1621E /* image.cpp in Sources */,
+				9AA14EDB282A284E00B1621E /* file_image.cpp in Sources */,
+				9AA14EDD282A284E00B1621E /* _factory.cpp in Sources */,
+				9AA14ED9282A284E00B1621E /* interaction_impl.cpp in Sources */,
+				9AA14EDE282A284E00B1621E /* shell.mm in Sources */,
+				9AA14EDA282A284E00B1621E /* shell.cpp in Sources */,
+				9AA14ED3282A284E00B1621E /* node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		07B657CE190F3CBF002DAADE /* PBXTargetDependency */ = {
+		9A8E9EF0282A34DE005FF778 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07B657B7190F3CBF002DAADE /* ios_aura_macos */;
-			targetProxy = 07B657CD190F3CBF002DAADE /* PBXContainerItemProxy */;
+			name = apex_ios;
+			targetProxy = 9A8E9EEF282A34DE005FF778 /* PBXContainerItemProxy */;
 		};
-		9A440A6D2654E36C000C490B /* PBXTargetDependency */ = {
+		9A8E9EF2282A34E8005FF778 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = aura_apple;
-			targetProxy = 9A440A6C2654E36C000C490B /* PBXContainerItemProxy */;
-		};
-		9AC2CFB72653DADC00CC8096 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = aura_apple;
-			targetProxy = 9AC2CFB62653DADC00CC8096 /* PBXContainerItemProxy */;
+			name = ios_aura_apple;
+			targetProxy = 9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -465,40 +421,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		07B657D8190F3CBF002DAADE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				EXECUTABLE_EXTENSION = a;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MACH_O_TYPE = staticlib;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		07B657D9190F3CBF002DAADE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				ENABLE_NS_ASSERTIONS = NO;
-				EXECUTABLE_EXTENSION = a;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MACH_O_TYPE = staticlib;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		07B657DA190F3CBF002DAADE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -626,7 +548,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = ". $(WorkspaceDir)/source $(WorkspaceDir)/source/include $(WorkspaceDir)/source/app $(WorkspaceDir)/source/app/_include $(WorkspaceDir)/operating-system $(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER) $(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)/_include $(WorkspaceDir)/operating-system/operating-system-apple $(WorkspaceDir)/operating-system/operating-system-posix $(WorkspaceDir)/source/third/include $(WorkspaceDir)/operating-system/third-$(PLATFORM_MODIFIER)/third/include/include $(WorkspaceDir)/operating-system/third-$(PLATFORM_MODIFIER)/third/include $(PROJECT_DIR) $(HOME)/sensitive/sensitive/include";
@@ -693,7 +615,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = ". $(WorkspaceDir)/source $(WorkspaceDir)/source/include $(WorkspaceDir)/source/app $(WorkspaceDir)/source/app/_include $(WorkspaceDir)/operating-system $(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER) $(WorkspaceDir)/operating-system/operating-system-$(PLATFORM_MODIFIER)/_include $(WorkspaceDir)/operating-system/operating-system-apple $(WorkspaceDir)/operating-system/operating-system-posix $(WorkspaceDir)/source/third/include $(WorkspaceDir)/operating-system/third-$(PLATFORM_MODIFIER)/third/include/include $(WorkspaceDir)/operating-system/third-$(PLATFORM_MODIFIER)/third/include $(PROJECT_DIR) $(HOME)/sensitive/sensitive/include";
 				USE_HEADERMAP = NO;
@@ -705,9 +627,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
-				PLATFORM_MODIFIER = macos;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -715,24 +641,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
-				PLATFORM_MODIFIER = macos;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		07B657DC190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "ios_aura_macos" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				07B657D8190F3CBF002DAADE /* Debug */,
-				07B657D9190F3CBF002DAADE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		07B657DD190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "music_midi_core_audio_iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -751,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_macos" */ = {
+		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1CFD77D154F5EAA007447E2 /* Debug */,

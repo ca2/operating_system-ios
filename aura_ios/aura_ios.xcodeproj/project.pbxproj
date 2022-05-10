@@ -30,7 +30,6 @@
 		9A5A897726D304B4004AF957 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */; };
 		9A5D73912656D1DC00D5C39E /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D738F2656D1DC00D5C39E /* node.cpp */; };
 		9A5D73922656D1DC00D5C39E /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5D73902656D1DC00D5C39E /* node.h */; };
-		9A5FE2062689E57A003682E6 /* libapex_macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A413D55266EDEA500C3FF0E /* libapex_macos.dylib */; };
 		9A6E49A626D327AC00D1845E /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E49A526D327AC00D1845E /* file_image.cpp */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
 		9A941C501FF34F880028686E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A941C4F1FF34F880028686E /* CoreMIDI.framework */; };
@@ -53,26 +52,12 @@
 			remoteGlobalIDString = 07B657B7190F3CBF002DAADE;
 			remoteInfo = music_midi_core_audio_ios;
 		};
-		9A413D54266EDEA500C3FF0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A64C0FF26604FB50074030F /* apex_macos.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9A0C1695264A2AA700B5CC33;
-			remoteInfo = apex_macos;
-		};
 		9A440A6C2654E36C000C490B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 9A15A5AB264B54430080670E;
 			remoteInfo = aura_apple;
-		};
-		9A5FE2042689E27D003682E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A64C0FF26604FB50074030F /* apex_macos.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A0C1694264A2AA700B5CC33;
-			remoteInfo = apex_macos;
 		};
 		9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -127,7 +112,6 @@
 		9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		9A5D738F2656D1DC00D5C39E /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
 		9A5D73902656D1DC00D5C39E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
-		9A64C0FF26604FB50074030F /* apex_macos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_macos.xcodeproj; path = ../apex_macos/apex_macos.xcodeproj; sourceTree = "<group>"; };
 		9A6E49A526D327AC00D1845E /* file_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
@@ -168,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5A897726D304B4004AF957 /* UniformTypeIdentifiers.framework in Frameworks */,
-				9A5FE2062689E57A003682E6 /* libapex_macos.dylib in Frameworks */,
 				9A00E62026616D1400517464 /* libaura.dylib in Frameworks */,
 				9A440A6B2654E34A000C490B /* libaura_apple.dylib in Frameworks */,
 				9A00E62226616D1400517464 /* libaura_posix.dylib in Frameworks */,
@@ -231,14 +214,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9A413D51266EDEA500C3FF0E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9A413D55266EDEA500C3FF0E /* libapex_macos.dylib */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		9AC2CFB12653DAD200CC8096 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
-				9A64C0FF26604FB50074030F /* apex_macos.xcodeproj */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9AC2D1B926542FBA00CC8096 /* aura_macos */,
@@ -360,7 +334,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9A5FE2052689E27D003682E6 /* PBXTargetDependency */,
 				9A440A6D2654E36C000C490B /* PBXTargetDependency */,
 			);
 			name = aura_macos;
@@ -382,7 +355,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_macos" */;
+			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -394,10 +367,6 @@
 			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = 9A413D51266EDEA500C3FF0E /* Products */;
-					ProjectRef = 9A64C0FF26604FB50074030F /* apex_macos.xcodeproj */;
-				},
 				{
 					ProductGroup = 9AC2CFB12653DAD200CC8096 /* Products */;
 					ProjectRef = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
@@ -413,13 +382,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A413D55266EDEA500C3FF0E /* libapex_macos.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libapex_macos.dylib;
-			remoteRef = 9A413D54266EDEA500C3FF0E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -483,11 +445,6 @@
 			isa = PBXTargetDependency;
 			name = aura_apple;
 			targetProxy = 9A440A6C2654E36C000C490B /* PBXContainerItemProxy */;
-		};
-		9A5FE2052689E27D003682E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = apex_macos;
-			targetProxy = 9A5FE2042689E27D003682E6 /* PBXContainerItemProxy */;
 		};
 		9AC2CFB72653DADC00CC8096 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -665,7 +622,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
@@ -734,7 +690,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -787,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_macos" */ = {
+		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1CFD77A154F5EAA007447E2 /* Debug */,

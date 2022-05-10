@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A5D7389265619C000D5C39E /* lib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73862656198300D5C39E /* lib.dylib */; };
 		9A5FE1FC2689E0E7003682E6 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D1A526542EA800CC8096 /* _.h */; };
 		9A5FE1FD2689E0F0003682E6 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC2D19926542EA800CC8096 /* framework.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		9AC2D1B326542F4400CC8096 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2D19326542EA800CC8096 /* _factory.cpp */; };
@@ -15,24 +14,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A5D73852656198300D5C39E /* PBXContainerItemProxy */ = {
+		9AA14E04282A185C00B1621E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A5D737F2656198200D5C39E /* windowing_macos.xcodeproj */;
+			containerPortal = 9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A440A1526548BE4000C490B;
-			remoteInfo = windowing_macos;
-		};
-		9A9E4ADA2751A5060094A04C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A5D737F2656198200D5C39E /* windowing_macos.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A9E4AD52751A3F40094A04C;
+			remoteGlobalIDString = 9A9E4AD62751A3F40094A04C;
 			remoteInfo = windowing_macos;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A5D737F2656198200D5C39E /* windowing_macos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_macos.xcodeproj; path = ../windowing_macos/windowing_macos.xcodeproj; sourceTree = "<group>"; };
+		9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
 		9AC2D16F26542E1000CC8096 /* libnode_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libnode_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC2D18E26542EA800CC8096 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9AC2D19326542EA800CC8096 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
@@ -45,17 +37,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5D7389265619C000D5C39E /* lib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A5D73802656198200D5C39E /* Products */ = {
+		9AA14E00282A185C00B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A5D73862656198300D5C39E /* lib.dylib */,
+				9AA14E05282A185C00B1621E /* libwindowing_macos.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,7 +54,7 @@
 		9AC2D16626542E1000CC8096 = {
 			isa = PBXGroup;
 			children = (
-				9A5D737F2656198200D5C39E /* windowing_macos.xcodeproj */,
+				9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */,
 				9AC2D18D26542EA800CC8096 /* node_macos */,
 				9AC2D17026542E1000CC8096 /* Products */,
 				9AC2D1B726542F6E00CC8096 /* Frameworks */,
@@ -122,7 +113,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9A9E4ADB2751A5060094A04C /* PBXTargetDependency */,
 			);
 			name = node_macos;
 			productName = node_macos;
@@ -142,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9AC2D16A26542E1000CC8096 /* Build configuration list for PBXProject "node_macos" */;
+			buildConfigurationList = 9AC2D16A26542E1000CC8096 /* Build configuration list for PBXProject "node_ios" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -155,8 +145,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9A5D73802656198200D5C39E /* Products */;
-					ProjectRef = 9A5D737F2656198200D5C39E /* windowing_macos.xcodeproj */;
+					ProductGroup = 9AA14E00282A185C00B1621E /* Products */;
+					ProjectRef = 9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -167,12 +157,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A5D73862656198300D5C39E /* lib.dylib */ = {
+		9AA14E05282A185C00B1621E /* libwindowing_macos.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			name = lib.dylib;
 			path = libwindowing_macos.dylib;
-			remoteRef = 9A5D73852656198300D5C39E /* PBXContainerItemProxy */;
+			remoteRef = 9AA14E04282A185C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -188,14 +177,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9A9E4ADB2751A5060094A04C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = windowing_macos;
-			targetProxy = 9A9E4ADA2751A5060094A04C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9AC2D17626542E1000CC8096 /* Debug */ = {
@@ -257,7 +238,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_FAST_MATH = YES;
@@ -340,7 +320,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_FAST_MATH = YES;
@@ -394,7 +373,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9AC2D16A26542E1000CC8096 /* Build configuration list for PBXProject "node_macos" */ = {
+		9AC2D16A26542E1000CC8096 /* Build configuration list for PBXProject "node_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AC2D17626542E1000CC8096 /* Debug */,

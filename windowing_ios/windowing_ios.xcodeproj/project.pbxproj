@@ -76,37 +76,29 @@
 		9A1D5F682751BE0B003D9B5F /* libapex_macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73A4265701DC00D5C39E /* libapex_macos.dylib */; };
 		9A1D5F692751BE0B003D9B5F /* libapex_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73A6265701DC00D5C39E /* libapex_posix.dylib */; };
 		9A1D5F6A2751BE0B003D9B5F /* libaura_apple.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73A8265701DC00D5C39E /* libaura_apple.dylib */; };
-		9A1D5F6B2751BE0B003D9B5F /* libaura_macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A440A2826548C17000C490B /* libaura_macos.dylib */; };
 		9A1D5F6C2751BE0B003D9B5F /* libaura_posix.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73AA265701F400D5C39E /* libaura_posix.dylib */; };
 		9A1D5F6D2751BE22003D9B5F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D73B226570CAE00D5C39E /* AppKit.framework */; };
 		9A1D5F702751BF50003D9B5F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA8024A266571D600A6B449 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A1D5F0D2751B162003D9B5F /* PBXContainerItemProxy */ = {
+		9AA14E0E282A188C00B1621E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A440A2126548C17000C490B /* aura_macos.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A1CFD777154F5EAA007447E2;
-			remoteInfo = aura_macos;
-		};
-		9A440A2726548C17000C490B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A440A2126548C17000C490B /* aura_macos.xcodeproj */;
+			containerPortal = 9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A1CFD778154F5EAA007447E2;
 			remoteInfo = aura_macos;
 		};
-		9A440A2926548C17000C490B /* PBXContainerItemProxy */ = {
+		9AA14E10282A188C00B1621E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A440A2126548C17000C490B /* aura_macos.xcodeproj */;
+			containerPortal = 9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 07B657B8190F3CBF002DAADE;
 			remoteInfo = ios_aura_macos;
 		};
-		9A440A2B26548C17000C490B /* PBXContainerItemProxy */ = {
+		9AA14E12282A188C00B1621E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A440A2126548C17000C490B /* aura_macos.xcodeproj */;
+			containerPortal = 9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 07B657C7190F3CBF002DAADE;
 			remoteInfo = music_midi_core_audio_iosTests;
@@ -119,7 +111,6 @@
 		9A42D7F92665B61F0011645D /* imm_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imm_client.h; sourceTree = "<group>"; };
 		9A42D7FE2665C5850011645D /* keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		9A42D7FF2665C5850011645D /* keyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard.cpp; sourceTree = "<group>"; };
-		9A440A2126548C17000C490B /* aura_macos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_macos.xcodeproj; path = ../aura_macos/aura_macos.xcodeproj; sourceTree = "<group>"; };
 		9A440A3026548C38000C490B /* copydesk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = copydesk.h; sourceTree = "<group>"; };
 		9A440A3126548C38000C490B /* windowing_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = windowing_c.h; sourceTree = "<group>"; };
 		9A440A3626548C38000C490B /* copydesk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = copydesk.mm; sourceTree = "<group>"; };
@@ -186,6 +177,7 @@
 		9A79BE2A26645D9C009E6C44 /* notify_icon.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = notify_icon.mm; sourceTree = "<group>"; };
 		9A79BE2B26645D9C009E6C44 /* notify_icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notify_icon.h; sourceTree = "<group>"; };
 		9A9E4AD62751A3F40094A04C /* libwindowing_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindowing_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_ios.xcodeproj; path = ../aura_ios/aura_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA80242266558E000A6B449 /* icon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = icon.cpp; sourceTree = "<group>"; };
 		9AA80245266558E000A6B449 /* icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = icon.h; sourceTree = "<group>"; };
 		9AA802482665706600A6B449 /* windowing_keyboard.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = windowing_keyboard.mm; sourceTree = "<group>"; };
@@ -205,7 +197,6 @@
 				9A1D5F622751BD4F003D9B5F /* libaqua.dylib in Frameworks */,
 				9A1D5F632751BD4F003D9B5F /* libaura.dylib in Frameworks */,
 				9A1D5F6A2751BE0B003D9B5F /* libaura_apple.dylib in Frameworks */,
-				9A1D5F6B2751BE0B003D9B5F /* libaura_macos.dylib in Frameworks */,
 				9A1D5F6C2751BE0B003D9B5F /* libaura_posix.dylib in Frameworks */,
 				9A1D5F642751BD80003D9B5F /* libacme_apple.dylib in Frameworks */,
 				9A1D5F652751BD80003D9B5F /* libacme_macos.dylib in Frameworks */,
@@ -221,7 +212,7 @@
 		9A440A0C26548BE4000C490B = {
 			isa = PBXGroup;
 			children = (
-				9A440A2126548C17000C490B /* aura_macos.xcodeproj */,
+				9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */,
 				9A440A2F26548C38000C490B /* windowing_macos */,
 				9A440A1626548BE4000C490B /* Products */,
 				9A5D7393265700D200D5C39E /* Frameworks */,
@@ -232,16 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				9A9E4AD62751A3F40094A04C /* libwindowing_macos.dylib */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9A440A2226548C17000C490B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9A440A2826548C17000C490B /* libaura_macos.dylib */,
-				9A440A2A26548C17000C490B /* libios_aura_macos.a */,
-				9A440A2C26548C17000C490B /* music_midi_core_audio_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -342,6 +323,16 @@
 			path = macOSWindow;
 			sourceTree = "<group>";
 		};
+		9AA14E07282A188C00B1621E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AA14E0F282A188C00B1621E /* libaura_macos.dylib */,
+				9AA14E11282A188C00B1621E /* libios_aura_macos.a */,
+				9AA14E13282A188C00B1621E /* music_midi_core_audio_iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -395,7 +386,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9A1D5F0E2751B162003D9B5F /* PBXTargetDependency */,
 			);
 			name = windowing_macos;
 			productName = windowing_macos;
@@ -415,7 +405,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9A440A1026548BE4000C490B /* Build configuration list for PBXProject "windowing_macos" */;
+			buildConfigurationList = 9A440A1026548BE4000C490B /* Build configuration list for PBXProject "windowing_ios" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -428,8 +418,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9A440A2226548C17000C490B /* Products */;
-					ProjectRef = 9A440A2126548C17000C490B /* aura_macos.xcodeproj */;
+					ProductGroup = 9AA14E07282A188C00B1621E /* Products */;
+					ProjectRef = 9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -440,25 +430,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A440A2826548C17000C490B /* libaura_macos.dylib */ = {
+		9AA14E0F282A188C00B1621E /* libaura_macos.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libaura_macos.dylib;
-			remoteRef = 9A440A2726548C17000C490B /* PBXContainerItemProxy */;
+			remoteRef = 9AA14E0E282A188C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A440A2A26548C17000C490B /* libios_aura_macos.a */ = {
+		9AA14E11282A188C00B1621E /* libios_aura_macos.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libios_aura_macos.a;
-			remoteRef = 9A440A2926548C17000C490B /* PBXContainerItemProxy */;
+			remoteRef = 9AA14E10282A188C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A440A2C26548C17000C490B /* music_midi_core_audio_iosTests.xctest */ = {
+		9AA14E13282A188C00B1621E /* music_midi_core_audio_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = music_midi_core_audio_iosTests.xctest;
-			remoteRef = 9A440A2B26548C17000C490B /* PBXContainerItemProxy */;
+			remoteRef = 9AA14E12282A188C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -501,14 +491,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9A1D5F0E2751B162003D9B5F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = aura_macos;
-			targetProxy = 9A1D5F0D2751B162003D9B5F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9A440A1C26548BE4000C490B /* Debug */ = {
@@ -570,7 +552,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -654,7 +635,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(WorkspaceDir)/operating-system/storage-$(PLATFORM_MODIFIER)/library",
-				
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -715,7 +695,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A440A1026548BE4000C490B /* Build configuration list for PBXProject "windowing_macos" */ = {
+		9A440A1026548BE4000C490B /* Build configuration list for PBXProject "windowing_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A440A1C26548BE4000C490B /* Debug */,

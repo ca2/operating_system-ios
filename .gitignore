@@ -4,6 +4,7 @@
 **/.svn
 **/CVS
 *.xcuserdata
+*.xcuserstate
 .DS_Store
 ._.DS_Store
 *.suo

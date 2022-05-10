@@ -1,25 +1,8 @@
-//
-//  dir_system.cpp
-//  apex
-//
-//  Created by Camilo Sasuke Tsumanuma on 28/02/20.
-//
-
 #include "framework.h"
-//#include "apex/os/_.h"
-//#include "apex/os/_os.h"
-//#include "apex/xml/_.h"
-//#include "_.h"
-
-char * ns_user_local_desktop_folder();
-char * ns_user_local_documents_folder();
-char * ns_user_local_downloads_folder();
-char * ns_user_local_music_folder();
-char * ns_user_local_image_folder();
-char * ns_user_local_video_folder();
+#include "_ios.h"
 
 
-namespace macos
+namespace ios
 {
 
 
@@ -30,55 +13,31 @@ namespace macos
    }
 
 
-
-
-   ::e_status dir_system::initialize(::object * pobject)
+   dir_system::~dir_system()
    {
-      
+
+
+   }
+
+
+   void dir_system::initialize(::object * pobject)
+   {
+
       auto estatus = ::dir_system::initialize(pobject);
-      
-      if(!estatus)
+
+      if (!estatus)
       {
-         
+
          return estatus;
-         
+
       }
-      
+
       return estatus;
 
    }
 
 
-   ::e_status dir_system::init_system()
-   {
-
-      auto estatus = ::dir_system::init_system();
-      
-      if(!estatus)
-      {
-         
-         return estatus;
-         
-      }
-      
-      auto psystem= m_psystem->m_papexsystem;
-      
-      ::file::path pathCa2Module = psystem->m_pfilesystem->m_pathCa2Module;
-      
-      m_pathHome = getenv("HOME");
-      
-      m_pathCa2 = pathCa2Module;
-      
-      m_pathCa2 -= 2;
-      
-      ::str::ends_eat_ci(m_pathCa2, ".app");
-
-      m_pathCa2Config = m_pathHome / "Library/Application Support/ca2";
-
-      return estatus;
-      
-   }
+} // namespace ios
 
 
-} // namespace macos
 

@@ -1,32 +1,11 @@
-//
-//  file_context.cpp
-//  apex
-//
-//  Created by Camilo Sasuke Tsumanuma on 28/02/20.
-//
-
 #include "framework.h"
+#include "_ios.h"
+
+
 #include <sys/stat.h>
-#include <ctype.h>
-#include <mach-o/dyld.h>
 
 
-//#include "macos.h"
-//#include "apex/os/_.h"
-//#include "apex/os/_os.h"
-
-
-string macos_resource_folder();
-
-
-struct PROCESS_INFO_t
-{
-   string csProcess;
-   u32 dwImageListIndex;
-};
-
-
-namespace macos
+namespace ios
 {
 
 
@@ -41,29 +20,8 @@ namespace macos
 
    }
 
-   ::payload file_context::length(const ::file::path & pszPath)
-   {
 
-      ::payload varRet;
-
-
-      struct stat stat;
-
-      if(::stat(pszPath, &stat)  == -1)
-      {
-         varRet.set_type(::e_type_null);
-      }
-      else
-      {
-         varRet = stat.st_size;
-      }
-
-      return varRet;
-
-   }
-
-
-   ::e_status file_context::initialize(::object * pobject)
+   void file_context::initialize(::object * pobject)
    {
       
       auto estatus = ::file_context::initialize(pobject);
@@ -75,103 +33,93 @@ namespace macos
          
       }
       
-      auto psystem = m_psystem->m_papexsystem;
-
-      estatus = __refer(m_pdirsystem, psystem->m_pdirsystem);
+      m_pdirsystem = ::apex::get_system()->m_pdirsystem;
       
-      if(!estatus)
+      m_pfilesystem = ::apex::get_system()->m_pfilesystem;
+
+      string str = getenv("HOME");
+
+      ::file::path strRelative = ::dir::install();
+
+      string strUserFolderShift;
+
+      if(::apex::get_system()->has_property("user_folder_relative_path"))
       {
-         
-         return estatus;
-         
+
+         strUserFolderShift = strRelative / get_app()->payload("user_folder_relative_path").get_string();
+
       }
-      
-      estatus = __refer(m_pfilesystem, psystem->m_pfilesystem);
-      
-      if(!estatus)
+      else
       {
-         
-         return estatus;
-         
+
+         strUserFolderShift = strRelative;
+
       }
+
+      m_pfilesystem->m_strUserFolder = str / "ca2" / strUserFolderShift;
       
-//      string str = getenv("HOME");
-//
-//      ::file::path strRelative = ::dir::install();
-//
-//      string strUserFolderShift;
-//
-//      if(get_application()->has_property("user_folder_relative_path"))
-//      {
-//
-//         strUserFolderShift = strRelative / get_application()->command_value("user_folder_relative_path").get_string();
-//
-//      }
-//      else
-//      {
-//
-//         strUserFolderShift = strRelative;
-//
-//      }
-//
-//      m_strUserFolder = str / "ca2" / strUserFolderShift;
-
-      return estatus;
-
-   }
-
-
-
-
-   ::e_status file_context::update_module_path()
-   {
-
-
-//      m_pathModule = apple_app_module_path();
-//
-//      m_pathCa2Module = ca2_module_dup();
-
       return true;
 
    }
 
 
-   file_transport file_context::get_file(const ::payload & varFile, const ::file::e_open & eopenFlags)
+   void file_context::update_module_path()
    {
 
-      return ::file_context::get_file(varFile, eopenFlags);
+      m_pfilesystem->m_pathModule = apple_app_module_path();
+
+      m_pfilesystem->m_pathCa2Module = m_pdirsystem->m_pathModule;
+
+      return ::success;
 
    }
 
 
-   void file_context::calculate_main_resource_memory()
+   ::file_pointer file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopen)
    {
-      
-      ::file::path pathFolder;
-      
-      pathFolder = macos_resource_folder();
-      
-      ::file::path pathMatter;
-      
-      pathMatter = pathFolder / "_matter.zip";
 
-      m_memoryMainResource = as_memory(pathMatter);
+      ::file_pointer pfileresult;
+
+      pfileresult = ::file_context::get_file(payloadFile, eopen);
+
+      if(!pfileresult)
+      {
+
+         return pfileresult;
+
+      }
+
+      return pfileresult;
 
    }
 
 
-} // namespace macos
+   ::payload file_context::length(const ::file::path & path, ::payload * pvarQuery)
+   {
+
+      ::payload varRet;
+
+      struct stat stat;
+
+      if(::stat(path, &stat)  == -1)
+      {
+         
+         varRet.set_type(::e_type_null);
+         
+      }
+      else
+      {
+         
+         varRet = stat.st_size;
+         
+      }
+
+      return varRet;
+
+   }
 
 
-char * ns_resource_folder();
-
-
-string macos_resource_folder()
-{
-   
-   return ::string_from_strdup(ns_resource_folder());
-   
-}
+} // namespace ios
 
 
 

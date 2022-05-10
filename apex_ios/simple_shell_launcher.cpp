@@ -1,29 +1,30 @@
 #include "framework.h"
+#include "_ios.h"
+
 
 namespace apex
 {
+
 
    void shell_launcher::execute()
    {
 
       if(m_iMode == 0)
       {
+         
+         property_set set;
 
          if(m_strOperation.is_empty())
          {
             
-            property_set set;
-            
             m_dwResult = call_sync(m_strFile, m_strParameters, m_strDirectory, m_edisplay, 1_min, set);
-
+            
          }
-         else if(m_strOperation.compare_ci("open") == 0)
+         else if(ansi_compare_ci(m_strOperation, "open") == 0)
          {
             
-            property_set set;
-
             m_dwResult = call_sync("open", m_strFile, m_strDirectory, m_edisplay, 1_min, set);
-
+            
          }
 
       }
@@ -41,6 +42,16 @@ namespace apex
    }
 
 
+
+
+
+
+
+
+
+
 } // namespace apex
+
+
 
 

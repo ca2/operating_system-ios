@@ -1,24 +1,21 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "_ios.h"
 
 
 #include <sys/stat.h>
 #include <ctype.h>
-#include <mach-o/dyld.h>
 
 
 struct PROCESS_INFO_t
 {
    
-   
    string csProcess;
    u32 dwImageListIndex;
-   
    
 };
 
 
-namespace macos
+namespace ios
 {
 
 
@@ -34,70 +31,36 @@ namespace macos
    }
 
 
-   ::e_status file_system::initialize(::object * pobject)
+   void file_system::initialize(::object * pobject)
    {
-      
+   
       auto estatus = ::file_system::initialize(pobject);
       
       if(!estatus)
       {
-         
+       
          return estatus;
          
       }
       
-      string str = getenv("HOME");
-      
-      auto psystem = m_psystem;
-      
-      auto pacmedirectory = psystem->m_pacmedirectory;
+      return estatus;
+   
+   }
 
-      ::file::path strRelative = pacmedirectory->install();
 
-      string strUserFolderShift;
+   void file_system::update_module_path()
+   {
 
-      if(psystem->has_property("user_folder_relative_path"))
-      {
+      m_pathModule = apple_app_module_path();
 
-         strUserFolderShift = strRelative / get_application()->payload("user_folder_relative_path").get_string();
-
-      }
-      else
-      {
-
-         strUserFolderShift = strRelative;
-
-      }
-
-      m_strUserFolder = str / "ca2" / strUserFolderShift;
+      m_pathCa2Module = m_pathModule;
 
       return true;
 
    }
 
 
-   ::e_status file_system::update_module_path()
-   {
-      
-      auto estatus = ::file_system::update_module_path();
-      
-      if(!estatus)
-      {
-         
-         return estatus;
-         
-      }
-
-      m_pathModule = apple_app_module_path();
-
-      m_pathCa2Module = apple_app_module_path();
-
-      return estatus;
-
-   }
-
-
-} // namespace macos
+} // namespace ios
 
 
 

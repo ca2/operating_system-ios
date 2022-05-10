@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace macos
+namespace ios
 {
 
 
@@ -12,25 +12,26 @@ namespace macos
 
 
       ::file::path            m_strUserFolder;
-
+      ::file::path            m_pathModule;
+      //::file::path            m_pathCa2Module;
+      
 
       file_system();
-      virtual ~file_system();
+      ~file_system() override;
+
+      
+      virtual void initialize(::object * pobject) override;
+      
+
+      virtual void update_module_path() override;
       
       
-      virtual ::e_status initialize(::object * pobject) override;
-
-
-
-      virtual ::e_status update_module_path() override;
-
-
-
+      
 
    };
 
 
-} // namespace macos
+} // namespace ios
 
 
 

@@ -1,95 +1,37 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-//#include "_.h"
-//#include "apex/os/_.h"
-//#include "apex/os/_os.h"
-#if defined(MACOS)
-#include <sys/stat.h>
-#endif
+#include "_ios.h"
 
-
-void ns_fork(const ::procedure & procedure)
-{
-   
-   __block auto routineHold = routine;
-   
-   routineHold.m_p->increment_reference_count();
- 
-   ns_main_async(^
-                 {
-      
-      routineHold();
-      
-      routineHold.release();
-      
-   }
-                 );
-   
-}
-
-
-#undef USERNAME_LENGTH // mysql one
 
 bool ns_open_file(const char * );
-void ns_main_async(dispatch_block_t block);
-void ns_create_alias(const char * pszTarget, const char * pszSource);
-::string & ns_get_default_browser_path();
-void ns_set_this_process_binary_default_browser();
-
-string apple_browse_folder(class ::system * psystem, const char * pszStartDir, bool bCanCreateDirectories);
-string_array apple_browse_file_open(class ::system * psystem, const char ** pszStartDir, bool bAllowsMultipleSelection);
 
 
-bool ns_open_url(const char * psz);
-
-
-namespace macos
+namespace ios
 {
-
-   ::file::path get_default_browser_path()
-   {
-
-      string strPath;
-
-      ::string & psz = ns_get_default_browser_path();
-
-      strPath = psz;
-
-      ::str::begins_eat_ci(strPath, "file://");
-
-      free(psz);
-
-      ::file::path path;
-
-      path = strPath;
-
-      return path;
-
-   }
 
 
    os_context::os_context()
    {
+      
    }
 
 
    os_context::~os_context()
    {
+      
    }
 
 
    string os_context::get_command_line()
    {
-      
-      auto psystem = m_psystem->m_papexsystem;
 
-      return psystem->get_command_line();
+      return get_command_line();
 
    }
 
 
    bool os_context::shutdown(bool bIfPowerOff)
    {
+      
       /*      bool retval = true;
        HANDLE hToken;
        TOKEN_PRIVILEGES tkp;
@@ -110,10 +52,11 @@ namespace macos
        AdjustTokenPrivileges(hToken, false, &tkp, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
        return retval;*/
 
-      //  throw ::exception(error_not_implemented);;
+      //  throw ::not_implemented();
       return false;
 
    }
+
 
    bool os_context::reboot()
    {
@@ -171,14 +114,15 @@ namespace macos
       /*    tkp.Privileges[0].Attributes = 0;
        AdjustTokenPrivileges(hToken, false, &tkp, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
        return true;*/
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
    }
 
-   void os_context::terminate_processes_by_title(const ::string & pszName)
+
+   void os_context::terminate_processes_by_title(const char * pszName)
    {
-//      throw ::exception(error_not_implemented);;
+//      throw ::not_implemented();
       return;
 
       /*      ::u32 dwPid;
@@ -207,7 +151,8 @@ namespace macos
       //  }
    }
 
-   bool os_context::get_pid_by_path(const ::string & pszName, ::u32 & dwPid)
+
+   bool os_context::get_pid_by_path(const char * pszName, ::u32 & dwPid)
    {
       u32_array dwa;
       get_all_processes(dwa);
@@ -222,7 +167,8 @@ namespace macos
       return false;
    }
 
-   bool os_context::get_pid_by_title(const ::string & pszName, ::u32 & dwPid)
+
+   bool os_context::get_pid_by_title(const char * pszName, ::u32 & dwPid)
    {
       u32_array dwa;
       get_all_processes(dwa);
@@ -236,6 +182,15 @@ namespace macos
       }
       return false;
    }
+
+
+   int os_context::get_pid()
+   {
+
+      return ::getpid();
+
+   }
+
 
    ::file::path os_context::get_process_path(::u32 dwPid)
    {
@@ -262,15 +217,16 @@ namespace macos
 
        CloseHandle( hProcess );
        return strName;*/
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return "";
 
    }
 
+
    void os_context::get_all_processes(u32_array & dwa )
    {
 
-      //  throw ::exception(error_not_implemented);;
+      //  throw ::not_implemented();
       return;
 
       /*
@@ -291,10 +247,28 @@ namespace macos
    }
 
 
+   string os_context::get_module_path(HMODULE hmodule)
+   {
+      //   throw ::not_implemented();
+      return "";
+      /*
+       string strPath;
+       ::u32 dwSize = 1;
+       while(natural(strPath.get_length() + 1) == dwSize)
+       {
+       dwSize = ::GetModuleFileName(
+       hmodule,
+       strPath.get_string_buffer(dwSize + 1024),
+       (dwSize + 1024));
+       strPath.ReleaseBuffer();
+       }
+       return strPath;*/
+   }
+
 
    ::payload os_context::connection_settings_get_auto_detect()
    {
-//      throw ::exception(error_not_implemented);;
+//      throw ::not_implemented();
       return false;
 
       /*
@@ -313,11 +287,10 @@ namespace macos
    }
 
 
-
    ::payload os_context::connection_settings_get_auto_config_url()
    {
 
-//      throw ::exception(error_not_implemented);;
+//      throw ::not_implemented();
       return "";
       /*
        registry::Key key;
@@ -332,14 +305,15 @@ namespace macos
        */
    }
 
-   bool os_context::local_machine_set_run(const ::string & pszKey, const ::string & pszCommand)
+
+   bool os_context::local_machine_set_run(const char * pszKey, const char * pszCommand)
    {
 
-//     throw ::exception(error_not_implemented);;
+//     throw ::not_implemented();
       return false;
 
       /*
-       registry::Key keyKar(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+       registry::Key keyKar(HKEY_LOCAL_IOSHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
 
        keyKar.SetValue(pszKey, pszCommand);
@@ -350,13 +324,13 @@ namespace macos
    }
 
 
-   bool os_context::local_machine_set_run_once(const ::string & pszKey, const ::string & pszCommand)
+   bool os_context::local_machine_set_run_once(const char * pszKey, const char * pszCommand)
    {
 
 
-//     throw ::exception(error_not_implemented);;
+//     throw ::not_implemented();
       return false;
-      /*    registry::Key keyKar(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
+      /*    registry::Key keyKar(HKEY_LOCAL_IOSHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
 
 
        keyKar.SetValue(pszKey, pszCommand);
@@ -366,10 +340,11 @@ namespace macos
 
    }
 
-   bool os_context::current_user_set_run(const ::string & pszKey, const ::string & pszCommand)
+
+   bool os_context::current_user_set_run(const char * pszKey, const char * pszCommand)
    {
 
-      //   throw ::exception(error_not_implemented);;
+      //   throw ::not_implemented();
       return false;
 
       /*
@@ -383,10 +358,11 @@ namespace macos
 
    }
 
-   bool os_context::current_user_set_run_once(const ::string & pszKey, const ::string & pszCommand)
+
+   bool os_context::current_user_set_run_once(const char * pszKey, const char * pszCommand)
    {
 
-//    throw ::exception(error_not_implemented);;
+//    throw ::not_implemented();
       return false;
 
       /*
@@ -403,13 +379,13 @@ namespace macos
 
    bool os_context::defer_register_ca2_plugin_for_mozilla()
    {
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*
        registry::Key keyPlugins;
 
-       if(keyPlugins.OpenKey(HKEY_LOCAL_MACHINE, "SOFTWARE\\MozillaPlugins", true))
+       if(keyPlugins.OpenKey(HKEY_LOCAL_IOSHINE, "SOFTWARE\\MozillaPlugins", true))
        {
 
        registry::Key keyPlugin;
@@ -421,7 +397,7 @@ namespace macos
        keyPlugin.SetValue("Path", ::apex::get_system()->m_strCa2Module("npca2.dll"));
        keyPlugin.SetValue("ProductName", "ca2 plugin for NPAPI");
        keyPlugin.SetValue("Vendor", "ca2 Desenvolvimento de Software Ltda.");
-       keyPlugin.SetValue("Version", get_application()->file_as_string(pcontext->m_papexcontext->dir().ca2("appdata/x86/ca2_build.txt")));
+       keyPlugin.SetValue("Version", get_app()->m_psystem->m_pacmefile->as_string(pcontext->m_papexcontext->dir().ca2("appdata/x86/ca2_build.txt")));
 
        registry::Key keyApplicationCa2;
 
@@ -440,9 +416,10 @@ namespace macos
        */
    }
 
-   bool os_context::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
+
+   bool os_context::file_extension_get_open_with_list_keys(string_array & straKey, const char * pszExtension)
    {
-      //   throw ::exception(error_not_implemented);;
+      //   throw ::not_implemented();
       return false;
 
       /*
@@ -465,7 +442,7 @@ namespace macos
    }
 
 
-   bool os_context::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
+   bool os_context::file_extension_get_open_with_list_commands(string_array & straCommand, const char * pszExtension)
    {
 
       string_array straKey;
@@ -478,10 +455,11 @@ namespace macos
 
    }
 
-   bool os_context::file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath)
+
+   bool os_context::file_association_set_default_icon(const char * pszExtension, const char * pszExtensionNamingClass, const char * pszIconPath)
    {
 
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*
@@ -496,9 +474,9 @@ namespace macos
    }
 
 
-   bool os_context::file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass,  const ::string & pszCommand, const ::string & pszParam)
+   bool os_context::file_association_set_shell_open_command(const char * pszExtension, const char * pszExtensionNamingClass,  const char * pszCommand, const char * pszParam)
    {
-      //   throw ::exception(error_not_implemented);;
+      //   throw ::not_implemented();
       return false;
 
       /*
@@ -521,16 +499,17 @@ namespace macos
        registry::Key keyLink1(keyLink2, "command", true);
 
        string strFormat;
-       strFormat.Format("\"%s\" \"%%L\" %s", pszCommand, pszParam);
+       strFormat.format("\"%s\" \"%%L\" %s", pszCommand, pszParam);
        keyLink1.SetValue(nullptr, strFormat);
 
        return true;
        */
    }
 
-   bool os_context::file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
+
+   bool os_context::file_association_get_shell_open_command(const char * pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
    {
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*
@@ -549,7 +528,7 @@ namespace macos
        if(keyLink.QueryValue(nullptr, strFormat))
        {
 
-       const ::string & psz = strFormat;
+       const char * psz = strFormat;
 
        try
        {
@@ -571,10 +550,11 @@ namespace macos
        */
    }
 
-   bool os_context::open_in_ie(const ::string & pcsz)
+
+   bool os_context::open_in_ie(const char * pcsz)
    {
 
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*    registry reg;
@@ -621,10 +601,10 @@ namespace macos
    }
 
 
-   ::e_status os_context::enable_service()
+   void os_context::create_service()
    {
 
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*
@@ -674,9 +654,9 @@ namespace macos
    }
 
 
-   ::e_status os_context::disable_service()
+   void os_context::erase_service()
    {
-      //   throw ::exception(error_not_implemented);;
+
       return false;
 
       /*
@@ -715,9 +695,10 @@ namespace macos
        */
    }
 
-   ::e_status os_context::start_service()
+
+   void os_context::start_service()
    {
-      //  throw ::exception(error_not_implemented);;
+      //  throw ::not_implemented();
       return false;
 
       /*
@@ -757,9 +738,9 @@ namespace macos
    }
 
 
-   ::e_status os_context::stop_service()
+   void os_context::stop_service()
    {
-      //    throw ::exception(error_not_implemented);;
+      //    throw ::not_implemented();
       return false;
 
       /*
@@ -805,63 +786,36 @@ namespace macos
    }
 
 
-   bool os_context::resolve_link(::file::path & pathTarget, const string & strSource, string * pstrFolder, string * pstrParams)
-   {
-      
-      auto pcontext = m_pcontext->m_papexcontext;
-
-      pathTarget = pcontext->defer_process_path(strSource);
-
-      pathTarget = m_psystem->m_pacmepath->_final(pathTarget);
-
-      while(pcontext->os_resolve_alias(pathTarget, pathTarget))
-      {
-
-         pathTarget = m_psystem->m_pacmepath->_final(pathTarget);
-
-      }
-
-      return true;
-
-   }
-
-
    void os_context::raise_exception( ::u32 dwExceptionCode, ::u32 dwExceptionFlags)
    {
 
-      throw ::exception(error_not_implemented);;
+      throw ::not_implemented();
       return;
       /*
        RaiseException( dwExceptionCode, dwExceptionFlags, 0, nullptr );
        */
    }
 
+
    bool os_context::is_remote_session()
    {
 
-//      throw ::exception(error_not_implemented);;
+//      throw ::not_implemented();
       return false;
       /*
        return GetSystemMetrics(SM_REMOTESESSION) != false;
        */
    }
 
-   int os_context::get_pid()
+
+   void os_context::post_to_all_threads(const ::atom & atom, wparam wparam, lparam lparam)
    {
 
-      return getpid();
+//      throw ::not_implemented();
+      return;
+
 
    }
-
-
-
-//   void os_context::post_to_all_threads(const ::id & id, wparam wparam, lparam lparam)
-//   {
-//
-////      throw ::exception(error_not_implemented);;
-//      return;
-//
-//   }
 
 
    bool os_context::initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch)
@@ -874,6 +828,9 @@ namespace macos
          //strDir = pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
          //imagefileset.add_search(strDir);
          string strDir;
+         strDir = "/Library/Wallpaper";
+         pfileset->add_search(strDir, true);
+
          strDir = "/Library/Desktop Pictures";
          pfileset->add_search(strDir, true);
 
@@ -883,421 +840,74 @@ namespace macos
 
    }
 
-   bool os_context::get_default_browser(string & strId, ::file::path & path, string & strParam)
-   {
-
-      path = ::macos::get_default_browser_path();
-
-      if(path.find_ci("chrome") >= 0)
-      {
-
-         strId = "chrome";
-
-      }
-      else if(path.find_ci("firefox") >= 0)
-      {
-
-         strId = "firefox";
-
-      }
-      else if(path.find_ci("commander") >= 0)
-      {
-
-         strId = "commander";
-
-      }
-      else
-      {
-
-         strId = "default";
-
-      }
-
-      return true;
-
-   }
-
-
-   bool os_context::set_default_browser()
-   {
-
-      ns_set_this_process_binary_default_browser();
-
-      return false;
-
-   }
-
-   ::file::path os_context::get_app_path(const string & strApp)
-   {
-
-      if(strApp.is_empty())
-      {
-
-         return "";
-
-      }
-
-      if(strApp.begins_ci("/Applications/"))
-      {
-
-         return strApp;
-
-      }
-
-      string strAppReturn;
-
-      if(strApp.compare_ci("chrome") == 0)
-      {
-
-         strAppReturn = "Google Chrome";
-
-      }
-      else
-      {
-
-         strAppReturn = strApp;
-
-      }
-
-      strAppReturn.set_at(0, ansi_toupper(strAppReturn[0]));
-
-      strAppReturn = "/Applications/" + strAppReturn;
-
-      if(!strAppReturn.ends_ci(".app"))
-      {
-
-         strAppReturn += ".app";
-
-      }
-      
-      auto pcontext = m_pcontext;
-
-      if(pcontext->m_papexcontext->dir().is(strAppReturn))
-      {
-
-         return strAppReturn;
-
-      }
-
-      strAppReturn = strApp;
-
-      strAppReturn = "/Applications/" + strAppReturn;
-
-      if(!strAppReturn.ends_ci(".app"))
-      {
-
-         strAppReturn += ".app";
-
-      }
-
-      return strAppReturn;
-
-   }
-
-
-   void os_context::on_process_command(::create * pcommand)
-   {
-
-//      __pointer(::handler) phandler = ::apex::get_system()->handler();
-
-      if(pcommand->m_pcommandline->m_strExe[0] == '/')
-      {
-
-         ::file::path p;
-         
-         auto psystem = m_psystem;
-         
-         auto pacmedirectory = psystem->m_pacmedirectory;
-
-         p = pacmedirectory->ca2roaming();
-
-         p /= "mypath" / pcommand->m_pcommandline->m_varQuery.propset()["app"].get_string() + ".txt";
-
-         m_psystem->m_pacmefile->put_contents(p, pcommand->m_pcommandline->m_strExe);
-
-         string strApp = pcommand->m_pcommandline->m_strExe;
-
-         strsize iFind = strApp.find_ci(".app/");
-
-         if(iFind > 0)
-         {
-
-            p = pacmedirectory->ca2roaming();
-
-            p /= "mypath" / pcommand->m_pcommandline->m_varQuery.propset()["app"].get_string() + "-app";
-
-            ::file::path p2;
-
-            p2 = pacmedirectory->ca2roaming();
-
-            p2 /= "mypath" / ::file::path(pcommand->m_pcommandline->m_varQuery.propset()["app"].get_string()).folder()/ ::file::path(strApp.Left(iFind + strlen(".app"))).name();
-
-            ns_create_alias(p2, strApp.Left(iFind + strlen(".app")));
-
-            if(pacmedirectory->is(pacmedirectory->localconfig() / "monitor-0/desk/2desk"))
-            {
-
-               ::file::path p3;
-
-               p3 = pacmedirectory->localconfig() / "monitor-0/desk/2desk" / ::file::path(strApp.Left(iFind + strlen(".app"))).name();
-
-               ns_create_alias(p3, strApp.Left(iFind + strlen(".app")));
-
-            }
-
-            m_psystem->m_pacmefile->put_contents(p, "open -a \""+strApp.Left(iFind + strlen(".app")) + "\"");
-
-            chmod(p, 0777);
-
-         }
-
-      }
-
-   }
-
-   void os_context::set_file_status(const ::string & lpszFileName, const ::file::file_status& status)
-   {
-
-
-//      ::u32 wAttr;
-//      FILETIME creationTime;
-//      FILETIME lastAccessTime;
-//      FILETIME lastWriteTime;
-//      LPFILETIME lpCreationTime = nullptr;
-//      LPFILETIME lpLastAccessTime = nullptr;
-//      LPFILETIME lpLastWriteTime = nullptr;
-//
-//      wstring wstr(lpszFileName);
-//
-//      if((wAttr = windows_get_file_attributes(wstr)) == (::u32)-1L)
-//      {
-//
-//         ::windows::file_exception::throw_os_error( (::i32)get_last_error());
-//
-//      }
-//
-//      if ((::u32)status.m_attribute != wAttr && (wAttr & ::windows::file::readOnly))
-//      {
-//
-//         // set file attribute, only if currently readonly.
-//         // This way we will be able to modify the time assuming the
-//         // caller changed the file from readonly.
-//
-//         if (!SetFileAttributesW(wstr, (::u32)status.m_attribute))
-//         {
-//
-//            ::windows::file_exception::throw_os_error( (::i32)get_last_error());
-//
-//         }
-//
-//      }
-//
-//      // last modification time
-//      if (status.m_mtime.get_time() != 0)
-//      {
-//
-//         ::windows::TimeToFileTime(get_application(), status.m_mtime, &lastWriteTime);
-//
-//         lpLastWriteTime = &lastWriteTime;
-//
-//      }
-//
-//      // last access time
-//      if (status.m_atime.get_time() != 0)
-//      {
-//
-//         ::windows::TimeToFileTime(get_application(),status.m_atime, &lastAccessTime);
-//
-//         lpLastAccessTime = &lastAccessTime;
-//
-//      }
-//
-//      // create time
-//      if (status.m_ctime.get_time() != 0)
-//      {
-//
-//         ::windows::TimeToFileTime(get_application(),status.m_ctime, &creationTime);
-//
-//         lpCreationTime = &creationTime;
-//
-//      }
-//
-//      HANDLE hFile = ::CreateFileW(wstr, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
-//
-//      if(hFile == INVALID_HANDLE_VALUE)
-//      {
-//
-//         ::windows::file_exception::throw_os_error( (::i32)::get_last_error());
-//
-//      }
-//
-//      if(!SetFileTime((HANDLE)hFile, lpCreationTime, lpLastAccessTime, lpLastWriteTime))
-//      {
-//
-//         ::windows::file_exception::throw_os_error( (::i32)::get_last_error());
-//
-//      }
-//
-//      if(!::CloseHandle(hFile))
-//      {
-//
-//         ::windows::file_exception::throw_os_error( (::i32)::get_last_error());
-//
-//      }
-//
-//      if ((::u32)status.m_attribute != wAttr && !(wAttr & ::windows::file::readOnly))
-//      {
-//
-//         if (!::SetFileAttributesW(wstr, (::u32)status.m_attribute))
-//         {
-//
-//            ::windows::file_exception::throw_os_error( (::i32)get_last_error());
-//
-//         }
-//
-//      }
-
-   }
-
 
    bool os_context::file_open(::file::path path, string strParams, string strFolder)
    {
-      
-      auto pcontext = m_pcontext;
 
-      path = pcontext->m_papexcontext->defer_process_path(path);
-      
-//      // pretend actually gonna open the file here to trigger
-//      // asking for file access permission
-//
-//      auto psystem = m_psystem->m_papexsystem;
-//
-//      auto preader = psystem->file().get_reader(path);
-
-      ns_fork(__routine([path]()
-      {
-
-         ns_open_file(path.c_str());
-
-      }));
-
-      return true;
-
-   }
-
-
-   ::e_status os_context::link_open(const ::string & strUrl, const ::string & strProfile)
-   {
-      
-      string strUrlCopy(strUrl);
-      
-      string strProfieCopy(strProfile);
+      path = get_context()->defer_process_path(path);
 
       ns_main_async(^
       {
 
-         ns_open_url(strUrlCopy.c_str());
+         ns_open_file(path.c_str());
 
       });
 
-      return success;
-
-   }
-
-
-   bool os_context::browse_folder(property_set &set)
-   {
-      
-      const char * pszStartDir = nullptr;
-
-      string strStartDir;
-
-      if(set.has_property("folder"))
-      {
-
-         strStartDir = set["folder"].get_file_path();
-
-         pszStartDir = strStartDir;
-
-      }
-      
-      auto psystem = m_psystem;
-
-      string strFolder = apple_browse_folder(psystem, pszStartDir, true);
-
-      if(strFolder.is_empty())
-      {
-
-         return false;
-
-      }
-
-      set["folder"] = strFolder;
-
       return true;
 
    }
 
 
-   bool os_context::browse_file_open(property_set &set)
-   {
-
-      const char * pszStartDir = nullptr;
-
-      string strStartDir;
-
-      if(set.has_property("folder"))
-      {
-
-         strStartDir =set["folder"].get_file_path();
-
-         pszStartDir = strStartDir;
-
-      }
-
-      bool bMulti = set["allow_multi_select"];
-      
-      auto psystem = m_psystem;
-
-      string_array straFileName = apple_browse_file_open(psystem, &pszStartDir, bMulti);
-
-      if(pszStartDir != nullptr && pszStartDir != strStartDir.c_str())
-      {
-
-         ::file::path pathFolder = ::file::path(::string_from_strdup((::string &) pszStartDir));
-
-         set["folder"] = pathFolder;
-
-      }
-
-      if(straFileName.is_empty())
-      {
-
-         return false;
-
-      }
+} // namespace ios
 
 
-      if(straFileName.get_count() == 1)
-      {
-
-         set["file_name"] = straFileName[0];
-
-      }
-      else
-      {
-
-         set["file_name"] = straFileName;
-
-      }
-
-      return true;
-
-   }
-
-} // namespace macos
 
 
+
+
+
+
+
+//
+//  macos_os.cpp
+//  apex
+//
+//  Created by Camilo Sasuke Tsumanuma on 2013-09-17.
+//
+//
+
+
+CLASS_DECL_APEX bool _istlead(i32 ch)
+{
+
+   return false;
+
+}
+
+
+
+
+
+
+
+
+int_bool GetCursorPos(POINT_I32 * lppointCursor)
+{
+
+   /*   HIPoint point_i32;
+
+   HICoordinateSpace space = kHICoordSpaceScreenPixel;
+
+   HIGetMousePosition(space, nullptr, &point);
+
+
+   lppointCursor->x = point.x;
+   lppointCursor->y = point.y;
+   */
+
+   return true;
+
+}
 
 
 

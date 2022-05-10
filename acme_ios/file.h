@@ -4,15 +4,15 @@
 class FileException;
 struct FileStatus;
 
+void CLASS_DECL_APEX vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
 
-void CLASS_DECL_ACME vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
-
-
-namespace macos
+namespace ios
 {
 
+   /////////////////////////////////////////////////////////////////////////////
+   // File - raw unbuffered disk file I/O
 
-   class CLASS_DECL_ACME file :
+   class CLASS_DECL_APEX file :
       virtual public ::file::file
    {
    public:
@@ -30,7 +30,6 @@ namespace macos
          archive =   0x20
          
       };
-      
 
       enum
       {
@@ -38,7 +37,6 @@ namespace macos
          hFileNull = -1
 
       };
-      
 
       enum BufferCommand
       {
@@ -50,53 +48,58 @@ namespace macos
 
       };
 
-      
+      zip::util *    m_pziputil;
       string         m_strFileName;
+      wstring        m_wstrFileName;
       i32            m_iFile;
-      i32            m_iPutCharacterBack;
 
 
       file();
-      ~file() override;
+      virtual ~file();
 
 
       void assert_ok() const override;
       void dump(dump_context & dumpcontext) const override;
 
+      //virtual bool has_write_mode() override;
 
-      filesize get_position() const override;
+      virtual filesize get_position() const override;
+      virtual bool get_status(::file::file_status & status) const override;
+      virtual ::file::path get_file_path() const override;
+      virtual void set_file_path(const ::file::path & path) override;
 
+      virtual ::extended::status open(const ::file::path & path, const ::file::e_open & eopen) override;
 
-      bool get_status(::file::file_status & status) const override;
-      ::file::path get_file_path() const override;
-      void set_file_path(const ::file::path & path)override;
+      virtual filesize seek(filesize uiCount, ::enum_seek eseek) override;
+      virtual void set_size(filesize uiCount) override;
+      virtual filesize get_size() const override;
 
-      ::extended::status open(const ::file::path & lpszFileName, const ::file::e_open & eopenflags)override;
+      virtual memsize read(void * pbuffer, memsize uiCount) override;
+      virtual void write(const void * pbuffer, memsize uiCount) override;
 
-      filesize translate(filesize offset, ::enum_seek nFrom)override;
-      void set_size(filesize dwNewLen)override;
-      filesize get_size() const override;
+      virtual void lock(filesize pos, filesize uiCount) override;
+      virtual void unlock(filesize pos, filesize uiCount) override;
 
-      memsize read(void * lpBuf, memsize nCount)override;
-      void write(const void * lpBuf, memsize nCount)override;
+      virtual void flush() override;
+      virtual void close() override;
 
-      void lock(filesize dwPos, filesize dwCount)override;
-      void unlock(filesize dwPos, filesize dwCount)override;
+      virtual bool is_opened() const override;
 
-      //virtual void Abort();
-      void flush() override;
-      void close() override;
-
-      bool is_opened() const override;
-//      virtual u64 GetBufferPtr(::u32 nCommand, u64 nCount = 0, void ** ppBufStart = nullptr, void ** ppBufMax = nullptr);
-
-      int put_character_back(int iCharacter) override;
-      
 
    };
 
 
-} // namespace macos
-
-
-
+//   namespace file_exception
+//   {
+//
+//
+//      void os_error_to_exception(::i32 lOsError);
+//      void err_no_to_exception(i32 nErrno);
+//      void throw_os_error(::object * pobject, ::i32 lOsError, const char * lpszFileName = nullptr);
+//      void throw_err_no(::object * pobject, i32 nErrno, const char * lpszFileName = nullptr);
+//
+//
+//   }  // namespace file_exception
+//
+//
+} // namespace ios

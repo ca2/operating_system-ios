@@ -19,6 +19,10 @@
 //#define _POSIX_C_SOURCE 200809L
 //#define index __ancient_posix_c_source_index
 
+#define PARALLELIZATION_PTHREAD
+
+#define CDECL
+
 #define WCHAR_T_SIZE 32
 
 #define OPERATING_SYSTEM_NAMESPACE ios
@@ -27,6 +31,8 @@
 #define DEBUG 1
 #endif
 
+#define OPERATING_SYSTEM_NAME "ios"
+#define OPERATING_SYSTEM_NAMESPACE ios
 
 //#ifdef __cplusplus
 //typedef wchar_t unichar;

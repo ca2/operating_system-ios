@@ -6,6 +6,9 @@
 
 
 #define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES 0
+//#define _POSIX_C_SOURCE 200809L
+#define index __ancient_bsd_source_index
+#define wait __ancient_bsd_source_wait
 
 
 #include <stdlib.h>
@@ -25,8 +28,11 @@
 
 #include <new>
 
+#include <concepts>
+
 
 #endif
+
 
 #ifdef __OBJC__
 
@@ -43,32 +49,16 @@
 #endif
 
 
-struct device_context;
-struct gdi_object;
 
-
-typedef struct device_context * HDC;
-typedef struct gdi_object * HGDIOBJ;
-
-
-#define DECL_SPEC_ANY
-
-
-
-#ifdef DEBUG
-#undef DEBUG
-#define DEBUG 1
-#else
-#define DEBUG 0
-#endif
-
-
-#if DEBUG
-#undef DEBUG
-#define DEBUG
-#else
-#undef DEBUG
-#endif
+////#include <Carbon/Carbon.h>
+//
+//
+//#if DEBUG
+//#undef DEBUG
+//#define DEBUG
+//#else
+//#undef DEBUG
+//#endif
 
 
 
@@ -78,8 +68,9 @@ typedef struct gdi_object * HGDIOBJ;
 
 
 
-inline void debug_break() { __asm("int $3"); }
+//inline void debug_break() { __asm("int $3"); }
 
+//void debug_break();
 
 #define TRUE 1
 #define FALSE 0
@@ -105,7 +96,7 @@ inline void debug_break() { __asm("int $3"); }
 
 #define _WCHAR_T_DEFINED
 
-#ifdef DEBUG
+#ifdef _DEBUG
 
 #define RELEASENOTHROW
 
@@ -130,7 +121,7 @@ typedef void * PVOID;
 #define _strcmpi strcasecmp
 
 
-#include <pthread.h>
+//#include <pthread.h>
 
 
 
@@ -148,6 +139,7 @@ typedef wchar_t            unichar32;
 
 #define strnicmp strncasecmp
 #define stricmp strcasecmp
+#define _strdup strdup
 
 
 
@@ -168,9 +160,26 @@ typedef ::std::type_info std_type_info;
 #include <malloc/malloc.h>
 
 #include <sys/types.h>
-#include <time.h>
+//#include <time.h>
 
 #define __time_t time_t
 
 
 #include <netinet/in.h>
+
+
+#define timespec_get mach_timespec_get
+
+
+int mach_timespec_get(timespec * ptimespec, int);
+
+
+#define INFINITE_TIMEOUT UINT_MAX
+
+
+#undef index
+#undef wait
+
+
+
+

@@ -17,7 +17,7 @@
 #define CUBE // 21 de Julho de 2017, ThomasBS-LiveEdu.TV
 
 //#define _POSIX_C_SOURCE 200809L
-#define index __ancient_posix_c_source_index
+//#define index __ancient_posix_c_source_index
 
 #define WCHAR_T_SIZE 32
 
@@ -61,11 +61,11 @@
 
 
 
+
 #define CLASS_DECL_IMPORT
 #define CLASS_DECL_EXPORT
 #define CLASS_DECL_THREAD __thread
-
-
+#define __FACTORY_EXPORT extern "C"
 
 
 #ifdef __cplusplus
@@ -87,12 +87,14 @@
 #define AXIS_FREEIMAGE
 
 
-#define FONT_SANS "Helvetica"
-#define FONT_SERIF "Times"
-#define FONT_SANS_EX "Arial"
-#define FONT_SERIF_EX "Times New Roman"
-#define FONT_SANS_FX "Verdana"
-#define FONT_SERIF_FX "Georgia"
+#define FONT_SANS "Arial"
+#define FONT_SERIF "Times New Roman"
+#define FONT_SANS_EX "Geneva"
+#define FONT_SERIF_EX "Georgia"
+#define FONT_SANS_FX "Futura"
+#define FONT_SERIF_FX "Palatino"
+#define FONT_SANS_UI "Helvetica"
+#define FONT_SERIF_UI "Times"
 #define FONT_MONO "Menlo"
 
 

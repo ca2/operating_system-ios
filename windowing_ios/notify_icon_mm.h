@@ -11,8 +11,8 @@
 
 
 #import <Foundation/Foundation.h>
-#import <Cocoa/Cocoa.h>
-#import <ApplicationServices/ApplicationServices.h>
+//#import <Cocoa/Cocoa.h>
+//#import <ApplicationServices/ApplicationServices.h>
 #include "apex/user/notify_icon_bridge.h"
 
 

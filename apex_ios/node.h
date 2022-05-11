@@ -9,35 +9,31 @@
 #pragma once
 
 
-namespace apex
+namespace apex_ios
 {
 
 
-   namespace macos
+   class CLASS_DECL_APEX_MACOS node :
+      virtual public ::apex_apple::node,
+      virtual public ::acme_ios::node
    {
+   public:
 
 
-      class CLASS_DECL_APEX_MACOS node :
-         virtual public ::apex::apple::node,
-         virtual public ::acme::macos::node
-      {
-      public:
+      node();
+      ~node() override;
+
+      
+      int node_init_check(int * pi, char *** ppz) override;
+      
+      
+      string app_id_to_executable_name(const string & strAppId) override;
 
 
-         node();
-         virtual ~node();
-
-         
-         string app_id_to_executable_name(const string & strAppId) override;
+   };
 
 
-      };
-
-
-   } // namespace macos
-
-
-} // namespace apex
+} // namespace apex_ios
 
 
 

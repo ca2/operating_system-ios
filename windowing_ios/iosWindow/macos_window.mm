@@ -38,7 +38,7 @@ void * new_macos_window(macos_window * pmacoswindow, CGRect rect, unsigned int u
    
    pmacoswindow->m_pmacoswindow->m_pmacoswindow = pmacoswindow;
    
-   //__block RoundWindow * proundwindow;
+   //__block iosWindow * pioswindow;
    
    ns_main_sync(^()
    {
@@ -429,9 +429,9 @@ void macos_window::macos_window_redraw()
       
    }
    
-   auto proundwindow = m_pmacoswindow;
+   auto pioswindow = m_pmacoswindow;
    
-   if(proundwindow)
+   if(pioswindow)
    {
 
    ns_main_async(^
@@ -439,10 +439,10 @@ void macos_window::macos_window_redraw()
                     
                    // m_bDirty = true;
                     
-                    if(proundwindow)
+                    if(pioswindow)
                     {
                     
-                       [proundwindow->m_pviewChildContent setNeedsDisplay:TRUE];
+                       [pioswindow->m_pviewChildContent setNeedsDisplay:TRUE];
                        
                     }
    

@@ -12,7 +12,7 @@ namespace acme_ios
 {
 
       class CLASS_DECL_ACME node :
-         virtual public ::acme::apple::node
+         virtual public ::acme_apple::node
       {
       public:
 
@@ -31,7 +31,7 @@ namespace acme_ios
                
             }
             
-            ::e_status run() override;
+            void run() override;
             
             
          };
@@ -48,38 +48,38 @@ namespace acme_ios
          ::string get_file_type_identifier(const char * path) override;
          
          
-         ::e_status call_async(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, bool bPrivileged, unsigned int * puiPid = nullptr) override;
-         ::e_status call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const ::duration & durationTimeout, ::property_set & set) override;
+         void call_async(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, bool bPrivileged, unsigned int * puiPid = nullptr) override;
+         void call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const ::duration & durationTimeout, ::property_set & set) override;
 
          //virtual ::color::color get_system_color(enum_system_color esystemcolor) override;
          
          virtual bool _os_calc_system_dark_mode();
         
 
-         virtual int node_init_check(int * pi, char *** ppz) override;
+         int node_init_check(int * pi, char *** ppz) override;
 
          //virtual ::e_status start_node();
 
          //override;
 
-         virtual ::e_status initialize(::object * pobject) override;
+         void initialize(::object * pobject) override;
          
          void node_quit() override;
 
    
 
-         virtual ::e_status install_sigchld_handler() override;
+         void install_sigchld_handler() override;
 
-         ::e_status _launch_macos_app(const ::string & pszAppFolder) override;
-
-         ::e_status _launch_macos_app_args(const ::string & pszAppFolder, const ::string & pszArgs) override;
-
-         ::e_status launch_app(const ::string & psz, const char ** argv, int iFlags) override;
+//         ::e_status _launch_macos_app(const ::string & pszAppFolder) override;
+//
+//         ::e_status _launch_macos_app_args(const ::string & pszAppFolder, const ::string & pszArgs) override;
+//
+//         ::e_status launch_app(const ::string & psz, const char ** argv, int iFlags) override;
          
          
          virtual int _create_process2(const char * _cmd_line, u32 * pprocessId);
          
-         ::e_status create_process(const ::string & pszCommandLine, u32 * pprocessId) override;
+//         ::e_status create_process(const ::string & pszCommandLine, u32 * pprocessId) override;
          
          bool process_modules(string_array& stra, u32 processID) override;
 

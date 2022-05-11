@@ -262,7 +262,7 @@ namespace windowing_macos
 
             ProcessSerialNumber psn = { 0, kCurrentProcess };
             
-            TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+            TransformProcessType(&psn, kProcessTransformToForegiosApplication);
                
             });
          }

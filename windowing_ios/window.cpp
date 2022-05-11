@@ -9,8 +9,8 @@
 #include "framework.h"
 #include "window_impl.h"
 ///#include "oswindow_data.h"
-#include "aura/user/interaction_prodevian.h"
-#include "acme/node/operating_system/_user.h"
+#include "aura/user/user/interaction_prodevian.h"
+#include "acme/operating_system/_user.h"
 #include "acme/parallelization/message_queue.h"
 #include <CoreGraphics/CoreGraphics.h>
 
@@ -21,10 +21,10 @@ void * ns_get_cursor();
 
 #define WHEEL_DELTA 120
 
-void * new_macos_window(macos_window * papexwindow, CGRect rect, unsigned int uStyle);
+void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -60,9 +60,9 @@ namespace windowing_macos
       ns_main_sync(^{
          
          
-         ::macos_window::macos_window_hide();
+         ::ios_window::ios_window_hide();
          
-         ::macos_window::macos_window_destroy();
+         ::ios_window::ios_window_destroy();
          
          
       });
@@ -361,7 +361,7 @@ namespace windowing_macos
    }
 
 
-   ::e_status window::set_foreground_window()
+   ::e_status window::set_foregios_window()
    {
       
       macos_window_order_front();
@@ -1836,7 +1836,7 @@ namespace windowing_macos
 
             puserinteraction->order(::e_zorder_top);
 
-            puserinteraction->display(e_display_default, e_activation_set_foreground);
+            puserinteraction->display(e_display_default, e_activation_set_foregios);
 
          }
          else if(puserinteraction->m_pimpl2 && puserinteraction->m_pimpl2->m_durationLastExposureAddUp.elapsed() < 300_ms)
@@ -2113,7 +2113,7 @@ namespace windowing_macos
    }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

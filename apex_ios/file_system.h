@@ -20,10 +20,10 @@ namespace apex_ios
       ~file_system() override;
 
       
-      virtual void initialize(::object * pobject) override;
+      void initialize(::object * pobject) override;
       
 
-      virtual void update_module_path() override;
+//      virtual void update_module_path() override;
       
       
       

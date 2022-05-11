@@ -3,6 +3,7 @@
 #include "acme/constant/activate.h"
 #include "acme/constant/button_state.h"
 #include "aura/message.h"
+#include "aura/graphics/graphics/_graphics.h"
 
 
 #define WHEEL_DELTA 120
@@ -10,15 +11,15 @@
 
 void deactivate_window(oswindow window);
 
-
-struct __CTLCOLOR
-{
-
-   oswindow hWnd;
-   HDC hDC;
-   ::u32 nCtlType;
-
-};
+//
+//struct __CTLCOLOR
+//{
+//
+//   oswindow hWnd;
+//   HDC hDC;
+//   ::u32 nCtlType;
+//
+//};
 
 
 // int_bool PeekMessage(MESSAGE * lpMsg, oswindow hWnd, ::u32 wMsgFilterMin, ::u32 wMsgFilterMax, ::u32 wRemoveMsg);
@@ -32,7 +33,7 @@ struct __CTLCOLOR
 #define TEST 0
 
 
-namespace macos
+namespace aura_ios
 {
 
 
@@ -263,7 +264,7 @@ namespace macos
 //   }
 //
 
-   ::e_status interaction_impl::update_graphics_resources()
+   void interaction_impl::update_graphics_resources()
    {
       
       if(m_pgraphics.is_null())
@@ -271,53 +272,59 @@ namespace macos
    
 //         auto estatus = __compose(m_pgraphics, __new(::graphics::multiple_buffer));
   
-         auto estatus = __compose(m_pgraphics, __new(::graphics::double_buffer));
+         ///auto estatus =
+         ///
+         __compose(m_pgraphics, __new(::graphics::double_buffer));
          
-         if(!estatus)
-         {
-         
-            return estatus;
-         
-         }
+//         if(!estatus)
+//         {
+//
+//            return estatus;
+//
+//         }
 
-         estatus = m_pgraphics->initialize_graphics_graphics(this);
+        // estatus =
+         m_pgraphics->initialize_graphics_graphics(this);
       
-         if(!estatus)
-         {
-      
-            return estatus;
-         
-         }
-         
-         return ::success;
-   
+//         if(!estatus)
+//         {
+//
+//            return estatus;
+//
+//         }
+//
+//         return ::success;
+//
       }
       
-      return ::success_none;
+      //return ::success_none;
       
    }
 
 
-   bool interaction_impl::destroy_impl_only()
+   void interaction_impl::destroy_impl_only()
    {
       
-      return false;
+      //return false;
       
    }
 
 
-   bool interaction_impl::start_destroying_window()
+   void interaction_impl::start_destroying_window()
    {
       
-      if(!::user::interaction_impl::start_destroying_window())
-      {
-         
-         return false;
-         
-      }
-   
-      return true;
-   
+      //if(!
+      ::user::interaction_impl::start_destroying_window();
+      
+//      )
+//      {
+//
+//         return false;
+//
+//      }
+//
+//      return true;
+//
    }
 
 
@@ -1392,7 +1399,7 @@ bool interaction_impl::_is_window() const
                  // what forces, at the end of message processing, setting the bergedge cursor to the default cursor, if no other
                  // handler has set it to another one.
 
-                 m_puserinteraction->m_pimpl2->_on_mouse_move_step(pmouse->m_point);
+                 m_puserinteraction->m_pinteractionimpl->_on_mouse_move_step(pmouse->m_point);
 
               }
 
@@ -3267,21 +3274,21 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   bool interaction_impl::LockWindowUpdate()
-   {
-
-      throw ::exception(error_not_implemented);
-
-   }
-
-
-   void interaction_impl::UnlockWindowUpdate()
-   {
-
-      throw ::exception(error_not_implemented);
-
-   }
-
+//   bool interaction_impl::LockWindowUpdate()
+//   {
+//
+//      throw ::exception(error_not_implemented);
+//
+//   }
+//
+//
+//   void interaction_impl::UnlockWindowUpdate()
+//   {
+//
+//      throw ::exception(error_not_implemented);
+//
+//   }
+//
 
    void interaction_impl::on_show_window()
    {
@@ -3416,14 +3423,14 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::rectangle_i32 & rectangle, ::u32 uFlags)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-      return false;
-
-   }
+//   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::rectangle_i32 & rectangle, ::u32 uFlags)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//      return false;
+//
+//   }
 
 
 //   bool interaction_impl::SetTimer(uptr uEvent, ::u32 nElapse, PFN_TIMER pfnTimer)
@@ -3450,14 +3457,14 @@ bool interaction_impl::_is_window() const
    }
 
 
-   bool interaction_impl::enable_window(bool bEnable)
-   {
-
-      m_bEnabled = bEnable;
-
-      return true;
-
-   }
+//   bool interaction_impl::enable_window(bool bEnable)
+//   {
+//
+//      m_bEnabled = bEnable;
+//
+//      return true;
+//
+//   }
 
 
 //   ::user::interaction *  interaction_impl::GetActiveWindow()
@@ -4756,19 +4763,19 @@ bool interaction_impl::_is_window() const
    }
 
 //   
-   ::e_status interaction_impl::on_destroy()
-   {
-      
-//      ::user::interaction_impl::set_destroying();
+//   ::e_status interaction_impl::on_destroy()
+//   {
+//      
+////      ::user::interaction_impl::set_destroying();
+//
+//      //::aura_window::m_bDestroying = true;
+//      
+//      return ::success;
+//
+//   }
 
-      //::aura_window::m_bDestroying = true;
-      
-      return ::success;
 
-   }
-
-
-} // namespace macos
+} // namespace aura_ios
 
 
 

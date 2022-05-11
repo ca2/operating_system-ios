@@ -140,7 +140,7 @@ namespace windowing_macos
       manual_reset_event ev;
       
       puserinteractionEnablePrompt->message_box("You gonna be prompted to enable Accessibility for \""+m_psystem->m_papplicationMain->m_strAppName+"\" to enable keyboard monitoring.",
-                     "Aura Click", e_message_box_ok)->then(
+                     "ios Click", e_message_box_ok)->then(
                                                            [this, &ev,puserinteractionEnablePrompt](auto & sequence)
                                                            {
                         
@@ -191,8 +191,8 @@ namespace windowing_macos
 //      if(estatus == error_need_restart_application_to_activate_feature)
 //      {
 // 
-//         message_box(puserinteractionEnablePrompt, "Restart Aura Click?\n\nIf you have just enabled Accessibility and want the setting to be effective, Aura Click should be restarted.",
-//                     "Aura Click", e_message_box_yes_no).then(
+//         message_box(puserinteractionEnablePrompt, "Restart ios Click?\n\nIf you have just enabled Accessibility and want the setting to be effective, ios Click should be restarted.",
+//                     "ios Click", e_message_box_yes_no).then(
 //                                                           [](auto & sequence)
 //                                                           {
 //                        

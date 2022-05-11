@@ -7,15 +7,15 @@
 #pragma once
 
 
-#include "aura_macos/_aura_macos.h"
+#include "aura_ios/_aura_ios.h"
 
 
-#include "macOSWindow/macos_window.h"
+#include "iosWindow/ios_window.h"
 
-
-rectangle_i32_array cg_get_window_rect_list_intersect_above(CGWindowID windowid);
-CGWindowID ns_get_window_id(void * pnswindow);
-
+//
+//rectangle_i32_array cg_get_window_rect_list_intersect_above(CGWindowID windowid);
+//CGWindowID ns_get_window_id(void * pnswindow);
+//
 
 #include "display.h"
 
@@ -29,10 +29,10 @@ CGWindowID ns_get_window_id(void * pnswindow);
 #include "monitor.h"
 
 
-#include "notify_icon_mm_bridge.h"
+//#include "notify_icon_mm_bridge.h"
 
 
-#include "notify_icon.h"
+//#include "notify_icon.h"
 
 
 #include "icon.h"

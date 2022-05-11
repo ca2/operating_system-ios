@@ -16,11 +16,11 @@ namespace apex_ios
 
 
       file_context();
-      virtual ~file_context();
+      ~file_context() override;
 
       virtual void initialize(::object * pobject) override;
       
-      virtual void update_module_path() override;
+      //virtual void update_module_path() override;
 
       virtual ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
       

@@ -9,9 +9,9 @@
 //#import <UIKit/UIKit.h>
 
 
-@class AuraWindowFrameView;
+@class iosWindowFrameView;
 
-@interface AuraWindowApp : UIResponder <UIApplicationDelegate, UIDocumentInteractionControllerDelegate>
+@interface iosWindowApp : UIResponder <UIApplicationDelegate, UIDocumentInteractionControllerDelegate>
 {
    
 @public
@@ -21,6 +21,6 @@
 }
 
 @property (strong, nonatomic) UIWindow * window;
-@property (strong, nonatomic) AuraWindowFrameView * impact;
+@property (strong, nonatomic) iosWindowFrameView * impact;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  RoundViewController.m
+//  iosViewController.m
 //  base
 //
 //  Created by Camilo Sasuke Tsumanuma on 14/05/14.
@@ -7,15 +7,15 @@
 //
 
 #import "_mm.h"
-#import "RoundEditView.h"
-#import "RoundTextView.h"
-#import "RoundTextPosition.h"
+#import "iosEditView.h"
+#import "iosTextView.h"
+#import "iosTextPosition.h"
 
-@interface RoundViewController ()
+@interface iosViewController ()
 
 @end
 
-@implementation RoundViewController
+@implementation iosViewController
 
 
 - (BOOL)shouldAutorotate
@@ -135,7 +135,7 @@
       childContentView.frame = rect;
 
       
-      m_pwindow->m_pwindow->round_window_resized(rect.size.width, rect.size.height);
+      m_pwindow->m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
       
    }
    catch (...)
@@ -149,14 +149,14 @@
    //
    //      rect.origin.y        = [[NSScreen mainScreen] frame ].size.height - (rect.origin.y + rect.size.height);
    //
-   //      m_pwindow->round_window_resized(rect);
+   //      m_pwindow->ios_window_resized(rect);
    
 }
 
 - (BOOL)canBecomeFirstResponder
 {
    
-//   aura_window * p = m_pwindow->m_pwindow;
+//   ios_window * p = m_pwindow->m_pwindow;
 //   
 //   return p->m_bCanBecomeFirstResponder;
    
@@ -167,7 +167,7 @@
 - (BOOL)becomeFirstResponder
 {
    
-   //aura_window * p = m_pwindow->m_pwindow;
+   //ios_window * p = m_pwindow->m_pwindow;
    
    //if(p->m_bCanBecomeFirstResponder)
    {
@@ -184,7 +184,7 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView * ) pimpact
 {
    
-   aura_window * p = m_pwindow->m_pwindow;
+   ios_window * p = m_pwindow->m_pwindow;
    
    if(p->m_bCanBecomeFirstResponder)
    {
@@ -204,7 +204,7 @@
    if(!self->m_pedit)
    {
 
-      self->m_pedit = [[RoundEditView alloc] initWithFrame:frame];
+      self->m_pedit = [[iosEditView alloc] initWithFrame:frame];
    
       [ self->childContentView addSubview: self->m_pedit];
 
@@ -243,9 +243,9 @@
 
       [ self->m_pedit replaceRange : prange withText : strText ];
 
-      beg = [ RoundTextPosition positionWithIndex : iSelBeg ];
+      beg = [ iosTextPosition positionWithIndex : iSelBeg ];
       
-      end = [ RoundTextPosition positionWithIndex : iSelEnd ];
+      end = [ iosTextPosition positionWithIndex : iSelEnd ];
 
       prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
 

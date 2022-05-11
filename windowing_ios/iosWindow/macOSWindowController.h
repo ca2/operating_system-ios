@@ -1,17 +1,17 @@
 //
-//  RoundWindowController.h
+//  iosWindowController.h
 //  base
 //
 //  Created by Camilo Sasuke Tsumanuma on 18/11/16.
 //
 //
 
-#ifndef RoundWindowController_h
-#define RoundWindowController_h
+#ifndef iosWindowController_h
+#define iosWindowController_h
 
 //
-//  RoundWindow.h
-//  RoundWindow
+//  iosWindow.h
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -23,18 +23,18 @@
 //  appreciated but not required.
 //
 
-//class RoundWindow;
+//class iosWindow;
 //
-//@interface RoundWindowController : NSWindowController
+//@interface iosWindowController : NSWindowController
 //{
 //@public
 //   
 //   
-//   RoundWindow * m_w;
+//   iosWindow * m_w;
 //   
 //   
 //}
 //
 //@end
 
-#endif /* RoundWindowController_h */
+#endif /* iosWindowController_h */

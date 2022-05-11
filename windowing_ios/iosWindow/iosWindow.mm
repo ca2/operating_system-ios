@@ -1,6 +1,6 @@
 //
-//  AuraWindow.m
-//  AuraWindow
+//  iosWindow.m
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -12,10 +12,10 @@
 //  appreciated but not required.
 //
 #import "_mm.h"
-#import "AuraWindowApp.h"
+#import "iosWindowApp.h"
 
 
-@implementation AuraWindow
+@implementation iosWindow
 
 
 //
@@ -41,7 +41,7 @@
 
    [self setBackgroundColor: [ UIColor whiteColor ] ];
 		
-   m_controller = [[RoundViewController alloc] init];
+   m_controller = [[iosViewController alloc] init];
    
    m_controller->m_pwindow = self;
 
@@ -55,7 +55,7 @@
    rect.origin.y = 0;
    rect.size = contentRect.size;
    
-   m_pwindow->round_window_resized(rect.size.width, rect.size.height);
+   m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
    
 	return self;
    
@@ -70,11 +70,11 @@
    bounds.origin.x = 0;
    bounds.origin.y = 0;
 
-	AuraWindowFrameView * frameView = [[AuraWindowFrameView alloc] initWithFrame : bounds] ;
+	iosWindowFrameView * frameView = [[iosWindowFrameView alloc] initWithFrame : bounds] ;
    
   	m_controller->childContentView = frameView;
    
-   frameView->m_roundwindow =  self;
+   frameView->m_ioswindow =  self;
    
    frameView->m_bShift = false;
    frameView->m_bControl = false;
@@ -88,9 +88,9 @@
    
    [m_controller.view addSubview: frameView];
    
-   AuraWindowApp * papp = (AuraWindowApp *) [[UIApplication sharedApplication] delegate];
+   iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
    
-   [papp setView: frameView];
+   papp.impact = frameView;
    
 }
 

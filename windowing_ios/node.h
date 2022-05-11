@@ -12,7 +12,7 @@ namespace windowing_macos
 
 
    class CLASS_DECL_WINDOWING_MACOS node :
-      virtual public ::aura::macos::node
+      virtual public ::aura_ios::node
    {
    public:
       
@@ -24,23 +24,23 @@ namespace windowing_macos
       void os_menu_item_enable(void * pitem, bool bEnable) override;
       void os_menu_item_check(void * pitem, bool bCheck) override;
 
-      ::e_status defer_create_main_menu(const string_array & straParent, const string_array & straMenu, const string_array & straId) override;
+      void defer_create_main_menu(const string_array & straParent, const string_array & straMenu, const string_array & straId) override;
       
-      ::e_status implement() override;
-      
-      
-      ::e_status _will_finish_launching() override;
+      //void implement() override;
       
       
-      ::e_status is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt) override;
+      void _will_finish_launching() override;
+      
+      
+      //bool is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt) override;
 
-      
-      ::e_status install_keyboard_hook(::matter * pmatterListener) override;
-      ::e_status uninstall_keyboard_hook(::matter * pmatterListener) override;
-
-      ::e_status install_mouse_hook(::matter * pmatterListener) override;
-      ::e_status uninstall_mouse_hook(::matter * pmatterListener) override;
-
+//
+//      void install_keyboard_hook(::matter * pmatterListener) override;
+//      void uninstall_keyboard_hook(::matter * pmatterListener) override;
+//
+//      void install_mouse_hook(::matter * pmatterListener) override;
+//      void uninstall_mouse_hook(::matter * pmatterListener) override;
+//
 
       
    };

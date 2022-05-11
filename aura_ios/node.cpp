@@ -6,96 +6,93 @@
 //  Copyright © 2021 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #include "framework.h"
+#include "aura/graphics/image/_image.h"
 
 
 bool macos_get_file_image(::image * pimage, const char * pszFilePath);
 bool macos_get_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
 
 
-namespace aura
+namespace aura_ios
 {
 
+   node::node()
+   {
    
-   namespace macos
+   }
+
+
+   node::~node()
+   {
+      
+   }
+
+
+   void node::initialize(::object * pobject)
+   {
+      
+      //auto estatus =
+      
+      ::aura_apple::node::initialize(pobject);
+      
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+      
+      //estatus =
+      
+      ::apex_ios::node::initialize(pobject);
+      
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+//      return estatus;
+      
+   }
+
+
+   ::image_pointer node::get_file_image_by_type_identifier(int iSize, const char * pszTypeIdentifier)
    {
 
-      
-      node::node()
-      {
-      
-      }
+      auto pimage = m_pcontext->context_image()->create_image( { iSize, iSize } );
 
-
-      node::~node()
-      {
-         
-      }
-   
-   
-      ::e_status node::initialize(::object * pobject)
-      {
-         
-         auto estatus = ::aura::apple::node::initialize(pobject);
-         
-         if(!estatus)
-         {
-          
-            return estatus;
-            
-         }
-         
-         estatus = ::apex::macos::node::initialize(pobject);
-         
-         if(!estatus)
-         {
-            
-            return estatus;
-            
-         }
-      
-         return estatus;
-         
-      }
-
-   
-      ::image_pointer node::get_file_image_by_type_identifier(int iSize, const char * pszTypeIdentifier)
+      if(!macos_get_file_image_by_type_identifier(pimage, pszTypeIdentifier))
       {
 
-         auto pimage = m_pcontext->context_image()->create_image( { iSize, iSize } );
-
-         if(!macos_get_file_image_by_type_identifier(pimage, pszTypeIdentifier))
-         {
-
-            return nullptr;
-
-         }
-
-         return pimage;
+         return nullptr;
 
       }
 
-   
-      ::image_pointer node::get_file_image(int iSize, const char * path)
+      return pimage;
+
+   }
+
+
+   ::image_pointer node::get_file_image(int iSize, const char * path)
+   {
+
+      auto pimage = m_pcontext->context_image()->create_image( { iSize, iSize } );
+
+      if(!macos_get_file_image(pimage, path))
       {
 
-         auto pimage = m_pcontext->context_image()->create_image( { iSize, iSize } );
-
-         if(!macos_get_file_image(pimage, path))
-         {
-
-            return nullptr;
-
-         }
-
-         return pimage;
+         return nullptr;
 
       }
 
-       
-   } // namespace macos
+      return pimage;
+
+   }
 
 
-} // namespace aura
+} // namespace aura_ios
 
 
 

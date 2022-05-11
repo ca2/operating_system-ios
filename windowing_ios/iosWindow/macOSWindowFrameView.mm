@@ -1,6 +1,6 @@
 //
-//  RoundWindowFrameView.m
-//  RoundWindow
+//  iosWindowFrameView.m
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -521,7 +521,7 @@
 }
 
 //
-//// from RoundWindow.mm
+//// from iosWindow.mm
 //
 ///*- (BOOL) acceptsFirstResponder
 //{
@@ -616,7 +616,7 @@ m_f = true; \
 //   ansi_concatenate(sz, "\n");
 //   ansi_concatenate(sz, "\n");
 //   ansi_concatenate(sz, "-----------------------------------------------------------------------------\n");
-//   sprintf(szFormat, "RoundWindowFrameView::keyDown : %s\n", [characters UTF8String]);
+//   sprintf(szFormat, "iosWindowFrameView::keyDown : %s\n", [characters UTF8String]);
 //   ansi_concatenate(sz, szFormat);
 //   ansi_concatenate(sz, "-----------------------------------------------------------------------------\n");
 //   ansi_concatenate(sz, "\n");
@@ -711,7 +711,7 @@ m_f = true; \
 //   ansi_concatenate(sz, "\n");
 //   ansi_concatenate(sz, "\n");
 //   ansi_concatenate(sz, "-----------------------------------------------------------------------------\n");
-//   sprintf(szFormat, "RoundWindowFrameView::keyUp : %s\n", [characters UTF8String]);
+//   sprintf(szFormat, "iosWindowFrameView::keyUp : %s\n", [characters UTF8String]);
 //   ansi_concatenate(sz, szFormat);
 //   ansi_concatenate(sz, "-----------------------------------------------------------------------------\n");
 //   ansi_concatenate(sz, "\n");

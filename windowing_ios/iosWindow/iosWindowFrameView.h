@@ -1,6 +1,6 @@
 //
-//  AuraWindowFrameView.h
-//  AuraWindow
+//  iosWindowFrameView.h
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -15,13 +15,13 @@
 
 #define NS_ROUND_WINDOW_FRAME_PADDING 0
 
-@class AuraWindow;
+@class iosWindow;
 
-@interface AuraWindowFrameView : UIView
+@interface iosWindowFrameView : UIView
 {
 @public
    
-   AuraWindow *     m_roundwindow;
+   iosWindow *     m_ioswindow;
    bool              m_bShift;
    bool              m_bControl;
    bool              m_bAlt;
@@ -39,7 +39,7 @@
 //@property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).
 //@property (nonatomic) NSRange nsMarkedTextRange; // Marked text range (for input method marked text).
 //@property (nonatomic) NSRange nselectedTextRange; // Selected text range.
-// @property (nonatomic) RoundPlainTextView *textView;
+// @property (nonatomic) iosPlainTextView *textView;
 // @property (nonatomic) NSMutableString *text;
 
 //- (CGRect)caretRectForIndex:(int)index;

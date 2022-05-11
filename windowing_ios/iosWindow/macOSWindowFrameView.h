@@ -1,6 +1,6 @@
 //
-//  RoundWindowFrameView.h
-//  RoundWindow
+//  iosWindowFrameView.h
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.

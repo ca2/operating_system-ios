@@ -1,22 +1,22 @@
 //
-//  RoundViewController.h
+//  iosViewController.h
 //  aura
 //
 //  Created by Camilo Sasuke Tsumanuma on 14/05/14.
 //
 //
 
-@class AuraWindowFrameView;
-@class RoundEditView;
+@class iosWindowFrameView;
+@class iosEditView;
 
-@interface RoundViewController : UIViewController < UITextViewDelegate >
+@interface iosViewController : UIViewController < UITextViewDelegate >
 {
 @public
    
    
-   AuraWindowFrameView   *   childContentView;
-   AuraWindow *              m_pwindow;
-   RoundEditView *            m_pedit;
+   iosWindowFrameView   *   childContentView;
+   iosWindow *              m_pwindow;
+   iosEditView *            m_pedit;
 
 }
 

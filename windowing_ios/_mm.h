@@ -7,34 +7,34 @@
 #pragma once
 
 
-#include "aura_macos/_mm.h"
+#include "aura_ios/_mm.h"
 
 
-#import "macOSWindow/macOSWindow.h"
+#import "iosWindow/iosWindow.h"
 
 
-#include "macOSWindow/macos_window.h"
+#include "iosWindow/ios_window.h"
 
 
 #include "_c_mm.h"
 
 
-void * new_macos_window(macos_window * papexwindow, CGRect rectangle, unsigned int uStyle);
+void * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
 
 
-#import "notify_icon_mm.h"
+//#import "notify_icon_mm.h"
 
 
-#import "notify_icon_mm_bridge.h"
+//#import "notify_icon_mm_bridge.h"
 
 
-#import "macOSWindow/macOSWindowFrameView.h"
+#import "iosWindow/iosWindowFrameView.h"
 
 
-#import "macOSWindow/macOSWindowApp.h"
+#import "iosWindow/iosWindowApp.h"
 
 
-#import "macOSWindow/macOSWindowController.h"
+#import "iosWindow/iosViewController.h"
 
 
 

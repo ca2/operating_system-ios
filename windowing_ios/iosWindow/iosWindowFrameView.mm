@@ -1,6 +1,6 @@
 //
-//  AuraWindowFrameView.m
-//  AuraWindow
+//  iosWindowFrameView.m
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -12,13 +12,13 @@
 //  appreciated but not required.
 //
 #import "_mm.h"
-#import "AuraWindowFrameView.h"
-#import "AuraWindowApp.h"
-#import "RoundTextPosition.h"
-#import "RoundTextRange.h"
+#import "iosWindowFrameView.h"
+#import "iosWindowApp.h"
+#import "iosTextPosition.h"
+#import "iosTextRange.h"
 
 
-@implementation AuraWindowFrameView
+@implementation iosWindowFrameView
 
 
 
@@ -39,7 +39,7 @@
 //      CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
 //      UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 //
-//      self.backgroundColor = color;
+//      self.backgiosColor = color;
       
    }
    
@@ -79,7 +79,7 @@
 - (void)mouseUp:(UIEvent *)event
 {
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
 //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
    CGPoint point;
@@ -96,7 +96,7 @@
    
    int y = H - point.y;
    
-   p->round_window_mouse_up(x, y);
+   p->ios_window_mouse_up(0, x, y);
    
    return;
    
@@ -106,7 +106,7 @@
 - (void)mouseMoved:(UIEvent *)event
 {
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
 //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
     
@@ -124,7 +124,7 @@
    
    int y = H - point.y;
    
-   p->round_window_mouse_moved(x, y);
+   p->ios_window_mouse_moved(x, y, 0);
    
    return;
    
@@ -134,7 +134,7 @@
 - (void)mouseDragged:(UIEvent *)event
 {
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
 //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
     
@@ -152,7 +152,7 @@
    
    int y = H - point.y;
    
-   p->round_window_mouse_dragged(x, y);
+   p->ios_window_mouse_dragged(x, y, 0);
    
    return;
    
@@ -169,7 +169,7 @@
 - (void)mouseDown:(UIEvent *)event
 {
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
 //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
    CGPoint point;
@@ -186,7 +186,7 @@
    
    int y = H - point.y;
    
-   p->round_window_mouse_down(x, y);
+   p->ios_window_mouse_down(0, x, y);
    
    return;
    
@@ -317,11 +317,11 @@
 -(void)on_text : (NSString *) text
 {
 
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    const char * pszText = [text UTF8String];
    
-   if(p->round_window_on_text(pszText, -1, -1))
+   if(p->ios_window_on_text(pszText, -1, -1))
          return;
    
 }
@@ -330,12 +330,12 @@
 -(void)on_sel : (UITextRange *) sel
 {
 
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    if(sel == NULL)
    {
 
-      p->round_window_on_sel_text(-1, -1);
+      p->ios_window_on_sel_text(-1, -1);
       
       return;
 
@@ -352,7 +352,7 @@
 //
 //   long iEnd = [self offsetFromPosition: beg toPosition: selend];
 
-//   p->round_window_on_sel_text(iBeg, iEnd);
+//   p->ios_window_on_sel_text(iBeg, iEnd);
    
 }
 
@@ -372,18 +372,18 @@
 
 //   ::user::e_key ekey = ::user::key_back;
 //
-//   aura_window * p = m_roundwindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
 //
-//   if(p->round_window_key_down(ekey))
+//   if(p->ios_window_key_down(ekey))
 //      return;
    // UITextView --> UIView
 //   [super deleteBackward];
 //
-//   aura_window * p = m_roundwindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
 //
 //   const char * pszText = [[self text] UTF8String];
 //
-//   if(p->round_window_on_text(pszText))
+//   if(p->ios_window_on_text(pszText))
 //      return;
    
 }
@@ -397,11 +397,11 @@
 - (void)keyDown:(UIEvent *)event
 {
    
-   ::user::e_key ekey = event_key(event);
+   ::user::enum_key ekey = event_key(event);
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
-   if(p->round_window_key_down(ekey))
+   if(p->ios_window_key_down(ekey))
       return;
    
    //   [super keyDown:event];
@@ -412,11 +412,11 @@
 - (void)keyUp:(UIEvent *)event
 {
    
-   ::user::e_key ekey = event_key(event);
+   ::user::enum_key ekey = event_key(event);
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
-   if(p->round_window_key_up(ekey))
+   if(p->ios_window_key_up(ekey))
       return;
    
    //   [super keyUp:event];
@@ -435,7 +435,7 @@
 - (void)flagsChanged:(UIEvent *)event
 {
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    //   if([event modifierFlags] & NSShiftKeyMask)
    {
@@ -445,7 +445,7 @@
          
          m_bShift = true;
          
-         if(p->round_window_key_down(::user::key_shift))
+         if(p->ios_window_key_down(::user::e_key_shift))
          {
             
             return;
@@ -460,7 +460,7 @@
       if(m_bShift)
       {
          m_bShift = false;
-         if(p->round_window_key_up(::user::key_shift))
+         if(p->ios_window_key_up(::user::e_key_shift))
             return;
       }
    }
@@ -470,7 +470,7 @@
       if(!m_bControl)
       {
          m_bControl = true;
-         if(p->round_window_key_down(::user::key_control))
+         if(p->ios_window_key_down(::user::e_key_control))
             return;
       }
    }
@@ -479,7 +479,7 @@
       if(m_bControl)
       {
          m_bControl = false;
-         if(p->round_window_key_up(::user::key_control))
+         if(p->ios_window_key_up(::user::e_key_control))
             return;
       }
    }
@@ -489,7 +489,7 @@
       if(!m_bAlt)
       {
          m_bAlt = true;
-         if(p->round_window_key_down(::user::key_alt))
+         if(p->ios_window_key_down(::user::e_key_alt))
             return;
       }
    }
@@ -498,7 +498,7 @@
       if(m_bAlt)
       {
          m_bAlt = false;
-         if(p->round_window_key_up(::user::key_alt))
+         if(p->ios_window_key_up(::user::e_key_alt))
             return;
       }
    }
@@ -576,7 +576,7 @@
    
    [super touchesBegan:touches withEvent:event];
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
@@ -596,12 +596,12 @@
          
          m_pointLastTouchBegan = point;
          
-         p->round_window_mouse_down(x, y);
+         p->ios_window_mouse_down(0, x, y);
          
          //         if(allTouchesEnded)
          //         {
          //
-         //            p->round_window_mouse_up(x, y);
+         //            p->ios_window_mouse_up(x, y);
          //
          //         }
          
@@ -617,13 +617,13 @@
 //
 //   CGPoint translation = [uiPanGestureRecognizer translationInView:self.superview];
 //
-//   aura_window * p = m_roundwindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
 //
 //   int x = m_pointLastTouchBegan.x + translation.x;
 //
 //   int y = m_pointLastTouchBegan.y + translation.y;
 //
-//   p->round_window_mouse_dragged(x, y);
+//   p->ios_window_mouse_dragged(x, y);
 //
 //}
 
@@ -633,7 +633,7 @@
    
    [super touchesMoved:touches withEvent:event];
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    if ([touches count] == 1)
    {
@@ -651,7 +651,7 @@
          
          m_pointLastTouchBegan = point;
          
-         p->round_window_mouse_moved(x, y);
+         p->ios_window_mouse_moved(0, x, y);
          
       }
       else
@@ -665,7 +665,7 @@
    else if([touches count] <= 0)
    {
       
-      p->round_window_mouse_up(m_pointLastTouchBegan.x, m_pointLastTouchBegan.y);
+      p->ios_window_mouse_up(0, m_pointLastTouchBegan.x, m_pointLastTouchBegan.y);
       
    }
    
@@ -679,7 +679,7 @@
    
    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    if ([touches count] == 1 && allTouchesEnded)
    {
@@ -702,7 +702,7 @@
          
          int y = point.y;
          
-         p->round_window_mouse_up(x, y);
+         p->ios_window_mouse_up(0, x, y);
          
       }
       else if ([touch tapCount] == 1)
@@ -722,7 +722,7 @@
          
          int y = point.y;
          
-         p->round_window_mouse_up(x, y);
+         p->ios_window_mouse_up(0, x, y);
          
       }
       else
@@ -746,7 +746,7 @@
    
    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
-   aura_window * p = m_roundwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    if ([touches count] == 1 && allTouchesEnded)
    {
@@ -770,7 +770,7 @@
          
          int y = point.y;
          
-         p->round_window_mouse_up(x, y);
+         p->ios_window_mouse_up(0, x, y);
          
       }
       //      else
@@ -790,18 +790,18 @@
 //- (void)drawLayer:(CALayer *)layer
 //        inContext:(CGContextRef)ctx;
 //{
-//   if(m_roundwindow == nil)
+//   if(m_ioswindow == nil)
 //      return;
 //
-//   aura_window * p = m_roundwindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
 //
 //   CGContextRef context = ctx;
 //
 //   CGContextSaveGState(context);
 //
-//   CGContextTranslateCTM(context, p->round_window_get_x(), p->round_window_get_y());
+//   CGContextTranslateCTM(context, p->ios_window_get_x(), p->ios_window_get_y());
 //
-//   p->round_window_draw(context);
+//   p->ios_window_draw(context);
 //
 //   CGContextRestoreGState(context);
 //
@@ -840,10 +840,10 @@
    
    int cy = rect.size.height;
    
-   if(m_roundwindow != nil)
+   if(m_ioswindow != nil)
    {
       
-      aura_window * p = m_roundwindow->m_pwindow;
+      ios_window * p = m_ioswindow->m_pwindow;
       
       if(orientation == UIInterfaceOrientationPortrait)
       {
@@ -860,13 +860,13 @@
       
       UIRectFill(rect);
       
-      int x = p->round_window_get_x();
+      int x = p->ios_window_get_x();
       
-      int y = p->round_window_get_y();
+      int y = p->ios_window_get_y();
       
       CGContextTranslateCTM(context, x, y);
       
-      p->round_window_draw(context, cx, cy);
+      p->ios_window_draw(context, rect.size);
       
    }
    
@@ -880,7 +880,7 @@
 @end
 
 
-::user::e_key event_key(UIEvent * event)
+::user::enum_key event_key(UIEvent * event)
 {
    /*
    if([event modifierFlags] & NSNumericPadKeyMask) // arrow keys have this mask
@@ -1113,7 +1113,7 @@
       
    }*/
    
-   return ::user::key_none;
+   return ::user::e_key_none;
    
 }
 

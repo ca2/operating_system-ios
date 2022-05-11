@@ -1,6 +1,6 @@
 //
-//  AuraWindow.h
-//  AuraWindow
+//  iosWindow.h
+//  iosWindow
 //
 //  Created by Matt Gallagher on 12/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -17,18 +17,18 @@
 ::user::enum_key event_key(UIEvent * event);
 
 
-class aura_window;
+class ios_window;
 
-@class RoundViewController;
+@class iosViewController;
 
 
-@interface AuraWindow : UIWindow
+@interface iosWindow : UIWindow
 {
 @public
    
    
-    aura_window            * m_pwindow;
-    RoundViewController    * m_controller;
+    ios_window            * m_pwindow;
+    iosViewController    * m_controller;
    
 }
 

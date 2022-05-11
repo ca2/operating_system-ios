@@ -1,10 +1,10 @@
 #pragma once
 
 
-class FileException;
-struct FileStatus;
-
-void CLASS_DECL_APEX vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
+//class FileException;
+//struct FileStatus;
+//
+//void CLASS_DECL_APEX vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
 
 namespace acme_ios
 {

@@ -1,12 +1,11 @@
 #pragma once
 
 
-namespace acme_macos
+namespace acme_ios
 {
 
 
    class stdio_file :
-      virtual public ::acme_macos::file,
       virtual public ::file::text_file
    {
    public:
@@ -16,7 +15,7 @@ namespace acme_macos
       
 
       stdio_file();
-      virtual ~stdio_file();
+      ~stdio_file() override;
       
 
       virtual void write_string(const char * lpsz);

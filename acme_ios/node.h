@@ -8,13 +8,8 @@
 #pragma once
 
 
-namespace acme
+namespace acme_ios
 {
-
-
-   namespace macos
-   {
-
 
       class CLASS_DECL_ACME node :
          virtual public ::acme::apple::node
@@ -121,10 +116,7 @@ namespace acme
       };
 
 
-   } // namespace apple
-
-
-} // namespace acme
+} // namespace acme_ios
 
 
 

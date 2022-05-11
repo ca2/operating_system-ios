@@ -20,7 +20,7 @@
 //}
 
 
-namespace ios
+namespace acme_ios
 {
 
 
@@ -719,7 +719,7 @@ namespace ios
    }
 
 
-} // namespace win
+} // namespace acme_ios
 
 
 #define _wcsdec(_cpc1, _cpc2) ((_cpc1)>=(_cpc2) ? nullptr : (_cpc2)-1)

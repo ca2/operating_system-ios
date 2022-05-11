@@ -25,7 +25,8 @@ bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const cha
       
    }
    
-   NSImage * image = [[NSWorkspace sharedWorkspace] iconForFile:strFilePath];
+   
+   UIImage * image = [[UIImage alloc] initWithContentsOfFile:strFilePath];;
    
    if(image == NULL)
    {
@@ -34,14 +35,7 @@ bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const cha
       
    }
    
-   NSRect r;
-   
-   r.origin.x = 0;
-   r.origin.y = 0;
-   r.size.width = cx;
-   r.size.height = cy;
-   
-   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
+   CGImageRef i = [image CGImage];
    
    bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
    
@@ -62,56 +56,66 @@ bool mm2_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, i
       
    }
    
-   NSImage * image = nullptr;
+   //UIImage * image = nullptr;
    
-   if(@available(macOS 11.0, *))
-   {
-      
-      UTType * ptype = [ UTType typeWithIdentifier: strTypeIdentifier ];
-
-      if(ptype == NULL)
-      {
-
-         return false;
-
-      }
-
-      image = [[ NSWorkspace sharedWorkspace ] iconForContentType: ptype];
+//
+//   NSString *extension = @"pptx"; // or something else
+//   NSString *dummyPath = [@"~/foo" stringByAppendingPathExtension:extension]; // doesn't exist
+//   NSURL *URL = [NSURL fileURLWithPath:dummyPath];
+//   UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+//   NSArray *systemIconImages = documentInteractionController.icons;
+//
+//   return systemIconImages;
+//   if(@available(macOS 11.0, *))
+//   {
+//
+//      UTType * ptype = [ UTType typeWithIdentifier: strTypeIdentifier ];
+//
+//      if(ptype == NULL)
+//      {
+//
+//         return false;
+//
+//      }
+//
+//      image = [[ NSWorkspace sharedWorkspace ] iconForContentType: ptype];
+//
+//      if(image == NULL)
+//      {
+//
+//         return false;
+//
+//      }
+//
+//   }
+//   else
+//   {
+//
+//      image = [[NSWorkspace sharedWorkspace] iconForFileType: strTypeIdentifier];
+//
+//   }
+//
+//   if(image == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   NSRect r;
+//
+//   r.origin.x = 0;
+//   r.origin.y = 0;
+//   r.size.width = cx;
+//   r.size.height = cy;
+//
+//   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
+//
+//   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
    
-      if(image == NULL)
-      {
-
-         return false;
-
-      }
-      
-   }
-   else
-   {
+   //return bOk;
    
-      image = [[NSWorkspace sharedWorkspace] iconForFileType: strTypeIdentifier];
-      
-   }
-   
-   if(image == NULL)
-   {
-      
-      return false;
-      
-   }
-
-   NSRect r;
-   
-   r.origin.x = 0;
-   r.origin.y = 0;
-   r.size.width = cx;
-   r.size.height = cy;
-   
-   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
-   
-   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
-   
-   return bOk;
+   return false;
    
 }
 

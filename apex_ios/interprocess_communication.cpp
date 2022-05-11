@@ -7,7 +7,7 @@
 
 
 
-namespace macos
+namespace apex_ios
 {
 
 
@@ -548,7 +548,7 @@ interprocess_communication_rx::~interprocess_communication_rx()
 //   }
 
 
-} // namespace interprocess_communication
+} // namespace apex_ios
 
 
 

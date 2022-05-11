@@ -70,7 +70,7 @@
 		9AA14E6E282A26B000B1621E /* notify_icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notify_icon.h; sourceTree = "<group>"; };
 		9AA14E6F282A26B000B1621E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9AA14E70282A26B000B1621E /* imm_client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imm_client.h; sourceTree = "<group>"; };
-		9AA14E71282A26B000B1621E /* _windowing_macos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _windowing_macos.h; sourceTree = "<group>"; };
+		9AA14E71282A26B000B1621E /* _windowing_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _windowing_ios.h; sourceTree = "<group>"; };
 		9AA14E72282A26B000B1621E /* copydesk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = copydesk.mm; sourceTree = "<group>"; };
 		9AA14E73282A26B000B1621E /* aaa_notify_icon_listener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_notify_icon_listener.h; sourceTree = "<group>"; };
 		9AA14E74282A26B000B1621E /* display.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = display.cpp; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 				9AA14EA2282A26B000B1621E /* _.h */,
 				9AA14E9A282A26B000B1621E /* _c_mm.h */,
 				9AA14E5F282A26B000B1621E /* _mm.h */,
-				9AA14E71282A26B000B1621E /* _windowing_macos.h */,
+				9AA14E71282A26B000B1621E /* _windowing_ios.h */,
 				9AA14E6B282A26B000B1621E /* aaa_imm_context.h */,
 				9AA14E7D282A26B000B1621E /* aaa_mm_oswindow.h */,
 				9AA14E73282A26B000B1621E /* aaa_notify_icon_listener.h */,
@@ -303,7 +303,7 @@
 		9AA14E0F282A188C00B1621E /* libaura_macos.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libaura_macos.dylib;
+			path = libaura_ios.a;
 			remoteRef = 9AA14E0E282A188C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

@@ -3,7 +3,7 @@
 #pragma once
 
 
-namespace macos
+namespace acme_ios
 {
 
 
@@ -75,7 +75,7 @@ namespace macos
    };
 
 
-} // namespace macos
+} // namespace acme_ios
 
 
 

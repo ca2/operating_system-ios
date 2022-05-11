@@ -60,17 +60,14 @@
 		9A7862A92650292A0034A0E1 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9AA14EAC282A282000B1621E /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA14EE1282A289D00B1621E /* simple_shell_launcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simple_shell_launcher.cpp; sourceTree = "<group>"; };
-		9AA14EE2282A289D00B1621E /* aaa_frame_window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_frame_window.cpp; sourceTree = "<group>"; };
 		9AA14EE3282A289D00B1621E /* thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
 		9AA14EE4282A289D00B1621E /* util.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		9AA14EE5282A289D00B1621E /* app.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = app.mm; sourceTree = "<group>"; };
-		9AA14EE6282A289D00B1621E /* aaa_copydesk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_copydesk.cpp; sourceTree = "<group>"; };
 		9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSPasteboard++.mm"; sourceTree = "<group>"; };
 		9AA14EE9282A289D00B1621E /* _mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
 		9AA14EEA282A289D00B1621E /* dir_system.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dir_system.cpp; sourceTree = "<group>"; };
 		9AA14EEB282A289D00B1621E /* dir_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dir_system.h; sourceTree = "<group>"; };
 		9AA14EEC282A289D00B1621E /* file.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = file.mm; sourceTree = "<group>"; };
-		9AA14EED282A289D00B1621E /* aaa_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_file.h; sourceTree = "<group>"; };
 		9AA14EEE282A289D00B1621E /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9AA14EEF282A289D00B1621E /* application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = application.h; sourceTree = "<group>"; };
 		9AA14EF0282A289D00B1621E /* dir_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dir_context.h; sourceTree = "<group>"; };
@@ -80,37 +77,31 @@
 		9AA14EF4282A289D00B1621E /* shell_macos_mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell_macos_mm.mm; sourceTree = "<group>"; };
 		9AA14EF5282A289D00B1621E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9AA14EF6282A289D00B1621E /* shell_launcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell_launcher.h; sourceTree = "<group>"; };
-		9AA14EF7282A289D00B1621E /* aaa_stdio_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_stdio_file.h; sourceTree = "<group>"; };
 		9AA14EF8282A289D00B1621E /* shell_launcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shell_launcher.cpp; sourceTree = "<group>"; };
 		9AA14EFC282A289E00B1621E /* launcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = launcher.h; sourceTree = "<group>"; };
-		9AA14EFD282A289E00B1621E /* aaa_stdio_file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_stdio_file.cpp; sourceTree = "<group>"; };
 		9AA14EFE282A289E00B1621E /* file_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_context.cpp; sourceTree = "<group>"; };
 		9AA14EFF282A289E00B1621E /* file_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_context.h; sourceTree = "<group>"; };
 		9AA14F00282A289E00B1621E /* thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		9AA14F01282A289E00B1621E /* keyboard copy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "keyboard copy.cpp"; sourceTree = "<group>"; };
 		9AA14F02282A289E00B1621E /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		9AA14F03282A289E00B1621E /* user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
-		9AA14F04282A289E00B1621E /* _apex_macos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _apex_macos.h; sourceTree = "<group>"; };
+		9AA14F04282A289E00B1621E /* _apex_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _apex_ios.h; sourceTree = "<group>"; };
 		9AA14F05282A289E00B1621E /* file_system.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_system.cpp; sourceTree = "<group>"; };
 		9AA14F06282A289E00B1621E /* os_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = os_context.h; sourceTree = "<group>"; };
 		9AA14F07282A289E00B1621E /* user.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = user.mm; sourceTree = "<group>"; };
-		9AA14F08282A289E00B1621E /* aaa_file2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_file2.cpp; sourceTree = "<group>"; };
 		9AA14F09282A289E00B1621E /* user.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = user.cpp; sourceTree = "<group>"; };
 		9AA14F0A282A289E00B1621E /* keyboard_mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = keyboard_mm.mm; sourceTree = "<group>"; };
 		9AA14F0B282A289E00B1621E /* interprocess_communication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interprocess_communication.cpp; sourceTree = "<group>"; };
 		9AA14F0C282A289E00B1621E /* small_ipca_channel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = small_ipca_channel.cpp; sourceTree = "<group>"; };
 		9AA14F0D282A289E00B1621E /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9AA14F0E282A289E00B1621E /* application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = application.cpp; sourceTree = "<group>"; };
-		9AA14F0F282A289E00B1621E /* aaa_copydesk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_copydesk.h; sourceTree = "<group>"; };
 		9AA14F11282A289E00B1621E /* watcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = watcher.h; sourceTree = "<group>"; };
 		9AA14F12282A289E00B1621E /* watcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = watcher.cpp; sourceTree = "<group>"; };
 		9AA14F13282A289E00B1621E /* keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard.cpp; sourceTree = "<group>"; };
-		9AA14F14282A289E00B1621E /* aaa_factory_exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_factory_exchange.h; sourceTree = "<group>"; };
 		9AA14F15282A289E00B1621E /* os_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = os_context.cpp; sourceTree = "<group>"; };
 		9AA14F16282A289E00B1621E /* file_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_system.h; sourceTree = "<group>"; };
 		9AA14F17282A289E00B1621E /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
 		9AA14F18282A289E00B1621E /* interprocess_communication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = interprocess_communication.h; sourceTree = "<group>"; };
-		9AA14F19282A289E00B1621E /* aaa_file2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_file2.h; sourceTree = "<group>"; };
 		9AA14F1A282A289E00B1621E /* mm_oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mm_oswindow.h; sourceTree = "<group>"; };
 		9AA14F1B282A289E00B1621E /* factory_exchange.cpp 04-25-39-594.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "factory_exchange.cpp 04-25-39-594.cpp"; sourceTree = "<group>"; };
 		9AA14F1C282A289E00B1621E /* dir_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dir_context.cpp; sourceTree = "<group>"; };
@@ -152,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				9A15A5EF264B54EE0080670E /* libapex_apple.dylib */,
-				9A8E9EC6282A32D9005FF778 /* libios_apex_apple.dylib */,
+				9A8E9EC6282A32D9005FF778 /* libios_apex_apple.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,7 +169,7 @@
 		9AA14EAD282A282000B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14EB2282A282000B1621E /* libacme_macos.dylib */,
+				9AA14EB2282A282000B1621E /* libacme_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,62 +177,53 @@
 		9AA14EE0282A289D00B1621E /* apex_ios */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14EE1282A289D00B1621E /* simple_shell_launcher.cpp */,
-				9AA14EE2282A289D00B1621E /* aaa_frame_window.cpp */,
-				9AA14EE3282A289D00B1621E /* thread.cpp */,
-				9AA14EE4282A289D00B1621E /* util.cpp */,
-				9AA14EE5282A289D00B1621E /* app.mm */,
-				9AA14EE6282A289D00B1621E /* aaa_copydesk.cpp */,
-				9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */,
+				9AA14F1D282A289E00B1621E /* _.h */,
+				9AA14F04282A289E00B1621E /* _apex_ios.h */,
+				9AA14F17282A289E00B1621E /* _factory.cpp */,
 				9AA14EE9282A289D00B1621E /* _mm.h */,
+				9AA14EE5282A289D00B1621E /* app.mm */,
+				9AA14F0E282A289E00B1621E /* application.cpp */,
+				9AA14EEF282A289D00B1621E /* application.h */,
+				9AA14F1C282A289E00B1621E /* dir_context.cpp */,
+				9AA14EF0282A289D00B1621E /* dir_context.h */,
 				9AA14EEA282A289D00B1621E /* dir_system.cpp */,
 				9AA14EEB282A289D00B1621E /* dir_system.h */,
-				9AA14EEC282A289D00B1621E /* file.mm */,
-				9AA14EED282A289D00B1621E /* aaa_file.h */,
-				9AA14EEE282A289D00B1621E /* framework.cpp */,
-				9AA14EEF282A289D00B1621E /* application.h */,
-				9AA14EF0282A289D00B1621E /* dir_context.h */,
-				9AA14EF1282A289D00B1621E /* mm_graphics.mm */,
-				9AA14EF2282A289D00B1621E /* node.cpp */,
-				9AA14EF3282A289D00B1621E /* trace.cpp */,
-				9AA14EF4282A289D00B1621E /* shell_macos_mm.mm */,
-				9AA14EF5282A289D00B1621E /* node.h */,
-				9AA14EF6282A289D00B1621E /* shell_launcher.h */,
-				9AA14EF7282A289D00B1621E /* aaa_stdio_file.h */,
-				9AA14EF8282A289D00B1621E /* shell_launcher.cpp */,
-				9AA14EFC282A289E00B1621E /* launcher.h */,
-				9AA14EFD282A289E00B1621E /* aaa_stdio_file.cpp */,
+				9AA14F1B282A289E00B1621E /* factory_exchange.cpp 04-25-39-594.cpp */,
 				9AA14EFE282A289E00B1621E /* file_context.cpp */,
 				9AA14EFF282A289E00B1621E /* file_context.h */,
-				9AA14F00282A289E00B1621E /* thread.h */,
-				9AA14F01282A289E00B1621E /* keyboard copy.cpp */,
-				9AA14F02282A289E00B1621E /* keyboard.h */,
-				9AA14F03282A289E00B1621E /* user.h */,
-				9AA14F04282A289E00B1621E /* _apex_macos.h */,
 				9AA14F05282A289E00B1621E /* file_system.cpp */,
-				9AA14F06282A289E00B1621E /* os_context.h */,
-				9AA14F07282A289E00B1621E /* user.mm */,
-				9AA14F08282A289E00B1621E /* aaa_file2.cpp */,
-				9AA14F09282A289E00B1621E /* user.cpp */,
-				9AA14F0A282A289E00B1621E /* keyboard_mm.mm */,
-				9AA14F0B282A289E00B1621E /* interprocess_communication.cpp */,
-				9AA14F0C282A289E00B1621E /* small_ipca_channel.cpp */,
-				9AA14F0D282A289E00B1621E /* framework.h */,
-				9AA14F0E282A289E00B1621E /* application.cpp */,
-				9AA14F0F282A289E00B1621E /* aaa_copydesk.h */,
-				9AA14F10282A289E00B1621E /* FileSystemEvents */,
-				9AA14F13282A289E00B1621E /* keyboard.cpp */,
-				9AA14F14282A289E00B1621E /* aaa_factory_exchange.h */,
-				9AA14F15282A289E00B1621E /* os_context.cpp */,
 				9AA14F16282A289E00B1621E /* file_system.h */,
-				9AA14F17282A289E00B1621E /* _factory.cpp */,
+				9AA14EEC282A289D00B1621E /* file.mm */,
+				9AA14F10282A289E00B1621E /* FileSystemEvents */,
+				9AA14EEE282A289D00B1621E /* framework.cpp */,
+				9AA14F0D282A289E00B1621E /* framework.h */,
+				9AA14F0B282A289E00B1621E /* interprocess_communication.cpp */,
 				9AA14F18282A289E00B1621E /* interprocess_communication.h */,
-				9AA14F19282A289E00B1621E /* aaa_file2.h */,
-				9AA14F1A282A289E00B1621E /* mm_oswindow.h */,
-				9AA14F1B282A289E00B1621E /* factory_exchange.cpp 04-25-39-594.cpp */,
-				9AA14F1C282A289E00B1621E /* dir_context.cpp */,
-				9AA14F1D282A289E00B1621E /* _.h */,
+				9AA14F01282A289E00B1621E /* keyboard copy.cpp */,
+				9AA14F0A282A289E00B1621E /* keyboard_mm.mm */,
+				9AA14F13282A289E00B1621E /* keyboard.cpp */,
+				9AA14F02282A289E00B1621E /* keyboard.h */,
 				9AA14F1E282A289E00B1621E /* launcher.cpp */,
+				9AA14EFC282A289E00B1621E /* launcher.h */,
+				9AA14EF1282A289D00B1621E /* mm_graphics.mm */,
+				9AA14F1A282A289E00B1621E /* mm_oswindow.h */,
+				9AA14EF2282A289D00B1621E /* node.cpp */,
+				9AA14EF5282A289D00B1621E /* node.h */,
+				9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */,
+				9AA14F15282A289E00B1621E /* os_context.cpp */,
+				9AA14F06282A289E00B1621E /* os_context.h */,
+				9AA14EF8282A289D00B1621E /* shell_launcher.cpp */,
+				9AA14EF6282A289D00B1621E /* shell_launcher.h */,
+				9AA14EF4282A289D00B1621E /* shell_macos_mm.mm */,
+				9AA14EE1282A289D00B1621E /* simple_shell_launcher.cpp */,
+				9AA14F0C282A289E00B1621E /* small_ipca_channel.cpp */,
+				9AA14EE3282A289D00B1621E /* thread.cpp */,
+				9AA14F00282A289E00B1621E /* thread.h */,
+				9AA14EF3282A289D00B1621E /* trace.cpp */,
+				9AA14F09282A289E00B1621E /* user.cpp */,
+				9AA14F03282A289E00B1621E /* user.h */,
+				9AA14F07282A289E00B1621E /* user.mm */,
+				9AA14EE4282A289D00B1621E /* util.cpp */,
 			);
 			name = apex_ios;
 			sourceTree = "<group>";
@@ -336,17 +318,17 @@
 			remoteRef = 9A15A5EE264B54EE0080670E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8E9EC6282A32D9005FF778 /* libios_apex_apple.dylib */ = {
+		9A8E9EC6282A32D9005FF778 /* libios_apex_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libios_apex_apple.dylib;
+			path = libios_apex_apple.a;
 			remoteRef = 9A8E9EC5282A32D9005FF778 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9AA14EB2282A282000B1621E /* libacme_macos.dylib */ = {
+		9AA14EB2282A282000B1621E /* libacme_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libacme_macos.dylib;
+			path = libacme_ios.a;
 			remoteRef = 9AA14EB1282A282000B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

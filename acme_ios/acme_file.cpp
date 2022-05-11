@@ -13,7 +13,7 @@
 string apple_app_module_path();
 
 
-namespace macos
+namespace acme_ios
 {
 
    
@@ -42,7 +42,7 @@ namespace macos
    }
 
 
-} // namespace macos
+} // namespace acme_ios
 
 
 char * ns_get_executable_path();

@@ -22,6 +22,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define platform_char char
+
 
 #ifdef __cplusplus
 

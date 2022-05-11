@@ -10,7 +10,7 @@
 
 
 #include "aura_apple/_mm.h"
-#include "apex_macos/_mm.h"
+#include "apex_ios/_mm.h"
 
 
 namespace windowing

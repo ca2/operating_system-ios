@@ -6,7 +6,7 @@ struct FileStatus;
 
 void CLASS_DECL_APEX vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
 
-namespace ios
+namespace acme_ios
 {
 
    /////////////////////////////////////////////////////////////////////////////
@@ -55,7 +55,7 @@ namespace ios
 
 
       file();
-      virtual ~file();
+      ~file() override;
 
 
       void assert_ok() const override;
@@ -64,26 +64,26 @@ namespace ios
       //virtual bool has_write_mode() override;
 
       virtual filesize get_position() const override;
-      virtual bool get_status(::file::file_status & status) const override;
-      virtual ::file::path get_file_path() const override;
-      virtual void set_file_path(const ::file::path & path) override;
+      bool get_status(::file::file_status & status) const override;
+      ::file::path get_file_path() const override;
+      void set_file_path(const ::file::path & path) override;
 
-      virtual ::extended::status open(const ::file::path & path, const ::file::e_open & eopen) override;
+      void open(const ::file::path & path, const ::file::e_open & eopen) override;
 
-      virtual filesize seek(filesize uiCount, ::enum_seek eseek) override;
-      virtual void set_size(filesize uiCount) override;
-      virtual filesize get_size() const override;
+      filesize translate(filesize uiCount, ::enum_seek eseek) override;
+      void set_size(filesize uiCount) override;
+      filesize get_size() const override;
 
-      virtual memsize read(void * pbuffer, memsize uiCount) override;
-      virtual void write(const void * pbuffer, memsize uiCount) override;
+      memsize read(void * pbuffer, memsize uiCount) override;
+      void write(const void * pbuffer, memsize uiCount) override;
 
-      virtual void lock(filesize pos, filesize uiCount) override;
-      virtual void unlock(filesize pos, filesize uiCount) override;
+      void lock(filesize pos, filesize uiCount) override;
+      void unlock(filesize pos, filesize uiCount) override;
 
-      virtual void flush() override;
-      virtual void close() override;
+      void flush() override;
+      void close() override;
 
-      virtual bool is_opened() const override;
+      bool is_opened() const override;
 
 
    };
@@ -102,4 +102,4 @@ namespace ios
 //   }  // namespace file_exception
 //
 //
-} // namespace ios
+} // namespace acme_ios

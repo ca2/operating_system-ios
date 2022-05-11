@@ -27,7 +27,7 @@
 
 - (id)get;
 
-- (void)get_user_wallpaper:(void **)charpp forScreen:(NSScreen *) s;
+- (void)get_user_wallpaper:(void **)charpp forScreen:(UIScreen *) s;
 
 - (void)get_user_wallpaper:(void *)charppp getCount:(void *) pll;
 

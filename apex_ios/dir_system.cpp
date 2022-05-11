@@ -2,7 +2,7 @@
 #include "_ios.h"
 
 
-namespace ios
+namespace apex_ios
 {
 
 
@@ -37,7 +37,7 @@ namespace ios
    }
 
 
-} // namespace ios
+} // namespace apex_ios
 
 
 

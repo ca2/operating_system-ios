@@ -6,7 +6,7 @@
 bool _ui_library_dir(char * psz, unsigned int * puiSize);
 
 
-namespace ios
+namespace apex_ios
 {
 
 
@@ -755,7 +755,7 @@ pacmedirectory->is(stra[i]))
    }
 
 
-} // namespace ios
+} // namespace apex_ios
 
 
 

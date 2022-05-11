@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace ios
+namespace apex_ios
 {
    
    
@@ -79,7 +79,7 @@ namespace ios
    };
    
    
-} // namespace ios
+} // namespace apex_ios
 
 
 

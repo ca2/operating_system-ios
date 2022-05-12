@@ -1,8 +1,9 @@
 //
 //  display.cpp
-//  windowing_macos
+//  windowing_ios
 //
 //  Created by Camilo Sasuke on 27/05/21 19:43 BRT <3ThomasBS_!!
+//  From windowing_macos by camilo on 2022-05-11 16:10 <3ThomasBorregaardSorensen!
 //
 #include "framework.h"
 
@@ -10,7 +11,7 @@
 int ns_monitor_count();
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -37,6 +38,6 @@ namespace windowing_macos
    }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 

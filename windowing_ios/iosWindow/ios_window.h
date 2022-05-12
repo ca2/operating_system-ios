@@ -45,18 +45,18 @@ bool m_bDirty;
    virtual bool ios_window_on_text(const char * pszText, long iSel, long iEnd) = 0;
    virtual bool ios_window_on_sel_text(long iBeg, long iEnd) = 0;
    
-   virtual int ios_window_get_x() = 0;
-   virtual int ios_window_get_y() = 0;
+   //virtual int ios_window_get_x() = 0;
+   //virtual int ios_window_get_y() = 0;
    virtual long ios_window_edit_hit_test(int x, int y) = 0;
    virtual bool ios_window_edit_caret_rect(CGRect * prectangle, long iSel) = 0;
    
    virtual void ios_window_resized(int cx, int cy) = 0;
    virtual void ios_window_moved(CGPoint point_i32) = 0;
 
-   virtual void ios_window_become_key() = 0;
+   virtual void ios_window_did_become_key() = 0;
 
-   virtual void ios_window_activate() = 0;
-   virtual void ios_window_deactivate() = 0;
+   virtual void ios_window_on_activate() = 0;
+   virtual void ios_window_on_deactivate() = 0;
    
    virtual void ios_window_on_show() = 0;
    virtual void ios_window_on_hide() = 0;
@@ -68,6 +68,8 @@ bool m_bDirty;
    virtual void ios_window_hide();
    virtual void ios_window_redraw();
    virtual void ios_window_redraw_sync();
+   
+   virtual void ios_window_get_frame(CGRect * prect);
    
    virtual void ios_window_show_keyboard(bool bShow = true);
    
@@ -85,6 +87,7 @@ bool m_bDirty;
    virtual void ios_window_get_text(char * pszText, long iSize);
    virtual long ios_window_get_text_length();
 
+   
 
    virtual void ios_window_destroy();
    
@@ -92,5 +95,5 @@ bool m_bDirty;
 };
 
 #ifdef __OBJC__
-UIWindow * new_ios_window(ios_window * pwindow, CGRect rectangle_i32);
+UIWindow * new_ios_window(ios_window * pwindow, CGRect rectangle_i32, unsigned int uStyle);
 #endif

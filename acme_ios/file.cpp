@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "_ios.h"
+//#include "_ios.h"
 
 #include <fcntl.h>
 
@@ -83,7 +83,7 @@ namespace acme_ios
 //      return pFile;
 //   }
 
-   ::extended::status file::open(const ::file::path& path, const ::file::e_open & eopenParam)
+   void file::open(const ::file::path& path, const ::file::e_open & eopenParam)
    {
 
       if (m_iFile != (::u32)hFileNull)
@@ -105,24 +105,13 @@ namespace acme_ios
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-         if(!pcontext->m_papexcontext->dir().create(path.folder()))
-         {
-
-            return { __new(::file::exception(::error_file_not_found, -1, -1, path, eopenParam)) };
-
-         }
+         m_psystem->m_pacmedirectory->create(path.folder());
 
       }
 
       m_iFile = (::u32)hFileNull;
       
-      m_strFileName.Empty();
-
-      m_strFileName = path;
-      
-      m_wstrFileName = ::str::international::utf8_to_unicode(m_strFileName);
-
-      ASSERT(sizeof(HANDLE) == sizeof(uptr));
+      m_path = path;
       
       ASSERT(::file::e_open_share_compat == 0);
 
@@ -185,7 +174,7 @@ namespace acme_ios
 
       dwPermission |= S_IRGRP | S_IWGRP | S_IXGRP;
 
-      i32 hFile = ::open(m_strFileName, dwFlags, dwPermission);
+      i32 hFile = ::open(m_path, dwFlags, dwPermission);
       
       if(hFile == hFileNull)
       {
@@ -211,7 +200,7 @@ namespace acme_ios
 
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
-            return { __new(::file::exception(::file::errno_to_status(iErrNo), -1, -1, path, eopen)) };
+            throw ::file::exception(::errno_to_status(iErrNo), -1, -1, path, eopen);
 
             //}
 
@@ -249,8 +238,24 @@ namespace acme_ios
 
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
+            
+            m_estatus = ::errno_to_status(iErrNo);
+            
+            if(eopen & ::file::e_open_no_exception_on_open)
+            {
+             
+               if(!failed(m_estatus))
+               {
+                
+                  m_estatus = error_failed;
+                  
+               }
+               
+               return;
+               
+            }
 
-            return { __new(::file::exception(::file::errno_to_status(iErrNo), -1, -1, path, eopen)) };
+            throw ::file::exception(m_estatus, -1, -1, path, eopen);
 
             //}
 
@@ -259,10 +264,12 @@ namespace acme_ios
       }
 
       m_iFile = (i32)hFile;
+      
+      m_estatus = ::success;
 
       //      m_bCloseOnDelete = true;
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -297,7 +304,9 @@ namespace acme_ios
 
             }
             
-            ::file::throw_os_error(iError, m_path);
+            auto estatus = errno_to_status(iError);
+            
+            throw ::file_exception(estatus, iError, m_path);
             
          }
          else if(iRead == 0)
@@ -348,7 +357,11 @@ namespace acme_ios
          if(iWrite == -1)
          {
             
-            ::file::throw_os_error( (::i32)::get_last_error(), m_strFileName);
+            int iErrNo = errno;
+            
+            auto estatus = errno_to_status(iErrNo);
+            
+            throw ::file_exception(estatus, iErrNo, m_path);
             
          }
          
@@ -361,24 +374,41 @@ namespace acme_ios
    }
 
 
-   filesize file::seek(filesize lOff, ::enum_seek eseek)
+   filesize file::translate(filesize lOff, ::enum_seek eseek)
    {
 
       if(m_iFile == (::u32)hFileNull)
-         ::file::throw_os_error( (::i32)0);
+      {
+       //  ::file::throw_os_error( (::i32)0);
+         
+         int iErrNo = -1;
+         
+         ::e_status estatus = ::error_failed;
+         
+         throw ::file_exception(estatus, iErrNo, m_path);
+         
+      }
 
       ASSERT_VALID(this);
       ASSERT(m_iFile != (::u32)hFileNull);
-      ASSERT(nFrom == ::e_seek_set || nFrom == ::e_seek_end || nFrom == ::e_seek_current);
-      ASSERT(::e_seek_set == SEEK_SET && ::e_seek_end == SEEK_END && ::e_seek_current == SEEK_CUR);
+      ASSERT(eseek == ::e_seek_set || eseek == ::e_seek_from_end || eseek == ::e_seek_current);
+      ASSERT(::e_seek_set == SEEK_SET && ::e_seek_from_end == SEEK_END && ::e_seek_current == SEEK_CUR);
 
       ::i32 lLoOffset = lOff & 0xffffffff;
       //::i32 lHiOffset = (lOff >> 32) & 0xffffffff;
 
-      filesize posNew = ::lseek(m_iFile, lLoOffset, (::u32)nFrom);
+      filesize posNew = ::lseek(m_iFile, lLoOffset, (::u32)eseek);
       //      posNew |= ((filesize) lHiOffset) << 32;
       if(posNew  == (filesize)-1)
-         ::file::throw_os_error( (::i32)::get_last_error());
+      {
+         
+         int iErrNo = errno;
+         
+         auto estatus = errno_to_status(iErrNo);
+         
+         throw ::file_exception(estatus, iErrNo, m_path);
+         
+      }
 
       return posNew;
    }
@@ -394,7 +424,15 @@ namespace acme_ios
       filesize pos = ::lseek(m_iFile, lLoOffset, SEEK_CUR);
       //    pos |= ((filesize)lHiOffset) << 32;
       if(pos  == (filesize)-1)
-         ::file::throw_os_error( (::i32)::get_last_error());
+      {
+         
+         auto iErrNo = errno;
+         
+         auto estatus = errno_to_status(iErrNo);
+
+         throw ::file_exception(estatus, iErrNo, m_path);
+         
+      }
 
       return pos;
    }
@@ -469,10 +507,19 @@ namespace acme_ios
 
       m_iFile = (::u32) hFileNull;
       //      m_bCloseOnDelete = false;
-      m_strFileName.Empty();
+      m_path.Empty();
 
       if (bError)
-         ::file::throw_os_error( (::i32)::get_last_error());
+      {
+         
+         auto iErrNo = errno;
+         
+         auto estatus = errno_to_status(iErrNo);
+      
+         throw ::file_exception(estatus, iErrNo, m_path);
+         
+      }
+      
    }
 
 //   void file::Abort()
@@ -522,12 +569,16 @@ namespace acme_ios
       
       ASSERT(m_iFile != (::u32)hFileNull);
 
-      seek((::i32)dwNewLen, (::enum_seek)::e_seek_set);
+      translate((::i32)dwNewLen, (::enum_seek)::e_seek_set);
 
       if (::ftruncate(m_iFile, dwNewLen) == -1)
       {
          
-         ::file::throw_os_error( (::i32)::get_last_error());
+         auto iErrNo = errno;
+         
+         auto estatus = errno_to_status(iErrNo);
+         
+         throw ::file_exception(estatus, iErrNo, m_path);
          
       }
       
@@ -542,13 +593,13 @@ namespace acme_ios
       filesize dwLen, dwCur;
 
       // seek is a non const operation
-      file* pFile = (file*)this;
+      file * pfile = (file*)this;
       
-      dwCur = pFile->seek(0L, ::e_seek_current);
+      dwCur = pfile->set_position(0);
       
-      dwLen = pFile->seek_to_end();
+      dwLen = pfile->seek_to_end();
       
-      VERIFY(dwCur == (u64)pFile->seek((filesize) dwCur, ::e_seek_set));
+      VERIFY(dwCur == pfile->set_position(dwCur));
 
       return (filesize) dwLen;
       
@@ -569,7 +620,7 @@ namespace acme_ios
       ::file::file::dump(dumpcontext);
 
       dumpcontext << "with handle " << (::u32)m_iFile;
-      dumpcontext << " and name \"" << m_strFileName << "\"";
+      dumpcontext << " and name \"" << m_path << "\"";
       dumpcontext << "\n";
       
    }
@@ -628,7 +679,7 @@ namespace acme_ios
             
          }
 
-         status.m_size = st.st_size;
+         status.m_filesize = st.st_size;
 
          status.m_attribute = 0;
 
@@ -714,7 +765,7 @@ namespace acme_ios
    void file::set_file_path(const ::file::path & path)
    {
 
-      m_strFileName = path;
+      m_path = path;
       
    }
 
@@ -728,28 +779,28 @@ namespace acme_ios
 #define _wcsinc(_pc)    ((_pc)+1)
 
 
-// turn a file, relative path or other into an absolute path
-bool CLASS_DECL_APEX windows_full_path(wstring & wstrFullPath, const wstring & wstrPath)
-// lpszPathOut = buffer of _MAX_PATH
-// lpszFileIn = file, relative path or absolute path
-// (both in ANSI character set)
-{
+//// turn a file, relative path or other into an absolute path
+//bool CLASS_DECL_APEX windows_full_path(wstring & wstrFullPath, const wstring & wstrPath)
+//// lpszPathOut = buffer of _MAX_PATH
+//// lpszFileIn = file, relative path or absolute path
+//// (both in ANSI character set)
+//{
+//
+//
+//   wstrFullPath = wstrPath;
+//
+//
+//   return true;
+//
+//}
 
-
-   wstrFullPath = wstrPath;
-
-
-   return true;
-
-}
-
-
-CLASS_DECL_APEX void vfxGetModuleShortFileName(HINSTANCE hInst, string& strShortName)
-{
-
-   throw ::exception(todo);
-
-}
+//
+//CLASS_DECL_APEX void vfxGetModuleShortFileName(HINSTANCE hInst, string& strShortName)
+//{
+//
+//   throw ::exception(todo);
+//
+//}
 
 
 //void CLASS_DECL_APEX vfxThrowFileException(::object * pobject, void cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
@@ -809,7 +860,7 @@ CLASS_DECL_APEX void vfxGetModuleShortFileName(HINSTANCE hInst, string& strShort
 
 
 
-CLASS_DECL_APEX bool _os_may_have_alias(const char * psz)
+CLASS_DECL_ACME bool _os_may_have_alias(const char * psz)
 {
 
    return true;

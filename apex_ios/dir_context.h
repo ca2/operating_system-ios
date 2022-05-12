@@ -25,14 +25,14 @@ namespace apex_ios
 
       
       // rls fetchs should set a meaningful m_iRelative value at each returned path
-      bool enumerate(::file::listing & path) override;
+      //bool enumerate(::file::listing & path) override;
       
       
-      virtual bool  is(const ::file::path & path) override;
-      virtual bool  is_inside(const ::file::path & pathFolder,const ::file::path & path) override;
-      virtual bool  is_inside_time(const ::file::path & path) override;
-      //virtual bool  name_is(const ::file::path & path) override;
-      virtual bool  has_subdir(const ::file::path & path) override;
+//      virtual bool  is(const ::file::path & path) override;
+//      virtual bool  is_inside(const ::file::path & pathFolder,const ::file::path & path) override;
+//      virtual bool  is_inside_time(const ::file::path & path) override;
+//      //virtual bool  name_is(const ::file::path & path) override;
+//      virtual bool  has_subdir(const ::file::path & path) override;
       
       virtual ::file::listing & root_ones(::file::listing & listing) override;
 //      virtual bool create(const ::file::path & path) override;
@@ -57,7 +57,7 @@ namespace apex_ios
       
       
       
-      virtual ::file::path appdata(const ::string & strAppId = "") override;
+      //virtual ::file::path appdata(const ::string & strAppId = "") override;
       virtual ::file::path commonappdata_root() override;
       
 //      virtual ::file::path usersystemappdata(::object * pobject, const char * lpcszPrefix);

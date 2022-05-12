@@ -1,14 +1,15 @@
 //
-//  macos_window.cpp
+//  ios_window.cpp
 //  aura
 //
 //  Created by Camilo Sasuke Tsumanuma on 2013-09-17.
+//  From windowing_macos on 2022-05-11 02:15 <3ThomasBorregaardSorensen!!
 //
 //
 
 #include "framework.h"
 #include "window_impl.h"
-///#include "oswindow_data.h"
+#include "aura/graphics/graphics/_graphics.h"
 #include "aura/user/user/interaction_prodevian.h"
 #include "acme/operating_system/_user.h"
 #include "acme/parallelization/message_queue.h"
@@ -78,9 +79,9 @@ namespace windowing_ios
 
       MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      auto pimpl = m_pimpl.m_p;
+      auto pimpl = m_puserinteractionimpl.m_p;
 
       if (!puserinteraction->m_bMessageWindow)
       {
@@ -117,7 +118,7 @@ namespace windowing_ios
    }
 
 
-   ::e_status window::create_window(::user::interaction_impl * pimpl)
+   void window::create_window(::user::interaction_impl * pimpl)
    {
 
       //if (::is_window(get_handle()))
@@ -135,11 +136,11 @@ namespace windowing_ios
       //::user::system createstruct;
       //      pusersystem->m_createstruct.hwndParent = hWndParent;
       //   pusersystem->m_createstruct.hMenu = hWndParent == nullptr ? nullptr : nIDorHMenu;
-      
+
       auto puserinteraction = pimpl->m_puserinteraction;
-      
+
       auto pusersystem = puserinteraction->m_pusersystem;
-      
+
       //pusersystem->m_createstruct.hMenu = nullptr;
       //      pusersystem->m_createstruct.hInstance = ::aura::get_system()->m_hInstance;
       //pusersystem->m_createstruct.lpCreateParams = lpParam;
@@ -147,7 +148,9 @@ namespace windowing_ios
       if (!puserinteraction->pre_create_window(pusersystem))
       {
 
-         return false;
+         //return false;
+         
+         throw ::exception(error_failed);
 
       }
 
@@ -184,13 +187,13 @@ namespace windowing_ios
             uStyle |= NSWindowStyleMaskMiniaturizable;
 
          }
-      
+
          auto rectangle = puserinteraction-> get_window_rect();
-      
+
          CGRect cgrect;
-      
+
          copy(&cgrect, &rectangle);
-      
+
          //__todo?
          //windowing()->copy(cgrect, rectangle);
          //or
@@ -198,38 +201,43 @@ namespace windowing_ios
          //because rectangle origin is top-left
          //and because cgrect origin is bottom-left and,
          //the origin of screen is at bottom.
-      
-      m_pimpl = pimpl;
-      
+
+      m_puserinteractionimpl = pimpl;
+
       install_message_routing(puserinteraction);
 
-      
+
       auto psession = m_pcontext->m_paurasession;
 
       auto puser = psession->user();
 
-      auto pwindowing = (::windowing_macos::windowing *) puser->windowing()->m_pWindowing2;
-      
-      m_pmacoswindowing = pwindowing->cast < class windowing >();
-      
-      m_pwindowing = pwindowing;
-      
-      pimpl->m_pwindowing = pwindowing;
+      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing2;
 
-         auto pNSWindow = new_macos_window(this, cgrect, uStyle);
+      m_pmacoswindowing = pwindowing->cast < class windowing >();
+
+      m_pwindowing = pwindowing;
+
+      pimpl->m_pwindowing = pwindowing;
       
-         set_os_data(pNSWindow);
-      
+      pimpl->m_pwindow = this;
+
       set_oswindow(this);
 
-      pwindowing->m_nsmap[m_pnswindow] = this;
-      
+         auto pNSWindow = new_ios_window(this, cgrect, uStyle);
+
+         set_os_data(pNSWindow);
+
+
+      pwindowing->m_nsmap[m_pioswindow] = this;
+
          puserinteraction->layout().window().origin() = ::top_left(rectParam);
 
          puserinteraction->layout().window().size() = ::size_i32(rectParam);
-
-         __refer(puserinteraction->m_pthreadUserInteraction, ::get_task());
-
+      
+      auto ptask = ::get_task();
+      
+      __refer(puserinteraction->m_pthreadUserInteraction, ptask);
+         
          //puserinteraction->place(rectParam);
 
 
@@ -248,7 +256,7 @@ namespace windowing_ios
       {
 
          bOk = false;
-         
+
          set_finish();
 
          //children_post_quit();
@@ -256,8 +264,10 @@ namespace windowing_ios
          //children_wait_quit(one_minute());
 
          //PostNcDestroy();        // cleanup if CreateWindowEx fails too soon
+
+         //return false;
          
-         return false;
+         throw ::exception(::error_failed);
 
       }
 
@@ -272,7 +282,7 @@ namespace windowing_ios
 
          puserinteraction->post_redraw();
 
-         //;//macos_window_show();
+         //;//ios_window_show();
 
       }
 
@@ -281,8 +291,8 @@ namespace windowing_ios
       puserinteraction->increment_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "native_create_window"));
 
       puserinteraction->m_ewindowflag |= e_window_flag_window_created;
-      
-      return bOk;
+
+      //return bOk;
 
    }
 
@@ -292,7 +302,7 @@ namespace windowing_ios
    //{
    //   /*      if (pusersystem->m_createstruct.lpszClass == nullptr)
    //    {
-   ///xcore/app/aura/node/macos/macos_interaction_impl.cpp:712:44: No member named 'get_window_rect' in 'user::interaction_impl'       // make sure the default user::interaction class is registered
+   ///xcore/app/aura/node/macos/ios_interaction_impl.cpp:712:44: No member named 'get_window_rect' in 'user::interaction_impl'       // make sure the default user::interaction class is registered
    //    VERIFY(__end_defer_register_class(__WND_REG, &pusersystem->m_createstruct.lpszClass));
    //
    //    // no WNDCLASS provided - use child user::interaction default
@@ -301,72 +311,72 @@ namespace windowing_ios
    //   return true;
    //}
 
-   void window::macos_window_add_ref()
+//   void window::ios_window_add_ref()
+//   {
+//
+//      increment_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "ios_window_add_ref"));
+//
+//      auto puserinteraction = m_pimpl->m_puserinteraction;
+//
+//      puserinteraction->increment_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "ios_window_add_ref"));
+//
+//   }
+//
+//
+//   void window::ios_window_dec_ref()
+//   {
+//
+//      auto puserinteraction = m_pimpl->m_puserinteraction;
+//
+//      puserinteraction->decrement_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "ios_window_dec_ref"));
+//
+//      decrement_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "ios_window_dec_ref"));
+//
+//   }
+
+
+   void window::set_keyboard_focus()
    {
 
-      increment_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "macos_window_add_ref"));
-      
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      //ios_window_make_first_responder();
 
-      puserinteraction->increment_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "macos_window_add_ref"));
+//      return ::success;
 
    }
 
 
-   void window::macos_window_dec_ref()
+   void window::set_active_window()
    {
+
+      //ios_window_make_key_window_and_order_front();
       
-      auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      puserinteraction->decrement_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "macos_window_dec_ref"));
-
-      decrement_reference_count(OBJECT_REFERENCE_COUNT_DEBUG_P_NOTE(this, "macos_window_dec_ref"));
-
-   }
-
-
-   ::e_status window::set_keyboard_focus()
-   {
-
-      macos_window_make_first_responder();
-
-      return ::success;
-
-   }
-
-
-   ::e_status window::set_active_window()
-   {
-
-      macos_window_make_key_window_and_order_front();
-      
-      auto pwindowing = (::windowing_macos::windowing *) m_pwindowing->m_pWindowing2;
+      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing2;
       
       pwindowing->m_pwindowActive = this;
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status window::set_tool_window(bool bSet)
+   void window::set_tool_window(bool bSet)
    {
       
-      auto pwindowing = (::windowing_macos::windowing *) m_pwindowing->m_pWindowing2;
+      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing2;
       
       pwindowing->_defer_dock_application(!bSet);
 
-      return ::success;
+      //return ::success;
       
    }
 
 
-   ::e_status window::set_foregios_window()
+   void window::set_foreground_window()
    {
       
-      macos_window_order_front();
+      //ios_window_order_front();
       
-      return ::success;
+      //return ::success;
       
    }
 
@@ -374,7 +384,9 @@ namespace windowing_ios
    bool window::is_active_window() const
    {
 
-      return macos_window_is_key_window();
+//      return ios_window_is_key_window();
+      
+      return true;
 
    }
 
@@ -382,9 +394,11 @@ namespace windowing_ios
    bool window::has_keyboard_focus() const
    {
       
-      bool bHasKeyboardFocus = macos_window_is_key_window();
+      //bool bHasKeyboardFocus = ios_window_is_key_window();
    
-      return bHasKeyboardFocus;
+      //return bHasKeyboardFocus;
+      
+      return true;
    
    }
 
@@ -392,14 +406,14 @@ namespace windowing_ios
    void window::window_show()
    {
       
-      //macos_window_show();
+      //ios_window_show();
       
       ::windowing::window::window_show();
       
    }
 
 
-   ::e_status window::show_window(const ::e_display &edisplay, const ::e_activation &eactivation)
+   void window::show_window(const ::e_display &edisplay, const ::e_activation &eactivation)
    {
 
       //windowing_output_debug_string("\n::windowing_macos::window::show_window 1");
@@ -407,102 +421,107 @@ namespace windowing_ios
       if(edisplay == e_display_iconic)
       {
        
-         macos_window_miniaturize();
+         //ios_window_miniaturize();
          
       }
       else if(edisplay == e_display_restore)
       {
          
-         macos_window_show();
+         ios_window_show();
        
-         macos_window_make_key_window_and_order_front();
+         //ios_window_make_key_window_and_order_front();
          
-         macos_window_make_main_window();
+         //ios_window_make_main_window();
          
-         nsapp_activate_ignoring_other_apps(1);
+         //nsapp_activate_ignoring_other_apps(1);
          
       }
       else if(edisplay == e_display_normal)
       {
          
-         macos_window_show();
+         ios_window_show();
        
-         macos_window_make_key_window_and_order_front();
+         //ios_window_make_key_window_and_order_front();
          
-         macos_window_make_main_window();
+         //ios_window_make_main_window();
          
-         nsapp_activate_ignoring_other_apps(1);
+         //nsapp_activate_ignoring_other_apps(1);
          
       }
       else if(edisplay == e_display_none || edisplay == e_display_hide)
       {
          
-         macos_window_resign_key();
-         macos_window_hide();
+         //ios_window_resign_key();
+         ios_window_hide();
          
       }
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status window::set_mouse_cursor(::windowing::cursor * pcursor)
+   void window::set_mouse_cursor(::windowing::cursor * pcursor)
    {
 
       if (::is_null(pcursor))
       {
 
-         return error_failed;
+         throw ::exception(error_bad_argument);
+         //return error_failed;
 
       }
 
-      auto pcursorMacos = dynamic_cast < class cursor * >(pcursor);
-
-      if (::is_null(pcursorMacos))
-      {
-
-         return error_failed;
-
-      }
-      
-      if(::is_null(pcursorMacos->m_pNSCursor)
-         && (::is_ok(pcursorMacos->m_pimage)
-             || pcursor->m_ecursor != e_cursor_none))
-      {
-         
-         pcursorMacos->_create_os_cursor();
-         
-      }
-      
-      void * pNSCursor = pcursorMacos->m_pNSCursor;
-      
-      if (ns_get_cursor() == pNSCursor)
-      {
-
-         return true;
-
-      }
-
-      m_pwindowing->windowing_post(__routine([this, pNSCursor]()
-                                          {
-
-//                                             synchronous_lock sl(user_mutex());
-
-                                             windowing_output_debug_string("\n::SetCursor 1");
+//      auto pcursorMacos = dynamic_cast < class cursor * >(pcursor);
 //
-//                                             display_lock displaylock(x11_display()->Display());;
-
-         ns_set_cursor(pNSCursor);
-         
-         
-//                                             XDefineCursor(Display(), Window(), pcursorx11->m_cursor);
-
-//                                             m_cursorLast = pcursorx11->m_cursor;
-
-                                          }));
-
-      return true;
+//      if (::is_null(pcursorMacos))
+//      {
+//
+//         //return error_failed;
+//
+//         throw ::exception(::error_null_pointer);
+//
+//      }
+//
+//      if(::is_null(pcursorMacos->m_pNSCursor)
+//         && (::is_ok(pcursorMacos->m_pimage)
+//             || pcursor->m_ecursor != e_cursor_none))
+//      {
+//
+//         pcursorMacos->_create_os_cursor();
+//
+//      }
+//
+//      void * pNSCursor = pcursorMacos->m_pNSCursor;
+//
+//      if (ns_get_cursor() == pNSCursor)
+//      {
+//
+//         //return true;
+//
+//         return;
+//
+//      }
+//
+//      m_pwindowing->windowing_post(__routine([this, pNSCursor]()
+//                                          {
+//
+////                                             synchronous_lock sl(user_mutex());
+//
+//                                             windowing_output_debug_string("\n::SetCursor 1");
+////
+////                                             display_lock displaylock(x11_display()->Display());;
+//
+//         ns_set_cursor(pNSCursor);
+//
+//
+////                                             XDefineCursor(Display(), Window(), pcursorx11->m_cursor);
+//
+////                                             m_cursorLast = pcursorx11->m_cursor;
+//
+//                                          }));
+//
+//      //return true;
 
    }
 
@@ -517,47 +536,47 @@ namespace windowing_ios
 
    bool window::set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags)
    {
-      
-      ns_main_async(^(){
-         CGRect r;
-
-         macos_window_get_frame(&r);
-         
-         if(!(nFlags & SWP_NOMOVE))
-         {
-            r.origin.x = x;
-            r.origin.y = y;
-         }
-         if(!(nFlags & SWP_NOSIZE))
-         {
-         
-            r.size.width = cx;
-         
-            r.size.height = cy;
-            
-         }
-         
-            
-         macos_window_set_frame(r);
-         
-         if(nFlags & SWP_SHOWWINDOW)
-         {
-          
-            macos_window_defer_show();
-            
-         }
-         
-
-      }
-                    
-                    );
+//
+//      ns_main_async(^(){
+//         CGRect r;
+//
+//         ios_window_get_frame(&r);
+//
+//         if(!(nFlags & SWP_NOMOVE))
+//         {
+//            r.origin.x = x;
+//            r.origin.y = y;
+//         }
+//         if(!(nFlags & SWP_NOSIZE))
+//         {
+//
+//            r.size.width = cx;
+//
+//            r.size.height = cy;
+//
+//         }
+//
+//
+//         ios_window_set_frame(r);
+//
+//         if(nFlags & SWP_SHOWWINDOW)
+//         {
+//
+//            ios_window_defer_show();
+//
+//         }
+//
+//
+//      }
+//
+//                    );
 
       return true;
 
    }
 
 
-   ::e_status window::set_mouse_capture()
+   void window::set_mouse_capture()
    {
 
       auto pwindowing = (class windowing *) windowing()->m_pWindowing2;
@@ -565,13 +584,15 @@ namespace windowing_ios
       if(!pwindowing)
       {
          
-         return ::error_failed;
+         return;
+         
+         //return ::error_failed;
          
       }
       
       pwindowing->m_pwindowCapture = this;
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -579,13 +600,13 @@ namespace windowing_ios
    void window::update_screen()
    {
       
-      macos_window_redraw();
+      ios_window_redraw();
       
    }
 
 
 
-   void window::macos_window_draw(CGContextRef cgc, CGSize sizeWindowParam)
+   void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam)
    {
 
       ::size_i32 sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
@@ -628,23 +649,23 @@ namespace windowing_ios
 
       auto tickNow = ::duration::now();
 
-      auto tickEllapsed = tickNow - m_pimpl->m_durationLastDeviceDraw;
+      auto tickEllapsed = tickNow - m_puserinteractionimpl->m_durationLastDeviceDraw;
 
       if(tickEllapsed < 12_ms)
       {
 
          // xxxlog
-         //output_debug_string("\n\nwarning: macos_window_draw more than 80FPS!!! Ellapsed: " + str::from(tickEllapsed) + "ms.\n\n");
+         //output_debug_string("\n\nwarning: ios_window_draw more than 80FPS!!! Ellapsed: " + str::from(tickEllapsed) + "ms.\n\n");
 
       }
 
-      m_pimpl->m_durationLastDeviceDraw = tickNow;
+      m_puserinteractionimpl->m_durationLastDeviceDraw = tickNow;
 
-      ::user::device_draw_life_time devicedrawlifetime(m_pimpl);
+      ::user::device_draw_life_time devicedrawlifetime(m_puserinteractionimpl);
 
-      critical_section_lock slDisplay(m_pimpl->cs_display());
+      critical_section_lock slDisplay(m_puserinteractionimpl->cs_display());
 
-      __pointer(::graphics::graphics) pbuffer = m_pimpl->m_pgraphics;
+      __pointer(::graphics::graphics) pbuffer = m_puserinteractionimpl->m_pgraphics;
 
       if(!pbuffer)
       {
@@ -653,7 +674,7 @@ namespace windowing_ios
 
       }
       
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
       
       if(!puserinteraction)
       {
@@ -739,14 +760,14 @@ namespace windowing_ios
 
       g->draw(imagedrawing);
       
-      m_pimpl->m_bPendingRedraw = false;
+      m_puserinteractionimpl->m_bPendingRedraw = false;
       
-      m_pimpl->m_durationLastRedraw.Now();
+      m_puserinteractionimpl->m_durationLastRedraw.Now();
 
    }
 
 
-//   bool window::macos_window_key_down(unsigned int uiKeyCode)
+//   bool window::ios_window_key_down(unsigned int uiKeyCode)
 //   {
 //
 //      auto puserinteraction = m_pimpl->m_puserinteraction;
@@ -773,7 +794,7 @@ namespace windowing_ios
 //   }
 //
 //
-//   bool window::macos_window_key_up(unsigned int uiKeyCode)
+//   bool window::ios_window_key_up(unsigned int uiKeyCode)
 //   {
 //
 //      __pointer(::user::message) spbase;
@@ -801,30 +822,33 @@ namespace windowing_ios
 //
 //   }
 
-   bool window::macos_window_key_down(unsigned int virtualKey, unsigned int scanCode, const char * pszUtf8)
+//   bool window::ios_window_key_down(unsigned int virtualKey, unsigned int scanCode, const char * pszUtf8)
+bool window::ios_window_key_down(::user::enum_key ekey)
    {
       
       {         auto pkey  = __create_new < ::message::key >();
 
-         pkey->set(get_oswindow(), this, e_message_key_down, virtualKey, (lparam)(scanCode << 16));
+         pkey->m_atom = e_message_key_down;
+         pkey->m_ekey = ekey;
+         //pkey->set(get_oswindow(), this, e_message_key_down, virtualKey, (lparam)(scanCode << 16));
          
          post_message(pkey);
          
       }
       
-      if(::is_set(pszUtf8) && ansi_len(pszUtf8) > 0)
-      {
-
-         auto pkey = __create_new < ::message::key >();
-         
-         pkey->set(get_oswindow(), this, e_message_text_composition, 0, 0);
-
-         pkey->m_strText = pszUtf8;
-      
-         post_message(pkey);
-         
-      }
-
+//      if(::is_set(pszUtf8) && ansi_len(pszUtf8) > 0)
+//      {
+//
+//         auto pkey = __create_new < ::message::key >();
+//
+//         pkey->set(get_oswindow(), this, e_message_text_composition, 0, 0);
+//
+//         pkey->m_strText = pszUtf8;
+//
+//         post_message(pkey);
+//
+//      }
+//
 
 //      if(::is_set(pszUtf8))
 //      {
@@ -835,7 +859,7 @@ namespace windowing_ios
 //
 //         auto lparam = (::lparam) (iptr) (string *) (pstringText);
 //
-//         printf("macos_window_key_down e_message_text_composition\n");
+//         printf("ios_window_key_down e_message_text_composition\n");
 //
 //         auto puserinteraction = m_pimpl->m_puserinteraction;
 //
@@ -849,10 +873,11 @@ namespace windowing_ios
    }
 
 
-   bool window::macos_window_key_up(unsigned int vk, unsigned int scan)
+   //bool window::ios_window_key_up(unsigned int vk, unsigned int scan)
+bool window::ios_window_key_up(::user::enum_key ekey)
    {
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(puserinteraction == nullptr)
       {
@@ -863,8 +888,9 @@ namespace windowing_ios
 
       auto pkey  = __new(::message::key);
 
-      pkey->set(get_oswindow(), this, e_message_key_up, vk, (::lparam)(scan << 16));
-      
+//      pkey->set(get_oswindow(), this, e_message_key_up, vk, (::lparam)(scan << 16));
+   pkey->m_atom = e_message_key_up;
+   pkey->m_ekey = ekey;
       puserinteraction->send(pkey);
 
       return true;
@@ -872,7 +898,38 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_mouse_down(int iButton, double x, double y)
+   bool window::ios_window_on_text(const char * pszText, long iSel, long iEnd)
+   {
+      
+      return false;
+      
+   }
+
+
+   bool window::ios_window_on_sel_text(long iBeg, long iEnd)
+   {
+      
+      return false;
+      
+   }
+
+
+   long window::ios_window_edit_hit_test(int x, int y)
+   {
+      
+      return -1;
+      
+   }
+
+
+   bool window::ios_window_edit_caret_rect(CGRect * prectangle, long iSel)
+   {
+      
+      return false;
+      
+   }
+
+   void window::ios_window_mouse_down(int iButton, double x, double y)
    {
       
       m_pointMouseCursor.x = x;
@@ -940,7 +997,7 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_mouse_up(int iButton, double x, double y)
+   void window::ios_window_mouse_up(int iButton, double x, double y)
    {
       
       m_pointMouseCursor.x = x;
@@ -971,34 +1028,34 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_double_click(int iButton, double x, double y)
-   {
+//   bool window::ios_window_double_click(double x, double y)
+//   {
+//
+//      auto pmouse = __create_new < ::message::mouse >();
+//
+//      ::atom id;
+//
+//      if (iButton == 1)
+//      {
+//
+//         id = e_message_right_button_double_click;
+//
+//      }
+//      else
+//      {
+//
+//         id = e_message_left_button_double_click;
+//
+//      }
+//
+//      pmouse->set(this, this, id, (wparam) 0, __MAKE_LPARAM(x, y));
+//
+//      post_message(pmouse);
+//
+//   }
+//
 
-      auto pmouse = __create_new < ::message::mouse >();
-      
-      ::atom id;
-
-      if (iButton == 1)
-      {
-
-         id = e_message_right_button_double_click;
-
-      }
-      else
-      {
-
-         id = e_message_left_button_double_click;
-
-      }
-
-      pmouse->set(this, this, id, (wparam) 0, __MAKE_LPARAM(x, y));
-
-      post_message(pmouse);
-
-   }
-
-
-   void window::macos_window_mouse_moved(double x, double y, unsigned long ulAppleMouseButton)
+   void window::ios_window_mouse_moved(double x, double y, int iGesture)
    {
       
 //      if(is_destroying())
@@ -1014,7 +1071,7 @@ namespace windowing_ios
       
       bool bOk = true;
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(!puserinteraction)
       {
@@ -1106,19 +1163,19 @@ namespace windowing_ios
       
       lparam lparam = __MAKE_LPARAM(x, y);
       
-      if(ulAppleMouseButton & 1)
-      {
-
-         wparam |= ::user::e_button_state_left;
-
-      }
-
-      if(ulAppleMouseButton & 2)
-      {
-
-         wparam |= ::user::e_button_state_right;
-
-      }
+//      if(ulAppleMouseButton & 1)
+//      {
+//
+//         wparam |= ::user::e_button_state_left;
+//
+//      }
+//
+//      if(ulAppleMouseButton & 2)
+//      {
+//
+//         wparam |= ::user::e_button_state_right;
+//
+//      }
       
       auto pmouse = __create_new < ::message::mouse >();
       
@@ -1129,28 +1186,28 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_mouse_dragged(double x, double y, unsigned long ulAppleMouseButton)
+   void window::ios_window_mouse_dragged(double x, double y, int iGesture)
    {
       
-      id id = e_message_mouse_move;
+      ::atom id = e_message_mouse_move;
 
       wparam wparam = 0;
 
       lparam lparam = __MAKE_LPARAM(x, y);
 
-      if(ulAppleMouseButton & 1)
-      {
-
-         wparam |= ::user::e_button_state_left;
-
-      }
-
-      if(ulAppleMouseButton & 2)
-      {
-
-         wparam |= ::user::e_button_state_right;
-
-      }
+//      if(ulAppleMouseButton & 1)
+//      {
+//
+//         wparam |= ::user::e_button_state_left;
+//
+//      }
+//
+//      if(ulAppleMouseButton & 2)
+//      {
+//
+//         wparam |= ::user::e_button_state_right;
+//
+//      }
 
       auto pmouse = __create_new < ::message::mouse >();
       
@@ -1161,52 +1218,52 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_mouse_wheel(double deltaY, double x, double y)
+//   void window::ios_window_mouse_wheel(double deltaY, double x, double y)
+//   {
+//
+//      id id = e_message_mouse_wheel;
+//
+//      short delta = deltaY * WHEEL_DELTA / 3.0;
+//
+//      wparam wparam = delta << 16;
+//
+//      lparam lparam = __MAKE_LPARAM(x, y);
+//
+//      auto pwheel  = __create_new < ::message::mouse_wheel > ();
+//
+//      pwheel->set(this, this, id, wparam, lparam);
+//
+//      post_message(pwheel);
+//
+//   }
+
+
+   void window::ios_window_resized(int cx, int cy)
    {
-
-      id id = e_message_mouse_wheel;
-
-      short delta = deltaY * WHEEL_DELTA / 3.0;
-
-      wparam wparam = delta << 16;
-
-      lparam lparam = __MAKE_LPARAM(x, y);
-
-      auto pwheel  = __create_new < ::message::mouse_wheel > ();
       
-      pwheel->set(this, this, id, wparam, lparam);
-
-      post_message(pwheel);
-
-   }
-
-
-   void window::macos_window_resized(CGRect rectangle)
-   {
+//      {
+//
+//         id id = e_message_move;
+//
+//         wparam wparam = 0;
+//
+//         lparam lparam = __MAKE_LPARAM(rectangle.origin.x, rectangle.origin.y);
+//
+//         auto pmove  = __create_new < ::message::move > ();
+//
+//         pmove->set(this, this, id, wparam, lparam);
+//
+//         post_message(pmove);
+//
+//      }
       
       {
-      
-         id id = e_message_move;
+
+         ::atom id = e_message_size;
          
          wparam wparam = 0;
          
-         lparam lparam = __MAKE_LPARAM(rectangle.origin.x, rectangle.origin.y);
-      
-         auto pmove  = __create_new < ::message::move > ();
-      
-         pmove->set(this, this, id, wparam, lparam);
-
-         post_message(pmove);
-         
-      }
-      
-      {
-
-         id id = e_message_size;
-         
-         wparam wparam = 0;
-         
-         lparam lparam = __MAKE_LPARAM(rectangle.size.width, rectangle.size.height);
+         lparam lparam = __MAKE_LPARAM(cx, cy);
       
          auto psize  = __create_new < ::message::size > ();
       
@@ -1231,7 +1288,7 @@ namespace windowing_ios
    //
    //         puserinteraction->window_state().m_point = rectangle.origin;
    //
-   //         TRACE("window::macos_window_resized effective position is different from requested position");
+   //         TRACE("window::ios_window_resized effective position is different from requested position");
    //
    //         puserinteraction->post_message(e_message_move, 0, puserinteraction->window_state().m_point.lparam());
    //
@@ -1242,7 +1299,7 @@ namespace windowing_ios
    //
    //         puserinteraction->m_sizeRequest = rectangle.size_i32;
    //
-   //         TRACE("window::macos_window_resized effective position is different from requested position");
+   //         TRACE("window::ios_window_resized effective position is different from requested position");
    //
    //         puserinteraction->post_message(e_message_size, 0, puserinteraction->m_sizeRequest.lparam());
    //
@@ -1337,14 +1394,14 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_moved(CGPoint point)
+   void window::ios_window_moved(CGPoint point)
    {
       
       
-      if(m_pimpl->m_bEatMoveEvent)
+      if(m_puserinteractionimpl->m_bEatMoveEvent)
       {
          
-         m_pimpl->m_bEatMoveEvent = false;
+         m_puserinteractionimpl->m_bEatMoveEvent = false;
          
          return;
          
@@ -1352,7 +1409,7 @@ namespace windowing_ios
 
       {
       
-         id id = e_message_move;
+         ::atom id = e_message_move;
          
          wparam wparam = 0;
          
@@ -1412,7 +1469,7 @@ namespace windowing_ios
    ////
    ////         puserinteraction->m_pointRequest = point;
    ////
-   ////         TRACE("window::macos_window_resized effective position is different from requested position");
+   ////         TRACE("window::ios_window_resized effective position is different from requested position");
    ////
    ////      }
    ////
@@ -1421,7 +1478,7 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_did_become_key()
+   void window::ios_window_did_become_key()
    {
 
 //      if(is_destroying())
@@ -1430,25 +1487,25 @@ namespace windowing_ios
 //         return;
 //
 //      }
-      
-      m_pimpl->m_durationLastExposureAddUp.Now();
+
+      m_puserinteractionimpl->m_durationLastExposureAddUp.Now();
 
    }
 
 
-   void window::macos_window_on_activate()
+   void window::ios_window_on_activate()
    {
-      
+
       if(is_destroying())
       {
-         
+
          return;
-         
+
       }
-      
+
       //this->set_active_window();
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
@@ -1463,40 +1520,40 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_on_deactivate()
+   void window::ios_window_on_deactivate()
    {
 
       if(is_destroying())
       {
-         
+
          //return;
-         
+
          output_debug_string("destroying");
-         
+
       }
-      
+
       auto pwindowing = m_pwindowing;
-      
-      auto puserinteraction = m_pimpl->m_puserinteraction;
-      
-//      auto pwindowActive = pwindowing->get_active_window(puserinteraction->m_pthreadUserInteraction);
-//
-//      if(::is_null(pwindowActive))
-//      {
-//
-//         return;
-//
-//      }
-//
-//      if(pwindowActive != this)
-//      {
-//
-//         return;
-//
-//      }
-//
-//      pwindowing->clear_active_window(puserinteraction->m_pthreadUserInteraction);
-      
+
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+
+      auto pwindowActive = pwindowing->get_active_window(puserinteraction->m_pthreadUserInteraction);
+
+      if(::is_null(pwindowActive))
+      {
+
+         return;
+
+      }
+
+      if(pwindowActive != this)
+      {
+
+         return;
+
+      }
+
+      pwindowing->clear_active_window(puserinteraction->m_pthreadUserInteraction, this);
+
       //::deactivate_window(get_handle());
 
    //      if(puserinteraction == nullptr)
@@ -1505,7 +1562,7 @@ namespace windowing_ios
    //         return;
    //
    //      }
-      
+
       puserinteraction->send_message(e_message_activate, 0);
 
 //      if(!is_destroying())
@@ -1518,121 +1575,195 @@ namespace windowing_ios
    }
 
 
-   void * window::macos_window_get_mouse_cursor()
-   {
-      
-      auto pimpl = m_pimpl;
-      
-      if(::is_null(pimpl))
-      {
-       
-         return nullptr;
-         
-      }
-      
-      auto puserinteraction = pimpl->m_puserinteraction;
+bool window::ios_window_become_first_responder()
+{
    
-      if(::is_null(puserinteraction))
-      {
-       
-         return nullptr;
-         
-      }
-      
-      auto pcursor = puserinteraction->get_mouse_cursor();
-      
-      if(::is_null(pcursor))
-      {
-         
-         return nullptr;
-         
-      }
-      
-      auto poscursor = pcursor->get_os_data();
-      
-      if(::is_null(poscursor))
-      {
-       
-         return nullptr;
-         
-      }
-      
-      return poscursor;
-      
-   }
-
+   return true;
    
-   void window::profiling_on_start_draw_rectangle()
-   {
-      
-      auto pimpl = m_pimpl;
-      
-      if(::is_null(pimpl))
-      {
-       
-         return;
-         
-      }
+}
 
-      auto pimpl2 = pimpl->m_pImpl2;
+//   void * window::ios_window_get_mouse_cursor()
+//   {
+//
+//      auto pimpl = m_pimpl;
+//
+//      if(::is_null(pimpl))
+//      {
+//
+//         return nullptr;
+//
+//      }
+//
+//      auto puserinteraction = pimpl->m_puserinteraction;
+//
+//      if(::is_null(puserinteraction))
+//      {
+//
+//         return nullptr;
+//
+//      }
+//
+//      auto pcursor = puserinteraction->get_mouse_cursor();
+//
+//      if(::is_null(pcursor))
+//      {
+//
+//         return nullptr;
+//
+//      }
+//
+//      auto poscursor = pcursor->get_os_data();
+//
+//      if(::is_null(poscursor))
+//      {
+//
+//         return nullptr;
+//
+//      }
+//
+//      return poscursor;
+//
+//   }
+//
+   
+//   void window::profiling_on_start_draw_rectangle()
+//   {
+//
+//      auto pimpl = m_pimpl;
+//
+//      if(::is_null(pimpl))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto pimpl2 = pimpl->m_pImpl2;
+//
+//      if(::is_null(pimpl2))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto pprodevian = pimpl2->m_pprodevian;
+//
+//      if(::is_null(pprodevian))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      pprodevian->profiling_on_before_update_screen();
+//
+//   }
+//
+//
+//   void window::profiling_on_end_draw_rectangle()
+//   {
+//
+//      auto pimpl = m_pimpl;
+//
+//      if(::is_null(pimpl))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto pimpl2 = pimpl->m_pImpl2;
+//
+//      if(::is_null(pimpl2))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto pprodevian = pimpl2->m_pprodevian;
+//
+//      if(::is_null(pprodevian))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      pprodevian->profiling_on_after_update_screen();
+//
+//   }
 
-      if(::is_null(pimpl2))
-      {
-       
-         return;
-         
-      }
-      
-      auto pprodevian = pimpl2->m_pprodevian;
-      
-      if(::is_null(pprodevian))
-      {
-       
-         return;
-         
-      }
-      
-      pprodevian->profiling_on_before_update_screen();
 
-   }
-
-
-   void window::profiling_on_end_draw_rectangle()
-   {
-      
-      auto pimpl = m_pimpl;
-      
-      if(::is_null(pimpl))
-      {
-       
-         return;
-         
-      }
-
-      auto pimpl2 = pimpl->m_pImpl2;
-
-      if(::is_null(pimpl2))
-      {
-       
-         return;
-         
-      }
-      
-      auto pprodevian = pimpl2->m_pprodevian;
-      
-      if(::is_null(pprodevian))
-      {
-       
-         return;
-         
-      }
-      
-      pprodevian->profiling_on_after_update_screen();
-      
-   }
+//   void window::ios_window_iconified()
+//   {
+//
+//      if(is_destroying())
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto puserinteraction = m_pimpl->m_puserinteraction;
+//
+//      if(::is_null(puserinteraction))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      if(m_pimpl->m_puserbox != nullptr)
+//      {
+//
+//         m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = m_pimpl->m_puserbox->m_windowrectangle.m_edisplay;
+//
+//      }
+//
+//      puserinteraction->layout().window() = ::e_display_iconic;
+//
+//   }
 
 
-   void window::macos_window_iconified()
+//   void window::ios_window_deiconified()
+//   {
+//
+//      if(is_destroying())
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto puserinteraction = m_pimpl->m_puserinteraction;
+//
+//      if(puserinteraction == nullptr)
+//      {
+//
+//         return;
+//
+//      }
+//
+//      if(m_pimpl->m_puserbox)
+//      {
+//
+//         if(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious == ::e_display_iconic)
+//         {
+//
+//            m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = ::e_display_normal;
+//
+//         }
+//
+//         puserinteraction->_001OnDeiconify(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious);
+//
+//      }
+//
+//   }
+//
+
+   void window::ios_window_on_show()
    {
 
       if(is_destroying())
@@ -1642,38 +1773,7 @@ namespace windowing_ios
          
       }
       
-      auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      if(::is_null(puserinteraction))
-      {
-
-         return;
-
-      }
-      
-      if(m_pimpl->m_puserbox != nullptr)
-      {
-
-         m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = m_pimpl->m_puserbox->m_windowrectangle.m_edisplay;
-         
-      }
-
-      puserinteraction->layout().window() = ::e_display_iconic;
-
-   }
-
-
-   void window::macos_window_deiconified()
-   {
-
-      if(is_destroying())
-      {
-         
-         return;
-         
-      }
-      
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(puserinteraction == nullptr)
       {
@@ -1681,44 +1781,8 @@ namespace windowing_ios
          return;
 
       }
-      
-      if(m_pimpl->m_puserbox)
-      {
 
-         if(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious == ::e_display_iconic)
-         {
-
-            m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = ::e_display_normal;
-
-         }
-         
-         puserinteraction->_001OnDeiconify(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious);
-         
-      }
-
-   }
-
-
-   void window::macos_window_on_show()
-   {
-
-      if(is_destroying())
-      {
-         
-         return;
-         
-      }
-      
-      auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      if(puserinteraction == nullptr)
-      {
-
-         return;
-
-      }
-
-      m_pimpl->m_durationLastExposureAddUp.Now();
+      m_puserinteractionimpl->m_durationLastExposureAddUp.Now();
 
       puserinteraction->send_message(e_message_show_window, 1);
 
@@ -1745,7 +1809,7 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_on_hide()
+   void window::ios_window_on_hide()
    {
 
    //      if(is_destroying())
@@ -1755,14 +1819,14 @@ namespace windowing_ios
    //
    //      }
       
-      INFORMATION("macos::window::macos_window_on_hide");
+      INFORMATION("macos::window::ios_window_on_hide");
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
 
-         WARNING("macos::window::macos_window_on_hide (2) puserinteraction == nullptr");
+         WARNING("macos::window::ios_window_on_hide (2) puserinteraction == nullptr");
 
          return;
 
@@ -1787,38 +1851,38 @@ namespace windowing_ios
    }
 
 
-   void window::macos_window_on_miniaturize()
-   {
+//   void window::ios_window_on_miniaturize()
+//   {
+//
+//      if(is_destroying())
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto puserinteraction = m_pimpl->m_puserinteraction;
+//
+//      if(::is_null(puserinteraction))
+//      {
+//
+//         return;
+//
+//      }
+//
+//      //puserinteraction->message_call(e_message_show_window, 0);
+//
+//      //puserinteraction->user_interaction_update_visibility_cache(false);
+//
+//   }
 
-      if(is_destroying())
-      {
-         
-         return;
-         
-      }
-      
-      auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      if(::is_null(puserinteraction))
-      {
-
-         return;
-
-      }
-
-      //puserinteraction->message_call(e_message_show_window, 0);
-
-      //puserinteraction->user_interaction_update_visibility_cache(false);
-
-   }
-
-   ::e_status window::frame_toggle_restore()
+   void window::frame_toggle_restore()
 {
       
       ns_main_async(^()
                      {
          
-         auto puserinteraction = m_pimpl->m_puserinteraction;
+         auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(puserinteraction->get_parent() == nullptr && puserinteraction->get_owner() == nullptr)
       {
@@ -1836,10 +1900,10 @@ namespace windowing_ios
 
             puserinteraction->order(::e_zorder_top);
 
-            puserinteraction->display(e_display_default, e_activation_set_foregios);
+            puserinteraction->display(e_display_default, e_activation_set_foreground);
 
          }
-         else if(puserinteraction->m_pimpl2 && puserinteraction->m_pimpl2->m_durationLastExposureAddUp.elapsed() < 300_ms)
+         else if(puserinteraction->m_pinteractionimpl && puserinteraction->m_pinteractionimpl->m_durationLastExposureAddUp.elapsed() < 300_ms)
          {
 
             INFORMATION("Ignored minituarize request (by toggle intent) because of recent full exposure.");
@@ -1860,7 +1924,7 @@ namespace windowing_ios
 
       });
 
-      return ::success;
+      //return ::success;
       
    }
 
@@ -1869,7 +1933,7 @@ namespace windowing_ios
    {
       
       
-      recta = cg_get_window_rect_list_intersect_above(ns_get_window_id(m_pnswindow));
+//      recta = cg_get_window_rect_list_intersect_above(ns_get_window_id(m_pnswindow));
       
       
    }
@@ -1891,7 +1955,7 @@ namespace windowing_ios
 //
 //      }
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
@@ -1988,7 +2052,7 @@ namespace windowing_ios
    //
    //      }
 
-      auto puserinteraction = m_pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
@@ -2069,10 +2133,10 @@ namespace windowing_ios
    }
 
 
-   ::e_status window::destroy_window()
+   void window::destroy_window()
    {
 
-      __pointer(::user::primitive_impl) pimplThis = m_pimpl;
+      __pointer(::user::primitive_impl) pimplThis = m_puserinteractionimpl;
 
       __pointer(::user::interaction) puiThis = pimplThis->m_puserinteraction;
 
@@ -2098,17 +2162,17 @@ namespace windowing_ios
 
       }
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status window::bring_to_front()
+   void window::bring_to_front()
    {
 
-      macos_window_order_front();
+      //ios_window_order_front();
 
-      return ::success;
+      //return ::success;
 
    }
 

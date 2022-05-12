@@ -8,7 +8,7 @@ namespace acme_ios
 
 
    class CLASS_DECL_ACME_MACOS acme_path :
-      virtual public ::posix::acme_path
+      virtual public ::acme_apple::acme_path
    {
    public:
 
@@ -18,9 +18,9 @@ namespace acme_ios
 
 
       
-      ::e_status create_symbolic_link(const char * pszLink, const char * pszSource) override;
+      void create_symbolic_link(const char * pszLink, const char * pszSource) override;
 
-      ::e_status is_symbolic_link(const char * pszLink) override;
+      bool is_symbolic_link(const char * pszLink) override;
 
       ::file::path symbolic_link_destination(const char * pszLink) override;
 

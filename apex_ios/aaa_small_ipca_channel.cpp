@@ -4,17 +4,11 @@
 #include "acme/operating_system/ansi/_pthread.h"
 
 
-
-
-namespace apex
+namespace apex_ios
 {
 
 
-   namespace ipc
-   {
-
-
-      base::base()
+      interProcebase::base()
       {
          
          m_port = nullptr;
@@ -468,8 +462,6 @@ namespace apex
 
       }
 
-
-   } // namespace ipc
 
 
 } // namespace apex

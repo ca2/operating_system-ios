@@ -75,7 +75,7 @@ void default_font_name(char sz[256])
 
 
 
-void * ns_image_get_image_data(int & width, int & height, int & iScan, NSImage * image)
+void * ns_image_get_image_data(int & width, int & height, int & iScan, UIImage * image)
 {
    
    CGImageRef inputCGImage = [image CGImageForProposedRect:NULL context:NULL hints:NULL];

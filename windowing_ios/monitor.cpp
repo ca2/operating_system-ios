@@ -10,7 +10,7 @@ void ns_monitor_cgrect(int i, CGRect * p);
 void ns_workspace_cgrect(int i, CGRect * p);
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -29,35 +29,35 @@ namespace windowing_macos
    }
 
 
-::e_status monitor::get_monitor_rectangle(::RECTANGLE_I32 * prectangle)
-{
-   
-   CGRect r;
-   
-   ns_monitor_cgrect((int) m_iIndex, &r);
-   
-   __copy(prectangle, r);
-   
-   return ::success;
-   
-}
+   void monitor::get_monitor_rectangle(::RECTANGLE_I32 * prectangle)
+   {
+      
+      CGRect r;
+      
+      ns_monitor_cgrect((int) m_iIndex, &r);
+      
+      __copy(prectangle, r);
+      
+      //return ::success;
+      
+   }
 
 
-::e_status monitor::get_workspace_rectangle(::RECTANGLE_I32 * prectangle)
-{
-   
-   CGRect rectWorkspace;
-   
-   ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
-   
-   __copy(prectangle, rectWorkspace);
-   
-   return ::success;
-   
-}
+   void monitor::get_workspace_rectangle(::RECTANGLE_I32 * prectangle)
+   {
+      
+      CGRect rectWorkspace;
+      
+      ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
+      
+      __copy(prectangle, rectWorkspace);
+      
+      //return ::success;
+      
+   }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

@@ -548,7 +548,7 @@
 //#include "framework.h"
 //
 
-#include <Carbon/Carbon.h>
+//#include <Carbon/Carbon.h>
 #include <CoreFoundation/CoreFoundation.h>
 
 //
@@ -576,20 +576,20 @@ string keyboard_input_source()
 
 }
 
-
-CLASS_DECL_AURA ::user::interaction_impl * oswindow_get(oswindow oswindow)
-{
-
-   if(oswindow == nullptr)
-   {
-
-      return nullptr;
-
-   }
-
-   return oswindow->m_pimpl;
-
-}
+//
+//CLASS_DECL_AURA ::user::interaction_impl * oswindow_get(oswindow oswindow)
+//{
+//
+//   if(oswindow == nullptr)
+//   {
+//
+//      return nullptr;
+//
+//   }
+//
+//   return oswindow->m_pimpl;
+//
+//}
 
 
 //::user::interaction * get_system_window_interaction(::os_system_window * psystemwindow)
@@ -631,100 +631,100 @@ void mm_init_workspace_rect();
 //
 //}
 
-
-// front first
-rectangle_i32_array cg_get_window_rect_list_above(CGWindowID windowid)
-{
-   
-   rectangle_i32_array recta;
-   
-   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenAboveWindow, windowid);
-
-   ::rectangle_i32 rMainScreen;
-
-   GetMainScreenRect(rMainScreen);
-
-   long c = CFArrayGetCount(windowa);
-
-   for(int i = 0; i < c; i++)
-   {
-
-      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
-      
-      CFNumberRef cfnumberAlpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
-      
-      if(cfnumberAlpha)
-      {
-         
-         float fAlpha = 0.f;
-         
-         CFNumberGetValue(cfnumberAlpha, kCFNumberFloatType, &fAlpha);
-         
-         CFRelease(cfnumberAlpha);
-         
-         if(fAlpha <= 0.f)
-         {
-            
-            continue;
-            
-         }
-         
-      }
-
-      CFStringRef cfstrName = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
-
-      if(cfstrName)
-      {
-         
-         CFStringEncoding encodingMethod = CFStringGetSystemEncoding();
-         string strName = CFStringGetCStringPtr(cfstrName, encodingMethod);
-
-         CFRelease(cfstrName);
-         
-         if(strName.compare_ci("cursor") == 0)
-         {
-            
-            continue;
-            
-         }
-         
-      }
-      
-      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
-      
-      if(dictRect)
-      {
-
-         CGRect rect = {};
-      
-         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
-
-         if(rect.size.width > 0 && rect.size.height > 0)
-         {
-
-            ::rectangle_i32 rectCopy;
-
-            rectCopy.left = rect.origin.x;
-            rectCopy.top = rMainScreen.height() - (rect.origin.y + rect.size.height);
-            rectCopy.bottom = rectCopy.top + rect.size.height;
-            rectCopy.right = rect.origin.x + rect.size.width;
-
-            recta.add(rectCopy);
-
-         }
-         
-         CFRelease(dictRect);
-         
-      }
-
-   }
-
-   CFRelease(windowa);
-
-   return recta;
-
-}
-
+//
+//// front first
+//rectangle_i32_array cg_get_window_rect_list_above(CGWindowID windowid)
+//{
+//
+//   rectangle_i32_array recta;
+//
+//   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenAboveWindow, windowid);
+//
+//   ::rectangle_i32 rMainScreen;
+//
+//   GetMainScreenRect(rMainScreen);
+//
+//   long c = CFArrayGetCount(windowa);
+//
+//   for(int i = 0; i < c; i++)
+//   {
+//
+//      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
+//
+//      CFNumberRef cfnumberAlpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
+//
+//      if(cfnumberAlpha)
+//      {
+//
+//         float fAlpha = 0.f;
+//
+//         CFNumberGetValue(cfnumberAlpha, kCFNumberFloatType, &fAlpha);
+//
+//         CFRelease(cfnumberAlpha);
+//
+//         if(fAlpha <= 0.f)
+//         {
+//
+//            continue;
+//
+//         }
+//
+//      }
+//
+//      CFStringRef cfstrName = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
+//
+//      if(cfstrName)
+//      {
+//
+//         CFStringEncoding encodingMethod = CFStringGetSystemEncoding();
+//         string strName = CFStringGetCStringPtr(cfstrName, encodingMethod);
+//
+//         CFRelease(cfstrName);
+//
+//         if(strName.compare_ci("cursor") == 0)
+//         {
+//
+//            continue;
+//
+//         }
+//
+//      }
+//
+//      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
+//
+//      if(dictRect)
+//      {
+//
+//         CGRect rect = {};
+//
+//         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
+//
+//         if(rect.size.width > 0 && rect.size.height > 0)
+//         {
+//
+//            ::rectangle_i32 rectCopy;
+//
+//            rectCopy.left = rect.origin.x;
+//            rectCopy.top = rMainScreen.height() - (rect.origin.y + rect.size.height);
+//            rectCopy.bottom = rectCopy.top + rect.size.height;
+//            rectCopy.right = rect.origin.x + rect.size.width;
+//
+//            recta.add(rectCopy);
+//
+//         }
+//
+//         CFRelease(dictRect);
+//
+//      }
+//
+//   }
+//
+//   CFRelease(windowa);
+//
+//   return recta;
+//
+//}
+//
 
 string MYCFStringCopyUTF8String(CFStringRef aString)
 {
@@ -761,265 +761,265 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //#define FUNCTION_TRACE(...) strFormat.Format(__VA_ARGS__); str+=strFormat;
 #undef FUNCTION_TRACE
 
-
-rectangle_i32_array cg_get_window_rect_list_intersect_above(CGWindowID windowid)
-{
-   
-   bool bFound = false;
-
-#ifdef FUNCTION_TRACE
-   
-   string str;
-   
-   string strFormat;
-
-   bool bFullTrace = false;
-
-#endif
-   
-   rectangle_i32_array recta;
-   
-   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
-
-   CGRect rect1 = {};
-   
-   //rectangle_i32 rMainScreen;
-   
-   //GetMainScreenRect(rMainScreen);
-   
-   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
-   
-   long c = CFArrayGetCount(windowa);
-   
-   //CGWindowID windowidTopic = -1;
-   
-   string strName;
-   
-   string strAppName;
-   
-   if(c <= 1)
-   {
-      
-      goto end1;
-      
-   }
-   
-#ifdef FUNCTION_TRACE
-
-   FUNCTION_TRACE("-\n");
-   FUNCTION_TRACE("---\n");
-   FUNCTION_TRACE("-----\n");
-   FUNCTION_TRACE("Windows Above------------------------------------------\n");
-   
-#endif
-   
-   for(index i = c - 1; i >= 0; i--)
-   {
-      
-#ifdef FUNCTION_TRACE
-      
-      if(bFullTrace && (i + 1) % 10 != 0 && (i + 1) != c)
-      {
-         
-         FUNCTION_TRACE("\n     ");
-         
-      }
-      else
-      {
-         
-         FUNCTION_TRACE("\n%3d. ", i + 1);
-         
-      }
-      
-      bFullTrace = false;
-         
-#endif
-
-      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
-      
-      if (!dict) continue;
-      
-      CFNumberRef window_id = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowNumber);
-      
-      if (!window_id) continue;
-      
-      ::i32 iWindowId = -1;
-         
-      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
-         
-      CFRelease(window_id);
-      
-      if(!bFound)
-      {
-      
-         if(iWindowId == windowid)
-         {
-         
-            bFound = true;
-         
-         }
-         else
-         {
-            
-            continue;
-            
-         }
-         
-      }
-         
-      CFNumberRef alpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
-   
-      if(alpha)
-      {
-      
-         float fAlpha = 0.f;
-         
-         CFNumberGetValue(alpha, kCFNumberFloatType, &fAlpha);
-         
-         if(fAlpha <= 0.f) continue;
-         
-#ifdef FUNCTION_TRACE
-         
-         int iAlpha = (int) (fAlpha * 255.f);
-         
-         if(iAlpha == 255)
-         {
-         
-            FUNCTION_TRACE("            ");
-            
-         }
-         else
-         {
-            
-            FUNCTION_TRACE("Alpha: %3d; ", iAlpha);
-            
-         }
-            
-#endif
-         
-      }
-
-      CFStringRef name = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
-      
-      strName.Empty();
-
-      if(name)
-      {
-
-         strName =  MYCFStringCopyUTF8String(name);
-
-      }
-      
-      CFStringRef appname = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowOwnerName);
-      
-      strAppName.Empty();
-      
-      if(appname)
-      {
-         
-         strAppName =  MYCFStringCopyUTF8String(appname);
-         
-      }
-      
-      if(strAppName.compare_ci("window server") == 0)
-      {
-
-         if(strName.compare_ci("cursor") == 0)
-         {
-            
-            continue;
-            
-         }
-         
-      }
-      
-      if(strAppName.compare_ci("Dock") == 0)
-      {
-         
-         if(strName.is_empty())
-         {
-            
-            continue;
-            
-         }
-         
-      }
-
-      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
-   
-      if(dictRect)
-      {
-         
-         CGRect rect= {};
-   
-         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
-      
-#ifdef FUNCTION_TRACE
-         
-         FUNCTION_TRACE("  %5.0f,%5.0f - %5.0f,%5.0f  ",
-              rect.origin.x,
-              rect.origin.y,
-              rect.size.width,
-              rect.size.height);
-         
-#endif
-
-         if(rect.size.width > 0 && rect.size.height > 0)
-         {
-            
-            if(iWindowId == windowid)
-            {
-               
-               rect1 = rect;
-               
-            }
-            else if(bFound)
-            {
-            
-               if(CGRectIntersectsRect(rect1, rect))
-               {
-
-                  ::rectangle_i32 rectCopy;
-
-                  rectCopy.left = rect.origin.x;
-                  rectCopy.right = rect.origin.x + rect.size.width;
-                  rectCopy.top = rect.origin.y;
-                  rectCopy.bottom = rect.origin.y + rect.size.height;
-
-                  recta.add(rectCopy);
-
-               }
-               
-            }
-            
-         }
-         
-         CFRelease(dictRect);
-         
-      }
-      
-#ifdef FUNCTION_TRACE
-      
-      FUNCTION_TRACE("Owner: \"%s\"; ", strAppName.c_str());
-      FUNCTION_TRACE("Name: \"%s\"; ", strName.c_str());
-      
-      bFullTrace = true;
-      
-#endif
-   
-   }
-   
-end1:
-   
-#ifdef FUNCTION_TRACE
-   
-   output_debug_string(str);
-   
-#endif
-   
-   return recta;
-
-}
+//
+//rectangle_i32_array cg_get_window_rect_list_intersect_above(CGWindowID windowid)
+//{
+//
+//   bool bFound = false;
+//
+//#ifdef FUNCTION_TRACE
+//
+//   string str;
+//
+//   string strFormat;
+//
+//   bool bFullTrace = false;
+//
+//#endif
+//
+//   rectangle_i32_array recta;
+//
+//   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
+//
+//   CGRect rect1 = {};
+//
+//   //rectangle_i32 rMainScreen;
+//
+//   //GetMainScreenRect(rMainScreen);
+//
+//   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
+//
+//   long c = CFArrayGetCount(windowa);
+//
+//   //CGWindowID windowidTopic = -1;
+//
+//   string strName;
+//
+//   string strAppName;
+//
+//   if(c <= 1)
+//   {
+//
+//      goto end1;
+//
+//   }
+//
+//#ifdef FUNCTION_TRACE
+//
+//   FUNCTION_TRACE("-\n");
+//   FUNCTION_TRACE("---\n");
+//   FUNCTION_TRACE("-----\n");
+//   FUNCTION_TRACE("Windows Above------------------------------------------\n");
+//
+//#endif
+//
+//   for(index i = c - 1; i >= 0; i--)
+//   {
+//
+//#ifdef FUNCTION_TRACE
+//
+//      if(bFullTrace && (i + 1) % 10 != 0 && (i + 1) != c)
+//      {
+//
+//         FUNCTION_TRACE("\n     ");
+//
+//      }
+//      else
+//      {
+//
+//         FUNCTION_TRACE("\n%3d. ", i + 1);
+//
+//      }
+//
+//      bFullTrace = false;
+//
+//#endif
+//
+//      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
+//
+//      if (!dict) continue;
+//
+//      CFNumberRef window_id = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowNumber);
+//
+//      if (!window_id) continue;
+//
+//      ::i32 iWindowId = -1;
+//
+//      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
+//
+//      CFRelease(window_id);
+//
+//      if(!bFound)
+//      {
+//
+//         if(iWindowId == windowid)
+//         {
+//
+//            bFound = true;
+//
+//         }
+//         else
+//         {
+//
+//            continue;
+//
+//         }
+//
+//      }
+//
+//      CFNumberRef alpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
+//
+//      if(alpha)
+//      {
+//
+//         float fAlpha = 0.f;
+//
+//         CFNumberGetValue(alpha, kCFNumberFloatType, &fAlpha);
+//
+//         if(fAlpha <= 0.f) continue;
+//
+//#ifdef FUNCTION_TRACE
+//
+//         int iAlpha = (int) (fAlpha * 255.f);
+//
+//         if(iAlpha == 255)
+//         {
+//
+//            FUNCTION_TRACE("            ");
+//
+//         }
+//         else
+//         {
+//
+//            FUNCTION_TRACE("Alpha: %3d; ", iAlpha);
+//
+//         }
+//
+//#endif
+//
+//      }
+//
+//      CFStringRef name = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
+//
+//      strName.Empty();
+//
+//      if(name)
+//      {
+//
+//         strName =  MYCFStringCopyUTF8String(name);
+//
+//      }
+//
+//      CFStringRef appname = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowOwnerName);
+//
+//      strAppName.Empty();
+//
+//      if(appname)
+//      {
+//
+//         strAppName =  MYCFStringCopyUTF8String(appname);
+//
+//      }
+//
+//      if(strAppName.compare_ci("window server") == 0)
+//      {
+//
+//         if(strName.compare_ci("cursor") == 0)
+//         {
+//
+//            continue;
+//
+//         }
+//
+//      }
+//
+//      if(strAppName.compare_ci("Dock") == 0)
+//      {
+//
+//         if(strName.is_empty())
+//         {
+//
+//            continue;
+//
+//         }
+//
+//      }
+//
+//      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
+//
+//      if(dictRect)
+//      {
+//
+//         CGRect rect= {};
+//
+//         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
+//
+//#ifdef FUNCTION_TRACE
+//
+//         FUNCTION_TRACE("  %5.0f,%5.0f - %5.0f,%5.0f  ",
+//              rect.origin.x,
+//              rect.origin.y,
+//              rect.size.width,
+//              rect.size.height);
+//
+//#endif
+//
+//         if(rect.size.width > 0 && rect.size.height > 0)
+//         {
+//
+//            if(iWindowId == windowid)
+//            {
+//
+//               rect1 = rect;
+//
+//            }
+//            else if(bFound)
+//            {
+//
+//               if(CGRectIntersectsRect(rect1, rect))
+//               {
+//
+//                  ::rectangle_i32 rectCopy;
+//
+//                  rectCopy.left = rect.origin.x;
+//                  rectCopy.right = rect.origin.x + rect.size.width;
+//                  rectCopy.top = rect.origin.y;
+//                  rectCopy.bottom = rect.origin.y + rect.size.height;
+//
+//                  recta.add(rectCopy);
+//
+//               }
+//
+//            }
+//
+//         }
+//
+//         CFRelease(dictRect);
+//
+//      }
+//
+//#ifdef FUNCTION_TRACE
+//
+//      FUNCTION_TRACE("Owner: \"%s\"; ", strAppName.c_str());
+//      FUNCTION_TRACE("Name: \"%s\"; ", strName.c_str());
+//
+//      bFullTrace = true;
+//
+//#endif
+//
+//   }
+//
+//end1:
+//
+//#ifdef FUNCTION_TRACE
+//
+//   output_debug_string(str);
+//
+//#endif
+//
+//   return recta;
+//
+//}
 
 
 #ifdef FUNCTION_TRACE
@@ -1031,321 +1031,321 @@ end1:
 #undef FUNCTION_TRACE
 
 
-void cg_get_window_rect_list(rectangle_i32_array & recta, array < CGWindowID > & windowida)
-{
-
-   //bool bFound = false;
-
-#ifdef FUNCTION_TRACE
-   
-   string str;
-   
-   string strFormat;
-   
-   bool bFullTrace = false;
-   
-#endif
-
-   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
-   
-   long c = CFArrayGetCount(windowa);
-   
-   //CGRect rect1={};
-   
-   //rectangle_i32 rMainScreen;
-
-   string strName;
-   
-   string strAppName;
-   
-   //GetMainScreenRect(rMainScreen);
-   
-   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
-   
-#ifdef FUNCTION_TRACE
-   
-   FUNCTION_TRACE("-\n");
-   FUNCTION_TRACE("---\n");
-   FUNCTION_TRACE("-----\n");
-   FUNCTION_TRACE("Windows Rect List------------------------------------------\n");
-   
-#endif
-
-   for(int i = 0; i < c; i++)
-   {
-      
-#ifdef FUNCTION_TRACE
-      
-      if(bFullTrace && (i + 1) % 10 != 0 && (i + 1) != c)
-      {
-         
-         FUNCTION_TRACE("\n     ");
-         
-      }
-      else
-      {
-         
-         FUNCTION_TRACE("\n%3d. ", i + 1);
-         
-      }
-      
-      bFullTrace = false;
-      
-#endif
-      
-      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
-      
-      if (!dict) continue;
-      
-      CFNumberRef window_id = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowNumber);
-      
-      if (!window_id) continue;
-      
-      ::i32 iWindowId = -1;
-      
-      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
-      
-      CFRelease(window_id);
-      
-      CFNumberRef alpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
-      
-      if(alpha)
-      {
-         
-         float fAlpha = 0.f;
-         
-         CFNumberGetValue(alpha, kCFNumberFloatType, &fAlpha);
-         
-         if(fAlpha <= 0.f) continue;
-         
-#ifdef FUNCTION_TRACE
-         
-         int iAlpha = (int) (fAlpha * 255.f);
-         
-         if(iAlpha == 255)
-         {
-            
-            FUNCTION_TRACE("            ");
-            
-         }
-         else
-         {
-            
-            FUNCTION_TRACE("Alpha: %3d; ", iAlpha);
-            
-         }
-         
-#endif
-         
-      }
-      
-      CFStringRef name = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
-      
-      strName.Empty();
-      
-      if(name)
-      {
-         
-         strName =  MYCFStringCopyUTF8String(name);
-         
-      }
-      
-      CFStringRef appname = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowOwnerName);
-      
-      strAppName.Empty();
-      
-      if(appname)
-      {
-         
-         strAppName =  MYCFStringCopyUTF8String(appname);
-         
-      }
-      
-      if(strAppName.compare_ci("window server") == 0)
-      {
-         
-         if(strName.compare_ci("cursor") == 0)
-         {
-            
-            continue;
-            
-         }
-         
-      }
-      
-      if(strName.compare_ci("dock") == 0)
-      {
-         
-         continue;
-         
-      }
-
-      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
-      
-      if(dictRect)
-      {
-         
-         CGRect rect= {};
-         
-         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
-         
-         ::rectangle_i32 rectCopy;
-         
-         //rectCopy.left = rectangle.origin.x;
-         //rectCopy.top = rMainScreen.height() - (rectangle.origin.y + rectangle.size.height);
-         //rectCopy.bottom = rectCopy.top + rectangle.size.height;
-         //rectCopy.right = rectangle.origin.x + rectangle.size.width;
-
-         rectCopy.left = rect.origin.x;
-         rectCopy.right = rect.origin.x + rect.size.width;
-         rectCopy.top = rect.origin.y;
-         rectCopy.bottom = rect.origin.y + rect.size.height;
-
-         recta.add(rectCopy);
-         windowida.add(iWindowId);
-         
-         CFRelease(dictRect);
-         
-      }
-      
-#ifdef FUNCTION_TRACE
-      
-      FUNCTION_TRACE("Owner: \"%s\"; ", strAppName.c_str());
-      FUNCTION_TRACE("Name: \"%s\"; ", strName.c_str());
-      
-      bFullTrace = true;
-      
-#endif
-      
-   }
-   
-end1:;
-   
-#ifdef FUNCTION_TRACE
-   
-   output_debug_string(str);
-   
-#endif
-   
-   //return recta;
-   
-}
-
-#ifdef FUNCTION_TRACE
-#undef FUNCTION_TRACE
-#endif
-
-
-
-CGWindowID get_os_window_window_number(oswindow oswindow)
-{
-   
-   auto pwindow = (::windowing_macos::window *) oswindow->m_pWindow2;
-   
-   auto pnswindow = pwindow->m_pnswindow;
-   
-   auto windowId = ns_get_window_id(pnswindow);
-   
-   return windowId;
-   
-}
-
-int_bool is_window_occluded(oswindow oswindow)
-{
-
-
-   CGWindowID windowid = get_os_window_window_number(oswindow);
-
-   if(windowid == 0)
-   {
-
-      return false;
-
-   }
-
-   rectangle_i32_array recta = cg_get_window_rect_list_intersect_above(windowid);
-
-
-   if(recta.is_empty())
-   {
-
-      return false;
-
-   }
-   
-   return true;
-
-//   ::rectangle_i32 rectangle;
+//void cg_get_window_rect_list(rectangle_i32_array & recta, array < CGWindowID > & windowida)
+//{
 //
-//   rectangle = oswindow->m_pimpl->m_puserinteraction->parent_client_rect();
+//   //bool bFound = false;
 //
-//   ::rectangle_i32 rectTest;
+//#ifdef FUNCTION_TRACE
+//   
+//   string str;
+//   
+//   string strFormat;
+//   
+//   bool bFullTrace = false;
+//   
+//#endif
 //
-//   for(int i = 0; i < recta.get_size(); i++)
+//   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
+//   
+//   long c = CFArrayGetCount(windowa);
+//   
+//   //CGRect rect1={};
+//   
+//   //rectangle_i32 rMainScreen;
+//
+//   string strName;
+//   
+//   string strAppName;
+//   
+//   //GetMainScreenRect(rMainScreen);
+//   
+//   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
+//   
+//#ifdef FUNCTION_TRACE
+//   
+//   FUNCTION_TRACE("-\n");
+//   FUNCTION_TRACE("---\n");
+//   FUNCTION_TRACE("-----\n");
+//   FUNCTION_TRACE("Windows Rect List------------------------------------------\n");
+//   
+//#endif
+//
+//   for(int i = 0; i < c; i++)
 //   {
 //      
-//      auto rectAbove = recta[i];
-//
-//      if(rectTest.intersect(recta[i], rectangle))
+//#ifdef FUNCTION_TRACE
+//      
+//      if(bFullTrace && (i + 1) % 10 != 0 && (i + 1) != c)
 //      {
-//
-//         return true;
-//
+//         
+//         FUNCTION_TRACE("\n     ");
+//         
 //      }
+//      else
+//      {
+//         
+//         FUNCTION_TRACE("\n%3d. ", i + 1);
+//         
+//      }
+//      
+//      bFullTrace = false;
+//      
+//#endif
+//      
+//      CFDictionaryRef dict = (CFDictionaryRef)CFArrayGetValueAtIndex(windowa, i);
+//      
+//      if (!dict) continue;
+//      
+//      CFNumberRef window_id = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowNumber);
+//      
+//      if (!window_id) continue;
+//      
+//      ::i32 iWindowId = -1;
+//      
+//      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
+//      
+//      CFRelease(window_id);
+//      
+//      CFNumberRef alpha = (CFNumberRef) CFDictionaryGetValue(dict, kCGWindowAlpha);
+//      
+//      if(alpha)
+//      {
+//         
+//         float fAlpha = 0.f;
+//         
+//         CFNumberGetValue(alpha, kCFNumberFloatType, &fAlpha);
+//         
+//         if(fAlpha <= 0.f) continue;
+//         
+//#ifdef FUNCTION_TRACE
+//         
+//         int iAlpha = (int) (fAlpha * 255.f);
+//         
+//         if(iAlpha == 255)
+//         {
+//            
+//            FUNCTION_TRACE("            ");
+//            
+//         }
+//         else
+//         {
+//            
+//            FUNCTION_TRACE("Alpha: %3d; ", iAlpha);
+//            
+//         }
+//         
+//#endif
+//         
+//      }
+//      
+//      CFStringRef name = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowName);
+//      
+//      strName.Empty();
+//      
+//      if(name)
+//      {
+//         
+//         strName =  MYCFStringCopyUTF8String(name);
+//         
+//      }
+//      
+//      CFStringRef appname = (CFStringRef) CFDictionaryGetValue(dict, kCGWindowOwnerName);
+//      
+//      strAppName.Empty();
+//      
+//      if(appname)
+//      {
+//         
+//         strAppName =  MYCFStringCopyUTF8String(appname);
+//         
+//      }
+//      
+//      if(strAppName.compare_ci("window server") == 0)
+//      {
+//         
+//         if(strName.compare_ci("cursor") == 0)
+//         {
+//            
+//            continue;
+//            
+//         }
+//         
+//      }
+//      
+//      if(strName.compare_ci("dock") == 0)
+//      {
+//         
+//         continue;
+//         
+//      }
+//
+//      CFDictionaryRef dictRect = (CFDictionaryRef) CFDictionaryGetValue(dict, kCGWindowBounds);
+//      
+//      if(dictRect)
+//      {
+//         
+//         CGRect rect= {};
+//         
+//         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
+//         
+//         ::rectangle_i32 rectCopy;
+//         
+//         //rectCopy.left = rectangle.origin.x;
+//         //rectCopy.top = rMainScreen.height() - (rectangle.origin.y + rectangle.size.height);
+//         //rectCopy.bottom = rectCopy.top + rectangle.size.height;
+//         //rectCopy.right = rectangle.origin.x + rectangle.size.width;
+//
+//         rectCopy.left = rect.origin.x;
+//         rectCopy.right = rect.origin.x + rect.size.width;
+//         rectCopy.top = rect.origin.y;
+//         rectCopy.bottom = rect.origin.y + rect.size.height;
+//
+//         recta.add(rectCopy);
+//         windowida.add(iWindowId);
+//         
+//         CFRelease(dictRect);
+//         
+//      }
+//      
+//#ifdef FUNCTION_TRACE
+//      
+//      FUNCTION_TRACE("Owner: \"%s\"; ", strAppName.c_str());
+//      FUNCTION_TRACE("Name: \"%s\"; ", strName.c_str());
+//      
+//      bFullTrace = true;
+//      
+//#endif
+//      
+//   }
+//   
+//end1:;
+//   
+//#ifdef FUNCTION_TRACE
+//   
+//   output_debug_string(str);
+//   
+//#endif
+//   
+//   //return recta;
+//   
+//}
+//
+//#ifdef FUNCTION_TRACE
+//#undef FUNCTION_TRACE
+//#endif
+//
+//
+//
+//CGWindowID get_os_window_window_number(oswindow oswindow)
+//{
+//   
+//   auto pwindow = (::windowing_macos::window *) oswindow->m_pWindow2;
+//   
+//   auto pnswindow = pwindow->m_pnswindow;
+//   
+//   auto windowId = ns_get_window_id(pnswindow);
+//   
+//   return windowId;
+//   
+//}
+//
+//int_bool is_window_occluded(oswindow oswindow)
+//{
+//
+//
+//   CGWindowID windowid = get_os_window_window_number(oswindow);
+//
+//   if(windowid == 0)
+//   {
+//
+//      return false;
 //
 //   }
 //
+//   rectangle_i32_array recta = cg_get_window_rect_list_intersect_above(windowid);
 //
+//
+//   if(recta.is_empty())
+//   {
+//
+//      return false;
+//
+//   }
+//   
+//   return true;
+//
+////   ::rectangle_i32 rectangle;
+////
+////   rectangle = oswindow->m_pimpl->m_puserinteraction->parent_client_rect();
+////
+////   ::rectangle_i32 rectTest;
+////
+////   for(int i = 0; i < recta.get_size(); i++)
+////   {
+////      
+////      auto rectAbove = recta[i];
+////
+////      if(rectTest.intersect(recta[i], rectangle))
+////      {
+////
+////         return true;
+////
+////      }
+////
+////   }
+////
+////
+////   return false;
+//
+//}
+//
+//void cg_get_window_rect_list(rectangle_i32_array & recta, array < CGWindowID > & windowida);
+//
+//int_bool point_is_window_origin(POINT_I32 pointHitTest, oswindow oswindowExclude, int iMargin)
+//{
+//   
+//   CGWindowID windowidExclude = get_os_window_window_number(oswindowExclude);
+//   
+//   rectangle_i32_array recta;
+//   
+//   array < CGWindowID > windowida;
+//   
+//   cg_get_window_rect_list(recta, windowida);
+//   
+//   ::rectangle_i32 rectTest;
+//
+//   for(index i = 0; i < recta.get_size(); i++)
+//   {
+//   
+//      int wid = windowida[i];
+//      
+//      if(windowidExclude != 0 && wid == windowidExclude)
+//      {
+//         
+//         continue;
+//         
+//      }
+//
+//      auto rectangle = recta[i];
+//
+//      if(rectangle.contains(pointHitTest))
+//      {
+//         
+//         return true;
+//         
+//      }
+//      
+//   }
+//   
 //   return false;
-
-}
-
-void cg_get_window_rect_list(rectangle_i32_array & recta, array < CGWindowID > & windowida);
-
-int_bool point_is_window_origin(POINT_I32 pointHitTest, oswindow oswindowExclude, int iMargin)
-{
-   
-   CGWindowID windowidExclude = get_os_window_window_number(oswindowExclude);
-   
-   rectangle_i32_array recta;
-   
-   array < CGWindowID > windowida;
-   
-   cg_get_window_rect_list(recta, windowida);
-   
-   ::rectangle_i32 rectTest;
-
-   for(index i = 0; i < recta.get_size(); i++)
-   {
-   
-      int wid = windowida[i];
-      
-      if(windowidExclude != 0 && wid == windowidExclude)
-      {
-         
-         continue;
-         
-      }
-
-      auto rectangle = recta[i];
-
-      if(rectangle.contains(pointHitTest))
-      {
-         
-         return true;
-         
-      }
-      
-   }
-   
-   return false;
-
-}
-
-
-void defer_term_ui()
-{
-   
-   
-   
-}
+//
+//}
+//
+//
+//void defer_term_ui()
+//{
+//   
+//   
+//   
+//}

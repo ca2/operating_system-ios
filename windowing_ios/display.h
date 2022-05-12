@@ -1,13 +1,14 @@
 //
 //  display.hpp
-//  windowing_macos
+//  windowing_ios
 //
 //  Created by Camilo Sasuke on 27/05/21 19:43 BRT <3ThomasBS_!!
+//  From windowing_macos on 2022-05-11 02:13 <3ThomasBorregaardSorensen!!
 //
 #pragma once
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 

@@ -10,7 +10,7 @@
 int ns_monitor_count()
 {
    
-   auto screenArray = [NSScreen screens];
+   auto screenArray = [UIScreen screens];
 
    auto count = [screenArray count];
 
@@ -38,11 +38,11 @@ void ns_screen_translate(CGRect * prect)
 void ns_monitor_cgrect(int i, CGRect * prect)
 {
 
-   auto screenArray = [NSScreen screens];
+   auto screenArray = [UIScreen screens];
 
    auto pscreen = [screenArray objectAtIndex:i];
    
-   *prect = [pscreen frame];
+   *prect = [pscreen bounds];
    
    ns_screen_translate(prect);
    
@@ -52,11 +52,11 @@ void ns_monitor_cgrect(int i, CGRect * prect)
 void ns_workspace_cgrect(int i, CGRect * prect)
 {
 
-   auto screenArray = [NSScreen screens];
+   auto screenArray = [UIScreen screens];
 
    auto pscreen = [screenArray objectAtIndex:i];
    
-   *prect = [pscreen visibleFrame];
+   *prect = [pscreen bounds];
    
    ns_screen_translate(prect);
    
@@ -66,9 +66,9 @@ void ns_workspace_cgrect(int i, CGRect * prect)
 void ns_main_monitor_cgrect(CGRect * prect)
 {
 
-   auto pscreen = [NSScreen mainScreen];
+   auto pscreen = [UIScreen mainScreen];
 
-   *prect = [pscreen frame];
+   *prect = [pscreen bounds];
    
 }
 

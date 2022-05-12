@@ -51,8 +51,8 @@
 #import "iosTextView.h"
 
 
-static const NSTimeInterval InitialBlinkDelay = 0.7;
-static const NSTimeInterval BlinkRate = 0.5;
+//static const NSTimeInterval InitialBlinkDelay = 0.7;
+//static const NSTimeInterval BlinkRate = 0.5;
 
 
 

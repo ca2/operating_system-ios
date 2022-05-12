@@ -1,7 +1,8 @@
+//  From windowing_macos on 2022-05-11 02:15 <3ThomasBorregaardSorensen!!
 #pragma once
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -53,7 +54,7 @@ namespace windowing_macos
    };
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

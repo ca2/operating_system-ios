@@ -23,6 +23,10 @@ namespace windowing_ios
       
       __pointer(class window)                   m_pwindowCapture;
       
+      __pointer(class window)                   m_pwindowApplicationHost;
+      
+      __pointer(host_interaction)               m_phostinteraction;
+      
       map < void *, __pointer(class window) >   m_nsmap;
 
       
@@ -31,6 +35,15 @@ namespace windowing_ios
       
       
       void initialize(::object * pobject) override;
+      
+      
+      void defer_initialize_host_window(const RECTANGLE_I32* lpcrect) override;
+     
+      ::windowing::window * get_application_host_window() override;
+      
+      ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
+
+      __pointer(::windowing::cursor) get_cursor(enum_cursor ecursor) override;
       
       void windowing_post(const ::procedure & procedure) override;
       

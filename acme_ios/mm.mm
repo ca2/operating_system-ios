@@ -31,158 +31,158 @@ char * ns_get_default_browser_path()
    
 }
 
-
-bool ns_open_url(const char * psz)
-{
-   
-   NSString * str = [NSString stringWithUTF8String:psz];
-   
-   if(str == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   NSURL * url = [[NSURL alloc] initWithString: str];
-   
-   if(url == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   if(![[NSWorkspace sharedWorkspace] openURL: url])
-   {
-      
-      return false;
-      
-   }
-   
-   return true;
-   
-}
-
-
-bool ns_open_file(const char * psz)
-{
-   
-   NSString * path = [NSString stringWithUTF8String:psz];
-   
-   if(path == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   NSURL * url = [[NSURL alloc] initFileURLWithPath:path];
-   
-   if(![[NSWorkspace sharedWorkspace] openURL: url])
-   {
-      
-      return false;
-      
-   }
-   
-   return true;
-   
-}
-
-void ns_launch_app_at_url(NSURL * url, const char ** argv, int iFlags)
-{
-   
-   NSWorkspace * workspace = [NSWorkspace sharedWorkspace];
-
-   NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-   
-   if(argv != NULL)
-   {
-   
-      NSMutableArray * array = [[NSMutableArray alloc] init];
-   
-      while(*argv != NULL)
-      {
-      
-         [array addObject: [[NSString alloc] initWithUTF8String: *argv]];
-         
-         argv++;
-         
-      }
-
-      [dict setObject:array forKey:NSWorkspaceLaunchConfigurationArguments];
-      
-   }
-   
-   //NSWorkspaceLaunchWithoutActivation
-   //NSWorkspaceLaunchNewInstance
-   //NSWorkspaceLaunchDefault
-   
-   [workspace launchApplicationAtURL:url options: iFlags configuration:dict error:nil];
-
-  /* 
-   NSWorkspaceOpenConfiguration * configuration = [[NSWorkspaceOpenConfiguration alloc] init];
-   
-   if(argv != NULL)
-   {
-   
-      NSMutableArray * array = [[NSMutableArray alloc] init];
-   
-      while(*argv != NULL)
-      {
-      
-         [array addObject: [[NSString alloc] initWithUTF8String: *argv]];
-         
-         argv++;
-         
-      }
-
-      [configuration setArguments: array];
-      
-   }
-   
-   //NSWorkspaceLaunchWithoutActivation
-   //NSWorkspaceLaunchNewInstance
-   //NSWorkspaceLaunchDefault
-   
-   [workspace openApplicationAtURL:url configuration:configuration completionHandler:nil ];
-   
-*/
-}
-
-void ns_launch_app(const char * psz, const char ** argv, int iFlags)
-{
-   
-   NSString * path = [[NSString alloc] initWithUTF8String:psz];
-   
-   NSURL * url = [NSURL fileURLWithPath:path isDirectory:YES];
-   
-   ns_launch_app_at_url(url, argv, iFlags);
-   
-}
-
-void node_launch_app(const char * psz, const char ** argv, int iFlags)
-{
-   
-   return ns_launch_app(psz, argv, iFlags);
-   
-}
-
-
-
-void ns_launch_bundle(const char * pszBundle, const char ** argv)
-{
-
-   NSString * bundle = [[NSString alloc] initWithUTF8String:pszBundle];
-   
-   NSURL * url = [[NSWorkspace sharedWorkspace] URLForApplicationWithBundleIdentifier:bundle];
-
-   ns_launch_app_at_url(url, argv, 0x00010000 | 0x00080000);
-                        
-}
-
-
+//
+//bool ns_open_url(const char * psz)
+//{
+//
+//   NSString * str = [NSString stringWithUTF8String:psz];
+//
+//   if(str == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   NSURL * url = [[NSURL alloc] initWithString: str];
+//
+//   if(url == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   if(![[NSWorkspace sharedWorkspace] openURL: url])
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   return true;
+//
+//}
+//
+//
+//bool ns_open_file(const char * psz)
+//{
+//
+//   NSString * path = [NSString stringWithUTF8String:psz];
+//
+//   if(path == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   NSURL * url = [[NSURL alloc] initFileURLWithPath:path];
+//
+//   if(![[NSWorkspace sharedWorkspace] openURL: url])
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   return true;
+//
+//}
+//
+//void ns_launch_app_at_url(NSURL * url, const char ** argv, int iFlags)
+//{
+//
+//   NSWorkspace * workspace = [NSWorkspace sharedWorkspace];
+//
+//   NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+//
+//   if(argv != NULL)
+//   {
+//
+//      NSMutableArray * array = [[NSMutableArray alloc] init];
+//
+//      while(*argv != NULL)
+//      {
+//
+//         [array addObject: [[NSString alloc] initWithUTF8String: *argv]];
+//
+//         argv++;
+//
+//      }
+//
+//      [dict setObject:array forKey:NSWorkspaceLaunchConfigurationArguments];
+//
+//   }
+//
+//   //NSWorkspaceLaunchWithoutActivation
+//   //NSWorkspaceLaunchNewInstance
+//   //NSWorkspaceLaunchDefault
+//
+//   [workspace launchApplicationAtURL:url options: iFlags configuration:dict error:nil];
+//
+//  /*
+//   NSWorkspaceOpenConfiguration * configuration = [[NSWorkspaceOpenConfiguration alloc] init];
+//
+//   if(argv != NULL)
+//   {
+//
+//      NSMutableArray * array = [[NSMutableArray alloc] init];
+//
+//      while(*argv != NULL)
+//      {
+//
+//         [array addObject: [[NSString alloc] initWithUTF8String: *argv]];
+//
+//         argv++;
+//
+//      }
+//
+//      [configuration setArguments: array];
+//
+//   }
+//
+//   //NSWorkspaceLaunchWithoutActivation
+//   //NSWorkspaceLaunchNewInstance
+//   //NSWorkspaceLaunchDefault
+//
+//   [workspace openApplicationAtURL:url configuration:configuration completionHandler:nil ];
+//
+//*/
+//}
+//
+//void ns_launch_app(const char * psz, const char ** argv, int iFlags)
+//{
+//
+//   NSString * path = [[NSString alloc] initWithUTF8String:psz];
+//
+//   NSURL * url = [NSURL fileURLWithPath:path isDirectory:YES];
+//
+//   ns_launch_app_at_url(url, argv, iFlags);
+//
+//}
+//
+//void node_launch_app(const char * psz, const char ** argv, int iFlags)
+//{
+//
+//   return ns_launch_app(psz, argv, iFlags);
+//
+//}
+//
+//
+//
+//void ns_launch_bundle(const char * pszBundle, const char ** argv)
+//{
+//
+//   NSString * bundle = [[NSString alloc] initWithUTF8String:pszBundle];
+//
+//   NSURL * url = [[NSWorkspace sharedWorkspace] URLForApplicationWithBundleIdentifier:bundle];
+//
+//   ns_launch_app_at_url(url, argv, 0x00010000 | 0x00080000);
+//
+//}
+//
+//
 
 
 
@@ -191,58 +191,58 @@ void ns_launch_bundle(const char * pszBundle, const char ** argv)
 bool GetImagePixelData(unsigned int * pcr, int cx, int cy, int iScan, CGImageRef inImage)
 ;
 
+//
+//
+//
+//bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
+//{
+//
+//   NSString * str = [NSString stringWithUTF8String:psz];
+//
+//   if(str == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   NSImage *image = [[NSWorkspace sharedWorkspace] iconForFile:str];
+//   if(image == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   NSRect r;
+//
+//   r.origin.x = 0;
+//   r.origin.y = 0;
+//   r.size.width = cx;
+//   r.size.height = cy;
+//
+//   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
+//
+//   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
+//
+//   //CFRelease(i);
+//
+//   return bOk;
+//
+//
+//
+//}
+//
+//
+//
 
-
-
-bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
-{
-   
-   NSString * str = [NSString stringWithUTF8String:psz];
-   
-   if(str == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   NSImage *image = [[NSWorkspace sharedWorkspace] iconForFile:str];
-   if(image == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   NSRect r;
-   
-   r.origin.x = 0;
-   r.origin.y = 0;
-   r.size.width = cx;
-   r.size.height = cy;
-   
-   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
-   
-   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
-   
-   //CFRelease(i);
-   
-   return bOk;
-   
-   
-   
-}
-
-
-
-
-
-bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
-{
-   
-   return mm2_get_file_image(pcr, cx, cy, iScan, psz);
-
-}
+//
+//bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
+//{
+//
+//   return mm2_get_file_image(pcr, cx, cy, iScan, psz);
+//
+//}
 
 
 void os_post_quit(::element * pelementQuit)
@@ -260,7 +260,7 @@ void os_post_quit(::element * pelementQuit)
 void ns_app_terminate()
 {
 
-   [NSApp terminate:nil];
+   //[UIApp terminate:nil];
 
 }
 
@@ -296,31 +296,31 @@ void ns_Sleep(unsigned int uiMillis)
 
 void library_launch(const char *psz)
 {
-   NSString *path =  [NSString stringWithUTF8String:psz];
-
-
-   NSWorkspace *ws=[NSWorkspace sharedWorkspace];
-   NSURL* url = [NSURL fileURLWithPath:path isDirectory:YES];
-   
-   NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-   [ws launchApplicationAtURL:url
-                      options:NSWorkspaceLaunchDefault
-                configuration:dict
-                        error:nil];
-
-/*
-
-   NSWorkspace *workspace=[NSWorkspace sharedWorkspace];
-   NSURL* url = [NSURL fileURLWithPath:path isDirectory:YES];
-   
-   NSWorkspaceOpenConfiguration * configuration =
-   [[NSWorkspaceOpenConfiguration alloc] init];
-   
-   [workspace openApplicationAtURL:url
-                      configuration:configuration
-                completionHandler:nil];
-  */
-   
+   //NSString *path =  [NSString stringWithUTF8String:psz];
+//
+//
+//   NSWorkspace *ws=[NSWorkspace sharedWorkspace];
+//   NSURL* url = [NSURL fileURLWithPath:path isDirectory:YES];
+//   
+//   NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+//   [ws launchApplicationAtURL:url
+//                      options:NSWorkspaceLaunchDefault
+//                configuration:dict
+//                        error:nil];
+//
+///*
+//
+//   NSWorkspace *workspace=[NSWorkspace sharedWorkspace];
+//   NSURL* url = [NSURL fileURLWithPath:path isDirectory:YES];
+//   
+//   NSWorkspaceOpenConfiguration * configuration =
+//   [[NSWorkspaceOpenConfiguration alloc] init];
+//   
+//   [workspace openApplicationAtURL:url
+//                      configuration:configuration
+//                completionHandler:nil];
+//  */
+//   
 }
 
 

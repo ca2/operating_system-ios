@@ -81,37 +81,37 @@ namespace acme_ios
          
 //         ::e_status create_process(const ::string & pszCommandLine, u32 * pprocessId) override;
          
-         bool process_modules(string_array& stra, u32 processID) override;
-
-         bool load_modules_diff(string_array& straOld, string_array& straNew, const ::string & pszExceptDir) override;
-
-         id_array get_pids() override;
+//         bool process_modules(string_array& stra, u32 processID) override;
+//
+//         bool load_modules_diff(string_array& straOld, string_array& straNew, const ::string & pszExceptDir) override;
+//
+//         id_array get_pids() override;
+//
+//         id_array module_path_get_pid(const ::string & pszModulePath, bool bModuleNameIsPropertyFormatted = false) override;
+//
+//         string module_path_from_pid(u32 pid) override;
+//
+//         string command_line_from_pid(u32 pid) override;
+//
+//         bool is_shared_library_busy(u32 processid, const string_array& stra) override;
+//
+//         bool is_shared_library_busy(const string_array& stra) override;
+//
+//         bool process_contains_module(string& strImage, ::u32 processID, const ::string & pszLibrary) override;
+//
+//         void shared_library_process(dword_array& dwa, string_array& straProcesses, const ::string & pszLibrary) override;
+//
+////         int_bool is_process_running(::u32 pid) override;
+//
+//         string get_environment_variable(const ::string & pszEnvironmentVariable) override;
+//
+//         string expand_environment_variables(const ::string & str) override;
+//
+//         array <::serial::port_info> list_serial_ports() override;
          
-         id_array module_path_get_pid(const ::string & pszModulePath, bool bModuleNameIsPropertyFormatted = false) override;
-         
-         string module_path_from_pid(u32 pid) override;
-         
-         string command_line_from_pid(u32 pid) override;
-
-         bool is_shared_library_busy(u32 processid, const string_array& stra) override;
-
-         bool is_shared_library_busy(const string_array& stra) override;
-         
-         bool process_contains_module(string& strImage, ::u32 processID, const ::string & pszLibrary) override;
-
-         void shared_library_process(dword_array& dwa, string_array& straProcesses, const ::string & pszLibrary) override;
-
-//         int_bool is_process_running(::u32 pid) override;
-         
-         string get_environment_variable(const ::string & pszEnvironmentVariable) override;
-         
-         string expand_environment_variables(const ::string & str) override;
-
-         array <::serial::port_info> list_serial_ports() override;
-         
-         virtual bool _launch_command(const char * const pszCommand);
-
-         virtual bool shell_execute_sync(const ::string & pszFile, const ::string & pszParams, ::duration durationTimeout );
+//         virtual bool _launch_command(const char * const pszCommand);
+//
+//         virtual bool shell_execute_sync(const ::string & pszFile, const ::string & pszParams, ::duration durationTimeout );
          
       };
 

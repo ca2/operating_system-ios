@@ -1,22 +1,22 @@
 #include "framework.h"
 
-
-int_bool GetCursorPos(POINT_I32 * ppointCursor)
-{
-
-   HIPoint point;
-
-   HICoordinateSpace space = kHICoordSpaceScreenPixel;
-
-   HIGetMousePosition(space, nullptr, &point);
-
-   ppointCursor->x = point.x;
-
-   ppointCursor->y = point.y;
-
-   return true;
-
-}
+//
+//int_bool GetCursorPos(POINT_I32 * ppointCursor)
+//{
+//
+//   HIPoint point;
+//
+//   HICoordinateSpace space = kHICoordSpaceScreenPixel;
+//
+//   HIGetMousePosition(space, nullptr, &point);
+//
+//   ppointCursor->x = point.x;
+//
+//   ppointCursor->y = point.y;
+//
+//   return true;
+//
+//}
 
 
 char * mm_browse_folder(void * pSystem, const char * pszStartDir, bool bCanCreateDirectories);

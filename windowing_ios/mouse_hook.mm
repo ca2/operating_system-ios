@@ -32,50 +32,50 @@ namespace mouse_hook
       
       g_pelementListener = pelementListener;
 
-      g_idEventMonitor = [ NSEvent addGlobalMonitorForEventsMatchingMask:
-                 
-                 (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)
-                 
-                 | (NSLeftMouseUpMask | NSRightMouseUpMask | NSOtherMouseUpMask)                                     handler: ^(NSEvent *incomingEvent)
-                 {
-                                                         
-                                             //NSEvent *result = incomingEvent;
-                                                         
-                                                         //NSWindow *targetWindowForEvent = //[incomingEvent window];
-                                                         
-                                                         if ([incomingEvent type] == NSLeftMouseDown) {
-                                                            g_pelementListener->call(e_message_left_button_down);
-                                                            
-                                                            
-                                                         }
-                                                         else if ([incomingEvent type] == NSLeftMouseUp) {
-                                                  g_pelementListener->call(e_message_left_button_up);
-                       
-                       
-                    }
-                    else if ([incomingEvent type] == NSRightMouseDown) {
-                       g_pelementListener->call(e_message_right_button_down);
-                       
-                       
-                    }
-                    else if ([incomingEvent type] == NSRightMouseUp) {
-                       g_pelementListener->call(e_message_right_button_up);
-                       
-                       
-                    }
-                    else if ([incomingEvent type] == NSOtherMouseDown) {
-                       g_pelementListener->call(e_message_middle_button_down);
-                       
-                       
-                    }
-                    else if ([incomingEvent type] == NSOtherMouseUp) {
-                       g_pelementListener->call(e_message_middle_button_up);
-                       
-                       
-                    }
-                                                         
-                                                         
-                                                      }];
+//      g_idEventMonitor = [ NSEvent addGlobalMonitorForEventsMatchingMask:
+//
+//                 (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)
+//
+//                 | (NSLeftMouseUpMask | NSRightMouseUpMask | NSOtherMouseUpMask)                                     handler: ^(NSEvent *incomingEvent)
+//                 {
+//
+//                                             //NSEvent *result = incomingEvent;
+//
+//                                                         //NSWindow *targetWindowForEvent = //[incomingEvent window];
+//
+//                                                         if ([incomingEvent type] == NSLeftMouseDown) {
+//                                                            g_pelementListener->call(e_message_left_button_down);
+//
+//
+//                                                         }
+//                                                         else if ([incomingEvent type] == NSLeftMouseUp) {
+//                                                  g_pelementListener->call(e_message_left_button_up);
+//
+//
+//                    }
+//                    else if ([incomingEvent type] == NSRightMouseDown) {
+//                       g_pelementListener->call(e_message_right_button_down);
+//
+//
+//                    }
+//                    else if ([incomingEvent type] == NSRightMouseUp) {
+//                       g_pelementListener->call(e_message_right_button_up);
+//
+//
+//                    }
+//                    else if ([incomingEvent type] == NSOtherMouseDown) {
+//                       g_pelementListener->call(e_message_middle_button_down);
+//
+//
+//                    }
+//                    else if ([incomingEvent type] == NSOtherMouseUp) {
+//                       g_pelementListener->call(e_message_middle_button_up);
+//
+//
+//                    }
+//
+//
+//                                                      }];
       return true;
    
    }
@@ -84,8 +84,8 @@ namespace mouse_hook
    ::e_status uninstall(::element * pelementListener)
    {
       
-      [NSEvent removeMonitor:g_idEventMonitor ];
-      
+//      [NSEvent removeMonitor:g_idEventMonitor ];
+//
       return true;
       
    }

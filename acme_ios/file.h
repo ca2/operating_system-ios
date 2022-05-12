@@ -12,7 +12,7 @@ namespace acme_ios
    /////////////////////////////////////////////////////////////////////////////
    // File - raw unbuffered disk file I/O
 
-   class CLASS_DECL_APEX file :
+   class CLASS_DECL_ACME file :
       virtual public ::file::file
    {
    public:
@@ -48,9 +48,9 @@ namespace acme_ios
 
       };
 
-      zip::util *    m_pziputil;
-      string         m_strFileName;
-      wstring        m_wstrFileName;
+      //zip::util *    m_pziputil;
+      //string         m_strFileName;
+      //wstring        m_wstrFileName;
       i32            m_iFile;
 
 

@@ -9,7 +9,7 @@
 #include "_mm.h"
 #import "iosWindowApp.h"
 
-void os_on_finish_launching();
+void os_on_will_finish_launching();
 
 i32 defer_run_system();
 
@@ -23,7 +23,8 @@ plane_system * create_plane_system();
 
 @implementation iosWindowApp
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL) application:(UIApplication *)application
+willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
 {
 
 //   m_psystem = create_plane_system();
@@ -45,7 +46,7 @@ plane_system * create_plane_system();
    
    //defer_run_system();
    
-   os_on_finish_launching();
+   os_on_will_finish_launching();
    
    return YES;
    
@@ -88,7 +89,7 @@ plane_system * create_plane_system();
 @end
 
 
-void ns_application_main(int argc, char * argv[], const char * pszCommandLine)
+void ui_application_main(int argc, char * argv[], const char * pszCommandLine)
 {
    
    UIApplicationMain(argc, argv, nil, NSStringFromClass([iosWindowApp class]));

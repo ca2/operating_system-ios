@@ -13,7 +13,7 @@ namespace acme_ios
 
 
    class CLASS_DECL_ACME_MACOS acme_file :
-      virtual public ::posix::acme_file
+      virtual public ::acme_apple::acme_file
    {
    public:
       
@@ -23,7 +23,7 @@ namespace acme_ios
       ~acme_file() override;
 
       
-      ::file::path module() override;
+      //::file::path module() override;
       
 
    };

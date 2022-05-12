@@ -11,7 +11,7 @@
 //};
 //typedef UInt16 UniChar;
 //inline int operator -(UniChar ush, decltype(e_anonymouse_enum) e) { return ush - (int) e; }
-#include <Carbon/Carbon.h>
+//#include <Carbon/Carbon.h>
 
 
 string apple_app_module_path();
@@ -48,22 +48,22 @@ namespace acme_ios
 //
 
 
-   ::e_status acme_path::create_symbolic_link(const char * pszLink, const char * pszSource)
+   void acme_path::create_symbolic_link(const char * pszLink, const char * pszSource)
    {
       
       if(!ns_create_alias(pszLink, pszSource))
       {
          
-         return error_failed;
+         throw ::exception(error_failed);
          
       }
       
-      return success;
+      //return success;
       
    }
 
 
-   ::e_status acme_path::is_symbolic_link(const char * pszLink)
+   bool acme_path::is_symbolic_link(const char * pszLink)
    {
       
       auto estatus = ns_symbolic_link_destination(nullptr, pszLink);
@@ -106,36 +106,36 @@ namespace acme_ios
    bool acme_path::has_custom_icon(const char * path)
    {
 
-      FSRef ref;
-      
-      FSCatalogInfo info = {};
-      
-      //path = (const UInt8 *)[path fileSystemRepresentation]
-      
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-      if (FSPathMakeRef((const UInt8 *) path, &ref, NULL) == noErr)
-#pragma clang diagnostic pop
-      {
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-         if (FSGetCatalogInfo(&ref, kFSCatInfoFinderInfo, &info, NULL, NULL, NULL) == noErr)
-#pragma clang diagnostic pop
-         {
-        
-            FileInfo *fileInfo = (FileInfo *)(&info.finderInfo);
-      
-            if(fileInfo->finderFlags & kHasCustomIcon)
-            {
-               
-               return true;
-               
-            }
-    
-         }
-
-      }
+//      FSRef ref;
+//      
+//      FSCatalogInfo info = {};
+//      
+//      //path = (const UInt8 *)[path fileSystemRepresentation]
+//      
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//      if (FSPathMakeRef((const UInt8 *) path, &ref, NULL) == noErr)
+//#pragma clang diagnostic pop
+//      {
+//    
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//         if (FSGetCatalogInfo(&ref, kFSCatInfoFinderInfo, &info, NULL, NULL, NULL) == noErr)
+//#pragma clang diagnostic pop
+//         {
+//        
+//            FileInfo *fileInfo = (FileInfo *)(&info.finderInfo);
+//      
+//            if(fileInfo->finderFlags & kHasCustomIcon)
+//            {
+//               
+//               return true;
+//               
+//            }
+//    
+//         }
+//
+//      }
 
       return false;
       

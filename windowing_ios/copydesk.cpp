@@ -1,9 +1,10 @@
+//  From windowing_macos by camilo on 2022-05-11 16:11 <3ThomasBorregaardSorensen!
 #include "framework.h"
 
 
-bool macos_clipboard_has_changed(long & lTicket);
+bool ios_clipboard_has_changed(long & lTicket);
 
-long macos_clipboard_init();
+long ios_clipboard_init();
 
 dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, dispatch_block_t block)
 {
@@ -18,33 +19,33 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 }
 
 
-long macos_clipboard_get_file_count();
+long ios_clipboard_get_file_count();
 
-void macos_clipboard_get_filea(::file::path_array & stra);
+void ios_clipboard_get_filea(::file::path_array & stra);
 
-void macos_clipboard_set_filea(const ::file::path_array & stra);
+void ios_clipboard_set_filea(const ::file::path_array & stra);
 
-string macos_clipboard_get_plain_text();
+string ios_clipboard_get_plain_text();
 
-void macos_clipboard_set_plain_text(const char * pszPlainText);
+void ios_clipboard_set_plain_text(const char * pszPlainText);
 
-void * macos_clipboard_get_image(int & cx, int & cy, int & iScan);
+void * ios_clipboard_get_image(int & cx, int & cy, int & iScan);
 
-bool macos_clipboard_set_image(const void * pdata, int cx, int cy, int scan);
+bool ios_clipboard_set_image(const void * pdata, int cx, int cy, int scan);
 
-bool macos_clipboard_has_image();
+bool ios_clipboard_has_image();
 
-bool macos_clipboard_has_plain_text();
+bool ios_clipboard_has_plain_text();
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
    copydesk::copydesk()
    {
       
-      m_lTicket = macos_clipboard_init();
+      m_lTicket = ios_clipboard_init();
 
       m_bHasFile = false;
 
@@ -84,7 +85,7 @@ namespace windowing_macos
    bool copydesk::_os_clipboard_has_changed()
    {
       
-      return macos_clipboard_has_changed(m_lTicket);
+      return ios_clipboard_has_changed(m_lTicket);
       
    }
    
@@ -92,7 +93,7 @@ namespace windowing_macos
    bool copydesk::_os_has_filea()
    {
 
-      return macos_clipboard_get_file_count() > 0;
+      return ios_clipboard_get_file_count() > 0;
 
    }
 
@@ -105,7 +106,7 @@ namespace windowing_macos
    }
 
 
-   ::e_status copydesk::_get_filea(::file::path_array & patha, e_op & eop)
+   bool copydesk::_get_filea(::file::path_array & patha, enum_op & eop)
    {
 
       if(!has_filea())
@@ -115,21 +116,23 @@ namespace windowing_macos
 
       }
 
-      eop = op_copy;
+      eop = e_op_copy;
 
-      macos_clipboard_get_filea(patha);
+      ios_clipboard_get_filea(patha);
 
       return true;
 
    }
 
 
-   ::e_status copydesk::_set_filea(const ::file::path_array & patha, e_op eop)
+   bool copydesk::_set_filea(const ::file::path_array & patha, enum_op eop)
    {
 
       ns_main_sync(^
       {
-         macos_clipboard_set_filea(patha);
+         
+         ios_clipboard_set_filea(patha);
+         
       });
 
       return true;
@@ -138,17 +141,19 @@ namespace windowing_macos
 
 
 
-   ::e_status copydesk::initialize(::object * pobject)
+   void copydesk::initialize(::object * pobject)
    {
 
-      auto estatus = ::user::copydesk::initialize(pobject);
+      //auto estatus =
       
-      if(!estatus)
-      {
-
-         return estatus;
-
-      }
+      ::user::copydesk::initialize(pobject);
+      
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
 
       //    if(!m_p->CreateEx(0, ::aura::get_system()->RegisterWndClass(0), nullptr, 0, rectangle_i32(0, 0, 0, 0), nullptr, id()))
       //     return false;
@@ -156,16 +161,18 @@ namespace windowing_macos
 //      if(!m_p->CreateEx(0, nullptr, nullptr, 0, rectangle_i32(0, 0, 0, 0), nullptr, id()))
       //       return false;
 
-      return estatus;
+      //return estatus;
 
    }
 
 
-   ::e_status copydesk::destroy()
+   void copydesk::destroy()
    {
 
      
-      auto estatus = ::user::copydesk::destroy();
+      //auto estatus =
+      
+      ::user::copydesk::destroy();
 
 //      if(window_pointer::is_set() && window_pointer::m_p->is_window())
       //    {
@@ -175,35 +182,35 @@ namespace windowing_macos
       //    {
       //     bOk = false;
       //}
-
-      if(!estatus)
-      {
-       
-         return estatus;
-         
-      }
-      
-      return estatus;
+//
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+//      return estatus;
      
    }
 
 
-   ::e_status copydesk::_set_plain_text(const string & str)
+   bool copydesk::_set_plain_text(const string & str)
    {
 
-      macos_clipboard_set_plain_text(str);
+      ios_clipboard_set_plain_text(str);
 
       return true;
 
    }
 
 
-   ::e_status copydesk::_get_plain_text(string & str)
+   bool copydesk::_get_plain_text(string & str)
    {
 
-      str = macos_clipboard_get_plain_text();
+      str = ios_clipboard_get_plain_text();
 
-      return true;
+      return str;
 
    }
 
@@ -211,7 +218,7 @@ namespace windowing_macos
    bool copydesk::_os_has_plain_text()
    {
 
-      return macos_clipboard_has_plain_text();
+      return ios_clipboard_has_plain_text();
 
    }
 
@@ -224,7 +231,7 @@ namespace windowing_macos
    }
 
 
-   ::e_status copydesk::_desk_to_image(::image * pimage)
+   bool copydesk::_desk_to_image(::image * pimage)
    {
 
       int w = 0;
@@ -233,7 +240,7 @@ namespace windowing_macos
 
       int iScan = 0;
 
-      ::acme::malloc < color32_t * > pcolorref = (color32_t *) macos_clipboard_get_image(w, h, iScan);
+      ::acme::malloc < color32_t * > pcolorref = (color32_t *) ios_clipboard_get_image(w, h, iScan);
 
       if(pcolorref == nullptr)
       {
@@ -249,7 +256,7 @@ namespace windowing_macos
       if(pimage->colorref() != nullptr)
       {
       
-         ::_001ProperCopyColorref(pimage->colorref(), w, h, pimage->scan_size(), pcolorref, iScan);
+         ::copy_colorref(pimage->colorref(), w, h, pimage->scan_size(), pcolorref, iScan);
          
       }
 //      else if(pimage->m_pframea->is_set())
@@ -272,10 +279,10 @@ namespace windowing_macos
    }
 
 
-   ::e_status copydesk::_image_to_desk(const ::image * pimage)
+   bool copydesk::_image_to_desk(const ::image * pimage)
    {
 
-      bool bOk = macos_clipboard_set_image(
+      bool bOk = ios_clipboard_set_image(
                                         pimage->get_data(),
                                         pimage->width(),
                                         pimage->height(),
@@ -296,7 +303,7 @@ namespace windowing_macos
    bool copydesk::_os_has_image()
    {
 
-      return macos_clipboard_has_image();
+      return ios_clipboard_has_image();
 
    }
 
@@ -339,16 +346,16 @@ namespace windowing_macos
    }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 
 
 
-char ** macos_clipboard_get_filea(long * pc);
+char ** ios_clipboard_get_filea(long * pc);
 
 
-void macos_clipboard_get_filea(::file::path_array & patha)
+void ios_clipboard_get_filea(::file::path_array & patha)
 {
 
    long c = 0;
@@ -356,7 +363,7 @@ void macos_clipboard_get_filea(::file::path_array & patha)
    try
    {
 
-      char ** psza = macos_clipboard_get_filea(&c);
+      char ** psza = ios_clipboard_get_filea(&c);
 
       patha.c_add(psza, c, false);
 
@@ -369,15 +376,15 @@ void macos_clipboard_get_filea(::file::path_array & patha)
 }
 
 
-void macos_clipboard_set_filea(const char ** psza, long c);
+void ios_clipboard_set_filea(const char ** psza, long c);
 
 
-void macos_clipboard_set_filea(const ::file::path_array & patha)
+void ios_clipboard_set_filea(const ::file::path_array & patha)
 {
 
    auto psza = patha.c_ansi_get();
 
-   macos_clipboard_set_filea(psza.get_data(), psza.get_count());
+   ios_clipboard_set_filea(psza.get_data(), psza.get_count());
 
 }
 

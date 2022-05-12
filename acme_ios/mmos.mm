@@ -30,11 +30,11 @@ void init_mmos(void * pSystem)
    
    pmmos->m_iIcon = 0;
    
-   [pmmos monitorWallpaper];
-   
-   [pmmos monitorIconForFile];
-   
-   [[pmmos dd_invokeOnMainThreadAndWaitUntilDone: TRUE] deferWallpaper:NULL];
+//   [pmmos monitorWallpaper];
+//
+//   [pmmos monitorIconForFile];
+//
+//   [[pmmos dd_invokeOnMainThreadAndWaitUntilDone: TRUE] deferWallpaper:NULL];
    
 }
 
@@ -80,31 +80,33 @@ void term_mmos(void * pSystem)
 -(NSURL *)browse_folder : (NSURL *) directoryURL canCreateDirectories: (bool) bCanCreateDirectories
 {
    
-   NSOpenPanel * panel = [NSOpenPanel openPanel];
+//   NSOpenPanel * panel = [NSOpenPanel openPanel];
+//
+//   [panel setCanCreateDirectories: bCanCreateDirectories];
+//
+//   [panel setAllowsMultipleSelection: NO];
+//
+//   [panel setCanChooseDirectories:YES];
+//
+//   [panel setCanChooseFiles:NO];
+//
+//   if(directoryURL != nil)
+//   {
+//
+//      panel.directoryURL = directoryURL;
+//
+//   }
+//
+//   if ([panel runModal] != NSModalResponseOK)
+//   {
+//
+//      return NULL;
+//
+//   }
+//
+//   return [[panel URLs] lastObject];
    
-   [panel setCanCreateDirectories: bCanCreateDirectories];
-
-   [panel setAllowsMultipleSelection: NO];
-   
-   [panel setCanChooseDirectories:YES];
-   
-   [panel setCanChooseFiles:NO];
-   
-   if(directoryURL != nil)
-   {
-
-      panel.directoryURL = directoryURL;
-   
-   }
-   
-   if ([panel runModal] != NSModalResponseOK)
-   {
-      
-      return NULL;
-      
-   }
-
-   return [[panel URLs] lastObject];
+   return nil;
    
 }
 
@@ -112,40 +114,41 @@ void term_mmos(void * pSystem)
 -(NSArray < NSURL *> *)browse_file_open : (NSURL **) startDir multi: (bool) b
 {
    
-   NSOpenPanel *panel = [NSOpenPanel openPanel];
-   
-      [panel setAllowsMultipleSelection:b];
-   
-      [panel setCanChooseDirectories:NO];
-   
-      [panel setCanChooseFiles:YES];
-   
-      if(startDir != nil && *startDir !=nil)
-      {
-         
-         panel.directoryURL= *startDir;
-   
-      }
-   
-      NSInteger result = [panel runModal];
-      
-      if(startDir != nil)
-      {
-         
-         *startDir = panel.directoryURL;
-         
-      }
-      
-      if(result != NSModalResponseOK)
-      {
-         
-         return NULL;
-         
-      }
+//   NSOpenPanel *panel = [NSOpenPanel openPanel];
+//
+//      [panel setAllowsMultipleSelection:b];
+//
+//      [panel setCanChooseDirectories:NO];
+//
+//      [panel setCanChooseFiles:YES];
+//
+//      if(startDir != nil && *startDir !=nil)
+//      {
+//
+//         panel.directoryURL= *startDir;
+//
+//      }
+//
+//      NSInteger result = [panel runModal];
+//
+//      if(startDir != nil)
+//      {
+//
+//         *startDir = panel.directoryURL;
+//
+//      }
+//
+//      if(result != NSModalResponseOK)
+//      {
+//
+//         return NULL;
+//
+//      }
+//
+//
+//   return [panel URLs];
 
-
-   return [panel URLs];
-   
+   return nil;
 }
 
 
@@ -180,99 +183,99 @@ void term_mmos(void * pSystem)
 }
 
 
-- (void)get_user_wallpaper:(void **)charpp forScreen:(NSScreen *) s;
-{
-   
-   char ** ppsz = (char **) charpp;
-   
-   NSURL * purl = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:s];
-   
-   if(purl == NULL)
-   {
-      
-      *ppsz = NULL;
-      
-   }
-   else
-   {
-   
-      *ppsz = strdup([[purl absoluteString] UTF8String]);
-                     
-   }
-   
-}
-
-
-- (void)get_user_wallpaper:(void *)charppp getCount:(void *) llp
-{
-
-   long long * pll = (long long *) llp;
-
-   NSArray<NSScreen *> * screenArray = [NSScreen screens];
-
-   *pll = [screenArray count];
-   
-   char ** p = (char **) malloc(*pll * sizeof(char*));
-   
-   char *** ppsz = (char ***) charppp;
-   
-   *ppsz = p;
-
-   for (int i = 0; i < *pll; i++)
-   {
-   
-      NSScreen * screen = [screenArray objectAtIndex: i];
-      
-      [self get_user_wallpaper: (void **)&p[i] forScreen:screen];
-   
-   }
-   
-}
-
-
-- (void)desktopImageChanged:(NSNotification *)notification
-{
-
-   system_id_update(m_pSystem, id_wallpaper_changed, 0);
-
-}
+//- (void)get_user_wallpaper:(void **)charpp forScreen:(UIScreen *) s;
+//{
+//
+//   char ** ppsz = (char **) charpp;
+//
+//   NSURL * purl = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:s];
+//
+//   if(purl == NULL)
+//   {
+//
+//      *ppsz = NULL;
+//
+//   }
+//   else
+//   {
+//
+//      *ppsz = strdup([[purl absoluteString] UTF8String]);
+//
+//   }
+//
+//}
+//
+//
+//- (void)get_user_wallpaper:(void *)charppp getCount:(void *) llp
+//{
+//
+//   long long * pll = (long long *) llp;
+//
+//   NSArray<NSScreen *> * screenArray = [NSScreen screens];
+//
+//   *pll = [screenArray count];
+//
+//   char ** p = (char **) malloc(*pll * sizeof(char*));
+//
+//   char *** ppsz = (char ***) charppp;
+//
+//   *ppsz = p;
+//
+//   for (int i = 0; i < *pll; i++)
+//   {
+//
+//      NSScreen * screen = [screenArray objectAtIndex: i];
+//
+//      [self get_user_wallpaper: (void **)&p[i] forScreen:screen];
+//
+//   }
+//
+//}
+//
+//
+//- (void)desktopImageChanged:(NSNotification *)notification
+//{
+//
+//   system_id_update(m_pSystem, id_wallpaper_changed, 0);
+//
+//}
 
 
 -(void)applicationActivity:(NSNotification *)notification
 {
    
-   NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
-   
-   if([app.localizedName isEqualToString:@"ScreenSaverEngine"])
-   {
-      
-      system_id_update(m_pSystem, id_wallpaper_changed, 0);
-      
-   }
+//   NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+//
+//   if([app.localizedName isEqualToString:@"ScreenSaverEngine"])
+//   {
+//
+//      system_id_update(m_pSystem, id_wallpaper_changed, 0);
+//
+//   }
    
 }
 
 
--(void)monitorWallpaper
-{
-   
-   NSRunLoop* myRunLoop = [NSRunLoop mainRunLoop];
-   
-   NSMethodSignature *sgn = [self methodSignatureForSelector:@selector(deferWallpaper:)];
-   
-   NSInvocation *inv = [NSInvocation invocationWithMethodSignature: sgn];
-   
-   [inv setTarget: self];
-   
-   [inv setSelector: @selector(deferWallpaper:)];
-   
-   NSTimer *t = [NSTimer timerWithTimeInterval: 0.1
-                                    invocation:inv
-                                       repeats:YES];
-   
-   [myRunLoop addTimer:t forMode:NSDefaultRunLoopMode];
-   
-}
+//-(void)monitorWallpaper
+//{
+//
+//   NSRunLoop* myRunLoop = [NSRunLoop mainRunLoop];
+//
+//   NSMethodSignature *sgn = [self methodSignatureForSelector:@selector(deferWallpaper:)];
+//
+//   NSInvocation *inv = [NSInvocation invocationWithMethodSignature: sgn];
+//
+//   [inv setTarget: self];
+//
+//   [inv setSelector: @selector(deferWallpaper:)];
+//
+//   NSTimer *t = [NSTimer timerWithTimeInterval: 0.1
+//                                    invocation:inv
+//                                       repeats:YES];
+//
+//   [myRunLoop addTimer:t forMode:NSDefaultRunLoopMode];
+//
+//}
 
 
 -(void)runRunnableOnMainThread:(matter *)prunnable
@@ -291,42 +294,42 @@ void term_mmos(void * pSystem)
 }
 
 
--(void)deferWallpaper:(NSTimer *)timer
-{
-   
-   char ** ppsz = NULL;
-   
-   long long ll;
-   
-   [self get_user_wallpaper: (void *) &ppsz getCount: (void *) &ll];
-   
-   [self->theLock lock];
-   
-   char ** ppszOld = self->m_ppszWallpaper;
-   
-   long long llOld = self->m_llWallpaper;
-   
-   if(ppsz != NULL)
-   {
-      
-      self->m_ppszWallpaper = ppsz;
-      
-      self->m_llWallpaper = ll;
-      
-      for(long long i = 0; i < llOld; i++)
-      {
-         
-         free(ppszOld[i]);
-         
-      }
-      
-      free(ppszOld);
-      
-   }
-
-   [self->theLock unlock];
-   
-}
+//-(void)deferWallpaper:(NSTimer *)timer
+//{
+//
+//   char ** ppsz = NULL;
+//
+//   long long ll;
+//
+//   [self get_user_wallpaper: (void *) &ppsz getCount: (void *) &ll];
+//
+//   [self->theLock lock];
+//
+//   char ** ppszOld = self->m_ppszWallpaper;
+//
+//   long long llOld = self->m_llWallpaper;
+//
+//   if(ppsz != NULL)
+//   {
+//
+//      self->m_ppszWallpaper = ppsz;
+//
+//      self->m_llWallpaper = ll;
+//
+//      for(long long i = 0; i < llOld; i++)
+//      {
+//
+//         free(ppszOld[i]);
+//
+//      }
+//
+//      free(ppszOld);
+//
+//   }
+//
+//   [self->theLock unlock];
+//
+//}
 
 
 -(void)monitorIconForFile
@@ -415,15 +418,15 @@ bool mm1a_get_file_image(void * pSystem, unsigned int * pcr, int cx, int cy, int
 void ns_set_this_process_binary_default_browser()
 {
    
-   CFBundleRef bundle = CFBundleGetMainBundle();
-   
-   CFURLRef url = CFBundleCopyBundleURL(bundle);
-   
-   LSRegisterURL(url, true);
-   
-   CFStringRef identifier = CFBundleGetIdentifier(bundle);
-   
-   LSSetDefaultHandlerForURLScheme(CFSTR("http"), identifier);
+//   CFBundleRef bundle = CFBundleGetMainBundle();
+//   
+//   CFURLRef url = CFBundleCopyBundleURL(bundle);
+//   
+//   LSRegisterURL(url, true);
+//   
+//   CFStringRef identifier = CFBundleGetIdentifier(bundle);
+//   
+//   LSSetDefaultHandlerForURLScheme(CFSTR("http"), identifier);
    
 }
 

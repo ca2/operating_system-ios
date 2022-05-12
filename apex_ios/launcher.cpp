@@ -4,21 +4,23 @@
 #undef USE_MISC
 
 
-namespace macos
+namespace apex_ios
 {
 
 
-   ::e_status launcher::start()
+   void launcher::start()
    {
 
-      auto estatus = ensure_executable();
+      //auto estatus =
       
-      if(!estatus)
-      {
-         
-         return estatus;
-         
-      }
+      ensure_executable();
+//
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
 
       string strPath(get_executable_path());
       string strDir(file_path_folder(strPath));
@@ -37,12 +39,12 @@ namespace macos
 
       execlp(strPath, strPath, (char *) 0);
 
-      return estatus;
+      //return estatus;
 
    }
 
 
-} // namespace macos
+} // namespace apex_ios
 
 
 

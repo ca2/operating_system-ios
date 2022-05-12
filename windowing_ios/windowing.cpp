@@ -3,20 +3,21 @@
 //  windowing_macos
 //
 //  Created by Camilo Sasuke on 2021-05-21 02:00 <3ThomasBS_!!
+//  From windowing_macos on 2022-05-11 02:19 <3ThomasBorregaardSorensen!!
 //
 #include "framework.h"
 
 
-bool macos_get_cursor_position(POINT_I32 * ppointCursor);
+//bool macos_get_cursor_position(POINT_I32 * ppointCursor);
 
 
 void ns_main_async(dispatch_block_t block);
 
 
-void * ns_get_key_window();
+//void * ns_get_key_window();
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -36,38 +37,98 @@ namespace windowing_macos
    }
 
 
-   ::e_status windowing::initialize(::object * pobject)
+   void windowing::initialize(::object * pobject)
    {
    
-      auto estatus = ::windowing::windowing::initialize(pobject);
+      //auto estatus =
       
-      if(!estatus)
-      {
-       
-         return estatus;
-         
-      }
+      ::windowing::windowing::initialize(pobject);
       
-      estatus = __construct(m_pdisplay);
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+//      estatus =
       
-      if(!estatus)
-      {
-       
-         return estatus;
-         
-      }
+      __construct(m_pdisplay);
+      
+//
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
       
       m_pdisplay->m_pwindowing = this;
          
-      return estatus;
+      //return estatus;
       
    }
 
 
-   ::e_status windowing::windowing_post(const ::procedure & procedure)
+   void windowing::defer_initialize_host_window(const RECTANGLE_I32* lpcrect)
    {
       
-      auto routineLocal = routine;
+      if(::is_set(m_pwindowApplicationHost))
+      {
+         
+         return;
+         
+      }
+      
+      __construct_new(m_phostinteraction);
+      
+      m_phostinteraction->create_host();
+      
+      m_phostinteraction->display();
+      
+      m_phostinteraction->set_need_layout();
+      
+      m_phostinteraction->set_need_redraw();
+      
+      m_phostinteraction->post_redraw();
+      
+      m_pwindowApplicationHost = m_phostinteraction->window();
+
+   }
+
+
+   ::windowing::window * windowing::get_application_host_window()
+   {
+
+      return m_pwindowApplicationHost;
+
+   }
+
+
+   ::windowing::window *windowing::new_window(::user::interaction_impl *pimpl)
+   {
+
+      auto pwindow = __create < ::windowing::window >();
+      
+      pwindow->create_window(pimpl);
+
+      return pwindow;
+
+   }
+
+
+   __pointer(::windowing::cursor) windowing::get_cursor(enum_cursor ecursor)
+   {
+   
+      return nullptr;
+      
+   }
+
+
+   void windowing::windowing_post(const ::procedure & procedure)
+   {
+      
+      auto routineLocal = procedure;
 
       ns_main_async(^
                     {
@@ -76,7 +137,7 @@ namespace windowing_macos
          
       });
       
-      return success;
+      //return success;
 
    }
 
@@ -105,7 +166,7 @@ namespace windowing_macos
    }
 
 
-   ::e_status windowing::release_mouse_capture()
+   void windowing::release_mouse_capture()
    {
       
       auto pwindowCapture = m_pwindowCapture;
@@ -115,11 +176,11 @@ namespace windowing_macos
       if(pwindowCapture)
       {
          
-         pwindowCapture->m_pimpl->m_puserinteraction->m_pimpl2->m_puserinteractionCapture.release();
+         pwindowCapture->m_puserinteractionimpl->m_puserinteraction->m_pinteractionimpl->m_puserinteractionCapture.release();
          
       }
    
-      return ::success;
+      //return ::success;
       
    }
 
@@ -222,26 +283,28 @@ namespace windowing_macos
    ::windowing::window * windowing::get_keyboard_focus(::thread *)
    {
       
-      void * pnswindow = ns_get_key_window();
-      
-      if(::is_null(pnswindow))
-      {
-         
-         return nullptr;
-         
-      }
-      
-      auto pwindowFocus = m_nsmap[pnswindow];
+//      void * pnswindow = ns_get_key_window();
+//
+//      if(::is_null(pnswindow))
+//      {
+//
+//         return nullptr;
+//
+//      }
+//
+//      auto pwindowFocus = m_nsmap[pnswindow];
+//
+//      return pwindowFocus;
 
-      return pwindowFocus;
-
+      return nullptr;
+      
    }
 
 
    void windowing::get_cursor_position(POINT_I32 * ppoint)
    {
       
-      macos_get_cursor_position(ppoint);
+      //macos_get_cursor_position(ppoint);
       
    }
 
@@ -249,49 +312,49 @@ namespace windowing_macos
    void windowing::_defer_dock_application(int_bool bDock)
    {
 
-      if (bDock)
-      {
-   
-         //if (!nsapp_activation_policy_is_regular())
-         {
-   
-            nsapp_activation_policy_regular();
-            
-            ns_main_async(^()
-                          {
-
-            ProcessSerialNumber psn = { 0, kCurrentProcess };
-            
-            TransformProcessType(&psn, kProcessTransformToForegiosApplication);
-               
-            });
-         }
-   
-      }
-      else
-      {
-   
-         //if (!nsapp_activation_policy_is_accessory())
-         {
-   
-            nsapp_activation_policy_accessory();
-            
-            ns_main_async(^()
-                          {
-            //hide icon on Dock
-            ProcessSerialNumber psn = { 0, kCurrentProcess };
-            TransformProcessType(&psn, kProcessTransformToUIElementApplication);
-               
-            });
-   
-         }
-   
-      }
+//      if (bDock)
+//      {
+//   
+//         //if (!nsapp_activation_policy_is_regular())
+//         {
+//   
+//            nsapp_activation_policy_regular();
+//            
+//            ns_main_async(^()
+//                          {
+//
+//            ProcessSerialNumber psn = { 0, kCurrentProcess };
+//            
+//            TransformProcessType(&psn, kProcessTransformToForegiosApplication);
+//               
+//            });
+//         }
+//   
+//      }
+//      else
+//      {
+//   
+//         //if (!nsapp_activation_policy_is_accessory())
+//         {
+//   
+//            nsapp_activation_policy_accessory();
+//            
+//            ns_main_async(^()
+//                          {
+//            //hide icon on Dock
+//            ProcessSerialNumber psn = { 0, kCurrentProcess };
+//            TransformProcessType(&psn, kProcessTransformToUIElementApplication);
+//               
+//            });
+//   
+//         }
+//   
+//      }
 
    }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

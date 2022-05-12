@@ -274,7 +274,8 @@ namespace aura_ios
   
          ///auto estatus =
          ///
-         __compose(m_pgraphics, __new(::graphics::double_buffer));
+         //__compose(m_pgraphics, __new(::graphics::double_buffer));
+         __compose(m_pgraphics);
          
 //         if(!estatus)
 //         {
@@ -4762,17 +4763,73 @@ bool interaction_impl::_is_window() const
 
    }
 
-//   
-//   ::e_status interaction_impl::on_destroy()
-//   {
-//      
-////      ::user::interaction_impl::set_destroying();
-//
-//      //::aura_window::m_bDestroying = true;
-//      
-//      return ::success;
-//
-//   }
+   
+
+void interaction_impl::native_create_host()
+{
+
+   auto pwindowMain = m_psystem->m_paurasystem->m_pwindowMain;
+
+   if (pwindowMain && !pwindowMain->m_puserinteractionimpl)
+   {
+
+      m_pwindow = m_psystem->m_paurasystem->m_pwindowMain;
+
+      m_pwindow->m_puserinteractionimpl = this;
+
+      m_puserinteraction->m_pinteractionimpl = this;
+
+   }
+   else
+   {
+
+      //auto estatus =
+
+      __construct(m_pwindow);
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      if (!m_psystem->m_paurasystem->m_pwindowMain)
+      {
+
+         m_psystem->m_paurasystem->m_pwindowMain = m_pwindow;
+
+      }
+
+   }
+
+   //auto estatus =
+
+   m_pwindow->create_window(this);
+
+   //if (!estatus)
+   //{
+
+   //   return estatus;
+
+   //}
+
+   //return true;
+
+}
+
+   void interaction_impl::on_destroy()
+   {
+      
+      ::user::interaction_impl::on_destroy();
+      
+//      ::user::interaction_impl::set_destroying();
+
+      //::aura_window::m_bDestroying = true;
+      
+      //return ::success;
+
+   }
 
 
 } // namespace aura_ios

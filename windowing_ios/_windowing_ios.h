@@ -17,6 +17,10 @@
 //CGWindowID ns_get_window_id(void * pnswindow);
 //
 
+
+#include "host_interaction.h"
+
+
 #include "display.h"
 
 

@@ -3,6 +3,7 @@
 //  aura
 //
 //  Created by Camilo Sasuke Tsumanuma on 2013-09-18.
+//  From windowing_macos on 2022-05-11 02:15 <3ThomasBorregaardSorensen!!
 //
 //
 
@@ -93,12 +94,19 @@ namespace windowing_ios
       bool ios_window_key_up(::user::enum_key ekey) override;
 //      virtual bool macos_window_key_down(unsigned int uiKeyCode) override;
 //      virtual bool macos_window_key_up(unsigned int uiKeyCode) override;
-      
-      
-      //void ios_window_did_become_key() override;
-      //void ios_window_on_activate() override;
-      //void ios_window_on_deactivate() override;
+      bool ios_window_on_text(const char * pszText, long iSel, long iEnd) override;
+      bool ios_window_on_sel_text(long iBeg, long iEnd) override;
 
+      
+      long ios_window_edit_hit_test(int x, int y) override;
+      bool ios_window_edit_caret_rect(CGRect * prectangle, long iSel) override;
+
+      
+      void ios_window_did_become_key() override;
+      void ios_window_on_activate() override;
+      void ios_window_on_deactivate() override;
+
+      bool ios_window_become_first_responder() override;
       
       //void * ios_window_get_mouse_cursor() override;
 

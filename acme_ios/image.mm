@@ -4,57 +4,45 @@
 //
 //  Created by Camilo Sasuke on 29/05/21.
 //
-#import <AppKit/AppKit.h>
+#import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 
 void * cg_image_get_image_data(int & width, int & height, int & iScan, CGImageRef image);
 
 
 
-NSImage * nsimage_from_cgimageref(CGImageRef image, int cx, int cy)
+UIImage * uiimage_from_cgimageref(CGImageRef image)
 {
    
-   NSSize sz;
-   
-   sz.width = cx;
-   
-   sz.height = cy;
-   
-   return [[NSImage alloc] initWithCGImage:image size:sz];
+   return [[UIImage alloc] initWithCGImage:image ];
    
 }
 
 
-NSImage * nsimage_from_image_data(const void * pdata, int cx, int cy, int scan)
+UIImage * uiimage_from_image_data(const void * pdata, int cx, int cy, int scan)
 {
 
-   NSBitmapImageRep * imageRep = [[ NSBitmapImageRep alloc] initWithBitmapDataPlanes: (unsigned char *_Nullable *_Nullable) pdata
-          pixelsWide:cx
-         pixelsHigh:cy                                  bitsPerSample:8
-            samplesPerPixel:4
-            hasAlpha:TRUE
-               isPlanar: FALSE
-               colorSpaceName:NSDeviceRGBColorSpace
-               bitmapFormat:0
-                                       bytesPerRow:scan
-                                      bitsPerPixel:32] ;
+   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+   CGContextRef context = CGBitmapContextCreate((void *) pdata, cx, cy, 8, scan, colorSpace, kCGImageAlphaPremultipliedLast);
+   CFRelease(colorSpace);
 
-   NSSize imageSize = NSMakeSize(cx, cy);
+   CGImageRef cgImage = CGBitmapContextCreateImage(context);
+   CGContextRelease(context);
 
-   NSImage * image = [[NSImage alloc] initWithSize:imageSize];
+   UIImage *image = [UIImage imageWithCGImage:cgImage ];
+   CGImageRelease(cgImage);
    
-   [image addRepresentation:imageRep];
-
    return image;
 
 }
 
 
 
-void * ns_image_get_image_data(int & width, int & height, int & iScan, NSImage * image)
+void * ns_image_get_image_data(int & width, int & height, int & iScan, UIImage * image)
 {
    
-   CGImageRef inputCGImage = [image CGImageForProposedRect:NULL context:NULL hints:NULL];
+   CGImageRef inputCGImage = [image CGImage];
    
    return cg_image_get_image_data(width, height, iScan, inputCGImage);
    

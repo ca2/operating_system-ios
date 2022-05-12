@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "_ios.h"
+//#include "_ios.h"
 
 
 #include <sys/stat.h>
@@ -34,30 +34,32 @@ namespace apex_ios
    void file_system::initialize(::object * pobject)
    {
    
-      auto estatus = ::file_system::initialize(pobject);
+      //auto estatus =
       
-      if(!estatus)
-      {
-       
-         return estatus;
-         
-      }
+      ::file_system::initialize(pobject);
       
-      return estatus;
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+//      return estatus;
    
    }
 
-
-   void file_system::update_module_path()
-   {
-
-      m_pathModule = apple_app_module_path();
-
-      m_pathCa2Module = m_pathModule;
-
-      return true;
-
-   }
+//
+//   void file_system::update_module_path()
+//   {
+//
+//      m_pathModule = apple_app_module_path();
+//
+//      m_pathCa2Module = m_pathModule;
+//
+//      return true;
+//
+//   }
 
 
 } // namespace apex_ios

@@ -17,7 +17,7 @@
 #endif
 
 
-namespace windowing_macos
+namespace windowing_icos
 {
 
    
@@ -27,7 +27,7 @@ namespace windowing_macos
    class monitor;
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 #include "_c_mm.h"

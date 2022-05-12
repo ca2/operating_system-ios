@@ -1,6 +1,6 @@
 #include "framework.h"
-#include "_ios.h"
-#include "apex/xml/_.h"
+//#include "_ios.h"
+//#include "aqua/xml.h"
 
 
 bool _ui_library_dir(char * psz, unsigned int * puiSize);
@@ -26,8 +26,14 @@ namespace apex_ios
 
    ::file::listing & dir_context::root_ones(::file::listing & listing)
    {
-
-      listing.add("/");
+      
+      ::file::path path;
+      
+      path = "/";
+      
+      path.m_iDir = 1;
+      
+      listing.defer_add(path);
 
       listing.m_straTitle.add("File ::apex::get_system()");
 
@@ -36,250 +42,254 @@ namespace apex_ios
    }
 
 
-   ::file::listing & dir_context::ls(::file::listing & listing)
-   {
-
-      if(listing.m_bRecursive)
-      {
-
-         index iStart = listing.get_size();
-
-         {
-
-            ___scoped_restore(listing.m_pathUser);
-
-            ___scoped_restore(listing.m_pathFinal);
-
-            ___scoped_restore(listing.m_eextract);
-
-            if(::dir_context::ls(listing))
-            {
-
-               listing = ::error_failed;
-
-               return listing;
-
-            }
-
-            ::file::listing dira(get_app());
-
-            dira.ls_dir(listing.m_pathFinal);
-
-            for(i32 i = 0; i < dira.get_count(); i++)
-            {
-
-               ::file::path dir_context = dira[i];
-
-               if(dir_context == listing.m_pathFinal)
-                  continue;
-
-               listing.m_pathUser.Empty();
-               listing.m_pathFinal = dir_context;
-
-               if(listing.m_eextract != extract_all)
-               {
-
-                  listing.m_eextract = extract_none;
-
-               }
-
-               listing.ls();
-
-            }
-
-         }
-
-         ::file::path_array  straPath;
-
-         ::dir::ls(straPath, listing.m_pathFinal);
-
-//            file_find file_find;
-
-         //          bool bWorking = file_find.FindFile(listing.m_path / listing.os_pattern()) != false;
-
-         for(auto & strPath : straPath)
-         {
-
-            bool bDir = is(strPath);
-
-            if((listing.m_bDir && bDir) || (listing.m_bFile && !bDir))
-            {
-
-               if(!bDir && !matches_wildcard_criteria(listing.m_straPattern, strPath.name()))
-                  continue;
-
-               listing.add(strPath);
-
-               listing.last().m_iDir = bDir ? 1 : 0;
-
-            }
-
-         }
-
-         for(index i = iStart; i < listing.get_size(); i++)
-         {
-
-            listing[i].m_iRelative = listing.m_pathFinal.get_length() + 1;
-
-         }
-
-      }
-      else
-      {
-
-         if(::dir_context::ls(listing).succeeded())
-         {
-
-            return listing;
-
-         }
-
-         ::file::path_array  straPath;
-
-         ::dir::ls(straPath, listing.m_pathFinal);
-
-         // file_find file_find;
-
-         // bool bWorking = file_find.FindFile(listing.m_path / listing.os_pattern()) != false;
-
-         for(auto & strPath : straPath)
-         {
-
-            bool bDir = is(strPath);
-
-            if((listing.m_bDir && bDir) || (listing.m_bFile && !bDir))
-            {
-
-               if(!bDir && !matches_wildcard_criteria(listing.m_straPattern, strPath.name()))
-                  continue;
-
-               listing.add(strPath);
-
-               listing.last().m_iDir = bDir ? 1 : 0;
-
-            }
-
-         }
-
-      }
-
-      return listing;
-
-   }
-
-
-   bool dir_context::is(const ::file::path & path)
-   {
-
-      if(         auto psystem = m_psystem;
-
-         auto pacmedirectory = psystem->m_pacmedirectory;
-
-pacmedirectory->is(path))
-      {
-
-         return true;
-
-      }
-
-      string strPath(path);
-
-#ifdef WINDOWS
-
-      if(strPath.get_length() >= MAX_PATH)
-      {
-
-         if(::str::begins(strPath, "\\\\"))
-         {
-
-            strPath = "\\\\?\\UNC" + strPath.Mid(1);
-
-         }
-         else
-         {
-
-            strPath = "\\\\?\\" + strPath;
-
-         }
-
-      }
-
-#endif
-
-      bool bIsDir = ::dir::_is(strPath);
-
-      return bIsDir;
-
-   }
-
-
-   bool dir_context::mk(const ::file::path & pcsz)
-   {
-
-      if(is(pcsz))
-      {
-         
-         return true;
-         
-      }
-
-      ::file::path_array stra;
-
-      pcsz.ascendants_path(stra);
-
-      index i = stra.get_upper_bound();
-
-      for(; i >= 0; i--)
-      {
-
-         if(is(stra[i]))
-         {
-
-            i++;
-
-            break;
-
-         }
-
-      }
-
-      if(i < 0)
-      {
-
-         return true;
-
-      }
-
-      for(; i < stra.get_size(); i++)
-      {
-
-         if(!is(stra[i]))
-         {
-
-            if(::dir::mkdir(stra[i]))
-            {
-
-            }
-
-            if(!         auto psystem = m_psystem;
-
-         auto pacmedirectory = psystem->m_pacmedirectory;
-
-pacmedirectory->is(stra[i]))
-            {
-
-               return false;
-
-            }
-
-         }
-
-      }
-
-      return true;
-
-   }
-
+//   bool dir_context::enumerate(::file::listing & listing)
+//   {
+//
+//      return ::dir_context::enumerate(listing);
+//
+////      if(listing.m_bRecursive)
+////      {
+////
+////         index iStart = listing.get_size();
+////
+////         {
+////
+////            ___scoped_restore(listing.m_pathUser);
+////
+////            ___scoped_restore(listing.m_pathFinal);
+////
+////            ___scoped_restore(listing.m_eextract);
+////
+////            if(::dir_context::ls(listing))
+////            {
+////
+////               listing = ::error_failed;
+////
+////               return listing;
+////
+////            }
+////
+////            ::file::listing dira(get_app());
+////
+////            dira.ls_dir(listing.m_pathFinal);
+////
+////            for(i32 i = 0; i < dira.get_count(); i++)
+////            {
+////
+////               ::file::path dir_context = dira[i];
+////
+////               if(dir_context == listing.m_pathFinal)
+////                  continue;
+////
+////               listing.m_pathUser.Empty();
+////               listing.m_pathFinal = dir_context;
+////
+////               if(listing.m_eextract != extract_all)
+////               {
+////
+////                  listing.m_eextract = extract_none;
+////
+////               }
+////
+////               listing.ls();
+////
+////            }
+////
+////         }
+////
+////         ::file::path_array  straPath;
+////
+////         ::dir::ls(straPath, listing.m_pathFinal);
+////
+//////            file_find file_find;
+////
+////         //          bool bWorking = file_find.FindFile(listing.m_path / listing.os_pattern()) != false;
+////
+////         for(auto & strPath : straPath)
+////         {
+////
+////            bool bDir = is(strPath);
+////
+////            if((listing.m_bDir && bDir) || (listing.m_bFile && !bDir))
+////            {
+////
+////               if(!bDir && !matches_wildcard_criteria(listing.m_straPattern, strPath.name()))
+////                  continue;
+////
+////               listing.add(strPath);
+////
+////               listing.last().m_iDir = bDir ? 1 : 0;
+////
+////            }
+////
+////         }
+////
+////         for(index i = iStart; i < listing.get_size(); i++)
+////         {
+////
+////            listing[i].m_iRelative = listing.m_pathFinal.get_length() + 1;
+////
+////         }
+////
+////      }
+////      else
+////      {
+////
+////         if(::dir_context::ls(listing).succeeded())
+////         {
+////
+////            return listing;
+////
+////         }
+////
+////         ::file::path_array  straPath;
+////
+////         ::dir::ls(straPath, listing.m_pathFinal);
+////
+////         // file_find file_find;
+////
+////         // bool bWorking = file_find.FindFile(listing.m_path / listing.os_pattern()) != false;
+////
+////         for(auto & strPath : straPath)
+////         {
+////
+////            bool bDir = is(strPath);
+////
+////            if((listing.m_bDir && bDir) || (listing.m_bFile && !bDir))
+////            {
+////
+////               if(!bDir && !matches_wildcard_criteria(listing.m_straPattern, strPath.name()))
+////                  continue;
+////
+////               listing.add(strPath);
+////
+////               listing.last().m_iDir = bDir ? 1 : 0;
+////
+////            }
+////
+////         }
+////
+////      }
+////
+////      return listing;
+//
+//   }
+//
+
+//   bool dir_context::is(const ::file::path & path)
+//   {
+//
+//      return ::dir_context::is(path);
+//
+////      auto psystem = m_psystem;
+////
+////      auto pacmedirectory = psystem->m_pacmedirectory;
+////
+////      if(pacmedirectory->is(path))
+////      {
+////
+////         return true;
+////
+////      }
+////
+////      string strPath(path);
+////
+////#ifdef WINDOWS
+////
+////      if(strPath.get_length() >= MAX_PATH)
+////      {
+////
+////         if(::str::begins(strPath, "\\\\"))
+////         {
+////
+////            strPath = "\\\\?\\UNC" + strPath.Mid(1);
+////
+////         }
+////         else
+////         {
+////
+////            strPath = "\\\\?\\" + strPath;
+////
+////         }
+////
+////      }
+////
+////#endif
+////
+////      bool bIsDir = ::dir::_is(strPath);
+////
+////      return bIsDir;
+//
+//   }
+//
+//
+////   bool dir_context::mk(const ::file::path & pcsz)
+////   {
+////
+////      if(is(pcsz))
+////      {
+////
+////         return true;
+////
+////      }
+////
+////      ::file::path_array stra;
+////
+////      pcsz.ascendants_path(stra);
+////
+////      index i = stra.get_upper_bound();
+////
+////      for(; i >= 0; i--)
+////      {
+////
+////         if(is(stra[i]))
+////         {
+////
+////            i++;
+////
+////            break;
+////
+////         }
+////
+////      }
+////
+////      if(i < 0)
+////      {
+////
+////         return true;
+////
+////      }
+////
+////      for(; i < stra.get_size(); i++)
+////      {
+////
+////         if(!is(stra[i]))
+////         {
+////
+////            if(::dir::mkdir(stra[i]))
+////            {
+////
+////            }
+////
+////            if(!         auto psystem = m_psystem;
+////
+////         auto pacmedirectory = psystem->m_pacmedirectory;
+////
+////pacmedirectory->is(stra[i]))
+////            {
+////
+////               return false;
+////
+////            }
+////
+////         }
+////
+////      }
+////
+////      return true;
+////
+////   }
+////
 
    //   bool dir::rm(::application *   papp, const ::file::path & psz, bool bRecursive)
    //   {
@@ -408,27 +418,29 @@ pacmedirectory->is(stra[i]))
 //   }
 
 
-   bool dir_context::has_subdir(const ::file::path & pszDir)
-   {
-      ::file::listing stra(get_context());
-      stra.ls_dir(pszDir);
-      return stra.get_size() > 0;
-
-   }
+//   bool dir_context::has_subdir(const ::file::path & pszDir)
+//   {
+//      ::file::listing stra(get_context());
+//      stra.ls_dir(pszDir);
+//      return stra.get_size() > 0;
+//
+//   }
 
 
 
    ::file::path dir_context::time()
    {
       
-      return ::apex::get_system()->m_pdirsystem->m_pathModule;
+      return m_psystem->m_papexsystem->m_pdirsystem->m_pathModule;
       
    }
 
 
    ::file::path dir_context::stage()
    {
+      
       return install() / "stage";
+      
    }
 
    ::file::path dir_context::stageapp()
@@ -455,7 +467,7 @@ pacmedirectory->is(stra[i]))
    ::file::path dir_context::module()
    {
 
-      return ::apex::get_system()->m_pdirsystem->m_pathModule;
+      return m_psystem->m_papexsystem->m_pdirsystem->m_pathModule;
 
    }
 
@@ -485,28 +497,29 @@ pacmedirectory->is(stra[i]))
 
    }
 
-   bool dir_context::rm(const ::file::path & psz, bool bRecursive)
-   {
-      if(bRecursive)
-      {
-         ::file::listing patha(get_context());
-         patha.ls(psz);
-         for(auto & path : patha)
-         {
-            if(is(path))
-            {
-               rm(psz / path.name(), true);
-            }
-            else
-            {
-               ::unlink(path);
-            }
-         }
-      }
-      return ::rmdir(psz) == 0;
-   }
-
-
+   
+//   bool dir_context::rm(const ::file::path & psz, bool bRecursive)
+//   {
+//      if(bRecursive)
+//      {
+//         ::file::listing patha(get_context());
+//         patha.ls(psz);
+//         for(auto & path : patha)
+//         {
+//            if(is(path))
+//            {
+//               rm(psz / path.name(), true);
+//            }
+//            else
+//            {
+//               ::unlink(path);
+//            }
+//         }
+//      }
+//      return ::rmdir(psz) == 0;
+//   }
+//
+//
    
 //   ::file::path dir_context::name(const ::file::path & str)
 //   {
@@ -545,18 +558,20 @@ pacmedirectory->is(stra[i]))
    void dir_context::initialize(::object * pobject)
    {
 
-      auto estatus = ::dir_context::initialize(pobject);
+      //auto estatus =
       
-      if(!estatus)
-      {
-         
-         return estatus;
-         
-      }
+      ::dir_context::initialize(pobject);
       
-      m_pdirsystem = ::apex::get_system()->m_pdirsystem;
+//      if(!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+      m_pdirsystem = m_psystem->m_papexsystem->m_pdirsystem;
       
-      m_pfilesystem = ::apex::get_system()->m_pfilesystem;
+      m_pfilesystem = m_psystem->m_papexsystem->m_pfilesystem;
 
       
 //      if(!update_module_path())
@@ -568,123 +583,47 @@ pacmedirectory->is(stra[i]))
 
       
 //      m_strCa2 = ::file::path(getenv("HOME")) / "Library/papp Support";
-      {
+//      {
+//
+//         string str;
+//
+//         unsigned int uiSize = 4096;
+//
+//         char * psz = str.get_string_buffer(uiSize);
+//
+//         _ui_library_dir(psz, &uiSize);
+//
+//         str.release_string_buffer(uiSize);
+//
+//         m_pdirsystem->m_strCa2 = str;
+//
+//      }
 
-         string str;
-
-         unsigned int uiSize = 4096;
-
-         char * psz = str.get_string_buffer(uiSize);
-
-         _ui_library_dir(psz, &uiSize);
-
-         str.release_string_buffer(uiSize);
-
-         m_pdirsystem->m_strCa2 = str;
-
-      }
-
-
-      ::file::path pathHome;
-
-      pathHome = m_pdirsystem->m_strCa2/"Documents";
-
-      ::apex::get_system()->m_strIosHome = pathHome;
-
-      m_pdirsystem->m_pathHome = m_pdirsystem->m_strCa2/"Documents";
+//
+//      ::file::path pathHome;
+//
+//      pathHome = m_pdirsystem->m_strCa2/"Documents";
+//
+//      ::apex::get_system()->m_strIosHome = pathHome;
+//
+//      m_pdirsystem->m_pathHome = m_pdirsystem->m_strCa2/"Documents";
 
       //nodeos_set_home(::apex::get_system()->m_strIosHome);
 
-      ::file::path str = m_pdirsystem->m_strCa2 / ".ca2/appdata";
-
-//      m_pathUser = m_strCa2 / ".ca2/user";
+//      ::file::path str = m_pdirsystem->m_strCa2 / ".ca2/appdata";
+//
+////      m_pathUser = m_strCa2 / ".ca2/user";
 
       string strRelative;
 
       strRelative = install();
 
-      m_pdirsystem->m_strCa2AppData = str / "ca2" / strRelative;
+//      m_pdirsystem->m_strCa2AppData = str / "ca2" / strRelative;
+//
+//      str = m_pdirsystem->m_pathModule.folder();
+//
+//      m_pdirsystem->m_strCommonAppData = str / "commonappdata";
 
-      str = m_pdirsystem->m_pathModule.folder();
-
-      m_pdirsystem->m_strCommonAppData = str / "commonappdata";
-
-
-
-      str = "/usr/bin";
-
-      m_pdirsystem->m_strPrograms = str;
-
-      str = "/usr/share/";
-
-      m_pdirsystem->m_strCommonPrograms = str;
-
-      return true;
-
-   }
-
-   void dir_context::init_context()
-   {
-
-      xml::document doc;
-
-      string strPath = appdata() / "configuration/directory.xml";
-
-      
-      string strDocument = pcontext->m_papexcontext->file().as_string(strPath);
-
-      if(doc.load(strDocument))
-      {
-
-         if(doc.root()->get_name() == "directory_configuration")
-         {
-
-            m_pdirsystem->m_strTimeFolder = doc.root()->get_child_value("time");
-
-            m_pdirsystem->m_strNetSeedFolder = doc.root()->get_child_value("netseed");
-
-         }
-
-      }
-
-      if(m_pdirsystem->m_strTimeFolder.is_empty())
-      {
-
-         m_pdirsystem->m_strTimeFolder = m_pdirsystem->m_strCa2 / "Library/Cache/time";
-
-      }
-
-      if(m_pdirsystem->m_strNetSeedFolder.is_empty())
-      {
-
-         m_pdirsystem->m_strNetSeedFolder = install() / "net";
-
-      }
-
-      mk(m_pdirsystem->m_strTimeFolder);
-
-      if(!is(m_pdirsystem->m_strTimeFolder))
-      {
-
-         return false;
-
-      }
-
-      string strTime = m_pdirsystem->m_strTimeFolder / "time";
-
-      mk(strTime);
-
-      if(!is(strTime))
-      {
-
-         return false;
-
-      }
-
-      ::apex::get_system()->m_strIosTemp = strTime;
-
-      //nodeos_set_temp(::apex::get_system()->m_strIosTemp);
-      
       string str;
 
       str = "/usr/bin";
@@ -695,17 +634,94 @@ pacmedirectory->is(stra[i]))
 
       m_pdirsystem->m_strCommonPrograms = str;
 
-      return true;
+//      return true;
 
    }
 
 
-   ::file::path dir_context::appdata()
+   void dir_context::init_context()
    {
 
-      return m_pdirsystem->m_strCa2AppData;
+//      xml::document doc;
+//
+//      string strPath = appdata() / "configuration/directory.xml";
+//
+//
+//      string strDocument = pcontext->m_papexcontext->file().as_string(strPath);
+//
+//      if(doc.load(strDocument))
+//      {
+//
+//         if(doc.root()->get_name() == "directory_configuration")
+//         {
+//
+//            m_pdirsystem->m_strTimeFolder = doc.root()->get_child_value("time");
+//
+//            m_pdirsystem->m_strNetSeedFolder = doc.root()->get_child_value("netseed");
+//
+//         }
+//
+//      }
+//
+//      if(m_pdirsystem->m_strTimeFolder.is_empty())
+//      {
+//
+//         m_pdirsystem->m_strTimeFolder = m_pdirsystem->m_strCa2 / "Library/Cache/time";
+//
+//      }
+//
+//      if(m_pdirsystem->m_strNetSeedFolder.is_empty())
+//      {
+//
+//         m_pdirsystem->m_strNetSeedFolder = install() / "net";
+//
+//      }
+//
+//      mk(m_pdirsystem->m_strTimeFolder);
+//
+//      if(!is(m_pdirsystem->m_strTimeFolder))
+//      {
+//
+//         return false;
+//
+//      }
+//
+//      string strTime = m_pdirsystem->m_strTimeFolder / "time";
+//
+//      mk(strTime);
+//
+//      if(!is(strTime))
+//      {
+//
+//         return false;
+//
+//      }
+//
+//      ::apex::get_system()->m_strIosTemp = strTime;
+//
+//      //nodeos_set_temp(::apex::get_system()->m_strIosTemp);
+//
+//      string str;
+//
+//      str = "/usr/bin";
+//
+//      m_pdirsystem->m_strPrograms = str;
+//
+//      str = "/usr/share/";
+//
+//      m_pdirsystem->m_strCommonPrograms = str;
+//
+//      return true;
 
    }
+//
+//
+//   ::file::path dir_context::appdata()
+//   {
+//
+//      return m_pdirsystem->m_strCa2AppData;
+//
+//   }
 
 
    ::file::path dir_context::commonappdata_root()
@@ -739,20 +755,20 @@ pacmedirectory->is(stra[i]))
    }
 
 
-   bool dir_context::is_inside_time(const ::file::path & pszPath)
-   {
-
-      return is_inside(time(), pszPath);
-
-   }
-
-
-   bool dir_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
-   {
-
-      return ::str::begins_ci(pszDir, pszPath);
-
-   }
+//   bool dir_context::is_inside_time(const ::file::path & pszPath)
+//   {
+//
+//      return is_inside(time(), pszPath);
+//
+//   }
+//
+//
+//   bool dir_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
+//   {
+//
+//      return ::str::begins_ci(pszDir, pszPath);
+//
+//   }
 
 
 } // namespace apex_ios

@@ -25,7 +25,7 @@
 //#include "launcher.h"
 
 
-//#include "shell_launcher.h"
+#include "shell_launcher.h"
 
 
 #include "interprocess_communication.h"

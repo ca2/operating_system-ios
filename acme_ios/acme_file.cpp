@@ -9,9 +9,9 @@
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme_file.h"
 
-
-string apple_app_module_path();
-
+//
+//string apple_app_module_path();
+//
 
 namespace acme_ios
 {
@@ -32,28 +32,28 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_file::module()
-   {
-
-      ::file::path path = apple_app_module_path();
-
-      return path;
-
-   }
+//   ::file::path acme_file::module()
+//   {
+//
+//      ::file::path path = apple_app_module_path();
+//
+//      return path;
+//
+//   }
 
 
 } // namespace acme_ios
 
 
-char * ns_get_executable_path();
-
-
-string apple_app_module_path()
-{
-   
-   return ::string_from_strdup(ns_get_executable_path());
-   
-}
+//char * ns_get_executable_path();
+//
+//
+//string apple_app_module_path()
+//{
+//
+//   return ::string_from_strdup(ns_get_executable_path());
+//
+//}
 
 
 

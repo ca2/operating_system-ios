@@ -8,13 +8,13 @@ namespace acme_ios
 
 
    class CLASS_DECL_ACME_MACOS acme_directory :
-      virtual public ::posix::acme_directory
+      virtual public ::acme_apple::acme_directory
    {
    public:
 
 
       acme_directory();
-      virtual ~acme_directory();
+      ~acme_directory() override;
 
 
       virtual ::file::path install() override;

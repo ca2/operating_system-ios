@@ -196,7 +196,7 @@ void mm_clipboard_set_plain_text(const char * psz)
 }
 
 
-void * ns_image_get_image_data(int & width, int & height, int & iScan, NSImage * pimage);
+void * ns_image_get_image_data(int & width, int & height, int & iScan,UIImage * pimage);
 
 bool mm_clipboard_has_image()
 {

@@ -578,7 +578,7 @@
    
    ios_window * p = m_ioswindow->m_pwindow;
    
-   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+   //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
    if ([touches count] == 1)
    {
@@ -819,52 +819,52 @@
    
    [[UIColor whiteColor] set];
    
-   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//   
+//   if(orientation == UIInterfaceOrientationPortrait)
+//   {
+//      
+//   }
+//   else
+//   {
+//      
+//      //      int w = rect.size.width;
+//      //
+//      //      rect.size.width = rect.size.height;
+//      //
+//      //      rect.size.height = w;
+//      
+//   }
    
-   if(orientation == UIInterfaceOrientationPortrait)
-   {
-      
-   }
-   else
-   {
-      
-      //      int w = rect.size.width;
-      //
-      //      rect.size.width = rect.size.height;
-      //
-      //      rect.size.height = w;
-      
-   }
+   //int cx = rect.size.width;
    
-   int cx = rect.size.width;
-   
-   int cy = rect.size.height;
+   //int cy = rect.size.height;
    
    if(m_ioswindow != nil)
    {
       
       ios_window * p = m_ioswindow->m_pwindow;
       
-      if(orientation == UIInterfaceOrientationPortrait)
-      {
-         
-      }
-      else
-      {
-         
-         //CGContextTranslateCTM(context, cx / 2, cy / 2);
-         //CGContextRotateCTM(context, M_PI / 2.0);
-         //CGContextTranslateCTM(context, -cy / 2, -cx / 2);
-         
-      }
+//      if(orientation == UIInterfaceOrientationPortrait)
+//      {
+//         
+//      }
+//      else
+//      {
+//         
+//         //CGContextTranslateCTM(context, cx / 2, cy / 2);
+//         //CGContextRotateCTM(context, M_PI / 2.0);
+//         //CGContextTranslateCTM(context, -cy / 2, -cx / 2);
+//         
+//      }
       
       UIRectFill(rect);
       
-      int x = p->ios_window_get_x();
-      
-      int y = p->ios_window_get_y();
-      
-      CGContextTranslateCTM(context, x, y);
+//      int x = p->ios_window_get_x();
+//      
+//      int y = p->ios_window_get_y();
+//      
+//      CGContextTranslateCTM(context, x, y);
       
       p->ios_window_draw(context, rect.size);
       

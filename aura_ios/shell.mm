@@ -13,51 +13,51 @@
 bool GetImagePixelData(unsigned int * pcr, int cx, int cy, int iScan, CGImageRef inImage);
 
 
-bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath)
-{
-   
-   NSString * strFilePath = [NSString stringWithUTF8String:pszFilePath];
-   
-   if(strFilePath == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   
-   UIImage * image = [[UIImage alloc] initWithContentsOfFile:strFilePath];;
-   
-   if(image == NULL)
-   {
-      
-      return false;
-      
-   }
-   
-   CGImageRef i = [image CGImage];
-   
-   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
-   
-   return bOk;
-   
-}
+//bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath)
+//{
+//
+//   NSString * strFilePath = [NSString stringWithUTF8String:pszFilePath];
+//
+//   if(strFilePath == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//
+//   UIImage * image = [[UIImage alloc] initWithContentsOfFile:strFilePath];;
+//
+//   if(image == NULL)
+//   {
+//
+//      return false;
+//
+//   }
+//
+//   CGImageRef i = [image CGImage];
+//
+//   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
+//
+//   return bOk;
+//
+//}
 
 
 bool mm2_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)
 {
-   
+
    NSString * strTypeIdentifier = [NSString stringWithUTF8String:pszTypeIdentifier];
-   
+
    if(strTypeIdentifier == NULL)
    {
-      
+
       return false;
-      
+
    }
-   
+
    //UIImage * image = nullptr;
-   
+
 //
 //   NSString *extension = @"pptx"; // or something else
 //   NSString *dummyPath = [@"~/foo" stringByAppendingPathExtension:extension]; // doesn't exist
@@ -112,28 +112,28 @@ bool mm2_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, i
 //   CGImageRef i = [image CGImageForProposedRect: &r context:nil hints:nil];
 //
 //   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
-   
+
    //return bOk;
-   
+
    return false;
-   
+
 }
-
-
-bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
-{
-   
-   return mm2_get_file_image(pcr, cx, cy, iScan, psz);
-   
-}
-
-
+//
+//
+//bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
+//{
+//
+//   return mm2_get_file_image(pcr, cx, cy, iScan, psz);
+//
+//}
+//
+//
 bool mm1_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)
 {
-   
+
    return mm2_get_file_image_by_type_identifier(pcr, cx, cy, iScan, pszTypeIdentifier);
-   
+
 }
 
-
-
+//
+//

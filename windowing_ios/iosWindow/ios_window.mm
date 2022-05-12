@@ -26,7 +26,7 @@
 
 #endif
 
-UIWindow * new_ios_window(ios_window * pwindow, CGRect rect)
+UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle)
 {
    
    __block UIWindow * puiwindow = nullptr;
@@ -40,7 +40,9 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect)
        
       pwindow->m_pioswindow->m_pwindow = pwindow;
       
-      if([pwindow->m_pioswindow initWithFrame:[[UIScreen mainScreen] bounds]])
+      auto bounds = [[UIScreen mainScreen] bounds];
+      
+      if([pwindow->m_pioswindow initWithFrame: bounds ] )
       {
       
          puiwindow = pioswindow;
@@ -57,8 +59,11 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect)
 void ios_window::ios_window_show()
 {
    
-//   [[m_proun dd_invokeOnMainThread] showWindow : m_pioswindow];
-   
+   ns_main_async(^{
+      
+      [m_pioswindow makeKeyAndVisible];
+      
+   });
 }
 
 
@@ -229,7 +234,7 @@ void ios_window::ios_window_get_sel(long & iBeg, long & iEnd)
 void ios_window::ios_window_set_text(const char * pszText)
 {
    
-   NSString * text = [[NSString alloc] initWithUTF8String:pszText];
+   //NSString * text = [[NSString alloc] initWithUTF8String:pszText];
    
    // UITextView --> UIView
    //[m_pioswindow->m_controller->childContentView setText: text];
@@ -355,3 +360,13 @@ void ios_window::ios_window_hide()
 //   
 //}
 
+
+
+void ios_window::ios_window_get_frame(CGRect * prect)
+{
+   
+   ns_main_sync(^{
+      *prect = [m_pioswindow frame];
+   });
+   
+}

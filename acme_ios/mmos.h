@@ -27,17 +27,17 @@
 
 - (id)get;
 
-- (void)get_user_wallpaper:(void **)charpp forScreen:(UIScreen *) s;
+//- (void)get_user_wallpaper:(void **)charpp forScreen:(UIScreen *) s;
 
-- (void)get_user_wallpaper:(void *)charppp getCount:(void *) pll;
+//- (void)get_user_wallpaper:(void *)charppp getCount:(void *) pll;
 
-- (void)desktopImageChanged:(NSNotification *)notification;
+//- (void)desktopImageChanged:(NSNotification *)notification;
 
 - (void)applicationActivity:(NSNotification *)notification;
 
-- (void)monitorWallpaper;
+//- (void)monitorWallpaper;
 
-- (void)deferWallpaper:(NSTimer *)timer;
+//- (void)deferWallpaper:(NSTimer *)timer;
 
 - (void)monitorIconForFile;
 

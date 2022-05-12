@@ -16,42 +16,43 @@ void ansios_sigchld_handler(int sig);
 void apex_application_run(const char * pszAppName, const char * pszProgName);
 
 
-namespace apex
+namespace apex_ios
 {
 
 
-   namespace macos
+   node::node()
    {
 
+      m_pAcmePlatform = this;
 
-      node::node()
-      {
-
-         m_pAcmePosix = this;
-
-      }
+   }
 
 
-      node::~node()
-      {
+   node::~node()
+   {
 
-      }
-
-   
-      string node::app_id_to_executable_name(const string & strAppId)
-      {
-         
-         string strName = app_id_to_app_name(strAppId);
-
-         return "_" + strName;
-
-      }
+   }
 
 
-   } // namespace macos
+   int node::node_init_check(int * pi, char *** ppz)
+   {
+      
+      return 0;
+      
+   }
 
 
-} // namespace apex
+   string node::app_id_to_executable_name(const string & strAppId)
+   {
+      
+      string strName = app_id_to_app_name(strAppId);
+
+      return "_" + strName;
+
+   }
+
+
+} // namespace apex_ios
 
 //
 //void * get_system_mmos(void * pSystem)

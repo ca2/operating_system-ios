@@ -5,7 +5,7 @@
 //  Created by Camilo Sasuke Tsumanuma on 18/05/20.
 //
 #include "framework.h"
-#include "oswindow_data.h"
+//#include "oswindow_data.h"
 
 
 bool nswindow_is_visible(NSWindow * window);

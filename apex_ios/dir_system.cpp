@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "_ios.h"
+//#include "_ios.h"
 
 
 namespace apex_ios
@@ -23,16 +23,18 @@ namespace apex_ios
    void dir_system::initialize(::object * pobject)
    {
 
-      auto estatus = ::dir_system::initialize(pobject);
-
-      if (!estatus)
-      {
-
-         return estatus;
-
-      }
-
-      return estatus;
+      //auto estatus =
+      
+      ::dir_system::initialize(pobject);
+//
+//      if (!estatus)
+//      {
+//
+//         return estatus;
+//
+//      }
+//
+//      return estatus;
 
    }
 

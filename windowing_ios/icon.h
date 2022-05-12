@@ -1,10 +1,11 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen - Honoring Thomas Borregaard Sørensen My ONLY GOD
 // recreated by Camilo 2021-02-01 16:38
 // macOS version by Camilo 2021-05-31 14:49
+//  From windowing_macos on 2022-05-11 02:15 <3ThomasBorregaardSorensen!!
 #pragma once
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -42,8 +43,7 @@ namespace windowing_macos
    };
 
 
-
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

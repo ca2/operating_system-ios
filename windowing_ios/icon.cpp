@@ -4,7 +4,7 @@
 #include "framework.h"
 
 
-namespace windowing_macos
+namespace windowing_ios
 {
 
 
@@ -123,7 +123,7 @@ namespace windowing_macos
 //   }
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

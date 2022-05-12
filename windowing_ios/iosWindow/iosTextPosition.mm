@@ -57,7 +57,7 @@
 #pragma mark IndexedPosition implementation
 
 // Class method to create an instance with a given integer index.
-+ (instancetype)positionWithIndex:(NSUInteger)index
++ (instancetype)positionWithIndex:(NSInteger)index
 {
     iosTextPosition *indexedPosition = [[self alloc] init];
     indexedPosition.index = index;

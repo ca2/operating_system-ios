@@ -35,6 +35,8 @@ namespace aura_ios
       void assert_ok() const override;
       void dump(dump_context & dumpcontext) const override;
       
+      void native_create_host() override;
+      
       void on_destroy() override;
 
 //      bool is_destroying() const { return //::aura_window::m_bDestroying ||

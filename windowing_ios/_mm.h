@@ -19,7 +19,7 @@
 #include "_c_mm.h"
 
 
-void * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
+UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
 
 
 //#import "notify_icon_mm.h"

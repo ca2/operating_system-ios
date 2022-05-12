@@ -8,14 +8,14 @@
 #include "framework.h"
 
 
-NSImage * nsimage_from_image_data(const void * pdata, int cx, int cy, int scan);
+UIImage * uiimage_from_image_data(const void * pdata, int cx, int cy, int scan);
 
 
 char * ns_string(NSString * str);
 
-static NSPasteboard * g_ppasteboard = nullptr;
+static UIPasteboard * g_ppasteboard = nullptr;
 
-bool macos_clipboard_has_changed(long & lTicket)
+bool ios_clipboard_has_changed(long & lTicket)
 {
    
    auto lClipboardChangeCount = [g_ppasteboard changeCount];
@@ -34,13 +34,13 @@ bool macos_clipboard_has_changed(long & lTicket)
 }
 
 
-long macos_clipboard_init()
+long ios_clipboard_init()
 {
    
    if(g_ppasteboard == nullptr)
    {
       
-      g_ppasteboard = [NSPasteboard generalPasteboard];
+      g_ppasteboard = [UIPasteboard generalPasteboard];
       
    }
    
@@ -51,103 +51,105 @@ long macos_clipboard_init()
 }
 
 
-long macos_clipboard_get_file_count()
+long ios_clipboard_get_file_count()
 {
    
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+   return [[[UIPasteboard generalPasteboard] itemProviders ] count ];
    
-   NSArray * classes = [NSArray arrayWithObject:[NSURL class]];
-   
-   NSDictionary *options = [NSDictionary dictionaryWithObject:
-                            [NSNumber numberWithBool:YES] forKey:NSPasteboardURLReadingFileURLsOnlyKey];
-   
-   NSArray * filea = [pasteboard readObjectsForClasses:classes options:options];
-   
-   long iCount =  [filea count];
-
-   return iCount;
-
-}
-
-
-char ** macos_clipboard_get_filea(long * pc)
-{
-   
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
-   
-   NSArray * classes = [NSArray arrayWithObject:[NSURL class]];
-   
-   NSDictionary *options = [NSDictionary dictionaryWithObject:
-                            [NSNumber numberWithBool:YES] forKey:NSPasteboardURLReadingFileURLsOnlyKey];
-   
-   NSArray * filea = [pasteboard readObjectsForClasses:classes options:options];
-   
-   long c = [filea count];
-   
-   *pc = c;
-   
-   char ** psza = NULL;
-   
-   if(c > 0)
-   {
-      
-      psza = (char **) malloc(c * sizeof(char *));
-      
-      for(int i = 0; i < c; i++)
-      {
-         
-         NSURL * url = [filea objectAtIndex: i];
-         
-         NSString * str = [url path];
-         
-         psza[i] = strdup([str UTF8String]);
-         
-      }
-      
-   }
-   
-   return psza;
-   
-}
-
-
-void macos_clipboard_set_filea(const char ** psza, long c)
-{
-   
-   NSMutableArray * filea = [NSMutableArray new];
-   
-   for(int i = 0; i < c; i++)
-   {
-      
-      const char * psz = psza[i];
-      
-      NSString * str = [NSString stringWithUTF8String: psz];
-      
-      str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-      
-      if(psz[0] == '/')
-      {
-         
-         str = [NSString stringWithFormat:@"file://%@", str];
-         
-      }
-         
-
-      
-      NSURL * url = [NSURL URLWithString:str];
-      
-      [filea addObject : url];
-      
-   }
-   
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
-   
-   [pasteboard declareTypes:[NSArray arrayWithObject:NSFilenamesPboardType] owner:nil];
-
-   [pasteboard writeObjects: filea];
-       
+//   NSArray * classes = [NSArray arrayWithObject:[NSURL class]];
 //
-//   [pasteboard setPropertyList:filea forType:NSFilenamesPboardType];
+//   NSDictionary *options = [NSDictionary dictionaryWithObject:
+//                            [NSNumber numberWithBool:YES] forKey:UIPasteboardURLReadingFileURLsOnlyKey];
+//
+//   NSArray * filea = [pasteboard readObjectsForClasses:classes options:options];
+//
+//   long iCount =  [filea count];
+//
+//   return iCount;
+
+}
+
+
+char ** ios_clipboard_get_filea(long * pc)
+{
+   
+   return nullptr;
+   
+//   UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
+//
+//   NSArray * classes = [NSArray arrayWithObject:[NSURL class]];
+//
+//   NSDictionary *options = [NSDictionary dictionaryWithObject:
+//                            [NSNumber numberWithBool:YES] forKey:NSPasteboardURLReadingFileURLsOnlyKey];
+//
+//   NSArray * filea = [pasteboard readObjectsForClasses:classes options:options];
+//
+//   long c = [filea count];
+//
+//   *pc = c;
+//
+//   char ** psza = NULL;
+//
+//   if(c > 0)
+//   {
+//
+//      psza = (char **) malloc(c * sizeof(char *));
+//
+//      for(int i = 0; i < c; i++)
+//      {
+//
+//         NSURL * url = [filea objectAtIndex: i];
+//
+//         NSString * str = [url path];
+//
+//         psza[i] = strdup([str UTF8String]);
+//
+//      }
+//
+//   }
+//
+//   return psza;
+   
+}
+
+
+void ios_clipboard_set_filea(const char ** psza, long c)
+{
+   
+//   NSMutableArray * filea = [NSMutableArray new];
+//
+//   for(int i = 0; i < c; i++)
+//   {
+//
+//      const char * psz = psza[i];
+//
+//      NSString * str = [NSString stringWithUTF8String: psz];
+//
+//      str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//
+//      if(psz[0] == '/')
+//      {
+//
+//         str = [NSString stringWithFormat:@"file://%@", str];
+//
+//      }
+//
+//
+//
+//      NSURL * url = [NSURL URLWithString:str];
+//
+//      [filea addObject : url];
+//
+//   }
+//
+//   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+//
+//   [pasteboard declareTypes:[NSArray arrayWithObject:NSFilenamesPboardType] owner:nil];
+//
+//   [pasteboard writeObjects: filea];
+//
+////
+////   [pasteboard setPropertyList:filea forType:NSFilenamesPboardType];
    
 }
 
@@ -155,24 +157,24 @@ void macos_clipboard_set_filea(const char ** psza, long c)
 
 
 // https://stackoverflow.com/questions/6167557/get-string-from-nspasteboard
-char * macos_clipboard_get_plain_text()
+char * ios_clipboard_get_plain_text()
 {
    
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
    
-   NSString * strPasteboard = [pasteboard stringForType:NSPasteboardTypeString];
+   NSString * strPasteboard = [pasteboard string];
    
    return ns_string(strPasteboard);
    
 }
 
 
-bool macos_clipboard_has_plain_text()
+bool ios_clipboard_has_plain_text()
 {
    
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
    
-   NSString * strPasteboard = [pasteboard stringForType:NSPasteboardTypeString];
+   NSString * strPasteboard = [pasteboard string];
    
    return strPasteboard != nil;
    
@@ -182,60 +184,48 @@ bool macos_clipboard_has_plain_text()
 //https://stackoverflow.com/questions/3655038/how-to-copy-textfield-to-osx-clipboard
 //On OSX
 
-void macos_clipboard_set_plain_text(const char * psz)
+void ios_clipboard_set_plain_text(const char * psz)
 {
    
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
    
    NSString * strPasteboard = [NSString stringWithUTF8String: psz];
 
-   [pasteboard clearContents];
+   //[pasteboard clearContents];
    
-   [pasteboard setString:strPasteboard forType:NSStringPboardType];
+   [pasteboard setString:strPasteboard];
 
 }
 
 
-void * ns_image_get_image_data(int & width, int & height, int & iScan, NSImage * pimage);
+void * ns_image_get_image_data(int & width, int & height, int & iScan, UIImage * pimage);
 
-bool macos_clipboard_has_image()
+bool ios_clipboard_has_image()
 {
    
-   NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
    
-   NSArray *classArray = [NSArray arrayWithObject:[NSImage class]];
+   auto image = [pasteboard image];
    
-   NSDictionary *options = [NSDictionary dictionary];
-   
-   BOOL ok = [pasteboard canReadObjectForClasses:classArray options:options];
-   
-   return ok != FALSE;
+   return image != FALSE;
    
 }
 
 
 // http://findnerd.com/list/view/How-to-copy-image-in-NSPasteBoard/756/
-void * macos_clipboard_get_image(int & cx, int & cy, int & iScan)
+void * ios_clipboard_get_image(int & cx, int & cy, int & iScan)
 {
 
-   NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
 
-   NSArray *classArray = [NSArray arrayWithObject:[NSImage class]];
+   auto image = [pasteboard image];
 
-   NSDictionary *options = [NSDictionary dictionary];
-
-   BOOL ok = [pasteboard canReadObjectForClasses:classArray options:options];
-
-   if (!ok)
+   if (!image)
    {
    
       return NULL;
    
    }
-   
-   NSArray *objectsToPaste = [pasteboard readObjectsForClasses:classArray options:options];
-   
-   NSImage *image = [objectsToPaste objectAtIndex:0];
    
    void * pdata = ns_image_get_image_data(cx, cy, iScan, image);
    
@@ -251,10 +241,10 @@ void * macos_clipboard_get_image(int & cx, int & cy, int & iScan)
 }
 
 
-bool macos_clipboard_set_image(const void * pdata, int cx, int cy, int scan)
+bool ios_clipboard_set_image(const void * pdata, int cx, int cy, int scan)
 {
    
-   NSImage * image = nsimage_from_image_data( pdata, cx, cy, scan);
+   UIImage * image = uiimage_from_image_data( pdata, cx, cy, scan);
    
    if(!image)
    {
@@ -263,11 +253,9 @@ bool macos_clipboard_set_image(const void * pdata, int cx, int cy, int scan)
       
    }
 
-   NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+   UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
    
-   NSArray * objects = [NSArray arrayWithObject:image];
-   
-   [pasteboard writeObjects: objects];
+   [pasteboard setImage: image];
 
    return true;
    

@@ -1,8 +1,8 @@
 #include "framework.h"
-#include "_ios.h"
+//#include "_ios.h"
 
 
-namespace apex
+namespace apex_ios
 {
 
 
@@ -42,16 +42,7 @@ namespace apex
    }
 
 
-
-
-
-
-
-
-
-
-} // namespace apex
-
+} // namespace apex_ios
 
 
 

@@ -8,29 +8,29 @@
 #import "framework.h"
 #include <UniformTypeIdentifiers/UTType.h>
 
-
-char * ns_get_default_browser_path()
-{
-   
-    /*
-   CFURLRef appURL = LSCopyDefaultApplicationURLForURL((__bridge CFURLRef)[NSURL URLWithString: @"http:"], kLSRolesAll, NULL);
-   
-   CFStringRef str = CFURLGetString(appURL);
-   r
-   char * psz = strdup([(__bridge NSString *)str UTF8String]);
-   
-   CFRelease(appURL);r
-   
-   //CFRelease(str);
-   
-     */
-    
-    char * psz = strdup("");
-     
-   return psz;
-   
-}
-
+//
+//char * ns_get_default_browser_path()
+//{
+//   
+//    /*
+//   CFURLRef appURL = LSCopyDefaultApplicationURLForURL((__bridge CFURLRef)[NSURL URLWithString: @"http:"], kLSRolesAll, NULL);
+//   
+//   CFStringRef str = CFURLGetString(appURL);
+//   r
+//   char * psz = strdup([(__bridge NSString *)str UTF8String]);
+//   
+//   CFRelease(appURL);r
+//   
+//   //CFRelease(str);
+//   
+//     */
+//    
+//    char * psz = strdup("");
+//     
+//   return psz;
+//   
+//}
+//
 //
 //bool ns_open_url(const char * psz)
 //{
@@ -90,9 +90,23 @@ char * ns_get_default_browser_path()
 //
 //}
 //
-//void ns_launch_app_at_url(NSURL * url, const char ** argv, int iFlags)
-//{
-//
+void ns_launch_app_at_url(NSURL * url, const char ** argv, int iFlags)
+{
+    
+    
+    BOOL canOpenURL = [[UIApplication sharedApplication]
+                           canOpenURL:url];
+                       
+    if ( canOpenURL )
+    {
+        
+        [[UIApplication sharedApplication]
+                               openURL:url];
+    }
+    
+    
+}
+    
 //   NSWorkspace * workspace = [NSWorkspace sharedWorkspace];
 //
 //   NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
@@ -244,18 +258,18 @@ bool GetImagePixelData(unsigned int * pcr, int cx, int cy, int iScan, CGImageRef
 //
 //}
 
-
-void os_post_quit(::element * pelementQuit)
-{
-   
-   ns_main_async(^()
-   {
-
-      pelementQuit->run();
-      
-   });
-   
-}
+//
+//void os_post_quit(::element * pelementQuit)
+//{
+//
+//   ns_main_async(^()
+//   {
+//
+//      pelementQuit->run();
+//
+//   });
+//
+//}
 
 void ns_app_terminate()
 {
@@ -266,13 +280,13 @@ void ns_app_terminate()
 
 
 
-void ns_Sleep(unsigned int uiMillis)
-{
-
-   [NSThread sleepForTimeInterval: ((double) uiMillis / 1000.0) ];
-
-}
-
+//void ns_Sleep(unsigned int uiMillis)
+//{
+//
+//   [NSThread sleepForTimeInterval: ((double) uiMillis / 1000.0) ];
+//
+//}
+//
 
 
 

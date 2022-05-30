@@ -61,7 +61,7 @@
 		9AA14E00282A185C00B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14E05282A185C00B1621E /* libwindowing_macos.dylib */,
+				9AA14E05282A185C00B1621E /* libwindowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9AA14E05282A185C00B1621E /* libwindowing_macos.dylib */ = {
+		9AA14E05282A185C00B1621E /* libwindowing_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libwindowing_ios.a;
@@ -244,6 +244,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +328,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

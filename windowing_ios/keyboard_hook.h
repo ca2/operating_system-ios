@@ -6,20 +6,20 @@
 //  22:30 BRT
 #pragma once
 
-
-namespace keyboard_hook
-{
-
-   
-   ::e_status install(::element * pelementListener);
-
-   ::e_status uninstall(::element * pelementListener);
-
-   ::e_status is_enabled(bool bPrompt);
-
-
-} // keyboard_hook
-
-
+//
+//namespace keyboard_hook
+//{
+//
+//   
+//   ::e_status install(::element * pelementListener);
+//
+//   ::e_status uninstall(::element * pelementListener);
+//
+//   ::e_status is_enabled(bool bPrompt);
+//
+//
+//} // keyboard_hook
+//
+//
 
 

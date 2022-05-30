@@ -559,22 +559,22 @@
 //
 //}
 //
-
-const char * mm_keyboard_input_source();
-
-
-string keyboard_input_source()
-{
-
-   const char * psz = mm_keyboard_input_source();
-
-   string str =psz;
-
-   free((void *) psz);
-
-   return str;
-
-}
+//
+//const char * mm_keyboard_input_source();
+//
+//
+//string keyboard_input_source()
+//{
+//
+//   const char * psz = mm_keyboard_input_source();
+//
+//   string str =psz;
+//
+//   free((void *) psz);
+//
+//   return str;
+//
+//}
 
 //
 //CLASS_DECL_AURA ::user::interaction_impl * oswindow_get(oswindow oswindow)

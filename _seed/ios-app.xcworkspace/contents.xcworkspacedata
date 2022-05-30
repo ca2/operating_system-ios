@@ -16,4 +16,7 @@
    <FileRef
       location = "group:../../../source/app/app/_ios_app_app.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../../source/app/message_box/_ios_app_message_box.xcodeproj">
+   </FileRef>
 </Workspace>

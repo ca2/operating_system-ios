@@ -176,7 +176,7 @@ namespace windowing_ios
       if(pwindowCapture)
       {
          
-         pwindowCapture->m_puserinteractionimpl->m_puserinteraction->m_pinteractionimpl->m_puserinteractionCapture.release();
+         pwindowCapture->m_puserinteractionimpl->m_puserinteraction->m_pinteractionimpl->m_puserinteractionMouseCapture.release();
          
       }
    

@@ -269,63 +269,63 @@
 		9AA14E56282A26B000B1621E /* windowing_ios */ = {
 			isa = PBXGroup;
 			children = (
-				9A89A574282CA2E90014794A /* buffer.cpp */,
-				9A89A573282CA2E90014794A /* buffer.h */,
 				9A750E9B282B668400C4861B /* iosWindow */,
-				9AA14E9D282A26B000B1621E /* _factory.cpp */,
-				9AA14E82282A26B000B1621E /* copydesk.cpp */,
-				9AA14E8E282A26B000B1621E /* cursor.cpp */,
-				9AA14E74282A26B000B1621E /* display.cpp */,
-				9AA14E63282A26B000B1621E /* framework.cpp */,
-				9A89A56E282C8D1A0014794A /* host_interaction.cpp */,
-				9AA14E86282A26B000B1621E /* icon.cpp */,
-				9AA14E9C282A26B000B1621E /* imm_client.cpp */,
-				9AA14E9B282A26B000B1621E /* keyboard.cpp */,
-				9AA14E69282A26B000B1621E /* monitor.cpp */,
-				9AA14E6A282A26B000B1621E /* node.cpp */,
-				9AA14E61282A26B000B1621E /* notify_icon.cpp */,
-				9AA14E65282A26B000B1621E /* window.cpp */,
-				9AA14E8D282A26B000B1621E /* windowing_keyboard.cpp */,
-				9AA14E7C282A26B000B1621E /* windowing_ios.cpp */,
-				9AA14EA0282A26B000B1621E /* windowing.cpp */,
 				9AA14EA2282A26B000B1621E /* _.h */,
 				9AA14E9A282A26B000B1621E /* _c_mm.h */,
+				9AA14E9D282A26B000B1621E /* _factory.cpp */,
 				9AA14E5F282A26B000B1621E /* _mm.h */,
 				9AA14E71282A26B000B1621E /* _windowing_ios.h */,
 				9AA14E6B282A26B000B1621E /* aaa_imm_context.h */,
 				9AA14E7D282A26B000B1621E /* aaa_mm_oswindow.h */,
 				9AA14E73282A26B000B1621E /* aaa_notify_icon_listener.h */,
 				9AA14E66282A26B000B1621E /* aaa_oswindow_data.h */,
+				9A89A574282CA2E90014794A /* buffer.cpp */,
+				9A89A573282CA2E90014794A /* buffer.h */,
+				9AA14E82282A26B000B1621E /* copydesk.cpp */,
 				9AA14E59282A26B000B1621E /* copydesk.h */,
+				9AA14E72282A26B000B1621E /* copydesk.mm */,
+				9AA14E8E282A26B000B1621E /* cursor.cpp */,
 				9AA14E75282A26B000B1621E /* cursor.h */,
+				9AA14E6C282A26B000B1621E /* cursor.mm */,
+				9AA14E74282A26B000B1621E /* display.cpp */,
 				9AA14E79282A26B000B1621E /* display.h */,
+				9AA14E63282A26B000B1621E /* framework.cpp */,
 				9AA14E8C282A26B000B1621E /* framework.h */,
+				9A89A56E282C8D1A0014794A /* host_interaction.cpp */,
 				9A89A56F282C8D1A0014794A /* host_interaction.h */,
+				9AA14E86282A26B000B1621E /* icon.cpp */,
 				9AA14E64282A26B000B1621E /* icon.h */,
+				9AA14E9C282A26B000B1621E /* imm_client.cpp */,
 				9AA14E70282A26B000B1621E /* imm_client.h */,
+				9AA14E80282A26B000B1621E /* keyboard_hook_authorization.mm */,
 				9AA14E68282A26B000B1621E /* keyboard_hook.h */,
+				9AA14E62282A26B000B1621E /* keyboard_hook.mm */,
+				9AA14E9B282A26B000B1621E /* keyboard.cpp */,
 				9AA14E7F282A26B000B1621E /* keyboard.h */,
+				9AA14E69282A26B000B1621E /* monitor.cpp */,
 				9AA14E7B282A26B000B1621E /* monitor.h */,
+				9AA14E76282A26B000B1621E /* monitor.mm */,
 				9AA14E58282A26B000B1621E /* mouse_hook.h */,
+				9AA14E78282A26B000B1621E /* mouse_hook.mm */,
+				9AA14E6A282A26B000B1621E /* node.cpp */,
 				9AA14E6F282A26B000B1621E /* node.h */,
 				9AA14E60282A26B000B1621E /* notify_icon_mm_bridge.h */,
+				9AA14EA1282A26B000B1621E /* notify_icon_mm_bridge.mm */,
 				9AA14E67282A26B000B1621E /* notify_icon_mm.h */,
+				9AA14E61282A26B000B1621E /* notify_icon.cpp */,
 				9AA14E6E282A26B000B1621E /* notify_icon.h */,
+				9AA14E9F282A26B000B1621E /* notify_icon.mm */,
 				9AA14E9E282A26B000B1621E /* SBSystemPreferences.h */,
 				9AA14E7E282A26B000B1621E /* window_impl.h */,
+				9AA14E65282A26B000B1621E /* window.cpp */,
 				9AA14E6D282A26B000B1621E /* window.h */,
 				9AA14E5A282A26B000B1621E /* windowing_c.h */,
+				9AA14E7C282A26B000B1621E /* windowing_ios.cpp */,
+				9AA14E8D282A26B000B1621E /* windowing_keyboard.cpp */,
 				9AA14E81282A26B000B1621E /* windowing_keyboard.h */,
-				9AA14E83282A26B000B1621E /* windowing.h */,
-				9AA14E72282A26B000B1621E /* copydesk.mm */,
-				9AA14E6C282A26B000B1621E /* cursor.mm */,
-				9AA14E80282A26B000B1621E /* keyboard_hook_authorization.mm */,
-				9AA14E62282A26B000B1621E /* keyboard_hook.mm */,
-				9AA14E76282A26B000B1621E /* monitor.mm */,
-				9AA14E78282A26B000B1621E /* mouse_hook.mm */,
-				9AA14EA1282A26B000B1621E /* notify_icon_mm_bridge.mm */,
-				9AA14E9F282A26B000B1621E /* notify_icon.mm */,
 				9AA14E57282A26B000B1621E /* windowing_keyboard.mm */,
+				9AA14EA0282A26B000B1621E /* windowing.cpp */,
+				9AA14E83282A26B000B1621E /* windowing.h */,
 			);
 			name = windowing_ios;
 			sourceTree = "<group>";
@@ -537,6 +537,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,6 +622,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

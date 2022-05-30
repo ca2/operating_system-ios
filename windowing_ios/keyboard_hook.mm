@@ -58,168 +58,168 @@
 //#define VK_DELETE         0x2E
 //#define VK_HELP           0x2F
 
-
-namespace keyboard_hook
-{
-   
-   
-   ::e_status check_system_permissions();
-   
-
-   static ::element * g_pelementListener = nullptr;
-
-
-   static id g_idEventMonitor;
-   
-
-   ::e_status install(::element * pelementListener)
-   {
-      
-      auto estatus = is_enabled(false);
-      
-      if(!estatus)
-      {
-      
-         return estatus;
-      
-      }
-
-      g_pelementListener = pelementListener;
 //
-//      //   NSDictionary *options = @{(__bridge NSString *)kAXTrustedCheckOptionPrompt: @NO};
-////   BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
-////   if (!accessibilityEnabled)
-////   {
-////      return false;
-////      for(int i = 0; i < 100; i++)
-////      {
-////         [NSThread sleepForTimeInterval: 0.084];
-////
-////      printf("::auratype::iview::install_auratype_monitor not authorized at Security > Accessibility\n");
-////      }
-////      on_install();
-////   }
-////
-////      [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
-////      dwExitCode = System.process().elevated_synch(strPath + strParam,SW_HIDE,durationWait,&bTimedOut);
+//namespace keyboard_hook
+//{
+//   
+//   
+//   ::e_status check_system_permissions();
+//   
 //
-////      NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility";
-////      [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
-////      SBSystemPreferencesApplication *prefs = [SBApplication applicationWithBundleIdentifier:@"com.apple.systempreferences"];
-////      [prefs activate];
+//   static ::element * g_pelementListener = nullptr;
 //
 //
-////      SBSystemPreferencesApplication *systemPrefs =
-////      [SBApplication applicationWithBundleIdentifier:@"com.apple.systempreferences"];
-////
-////      [systemPrefs activate];
-////
-////      SBElementArray *panes = [systemPrefs panes];
-////      SBSystemPreferencesPane *speechPane = nil;
-////
-////      for (SBSystemPreferencesPane *pane in panes) {
-////         if ([[pane id] isEqualToString:@"com.apple.preference.security"]) {
-////            speechPane = pane;
-////            break;
-////         }
-////      }
-////      [systemPrefs setCurrentPane:speechPane];
-////
-////      SBElementArray *anchors = [speechPane anchors];
-////
-////      for (SBSystemPreferencesAnchor *anchor in anchors) {
-////         if ([anchor.name isEqualToString:@"Privacy_Accessibility"]) {
-////            [anchor reveal];
-////         }
-////      }
-////
-////      while(true)
-////      {
-////         [NSThread sleepForTimeInterval: 0.984];
-////         BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
-////         if (accessibilityEnabled)
-////         {
-////            break;
-////         }
-////      }
-//   //}
-//      g_idEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:
+//   static id g_idEventMonitor;
+//   
 //
-//                 (NSKeyDownMask | NSKeyUpMask)                                    handler: ^(NSEvent *incomingEvent)
-//                 {
-//
-//                                             //NSEvent *result = incomingEvent;
-//
-//                                                         //NSWindow *targetWindowForEvent = [incomingEvent window];
-//
-//                                                         if ([incomingEvent type] == NSKeyDown)
-//                                                         {
-//
-//                                                            if([incomingEvent keyCode] == kVK_Return)
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_down, kVK_Return);
-//
-//                                                            }
-//                                                            else if([incomingEvent keyCode] == kVK_Space)
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_down, kVK_Space);
-//
-//                                                            }
-//                                                            else
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_down, kVK_ANSI_A);
-//
-//                                                            }
-//
-//                                                         }
-//                                                         else if ([incomingEvent type] == NSKeyUp)
-//                                                         {
-//
-//                                                            if([incomingEvent keyCode] == kVK_Return)
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_up, kVK_Return);
-//
-//                                                            }
-//                                                            else if([incomingEvent keyCode] == kVK_Space)
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_up, kVK_Space);
-//
-//                                                            }
-//                                                            else
-//                                                            {
-//
-//                                                               g_pelementListener->call(e_message_key_up, kVK_ANSI_A);
-//
-//                                                            }
-//
-//
-//                                                         }
-//
-//
-//                                                      }];
-      return true;
-      
-   }
-
-   
-   ::e_status uninstall(::element * pelementListener)
-   {
+//   ::e_status install(::element * pelementListener)
+//   {
 //      
-//      [NSEvent removeMonitor: g_idEventMonitor ];
+//      auto estatus = is_enabled(false);
 //      
-      return true;
-      
-   }
-   
-
-
-
-} // namespace keyboard_hook
-
-
-
+//      if(!estatus)
+//      {
+//      
+//         return estatus;
+//      
+//      }
+//
+//      g_pelementListener = pelementListener;
+////
+////      //   NSDictionary *options = @{(__bridge NSString *)kAXTrustedCheckOptionPrompt: @NO};
+//////   BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
+//////   if (!accessibilityEnabled)
+//////   {
+//////      return false;
+//////      for(int i = 0; i < 100; i++)
+//////      {
+//////         [NSThread sleepForTimeInterval: 0.084];
+//////
+//////      printf("::auratype::iview::install_auratype_monitor not authorized at Security > Accessibility\n");
+//////      }
+//////      on_install();
+//////   }
+//////
+//////      [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+//////      dwExitCode = System.process().elevated_synch(strPath + strParam,SW_HIDE,durationWait,&bTimedOut);
+////
+//////      NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility";
+//////      [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
+//////      SBSystemPreferencesApplication *prefs = [SBApplication applicationWithBundleIdentifier:@"com.apple.systempreferences"];
+//////      [prefs activate];
+////
+////
+//////      SBSystemPreferencesApplication *systemPrefs =
+//////      [SBApplication applicationWithBundleIdentifier:@"com.apple.systempreferences"];
+//////
+//////      [systemPrefs activate];
+//////
+//////      SBElementArray *panes = [systemPrefs panes];
+//////      SBSystemPreferencesPane *speechPane = nil;
+//////
+//////      for (SBSystemPreferencesPane *pane in panes) {
+//////         if ([[pane id] isEqualToString:@"com.apple.preference.security"]) {
+//////            speechPane = pane;
+//////            break;
+//////         }
+//////      }
+//////      [systemPrefs setCurrentPane:speechPane];
+//////
+//////      SBElementArray *anchors = [speechPane anchors];
+//////
+//////      for (SBSystemPreferencesAnchor *anchor in anchors) {
+//////         if ([anchor.name isEqualToString:@"Privacy_Accessibility"]) {
+//////            [anchor reveal];
+//////         }
+//////      }
+//////
+//////      while(true)
+//////      {
+//////         [NSThread sleepForTimeInterval: 0.984];
+//////         BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)options);
+//////         if (accessibilityEnabled)
+//////         {
+//////            break;
+//////         }
+//////      }
+////   //}
+////      g_idEventMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:
+////
+////                 (NSKeyDownMask | NSKeyUpMask)                                    handler: ^(NSEvent *incomingEvent)
+////                 {
+////
+////                                             //NSEvent *result = incomingEvent;
+////
+////                                                         //NSWindow *targetWindowForEvent = [incomingEvent window];
+////
+////                                                         if ([incomingEvent type] == NSKeyDown)
+////                                                         {
+////
+////                                                            if([incomingEvent keyCode] == kVK_Return)
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_down, kVK_Return);
+////
+////                                                            }
+////                                                            else if([incomingEvent keyCode] == kVK_Space)
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_down, kVK_Space);
+////
+////                                                            }
+////                                                            else
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_down, kVK_ANSI_A);
+////
+////                                                            }
+////
+////                                                         }
+////                                                         else if ([incomingEvent type] == NSKeyUp)
+////                                                         {
+////
+////                                                            if([incomingEvent keyCode] == kVK_Return)
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_up, kVK_Return);
+////
+////                                                            }
+////                                                            else if([incomingEvent keyCode] == kVK_Space)
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_up, kVK_Space);
+////
+////                                                            }
+////                                                            else
+////                                                            {
+////
+////                                                               g_pelementListener->call(e_message_key_up, kVK_ANSI_A);
+////
+////                                                            }
+////
+////
+////                                                         }
+////
+////
+////                                                      }];
+//      return true;
+//      
+//   }
+//
+//   
+//   ::e_status uninstall(::element * pelementListener)
+//   {
+////      
+////      [NSEvent removeMonitor: g_idEventMonitor ];
+////      
+//      return true;
+//      
+//   }
+//   
+//
+//
+//
+//} // namespace keyboard_hook
+//
+//
+//

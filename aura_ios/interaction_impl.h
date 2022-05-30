@@ -35,7 +35,7 @@ namespace aura_ios
       void assert_ok() const override;
       void dump(dump_context & dumpcontext) const override;
       
-      void native_create_host() override;
+      //void native_create_host() override;
       
       void on_destroy() override;
 
@@ -191,14 +191,14 @@ namespace aura_ios
       //virtual void PrintClient(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const override;
 
       virtual void UpdateWindow() override;
-      virtual void SetRedraw(bool bRedraw = true) override;
-      virtual bool GetUpdateRect(RECTANGLE_I32 * lpRect, bool bErase = false) override;
-      virtual i32 GetUpdateRgn(::draw2d::region* pRgn, bool bErase = false) override;
-      virtual void Invalidate(bool bErase = true) override;
-      virtual void InvalidateRect(const ::rectangle_i32 &rectangle, bool bErase = true) override;
-      virtual void InvalidateRgn(::draw2d::region* pRgn, bool bErase = true) override;
-      virtual void ValidateRect(const ::rectangle_i32 & rectangle) override;
-      virtual void ValidateRgn(::draw2d::region* pRgn) override;
+//      virtual void SetRedraw(bool bRedraw = true) override;
+////      virtual bool GetUpdateRect(RECTANGLE_I32 * lpRect, bool bErase = false) override;
+//      virtual i32 GetUpdateRgn(::draw2d::region* pRgn, bool bErase = false) override;
+//      virtual void Invalidate(bool bErase = true) override;
+//      virtual void InvalidateRect(const ::rectangle_i32 &rectangle, bool bErase = true) override;
+//      virtual void InvalidateRgn(::draw2d::region* pRgn, bool bErase = true) override;
+//      virtual void ValidateRect(const ::rectangle_i32 & rectangle) override;
+//      virtual void ValidateRgn(::draw2d::region* pRgn) override;
       //virtual bool display(::e_display edisplay) override;
 //      virtual void window_impl_maximize();
 //      virtual void window_impl_restore();
@@ -526,7 +526,7 @@ namespace aura_ios
 
       void _001OnTriggerMouseInside() override;
 
-      void _001OnTimer(::timer * ptimer) override;
+      //void _001OnTimer(::timer * ptimer) override;
 
       virtual void _thread_prodevian();
 

@@ -1408,23 +1408,23 @@ bool interaction_impl::_is_window() const
 
               ::user::interaction * puserinteractionMouse = nullptr;
 
-              if(m_puserinteractionCapture)
+              if(m_puserinteractionMouseCapture)
               {
 
                  if(g_puserinteractionMouseCapture123 == nullptr)
                  {
 
-                    g_puserinteractionMouseCapture123 = m_puserinteractionCapture;
+                    g_puserinteractionMouseCapture123 = m_puserinteractionMouseCapture;
 
                  }
-                 else if(g_puserinteractionMouseCapture123 != m_puserinteractionCapture)
+                 else if(g_puserinteractionMouseCapture123 != m_puserinteractionMouseCapture)
                  {
 
                     output_debug_string("different capture (1)");
 
                  }
 
-                 puserinteractionMouse = m_puserinteractionCapture;
+                 puserinteractionMouse = m_puserinteractionMouseCapture;
 
               }
 
@@ -1544,7 +1544,7 @@ bool interaction_impl::_is_window() const
          
          auto pwindowing = m_pwindowing;
 
-         __pointer(::user::interaction) puiFocus = m_puserinteractionFocus1;
+         __pointer(::user::interaction) puiFocus = m_puserinteractionKeyboardFocus;
 
          if (puiFocus)
          {
@@ -2233,19 +2233,19 @@ bool interaction_impl::_is_window() const
    }
 
 
-   void interaction_impl::_001OnTimer(::timer * ptimer)
-   {
-
-      ::user::interaction_impl::_001OnTimer(ptimer);;
-
-//      if (ptimer->m_uEvent == 2049)
-      //    {
+//   void interaction_impl::_001OnTimer(::timer * ptimer)
+//   {
 //
-      //       set_need_redraw();
+//      ::user::interaction_impl::_001OnTimer(ptimer);;
 //
-      //    }
-
-   }
+////      if (ptimer->m_uEvent == 2049)
+//      //    {
+////
+//      //       set_need_redraw();
+////
+//      //    }
+//
+//   }
 
 
    /*
@@ -3094,68 +3094,68 @@ bool interaction_impl::_is_window() const
    }
 
 
-   void interaction_impl::SetRedraw(bool bRedraw)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
-
-
-   bool interaction_impl::GetUpdateRect(RECTANGLE_I32 * lpRect, bool bErase)
-   {
-
-      throw ::exception(error_not_implemented);
-
-   }
-
-
-   i32 interaction_impl::GetUpdateRgn(::draw2d::region* pRgn, bool bErase)
-   {
-
-      throw ::exception(error_not_implemented);
-
-   }
-
-
-   void interaction_impl::Invalidate(bool bErase)
-   {\
-
-      m_bNeedsUpdate = true;
-
-   }
-
-
-   void interaction_impl::InvalidateRect(const ::rectangle_i32 & rectangle, bool bErase)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
-
-
-   void interaction_impl::InvalidateRgn(::draw2d::region* pRgn, bool bErase)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
-
-
-   void interaction_impl::ValidateRect(const ::rectangle_i32 & rectangle)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
-
-
-   void interaction_impl::ValidateRgn(::draw2d::region* pRgn)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
+//   void interaction_impl::SetRedraw(bool bRedraw)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
+//
+//
+//   bool interaction_impl::GetUpdateRect(RECTANGLE_I32 * lpRect, bool bErase)
+//   {
+//
+//      throw ::exception(error_not_implemented);
+//
+//   }
+//
+//
+//   i32 interaction_impl::GetUpdateRgn(::draw2d::region* pRgn, bool bErase)
+//   {
+//
+//      throw ::exception(error_not_implemented);
+//
+//   }
+//
+//
+//   void interaction_impl::Invalidate(bool bErase)
+//   {\
+//
+//      m_bNeedsUpdate = true;
+//
+//   }
+//
+//
+//   void interaction_impl::InvalidateRect(const ::rectangle_i32 & rectangle, bool bErase)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
+//
+//
+//   void interaction_impl::InvalidateRgn(::draw2d::region* pRgn, bool bErase)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
+//
+//
+//   void interaction_impl::ValidateRect(const ::rectangle_i32 & rectangle)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
+//
+//
+//   void interaction_impl::ValidateRgn(::draw2d::region* pRgn)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
 
 
 //   bool interaction_impl::window_impl_is_visible()
@@ -4765,58 +4765,58 @@ bool interaction_impl::_is_window() const
 
    
 
-void interaction_impl::native_create_host()
-{
-
-   auto pwindowMain = m_psystem->m_paurasystem->m_pwindowMain;
-
-   if (pwindowMain && !pwindowMain->m_puserinteractionimpl)
-   {
-
-      m_pwindow = m_psystem->m_paurasystem->m_pwindowMain;
-
-      m_pwindow->m_puserinteractionimpl = this;
-
-      m_puserinteraction->m_pinteractionimpl = this;
-
-   }
-   else
-   {
-
-      //auto estatus =
-
-      __construct(m_pwindow);
-
-      //if (!estatus)
-      //{
-
-      //   return estatus;
-
-      //}
-
-      if (!m_psystem->m_paurasystem->m_pwindowMain)
-      {
-
-         m_psystem->m_paurasystem->m_pwindowMain = m_pwindow;
-
-      }
-
-   }
-
-   //auto estatus =
-
-   m_pwindow->create_window(this);
-
-   //if (!estatus)
-   //{
-
-   //   return estatus;
-
-   //}
-
-   //return true;
-
-}
+//void interaction_impl::native_create_host()
+//{
+//
+//   auto pwindowMain = m_psystem->m_paurasystem->m_pwindowMain;
+//
+//   if (pwindowMain && !pwindowMain->m_puserinteractionimpl)
+//   {
+//
+//      m_pwindow = m_psystem->m_paurasystem->m_pwindowMain;
+//
+//      m_pwindow->m_puserinteractionimpl = this;
+//
+//      m_puserinteraction->m_pinteractionimpl = this;
+//
+//   }
+//   else
+//   {
+//
+//      //auto estatus =
+//
+//      __construct(m_pwindow);
+//
+//      //if (!estatus)
+//      //{
+//
+//      //   return estatus;
+//
+//      //}
+//
+//      if (!m_psystem->m_paurasystem->m_pwindowMain)
+//      {
+//
+//         m_psystem->m_paurasystem->m_pwindowMain = m_pwindow;
+//
+//      }
+//
+//   }
+//
+//   //auto estatus =
+//
+//   m_pwindow->create_window(this);
+//
+//   //if (!estatus)
+//   //{
+//
+//   //   return estatus;
+//
+//   //}
+//
+//   //return true;
+//
+//}
 
    void interaction_impl::on_destroy()
    {

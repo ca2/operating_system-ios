@@ -188,7 +188,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4637"
             endingLineNumber = "4637"
-            landmarkName = "interaction_impl::_001UpdateBuffer()"
+            landmarkName = "interaction_impl::on_message_show_window(pmessage)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -204,7 +204,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4601"
             endingLineNumber = "4601"
-            landmarkName = "interaction_impl::_001UpdateBuffer()"
+            landmarkName = "interaction_impl::on_message_show_window(pmessage)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -430,6 +430,118 @@
                   offsetFromSymbolStart = "570">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7DAE1A8-AF0A-4B7F-BB22-78A790806495"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../windowing_ios/iosWindow/iosViewController.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-viewWillTransitionToSize:withTransitionCoordinator:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58D6C687-161B-41CB-B696-148590F3A112"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/aura/user/user/interaction_impl.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6673"
+            endingLineNumber = "6673"
+            landmarkName = "interaction_impl::on_message_size(pmessage)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FAD0880-F1E2-4702-BDCA-D79EA0BFD741"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/aura/user/user/interaction_impl.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6748"
+            endingLineNumber = "6748"
+            landmarkName = "interaction_impl::on_message_size(pmessage)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A549E4D-1031-4631-9182-3D081DD80B79"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/app/main_window.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "main_window::_001OnDraw(pgraphics)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98B93118-CA06-434F-873A-D5C8D85108C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/app/main_window.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "main_window::_001OnDraw(pgraphics)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4407E7CC-3842-48F5-B37C-611295E74E6E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/aura/user/user/interaction.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11289"
+            endingLineNumber = "11289"
+            landmarkName = "interaction::sketch_to_design(pgraphics, bUpdateBuffer, bUpdateWindow)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "134F079B-0C5F-41FA-BE67-507F42959618"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/aura/user/user/interaction.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2915"
+            endingLineNumber = "2915"
+            landmarkName = "interaction::on_message_size(pmessage)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

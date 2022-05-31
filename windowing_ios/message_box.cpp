@@ -2,8 +2,11 @@
 // Adapted to ios by camilo on 2022-05-30 09:01 <3ThomasBS!!
 #include "framework.h"
 #include "message_box.h"
-int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType);
+int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, ::function < void (enum_dialog_result) > function);
+
+
 extern class ::system * g_psystem;
+
 namespace windowing_ios
 {
 
@@ -18,12 +21,11 @@ namespace windowing_ios
 
       m_emessagebox = emessagebox;
        
-       g_psystem->fork([this]()
-            {
-
-       auto iResult = ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox);
+       auto iResult = ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
+                                     [this](enum_dialog_result eresult)
+                                     {
            
-           m_atomResult = (enum_dialog_result) iResult;
+           m_atomResult = eresult;
            
            m_psequence->on_sequence();
            

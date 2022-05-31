@@ -43,6 +43,7 @@ namespace windowing_ios
 //      void install_mouse_hook(::matter * pmatterListener) override;
 //      void uninstall_mouse_hook(::matter * pmatterListener) override;
 //
+       __pointer(::conversation) create_new_message_box_conversation() override;
 
       
    };

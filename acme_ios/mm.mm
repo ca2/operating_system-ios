@@ -101,7 +101,7 @@ void ns_launch_app_at_url(NSURL * url, const char ** argv, int iFlags)
     {
         
         [[UIApplication sharedApplication]
-                               openURL:url];
+         openURL:url options: @{} completionHandler:  ^(BOOL){}];
     }
     
     

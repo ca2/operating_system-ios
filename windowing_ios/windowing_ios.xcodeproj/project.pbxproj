@@ -55,6 +55,8 @@
 		9A94DECB282C43AE00F5C1CA /* notify_icon_mm_bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EA1282A26B000B1621E /* notify_icon_mm_bridge.mm */; };
 		9A94DECC282C43AE00F5C1CA /* keyboard_hook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E62282A26B000B1621E /* keyboard_hook.mm */; };
 		9A94DECD282C43AE00F5C1CA /* keyboard_hook_authorization.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E80282A26B000B1621E /* keyboard_hook_authorization.mm */; };
+		9AF115A42844E8F6006B2424 /* message_box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AF115A22844E8F6006B2424 /* message_box.cpp */; };
+		9AF115A52844E8F6006B2424 /* message_box.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF115A32844E8F6006B2424 /* message_box.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		9AA14EA1282A26B000B1621E /* notify_icon_mm_bridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = notify_icon_mm_bridge.mm; sourceTree = "<group>"; };
 		9AA14EA2282A26B000B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA8024A266571D600A6B449 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9AF115A22844E8F6006B2424 /* message_box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = message_box.cpp; sourceTree = "<group>"; };
+		9AF115A32844E8F6006B2424 /* message_box.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = message_box.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +330,8 @@
 				9AA14E57282A26B000B1621E /* windowing_keyboard.mm */,
 				9AA14EA0282A26B000B1621E /* windowing.cpp */,
 				9AA14E83282A26B000B1621E /* windowing.h */,
+				9AF115A22844E8F6006B2424 /* message_box.cpp */,
+				9AF115A32844E8F6006B2424 /* message_box.h */,
 			);
 			name = windowing_ios;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				9A750ECF282B668500C4861B /* ios_window.h in Headers */,
 				9A750EC0282B668500C4861B /* iosWindowFrameView.h in Headers */,
 				9A89A571282C8D1A0014794A /* host_interaction.h in Headers */,
+				9AF115A52844E8F6006B2424 /* message_box.h in Headers */,
 				9A750EC4282B668500C4861B /* iosViewController.h in Headers */,
 				9A750EC7282B668500C4861B /* iosWindow.h in Headers */,
 				9A750ED7282B668500C4861B /* iosTextRange.h in Headers */,
@@ -436,6 +443,7 @@
 				9A750EC8282B668500C4861B /* iosTextRange.mm in Sources */,
 				9A94DEC9282C43AE00F5C1CA /* monitor.mm in Sources */,
 				9A94DECA282C43AE00F5C1CA /* cursor.mm in Sources */,
+				9AF115A42844E8F6006B2424 /* message_box.cpp in Sources */,
 				9A750E84282B601000C4861B /* windowing.cpp in Sources */,
 				9A94DEC8282C43AE00F5C1CA /* windowing_keyboard.mm in Sources */,
 				9A94DECB282C43AE00F5C1CA /* notify_icon_mm_bridge.mm in Sources */,

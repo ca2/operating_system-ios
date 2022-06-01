@@ -25,7 +25,7 @@ namespace apex_ios
       virtual ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
       
       virtual ::file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & eopen) override;
-
+      void calculate_main_resource_memory() override;
 
    };
 

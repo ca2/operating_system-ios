@@ -354,6 +354,13 @@ namespace windowing_ios
    }
 
 
+void windowing::clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny)
+{
+
+
+}
+
+
 } // namespace windowing_ios
 
 

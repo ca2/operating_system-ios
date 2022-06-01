@@ -14,7 +14,6 @@
 		9AA14ECF282A284E00B1621E /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EB6282A284D00B1621E /* image.cpp */; };
 		9AA14ED0282A284E00B1621E /* _mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB7282A284D00B1621E /* _mm.h */; };
 		9AA14ED1282A284E00B1621E /* _aura_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB8282A284D00B1621E /* _aura_ios.h */; };
-		9AA14ED2282A284E00B1621E /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EB9282A284D00B1621E /* framework.cpp */; };
 		9AA14ED3282A284E00B1621E /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EBA282A284D00B1621E /* node.cpp */; };
 		9AA14ED4282A284E00B1621E /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EBB282A284D00B1621E /* node.h */; };
 		9AA14ED5282A284E00B1621E /* interaction_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EBF282A284D00B1621E /* interaction_impl.h */; };
@@ -93,7 +92,6 @@
 		9AA14EB6282A284D00B1621E /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
 		9AA14EB7282A284D00B1621E /* _mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
 		9AA14EB8282A284D00B1621E /* _aura_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _aura_ios.h; sourceTree = "<group>"; };
-		9AA14EB9282A284D00B1621E /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9AA14EBA282A284D00B1621E /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
 		9AA14EBB282A284D00B1621E /* node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9AA14EBF282A284D00B1621E /* interaction_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interaction_impl.h; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 			children = (
 				9AA14ECB282A284E00B1621E /* _factory.cpp */,
 				9AA14EC9282A284E00B1621E /* file_image.cpp */,
-				9AA14EB9282A284D00B1621E /* framework.cpp */,
 				9AA14EB6282A284D00B1621E /* image.cpp */,
 				9AA14EC7282A284E00B1621E /* interaction_impl.cpp */,
 				9AA14EBA282A284D00B1621E /* node.cpp */,
@@ -304,6 +301,9 @@
 					07B657C6190F3CBF002DAADE = {
 						TestTargetID = A1CFD777154F5EAA007447E2;
 					};
+					A1CFD777154F5EAA007447E2 = {
+						DevelopmentTeam = L8N5V6TZE5;
+					};
 				};
 			};
 			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_ios" */;
@@ -383,7 +383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AA14ED2282A284E00B1621E /* framework.cpp in Sources */,
 				9AA14ECF282A284E00B1621E /* image.cpp in Sources */,
 				9AA14EDB282A284E00B1621E /* file_image.cpp in Sources */,
 				9AA14EDD282A284E00B1621E /* _factory.cpp in Sources */,
@@ -627,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -641,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

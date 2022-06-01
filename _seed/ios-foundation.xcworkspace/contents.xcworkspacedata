@@ -2,114 +2,42 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../app-core/addressbook/ios_app_core_addressbook.xcodeproj">
+      location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/verilux/ios_app_core_verilux.xcodeproj">
+      location = "group:../../../source/app-core/addressbook/_app_core_addressbook.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/verifile/ios_app_core_verifile.xcodeproj">
+      location = "group:../../../source/app-core/file_manager/_app_core_file_manager.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/veriedit/ios_app_core_veriedit.xcodeproj">
+      location = "group:../../../source/app-core/hash_hub/_app_core_hash_hub.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app/ace/ace.xcodeproj">
+      location = "group:../../../source/app-core/note/_app_core_note.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../app/app.xcodeproj">
+      location = "group:../../../source/app-core/photo/_app_core_photo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/addressbook/app_core_addressbook.xcodeproj">
+      location = "group:../../../source/app-core/picture/_app_core_picture.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/verilux/app_core_verilux.xcodeproj">
+      location = "group:../../../source/app-core/addressbook/_ios_app_core_addressbook.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/verifile/app_core_verifile.xcodeproj">
+      location = "group:../../../source/app-core/file_manager/_ios_app_core_file_manager.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app-core/veriedit/app_core_veriedit.xcodeproj">
+      location = "group:../../../source/app-core/hash_hub/_ios_app_core_hash_hub.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../third/iconv/atomiconv.xcodeproj">
+      location = "group:../../../source/app-core/note/_ios_app_core_note.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../app/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../../source/app-core/photo/_ios_app_core_photo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../app-veriwell/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../app-core/audio_decode_wave/audio_decode_wave.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/aura/aura.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/pcre/aurapcre.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/axis/axis.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/clientchannels/axisclientchannels.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/freerdp/axisfreerdp.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/freetype/axisfreetype.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/idn/axisidn.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../app/rdpclient/axisrdpclient.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/winpr/axiswinpr.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/base/base.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../app-core/id3lib/baseid3lib.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../third/libmpg123/basempg123.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/core/core.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../game/tictactoe/game_tictactoe.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../app-core/gcom/gcom.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app-core/multimedia/multimedia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../music_midi_core_audio/music_midi_core_audio.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app/sphere/sphere.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app-core/tesseract/tesseract.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../app-veriwell/multimedia/veriwell_multimedia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../app/wndfrm_core/wndfrm_core.xcodeproj">
+      location = "group:../../../source/app-core/picture/_ios_app_core_picture.xcodeproj">
    </FileRef>
 </Workspace>

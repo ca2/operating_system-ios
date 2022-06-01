@@ -2,7 +2,7 @@
 #define default_windowing windowing_ios
 #define default_draw2d draw2d_quartz2d
 #define default_write_text write_text_quartz2d
-#define default_imaging imaging_freeimage
+#define default_imaging imaging_coreimage
 
 
 

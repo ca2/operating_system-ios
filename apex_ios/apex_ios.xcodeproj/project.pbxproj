@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A5948F22847529A002AE2A1 /* file.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EEC282A289D00B1621E /* file.mm */; };
 		9A94DE7B282C152800F5C1CA /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F17282A289E00B1621E /* _factory.cpp */; };
 		9A94DE93282C165600F5C1CA /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EF2282A289D00B1621E /* node.cpp */; };
 		9A94DE94282C165600F5C1CA /* shell_launcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EF8282A289D00B1621E /* shell_launcher.cpp */; };
@@ -126,16 +127,6 @@
 		9AA14F1D282A289E00B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA14F1E282A289E00B1621E /* launcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = launcher.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		9A0C1693264A2AA700B5CC33 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9A0C168C264A2AA700B5CC33 = {
@@ -271,7 +262,6 @@
 			buildPhases = (
 				9A0C1691264A2AA700B5CC33 /* Headers */,
 				9A0C1692264A2AA700B5CC33 /* Sources */,
-				9A0C1693264A2AA700B5CC33 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A94DE9A282C165600F5C1CA /* thread.cpp in Sources */,
+				9A5948F22847529A002AE2A1 /* file.mm in Sources */,
 				9A94DE9E282C165600F5C1CA /* user.cpp in Sources */,
 				9A94DEA6282C165600F5C1CA /* file_context.cpp in Sources */,
 				9A94DE9D282C165600F5C1CA /* keyboard.cpp in Sources */,
@@ -446,6 +437,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@executable_path";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,6 +523,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@executable_path";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +561,7 @@
 		9A0C169F264A2AA700B5CC33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
@@ -581,6 +575,7 @@
 		9A0C16A0264A2AA700B5CC33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";

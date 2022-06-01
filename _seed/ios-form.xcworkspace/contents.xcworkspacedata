@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-simple/form/_app_simple_form.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app-simple/form/_ios_app_simple_form.xcodeproj">
    </FileRef>
 </Workspace>

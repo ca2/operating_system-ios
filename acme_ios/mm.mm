@@ -362,7 +362,7 @@ char * mm2_get_type_identifier(const char * pszFilePath)
    
    NSString * strType = nullptr;
    
-   if(@available(macOS 11.0, *))
+   if(@available(macOS 11.0, iOS 14.0, *))
    {
       
       UTType * type = nullptr;

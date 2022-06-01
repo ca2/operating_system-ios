@@ -42,7 +42,7 @@
 #include "icon.h"
 
 
-#include "cursor.h"
+//#include "cursor.h"
 
 
 #include "window.h"

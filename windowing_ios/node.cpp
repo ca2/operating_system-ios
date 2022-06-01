@@ -7,8 +7,8 @@
 //
 #include "framework.h"
 #include "apex/user/menu_shared.h"
-#include "keyboard_hook.h"
-#include "mouse_hook.h"
+//#include "keyboard_hook.h"
+//#include "mouse_hook.h"
 
 void ui_application_main(int argc, char * argv[], const char * pszCommandLine);
 

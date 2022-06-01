@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 
 
+string matter_zip_path();
+
 namespace apex_ios
 {
 
@@ -121,7 +123,28 @@ namespace apex_ios
    }
 
 
+void file_context::calculate_main_resource_memory()
+{
+   
+   ::file::path pathMatter = matter_zip_path();
+   
+   m_memoryMainResource = as_memory(pathMatter);
+
+}
+
+
 } // namespace apex_ios
 
 
 
+
+
+char * ios_matter_zip_path();
+
+
+string matter_zip_path()
+{
+   
+   return ::string_from_strdup(ios_matter_zip_path());
+   
+}

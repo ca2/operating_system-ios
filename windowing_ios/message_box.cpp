@@ -21,7 +21,7 @@ namespace windowing_ios
 
       m_emessagebox = emessagebox;
        
-       auto iResult = ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
+      ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
                                      [this](enum_dialog_result eresult)
                                      {
            

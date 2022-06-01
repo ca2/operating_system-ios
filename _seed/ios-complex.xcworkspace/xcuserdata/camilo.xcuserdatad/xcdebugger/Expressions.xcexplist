@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "user::box::initialize(object*):box.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "&amp;m_id.m_pszId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction::create_window(char const*, char const*, unsigned int, user::interaction*, id const&amp;, create*):interaction.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "user::frame_window::_000OnDraw(draw2d::graphics*):frame_window.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction::best_wkspace(tagRECT*, rect_type&lt;tagRECT, tagPOINT, tagSIZE&gt; const&amp;, bool, cflag&lt;e_activation&gt;, zorder):interaction.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

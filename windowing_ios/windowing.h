@@ -25,11 +25,13 @@ namespace windowing_ios
       
       __pointer(class window)                   m_pwindowApplicationHost;
       
+      __pointer(class window)
+         m_pwindowKeyboardFocus;
+      
       __pointer(host_interaction)               m_phostinteraction;
       
       map < void *, __pointer(class window) >   m_nsmap;
 
-     
       __pointer(text_editor_interface) m_ptexteditorinterface;
 
       

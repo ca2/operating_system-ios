@@ -297,6 +297,18 @@ namespace windowing_ios
    }
 
 
+   class windowing * window::windowing()
+   {
+      
+      auto pwindowing = ::windowing::window::windowing();
+      
+      auto pwindowingHere = dynamic_cast < class windowing * >(pwindowing);
+      
+      return pwindowingHere;
+      
+   }
+
+
    //// for child windows
    //bool interaction_impl::pre_create_window(::user::system * pusersystem)
    //{
@@ -337,10 +349,77 @@ namespace windowing_ios
 
    void window::set_keyboard_focus()
    {
+      
+      auto pwindowing = windowing();
 
-      //ios_window_make_first_responder();
+      if (!pwindowing)
+      {
 
-//      return ::success;
+         throw ::exception(error_wrong_state);
+
+      }
+
+      if (pwindowing->m_pwindowKeyboardFocus && pwindowing->m_pwindowKeyboardFocus != this)
+      {
+
+         pwindowing->clear_keyboard_focus(this);
+
+      }
+
+      pwindowing->m_pwindowKeyboardFocus = this;
+
+      auto puserinteractionimpl = m_puserinteractionimpl;
+
+      if (puserinteractionimpl)
+      {
+
+         auto puserinteraction = puserinteractionimpl->m_puserinteraction;
+
+         if (puserinteraction)
+         {
+
+            puserinteraction->post_message(e_message_set_focus);
+
+         }
+
+      }
+
+      //if (Window() == 0)
+      //{
+
+      //   throw ::exception(error_failed);
+
+      //}
+
+      //windowing_output_debug_string("\noswindow_data::SetFocus 1");
+
+      //display_lock displaylock(x11_display()->Display());
+
+      //if (!is_window())
+      //{
+
+      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.1");
+
+      //   throw ::exception(error_failed);
+
+      //}
+
+      //if (!XSetInputFocus(Display(), Window(), RevertToNone, CurrentTime))
+      //{
+
+      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.3");
+
+      //   throw ::exception(error_failed);
+
+      //}
+
+      //windowing_output_debug_string("\noswindow_data::SetFocus 2");
+
+      ////return ::success;
+
+
+
+
 
    }
 
@@ -394,12 +473,60 @@ namespace windowing_ios
    bool window::has_keyboard_focus() const
    {
       
-      //bool bHasKeyboardFocus = ios_window_is_key_window();
-   
-      //return bHasKeyboardFocus;
-      
+      auto pwindowing = ((window*)this)->windowing();
+
+      if (!pwindowing)
+      {
+
+         return false;
+
+      }
+
+      auto pwindowKeyboardFocus = pwindowing->m_pwindowKeyboardFocus;
+
+      if (::is_null(pwindowKeyboardFocus))
+      {
+
+         return false;
+
+      }
+
+      //auto pimplFocus = pwindowFocus->m_puserinteractionimpl;
+
+      //if (::is_null(pimplFocus))
+      //{
+
+      //   return false;
+
+      //}
+
+      //auto pinteractionFocus = pimplFocus->m_puserinteraction;
+
+      //if (::is_null(pinteractionFocus))
+      //{
+
+      //   return false;
+
+      //}
+
+      //if (!(pinteractionFocus->m_ewindowflag & ::e_window_flag_focus))
+      //{
+
+      //   return false;
+
+      //}
+
+      bool bHasKeyboardFocus = pwindowKeyboardFocus == this;
+
+      if (!bHasKeyboardFocus)
+      {
+
+         return false;
+
+      }
+
       return true;
-   
+
    }
 
 

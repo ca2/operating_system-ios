@@ -47,6 +47,8 @@ namespace windowing_ios
       //void ios_window_add_ref() override;
 //      void ios_window_dec_ref() override;
       
+      class windowing * windowing();
+      
       
       DECLARE_MESSAGE_HANDLER(on_message_create);
       DECLARE_MESSAGE_HANDLER(on_message_destroy);

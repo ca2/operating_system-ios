@@ -42,6 +42,8 @@
 		9A94DEC4282C3FE000F5C1CA /* copydesk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E82282A26B000B1621E /* copydesk.cpp */; };
 		9A94DEC5282C43AE00F5C1CA /* copydesk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E72282A26B000B1621E /* copydesk.mm */; };
 		9A94DEC9282C43AE00F5C1CA /* monitor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E76282A26B000B1621E /* monitor.mm */; };
+		9A9B9B3528483ED0005CA950 /* text_editor_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */; };
+		9A9B9B3628483ED0005CA950 /* text_editor_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A9B9B3428483ED0005CA950 /* text_editor_interface.h */; };
 		9AF115A42844E8F6006B2424 /* message_box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AF115A22844E8F6006B2424 /* message_box.cpp */; };
 		9AF115A52844E8F6006B2424 /* message_box.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF115A32844E8F6006B2424 /* message_box.h */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		9A89A56F282C8D1A0014794A /* host_interaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host_interaction.h; sourceTree = "<group>"; };
 		9A89A573282CA2E90014794A /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
 		9A89A574282CA2E90014794A /* buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer.cpp; sourceTree = "<group>"; };
+		9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = text_editor_interface.cpp; sourceTree = "<group>"; };
+		9A9B9B3428483ED0005CA950 /* text_editor_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_editor_interface.h; sourceTree = "<group>"; };
 		9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindowing_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_ios.xcodeproj; path = ../aura_ios/aura_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA14E59282A26B000B1621E /* copydesk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = copydesk.h; sourceTree = "<group>"; };
@@ -256,12 +260,16 @@
 				9AA14E70282A26B000B1621E /* imm_client.h */,
 				9AA14E9B282A26B000B1621E /* keyboard.cpp */,
 				9AA14E7F282A26B000B1621E /* keyboard.h */,
+				9AF115A22844E8F6006B2424 /* message_box.cpp */,
+				9AF115A32844E8F6006B2424 /* message_box.h */,
 				9AA14E69282A26B000B1621E /* monitor.cpp */,
 				9AA14E7B282A26B000B1621E /* monitor.h */,
 				9AA14E76282A26B000B1621E /* monitor.mm */,
 				9AA14E6A282A26B000B1621E /* node.cpp */,
 				9AA14E6F282A26B000B1621E /* node.h */,
 				9AA14E9E282A26B000B1621E /* SBSystemPreferences.h */,
+				9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */,
+				9A9B9B3428483ED0005CA950 /* text_editor_interface.h */,
 				9AA14E7E282A26B000B1621E /* window_impl.h */,
 				9AA14E65282A26B000B1621E /* window.cpp */,
 				9AA14E6D282A26B000B1621E /* window.h */,
@@ -269,8 +277,6 @@
 				9AA14E7C282A26B000B1621E /* windowing_ios.cpp */,
 				9AA14EA0282A26B000B1621E /* windowing.cpp */,
 				9AA14E83282A26B000B1621E /* windowing.h */,
-				9AF115A22844E8F6006B2424 /* message_box.cpp */,
-				9AF115A32844E8F6006B2424 /* message_box.h */,
 			);
 			name = windowing_ios;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 				9A750ED7282B668500C4861B /* iosTextRange.h in Headers */,
 				9A89A575282CA2E90014794A /* buffer.h in Headers */,
 				9A750EC1282B668500C4861B /* iosEditView.h in Headers */,
+				9A9B9B3628483ED0005CA950 /* text_editor_interface.h in Headers */,
 				9A750EBC282B668500C4861B /* iosTextView.h in Headers */,
 				9A750EC9282B668500C4861B /* iosTextPosition.h in Headers */,
 			);
@@ -382,6 +389,7 @@
 				9A94DEC9282C43AE00F5C1CA /* monitor.mm in Sources */,
 				9AF115A42844E8F6006B2424 /* message_box.cpp in Sources */,
 				9A750E84282B601000C4861B /* windowing.cpp in Sources */,
+				9A9B9B3528483ED0005CA950 /* text_editor_interface.cpp in Sources */,
 				9A94DEC4282C3FE000F5C1CA /* copydesk.cpp in Sources */,
 				9A94DEBF282C3FE000F5C1CA /* display.cpp in Sources */,
 				9A89A576282CA2E90014794A /* buffer.cpp in Sources */,

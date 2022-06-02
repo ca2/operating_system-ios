@@ -29,6 +29,9 @@ namespace windowing_ios
       
       map < void *, __pointer(class window) >   m_nsmap;
 
+     
+      __pointer(text_editor_interface) m_ptexteditorinterface;
+
       
       windowing();
       ~windowing() override;
@@ -36,6 +39,9 @@ namespace windowing_ios
       
       void initialize(::object * pobject) override;
       
+      
+      ::windowing::text_editor_interface * get_text_editor_interface() override;
+
       
       void defer_initialize_host_window(const RECTANGLE_I32* lpcrect) override;
      

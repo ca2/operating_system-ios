@@ -55,6 +55,10 @@ namespace windowing_ios
       
       __construct(m_pdisplay);
       
+
+      __construct_new(m_ptexteditorinterface);
+
+      
 //
 //      if(!estatus)
 //      {
@@ -67,6 +71,14 @@ namespace windowing_ios
          
       //return estatus;
       
+   }
+
+
+   ::windowing::text_editor_interface * windowing::get_text_editor_interface()
+   {
+
+      return m_ptexteditorinterface;
+
    }
 
 

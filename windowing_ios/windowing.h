@@ -12,27 +12,27 @@ namespace windowing_ios
 
 
     class CLASS_DECL_WINDOWING_MACOS windowing :
-      virtual public ::windowing::windowing
+      virtual public ::sandbox_windowing::windowing
    {
    public:
       
       
       __pointer(::windowing::display)           m_pdisplay;
       
-      __pointer(class window)                   m_pwindowActive;
+      //__pointer(class window)                   m_pwindowActive;
       
-      __pointer(class window)                   m_pwindowCapture;
+      //__pointer(class window)                   m_pwindowCapture;
       
       __pointer(class window)                   m_pwindowApplicationHost;
       
-      __pointer(class window)
-         m_pwindowKeyboardFocus;
+      ///__pointer(class window)
+         //m_pwindowKeyboardFocus;
       
       __pointer(host_interaction)               m_phostinteraction;
       
       map < void *, __pointer(class window) >   m_nsmap;
 
-      __pointer(text_editor_interface) m_ptexteditorinterface;
+      __pointer(text_editor_interface)          m_ptexteditorinterface;
 
       
       windowing();
@@ -59,13 +59,13 @@ namespace windowing_ios
 
       ::windowing::display * display() override;
       
-      ::windowing::window * get_active_window(::thread * pthread) override;
+//      ::windowing::window * get_active_window(::thread * pthread) override;
 
       //virtual bool post_ui_message(::message::base * pbase);
       
-      void release_mouse_capture() override;
+      //void release_mouse_capture() override;
       
-      ::windowing::window * get_keyboard_focus(::thread *) override;
+      //::windowing::window * get_keyboard_focus(::thread *) override;
 
       
       void get_cursor_position(POINT_I32 * ppoint) override;
@@ -73,7 +73,8 @@ namespace windowing_ios
       void _defer_dock_application(int_bool bDock);
       
       
-      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
+//      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
+       
       
    };
       

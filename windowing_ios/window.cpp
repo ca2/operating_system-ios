@@ -702,26 +702,26 @@ namespace windowing_ios
 
    }
 
-
-   void window::set_mouse_capture()
-   {
-
-      auto pwindowing = (class windowing *) windowing()->m_pWindowing2;
-      
-      if(!pwindowing)
-      {
-         
-         return;
-         
-         //return ::error_failed;
-         
-      }
-      
-      pwindowing->m_pwindowCapture = this;
-
-      //return ::success;
-
-   }
+//
+//   void window::set_mouse_capture()
+//   {
+//
+//      auto pwindowing = (class windowing *) windowing()->m_pWindowing2;
+//      
+//      if(!pwindowing)
+//      {
+//         
+//         return;
+//         
+//         //return ::error_failed;
+//         
+//      }
+//      
+//      pwindowing->m_pwindowCapture = this;
+//
+//      //return ::success;
+//
+//   }
 
 
    void window::update_screen()

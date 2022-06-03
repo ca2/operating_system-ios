@@ -25,7 +25,7 @@ namespace windowing_ios
 
 
     class CLASS_DECL_WINDOWING_MACOS window :
-      virtual public ::windowing::window,
+      virtual public ::sandbox_windowing::window,
       virtual public ::ios_window
    {
    public:
@@ -77,7 +77,7 @@ namespace windowing_ios
       
       bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
 
-      void set_mouse_capture() override;
+      //void set_mouse_capture() override;
 
       
       void update_screen() override;

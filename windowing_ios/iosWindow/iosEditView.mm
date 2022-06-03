@@ -159,6 +159,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
         // Find and update insertion point in underlying iosTextView.
         NSInteger index = [self.textView closestIndexToPoint:[tap locationInView:self.textView]];
+        
+        if(index < 0)
+        {
+            
+            index = 0;
+            
+        }
         self.textView.markedTextRange = NSMakeRange(NSNotFound, 0);
         self.textView.selectedTextRange = NSMakeRange(index, 0);
 
@@ -248,8 +255,11 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
 - (void)setSelectedTextRange:(UITextRange *)range
 {
+    
     iosTextRange *indexedRange = (iosTextRange *)range;
+    
     self.textView.selectedTextRange = indexedRange.range;
+    
 }
 
 

@@ -13,6 +13,9 @@
 #include "iosWindow/ios_window.h"
 
 
+#include "aura/windowing/sandbox/_sandbox.h"
+
+
 #include "aura/windowing/text_editor_interface.h"
 
 

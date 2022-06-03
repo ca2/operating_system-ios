@@ -16,6 +16,8 @@ namespace windowing_ios
    {
    public:
       
+       
+       __pointer(::windowing_ios::window) m_pwindow;
       
       text_editor_interface();
       ~text_editor_interface() override;

@@ -230,7 +230,7 @@
 -(void)onEditSetFocus : (CGRect) rect withText: (NSString *) strText withSelBeg:(long)iSelBeg withSelEnd:(long)iSelEnd
 {
    
-   //ns_main_async(^()
+   ns_main_async(^()
    {
    
       [ self deferEdit : rect ];
@@ -254,7 +254,7 @@
       [ self->m_pedit becomeFirstResponder];
       
    }
-   //);
+   );
    
 }
 
@@ -270,6 +270,8 @@
       [ self->m_pedit setHidden: TRUE ];
       
    }
+    
+
    
 }
 

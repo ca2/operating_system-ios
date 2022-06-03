@@ -60,7 +60,47 @@ namespace windowing_ios
 
    void text_editor_interface::show_software_keyboard()
    {
+       
+       auto pwindow = m_pwindow;
+       
+       if(pwindow)
+       {
+           
+           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
+           
+           if(puserinteractionimpl)
+           {
+               
+               auto puserinteraction = puserinteractionimpl->m_puserinteractionKeyboardFocus;
+               
+               if(puserinteraction)
+               {
+                   
+                   auto rectangle = puserinteraction->get_window_rect();
+                   string strText;
+                   
+                   puserinteraction->_001GetText(strText);
+                   
+                   strsize iSelBeg = 0;
+                   
+                   strsize iSelEnd = 0;
+                   
+                   puserinteraction->_001GetSel(iSelBeg,iSelEnd);
+                   
+                   pwindow->ios_window_edit_on_set_focus(rectangle.left, rectangle.top, rectangle.right,
+                                                         rectangle.bottom,
+                          strText,       iSelBeg,
+                                                         iSelEnd);
+//
+               }
+               
+           }
+           
+           
+       }
 
+//       m_pwindow->m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+       
 
    }
 

@@ -26,7 +26,7 @@ namespace windowing_ios
       
       m_pWindowing2 = this;
       
-      m_pwindowCapture = nullptr;
+      //m_pwindowCapture = nullptr;
       
    }
 
@@ -76,8 +76,22 @@ namespace windowing_ios
 
    ::windowing::text_editor_interface * windowing::get_text_editor_interface()
    {
-
-      return m_ptexteditorinterface;
+       
+       if(!m_pwindowKeyboardFocus)
+       {
+           
+           return nullptr;
+           
+       }
+       
+       if(m_ptexteditorinterface)
+       {
+           
+           m_ptexteditorinterface->m_pwindow = m_pwindowKeyboardFocus;
+           
+       }
+       
+       return m_ptexteditorinterface;
 
    }
 
@@ -170,31 +184,31 @@ namespace windowing_ios
    }
 
 
-   ::windowing::window * windowing::get_active_window(::thread * pthread)
-   {
-      
-      return nullptr;
-      
-   }
+//   ::windowing::window * windowing::get_active_window(::thread * pthread)
+//   {
+//      
+//      return nullptr;
+//      
+//   }
 
 
-   void windowing::release_mouse_capture()
-   {
-      
-      auto pwindowCapture = m_pwindowCapture;
-
-      m_pwindowCapture.release();
-
-      if(pwindowCapture)
-      {
-         
-         pwindowCapture->m_puserinteractionimpl->m_puserinteraction->m_pinteractionimpl->m_puserinteractionMouseCapture.release();
-         
-      }
-   
-      //return ::success;
-      
-   }
+//   void windowing::release_mouse_capture()
+//   {
+//
+//      auto pwindowCapture = m_pwindowCapture;
+//
+//      m_pwindowCapture.release();
+//
+//      if(pwindowCapture)
+//      {
+//
+//         pwindowCapture->m_puserinteractionimpl->m_puserinteraction->m_pinteractionimpl->m_puserinteractionMouseCapture.release();
+//
+//      }
+//
+//      //return ::success;
+//
+//   }
 
 
 //   bool windowing::post_ui_message(const MESSAGE &message)
@@ -292,25 +306,25 @@ namespace windowing_ios
 //   }
 
 
-   ::windowing::window * windowing::get_keyboard_focus(::thread *)
-   {
-      
-//      void * pnswindow = ns_get_key_window();
+//   ::windowing::window * windowing::get_keyboard_focus(::thread *)
+//   {
 //
-//      if(::is_null(pnswindow))
-//      {
+////      void * pnswindow = ns_get_key_window();
+////
+////      if(::is_null(pnswindow))
+////      {
+////
+////         return nullptr;
+////
+////      }
+////
+////      auto pwindowFocus = m_nsmap[pnswindow];
+////
+////      return pwindowFocus;
 //
-//         return nullptr;
+//      return nullptr;
 //
-//      }
-//
-//      auto pwindowFocus = m_nsmap[pnswindow];
-//
-//      return pwindowFocus;
-
-      return nullptr;
-      
-   }
+//   }
 
 
    void windowing::get_cursor_position(POINT_I32 * ppoint)
@@ -366,68 +380,68 @@ namespace windowing_ios
    }
 
 
-   void windowing::clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny)
-   {
-
-      if (!m_pwindowKeyboardFocus)
-      {
-
-         return;
-
-      }
-
-      auto puserinteractionimpl = m_pwindowKeyboardFocus->m_puserinteractionimpl;
-
-      if (puserinteractionimpl)
-      {
-
-         if (puserinteractionimpl->m_puserinteractionKeyboardFocus)
-         {
-
-            puserinteractionimpl->m_puserinteractionKeyboardGainingFocusIfAny = pwindowGainingFocusIfAny;
-
-            //puserinteractionimpl->m_puserinteractionKeyboardFocus->post_message(e_message_kill_focus);
-
-         }
-
-         auto puserinteraction = puserinteractionimpl->m_puserinteraction;
-
-         if (puserinteraction)
-         {
-
-            puserinteraction->post_message(e_message_kill_focus);
-
-         }
-
-         //if (puserinteractionimpl->m_puserinteractionKeyboardFocus)
-         //{
-
-         //   puserinteractionimpl->m_puserinteractionKeyboardGainingFocusIfAny = pwindowGainingFocusIfAny;
-
-         //   puserinteractionimpl->m_puserinteractionKeyboardFocus->post_message(e_message_kill_focus);
-
-         //}
-
-         puserinteractionimpl->m_puserinteractionKeyboardFocus.release();
-
-      }
-
-      m_pwindowKeyboardFocus.release();
-
-      //auto estatus =
-      //
-      //m_pdisplay->release_mouse_capture();
-
-      //      if(!estatus)
-      //      {
-      //
-      //         return estatus;
-      //
-      //      }
-      //
-      //      return estatus;
-
-   }
+//   void windowing::clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny)
+//   {
+//
+//      if (!m_pwindowKeyboardFocus)
+//      {
+//
+//         return;
+//
+//      }
+//
+//      auto puserinteractionimpl = m_pwindowKeyboardFocus->m_puserinteractionimpl;
+//
+//      if (puserinteractionimpl)
+//      {
+//
+//         if (puserinteractionimpl->m_puserinteractionKeyboardFocus)
+//         {
+//
+//            puserinteractionimpl->m_puserinteractionKeyboardGainingFocusIfAny = pwindowGainingFocusIfAny;
+//
+//            //puserinteractionimpl->m_puserinteractionKeyboardFocus->post_message(e_message_kill_focus);
+//
+//         }
+//
+//         auto puserinteraction = puserinteractionimpl->m_puserinteraction;
+//
+//         if (puserinteraction)
+//         {
+//
+//            puserinteraction->post_message(e_message_kill_focus);
+//
+//         }
+//
+//         //if (puserinteractionimpl->m_puserinteractionKeyboardFocus)
+//         //{
+//
+//         //   puserinteractionimpl->m_puserinteractionKeyboardGainingFocusIfAny = pwindowGainingFocusIfAny;
+//
+//         //   puserinteractionimpl->m_puserinteractionKeyboardFocus->post_message(e_message_kill_focus);
+//
+//         //}
+//
+//         puserinteractionimpl->m_puserinteractionKeyboardFocus.release();
+//
+//      }
+//
+//      m_pwindowKeyboardFocus.release();
+//
+//      //auto estatus =
+//      //
+//      //m_pdisplay->release_mouse_capture();
+//
+//      //      if(!estatus)
+//      //      {
+//      //
+//      //         return estatus;
+//      //
+//      //      }
+//      //
+//      //      return estatus;
+//
+//   }
 
 
 } // namespace windowing_ios

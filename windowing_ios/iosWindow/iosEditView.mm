@@ -101,14 +101,32 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
     self.userInteractionEnabled = YES;
     self.autoresizesSubviews = YES;
+   
+   
+   
+  if (self)
+   {
+      
+      _contentText = @"";
+//       _caretView = [[iosCaretView alloc] initWithFrame:CGRectZero];
+      self.layer.geometryFlipped = YES;  // For ease of interaction with the CoreText coordinate system.
+      self.font = [UIFont systemFontOfSize:18];
+      self.backgroundColor = [UIColor clearColor];
+      self.contentMode = UIViewContentModeRedraw;
+      self.rangeMarked = NSMakeRange(NSNotFound, NSNotFound);
+      self.rangeSelected = NSMakeRange(NSNotFound, NSNotFound);
+      
+   }
+  
 
-    // Create and set up the iosTextView that will do the drawing.
-    iosTextView *textView = [[iosTextView alloc] initWithFrame:CGRectInset(self.bounds, 5, 5)];
-    textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self addSubview:textView];
-    textView.contentText = @"";
-    textView.userInteractionEnabled = NO;
-    self.textView = textView;
+
+//    // Create and set up the iosTextView that will do the drawing.
+//    iosTextView *textView = [[iosTextView alloc] initWithFrame:CGRectInset(self.bounds, 5, 5)];
+//    textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    [self addSubview:textView];
+//    contentText = @"";
+//    textView.userInteractionEnabled = NO;
+//    self.textView = textView;
    return self;
 }
 
@@ -132,7 +150,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (BOOL)resignFirstResponder
 {
    // Flag that underlying iosTextView is no longer in edit mode
-    self.textView.editing = NO;
+    self.editing = NO;
    return [super resignFirstResponder];
 }
 
@@ -158,7 +176,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
         [self.inputDelegate selectionWillChange:self];
 
         // Find and update insertion point in underlying iosTextView.
-        NSInteger index = [self.textView closestIndexToPoint:[tap locationInView:self.textView]];
+        NSInteger index = [self closestIndexToPoint:[tap locationInView:self]];
         
         if(index < 0)
         {
@@ -166,8 +184,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
             index = 0;
             
         }
-        self.textView.markedTextRange = NSMakeRange(NSNotFound, 0);
-        self.textView.selectedTextRange = NSMakeRange(index, 0);
+       NSUInteger location = index;
+       self.rangeMarked = NSRange{NSNotFound, 0};
+       self.rangeSelected = NSRange{location, 0};
 
         // Let inputDelegate know selection has changed.
         [self.inputDelegate selectionDidChange:self];
@@ -176,7 +195,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       // Inform controller that we're about to enter editing mode.
       [self.editableCoreTextViewDelegate editableCoreTextViewWillEdit:self];
       // Flag that underlying iosTextView is now in edit mode.
-        self.textView.editing = YES;
+        self.editing = YES;
       // Become first responder state (which shows software keyboard, if applicable).
         [self becomeFirstResponder];
     }
@@ -224,7 +243,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     iosTextRange *indexedRange = (iosTextRange *)range;
    // Determine if replaced range intersects current selection range
    // and update selection range if so.
-    NSRange selectedNSRange = self.textView.selectedTextRange;
+    NSRange selectedNSRange = self.rangeSelected;
     if ((indexedRange.range.location + indexedRange.range.length) <= selectedNSRange.location) {
         // This is the easy case.
         selectedNSRange.location -= (indexedRange.range.length - text.length);
@@ -237,8 +256,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     [self.text replaceCharactersInRange:indexedRange.range withString:text];
 
    // Update underlying iosTextView
-    self.textView.contentText = self.text;
-    self.textView.selectedTextRange = selectedNSRange;
+    self.contentText = self.text;
+    self.rangeSelected = selectedNSRange;
 }
 
 
@@ -249,7 +268,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (UITextRange *)selectedTextRange
 {
-    return [iosTextRange indexedRangeWithRange:self.textView.selectedTextRange];
+    return [iosTextRange indexedRangeWithRange:self.rangeSelected];
 }
 
 
@@ -258,8 +277,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     
     iosTextRange *indexedRange = (iosTextRange *)range;
     
-    self.textView.selectedTextRange = indexedRange.range;
-    
+    self.rangeSelected = indexedRange.range;
+   [ self selectionChanged];
 }
 
 
@@ -271,7 +290,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     /*
      Return nil if there is no marked text.
      */
-    NSRange markedTextRange = self.textView.markedTextRange;
+    NSRange markedTextRange = self.rangeMarked;
     if (markedTextRange.length == 0) {
         return nil;
     }
@@ -286,8 +305,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)setMarkedText:(NSString *)markedText selectedRange:(NSRange)selectedRange
 {
-    NSRange selectedNSRange = self.textView.selectedTextRange;
-    NSRange markedTextRange = self.textView.markedTextRange;
+    NSRange selectedNSRange = self.rangeSelected;
+    NSRange markedTextRange = self.rangeMarked;
 
     if (markedTextRange.location != NSNotFound) {
         if (!markedText)
@@ -315,9 +334,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
     selectedNSRange = NSMakeRange(selectedRange.location + markedTextRange.location, selectedRange.length);
 
-    self.textView.contentText = self.text;
-    self.textView.markedTextRange = markedTextRange;
-    self.textView.selectedTextRange = selectedNSRange;
+    self.contentText = self.text;
+    self.rangeMarked = markedTextRange;
+    self.rangeSelected = selectedNSRange;
 }
 
 
@@ -327,14 +346,14 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)unmarkText
 {
-    NSRange markedTextRange = self.textView.markedTextRange;
+    NSRange markedTextRange = self.rangeMarked;
 
     if (markedTextRange.location == NSNotFound) {
         return;
     }
    // Unmark the underlying iosTextView.markedTextRange.
     markedTextRange.location = NSNotFound;
-    self.textView.markedTextRange = markedTextRange;
+    self.rangeMarked = markedTextRange;
 }
 
 
@@ -544,13 +563,55 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  UITextInput protocol required method.
  Return the first rectangle that encloses a range of text in a document.
  */
-- (CGRect)firstRectForRange:(UITextRange *)range
+- (CGRect)firstRectForRange:(NSRange)range
 {
-    iosTextRange *r = (iosTextRange *)range;
+    //iosTextRange *r = (iosTextRange *)range;
    // Use underlying iosTextView to get rect for range.
-    CGRect rect = [self.textView firstRectForRange:r.range];
+    //CGRect rect  [self firstRectForRange:r.range];
+   
+   ///{
+      
+      //long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+      
+      
+      //long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
+      
+   long beg = range.location;
+   
+   long end = range.location + range.length;
+      CGRect rBeg;
+      
+      if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rBeg, beg))
+      {
+         
+         return CGRectNull;
+         
+      }
+
+      CGRect rEnd;
+      
+      if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rEnd, end))
+      {
+         
+         return CGRectNull;
+         
+      }
+
+      CGRect rect;
+      
+      rect.origin.x = fmin(rBeg.origin.x, rEnd.origin.x);
+      rect.origin.y = fmin(rBeg.origin.y, rEnd.origin.y);
+      float r = fmax(rBeg.origin.x + rBeg.size.width, rEnd.origin.x + rEnd.size.width);
+      float b = fmax(rBeg.origin.y + rBeg.size.height, rEnd.origin.y + rEnd.size.height);
+      rect.size.width = r - rect.origin.x;
+      rect.size.height = b - rect.origin.y;
+
+      return rect;
+      
+   //}
+
    // Convert rect to our view coordinates.
-    return [self convertRect:rect fromView:self.textView];
+    //return [self convertRect:rect fromView:self];
 }
 
 
@@ -563,10 +624,10 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     iosTextPosition *pos = (iosTextPosition *)position;
 
    // Get caret rect from underlying iosTextView.
-    CGRect rect =  [self.textView caretRectForIndex:
+    CGRect rect =  [self caretRectForIndex:
                     (int)pos.index];
    // Convert rect to our view coordinates.
-    return [self convertRect:rect fromView:self.textView];
+    return [self convertRect:rect fromView:self];
 }
 
 
@@ -627,7 +688,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (NSDictionary *)textStylingAtPosition:(UITextPosition *)position inDirection:(UITextStorageDirection)direction
 {
     // This sample assumes all text is single-styled, so this is easy.
-    return @{ NSFontAttributeName : self.textView.font };
+    return @{ NSFontAttributeName : self.font };
 }
 
 
@@ -649,8 +710,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)insertText:(NSString *)text
 {
-    NSRange selectedNSRange = self.textView.selectedTextRange;
-    NSRange markedTextRange = self.textView.markedTextRange;
+    NSRange selectedNSRange = self.rangeSelected;
+    NSRange markedTextRange = self.rangeMarked;
 
    /*
      While this sample does not provide a way for the user to create marked or selected text, the following code still checks for these ranges and acts accordingly.
@@ -673,11 +734,11 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     }
 
    // Update underlying iosTextView.
-   self.textView.contentText = self.text;
-   self.textView.markedTextRange = markedTextRange;
-   self.textView.selectedTextRange = selectedNSRange;
+   self.contentText = self.text;
+   self.rangeMarked = markedTextRange;
+   self.rangeSelected = selectedNSRange;
    
-   [ self.textView on_text_composed ];
+   [ self on_text_composed ];
    
 }
 
@@ -689,8 +750,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (void)deleteBackward
 {
     
-   NSRange selectedNSRange = self.textView.selectedTextRange;
-   NSRange markedTextRange = self.textView.markedTextRange;
+   NSRange selectedNSRange = self.rangeSelected;
+   NSRange markedTextRange = self.rangeMarked;
 
    /*
      Note: While this sample does not provide a way for the user to create marked or selected text, the following code still checks for these ranges and acts accordingly.
@@ -733,17 +794,567 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    }
 
    // Update underlying iosTextView.
-   self.textView.contentText = self.text;
+   self.contentText = self.text;
    
-   self.textView.markedTextRange = markedTextRange;
+   self.rangeMarked = markedTextRange;
    
-   self.textView.selectedTextRange = selectedNSRange;
+   self.rangeSelected = selectedNSRange;
    
-   [ self.textView on_text_composed ];
+   [ self on_text_composed ];
+   
+}
+
+//
+//- (id)initWithFrame:(CGRect)frame
+//{
+//
+//   self = [super initWithFrame:frame];
+//
+//   if (self)
+//    {
+//
+//       _contentText = @"";
+////       _caretView = [[iosCaretView alloc] initWithFrame:CGRectZero];
+//       self.layer.geometryFlipped = YES;  // For ease of interaction with the CoreText coordinate system.
+//       self.font = [UIFont systemFontOfSize:18];
+//       self.backgroundColor = [UIColor clearColor];
+//       self.contentMode = UIViewContentModeRedraw;
+//       self.markedTextRange = NSMakeRange(NSNotFound, NSNotFound);
+//       self.selectedTextRange = NSMakeRange(NSNotFound, NSNotFound);
+//
+//    }
+//
+//    return self;
+//
+//}
+
+
+- (void) on_text_composed;
+{
+   
+   NSString * str = self.contentText;
+   
+   const char * psz=[str UTF8String];
+   
+   UITextRange * range = self.selectedTextRange;
+
+   
+   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+   
+   
+   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
+
+   m_ioswindow->m_pwindow->ios_window_on_text(psz,
+                                              beg, end);
    
 }
 
 
+// Helper method to update our text storage when the text content has changed.
+- (void)textChanged
+{
+    [self setNeedsDisplay];
+    [self clearPreviousLayoutInformation];
+
+   // Build the attributed string from our text data and string attribute data,
+    //NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.contentText attributes:self.attributes];
+
+//   // Create the Core Text framesetter using the attributed string.
+//    if (_framesetter != NULL) {
+//        CFRelease(_framesetter);
+//    }
+//    _framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attributedString);
+
+}
+
+
+
+-(void)setFrame:(CGRect)frame
+{
+   
+   [super setFrame:frame];
+   
+}
+
+
+-(void)setBounds:(CGRect)bounds
+{
+
+   [super setBounds:bounds];
+
+}
+
+//
+//// Helper method for drawing the current selection range (as a simple filled rect).
+//- (void)drawRangeAsSelection:(NSRange)selectionRange
+//{
+//   // If not in editing mode, do not draw selection rectangles.
+//    if (!self.editing) {
+//        return;
+//    }
+//
+//    // If the selection range is empty, do not draw.
+//    if (selectionRange.length == 0 || selectionRange.location == NSNotFound) {
+//        return;
+//    }
+//
+//   // Set the fill color to the selection color.
+//    [[iosTextView selectionColor] setFill];
+//
+//   /*
+//     Iterate over the lines in our CTFrame, looking for lines that intersect with the given selection range, and draw a selection rect for each intersection.
+//     */
+//    CFArrayRef lines = CTFrameGetLines(_ctFrame);
+//    CFIndex linesCount = CFArrayGetCount(lines);
+//
+//    for (CFIndex linesIndex = 0; linesIndex < linesCount; linesIndex++) {
+//
+//        CTLineRef line = (CTLineRef) CFArrayGetValueAtIndex(lines, linesIndex);
+//        CFRange lineRange = CTLineGetStringRange(line);
+//        NSRange range = NSMakeRange(lineRange.location, lineRange.length);
+//        NSRange intersection = RangeIntersection(range, selectionRange);
+//        if (intersection.location != NSNotFound && intersection.length > 0) {
+//         // The text range for this line intersects our selection range.
+//            CGFloat xStart = CTLineGetOffsetForStringIndex(line, intersection.location, NULL);
+//            CGFloat xEnd = CTLineGetOffsetForStringIndex(line, intersection.location + intersection.length, NULL);
+//            CGPoint origin;
+//         // Get coordinate and bounds information for the intersection text range.
+//            CTFrameGetLineOrigins(_ctFrame, CFRangeMake(linesIndex, 0), &origin);
+//            CGFloat ascent, descent;
+//            CTLineGetTypographicBounds(line, &ascent, &descent, NULL);
+//         // Create a rect for the intersection and draw it with selection color.
+//            CGRect selectionRect = CGRectMake(xStart, origin.y - descent, xEnd - xStart, ascent + descent);
+//            UIRectFill(selectionRect);
+//        }
+//    }
+//}
+
+// Standard UIView drawRect override that uses Core Text to draw our text contents.
+- (void)drawRect:(CGRect)rect
+{
+/*    // First draw selection / marked text, then draw text.
+    [self drawRangeAsSelection:_selectedTextRange];
+    [self drawRangeAsSelection:_markedTextRange];
+
+    CTFrameDraw(_ctFrame, UIGraphicsGetCurrentContext());*/
+}
+
+
+// Public method to find the text range index for a given CGPoint.
+- (NSInteger)closestIndexToPoint:(CGPoint)point
+{
+   /*
+     Use Core Text to find the text index for a given CGPoint by iterating over the y-origin points for each line, finding the closest line, and finding the closest index within that line.
+     */
+//    CFArrayRef lines = CTFrameGetLines(_ctFrame);
+//    CFIndex linesCount = CFArrayGetCount(lines);
+//    CGPoint origins[linesCount];
+//
+//    CTFrameGetLineOrigins(_ctFrame, CFRangeMake(0, linesCount), origins);
+//
+//    for (CFIndex linesIndex = 0; linesIndex < linesCount; linesIndex++) {
+//        if (point.y > origins[linesIndex].y) {
+//         // This line origin is closest to the y-coordinate of our point; now look for the closest string index in this line.
+//            CTLineRef line = (CTLineRef)CFArrayGetValueAtIndex(lines, linesIndex);
+//            return CTLineGetStringIndexForPosition(line, point);
+//        }
+//    }
+
+   return m_ioswindow->m_pwindow->ios_window_edit_hit_test(point.x, point.y);
+   
+    //return  self.contentText.length;
+}
+
+
+/*
+ Public method to determine the CGRect for the insertion point or selection, used when creating or updating the simple caret view instance.
+ */
+- (CGRect)caretRectForIndex:(int)index
+{
+   
+   CGRect r;
+   
+   if(m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&r,index))
+   {
+      
+      return r;
+      
+   }
+   
+   return CGRectNull;
+   
+}
+
+///*
+// Public method to create a rect for a given range in the text contents.
+// Called by our EditableTextRange to implement the required UITextInput:firstRectForRange method.
+// */
+//- (CGRect)firstRectForRange:(NSRange)range;
+//{
+//
+//   long beg = range.location;
+//
+//   long end = range.location + range.length;
+//
+//   CGRect rBeg;
+//
+//   if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rBeg, beg))
+//   {
+//
+//      return CGRectNull;
+//
+//   }
+//
+//   CGRect rEnd;
+//
+//   if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rEnd, end))
+//   {
+//
+//      return CGRectNull;
+//
+//   }
+//
+//
+//   return CGRectNull;
+//
+//}
+
+
+// Helper method to update caretView when insertion point/selection changes.
+- (void)selectionChanged
+{
+   // If not in editing mode, we don't show the caret.
+    if (!self.editing) {
+//        [self.caretView removeFromSuperview];
+        return;
+    }
+//   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+//
+//
+//   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
+//   long length = end - beg;
+   /*
+    
+     If there is no selection range (always true for this sample), find the insert point rect and create a caretView to draw the caret at this position.
+     */
+    if (self.rangeSelected.length == 0) {
+//        self.caretView.frame = [self caretRectForIndex:(int)self.selectedTextRange.location];
+//        if (self.caretView.superview == nil) {
+//            [self addSubview:self.caretView];
+//            [self setNeedsDisplay];
+//        }
+//        // Set up a timer to "blink" the caret.
+//        [self.caretView delayBlink];
+    }
+    else {
+      // If there is an actual selection, don't draw the insertion caret.
+//        [self.caretView removeFromSuperview];
+//        [self setNeedsDisplay];
+    }
+
+    if (self.rangeMarked.location != NSNotFound) {
+//        [self setNeedsDisplay];
+    }
+}
+
+
+// Helper method to release our cached Core Text framesetter and frame.
+- (void)clearPreviousLayoutInformation
+{
+//    if (_framesetter != NULL) {
+//        CFRelease(_framesetter);
+//        _framesetter = NULL;
+//    }
+//
+//    if (_ctFrame != NULL) {
+//        CFRelease(_ctFrame);
+//        _ctFrame = NULL;
+//    }
+}
+
+
+#pragma mark - Property accessor overrides
+
+/*
+ When setting the font, we need to additionally create and set the Core Text font object that corresponds to the UIFont being set.
+ */
+- (void)setFont:(UIFont *)newFont
+{
+    if (newFont != _font) {
+        _font = newFont;
+
+//        // Find matching CTFont via name and size.
+//        CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef) _font.fontName, _font.pointSize, NULL);
+//
+//        // Set CTFont instance in our attributes dictionary, to be set on our attributed string.
+//        self.attributes = @{ (NSString *)kCTFontAttributeName : (__bridge id)ctFont };
+//
+//        CFRelease(ctFont);
+
+        [self textChanged];
+       
+    }
+}
+
+
+/*
+ We need to call textChanged after setting the new property text to update layout.
+ */
+- (void)setContentText:(NSString *)text
+{
+    _contentText = [text copy];
+    [self textChanged];
+}
+
+
+/*
+ Set accessors should call selectionChanged to update view if necessary.
+ */
+
+- (void)setMarkedTextRange:(NSRange)range
+{
+    self.rangeMarked = range;
+    [self selectionChanged];
+}
+
+
+//- (void)setSelectedTextRange:(NSRange)range
+//{
+//    _selectedTextRange = range;
+//    [self selectionChanged];
+//}
+
+
+- (void)setEditing:(BOOL)editing
+{
+    _editing = editing;
+    [self selectionChanged];
+}
+
+
+#pragma mark - Selection and caret colors
+
+// Class method that returns current selection color (in this sample the color cannot be changed).
++ (UIColor *)selectionColor
+{
+    static UIColor *selectionColor = nil;
+    if (selectionColor == nil) {
+        selectionColor = [[UIColor alloc] initWithRed:0.25 green:0.50 blue:1.0 alpha:0.50];
+    }
+    return selectionColor;
+}
+
+
+// Class method that returns current caret color (in this sample the color cannot be changed).
++ (UIColor *)caretColor
+{
+    static UIColor *caretColor = nil;
+    if (caretColor == nil) {
+        caretColor = [[UIColor alloc] initWithRed:0.25 green:0.50 blue:1.0 alpha:1.0];
+    }
+    return caretColor;
+}
+
+
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   
+   [super touchesBegan:touches withEvent:event];
+   
+   ios_window * p = m_ioswindow->m_pwindow;
+   
+   //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+   
+   if ([touches count] == 1)
+   {
+      
+      UITouch *touch = [touches anyObject];
+      
+      if ([touch tapCount] == 1)
+      {
+         
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         
+         int x = point.x;
+         
+         int y = point.y;
+         
+         m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan = point;
+         
+         p->ios_window_mouse_down(0, x, y);
+         
+         //         if(allTouchesEnded)
+         //         {
+         //
+         //            p->ios_window_mouse_up(x, y);
+         //
+         //         }
+         
+      }
+      
+   }
+   
+}
+
+
+//- (void) detectPan:(UIPanGestureRecognizer *) uiPanGestureRecognizer
+//{
+//
+//   CGPoint translation = [uiPanGestureRecognizer translationInView:self.superview];
+//
+//   ios_window * p = m_ioswindow->m_pwindow;
+//
+//   int x = m_pointLastTouchBegan.x + translation.x;
+//
+//   int y = m_pointLastTouchBegan.y + translation.y;
+//
+//   p->ios_window_mouse_dragged(x, y);
+//
+//}
+
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   
+   [super touchesMoved:touches withEvent:event];
+   
+   ios_window * p = m_ioswindow->m_pwindow;
+   
+   if ([touches count] == 1)
+   {
+      
+      UITouch *touch = [touches anyObject];
+      
+      if ([touch tapCount] == 1)
+      {
+         
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         
+         int x = point.x;
+         
+         int y = point.y;
+         
+         m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan = point;
+         
+         p->ios_window_mouse_moved(0, x, y);
+         
+      }
+      else
+      {
+         
+         //            twoFingerTapIsPossible = NO;
+         
+      }
+      
+   }
+   else if([touches count] <= 0)
+   {
+      
+      p->ios_window_mouse_up(0, m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan.x, m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan.y);
+      
+   }
+   
+}
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   
+   [super touchesEnded:touches withEvent:event];
+   
+   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+   
+   ios_window * p = m_ioswindow->m_pwindow;
+   
+   if ([touches count] == 1 && allTouchesEnded)
+   {
+      
+      UITouch *touch = [touches anyObject];
+      
+      // --------------------------------------------------------
+      //
+      //   tap/ClickCount == 0 :
+      //   not properly a tap/click,
+      //   (but-a/"->"){eco/green-lang): drag.
+      //   So, still send mouse up message, at the final location.
+      //
+      if ([touch tapCount] == 0)
+      {
+         
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         
+         int x = point.x;
+         
+         int y = point.y;
+         
+         p->ios_window_mouse_up(0, x, y);
+         
+      }
+      else if ([touch tapCount] == 1)
+      {
+         
+         // if touch is a single tap, store its location so we can average it with the second touch location
+         
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         
+         //CGRect e = [[UIScreen mainScreen] applicationFrame];
+         
+         //int H = (int) e.size.height;
+         
+         int x = point.x;
+         
+         //int y = H - point.y;
+         
+         int y = point.y;
+         
+         p->ios_window_mouse_up(0, x, y);
+         
+      }
+      else
+      {
+         
+         //            twoFingerTapIsPossible = NO;
+         
+      }
+      
+   }
+   
+   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+   
+}
+
 @end
+
+
+#pragma mark - Range intersection function
+/*
+ Helper function to obtain the intersection of two ranges (for handling selection range across multiple line ranges in drawRangeAsSelection).
+ */
+NSRange RangeIntersection(NSRange first, NSRange second)
+{
+    NSRange result = NSMakeRange(NSNotFound, 0);
+
+   // Ensure first range does not start after second range.
+    if (first.location > second.location) {
+        NSRange tmp = first;
+        first = second;
+        second = tmp;
+    }
+
+   // Find the overlap intersection range between first and second.
+    if (second.location < first.location + first.length) {
+        result.location = second.location;
+        NSUInteger end = MIN(first.location + first.length, second.location + second.length);
+        result.length = end - result.location;
+    }
+
+    return result;
+}
+
+
+
+//@end
 
 

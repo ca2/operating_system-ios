@@ -6,3 +6,30 @@
 //
 #include "framework.h"
 
+
+CGFloat ios_top_inset()
+{
+   
+   CGFloat fTopInset = 0.f;
+   
+   if([ [ UIApplication shared ] keyWindow])
+   {
+      
+      fTopInset = [ [ [ [ UIApplication shared ] keyWindow] safeAreaInsets ] top ];
+      
+   }
+   else
+   {
+
+      fTopInset = [ [ [ UIApplication shared  ]statusBarFrame] size].height;
+      
+   }
+      
+   return fTopInset;
+   
+}
+
+
+
+
+

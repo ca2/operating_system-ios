@@ -5,12 +5,6 @@
       location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/game/coincube/_game_coincube.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/arch001/_game_arch001.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/game/coincube/_ios_game_coincube.xcodeproj">
    </FileRef>
    <FileRef

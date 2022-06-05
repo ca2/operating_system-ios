@@ -25,7 +25,7 @@ namespace apex_ios
 //      virtual string get_module_path(HMODULE hmodule);
 //      virtual bool get_pid_by_path(const char * pszName, ::u32 & dwPid) override;
 //      virtual bool get_pid_by_title(const char * pszName, ::u32 & dwPid) override;
-//      virtual int get_pid() override;
+      //virtual int get_pid() override
 //      virtual void get_all_processes(u32_array & dwa) override;
 //      virtual ::file::path get_process_path(::u32 dwPid) override;
 

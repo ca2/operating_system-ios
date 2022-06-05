@@ -12,10 +12,16 @@ namespace acme_ios
    {
    public:
 
+      
+      ::file::path         m_pathLibrary;
+      ::file::path         m_pathDocument;
+      
 
       acme_directory();
       ~acme_directory() override;
 
+      
+      
 
       virtual ::file::path install() override;
       virtual ::file::path default_install() override;

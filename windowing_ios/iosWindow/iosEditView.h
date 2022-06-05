@@ -54,7 +54,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 //#import "iosTextView.h"
 
 @class iosEditView;
-@class iosTextView;
+//@class iosTextView;
 
 // iosEditTextDelegate - simple delegate protocol to notify when the iosEditView
 // becomes first responder
@@ -66,8 +66,31 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 // iosEditView - Main custom text impact that handles text input and draws text
 // (using contained iosTextView)
 @interface iosEditView : UIView <UITextInput>
+{
+@public
+   
+   
+   iosWindow           * m_ioswindow;
 
-@property (nonatomic, weak) IBOutlet id <iosEditTextDelegate> editableCoreTextViewDelegate;
-@property (nonatomic) iosTextView *textView;
+   
+}
+
+@property (nonatomic, copy) NSString *contentText; // The text content (without attributes).
+@property (nonatomic, strong) UIFont *font; // Font used for text content.
+@property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).
+@property (nonatomic) NSRange rangeMarked; // Marked text range (for input method marked text).
+@property (nonatomic) NSRange rangeSelected; // Selected text range.
+
+- (CGRect)caretRectForIndex:(int)index;
+- (CGRect)firstRectForRange:(NSRange)range;
+- (NSInteger)closestIndexToPoint:(CGPoint)point_i32;
+
++ (UIColor *)caretColor;
+
+- (void) on_text_composed;
+
+
+@property (nonatomic, weak) id <iosEditTextDelegate> editableCoreTextViewDelegate;
+//@property (nonatomic) iosTextView *textView;
 
 @end

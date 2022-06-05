@@ -36,7 +36,7 @@ namespace windowing_ios
       auto& pimage = get_buffer_image();
 
       auto sizeWindow = window_size();
-
+      
       //LOGI("on_begin_draw");
 
       //if (pimage->size() != sizeWindow)

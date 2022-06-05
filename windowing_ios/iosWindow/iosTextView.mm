@@ -415,30 +415,30 @@ NSRange RangeIntersection(NSRange first, NSRange second);
 
 
 @end
-
-
-#pragma mark - Range intersection function
-/*
- Helper function to obtain the intersection of two ranges (for handling selection range across multiple line ranges in drawRangeAsSelection).
- */
-NSRange RangeIntersection(NSRange first, NSRange second)
-{
-    NSRange result = NSMakeRange(NSNotFound, 0);
-
-   // Ensure first range does not start after second range.
-    if (first.location > second.location) {
-        NSRange tmp = first;
-        first = second;
-        second = tmp;
-    }
-
-   // Find the overlap intersection range between first and second.
-    if (second.location < first.location + first.length) {
-        result.location = second.location;
-        NSUInteger end = MIN(first.location + first.length, second.location + second.length);
-        result.length = end - result.location;
-    }
-
-    return result;
-}
-
+//
+//
+//#pragma mark - Range intersection function
+///*
+// Helper function to obtain the intersection of two ranges (for handling selection range across multiple line ranges in drawRangeAsSelection).
+// */
+//NSRange RangeIntersection(NSRange first, NSRange second)
+//{
+//    NSRange result = NSMakeRange(NSNotFound, 0);
+//
+//   // Ensure first range does not start after second range.
+//    if (first.location > second.location) {
+//        NSRange tmp = first;
+//        first = second;
+//        second = tmp;
+//    }
+//
+//   // Find the overlap intersection range between first and second.
+//    if (second.location < first.location + first.length) {
+//        result.location = second.location;
+//        NSUInteger end = MIN(first.location + first.length, second.location + second.length);
+//        result.length = end - result.location;
+//    }
+//
+//    return result;
+//}
+//

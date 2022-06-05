@@ -1028,7 +1028,19 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    bool window::ios_window_on_text(const char * pszText, long iSel, long iEnd)
    {
       
-      return false;
+      auto pinteraction = m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+      
+      if(pinteraction)
+      {
+         
+         pinteraction->_001SetText(pszText, ::e_source_user);
+
+         pinteraction->_001SetSel(iSel, iEnd);
+         
+         
+      }
+      
+      return true;
       
    }
 

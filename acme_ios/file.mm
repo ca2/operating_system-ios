@@ -6,6 +6,30 @@
 //
 #import "_mm.h"
 
+char * ios_app_document_folder()
+{
+   
+   //https://www.infragistics.com/community/blogs/b/stevez/posts/ios-objective-c-working-with-files
+   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+   //From this array, we're going to grab the first //value. As thats the root path to the directory //we're looking for.
+
+   NSString* rootPath = paths[0];
+   
+   return strdup([rootPath UTF8String]);
+}
+
+char * ios_app_library_folder()
+{
+   
+   //https://www.infragistics.com/community/blogs/b/stevez/posts/ios-objective-c-working-with-files
+   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+   //From this array, we're going to grab the first //value. As thats the root path to the directory //we're looking for.
+
+   NSString* rootPath = paths[0];
+   
+   return strdup([rootPath UTF8String]);
+}
+
 enum_status ns_create_alias(const char * pszTarget, const char * pszSource)
 {
    

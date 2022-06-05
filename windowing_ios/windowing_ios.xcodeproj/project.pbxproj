@@ -112,7 +112,7 @@
 		9A89A574282CA2E90014794A /* buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer.cpp; sourceTree = "<group>"; };
 		9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = text_editor_interface.cpp; sourceTree = "<group>"; };
 		9A9B9B3428483ED0005CA950 /* text_editor_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_editor_interface.h; sourceTree = "<group>"; };
-		9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindowing_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9E4AD62751A3F40094A04C /* windowing_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = windowing_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_ios.xcodeproj; path = ../aura_ios/aura_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA14E59282A26B000B1621E /* copydesk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = copydesk.h; sourceTree = "<group>"; };
 		9AA14E5A282A26B000B1621E /* windowing_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = windowing_c.h; sourceTree = "<group>"; };
@@ -149,16 +149,6 @@
 		9AF115A32844E8F6006B2424 /* message_box.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = message_box.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		9A9E4AD42751A3F40094A04C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		9A440A0C26548BE4000C490B = {
 			isa = PBXGroup;
@@ -173,7 +163,7 @@
 		9A440A1626548BE4000C490B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */,
+				9A9E4AD62751A3F40094A04C /* windowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,7 +303,6 @@
 			buildPhases = (
 				9A9E4AD22751A3F40094A04C /* Headers */,
 				9A9E4AD32751A3F40094A04C /* Sources */,
-				9A9E4AD42751A3F40094A04C /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +311,7 @@
 			);
 			name = windowing_ios;
 			productName = windowing_macos;
-			productReference = 9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */;
+			productReference = 9A9E4AD62751A3F40094A04C /* windowing_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -460,6 +449,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -551,6 +541,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -602,34 +593,20 @@
 		9A9E4AD82751A3F40094A04C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8N5V6TZE5;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
-				EXECUTABLE_PREFIX = lib;
-				INSTALL_PATH = "@executable_path";
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		9A9E4AD92751A3F40094A04C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L8N5V6TZE5;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
-				EXECUTABLE_PREFIX = lib;
-				INSTALL_PATH = "@executable_path";
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

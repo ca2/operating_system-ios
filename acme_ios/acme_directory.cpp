@@ -6,6 +6,11 @@
 #include "acme_directory.h"
 
 
+char * ios_app_library_folder();
+
+
+char * ios_app_document_folder();
+
 
 namespace acme_ios
 {
@@ -13,6 +18,10 @@ namespace acme_ios
    
    acme_directory::acme_directory()
    {
+      
+      m_pathLibrary = ::string_from_strdup(ios_app_library_folder());
+      
+      m_pathDocument = ::string_from_strdup(ios_app_document_folder());
 
       m_pplatformdir = this;
 
@@ -120,11 +129,6 @@ namespace acme_ios
    #endif
 
    }
-
-
-
-
-
 
 
    string acme_directory::system_short_name()
@@ -418,7 +422,7 @@ namespace acme_ios
    ::file::path acme_directory::home()
    {
 
-      return getenv("HOME");
+      return m_pathDocument;
 
    }
 

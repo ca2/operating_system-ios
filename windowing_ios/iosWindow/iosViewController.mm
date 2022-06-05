@@ -204,11 +204,11 @@
    if(!self->m_pedit)
    {
 
-      self->m_pedit = [[iosEditView alloc] initWithFrame:frame];
+      self->m_pedit = [ [ iosEditView alloc ] initWithFrame : frame];
    
       [ self->childContentView addSubview: self->m_pedit];
 
-      self->m_pedit.textView->m_pwindow = m_pwindow;
+      self->m_pedit->m_ioswindow = m_pwindow;
 
    }
    else
@@ -235,19 +235,25 @@
    
       [ self deferEdit : rect ];
       
-      UITextPosition * beg = self->m_pedit.beginningOfDocument;
+      [ self->m_pedit setContentText:strText];
       
-      UITextPosition * end = self->m_pedit.endOfDocument;
+//      self->m_pedit.rangeSelected = NSMakeRange(iSelBeg, iSelEnd);
+//
+//      [ self->m_pedit selectionChanged ];
       
+//      UITextPosition * beg = self->m_pedit.beginningOfDocument;
+//
+//      UITextPosition * end = self->m_pedit.endOfDocument;
+//
+//      UITextRange * prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
+//
+//      [ self->m_pedit replaceRange : prange withText : strText ];
+
+      UITextPosition * beg = [ iosTextPosition positionWithIndex : iSelBeg ];
+      
+      UITextPosition * end = [ iosTextPosition positionWithIndex : iSelEnd ];
+
       UITextRange * prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
-
-      [ self->m_pedit replaceRange : prange withText : strText ];
-
-      beg = [ iosTextPosition positionWithIndex : iSelBeg ];
-      
-      end = [ iosTextPosition positionWithIndex : iSelEnd ];
-
-      prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
 
       [ self->m_pedit setSelectedTextRange: prange ];
 

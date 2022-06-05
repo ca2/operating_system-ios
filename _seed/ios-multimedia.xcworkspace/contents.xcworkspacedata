@@ -5,15 +5,6 @@
       location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-veriwell/waven/_app_veriwell_waven.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-veriwell/verisimplevideo/_app_veriwell_verisimplevideo.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-veriwell/musical_player_lite/_app_veriwell_musical_player_lite.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app-veriwell/waven/_ios_app_veriwell_waven.xcodeproj">
    </FileRef>
    <FileRef

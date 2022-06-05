@@ -5,24 +5,6 @@
       location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/addressbook/_app_core_addressbook.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-core/file_manager/_app_core_file_manager.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-core/hash_hub/_app_core_hash_hub.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-core/note/_app_core_note.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-core/photo/_app_core_photo.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-core/picture/_app_core_picture.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app-core/addressbook/_ios_app_core_addressbook.xcodeproj">
    </FileRef>
    <FileRef

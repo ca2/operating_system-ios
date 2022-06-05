@@ -562,6 +562,7 @@ namespace apex_ios
       
       ::dir_context::initialize(pobject);
       
+
 //      if(!estatus)
 //      {
 //
@@ -573,7 +574,8 @@ namespace apex_ios
       
       m_pfilesystem = m_psystem->m_papexsystem->m_pfilesystem;
 
-      
+      m_pdirsystem->m_pathHome = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathDocument;
+
 //      if(!update_module_path())
 //      {
 //
@@ -623,6 +625,10 @@ namespace apex_ios
 //      str = m_pdirsystem->m_pathModule.folder();
 //
 //      m_pdirsystem->m_strCommonAppData = str / "commonappdata";
+
+//      m_pdirsystem->m_pathAppData = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathLibrary / "AppData";
+
+//      m_pdirsystem->m_strCommonAppData = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathLibrary / "CommonAppData";
 
       string str;
 
@@ -731,10 +737,11 @@ namespace apex_ios
 
    }
 
+
    ::file::path dir_context::userquicklaunch()
    {
 
-      return m_pdirsystem->m_strAppData / "Microsoft\\Internet Explorer\\Quick Launch";
+      return m_pdirsystem->m_pathAppData / "Microsoft/Internet Explorer/Quick Launch";
 
    }
 

@@ -56,10 +56,11 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 @class iosEditView;
 //@class iosTextView;
 
-// iosEditTextDelegate - simple delegate protocol to notify when the iosEditView
-// becomes first responder
+//// iosEditTextDelegate - simple delegate protocol to notify when the iosEditView
+//// becomes first responder
 @protocol iosEditTextDelegate
-- (void)editableCoreTextViewWillEdit:(iosEditView *)editableCoreTextView;
+- (void)editableCoreTextViewWillEdit:(iosEditView *)ioseditview;
+- (void)editableCoreTextViewDidBeginEditing:(iosEditView *)ioseditview;
 @end
 
 

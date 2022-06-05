@@ -72,7 +72,7 @@ void ios_window::ios_window_redraw()
    
    ns_main_async(^{
       
-      [m_pioswindow->m_controller->childContentView setNeedsDisplay];
+      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
       
       [m_pioswindow setNeedsDisplay];
       
@@ -86,7 +86,7 @@ void ios_window::ios_window_redraw_sync()
    
    ns_main_async(^{
       
-      [m_pioswindow->m_controller->childContentView setNeedsDisplay];
+      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 
       [m_pioswindow setNeedsDisplay];
       
@@ -100,7 +100,7 @@ void ios_window::ios_window_invalidate()
    
    ns_main_async(^{
       
-      [m_pioswindow->m_controller->childContentView setNeedsDisplay];
+      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 
       [m_pioswindow setNeedsDisplay];
       
@@ -120,7 +120,7 @@ void ios_window::ios_window_show_keyboard(bool bShow)
          
          m_pioswindow->m_pwindow->m_bCanBecomeFirstResponder = true;
     
-         [m_pioswindow->m_controller->childContentView becomeFirstResponder];
+         [m_pioswindow->m_controller->m_iosframeview becomeFirstResponder];
       
       }
       else
@@ -128,10 +128,10 @@ void ios_window::ios_window_show_keyboard(bool bShow)
          
          m_pioswindow->m_pwindow->m_bCanBecomeFirstResponder = false;
       
-         if(m_pioswindow->m_controller->childContentView.isFirstResponder)
+         if(m_pioswindow->m_controller->m_iosframeview.isFirstResponder)
          {
       
-            [m_pioswindow->m_controller->childContentView resignFirstResponder];
+            [m_pioswindow->m_controller->m_iosframeview resignFirstResponder];
          
          }
       

@@ -62,6 +62,7 @@ bool m_bDirty;
    virtual void ios_window_on_hide() = 0;
    
    virtual bool ios_window_become_first_responder() = 0;
+   virtual void ios_window_text_view_did_begin_editing() = 0;
    
    virtual void ios_window_invalidate();
    virtual void ios_window_show();

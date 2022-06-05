@@ -28,7 +28,7 @@ UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned i
 //#import "notify_icon_mm_bridge.h"
 
 
-#import "iosWindow/iosWindowFrameView.h"
+#import "iosWindow/iosFrameView.h"
 
 
 #import "iosWindow/iosWindowApp.h"

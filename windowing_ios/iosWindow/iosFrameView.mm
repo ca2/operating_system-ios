@@ -12,14 +12,13 @@
 //  appreciated but not required.
 //
 #import "_mm.h"
-#import "iosWindowFrameView.h"
+#import "iosFrameView.h"
 #import "iosWindowApp.h"
 #import "iosTextPosition.h"
 #import "iosTextRange.h"
 
 
-@implementation iosWindowFrameView
-
+@implementation iosFrameView
 
 
 - (id)initWithFrame:(CGRect)frame

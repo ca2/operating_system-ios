@@ -37,11 +37,11 @@
    
    [super viewDidLoad];
    
-   self->m_pedit = nullptr;
+   self->m_ioseditview = nullptr;
    
    // Do any additional setup after loading the view.
 
-   childContentView.frame = self.view.frame;
+   m_iosframeview.frame = self.view.frame;
    
    //childContentView.delegate = self;
    
@@ -85,7 +85,7 @@
    
    NSString * text = [textView text];
    
-   [childContentView on_text : text ];
+   [m_iosframeview on_text : text ];
    
 }
 
@@ -132,10 +132,9 @@
       rect.origin.y = 0;
       rect.size = size;
       
-      childContentView.frame = rect;
-
+      m_iosframeview.frame = rect;
       
-      m_pwindow->m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
+      m_ioswindow->m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
       
    }
    catch (...)
@@ -156,7 +155,7 @@
 - (BOOL)canBecomeFirstResponder
 {
    
-//   ios_window * p = m_pwindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
 //   
 //   return p->m_bCanBecomeFirstResponder;
    
@@ -167,7 +166,7 @@
 - (BOOL)becomeFirstResponder
 {
    
-   //ios_window * p = m_pwindow->m_pwindow;
+   //ios_window * p = m_ioswindow->m_pwindow;
    
    //if(p->m_bCanBecomeFirstResponder)
    {
@@ -184,7 +183,7 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView * ) pimpact
 {
    
-   ios_window * p = m_pwindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
    if(p->m_bCanBecomeFirstResponder)
    {
@@ -201,22 +200,24 @@
 -(void)deferEdit : (CGRect) frame
 {
    
-   if(!self->m_pedit)
+   if(!self->m_ioseditview)
    {
 
-      self->m_pedit = [ [ iosEditView alloc ] initWithFrame : frame];
+      self->m_ioseditview = [ [ iosEditView alloc ] initWithFrame : frame];
    
-      [ self->childContentView addSubview: self->m_pedit];
+      [ self->m_iosframeview addSubview: self->m_ioseditview];
 
-      self->m_pedit->m_ioswindow = m_pwindow;
+      [ self->m_ioseditview setEditableCoreTextViewDelegate:m_ioswindow->m_controller];
+      
+      self->m_ioseditview->m_ioswindow = m_ioswindow;
 
    }
    else
    {
       
-      [ self->m_pedit setFrame : frame ];
+      [ self->m_ioseditview setFrame : frame ];
       
-      [ self->m_pedit setHidden : FALSE ];
+      [ self->m_ioseditview setHidden : FALSE ];
       
    }
    
@@ -235,30 +236,38 @@
    
       [ self deferEdit : rect ];
       
-      [ self->m_pedit setContentText:strText];
+      [ self->m_ioseditview setContentText:strText];
       
-//      self->m_pedit.rangeSelected = NSMakeRange(iSelBeg, iSelEnd);
+//      self->m_ioseditview.rangeSelected = NSMakeRange(iSelBeg, iSelEnd);
 //
-//      [ self->m_pedit selectionChanged ];
+//      [ self->m_ioseditview selectionChanged ];
       
-//      UITextPosition * beg = self->m_pedit.beginningOfDocument;
+//      UITextPosition * beg = self->m_ioseditview.beginningOfDocument;
 //
-//      UITextPosition * end = self->m_pedit.endOfDocument;
+//      UITextPosition * end = self->m_ioseditview.endOfDocument;
 //
-//      UITextRange * prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
+//      UITextRange * prange = [ self->m_ioseditview textRangeFromPosition: beg toPosition: end ];
 //
-//      [ self->m_pedit replaceRange : prange withText : strText ];
+//      [ self->m_ioseditview replaceRange : prange withText : strText ];
 
       UITextPosition * beg = [ iosTextPosition positionWithIndex : iSelBeg ];
       
       UITextPosition * end = [ iosTextPosition positionWithIndex : iSelEnd ];
 
-      UITextRange * prange = [ self->m_pedit textRangeFromPosition: beg toPosition: end ];
+      UITextRange * prange = [ self->m_ioseditview textRangeFromPosition: beg toPosition: end ];
 
-      [ self->m_pedit setSelectedTextRange: prange ];
-
-      [ self->m_pedit becomeFirstResponder];
+      [ self->m_ioseditview setSelectedTextRange: prange ];
       
+      [self->m_ioseditview.editableCoreTextViewDelegate editableCoreTextViewWillEdit:self->m_ioseditview];
+      
+      self->m_ioseditview.editing = TRUE;
+      if( [self->m_ioseditview becomeFirstResponder])
+      {
+         
+         [self->m_ioseditview.editableCoreTextViewDelegate editableCoreTextViewDidBeginEditing:self->m_ioseditview];
+
+      
+      }
    }
    );
    
@@ -268,16 +277,31 @@
 -(void)onEditKillFocus
 {
    
-   if(self->m_pedit && [ self->m_pedit isFirstResponder ])
+   if(self->m_ioseditview && [ self->m_ioseditview isFirstResponder ])
    {
    
-      [ self->m_pedit resignFirstResponder];
+      [ self->m_ioseditview resignFirstResponder];
       
-      [ self->m_pedit setHidden: TRUE ];
+      [ self->m_ioseditview setHidden: TRUE ];
       
    }
     
 
+   
+}
+
+- (void)editableCoreTextViewWillEdit:(iosEditView *)ioseditview
+{
+   
+   
+   
+}
+
+
+- (void)editableCoreTextViewDidBeginEditing:(iosEditView *)ioseditview
+{
+   
+   m_ioswindow->m_pwindow->ios_window_text_view_did_begin_editing();
    
 }
 

@@ -43,7 +43,7 @@
 		
    m_controller = [[iosViewController alloc] init];
    
-   m_controller->m_pwindow = self;
+   m_controller->m_ioswindow = self;
 
    [self create_view];
    
@@ -70,9 +70,9 @@
    bounds.origin.x = 0;
    bounds.origin.y = 0;
 
-	iosWindowFrameView * frameView = [[iosWindowFrameView alloc] initWithFrame : bounds] ;
+	iosFrameView * frameView = [[iosFrameView alloc] initWithFrame : bounds] ;
    
-  	m_controller->childContentView = frameView;
+  	m_controller->m_iosframeview = frameView;
    
    frameView->m_ioswindow =  self;
    
@@ -90,7 +90,7 @@
    
    iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
    
-   papp.impact = frameView;
+   papp.iosframeview = frameView;
    
 }
 

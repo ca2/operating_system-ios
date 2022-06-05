@@ -6,17 +6,18 @@
 //
 //
 
-@class iosWindowFrameView;
+@class iosFrameView;
 @class iosEditView;
+@protocol iosEditTextDelegate;
 
-@interface iosViewController : UIViewController < UITextViewDelegate >
+@interface iosViewController : UIViewController < UITextViewDelegate, iosEditTextDelegate >
 {
 @public
    
    
-   iosWindowFrameView   *   childContentView;
-   iosWindow *              m_pwindow;
-   iosEditView *            m_pedit;
+   iosFrameView *       m_iosframeview;
+   iosWindow *          m_ioswindow;
+   iosEditView *        m_ioseditview;
 
 }
 

@@ -347,81 +347,82 @@ namespace windowing_ios
 //   }
 
 
-   void window::set_keyboard_focus()
-   {
-      
-      auto pwindowing = windowing();
-
-      if (!pwindowing)
-      {
-
-         throw ::exception(error_wrong_state);
-
-      }
-
-      if (pwindowing->m_pwindowKeyboardFocus && pwindowing->m_pwindowKeyboardFocus != this)
-      {
-
-         pwindowing->clear_keyboard_focus(this);
-
-      }
-
-      pwindowing->m_pwindowKeyboardFocus = this;
-
-      auto puserinteractionimpl = m_puserinteractionimpl;
-
-      if (puserinteractionimpl)
-      {
-
-         auto puserinteraction = puserinteractionimpl->m_puserinteraction;
-
-         if (puserinteraction)
-         {
-
-            puserinteraction->post_message(e_message_set_focus);
-
-         }
-
-      }
-
-      //if (Window() == 0)
-      //{
-
-      //   throw ::exception(error_failed);
-
-      //}
-
-      //windowing_output_debug_string("\noswindow_data::SetFocus 1");
-
-      //display_lock displaylock(x11_display()->Display());
-
-      //if (!is_window())
-      //{
-
-      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.1");
-
-      //   throw ::exception(error_failed);
-
-      //}
-
-      //if (!XSetInputFocus(Display(), Window(), RevertToNone, CurrentTime))
-      //{
-
-      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.3");
-
-      //   throw ::exception(error_failed);
-
-      //}
-
-      //windowing_output_debug_string("\noswindow_data::SetFocus 2");
-
-      ////return ::success;
-
-
-
-
-
-   }
+//   void window::set_keyboard_focus()
+//   {
+//      
+//      auto pwindowing = windowing();
+//
+//      if (!pwindowing)
+//      {
+//
+//         throw ::exception(error_wrong_state);
+//
+//      }
+//
+//      if (pwindowing->m_pwindowKeyboardFocus && pwindowing->m_pwindowKeyboardFocus != this)
+//      {
+//
+//         pwindowing->clear_keyboard_focus(this);
+//
+//      }
+//
+//      pwindowing->m_pwindowKeyboardFocus = this;
+//
+//      auto puserinteractionimpl = m_puserinteractionimpl;
+//
+//      if (puserinteractionimpl)
+//      {
+//
+//         puserinteractionimpl->on_final_set_keyboard_focus();
+////         auto puserinteraction = puserinteractionimpl->m_puserinteraction;
+////
+////         if (puserinteraction)
+////         {
+////
+////            puserinteraction->post_message(e_message_set_focus);
+////
+////         }
+//
+//      }
+//
+//      //if (Window() == 0)
+//      //{
+//
+//      //   throw ::exception(error_failed);
+//
+//      //}
+//
+//      //windowing_output_debug_string("\noswindow_data::SetFocus 1");
+//
+//      //display_lock displaylock(x11_display()->Display());
+//
+//      //if (!is_window())
+//      //{
+//
+//      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.1");
+//
+//      //   throw ::exception(error_failed);
+//
+//      //}
+//
+//      //if (!XSetInputFocus(Display(), Window(), RevertToNone, CurrentTime))
+//      //{
+//
+//      //   windowing_output_debug_string("\noswindow_data::SetFocus 1.3");
+//
+//      //   throw ::exception(error_failed);
+//
+//      //}
+//
+//      //windowing_output_debug_string("\noswindow_data::SetFocus 2");
+//
+//      ////return ::success;
+//
+//
+//
+//
+//
+//   }
 
 
    void window::set_active_window()
@@ -1720,6 +1721,15 @@ bool window::ios_window_become_first_responder()
    return true;
    
 }
+
+
+void window::ios_window_text_view_did_begin_editing()
+{
+
+   m_puserinteractionimpl->on_final_set_keyboard_focus();
+
+}
+
 
 //   void * window::ios_window_get_mouse_cursor()
 //   {

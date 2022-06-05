@@ -197,7 +197,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       // Flag that underlying iosTextView is now in edit mode.
         self.editing = YES;
       // Become first responder state (which shows software keyboard, if applicable).
-        [self becomeFirstResponder];
+      if( [self becomeFirstResponder])
+      {
+         
+         [self.editableCoreTextViewDelegate editableCoreTextViewDidBeginEditing:self];
+
+      
+      }
     }
 }
 
@@ -1156,8 +1162,6 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 }
 
 
-
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
    
@@ -1175,13 +1179,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       if ([touch tapCount] == 1)
       {
          
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
          
          int x = point.x;
          
          int y = point.y;
          
-         m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan = point;
+         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
          
          p->ios_window_mouse_down(0, x, y);
          
@@ -1230,13 +1234,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       if ([touch tapCount] == 1)
       {
          
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
          
          int x = point.x;
          
          int y = point.y;
          
-         m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan = point;
+         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
          
          p->ios_window_mouse_moved(0, x, y);
          
@@ -1252,7 +1256,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    else if([touches count] <= 0)
    {
       
-      p->ios_window_mouse_up(0, m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan.x, m_ioswindow->m_controller->childContentView->m_pointLastTouchBegan.y);
+      p->ios_window_mouse_up(0, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.x, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.y);
       
    }
    
@@ -1283,7 +1287,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       if ([touch tapCount] == 0)
       {
          
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
          
          int x = point.x;
          
@@ -1297,7 +1301,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
          
          // if touch is a single tap, store its location so we can average it with the second touch location
          
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->childContentView];
+         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
          
          //CGRect e = [[UIScreen mainScreen] applicationFrame];
          

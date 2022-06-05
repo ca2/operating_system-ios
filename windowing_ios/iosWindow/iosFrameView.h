@@ -15,17 +15,21 @@
 
 #define NS_ROUND_WINDOW_FRAME_PADDING 0
 
+
 @class iosWindow;
 
-@interface iosWindowFrameView : UIView
+
+@interface iosFrameView : UIView
 {
 @public
    
-   iosWindow *     m_ioswindow;
+   
+   iosWindow *       m_ioswindow;
    bool              m_bShift;
    bool              m_bControl;
    bool              m_bAlt;
    CGPoint           m_pointLastTouchBegan;
+   
    
 }
 

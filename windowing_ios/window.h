@@ -55,7 +55,7 @@ namespace windowing_ios
       
       void install_message_routing(channel * pchannel) override;
       
-      void set_keyboard_focus() override;
+      //void set_keyboard_focus() override;
       
       void set_active_window() override;
       
@@ -110,6 +110,7 @@ namespace windowing_ios
 
       bool ios_window_become_first_responder() override;
       
+      void ios_window_text_view_did_begin_editing() override;
       //void * ios_window_get_mouse_cursor() override;
 
 

@@ -299,11 +299,13 @@ namespace windowing_ios
 
 } // namespace windowing_ios
 
-extern class ::system * g_psystem;
+extern class ::system * get_system();
 
 void os_on_will_finish_launching()
 {
    
-   g_psystem->m_pnode->_will_finish_launching();
+   auto psystem = get_system();
+   
+   psystem->m_pnode->_will_finish_launching();
    
 }

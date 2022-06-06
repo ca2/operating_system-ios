@@ -107,6 +107,34 @@ namespace windowing_ios
 
    void text_editor_interface::hide_software_keyboard()
    {
+          
+       auto pwindow = m_pwindow;
+       
+       if(pwindow)
+       {
+           
+           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
+           
+           if(puserinteractionimpl)
+           {
+               
+               auto puserinteraction = puserinteractionimpl->m_puserinteractionKeyboardFocus;
+               
+               if(!puserinteraction)
+               {
+                   
+                   pwindow->ios_window_edit_on_kill_focus();
+//
+               }
+               
+           }
+           
+           
+       }
+
+   //       m_pwindow->m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+          
+
 
 
    }

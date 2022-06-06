@@ -66,6 +66,8 @@ namespace windowing_ios
       bool is_active_window() const override;
       
       bool has_keyboard_focus() const override;
+      
+      bool ios_window_has_keyboard_focus() const override;
 
       void window_show() override;
       

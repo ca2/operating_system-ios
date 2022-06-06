@@ -22,10 +22,7 @@
 UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
 
 
-//#import "notify_icon_mm.h"
-
-
-//#import "notify_icon_mm_bridge.h"
+#import "iosWindow/iosEditView.h"
 
 
 #import "iosWindow/iosFrameView.h"

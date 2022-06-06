@@ -166,16 +166,16 @@
 - (BOOL)becomeFirstResponder
 {
    
-   //ios_window * p = m_ioswindow->m_pwindow;
+   ios_window * p = m_ioswindow->m_pwindow;
    
-   //if(p->m_bCanBecomeFirstResponder)
+   if(p->ios_window_has_keyboard_focus())
    {
       
       return [super becomeFirstResponder];
       
    }
    
-   //return FALSE;
+   return FALSE;
    
 }
 
@@ -186,6 +186,23 @@
    ios_window * p = m_ioswindow->m_pwindow;
    
    if(p->m_bCanBecomeFirstResponder)
+   {
+      
+       return YES;
+      
+   }
+   
+   return NO;
+   
+}
+
+
+- (BOOL)textViewShouldEndEditing:(UITextView * ) pimpact
+{
+   
+   ios_window * p = m_ioswindow->m_pwindow;
+   
+   if(!p->ios_window_has_keyboard_focus())
    {
       
        return YES;
@@ -277,14 +294,20 @@
 -(void)onEditKillFocus
 {
    
-   if(self->m_ioseditview && [ self->m_ioseditview isFirstResponder ])
-   {
+   ns_main_async(^{
+      if(self->m_ioseditview && [ self->m_ioseditview isFirstResponder ])
+      {
+      
+       //  [ self->m_ioseditview resignFirstResponder];
+         [ self->m_ioseditview setHidden: TRUE ];
+
+         [ self->m_iosframeview endEditing:YES];
+         
+         
+      }
+   });
    
-      [ self->m_ioseditview resignFirstResponder];
-      
-      [ self->m_ioseditview setHidden: TRUE ];
-      
-   }
+
     
 
    

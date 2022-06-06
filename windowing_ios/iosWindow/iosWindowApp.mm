@@ -19,38 +19,40 @@ i32 defer_run_system(char * * psza, int c);
 
 void system_call_update_app_activated();
 
-plane_system * create_plane_system();
-
 @implementation iosWindowApp
 
-- (BOOL) application:(UIApplication *)application
-willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
-{
 
-//   m_psystem = create_plane_system();
-//   
-//   CGRect rect = [[UIScreen mainScreen] bounds];
-//
-//   self.window = m_psystem->plane_system_initialize(rect);
-//
-//   self.window.backgiosColor = [UIColor whiteColor];
-//
-//   self.window.opaque = NO;
-//
-//   [self.window makeKeyAndVisible];
-//   
-//   m_psystem->plane_system_begin();
+- (BOOL)application:(UIApplication *)application
+willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
+{
    
-   //set_apex_system_as_thread();
-   //MessageBox(NULL, "applicationDidFinishLaunching", "applicationDidFinishLaunching", e_message_box_ok);
-   
-   //defer_run_system();
+   m_pplanesystem = get_plane_system();
    
    os_on_will_finish_launching();
    
    return YES;
    
 }
+
+
+- (void)openURL:(NSURL *)url
+        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
+completionHandler:(void (^)(BOOL success))completion
+{
+   
+   NSString * strUrl = [ url absoluteString ];
+   
+//   ::function < void(bool) > function = [completion](bool bSuccess)
+//   {
+//
+//      completion(bSuccess ? TRUE : FALSE);
+//
+//   };
+   
+   m_pplanesystem->_main_application_open_url([ strUrl UTF8String ], completion);
+   
+}
+
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application
   supportedInterfaceOrientationsForWindow:(UIWindow *)window

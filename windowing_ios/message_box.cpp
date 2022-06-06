@@ -1,11 +1,11 @@
-// Created by camilo on 2022-05-08 18:27 <3ThomasBorregaardSørensen!!(All around what Thomas Likes 25!!)
+// Created by camilo on 2022-05-08 18:27 <3ThomasBorregaardSï¿½rensen!!(All around what Thomas Likes 25!!)
 // Adapted to ios by camilo on 2022-05-30 09:01 <3ThomasBS!!
 #include "framework.h"
 #include "message_box.h"
 int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, ::function < void (enum_dialog_result) > function);
 
 
-extern class ::system * g_psystem;
+CLASS_DECL_ACME class ::system * get_system();
 
 namespace windowing_ios
 {

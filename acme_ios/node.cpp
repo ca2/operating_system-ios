@@ -748,6 +748,16 @@ void node::element_quit::run()
 
    }
 
+
+   void node::shell_launch(const ::string & strAppId)
+   {
+
+      INFORMATION("::acme_ios::node::shell_launch: " << strAppId);
+      
+      //throw interface_only();
+
+   }
+
    
 //   void node::_launch_macos_app(const ::string & pszAppFolder)
 //   {

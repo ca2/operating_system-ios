@@ -55,7 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A0C165F264A290E00B5CC33 /* acme_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = acme_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0C165F264A290E00B5CC33 /* acme_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; name = acme_ios.a; path = libacme_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A15A5D6264B54CA0080670E /* acme_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_apple.xcodeproj; path = "../../operating-system-apple/acme_apple/acme_apple.xcodeproj"; sourceTree = "<group>"; };
 		9A78630A2650483C0034A0E1 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78630C2650483C0034A0E1 /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,46 +151,46 @@
 		9AA14F1F282A28EE00B1621E /* acme_ios */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14F4D282A28EE00B1621E /* _factory.cpp */,
-				9AA14F22282A28EE00B1621E /* _no_precompiled_header.cpp */,
-				9AA14F44282A28EE00B1621E /* acme_directory.cpp */,
-				9AA14F38282A28EE00B1621E /* acme_file.cpp */,
-				9AA14F2F282A28EE00B1621E /* acme_path.cpp */,
-				9AA14F48282A28EE00B1621E /* application.cpp */,
-				9AA14F3C282A28EE00B1621E /* file.cpp */,
-				9AA14F2C282A28EE00B1621E /* framework.cpp */,
-				9AA14F29282A28EE00B1621E /* image.cpp */,
-				9AA14F26282A28EE00B1621E /* list_serial_ports.cpp */,
-				9AA14F4C282A28EE00B1621E /* main.cpp */,
-				9AA14F32282A28EE00B1621E /* node.cpp */,
-				9AA14F3A282A28EE00B1621E /* process_info.cpp */,
-				9AA14F36282A28EE00B1621E /* process_pid.cpp */,
-				9AA14F27282A28EE00B1621E /* process.cpp */,
-				9AA14F23282A28EE00B1621E /* thread.cpp */,
-				9AA14F33282A28EE00B1621E /* trace.cpp */,
-				9AA14F24282A28EE00B1621E /* util.cpp */,
-				9AA14F41282A28EE00B1621E /* xxx.cpp */,
 				9AA14F4F282A28EE00B1621E /* _.h */,
 				9AA14F20282A28EE00B1621E /* _acme_ios.h */,
 				9AA14F49282A28EE00B1621E /* _c_mm.h */,
+				9AA14F4D282A28EE00B1621E /* _factory.cpp */,
 				9AA14F2A282A28EE00B1621E /* _mm.h */,
+				9AA14F22282A28EE00B1621E /* _no_precompiled_header.cpp */,
 				9AA14F4B282A28EE00B1621E /* aaa_factory_exchange.h */,
+				9AA14F44282A28EE00B1621E /* acme_directory.cpp */,
 				9AA14F47282A28EE00B1621E /* acme_directory.h */,
+				9AA14F38282A28EE00B1621E /* acme_file.cpp */,
 				9AA14F4E282A28EE00B1621E /* acme_file.h */,
+				9AA14F2F282A28EE00B1621E /* acme_path.cpp */,
 				9AA14F3D282A28EE00B1621E /* acme_path.h */,
+				9AA14F48282A28EE00B1621E /* application.cpp */,
 				9AA14F2E282A28EE00B1621E /* application.h */,
+				9AA14F3C282A28EE00B1621E /* file.cpp */,
 				9AA14F30282A28EE00B1621E /* file.h */,
-				9AA14F46282A28EE00B1621E /* framework.h */,
-				9AA14F45282A28EE00B1621E /* mmos.h */,
-				9AA14F37282A28EE00B1621E /* node.h */,
-				9AA14F39282A28EE00B1621E /* process_info.h */,
-				9AA14F3B282A28EE00B1621E /* thread.h */,
-				9AA14F42282A28EE00B1621E /* user.h */,
-				9AA14F35282A28EE00B1621E /* xxx.hpp */,
 				9AA14F2B282A28EE00B1621E /* file.mm */,
+				9AA14F2C282A28EE00B1621E /* framework.cpp */,
+				9AA14F46282A28EE00B1621E /* framework.h */,
+				9AA14F29282A28EE00B1621E /* image.cpp */,
 				9AA14F2D282A28EE00B1621E /* image.mm */,
+				9AA14F26282A28EE00B1621E /* list_serial_ports.cpp */,
+				9AA14F4C282A28EE00B1621E /* main.cpp */,
 				9AA14F25282A28EE00B1621E /* mm.mm */,
+				9AA14F45282A28EE00B1621E /* mmos.h */,
 				9AA14F34282A28EE00B1621E /* mmos.mm */,
+				9AA14F32282A28EE00B1621E /* node.cpp */,
+				9AA14F37282A28EE00B1621E /* node.h */,
+				9AA14F3A282A28EE00B1621E /* process_info.cpp */,
+				9AA14F39282A28EE00B1621E /* process_info.h */,
+				9AA14F36282A28EE00B1621E /* process_pid.cpp */,
+				9AA14F27282A28EE00B1621E /* process.cpp */,
+				9AA14F23282A28EE00B1621E /* thread.cpp */,
+				9AA14F3B282A28EE00B1621E /* thread.h */,
+				9AA14F33282A28EE00B1621E /* trace.cpp */,
+				9AA14F42282A28EE00B1621E /* user.h */,
+				9AA14F24282A28EE00B1621E /* util.cpp */,
+				9AA14F41282A28EE00B1621E /* xxx.cpp */,
+				9AA14F35282A28EE00B1621E /* xxx.hpp */,
 			);
 			name = acme_ios;
 			sourceTree = "<group>";
@@ -266,6 +266,7 @@
 		9A15A5DC264B54CB0080670E /* libacme_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = acme_apple.dylib;
 			path = libacme_apple.dylib;
 			remoteRef = 9A15A5DB264B54CB0080670E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -273,6 +274,7 @@
 		9A8E9EC9282A32E6005FF778 /* libios_acme_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = ios_acme_apple.a;
 			path = libios_acme_apple.a;
 			remoteRef = 9A8E9EC8282A32E6005FF778 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;

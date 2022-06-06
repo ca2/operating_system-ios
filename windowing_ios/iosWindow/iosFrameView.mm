@@ -670,6 +670,15 @@
    
 }
 
+/**
+ UIResponder protocol override.
+ Our view can become first responder to receive user text input.
+ */
+- (BOOL)canBecomeFirstResponder
+{
+    return NO;
+}
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {

@@ -531,6 +531,17 @@ namespace windowing_ios
    }
 
 
+   bool window::ios_window_has_keyboard_focus() const
+   {
+   
+      bool bHasKeyboardFocus = has_keyboard_focus();
+      
+      return bHasKeyboardFocus;
+   
+   }
+
+
+
    void window::window_show()
    {
       

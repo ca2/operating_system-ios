@@ -2,6 +2,7 @@
 // Created by camilo on 19/01/2021. --<33ThomasBS!!
 //
 #include "framework.h"
+#include "acme/user/nano/_nano.h"
 
 
 string macos_get_type_identifier(const char * str);
@@ -29,6 +30,8 @@ namespace acme_ios
    {
 
       m_pAcmePosix = this;
+
+      ::factory::add_factory_item < ::nano_window_implementation >();
 
    }
 

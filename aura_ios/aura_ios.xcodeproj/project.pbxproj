@@ -11,7 +11,6 @@
 		07B657D5190F3CBF002DAADE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B657D3190F3CBF002DAADE /* InfoPlist.strings */; };
 		07B657D7190F3CBF002DAADE /* music_midi_core_audio_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B657D6190F3CBF002DAADE /* music_midi_core_audio_iosTests.m */; };
 		9AA14ECE282A284E00B1621E /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB4282A284D00B1621E /* shell.h */; };
-		9AA14ECF282A284E00B1621E /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EB6282A284D00B1621E /* image.cpp */; };
 		9AA14ED0282A284E00B1621E /* _mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB7282A284D00B1621E /* _mm.h */; };
 		9AA14ED1282A284E00B1621E /* _aura_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA14EB8282A284D00B1621E /* _aura_ios.h */; };
 		9AA14ED3282A284E00B1621E /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EBA282A284D00B1621E /* node.cpp */; };
@@ -89,7 +88,6 @@
 		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA14EB4282A284D00B1621E /* shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
-		9AA14EB6282A284D00B1621E /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
 		9AA14EB7282A284D00B1621E /* _mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
 		9AA14EB8282A284D00B1621E /* _aura_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _aura_ios.h; sourceTree = "<group>"; };
 		9AA14EBA282A284D00B1621E /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			children = (
 				9AA14ECB282A284E00B1621E /* _factory.cpp */,
 				9AA14EC9282A284E00B1621E /* file_image.cpp */,
-				9AA14EB6282A284D00B1621E /* image.cpp */,
 				9AA14EC7282A284E00B1621E /* interaction_impl.cpp */,
 				9AA14EBA282A284D00B1621E /* node.cpp */,
 				9AA14EC8282A284E00B1621E /* shell.cpp */,
@@ -331,6 +328,7 @@
 		9A8E9EC3282A32D1005FF778 /* libios_aura_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = ios_aura_apple.a;
 			path = libios_aura_apple.a;
 			remoteRef = 9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -338,6 +336,7 @@
 		9AA14EAA282A27D400B1621E /* libapex_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = apex_ios.a;
 			path = libapex_ios.a;
 			remoteRef = 9AA14EA9282A27D400B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -345,6 +344,7 @@
 		9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = aura_apple.dylib;
 			path = libaura_apple.dylib;
 			remoteRef = 9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -375,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AA14ECF282A284E00B1621E /* image.cpp in Sources */,
 				9AA14EDB282A284E00B1621E /* file_image.cpp in Sources */,
 				9AA14EDD282A284E00B1621E /* _factory.cpp in Sources */,
 				9AA14ED9282A284E00B1621E /* interaction_impl.cpp in Sources */,

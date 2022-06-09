@@ -12,18 +12,14 @@
 		9A94DE93282C165600F5C1CA /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EF2282A289D00B1621E /* node.cpp */; };
 		9A94DE94282C165600F5C1CA /* shell_launcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EF8282A289D00B1621E /* shell_launcher.cpp */; };
 		9A94DE97282C165600F5C1CA /* file_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F05282A289E00B1621E /* file_system.cpp */; };
-		9A94DE9A282C165600F5C1CA /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EE3282A289D00B1621E /* thread.cpp */; };
 		9A94DE9B282C165600F5C1CA /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EEE282A289D00B1621E /* framework.cpp */; };
 		9A94DE9C282C165600F5C1CA /* interprocess_communication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F0B282A289E00B1621E /* interprocess_communication.cpp */; };
 		9A94DE9D282C165600F5C1CA /* keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F13282A289E00B1621E /* keyboard.cpp */; };
 		9A94DE9E282C165600F5C1CA /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F09282A289E00B1621E /* user.cpp */; };
 		9A94DE9F282C165600F5C1CA /* dir_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F1C282A289E00B1621E /* dir_context.cpp */; };
 		9A94DEA0282C165600F5C1CA /* dir_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EEA282A289D00B1621E /* dir_system.cpp */; };
-		9A94DEA1282C165600F5C1CA /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EE4282A289D00B1621E /* util.cpp */; };
 		9A94DEA2282C165600F5C1CA /* launcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F1E282A289E00B1621E /* launcher.cpp */; };
-		9A94DEA3282C165600F5C1CA /* application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F0E282A289E00B1621E /* application.cpp */; };
 		9A94DEA4282C165600F5C1CA /* os_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F15282A289E00B1621E /* os_context.cpp */; };
-		9A94DEA5282C165600F5C1CA /* trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EF3282A289D00B1621E /* trace.cpp */; };
 		9A94DEA6282C165600F5C1CA /* file_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EFE282A289E00B1621E /* file_context.cpp */; };
 		9A94DF00282C685E00F5C1CA /* watcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A94DEFE282C685E00F5C1CA /* watcher.h */; };
 		9A94DF01282C685E00F5C1CA /* watcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A94DEFF282C685E00F5C1CA /* watcher.cpp */; };
@@ -68,7 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A0C1695264A2AA700B5CC33 /* apex_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = apex_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0C1695264A2AA700B5CC33 /* apex_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; name = apex_ios.a; path = libapex_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A15A5EA264B54EE0080670E /* apex_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_apple.xcodeproj; path = "../../operating-system-apple/apex_apple/apex_apple.xcodeproj"; sourceTree = "<group>"; };
 		9A46D24026784388000B22D0 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A46D24226784388000B22D0 /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +80,6 @@
 		9A94DEFE282C685E00F5C1CA /* watcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = watcher.h; sourceTree = "<group>"; };
 		9A94DEFF282C685E00F5C1CA /* watcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = watcher.cpp; sourceTree = "<group>"; };
 		9AA14EAC282A282000B1621E /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = "<group>"; };
-		9AA14EE3282A289D00B1621E /* thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
-		9AA14EE4282A289D00B1621E /* util.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		9AA14EE5282A289D00B1621E /* app.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = app.mm; sourceTree = "<group>"; };
 		9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSPasteboard++.mm"; sourceTree = "<group>"; };
 		9AA14EE9282A289D00B1621E /* _mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
@@ -97,7 +91,6 @@
 		9AA14EF0282A289D00B1621E /* dir_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dir_context.h; sourceTree = "<group>"; };
 		9AA14EF1282A289D00B1621E /* mm_graphics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = mm_graphics.mm; sourceTree = "<group>"; };
 		9AA14EF2282A289D00B1621E /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
-		9AA14EF3282A289D00B1621E /* trace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = trace.cpp; sourceTree = "<group>"; };
 		9AA14EF4282A289D00B1621E /* shell_macos_mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell_macos_mm.mm; sourceTree = "<group>"; };
 		9AA14EF5282A289D00B1621E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9AA14EF6282A289D00B1621E /* shell_launcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell_launcher.h; sourceTree = "<group>"; };
@@ -116,7 +109,6 @@
 		9AA14F0A282A289E00B1621E /* keyboard_mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = keyboard_mm.mm; sourceTree = "<group>"; };
 		9AA14F0B282A289E00B1621E /* interprocess_communication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interprocess_communication.cpp; sourceTree = "<group>"; };
 		9AA14F0D282A289E00B1621E /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
-		9AA14F0E282A289E00B1621E /* application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = application.cpp; sourceTree = "<group>"; };
 		9AA14F13282A289E00B1621E /* keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard.cpp; sourceTree = "<group>"; };
 		9AA14F15282A289E00B1621E /* os_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = os_context.cpp; sourceTree = "<group>"; };
 		9AA14F16282A289E00B1621E /* file_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_system.h; sourceTree = "<group>"; };
@@ -151,8 +143,8 @@
 		9A15A5EB264B54EE0080670E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A15A5EF264B54EE0080670E /* libapex_apple.dylib */,
-				9A8E9EC6282A32D9005FF778 /* ios_apex_apple.a */,
+				9A15A5EF264B54EE0080670E /* apex_apple.dylib */,
+				9A8E9EC6282A32D9005FF778 /* libios_apex_apple.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,7 +179,7 @@
 		9AA14EAD282A282000B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14EB2282A282000B1621E /* libacme_ios.a */,
+				9AA14EB2282A282000B1621E /* acme_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,7 +189,6 @@
 			children = (
 				9A94DEFD282C685E00F5C1CA /* grand_central_dispatch */,
 				9AA14F17282A289E00B1621E /* _factory.cpp */,
-				9AA14F0E282A289E00B1621E /* application.cpp */,
 				9AA14F1C282A289E00B1621E /* dir_context.cpp */,
 				9AA14EEA282A289D00B1621E /* dir_system.cpp */,
 				9AA14EFE282A289E00B1621E /* file_context.cpp */,
@@ -209,10 +200,7 @@
 				9AA14EF2282A289D00B1621E /* node.cpp */,
 				9AA14F15282A289E00B1621E /* os_context.cpp */,
 				9AA14EF8282A289D00B1621E /* shell_launcher.cpp */,
-				9AA14EE3282A289D00B1621E /* thread.cpp */,
-				9AA14EF3282A289D00B1621E /* trace.cpp */,
 				9AA14F09282A289E00B1621E /* user.cpp */,
-				9AA14EE4282A289D00B1621E /* util.cpp */,
 				9AA14F1D282A289E00B1621E /* _.h */,
 				9AA14F04282A289E00B1621E /* _apex_ios.h */,
 				9AA14EE9282A289D00B1621E /* _mm.h */,
@@ -316,23 +304,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A15A5EF264B54EE0080670E /* libapex_apple.dylib */ = {
+		9A15A5EF264B54EE0080670E /* apex_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = apex_apple.dylib;
 			path = libapex_apple.dylib;
 			remoteRef = 9A15A5EE264B54EE0080670E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8E9EC6282A32D9005FF778 /* ios_apex_apple.a */ = {
+		9A8E9EC6282A32D9005FF778 /* libios_apex_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = ios_apex_apple.a;
+			path = libios_apex_apple.a;
 			remoteRef = 9A8E9EC5282A32D9005FF778 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9AA14EB2282A282000B1621E /* libacme_ios.a */ = {
+		9AA14EB2282A282000B1621E /* acme_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = acme_ios.a;
 			path = libacme_ios.a;
 			remoteRef = 9AA14EB1282A282000B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -344,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A94DE9A282C165600F5C1CA /* thread.cpp in Sources */,
 				9A5948F22847529A002AE2A1 /* file.mm in Sources */,
 				9A94DE9E282C165600F5C1CA /* user.cpp in Sources */,
 				9A94DEA6282C165600F5C1CA /* file_context.cpp in Sources */,
@@ -352,16 +341,13 @@
 				9A94DE7B282C152800F5C1CA /* _factory.cpp in Sources */,
 				9A94DE9F282C165600F5C1CA /* dir_context.cpp in Sources */,
 				9A94DE9C282C165600F5C1CA /* interprocess_communication.cpp in Sources */,
-				9A94DEA1282C165600F5C1CA /* util.cpp in Sources */,
 				9A94DF01282C685E00F5C1CA /* watcher.cpp in Sources */,
 				9A94DEA2282C165600F5C1CA /* launcher.cpp in Sources */,
 				9A94DE93282C165600F5C1CA /* node.cpp in Sources */,
 				9A94DE94282C165600F5C1CA /* shell_launcher.cpp in Sources */,
 				9A94DEA0282C165600F5C1CA /* dir_system.cpp in Sources */,
-				9A94DEA3282C165600F5C1CA /* application.cpp in Sources */,
 				9A94DE97282C165600F5C1CA /* file_system.cpp in Sources */,
 				9A94DE9B282C165600F5C1CA /* framework.cpp in Sources */,
-				9A94DEA5282C165600F5C1CA /* trace.cpp in Sources */,
 				9A94DEA4282C165600F5C1CA /* os_context.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

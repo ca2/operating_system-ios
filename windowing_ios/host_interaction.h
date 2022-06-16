@@ -12,7 +12,7 @@ namespace windowing_ios
 {
 
    class host_interaction :
-      virtual public ::user::interaction
+      virtual public ::sandbox_windowing::host_interaction
    {
    public:
       

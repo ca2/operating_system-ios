@@ -37,6 +37,13 @@ namespace windowing_ios
 
       auto sizeWindow = window_size();
       
+//      if(sizeWindow.is_empty())
+//      {
+//         
+//         return nullptr;
+//         
+//      }
+      
       //LOGI("on_begin_draw");
 
       //if (pimage->size() != sizeWindow)

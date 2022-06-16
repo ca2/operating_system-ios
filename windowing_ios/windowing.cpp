@@ -106,7 +106,7 @@ namespace windowing_ios
          
       }
       
-      __construct_new(m_phostinteraction);
+      __construct(m_phostinteraction);
       
       m_phostinteraction->create_host();
       

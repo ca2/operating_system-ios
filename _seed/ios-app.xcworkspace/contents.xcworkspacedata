@@ -5,15 +5,6 @@
       location = "group:/Users/camilo/solution/basis/source/app/app/_app_app.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/camilo/solution/basis/source/app/just_message_box/_app_just_message_box.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/camilo/solution/basis/source/app/message_box/_app_message_box.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/camilo/solution/basis/source/app/shader/_app_shader.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app/app/_ios_app_app.xcodeproj">
    </FileRef>
    <FileRef

@@ -230,10 +230,8 @@ namespace windowing_ios
 
       pwindowing->m_nsmap[m_pioswindow] = this;
 
-         puserinteraction->layout().window().origin() = ::top_left(rectParam);
+         puserinteraction->place(rectParam);
 
-         puserinteraction->layout().window().size() = ::size_i32(rectParam);
-      
       auto ptask = ::get_task();
       
       __refer(puserinteraction->m_pthreadUserInteraction, ptask);
@@ -273,7 +271,7 @@ namespace windowing_ios
 
       //if(pusersystem->m_createstruct.style & WS_VISIBLE)
       //if(pusersystem->m_.style & WS_VISIBLE)
-      if(puserinteraction->layout().design().is_screen_visible())
+      if(puserinteraction->const_layout().design().is_screen_visible())
       {
 
          puserinteraction->display();
@@ -1999,7 +1997,7 @@ void window::ios_window_text_view_did_begin_editing()
          
       }
       
-      if(puserinteraction->layout().window().is_screen_visible())
+      if(puserinteraction->const_layout().window().is_screen_visible())
       {
 
          puserinteraction->hide();

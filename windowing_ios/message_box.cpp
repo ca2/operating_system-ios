@@ -2,7 +2,9 @@
 // Adapted to ios by camilo on 2022-05-30 09:01 <3ThomasBS!!
 #include "framework.h"
 #include "message_box.h"
-int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, ::function < void (enum_dialog_result) > function);
+
+
+int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam,  unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);
 
 
 CLASS_DECL_ACME class ::system * get_system();
@@ -11,17 +13,20 @@ namespace windowing_ios
 {
 
 
-   void message_box::do_message_box(const ::string& strMessage, const ::string& strTitle, const ::e_message_box& emessagebox)
+   void message_box::do_message_box(const ::string& strMessage, const ::string& strTitle, const ::e_message_box& emessagebox, const ::string & strDetails)
    {
 
 
       m_strMessage = strMessage;
 
       m_strTitle = strTitle;
+      
+      m_strDetails = strDetails;
 
       m_emessagebox = emessagebox;
        
       ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
+                     m_strDetails,
                                      [this](enum_dialog_result eresult)
                                      {
            
@@ -58,7 +63,14 @@ namespace windowing_ios
    }
 
 
-   __pointer(::conversation) node::create_new_message_box_conversation()
+   ::string message_box::get_message_box_details()
+   {
+
+      return m_strDetails;
+
+   }
+
+__pointer(::conversation) node::create_new_message_box_conversation()
    {
 
       return __new(class message_box());

@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "windowing::display::get_monitor_rectangle(long, RECTANGLE_I32*):display.cpp">
+      </ContextState>
+      <ContextState
          contextName = "user::box::initialize(object*):box.cpp">
          <PersistentStrings>
             <PersistentString
                value = "&amp;m_id.m_pszId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction_impl::message_handler(message::message*):interaction_impl.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pmouse">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

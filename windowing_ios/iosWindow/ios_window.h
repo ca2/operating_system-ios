@@ -68,7 +68,7 @@ bool m_bDirty;
    virtual void ios_window_show();
    virtual void ios_window_hide();
    virtual void ios_window_redraw();
-   virtual void ios_window_redraw_sync();
+   //virtual void ios_window_redraw_sync();
    
    virtual void ios_window_get_frame(CGRect * prect);
    

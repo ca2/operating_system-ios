@@ -21,7 +21,7 @@ void ns_set_cursor(void * pNSCursor);
 void * ns_get_cursor();
 
 #define WHEEL_DELTA 120
-
+#define EXTRALOG
 void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
 
 
@@ -159,7 +159,7 @@ namespace windowing_ios
 
       //CGRect rectangle_i32;
 
-      RECTANGLE_I32 rectParam;
+      //RECTANGLE_I32 rectParam;
 
    //      rectParam.left = m_pusersystem->m_createstruct.x;
    //      rectParam.top = pusersystem->m_createstruct.y;
@@ -234,7 +234,7 @@ namespace windowing_ios
 
       pwindowing->m_nsmap[m_pioswindow] = this;
 
-         puserinteraction->place(rectParam);
+         //puserinteraction->place(rectParam);
 
       auto ptask = ::get_task();
       
@@ -749,42 +749,46 @@ namespace windowing_ios
 
    void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam)
    {
+      
+      output_debug_string("ios_window_draw start\n");
 
       ::size_i32 sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
 
       #ifdef EXTRALOG
 
-      static int s_iLastExact = -1;
+      //static int s_iLastExact = -1;
 
       string str;
 
       string strFormat;
 
-      strFormat.Format("|-> window size_i32 %d, %d", sizeWindow.cx, sizeWindow.cy);
+      strFormat.format("|-> window size_i32 %d, %d\n", sizeWindow.cx, sizeWindow.cy);
 
-      string strSize;
-
-      if(sizeLast != sizeWindow)
-      {
-
-         sizeLast = sizeWindow;
-
-         strSize = strFormat;
-
-      }
-
-      str += strFormat;
-
-      rectangle_i32 rect1 = puserinteraction->get_window_rect();
-
-      if(rect1.size() != rectLast.size())
-      {
-
-         rectLast = rect1;
-
-         // xxxlog output_debug_string("different window rectangle_i32 size_i32 (1)");
-
-      }
+      printf("%s", strFormat.c_str());
+      
+//      string strSize;
+//
+//      if(sizeLast != sizeWindow)
+//      {
+//
+//         sizeLast = sizeWindow;
+//
+//         strSize = strFormat;
+//
+//      }
+//
+//      str += strFormat;
+//
+//      rectangle_i32 rect1 = puserinteraction->get_window_rect();
+//
+//      if(rect1.size() != rectLast.size())
+//      {
+//
+//         rectLast = rect1;
+//
+//         // xxxlog output_debug_string("different window rectangle_i32 size_i32 (1)");
+//
+//      }
 
    #endif
 
@@ -823,7 +827,7 @@ namespace windowing_ios
          return;
 
       }
-         
+      
       auto g = __create < ::draw2d::graphics >();
 
       g->attach(cgc);
@@ -851,55 +855,83 @@ namespace windowing_ios
 
    #ifdef EXTRALOG
 
-      if(strSize.has_char())
+//      if(strSize.has_char())
+//      {
+//
+//         s_iLastExact = -1;
+//
+//      }
+//
+//      if(s_iLastExact > 0)
+//      {
+//
+//
+//         if(s_iLastExact % 10 == 0)
+//         {
+//
+//            str = "\n.";
+//
+//         }
+//         else
+//         {
+//
+//            str = ".";
+//
+//         }
+//
+//         strFormat.Format("%d", iAge);
+//
+//         str += strFormat;
+//
+//         output_debug_string(str);
+//         
+//      }
+//      else
+//      {
+//
+//         INFO(str);
+//
+//      }
+//
+   #endif
+
+      ::size_i32 sizeMin = imageBuffer2->size().minimum(sizeWindow);
+      
+      if(::is_ok(imageBuffer2))
       {
-
-         s_iLastExact = -1;
-
-      }
-
-      if(s_iLastExact > 0)
-      {
-
-
-         if(s_iLastExact % 10 == 0)
-         {
-
-            str = "\n.";
-
-         }
-         else
-         {
-
-            str = ".";
-
-         }
          
-         strFormat.Format("%d", iAge);
-
-         str += strFormat;
-         
-         output_debug_string(str);
+         output_debug_string("imageBuffer2 ok size : " + __string(imageBuffer2->size()) + "\n");
          
       }
       else
       {
-         
-         INFO(str);
+
+         output_debug_string("imageBuffer2 nok\n");
          
       }
-      
-   #endif
-
-      ::size_i32 sizeMin = imageBuffer2->size().minimum(sizeWindow);
       
       image_source imagesource(imageBuffer2);
       
       image_drawing_options imagedrawingoptions(sizeMin);
       
+      if(sizeMin.is_empty())
+      {
+         
+         output_debug_string("sizeMin is empty\n");
+         
+      }
+      else
+      {
+
+         output_debug_string("sizeMin is " + __string(sizeMin) + "\n");
+         
+      }
+
       image_drawing imagedrawing(imagedrawingoptions, imagesource);
 
       g->draw(imagedrawing);
+      
+      output_debug_string("ios_window_draw end\n");
       
       m_puserinteractionimpl->m_bPendingRedraw = false;
       
@@ -1410,21 +1442,43 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //
 //      }
       
-      {
-
-         ::atom id = e_message_size;
-         
-         wparam wparam = 0;
-         
-         lparam lparam = __MAKE_LPARAM(cx, cy);
+//      {
+//
+//         ::atom id = e_message_move;
+//
+//         wparam wparam = 0;
+//
+//         lparam lparam = __MAKE_LPARAM(0, 0);
+//
+//         auto pmove  = __create_new < ::message::move > ();
+//
+//         pmove->set(this, this, id, wparam, lparam);
+//
+//         post_message(pmove);
+//
+//      }
+//
+//      {
+//
+//         ::atom id = e_message_size;
+//
+//         wparam wparam = 0;
+//
+//         lparam lparam = __MAKE_LPARAM(cx, cy);
+//
+//         auto psize  = __create_new < ::message::size > ();
+//
+//         psize->set(this, this, id, wparam, lparam);
+//
+//         post_message(psize);
+//
+//      }
       
-         auto psize  = __create_new < ::message::size > ();
+      m_puserinteractionimpl->m_puserinteraction->place(::rectangle_i32_dimension(0, 0, cx, cy));
+                                                        
+      m_puserinteractionimpl->m_puserinteraction->set_need_redraw();
       
-         psize->set(this, this, id, wparam, lparam);
-
-         post_message(psize);
-         
-      }
+      m_puserinteractionimpl->m_puserinteraction->post_redraw();
 
       //return;
 

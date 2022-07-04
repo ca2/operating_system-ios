@@ -70,29 +70,42 @@ void ios_window::ios_window_show()
 void ios_window::ios_window_redraw()
 {
    
+//   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,
+//                                           (int64_t)(0.050 * NSEC_PER_SEC));
+//   dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+//      //[m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
+//      [m_pioswindow setNeedsDisplay];
+//   });
    ns_main_async(^{
+
       
+//      [CATransaction begin];
+//      [m_pioswindow->m_controller->m_iosframeview.layer displayIfNeeded];
+//      [CATransaction flush];
+//      [CATransaction commit];
+
       [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
-      
-      [m_pioswindow setNeedsDisplay];
-      
+
+      printf("%s", "Called iosframe setNeedsDisplay\n");
+      //[m_pioswindow setNeedsDisplay];
+
    });
    
 }
 
 
-void ios_window::ios_window_redraw_sync()
-{
-   
-   ns_main_async(^{
-      
-      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
-
-      [m_pioswindow setNeedsDisplay];
-      
-   });
-   
-}
+//void ios_window::ios_window_redraw_sync()
+//{
+//
+//   ns_main_async(^{
+//
+//      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
+//
+//      [m_pioswindow setNeedsDisplay];
+//
+//   });
+//
+//}
 
 
 void ios_window::ios_window_invalidate()

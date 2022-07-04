@@ -110,11 +110,11 @@ namespace windowing_ios
       
       m_phostinteraction->display();
       
-      m_phostinteraction->set_need_layout();
-      
-      m_phostinteraction->set_need_redraw();
-      
-      m_phostinteraction->post_redraw();
+//      m_phostinteraction->set_need_layout();
+//      
+//      m_phostinteraction->set_need_redraw();
+//      
+//      m_phostinteraction->post_redraw();
       
       m_pwindowApplicationHost = m_phostinteraction->window();
 

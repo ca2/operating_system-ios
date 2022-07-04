@@ -24,9 +24,7 @@ namespace windowing_ios
    windowing::windowing()
    {
       
-      m_pWindowing2 = this;
-      
-      //m_pwindowCapture = nullptr;
+      m_pWindowing4 = this;
       
    }
 
@@ -325,14 +323,6 @@ namespace windowing_ios
 //      return nullptr;
 //
 //   }
-
-
-   void windowing::get_cursor_position(POINT_I32 * ppoint)
-   {
-      
-      //macos_get_cursor_position(ppoint);
-      
-   }
 
 
    void windowing::_defer_dock_application(int_bool bDock)

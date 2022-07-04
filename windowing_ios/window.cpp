@@ -32,7 +32,7 @@ namespace windowing_ios
    window::window()
    {
       
-      m_pWindow2 = this;
+      m_pWindow4 = this;
       m_pmacoswindowing = nullptr;
       m_pNSCursorLast = nullptr;
       m_pwindowCapture = nullptr;
@@ -203,15 +203,12 @@ namespace windowing_ios
          //the origin of screen is at bottom.
 
       m_puserinteractionimpl = pimpl;
-
-      install_message_routing(puserinteraction);
-
-
+      
       auto psession = m_pcontext->m_paurasession;
 
       auto puser = psession->user();
 
-      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing2;
+      auto pwindowing = (::windowing_ios::windowing *) puser->windowing1()->m_pWindowing4;
 
       m_pmacoswindowing = pwindowing->cast < class windowing >();
 
@@ -220,8 +217,15 @@ namespace windowing_ios
       pimpl->m_pwindowing = pwindowing;
       
       pimpl->m_pwindow = this;
-
+      
+      pimpl->m_puserinteraction->m_pwindow = this;
+      
       set_oswindow(this);
+
+      
+      install_message_routing(puserinteraction);
+
+
 
          auto pNSWindow = new_ios_window(this, cgrect, uStyle);
 
@@ -428,7 +432,7 @@ namespace windowing_ios
 
       //ios_window_make_key_window_and_order_front();
       
-      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing2;
+      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing4;
       
       pwindowing->m_pwindowActive = this;
 
@@ -440,7 +444,7 @@ namespace windowing_ios
    void window::set_tool_window(bool bSet)
    {
       
-      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing2;
+      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing4;
       
       pwindowing->_defer_dock_application(!bSet);
 
@@ -2191,6 +2195,14 @@ void window::ios_window_text_view_did_begin_editing()
 
       return true;
 
+   }
+
+
+   void window::get_cursor_position(POINT_I32 * ppoint)
+   {
+   
+      //macos_get_cursor_position(ppoint);
+   
    }
 
 

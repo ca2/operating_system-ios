@@ -378,8 +378,8 @@
             filePath = "../windowing_ios/window.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "761"
-            endingLineNumber = "761"
+            startingLineNumber = "765"
+            endingLineNumber = "765"
             landmarkName = "window::ios_window_draw(cgc, sizeWindowParam)"
             landmarkType = "7">
          </BreakpointContent>
@@ -524,7 +524,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11289"
             endingLineNumber = "11289"
-            landmarkName = "interaction::sketch_to_design(pgraphics, bUpdateBuffer, bUpdateWindow)"
+            landmarkName = "interaction::sketch_to_design(bUpdateBuffer, bUpdateWindow)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -540,7 +540,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2915"
             endingLineNumber = "2915"
-            landmarkName = "interaction::on_message_size(pmessage)"
+            landmarkName = "interaction::user_interaction_on_destroy()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -670,6 +670,22 @@
             endingLineNumber = "100"
             landmarkName = "ui_MessageBoxA(pszMessageParam, pszHeaderParam, uType, function)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B18D767-D880-4787-9AC8-2FB45B39F782"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/message_box/main_window.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "main_window::on_layout(pgraphics)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

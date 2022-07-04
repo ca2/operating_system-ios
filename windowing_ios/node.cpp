@@ -140,7 +140,7 @@ namespace windowing_ios
       
       auto puser = psession->m_puser;
       
-      auto pwindowing = puser->windowing();
+      auto pwindowing = puser->windowing1();
       
       pwindowing->defer_initialize_host_window(nullptr);
       

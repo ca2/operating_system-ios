@@ -745,7 +745,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::assert_ok() const
    {
       
-      if (get_oswindow() == nullptr)
+      if (oswindow() == nullptr)
       {
          
          return; // null (unattached) windows are valid

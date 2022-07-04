@@ -126,6 +126,7 @@ namespace windowing_ios
       //void ios_window_deiconified() override;
 
 
+      void get_cursor_position(POINT_I32 * ppoint) override;
 
 
 

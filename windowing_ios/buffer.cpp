@@ -162,7 +162,7 @@ namespace windowing_ios
 //
 //      pdriver->m_bRedraw = true;
       
-      auto pwindow = (::windowing_ios::window *) m_pimpl->m_puserinteraction->window()->m_pWindow2;
+      auto pwindow = (::windowing_ios::window *) m_pimpl->m_puserinteraction->window()->m_pWindow4;
       
       pwindow->ios_window_redraw();
 

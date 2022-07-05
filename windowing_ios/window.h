@@ -49,6 +49,7 @@ namespace windowing_ios
       
       class windowing * windowing();
       
+      double get_top_margin() override;
       
       DECLARE_MESSAGE_HANDLER(on_message_create);
       DECLARE_MESSAGE_HANDLER(on_message_destroy);
@@ -88,8 +89,8 @@ namespace windowing_ios
       void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) override;
       void ios_window_mouse_down(int iGesture, double x, double y) override;
       void ios_window_mouse_up(int iGesture, double x, double y) override;
-      void ios_window_mouse_moved(double x, double y, int iGesture) override;
-      void ios_window_mouse_dragged(double x, double y, int iGesture) override;
+      void ios_window_mouse_moved(int iGesture, double x, double y) override;
+      void ios_window_mouse_dragged(int iGesture, double x, double y) override;
       //void ios_window_mouse_wheel(double deltaY, double x, double y) override;
       //void ios_window_double_click(int iButton, double x, double y) override;
       //bool ios_window_key_down(unsigned int vk, unsigned int scan, const char * pszUtf8) override;

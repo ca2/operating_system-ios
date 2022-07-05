@@ -20,9 +20,12 @@ void ns_main_async(dispatch_block_t block);
 void ns_set_cursor(void * pNSCursor);
 void * ns_get_cursor();
 
+double get_status_bar_frame_height();
+
 #define WHEEL_DELTA 120
 #define EXTRALOG
 void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
+
 
 
 namespace windowing_ios
@@ -309,6 +312,17 @@ namespace windowing_ios
       return pwindowingHere;
       
    }
+
+
+   double window::get_top_margin()
+   {
+      
+      return _get_status_bar_frame_height();
+      
+   }
+
+
+
 
 
    //// for child windows
@@ -1240,7 +1254,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //   }
 //
 
-   void window::ios_window_mouse_moved(double x, double y, int iGesture)
+   void window::ios_window_mouse_moved(int iGesture, double x, double y)
    {
       
 //      if(is_destroying())
@@ -1371,7 +1385,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   void window::ios_window_mouse_dragged(double x, double y, int iGesture)
+   void window::ios_window_mouse_dragged(int iGesture, double x, double y)
    {
       
       ::atom id = e_message_mouse_move;
@@ -2399,6 +2413,7 @@ void window::ios_window_text_view_did_begin_editing()
       //return ::success;
 
    }
+
 
 
 } // namespace windowing_ios

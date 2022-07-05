@@ -7,6 +7,9 @@
 #include "framework.h"
 
 
+double get_status_bar_frame_height();
+
+
 int ns_monitor_count()
 {
    
@@ -57,6 +60,9 @@ void ns_workspace_cgrect(int i, CGRect * prect)
    auto pscreen = [screenArray objectAtIndex:i];
    
    *prect = [pscreen bounds];
+   
+   prect->size.height -= get_status_bar_frame_height();
+   
    
    ns_screen_translate(prect);
    

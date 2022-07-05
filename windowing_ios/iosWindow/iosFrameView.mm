@@ -825,7 +825,7 @@
    
    CGContextSaveGState(context);
    
-   [[UIColor whiteColor] set];
+   [ [ UIColor whiteColor ] set];
    
 //   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
 //   
@@ -1124,5 +1124,14 @@
    return ::user::e_key_none;
    
 }
+
+
+double get_status_bar_frame_height()
+{
+
+   return [UIApplication sharedApplication].statusBarFrame.size.height;
+   
+}
+
 
 

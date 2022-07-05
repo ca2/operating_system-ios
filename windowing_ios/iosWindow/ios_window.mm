@@ -9,6 +9,9 @@
 #import "iosWindow/iosWindowApp.h"
 
 
+void ns_workspace_cgrect(int i, CGRect * prect);
+
+
 //#import "acme/operating_system/apple/DDInvocationGrabber.h"
 //#import "acme/operating_system/apple/NSObject+DDExtensions.h"
 
@@ -40,8 +43,13 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle
        
       pwindow->m_pioswindow->m_pwindow = pwindow;
       
+      //CGRect rectWorkspace;
+      
+      //ns_workspace_cgrect(0, &rectWorkspace);
+      
       auto bounds = [[UIScreen mainScreen] bounds];
       
+      //if([pwindow->m_pioswindow initWithFrame: rectWorkspace ] )
       if([pwindow->m_pioswindow initWithFrame: bounds ] )
       {
       
@@ -383,3 +391,15 @@ void ios_window::ios_window_get_frame(CGRect * prect)
    });
    
 }
+
+
+double ios_window::_get_status_bar_frame_height()
+{
+ 
+   return m_dStatusBarFrameHeight;
+   
+}
+
+
+
+

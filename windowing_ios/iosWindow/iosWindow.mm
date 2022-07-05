@@ -15,6 +15,12 @@
 #import "iosWindowApp.h"
 
 
+void ns_workspace_cgrect(int i, CGRect * p);
+
+
+double get_status_bar_frame_height();
+
+
 @implementation iosWindow
 
 
@@ -54,6 +60,8 @@
    rect.origin.x = 0;
    rect.origin.y = 0;
    rect.size = contentRect.size;
+   
+   m_pwindow->m_dStatusBarFrameHeight = get_status_bar_frame_height();
    
    m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
    

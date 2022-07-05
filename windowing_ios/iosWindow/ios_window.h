@@ -34,12 +34,13 @@ bool m_bDirty;
    ui_window_ptr m_puiwindow;
   
    bool m_bCanBecomeFirstResponder;
+   double m_dStatusBarFrameHeight;
   
    virtual void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) = 0;
    virtual void ios_window_mouse_down(int iGesture, double x, double y) = 0;
    virtual void ios_window_mouse_up(int iGesture, double x, double y) = 0;
-   virtual void ios_window_mouse_moved(double x, double y, int iGesture) = 0;
-   virtual void ios_window_mouse_dragged(double x, double y, int iGesture) = 0;
+   virtual void ios_window_mouse_moved(int iGesture, double x, double y) = 0;
+   virtual void ios_window_mouse_dragged(int iGesture, double x, double y) = 0;
    virtual bool ios_window_key_down(::user::enum_key ekey) = 0;
    virtual bool ios_window_key_up(::user::enum_key ekey) = 0;
    virtual bool ios_window_on_text(const char * pszText, long iSel, long iEnd) = 0;
@@ -63,6 +64,9 @@ bool m_bDirty;
    
    virtual bool ios_window_become_first_responder() = 0;
    virtual void ios_window_text_view_did_begin_editing() = 0;
+   
+   double _get_status_bar_frame_height();
+
    
    virtual void ios_window_invalidate();
    virtual void ios_window_show();
@@ -92,6 +96,9 @@ bool m_bDirty;
    
 
    virtual void ios_window_destroy();
+   
+   
+   
    
    
 };

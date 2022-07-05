@@ -11,6 +11,9 @@
 #import "iosTextView.h"
 #import "iosTextPosition.h"
 
+
+double get_status_bar_frame_height();
+
 @interface iosViewController ()
 
 @end
@@ -133,6 +136,8 @@
       rect.size = size;
       
       m_iosframeview.frame = rect;
+      
+      m_ioswindow->m_pwindow->m_dStatusBarFrameHeight = get_status_bar_frame_height();
       
       m_ioswindow->m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
       

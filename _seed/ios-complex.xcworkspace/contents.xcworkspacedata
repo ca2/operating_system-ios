@@ -2,24 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-simple/application/_app_simple_application.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-simple/drawing/_app_simple_drawing.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-simple/application/_ios_app_simple_application.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-complex/drawing/_app_complex_drawing.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/app-complex/form/_app_complex_form.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app-complex/drawing/_ios_app_complex_drawing.xcodeproj">
    </FileRef>
    <FileRef

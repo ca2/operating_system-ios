@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9A750E53282B5F9100C4861B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E65282A26B000B1621E /* window.cpp */; };
 		9A750E84282B601000C4861B /* windowing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EA0282A26B000B1621E /* windowing.cpp */; };
-		9A750EBC282B668500C4861B /* iosTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750E9E282B668400C4861B /* iosTextView.h */; };
 		9A750EC0282B668500C4861B /* iosFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA2282B668500C4861B /* iosFrameView.h */; };
 		9A750EC1282B668500C4861B /* iosEditView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA3282B668500C4861B /* iosEditView.h */; };
 		9A750EC3282B668500C4861B /* iosWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EA5282B668500C4861B /* iosWindow.mm */; };
@@ -24,7 +23,6 @@
 		9A750ECF282B668500C4861B /* ios_window.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EB1282B668500C4861B /* ios_window.h */; };
 		9A750ED1282B668500C4861B /* iosEditView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB3282B668500C4861B /* iosEditView.mm */; };
 		9A750ED2282B668500C4861B /* iosWindowApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB4282B668500C4861B /* iosWindowApp.mm */; };
-		9A750ED3282B668500C4861B /* iosTextView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB5282B668500C4861B /* iosTextView.mm */; };
 		9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB7282B668500C4861B /* iosFrameView.mm */; };
 		9A750ED7282B668500C4861B /* iosTextRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EB9282B668500C4861B /* iosTextRange.h */; };
 		9A89A570282C8D1A0014794A /* host_interaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A89A56E282C8D1A0014794A /* host_interaction.cpp */; };
@@ -88,7 +86,7 @@
 		9A5D73AA265701F400D5C39E /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D73B226570CAE00D5C39E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9A62EBFF26F04B7B00EA958E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
-		9A750E9E282B668400C4861B /* iosTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosTextView.h; sourceTree = "<group>"; };
+		9A750E9E282B668400C4861B /* aaa_iosTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosTextView.h; sourceTree = "<group>"; };
 		9A750EA2282B668500C4861B /* iosFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosFrameView.h; sourceTree = "<group>"; };
 		9A750EA3282B668500C4861B /* iosEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosEditView.h; sourceTree = "<group>"; };
 		9A750EA5282B668500C4861B /* iosWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosWindow.mm; sourceTree = "<group>"; };
@@ -103,7 +101,7 @@
 		9A750EB1282B668500C4861B /* ios_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_window.h; sourceTree = "<group>"; };
 		9A750EB3282B668500C4861B /* iosEditView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosEditView.mm; sourceTree = "<group>"; };
 		9A750EB4282B668500C4861B /* iosWindowApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosWindowApp.mm; sourceTree = "<group>"; };
-		9A750EB5282B668500C4861B /* iosTextView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosTextView.mm; sourceTree = "<group>"; };
+		9A750EB5282B668500C4861B /* aaa_iosTextView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosTextView.mm; sourceTree = "<group>"; };
 		9A750EB7282B668500C4861B /* iosFrameView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosFrameView.mm; sourceTree = "<group>"; };
 		9A750EB9282B668500C4861B /* iosTextRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosTextRange.h; sourceTree = "<group>"; };
 		9A89A56E282C8D1A0014794A /* host_interaction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = host_interaction.cpp; sourceTree = "<group>"; };
@@ -202,8 +200,8 @@
 				9A750EA7282B668500C4861B /* iosTextPosition.mm */,
 				9A750EB9282B668500C4861B /* iosTextRange.h */,
 				9A750EAA282B668500C4861B /* iosTextRange.mm */,
-				9A750E9E282B668400C4861B /* iosTextView.h */,
-				9A750EB5282B668500C4861B /* iosTextView.mm */,
+				9A750E9E282B668400C4861B /* aaa_iosTextView.h */,
+				9A750EB5282B668500C4861B /* aaa_iosTextView.mm */,
 				9A750EA6282B668500C4861B /* iosViewController.h */,
 				9A750EAE282B668500C4861B /* iosViewController.mm */,
 				9A750EA9282B668500C4861B /* iosWindow.h */,
@@ -289,7 +287,6 @@
 				9A89A575282CA2E90014794A /* buffer.h in Headers */,
 				9A750EC1282B668500C4861B /* iosEditView.h in Headers */,
 				9A9B9B3628483ED0005CA950 /* text_editor_interface.h in Headers */,
-				9A750EBC282B668500C4861B /* iosTextView.h in Headers */,
 				9A750EC9282B668500C4861B /* iosTextPosition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,7 +393,6 @@
 				9A750ECD282B668500C4861B /* ios_window.mm in Sources */,
 				9A94DEB8282C3FE000F5C1CA /* node.cpp in Sources */,
 				9A94DEBA282C3FE000F5C1CA /* windowing_ios.cpp in Sources */,
-				9A750ED3282B668500C4861B /* iosTextView.mm in Sources */,
 				9A750ED1282B668500C4861B /* iosEditView.mm in Sources */,
 				9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */,
 			);

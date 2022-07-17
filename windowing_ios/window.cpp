@@ -23,7 +23,7 @@ void * ns_get_cursor();
 double get_status_bar_frame_height();
 
 #define WHEEL_DELTA 120
-#define EXTRALOG
+//#define EXTRALOG
 void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
 
 
@@ -764,7 +764,11 @@ namespace windowing_ios
    void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam)
    {
       
+#ifdef EXTRALOG
+
       output_debug_string("ios_window_draw start\n");
+      
+#endif
 
       ::size_i32 sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
 
@@ -914,7 +918,7 @@ namespace windowing_ios
       if(::is_ok(imageBuffer2))
       {
          
-         output_debug_string("imageBuffer2 ok size : " + __string(imageBuffer2->size()) + "\n");
+         //output_debug_string("imageBuffer2 ok size : " + __string(imageBuffer2->size()) + "\n");
          
       }
       else
@@ -937,7 +941,7 @@ namespace windowing_ios
       else
       {
 
-         output_debug_string("sizeMin is " + __string(sizeMin) + "\n");
+         //output_debug_string("sizeMin is " + __string(sizeMin) + "\n");
          
       }
 
@@ -945,7 +949,7 @@ namespace windowing_ios
 
       g->draw(imagedrawing);
       
-      output_debug_string("ios_window_draw end\n");
+      //output_debug_string("ios_window_draw end\n");
       
       m_puserinteractionimpl->m_bPendingRedraw = false;
       
@@ -1095,8 +1099,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          
          pinteraction->_001SetText(pszText, ::e_source_user);
 
-         pinteraction->_001SetSel(iSel, iEnd);
-         
+         pinteraction->_001SetSel(iSel, iEnd, ::e_source_user);
          
       }
       
@@ -1113,12 +1116,31 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   long window::ios_window_edit_hit_test(int x, int y)
-   {
-      
-      return -1;
-      
-   }
+//   long window::ios_window_edit_hit_test(int x, int y)
+//   {
+//
+////      auto pinteraction = m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+////
+////      if(pinteraction)
+////      {
+////
+////         __pointer(::user::plain_edit) pedit = pinteraction;
+////
+////         if(pedit)
+////         {
+////
+////            pedit->hit_te
+////         pinteraction->_001SetText(pszText, ::e_source_user);
+////
+////         pinteraction->_001SetSel(iSel, iEnd, ::e_source_user);
+////
+////         }
+////
+////      }
+//
+//      return -1;
+//
+//   }
 
 
    bool window::ios_window_edit_caret_rect(CGRect * prectangle, long iSel)

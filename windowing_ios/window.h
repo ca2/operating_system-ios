@@ -103,7 +103,7 @@ namespace windowing_ios
       bool ios_window_on_sel_text(long iBeg, long iEnd) override;
 
       
-      long ios_window_edit_hit_test(int x, int y) override;
+      //long ios_window_edit_hit_test(int x, int y) override;
       bool ios_window_edit_caret_rect(CGRect * prectangle, long iSel) override;
 
       

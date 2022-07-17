@@ -71,25 +71,29 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 @public
    
    
-   iosWindow           * m_ioswindow;
-
+   iosWindow *          m_ioswindow;
+   //bool                 m_bEditing;
+   NSString *           m_strContentText;
+   NSRange              m_rangeMarked; // Marked text range (for input method marked text).
+   NSRange              m_rangeSelected; // Selected text range.
+   UIFont *             m_font;
+   
    
 }
 
-@property (nonatomic, copy) NSString *contentText; // The text content (without attributes).
-@property (nonatomic, strong) UIFont *font; // Font used for text content.
-@property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).
-@property (nonatomic) NSRange rangeMarked; // Marked text range (for input method marked text).
-@property (nonatomic) NSRange rangeSelected; // Selected text range.
+//@property (nonatomic, copy) NSString *contentText; // The text content (without attributes).
+//@property (nonatomic, strong) UIFont *font; // Font used for text content.
+//@property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).
 
 - (CGRect)caretRectForIndex:(int)index;
 - (CGRect)firstRectForRange:(NSRange)range;
-- (NSInteger)closestIndexToPoint:(CGPoint)point_i32;
+///- (NSInteger)closestIndexToPoint:(CGPoint)point;
 
 + (UIColor *)caretColor;
 
 - (void) on_text_composed;
-
+- (void) setContentText: (NSString *) text;
+- (NSString *) getContentText;
 
 @property (nonatomic, weak) id <iosEditTextDelegate> editableCoreTextViewDelegate;
 //@property (nonatomic) iosTextView *textView;

@@ -94,7 +94,7 @@ void ios_window::ios_window_redraw()
 
       [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 
-      printf("%s", "Called iosframe setNeedsDisplay\n");
+      //printf("%s", "Called iosframe setNeedsDisplay\n");
       //[m_pioswindow setNeedsDisplay];
 
    });
@@ -201,34 +201,31 @@ void ios_window::ios_window_get_title(char * pszTitle, long iSize)
 void ios_window::ios_window_set_sel(long iBeg, long iEnd)
 {
    
-   // UITextView --> UIView
-//   UITextView * pimpact = m_pioswindow->m_controller->childContentView;
-//
-//   UITextPosition * beg = [pimpact beginningOfDocument];
-//
-//   UITextPosition * selbeg = [pimpact endOfDocument];
-//
-//   UITextPosition * selend = selbeg;
-//
-//   long iLen = (long) strlen([[pimpact text] UTF8String]);
-//
-//   if(iBeg >= 0 && iBeg < iLen)
-//   {
-//
-//      selbeg = [pimpact positionFromPosition: beg offset: iBeg];
-//
-//   }
-//
-//   if(iEnd >= 0 && iEnd < iLen)
-//   {
-//
-//      selend = [pimpact positionFromPosition: beg offset: iEnd];
-//
-//   }
-//
-//   UITextRange * sel = [pimpact textRangeFromPosition: selbeg toPosition: selend];
-//
-//   [pimpact setSelectedTextRange: sel];
+   auto ioseditview = m_pioswindow->m_controller->m_ioseditview;
+
+   UITextPosition * beg = [ ioseditview beginningOfDocument ];
+
+   UITextPosition * selbeg = beg;
+
+   UITextPosition * selend = beg;
+
+   if(iBeg >= 0)
+   {
+
+      selbeg = [ ioseditview positionFromPosition: beg offset: iBeg ];
+
+   }
+
+   if(iEnd >= 0)
+   {
+
+      selend = [ ioseditview positionFromPosition: beg offset: iEnd ];
+
+   }
+
+   UITextRange * sel = [ ioseditview textRangeFromPosition: selbeg toPosition: selend ];
+
+   [ ioseditview setSelectedTextRange: sel];
    
 }
 
@@ -237,17 +234,17 @@ void ios_window::ios_window_get_sel(long & iBeg, long & iEnd)
 {
    
    // UITextView --> UIView
-//   UITextView * pimpact = m_pioswindow->m_controller->childContentView;
-//
-//   UITextPosition * beg = [pimpact beginningOfDocument];
-//
-//   UITextPosition * selbeg = [[pimpact selectedTextRange] start];
-//
-//   UITextPosition * selend = [[pimpact selectedTextRange] start];
-//
-//   iBeg = [pimpact offsetFromPosition: beg toPosition: selbeg];
-//
-//   iEnd = [pimpact offsetFromPosition: beg toPosition: selend];
+   auto ioseditview = m_pioswindow->m_controller->m_ioseditview;
+
+   UITextPosition * beg = [ioseditview beginningOfDocument];
+
+   UITextPosition * selbeg = [[ioseditview selectedTextRange] start];
+
+   UITextPosition * selend = [[ioseditview selectedTextRange] start];
+
+   iBeg = [ioseditview offsetFromPosition: beg toPosition: selbeg];
+
+   iEnd = [ioseditview offsetFromPosition: beg toPosition: selend];
    
 }
 
@@ -255,18 +252,28 @@ void ios_window::ios_window_get_sel(long & iBeg, long & iEnd)
 void ios_window::ios_window_set_text(const char * pszText)
 {
    
-   //NSString * text = [[NSString alloc] initWithUTF8String:pszText];
+   NSString * text = [ [ NSString alloc] initWithUTF8String: pszText];
    
-   // UITextView --> UIView
-   //[m_pioswindow->m_controller->childContentView setText: text];
+   [m_pioswindow->m_controller->m_ioseditview setContentText: text];
    
 }
 
 void ios_window::ios_window_get_text(char * pszText, long iSize)
 {
    
-   // UITextView --> UIView
-//   strncpy(pszText, [[m_pioswindow->m_controller->childContentView text] UTF8String], iSize);
+   
+   if(!m_pioswindow ||
+      !m_pioswindow->m_controller ||
+      !m_pioswindow->m_controller->m_ioseditview)
+   {
+      
+      return;
+      
+   }
+   
+   NSString * str = [ m_pioswindow->m_controller->m_ioseditview getContentText ];
+
+   strncpy(pszText, [ str UTF8String], iSize);
    
 }
 
@@ -274,9 +281,18 @@ void ios_window::ios_window_get_text(char * pszText, long iSize)
 long ios_window::ios_window_get_text_length()
 {
    
-//   return strlen([[m_pioswindow->m_controller->childContentView text] UTF8String]);
+   if(!m_pioswindow ||
+      !m_pioswindow->m_controller ||
+      !m_pioswindow->m_controller->m_ioseditview)
+   {
+      
+      return 0;
+      
+   }
    
-   return 0;
+   NSString * str = [ m_pioswindow->m_controller->m_ioseditview getContentText ];
+
+   return strlen([ str UTF8String ]);
    
 }
 
@@ -291,6 +307,16 @@ void ios_window::ios_window_edit_on_set_focus(int l, int t, int r, int b, const 
    rect.size.width = r - l;
    rect.size.height = b - t;
  
+//#define SHENNANIGAN
+//   
+//#ifdef SHENNANIGAN
+//   if(rect.size.height > 50)
+//   {
+//      rect.size.height = 50;
+//      
+//   }
+//#endif
+
 
    NSString * strText = [ NSString stringWithUTF8String: pszText ];
 

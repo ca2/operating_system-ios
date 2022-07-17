@@ -55,7 +55,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
 #import "iosTextPosition.h"
 #import "iosTextRange.h"
-#import "iosTextView.h"
+//#import "iosTextView.h"
 
 
 // We use a tap gesture recognizer to allow the user to tap to invoke text edit mode.
@@ -102,24 +102,19 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     self.userInteractionEnabled = YES;
     self.autoresizesSubviews = YES;
    
+   //m_bEditing = true;
    
-   
-  if (self)
-   {
+   m_strContentText = @"";
+   // _caretView = [[iosCaretView alloc] initWithFrame:CGRectZero];
+   self.layer.geometryFlipped = YES;  // For ease of interaction with the CoreText coordinate system.
+   m_font = [UIFont systemFontOfSize:18];
+   self.backgroundColor = [UIColor clearColor];
+   self.contentMode = UIViewContentModeRedraw;
+   m_rangeMarked = NSMakeRange(NSNotFound, NSNotFound);
+   m_rangeSelected = NSMakeRange(NSNotFound, NSNotFound);
       
-      _contentText = @"";
-//       _caretView = [[iosCaretView alloc] initWithFrame:CGRectZero];
-      self.layer.geometryFlipped = YES;  // For ease of interaction with the CoreText coordinate system.
-      self.font = [UIFont systemFontOfSize:18];
-      self.backgroundColor = [UIColor clearColor];
-      self.contentMode = UIViewContentModeRedraw;
-      self.rangeMarked = NSMakeRange(NSNotFound, NSNotFound);
-      self.rangeSelected = NSMakeRange(NSNotFound, NSNotFound);
-      
-   }
+//}
   
-
-
 //    // Create and set up the iosTextView that will do the drawing.
 //    iosTextView *textView = [[iosTextView alloc] initWithFrame:CGRectInset(self.bounds, 5, 5)];
 //    textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -127,7 +122,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 //    contentText = @"";
 //    textView.userInteractionEnabled = NO;
 //    self.textView = textView;
+   
    return self;
+   
 }
 
 
@@ -139,7 +136,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (BOOL)canBecomeFirstResponder
 {
-    return YES;
+   
+   return YES;
+   
 }
 
 
@@ -150,7 +149,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (BOOL)resignFirstResponder
 {
    // Flag that underlying iosTextView is no longer in edit mode
-    self.editing = NO;
+    //self.editing = NO;
    return [super resignFirstResponder];
 }
 
@@ -171,31 +170,46 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)tap:(UITapGestureRecognizer *)tap
 {
-    if ([self isFirstResponder]) {
-      // Already in editing mode, set insertion point (via selectedTextRange).
-        [self.inputDelegate selectionWillChange:self];
+    
+   if ([self isFirstResponder])
+   {
+      
+      auto point = [tap locationInView: m_ioswindow->m_controller->m_ioseditview];
+      
+      int x = point.x;
+      
+      int y = point.y;
+      
+      //m_ioswindow->m_pwindow->m_pointLastTouchBegan = point;
+      
+      m_ioswindow->m_pwindow->ios_window_mouse_down(0, x, y);
 
-        // Find and update insertion point in underlying iosTextView.
-        NSInteger index = [self closestIndexToPoint:[tap locationInView:self]];
-        
-        if(index < 0)
-        {
-            
-            index = 0;
-            
-        }
-       NSUInteger location = index;
-       self.rangeMarked = NSRange{NSNotFound, 0};
-       self.rangeSelected = NSRange{location, 0};
-
-        // Let inputDelegate know selection has changed.
-        [self.inputDelegate selectionDidChange:self];
+      
+//
+//      // Already in editing mode, set insertion point (via selectedTextRange).
+//        [self.inputDelegate selectionWillChange:self];
+//
+//        // Find and update insertion point in underlying iosTextView.
+//        NSInteger index = [self closestIndexToPoint:[tap locationInView:self]];
+//
+//        if(index < 0)
+//        {
+//
+//            index = 0;
+//
+//        }
+//       NSUInteger location = index;
+//       m_rangeMarked = NSRange{NSNotFound, 0};
+//       m_rangeSelected = NSRange{location, 0};
+//
+//        // Let inputDelegate know selection has changed.
+//        [self.inputDelegate selectionDidChange:self];
     }
     else {
       // Inform controller that we're about to enter editing mode.
       [self.editableCoreTextViewDelegate editableCoreTextViewWillEdit:self];
       // Flag that underlying iosTextView is now in edit mode.
-        self.editing = YES;
+        //self.editing = YES;
       // Become first responder state (which shows software keyboard, if applicable).
       if( [self becomeFirstResponder])
       {
@@ -220,7 +234,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 // Helper method to use whenever text storage changes.
 - (void)textChanged
 {
-    self.textView.text = self.text;
+    //self.textView.text = self.text;
 }
 #endif
 
@@ -249,7 +263,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     iosTextRange *indexedRange = (iosTextRange *)range;
    // Determine if replaced range intersects current selection range
    // and update selection range if so.
-    NSRange selectedNSRange = self.rangeSelected;
+    NSRange selectedNSRange = m_rangeSelected;
     if ((indexedRange.range.location + indexedRange.range.length) <= selectedNSRange.location) {
         // This is the easy case.
         selectedNSRange.location -= (indexedRange.range.length - text.length);
@@ -262,8 +276,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     [self.text replaceCharactersInRange:indexedRange.range withString:text];
 
    // Update underlying iosTextView
-    self.contentText = self.text;
-    self.rangeSelected = selectedNSRange;
+   m_strContentText = self.text;
+   m_rangeSelected = selectedNSRange;
+   
 }
 
 
@@ -274,17 +289,26 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (UITextRange *)selectedTextRange
 {
-    return [iosTextRange indexedRangeWithRange:self.rangeSelected];
+    return [iosTextRange indexedRangeWithRange: m_rangeSelected];
 }
 
 
 - (void)setSelectedTextRange:(UITextRange *)range
 {
     
-    iosTextRange *indexedRange = (iosTextRange *)range;
+   iosTextRange *indexedRange = (iosTextRange *)range;
     
-    self.rangeSelected = indexedRange.range;
-   [ self selectionChanged];
+   if(indexedRange.range.location != m_rangeSelected.location
+      || indexedRange.range.length != m_rangeSelected.length)
+   {
+    
+      m_rangeSelected = indexedRange.range;
+   
+      //[ super setSelectedTextRange : range ];
+      [ self selectionChanged];
+      
+   }
+   
 }
 
 
@@ -296,12 +320,16 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
     /*
      Return nil if there is no marked text.
      */
-    NSRange markedTextRange = self.rangeMarked;
-    if (markedTextRange.length == 0) {
-        return nil;
+    NSRange markedTextRange = m_rangeMarked;
+    if (markedTextRange.length == 0)
+    {
+    
+       return nil;
+       
     }
     
     return [iosTextRange indexedRangeWithRange:markedTextRange];
+   
 }
 
 
@@ -311,10 +339,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)setMarkedText:(NSString *)markedText selectedRange:(NSRange)selectedRange
 {
-    NSRange selectedNSRange = self.rangeSelected;
-    NSRange markedTextRange = self.rangeMarked;
+   
+   NSRange selectedNSRange = m_rangeSelected;
+   
+    NSRange markedTextRange = m_rangeMarked;
 
-    if (markedTextRange.location != NSNotFound) {
+    if (markedTextRange.location != NSNotFound)
+    {
         if (!markedText)
             markedText = @"";
       // Replace characters in text storage and update markedText range length.
@@ -340,9 +371,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
     selectedNSRange = NSMakeRange(selectedRange.location + markedTextRange.location, selectedRange.length);
 
-    self.contentText = self.text;
-    self.rangeMarked = markedTextRange;
-    self.rangeSelected = selectedNSRange;
+    m_strContentText = self.text;
+    m_rangeMarked = markedTextRange;
+    m_rangeSelected = selectedNSRange;
 }
 
 
@@ -352,14 +383,15 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)unmarkText
 {
-    NSRange markedTextRange = self.rangeMarked;
+   
+    NSRange markedTextRange = m_rangeMarked;
 
     if (markedTextRange.location == NSNotFound) {
         return;
     }
    // Unmark the underlying iosTextView.markedTextRange.
     markedTextRange.location = NSNotFound;
-    self.rangeMarked = markedTextRange;
+    m_rangeMarked = markedTextRange;
 }
 
 
@@ -694,7 +726,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (NSDictionary *)textStylingAtPosition:(UITextPosition *)position inDirection:(UITextStorageDirection)direction
 {
     // This sample assumes all text is single-styled, so this is easy.
-    return @{ NSFontAttributeName : self.font };
+    return @{ NSFontAttributeName : m_font };
 }
 
 
@@ -716,13 +748,16 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)insertText:(NSString *)text
 {
-    NSRange selectedNSRange = self.rangeSelected;
-    NSRange markedTextRange = self.rangeMarked;
+   
+   NSRange selectedNSRange = m_rangeSelected;
+   
+   NSRange markedTextRange = m_rangeMarked;
 
    /*
      While this sample does not provide a way for the user to create marked or selected text, the following code still checks for these ranges and acts accordingly.
      */
-    if (markedTextRange.location != NSNotFound) {
+   if (markedTextRange.location != NSNotFound)
+   {
       // There is marked text -- replace marked text with user-entered text.
         [self.text replaceCharactersInRange:markedTextRange withString:text];
         selectedNSRange.location = markedTextRange.location + text.length;
@@ -733,16 +768,22 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
         [self.text replaceCharactersInRange:selectedNSRange withString:text];
         selectedNSRange.length = 0;
         selectedNSRange.location += text.length;
-    } else {
-      // Insert user-entered text at current insertion point.
-        [self.text insertString:text atIndex:selectedNSRange.location];
-        selectedNSRange.location += text.length;
+    }
+    else
+    {
+       
+       // Insert user-entered text at current insertion point.
+       
+       [ self.text insertString:text atIndex: selectedNSRange.location ];
+       
+       selectedNSRange.location += text.length;
+       
     }
 
    // Update underlying iosTextView.
-   self.contentText = self.text;
-   self.rangeMarked = markedTextRange;
-   self.rangeSelected = selectedNSRange;
+   m_strContentText = self.text;
+   m_rangeMarked = markedTextRange;
+   m_rangeSelected = selectedNSRange;
    
    [ self on_text_composed ];
    
@@ -756,8 +797,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (void)deleteBackward
 {
     
-   NSRange selectedNSRange = self.rangeSelected;
-   NSRange markedTextRange = self.rangeMarked;
+   NSRange selectedNSRange = m_rangeSelected;
+   
+   NSRange markedTextRange = m_rangeMarked;
 
    /*
      Note: While this sample does not provide a way for the user to create marked or selected text, the following code still checks for these ranges and acts accordingly.
@@ -800,11 +842,9 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    }
 
    // Update underlying iosTextView.
-   self.contentText = self.text;
-   
-   self.rangeMarked = markedTextRange;
-   
-   self.rangeSelected = selectedNSRange;
+   m_strContentText = self.text;
+   m_rangeMarked = markedTextRange;
+   m_rangeSelected = selectedNSRange;
    
    [ self on_text_composed ];
    
@@ -838,7 +878,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (void) on_text_composed;
 {
    
-   NSString * str = self.contentText;
+   NSString * str = m_strContentText;
    
    const char * psz=[str UTF8String];
    
@@ -859,8 +899,15 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 // Helper method to update our text storage when the text content has changed.
 - (void)textChanged
 {
-    [self setNeedsDisplay];
-    [self clearPreviousLayoutInformation];
+   
+   [self clearPreviousLayoutInformation];
+
+   
+   ns_main_async(^{
+
+   [self setNeedsDisplay];
+      
+   });
 
    // Build the attributed string from our text data and string attribute data,
     //NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:self.contentText attributes:self.attributes];
@@ -946,30 +993,13 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 }
 
 
-// Public method to find the text range index for a given CGPoint.
-- (NSInteger)closestIndexToPoint:(CGPoint)point
-{
-   /*
-     Use Core Text to find the text index for a given CGPoint by iterating over the y-origin points for each line, finding the closest line, and finding the closest index within that line.
-     */
-//    CFArrayRef lines = CTFrameGetLines(_ctFrame);
-//    CFIndex linesCount = CFArrayGetCount(lines);
-//    CGPoint origins[linesCount];
+//// Public method to find the text range index for a given CGPoint.
+//- (NSInteger)closestIndexToPoint:(CGPoint)point
+//{
 //
-//    CTFrameGetLineOrigins(_ctFrame, CFRangeMake(0, linesCount), origins);
+//   return m_ioswindow->m_pwindow->ios_window_edit_hit_test(point.x, point.y);
 //
-//    for (CFIndex linesIndex = 0; linesIndex < linesCount; linesIndex++) {
-//        if (point.y > origins[linesIndex].y) {
-//         // This line origin is closest to the y-coordinate of our point; now look for the closest string index in this line.
-//            CTLineRef line = (CTLineRef)CFArrayGetValueAtIndex(lines, linesIndex);
-//            return CTLineGetStringIndexForPosition(line, point);
-//        }
-//    }
-
-   return m_ioswindow->m_pwindow->ios_window_edit_hit_test(point.x, point.y);
-   
-    //return  self.contentText.length;
-}
+//}
 
 
 /*
@@ -1029,38 +1059,42 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 // Helper method to update caretView when insertion point/selection changes.
 - (void)selectionChanged
 {
-   // If not in editing mode, we don't show the caret.
-    if (!self.editing) {
-//        [self.caretView removeFromSuperview];
-        return;
-    }
-//   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+   
+   
+   [ self setNeedsDisplay ];
+   
+//   // If not in editing mode, we don't show the caret.
+//    if (!self.editing) {
+////        [self.caretView removeFromSuperview];
+//        return;
+//    }
+////   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+////
+////
+////   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
+////   long length = end - beg;
+//   /*
+//    
+//     If there is no selection range (always true for this sample), find the insert point rect and create a caretView to draw the caret at this position.
+//     */
+//    if (self.rangeSelected.length == 0) {
+////        self.caretView.frame = [self caretRectForIndex:(int)self.selectedTextRange.location];
+////        if (self.caretView.superview == nil) {
+////            [self addSubview:self.caretView];
+////            [self setNeedsDisplay];
+////        }
+////        // Set up a timer to "blink" the caret.
+////        [self.caretView delayBlink];
+//    }
+//    else {
+//      // If there is an actual selection, don't draw the insertion caret.
+////        [self.caretView removeFromSuperview];
+////        [self setNeedsDisplay];
+//    }
 //
-//
-//   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
-//   long length = end - beg;
-   /*
-    
-     If there is no selection range (always true for this sample), find the insert point rect and create a caretView to draw the caret at this position.
-     */
-    if (self.rangeSelected.length == 0) {
-//        self.caretView.frame = [self caretRectForIndex:(int)self.selectedTextRange.location];
-//        if (self.caretView.superview == nil) {
-//            [self addSubview:self.caretView];
-//            [self setNeedsDisplay];
-//        }
-//        // Set up a timer to "blink" the caret.
-//        [self.caretView delayBlink];
-    }
-    else {
-      // If there is an actual selection, don't draw the insertion caret.
-//        [self.caretView removeFromSuperview];
-//        [self setNeedsDisplay];
-    }
-
-    if (self.rangeMarked.location != NSNotFound) {
-//        [self setNeedsDisplay];
-    }
+//    if (self.rangeMarked.location != NSNotFound) {
+////        [self setNeedsDisplay];
+//    }
 }
 
 
@@ -1086,8 +1120,8 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  */
 - (void)setFont:(UIFont *)newFont
 {
-    if (newFont != _font) {
-        _font = newFont;
+    if (newFont != m_font) {
+        m_font = newFont;
 
 //        // Find matching CTFont via name and size.
 //        CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef) _font.fontName, _font.pointSize, NULL);
@@ -1106,10 +1140,23 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 /*
  We need to call textChanged after setting the new property text to update layout.
  */
-- (void)setContentText:(NSString *)text
+- (void) setContentText: (NSString *) text
 {
-    _contentText = [text copy];
-    [self textChanged];
+   
+   m_strContentText = [ text copy ];
+   
+   [ self.text setString: m_strContentText ];
+   
+   [ self textChanged ];
+   
+}
+
+
+- (NSString * ) getContentText
+{
+
+   return m_strContentText;
+   
 }
 
 
@@ -1119,23 +1166,29 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
 - (void)setMarkedTextRange:(NSRange)range
 {
-    self.rangeMarked = range;
-    [self selectionChanged];
+   
+   m_rangeMarked = range;
+   
+   [self selectionChanged];
+   
 }
 
 
 //- (void)setSelectedTextRange:(NSRange)range
 //{
-//    _selectedTextRange = range;
+//    m_rangeSelected = range;
 //    [self selectionChanged];
 //}
 
 
-- (void)setEditing:(BOOL)editing
-{
-    _editing = editing;
-    [self selectionChanged];
-}
+//- (void)setEditing:(BOOL)editing
+//{
+//
+//   m_bEditing = editing;
+//
+//   [self selectionChanged];
+//
+//}
 
 
 #pragma mark - Selection and caret colors
@@ -1357,8 +1410,5 @@ NSRange RangeIntersection(NSRange first, NSRange second)
     return result;
 }
 
-
-
-//@end
 
 

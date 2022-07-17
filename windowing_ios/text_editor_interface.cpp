@@ -25,8 +25,9 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_input_method_manager_selection(strsize iStart, strsize iEnd)
+   void text_editor_interface::set_input_method_manager_selection(strsize iBeg, strsize iEnd)
    {
+      
 
    }
 
@@ -44,9 +45,33 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_editor_selection(strsize iStart, strsize iEnd)
+   void text_editor_interface::set_editor_selection(strsize iBeg, strsize iEnd)
    {
 
+      auto pwindow = m_pwindow;
+      
+      if(pwindow)
+      {
+         
+         auto len = pwindow->ios_window_get_text_length();
+         
+         ::string str;
+         
+         auto psz = str.get_string_buffer(len);
+         
+         pwindow->ios_window_get_text(psz, len);
+         
+         str.release_string_buffer(len);
+         
+         wstring wstr(str);
+         
+         auto iUtf8Beg = wd32_to_ansi_len(wstr, iBeg);
+         
+         auto iUtf8End = wd32_to_ansi_len(wstr, iEnd);
+         
+         pwindow->ios_window_set_sel(iUtf8Beg, iUtf8End);
+          
+      }
 
    }
 
@@ -54,6 +79,14 @@ namespace windowing_ios
    void text_editor_interface::set_editor_text(const ::string& strText)
    {
 
+      auto pwindow = m_pwindow;
+      
+      if(pwindow)
+      {
+         
+         pwindow->ios_window_set_text(strText);
+          
+      }
 
    }
 

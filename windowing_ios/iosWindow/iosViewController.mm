@@ -8,7 +8,7 @@
 
 #import "_mm.h"
 #import "iosEditView.h"
-#import "iosTextView.h"
+//#import "iosTextView.h"
 #import "iosTextPosition.h"
 
 
@@ -258,7 +258,7 @@ double get_status_bar_frame_height();
    
       [ self deferEdit : rect ];
       
-      [ self->m_ioseditview setContentText:strText];
+      [ self->m_ioseditview setContentText : strText ];
       
 //      self->m_ioseditview.rangeSelected = NSMakeRange(iSelBeg, iSelEnd);
 //
@@ -282,7 +282,7 @@ double get_status_bar_frame_height();
       
       [self->m_ioseditview.editableCoreTextViewDelegate editableCoreTextViewWillEdit:self->m_ioseditview];
       
-      self->m_ioseditview.editing = TRUE;
+      //self->m_ioseditview.editing = TRUE;
       if( [self->m_ioseditview becomeFirstResponder])
       {
          

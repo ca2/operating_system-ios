@@ -752,6 +752,16 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    NSRange selectedNSRange = m_rangeSelected;
    
    NSRange markedTextRange = m_rangeMarked;
+   
+   if([ text isEqual:@"\n" ])
+   {
+      
+      m_ioswindow->m_pwindow->ios_window_key_down(::user::e_key_return);
+      m_ioswindow->m_pwindow->ios_window_key_up(::user::e_key_return);
+      
+      return;
+      
+   }
 
    /*
      While this sample does not provide a way for the user to create marked or selected text, the following code still checks for these ranges and acts accordingly.

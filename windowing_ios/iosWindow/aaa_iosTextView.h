@@ -62,6 +62,7 @@
     iosWindow           * m_pwindow;
    
 }
+
 @property (nonatomic, copy) NSString *contentText; // The text content (without attributes).
 @property (nonatomic, strong) UIFont *font; // Font used for text content.
 @property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).

@@ -408,3 +408,7 @@ char * mm2_get_type_identifier(const char * pszFilePath)
    return strdup([strType UTF8String]);
    
 }
+
+
+
+

@@ -11,7 +11,7 @@ bool ns_is_system_dark_mode();
 
 void ns_app_terminate();
 void os_post_quit(::element * pelementQuit);
-
+void ui_open_url(const char * pszUrl);
 
 void ns_launch_app(const char * psz, const char ** argv, int iFlags);
 
@@ -976,6 +976,15 @@ void node::element_quit::run()
 //      
 //   //} // namespace macos
 //
+
+
+   void node::open_url(const ::string & strUrl)
+   {
+      
+      ::ui_open_url(strUrl);
+   
+   }
+
 
 } // namespace acme
 

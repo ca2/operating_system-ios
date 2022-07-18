@@ -12,13 +12,13 @@ namespace apex_ios
    public:
 
 
-      CFMessagePortRef  m_port;
+      //CFMessagePortRef  m_port;
       //HWND              m_hwnd;
       string            m_strBaseChannel;
 
 
       interprocess_communication_base();
-      virtual ~interprocess_communication_base();
+      ~interprocess_communication_base() override;
 
 
       //HWND get_hwnd() const { return (HWND) m_hwnd; }
@@ -63,7 +63,7 @@ namespace apex_ios
    public:
 
       
-      CFRunLoopRef      m_runloop;
+      //CFRunLoopRef      m_runloop;
       
 
       interprocess_communication_rx();

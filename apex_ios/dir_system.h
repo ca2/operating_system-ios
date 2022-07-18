@@ -31,6 +31,9 @@ namespace apex_ios
       ::file::path compute_default_app_data_path() override;
 
       
+      void init_system() override;
+      
+      
    };
    
    

@@ -47,6 +47,17 @@ namespace apex_ios
    }
 
 
+   void dir_system::init_system()
+   {
+
+      ::dir_system::init_system();
+      
+      m_pathHome = m_psystem->m_pacmedirectory->home();
+      
+      m_pathCa2Config = m_pathHome / "Library/Application Support/ca2";
+      
+   }
+
 
 } // namespace apex_ios
 

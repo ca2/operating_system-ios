@@ -266,7 +266,9 @@ namespace acme_ios
       m_iFile = (i32)hFile;
       
       m_estatus = ::success;
-
+      
+      set_ok();
+      
       //      m_bCloseOnDelete = true;
 
       //return ::success;

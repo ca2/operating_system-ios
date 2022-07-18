@@ -85,9 +85,9 @@ namespace apex_ios
       
       string strUrl;
       
-      string strCommand = m_psystem->url()->url_encode(strMessage);
+      //string strCommand = m_psystem->url()->url_encode(strMessage);
       
-      strUrl = m_strBaseChannel + "://localhost/?command=" + strCommand;
+      strUrl = strMessage;
       
       m_psystem->node()->open_url(strUrl);
 

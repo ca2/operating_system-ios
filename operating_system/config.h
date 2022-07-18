@@ -94,7 +94,7 @@
 #define AXIS_FREEIMAGE
 
 
-#define FONT_SANS "Arial"
+#define FONT_SANS "ArialMT"
 #define FONT_SERIF "Times New Roman"
 #define FONT_SANS_EX "Geneva"
 #define FONT_SERIF_EX "Georgia"

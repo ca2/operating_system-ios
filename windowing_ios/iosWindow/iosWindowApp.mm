@@ -34,10 +34,17 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
 }
 
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
+{
+   
+   return YES;
+   
+}
 
-- (void)openURL:(NSURL *)url
-        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
-completionHandler:(void (^)(BOOL success))completion
+
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
    
    NSString * strUrl = [ url absoluteString ];
@@ -49,7 +56,9 @@ completionHandler:(void (^)(BOOL success))completion
 //
 //   };
    
-   m_pplanesystem->_main_application_open_url([ strUrl UTF8String ], completion);
+   m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
+   
+   return true;
    
 }
 

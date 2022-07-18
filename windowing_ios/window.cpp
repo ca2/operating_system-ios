@@ -591,7 +591,7 @@ namespace windowing_ios
          //nsapp_activate_ignoring_other_apps(1);
          
       }
-      else if(edisplay == e_display_normal)
+      else if(edisplay == e_display_restored)
       {
          
          ios_window_show();

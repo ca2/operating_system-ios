@@ -642,7 +642,7 @@ void mm_init_workspace_rect();
 //
 //   ::rectangle_i32 rMainScreen;
 //
-//   GetMainScreenRect(rMainScreen);
+//   get_main_screen_rectangle(rMainScreen);
 //
 //   long c = CFArrayGetCount(windowa);
 //
@@ -785,7 +785,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //   //rectangle_i32 rMainScreen;
 //
-//   //GetMainScreenRect(rMainScreen);
+//   //get_main_screen_rectangle(rMainScreen);
 //
 //   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
 //
@@ -1058,7 +1058,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //   
 //   string strAppName;
 //   
-//   //GetMainScreenRect(rMainScreen);
+//   //get_main_screen_rectangle(rMainScreen);
 //   
 //   // "CG" Window Rects are like Windows (R) GDI Coordinates (Y down)
 //   

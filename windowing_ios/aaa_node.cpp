@@ -6,7 +6,8 @@
 //  From windowing_macos by camilo on 2022-05-11 16:10 <3ThomasBorregaardSorensen!
 //
 #include "framework.h"
-#include "apex/user/menu_shared.h"
+#include "node.h"
+#include "aura/user/menu/shared.h"
 //#include "keyboard_hook.h"
 //#include "mouse_hook.h"
 
@@ -43,39 +44,6 @@ namespace windowing_ios
    }
 
 
-   void node::os_menu_item_enable(void * pitem, bool bEnable)
-   {
-    
-      //::os_menu_item_enable(pitem, bEnable);
-      
-   }
-   
-
-   void node::os_menu_item_check(void * pitem, bool bCheck)
-   {
-   
-      //::os_menu_item_check(pitem, bCheck);
-      
-   }
-
-
-   void node::defer_create_main_menu(const string_array & straMenuParent, const string_array & straMenuName, const string_array & straMenuId)
-   {
-//
-//      auto pmenushared =
-//         create_menu_shared(
-//
-//                            straMenuParent,
-//                            straMenuName,
-//                            straMenuId
-//
-//                            );
-//
-//      ns_create_main_menu(pmenushared);
-//
-      //return success;
-      
-   }
 
 
    void node::implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem)

@@ -18,7 +18,8 @@
 //
 //#endif
 
-
+#include "aura/windowing/sandbox/window.h"
+#include "iosWindow/ios_window.h"
 
 namespace windowing_ios
 {

@@ -30,7 +30,6 @@
 		9A89A575282CA2E90014794A /* buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A89A573282CA2E90014794A /* buffer.h */; };
 		9A89A576282CA2E90014794A /* buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A89A574282CA2E90014794A /* buffer.cpp */; };
 		9A94DE79282C0F2500F5C1CA /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E9D282A26B000B1621E /* _factory.cpp */; };
-		9A94DEB8282C3FE000F5C1CA /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E6A282A26B000B1621E /* node.cpp */; };
 		9A94DEBA282C3FE000F5C1CA /* windowing_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E7C282A26B000B1621E /* windowing_ios.cpp */; };
 		9A94DEBB282C3FE000F5C1CA /* monitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E69282A26B000B1621E /* monitor.cpp */; };
 		9A94DEBD282C3FE000F5C1CA /* imm_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E9C282A26B000B1621E /* imm_client.cpp */; };
@@ -118,11 +117,9 @@
 		9AA14E64282A26B000B1621E /* icon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = icon.h; sourceTree = "<group>"; };
 		9AA14E65282A26B000B1621E /* window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
 		9AA14E69282A26B000B1621E /* monitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = monitor.cpp; sourceTree = "<group>"; };
-		9AA14E6A282A26B000B1621E /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
 		9AA14E6D282A26B000B1621E /* window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
-		9AA14E6F282A26B000B1621E /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9AA14E70282A26B000B1621E /* imm_client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imm_client.h; sourceTree = "<group>"; };
-		9AA14E71282A26B000B1621E /* _windowing_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _windowing_ios.h; sourceTree = "<group>"; };
+		9AA14E71282A26B000B1621E /* aaa_windowing_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_windowing_ios.h; sourceTree = "<group>"; };
 		9AA14E72282A26B000B1621E /* copydesk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = copydesk.mm; sourceTree = "<group>"; };
 		9AA14E74282A26B000B1621E /* display.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = display.cpp; sourceTree = "<group>"; };
 		9AA14E76282A26B000B1621E /* monitor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = monitor.mm; sourceTree = "<group>"; };
@@ -231,7 +228,7 @@
 				9AA14E9A282A26B000B1621E /* _c_mm.h */,
 				9AA14E9D282A26B000B1621E /* _factory.cpp */,
 				9AA14E5F282A26B000B1621E /* _mm.h */,
-				9AA14E71282A26B000B1621E /* _windowing_ios.h */,
+				9AA14E71282A26B000B1621E /* aaa_windowing_ios.h */,
 				9A89A574282CA2E90014794A /* buffer.cpp */,
 				9A89A573282CA2E90014794A /* buffer.h */,
 				9AA14E82282A26B000B1621E /* copydesk.cpp */,
@@ -253,8 +250,6 @@
 				9AA14E69282A26B000B1621E /* monitor.cpp */,
 				9AA14E7B282A26B000B1621E /* monitor.h */,
 				9AA14E76282A26B000B1621E /* monitor.mm */,
-				9AA14E6A282A26B000B1621E /* node.cpp */,
-				9AA14E6F282A26B000B1621E /* node.h */,
 				9AA14E9E282A26B000B1621E /* SBSystemPreferences.h */,
 				9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */,
 				9A9B9B3428483ED0005CA950 /* text_editor_interface.h */,
@@ -391,7 +386,6 @@
 				9A750EC5282B668500C4861B /* iosTextPosition.mm in Sources */,
 				9A94DEC3282C3FE000F5C1CA /* icon.cpp in Sources */,
 				9A750ECD282B668500C4861B /* ios_window.mm in Sources */,
-				9A94DEB8282C3FE000F5C1CA /* node.cpp in Sources */,
 				9A94DEBA282C3FE000F5C1CA /* windowing_ios.cpp in Sources */,
 				9A750ED1282B668500C4861B /* iosEditView.mm in Sources */,
 				9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */,

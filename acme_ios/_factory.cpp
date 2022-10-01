@@ -1,7 +1,7 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "file.h"
+#include "acme_file.h"
 #include "acme_directory.h"
-#include "acme/filesystem/filesystem/acme_path.h"
 #include "acme_path.h"
 //#include "copydesk.h"
 //#include "file_os_watcher.h"
@@ -49,8 +49,8 @@ __FACTORY_EXPORT void acme_ios_factory(::factory::factory * pfactory)
    //create_factory < ::macos::os_context         , ::os_context       > ();
    //create_factory < ::apple::process            , ::process::process > ();
    
-  pfactory->add_factory_item < ::acme_posix::pipe               , ::operating_system::pipe    > ();
-   
+//  pfactory->add_factory_item < ::acme_posix::pipe               , ::operating_system::pipe    > ();
+//   
    //create_factory < ::macos::dir_system         , ::dir_system       > ();
    //create_factory < ::macos::file_system        , ::file_system      > ();
    //create_factory < ::macos::dir_context        , ::dir_context      > ();

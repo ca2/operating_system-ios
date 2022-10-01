@@ -2,6 +2,7 @@
 // Recreated on 2021-05-16 15:05 <3ThomasBS_ // for macOS
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme_directory.h"
 

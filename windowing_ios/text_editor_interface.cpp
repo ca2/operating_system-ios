@@ -5,6 +5,9 @@
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 01/06/22. 21:45
 //
 #include "framework.h"
+#include "window.h"
+#include "text_editor_interface.h"
+#include "aura/user/user/interaction_impl.h"
 
 
 namespace windowing_ios
@@ -25,17 +28,17 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_input_method_manager_selection(strsize iBeg, strsize iEnd)
+   void text_editor_interface::set_input_method_manager_selection(strsize iBeg, strsize iEnd, strsize iCandidateStart, strsize iCandidateEnd)
    {
       
 
    }
 
 
-   void text_editor_interface::set_input_method_manager_candidate_position(strsize iStart, strsize iEnd)
-   {
-
-   }
+//   void text_editor_interface::set_input_method_manager_candidate_position(strsize iStart, strsize iEnd)
+//   {
+//
+//   }
 
 
    void text_editor_interface::synchronize_input_method_manager_with_selection_end()

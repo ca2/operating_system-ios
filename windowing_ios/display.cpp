@@ -6,8 +6,7 @@
 //  From windowing_macos by camilo on 2022-05-11 16:10 <3ThomasBorregaardSorensen!
 //
 #include "framework.h"
-
-
+#include "display.h"
 
 
 int ns_monitor_count();

@@ -8,8 +8,12 @@
 #pragma once
 
 
+#include "acme_apple/node.h"
+
+
 namespace acme_ios
 {
+
 
    class CLASS_DECL_ACME node :
       virtual public ::acme_apple::node

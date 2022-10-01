@@ -2,6 +2,9 @@
 #pragma once
 
 
+#include "aura/user/user/copydesk.h"
+
+
 namespace windowing_ios
 {
 

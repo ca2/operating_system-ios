@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-simple/application/_ios_app_simple_application.xcodeproj">
+      location = "group:../../../source/app-simple/application/__implement/_ios_app_simple_application.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
+      location = "group:../../../source/app-simple/drawing/__implement/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,10 +1,8 @@
 #include "framework.h"
+#include "interprocess_communication.h"
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include "acme/operating_system/ansi/_pthread.h"
-
-
-
 
 
 namespace apex_ios

@@ -52,7 +52,7 @@
 		9A787E85264E8C97003DF8A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A787E87264E8D02003DF8A0 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		9A787E8B264E8DC5003DF8A0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		9AA14F20282A28EE00B1621E /* _acme_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _acme_ios.h; sourceTree = "<group>"; };
+		9AA14F20282A28EE00B1621E /* aaa_acme_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_acme_ios.h; sourceTree = "<group>"; };
 		9AA14F25282A28EE00B1621E /* mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = mm.mm; sourceTree = "<group>"; };
 		9AA14F26282A28EE00B1621E /* list_serial_ports.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = list_serial_ports.cpp; sourceTree = "<group>"; };
 		9AA14F2A282A28EE00B1621E /* _mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				9AA14F4F282A28EE00B1621E /* _.h */,
-				9AA14F20282A28EE00B1621E /* _acme_ios.h */,
+				9AA14F20282A28EE00B1621E /* aaa_acme_ios.h */,
 				9AA14F49282A28EE00B1621E /* _c_mm.h */,
 				9AA14F4D282A28EE00B1621E /* _factory.cpp */,
 				9AA14F2A282A28EE00B1621E /* _mm.h */,
@@ -225,7 +225,6 @@
 		9A15A5DC264B54CB0080670E /* acme_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			name = acme_apple.dylib;
 			path = libacme_apple.dylib;
 			remoteRef = 9A15A5DB264B54CB0080670E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;

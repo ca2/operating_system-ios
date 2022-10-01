@@ -2,6 +2,8 @@
 // Created by camilo on 19/01/2021. --<33ThomasBS!!
 //
 #include "framework.h"
+#include "node.h"
+#include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/user/nano/_nano.h"
 
 
@@ -993,7 +995,7 @@ void node::element_quit::run()
 void * get_system_mmos(void * pSystem)
 {
 
-   auto psystem = (class ::system *) pSystem;
+   auto psystem = (class ::acme::system *) pSystem;
 
    return psystem->m_pmmos;
 
@@ -1002,7 +1004,7 @@ void * get_system_mmos(void * pSystem)
 void set_system_mmos(void * pSystem, void * pmmos)
 {
 
-   auto psystem = (class ::system *) pSystem;
+   auto psystem = (class ::acme::system *) pSystem;
 
    psystem->m_pmmos = pmmos;
 

@@ -17,7 +17,7 @@
 #endif
 
 
-namespace windowing_icos
+namespace windowing_ios
 {
 
    
@@ -25,6 +25,8 @@ namespace windowing_icos
    class windowing;
    class display;
    class monitor;
+
+   class text_editor_interface;
 
 
 } // namespace windowing_ios

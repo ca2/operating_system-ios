@@ -1,6 +1,9 @@
 #include "framework.h"
 #include "_.h"
 #include "buffer.h"
+#include "window.h"
+#include "aura/graphics/image/image.h"
+#include "aura/user/user/interaction_impl.h"
 //#include "operating_system/_operating_system.h"
 //#include "aura/os/android/window_android.h"
 //#include <native_window.h>

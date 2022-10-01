@@ -7,6 +7,9 @@
 #pragma once
 
 
+#include "aura_ios/node.h"
+
+
 namespace node_ios
 {
 
@@ -31,12 +34,12 @@ namespace node_ios
 //
       
       
-      void implement(__pointer(::acme::node) & pnode, __pointer(::acme::system) & psystem) override;
-
-      
-      void _will_finish_launching() override;
-      
-      void on_start_system() override;
+//      void implement(__pointer(::acme::node) & pnode, __pointer(::acme::system) & psystem) override;
+//
+//      
+//      void _will_finish_launching() override;
+//      
+//      void on_start_system() override;
       //bool is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt) override;
 
 //

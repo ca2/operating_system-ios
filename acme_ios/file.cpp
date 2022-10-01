@@ -1,7 +1,9 @@
 #include "framework.h"
-//#include "_ios.h"
-
+#include "file.h"
+#include "acme/filesystem/file/exception.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 #include <fcntl.h>
+
 
 #ifdef LINUX
 #include <dlfcn.h>
@@ -200,7 +202,10 @@ namespace acme_ios
 
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
-            throw ::file::exception(::errno_to_status(iErrNo), -1, -1, path, eopen);
+            
+            auto estatus = errno_to_status(iErrNo);
+            
+            throw ::file::exception(estatus, __errno(iErrNo), m_path, "open == -1", eopen);
 
             //}
 
@@ -255,7 +260,7 @@ namespace acme_ios
                
             }
 
-            throw ::file::exception(m_estatus, -1, -1, path, eopen);
+            throw ::file::exception(m_estatus, __errno(iErrNo), m_path, "open == -1", eopen);
 
             //}
 
@@ -299,16 +304,16 @@ namespace acme_ios
          if(iRead == -1)
          {
             
-            i32 iError = errno;
+            i32 iErrNo = errno;
             
-            if(iError == EAGAIN)
+            if(iErrNo == EAGAIN)
             {
 
             }
             
-            auto estatus = errno_to_status(iError);
+            auto estatus = errno_to_status(iErrNo);
             
-            throw ::file_exception(estatus, iError, m_path);
+            throw ::file::exception(estatus, __errno(iErrNo), m_path, "read == -1", m_eopen);
             
          }
          else if(iRead == 0)
@@ -363,7 +368,7 @@ namespace acme_ios
             
             auto estatus = errno_to_status(iErrNo);
             
-            throw ::file_exception(estatus, iErrNo, m_path);
+            throw ::file::exception(estatus, __errno(iErrNo), m_path, "write == -1", m_eopen);
             
          }
          
@@ -387,7 +392,7 @@ namespace acme_ios
          
          ::e_status estatus = ::error_failed;
          
-         throw ::file_exception(estatus, iErrNo, m_path);
+         throw ::file::exception(estatus, __errno(iErrNo), m_path, "m_iFile == -1", m_eopen);
          
       }
 
@@ -408,7 +413,7 @@ namespace acme_ios
          
          auto estatus = errno_to_status(iErrNo);
          
-         throw ::file_exception(estatus, iErrNo, m_path);
+         throw ::file::exception(estatus, __errno(iErrNo), m_path, "lsize == -1", m_eopen);
          
       }
 
@@ -432,7 +437,7 @@ namespace acme_ios
          
          auto estatus = errno_to_status(iErrNo);
 
-         throw ::file_exception(estatus, iErrNo, m_path);
+         throw ::file::exception(estatus, __errno(iErrNo), m_path, "lseek == -1", m_eopen);
          
       }
 
@@ -518,7 +523,7 @@ namespace acme_ios
          
          auto estatus = errno_to_status(iErrNo);
       
-         throw ::file_exception(estatus, iErrNo, m_path);
+         throw ::file::exception(estatus, __errno(iErrNo), m_path, "close != 0", m_eopen);
          
       }
       
@@ -580,7 +585,7 @@ namespace acme_ios
          
          auto estatus = errno_to_status(iErrNo);
          
-         throw ::file_exception(estatus, iErrNo, m_path);
+         throw ::file::exception(estatus, __errno(iErrNo), m_path, "ftruncate == -1", m_eopen);
          
       }
       

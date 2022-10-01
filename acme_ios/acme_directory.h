@@ -3,6 +3,9 @@
 #pragma once
 
 
+#include "acme_apple/acme_directory.h"
+
+
 namespace acme_ios
 {
 

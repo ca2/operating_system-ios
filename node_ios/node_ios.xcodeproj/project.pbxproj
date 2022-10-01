@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0F53CC28E8F58700025231 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F530128E868A300025231 /* node.cpp */; };
 		9A750E52282B5F2A00C4861B /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E9D96282A2CE7005FF778 /* _factory.cpp */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0F530128E868A300025231 /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		9A0F530228E868A300025231 /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9A8E9D94282A2CE7005FF778 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A8E9D95282A2CE7005FF778 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A8E9D96282A2CE7005FF778 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
@@ -44,6 +47,8 @@
 				9A8E9D95282A2CE7005FF778 /* framework.h */,
 				9A8E9D96282A2CE7005FF778 /* _factory.cpp */,
 				9A8E9D97282A2CE7005FF778 /* _.h */,
+				9A0F530128E868A300025231 /* node.cpp */,
+				9A0F530228E868A300025231 /* node.h */,
 			);
 			name = node_ios;
 			sourceTree = "<group>";
@@ -51,7 +56,7 @@
 		9AA14E00282A185C00B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14E05282A185C00B1621E /* libwindowing_ios.a */,
+				9AA14E05282A185C00B1621E /* windowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,9 +154,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9AA14E05282A185C00B1621E /* libwindowing_ios.a */ = {
+		9AA14E05282A185C00B1621E /* windowing_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
+			name = windowing_ios.a;
 			path = libwindowing_ios.a;
 			remoteRef = 9AA14E04282A185C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -164,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A750E52282B5F2A00C4861B /* _factory.cpp in Sources */,
+				9A0F53CC28E8F58700025231 /* node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

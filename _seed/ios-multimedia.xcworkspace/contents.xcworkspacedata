@@ -2,12 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-veriwell/waven/_ios_app_veriwell_waven.xcodeproj">
+      location = "group:../../../source/app-veriwell/waven/__implement/_ios_app_veriwell_waven.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-veriwell/verisimplevideo/_ios_app_veriwell_verisimplevideo.xcodeproj">
+      location = "group:../../../source/app-veriwell/verisimplevideo/__implement/_ios_app_veriwell_verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-veriwell/musical_player_lite/_ios_app_veriwell_musical_player_lite.xcodeproj">
+      location = "group:../../../source/app-veriwell/musical_player_lite/__implement/_ios_app_veriwell_musical_player_lite.xcodeproj">
    </FileRef>
 </Workspace>

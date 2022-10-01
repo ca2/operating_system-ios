@@ -8,11 +8,20 @@
 //
 
 #include "framework.h"
+#include "window.h"
 #include "window_impl.h"
+#include "windowing.h"
+#include "aura/graphics/draw2d/draw2d.h"
 #include "aura/graphics/graphics/_graphics.h"
+#include "aura/graphics/image/drawing.h"
+#include "aura/graphics/image/image.h"
+#include "aura/platform/session.h"
 #include "aura/user/user/interaction_prodevian.h"
-#include "acme/operating_system/_user.h"
+#include "aura/user/user/interaction_impl.h"
+#include "aura/user/user/user.h"
+#include "acme/operating_system/_.h"
 #include "acme/parallelization/message_queue.h"
+#include "aura/message/user.h"
 #include <CoreGraphics/CoreGraphics.h>
 
 void ns_main_async(dispatch_block_t block);

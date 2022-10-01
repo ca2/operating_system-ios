@@ -1,5 +1,7 @@
 //  From windowing_macos by camilo on 2022-05-11 16:11 <3ThomasBorregaardSorensen!
 #include "framework.h"
+#include "copydesk.h"
+#include "aura/graphics/image/image.h"
 
 
 bool ios_clipboard_has_changed(long & lTicket);

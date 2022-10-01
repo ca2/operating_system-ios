@@ -6,7 +6,9 @@
 //  Copyright © 2021 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #include "framework.h"
-#include "aura/graphics/image/_image.h"
+#include "node.h"
+#include "aura/graphics/image/image.h"
+#include "aura/platform/context.h"
 
 
 bool macos_get_file_image(::image * pimage, const char * pszFilePath);
@@ -15,6 +17,7 @@ bool macos_get_file_image_by_type_identifier(::image * pimage, const char * pszT
 
 namespace aura_ios
 {
+
 
    node::node()
    {

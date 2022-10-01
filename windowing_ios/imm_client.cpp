@@ -1,4 +1,8 @@
 #include "framework.h"
+#include "imm_client.h"
+#include "aura/platform/session.h"
+#include "aura/user/user/interaction.h"
+#include "aura/message/user.h"
 
 
 imm_client::imm_client()

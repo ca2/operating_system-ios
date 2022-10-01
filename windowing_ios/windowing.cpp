@@ -6,6 +6,11 @@
 //  From windowing_macos on 2022-05-11 02:19 <3ThomasBorregaardSorensen!!
 //
 #include "framework.h"
+#include "windowing.h"
+#include "window.h"
+#include "text_editor_interface.h"
+#include "host_interaction.h"
+#include "aura/windowing/display.h"
 
 
 //bool macos_get_cursor_position(POINT_I32 * ppointCursor);
@@ -138,6 +143,41 @@ namespace windowing_ios
 
       return pwindow;
 
+   }
+
+
+   void windowing::os_menu_item_enable(void * pitem, bool bEnable)
+   {
+    
+      //::os_menu_item_enable(pitem, bEnable);
+      
+   }
+
+
+   void windowing::os_menu_item_check(void * pitem, bool bCheck)
+   {
+
+      //::os_menu_item_check(pitem, bCheck);
+      
+   }
+
+
+   void windowing::defer_create_main_menu(const string_array & straMenuParent, const string_array & straMenuName, const string_array & straMenuId)
+   {
+   //
+   //      auto pmenushared =
+   //         create_menu_shared(
+   //
+   //                            straMenuParent,
+   //                            straMenuName,
+   //                            straMenuId
+   //
+   //                            );
+   //
+   //      ns_create_main_menu(pmenushared);
+   //
+      //return success;
+      
    }
 
 

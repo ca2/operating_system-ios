@@ -7,6 +7,9 @@
 #pragma once
 
 
+#include "aura/windowing/sandbox/windowing.h"
+
+
 namespace windowing_ios
 {
 
@@ -49,8 +52,14 @@ namespace windowing_ios
      
       ::windowing::window * get_application_host_window() override;
       
+      
       ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
 
+      void os_menu_item_enable(void * pitem, bool bEnable) override;
+      void os_menu_item_check(void * pitem, bool bCheck) override;
+
+      void defer_create_main_menu(const string_array & straParent, const string_array & straMenu, const string_array & straId) override;
+      
       __pointer(::windowing::cursor) get_cursor(enum_cursor ecursor) override;
       
       void windowing_post(const ::procedure & procedure) override;
@@ -73,8 +82,9 @@ namespace windowing_ios
       
       
 //      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
-       
-      
+//       
+//      __pointer(::conversation) create_new_message_box_conversation() override;
+
    };
       
 

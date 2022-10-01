@@ -13,21 +13,20 @@
 #endif
 
 
-namespace apex
+namespace apex_ios
 {
 
 
-   namespace macos
-   {
+   class dir_system;
+   class dir_context;
+
+   class file_system;
+   class file_context;
+
+   class node;
 
 
-      class node;
-
-
-   } // namespace macos
-
-
-} // namespace apex
+} // namespace apex_ios
 
 
 

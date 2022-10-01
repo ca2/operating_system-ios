@@ -6,6 +6,8 @@
 //  Copyright © 2021 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #include "framework.h"
+#include "aura/graphics/image/image.h"
+#include "aura/message/user.h"
 
 
 bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath);

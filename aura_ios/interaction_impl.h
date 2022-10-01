@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "aura/user/user/_component.h"
+#include "aura/user/user/interaction_impl.h"
 //#include "aura/user/interaction_impl.h"
 
 
@@ -208,7 +208,7 @@ namespace aura_ios
 
 
 
-      void set_viewport_org(::draw2d::graphics_pointer & pgraphics) override;
+      void set_origin(::draw2d::graphics_pointer & pgraphics) override;
       void offset_viewport_org(RECTANGLE_I32 * lprectScreen);
 
 

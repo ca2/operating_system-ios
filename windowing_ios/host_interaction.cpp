@@ -6,6 +6,7 @@
 //  21:34
 //
 #include "framework.h"
+#include "host_interaction.h"
 
 
 namespace windowing_ios

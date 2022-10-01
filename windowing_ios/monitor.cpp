@@ -5,6 +5,8 @@
 //  Created by Camilo Sasuke on 27/05/21 19:48 BRT <3ThomasBS_!!
 //
 #include "framework.h"
+#include "monitor.h"
+
 
 void ns_monitor_cgrect(int i, CGRect * p);
 void ns_workspace_cgrect(int i, CGRect * p);

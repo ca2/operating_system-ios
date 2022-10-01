@@ -5,6 +5,9 @@
 #pragma once
 
 
+#include "aura/windowing/icon.h"
+
+
 namespace windowing_ios
 {
 
@@ -17,7 +20,7 @@ namespace windowing_ios
 
 
       icon();
-      virtual ~icon();
+      ~icon() override;
 
 
 //      virtual string get_tray_icon_name() const;

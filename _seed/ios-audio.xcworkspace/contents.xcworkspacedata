@@ -2,21 +2,21 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-simple/drawing/_ios_app_simple_drawing.xcodeproj">
+      location = "group:../../../source/app-simple/drawing/__implement/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/audioaura/_ios_app_core_audioaura.xcodeproj">
+      location = "group:../../../source/app-core/audioaura/__implement/_ios_app_core_audioaura.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/chronometer/_ios_app_core_chronometer.xcodeproj">
+      location = "group:../../../source/app-core/chronometer/__implement/_ios_app_core_chronometer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/clockverse/_ios_app_core_clockverse.xcodeproj">
+      location = "group:../../../source/app-core/clockverse/__implement/_ios_app_core_clockverse.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/timer/_ios_app_core_timer.xcodeproj">
+      location = "group:../../../source/app-core/timer/__implement/_ios_app_core_timer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/app-core/todo/_ios_app_core_todo.xcodeproj">
+      location = "group:../../../source/app-core/todo/__implement/_ios_app_core_todo.xcodeproj">
    </FileRef>
 </Workspace>

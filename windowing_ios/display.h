@@ -8,6 +8,9 @@
 #pragma once
 
 
+#include "aura/windowing/display.h"
+
+
 namespace windowing_ios
 {
 

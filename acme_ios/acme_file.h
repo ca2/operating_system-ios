@@ -8,6 +8,9 @@
 #pragma once
 
 
+#include "acme_apple/acme_file.h"
+
+
 namespace acme_ios
 {
 

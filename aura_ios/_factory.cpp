@@ -1,4 +1,6 @@
 #include "framework.h"
+#include "shell.h"
+#include "interaction_impl.h"
 #include "apex/platform/launcher.h"
 //#include "launcher.h"
 //#include "FileSystemEvents/watcher.h"

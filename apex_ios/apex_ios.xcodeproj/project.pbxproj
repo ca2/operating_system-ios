@@ -101,7 +101,7 @@
 		9AA14F00282A289E00B1621E /* thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		9AA14F02282A289E00B1621E /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		9AA14F03282A289E00B1621E /* user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
-		9AA14F04282A289E00B1621E /* _apex_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _apex_ios.h; sourceTree = "<group>"; };
+		9AA14F04282A289E00B1621E /* aaa_apex_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_apex_ios.h; sourceTree = "<group>"; };
 		9AA14F05282A289E00B1621E /* file_system.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_system.cpp; sourceTree = "<group>"; };
 		9AA14F06282A289E00B1621E /* os_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = os_context.h; sourceTree = "<group>"; };
 		9AA14F07282A289E00B1621E /* user.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = user.mm; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				9AA14EF8282A289D00B1621E /* shell_launcher.cpp */,
 				9AA14F09282A289E00B1621E /* user.cpp */,
 				9AA14F1D282A289E00B1621E /* _.h */,
-				9AA14F04282A289E00B1621E /* _apex_ios.h */,
+				9AA14F04282A289E00B1621E /* aaa_apex_ios.h */,
 				9AA14EE9282A289D00B1621E /* _mm.h */,
 				9AA14EEF282A289D00B1621E /* application.h */,
 				9AA14EF0282A289D00B1621E /* dir_context.h */,

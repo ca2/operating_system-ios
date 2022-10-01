@@ -8,6 +8,9 @@
 #pragma once
 
 
+#include "aura/windowing/sandbox/host_interaction.h"
+
+
 namespace windowing_ios
 {
 

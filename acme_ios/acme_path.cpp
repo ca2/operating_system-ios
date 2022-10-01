@@ -25,7 +25,7 @@ namespace acme_ios
    acme_path::acme_path()
    {
 
-      m_pplatformpath = this;
+      //m_pplatformpath = this;
 
    }
 

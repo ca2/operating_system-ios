@@ -5,8 +5,9 @@
 //  Created by Camilo Sasuke Tsumanuma on 30/12/16.
 //  Copyright © 2016 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
-
 #include "framework.h"
+#include "shell.h"
+
 
 //string macos_get_type_identifier(const ::string & str);
 //
@@ -17,10 +18,11 @@
 //bool macos_get_file_image(::image * pimage, const ::string & psz);
 //
 //
+
 namespace aura_ios
 {
-//
-//
+
+
    shell::shell()
    {
       

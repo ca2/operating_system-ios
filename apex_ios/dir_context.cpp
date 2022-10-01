@@ -1,4 +1,8 @@
 #include "framework.h"
+#include "dir_context.h"
+#include "dir_system.h"
+#include "file_system.h"
+#include "acme_ios/acme_directory.h"
 //#include "_ios.h"
 //#include "aqua/xml.h"
 

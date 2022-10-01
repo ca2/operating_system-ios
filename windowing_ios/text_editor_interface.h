@@ -7,6 +7,9 @@
 #pragma once
 
 
+#include "aura/windowing/text_editor_interface.h"
+
+
 namespace windowing_ios
 {
 
@@ -23,8 +26,8 @@ namespace windowing_ios
       ~text_editor_interface() override;
       
       
-      void set_input_method_manager_selection(strsize iStart, strsize iEnd) override;
-      void set_input_method_manager_candidate_position(strsize iStart, strsize iEnd) override;
+      void set_input_method_manager_selection(strsize iSelBeg, strsize iSelEnd, strsize iCandidateBeg, strsize iCandidateEnd) override;
+//      void set_input_method_manager_candidate_position(strsize iStart, strsize iEnd) override;
       void synchronize_input_method_manager_with_selection_end() override;
 
 

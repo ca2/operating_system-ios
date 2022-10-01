@@ -6,6 +6,18 @@
 //
 #include "framework.h"
 #include "buffer.h"
+#include "windowing.h"
+#include "window.h"
+#include "host_interaction.h"
+#include "display.h"
+#include "monitor.h"
+#include "imm_client.h"
+#include "keyboard.h"
+#include "icon.h"
+//#include "cursor.h"
+#include "copydesk.h"
+#include "aura/windowing/desktop_environment.h"
+
 
 extern "C"
 void aura_ios_factory(::factory::factory * pfactory);
@@ -27,7 +39,7 @@ void windowing_ios_factory(::factory::factory * pfactory)
 
    pfactory->add_factory_item < windowing_ios::host_interaction, ::sandbox_windowing::host_interaction > ();
 
-   pfactory->add_factory_item < windowing_ios::node, ::acme::node > ();
+//   pfactory->add_factory_item < windowing_ios::node, ::acme::node > ();
    pfactory->add_factory_item < windowing_ios::display, ::windowing::display > ();
    pfactory->add_factory_item < windowing_ios::monitor, ::windowing::monitor > ();
    pfactory->add_factory_item < windowing_ios::buffer, ::graphics::graphics > ();
@@ -40,6 +52,8 @@ void windowing_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < windowing_ios::keyboard, ::windowing::keyboard > ();
 
    pfactory->add_factory_item < windowing_ios::copydesk, ::user::copydesk > ();
+   
+   pfactory->add_factory_item < ::windowing::desktop_environment > ();
 
 }
 

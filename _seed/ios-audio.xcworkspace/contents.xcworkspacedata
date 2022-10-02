@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../source/app-simple/drawing/__implement/_ios_app_simple_drawing.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/app-core/audioaura/__implement/_ios_app_core_audioaura.xcodeproj">
    </FileRef>
    <FileRef

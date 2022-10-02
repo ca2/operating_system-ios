@@ -25,14 +25,22 @@
 
 #define WCHAR_T_SIZE 32
 
-#define OPERATING_SYSTEM_NAMESPACE ios
-
 #if defined(_DEBUG) && !defined(DEBUG)
 #define DEBUG 1
 #endif
 
+
 #define OPERATING_SYSTEM_NAME "ios"
+
 #define OPERATING_SYSTEM_NAMESPACE ios
+
+#define PLATFORM_COMMON_NAMESPACE apple
+
+#define PLATFORM_STRING "ios"
+
+#define PLATFORM_COMMON_STRING "apple"
+
+#define DEFAULT_DIR_SEPARATOR "/"
 
 //#ifdef __cplusplus
 //typedef wchar_t unichar;

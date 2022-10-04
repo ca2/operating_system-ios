@@ -872,7 +872,7 @@ namespace apex_ios
 //  macos_os.cpp
 //  apex
 //
-//  Created by Camilo Sasuke Tsumanuma on 2013-09-17.
+//  Created by Camilo Sasuke Thomas Borregaard Sørensen on 2013-09-17.
 //
 //
 

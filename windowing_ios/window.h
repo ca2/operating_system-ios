@@ -2,7 +2,7 @@
 //  macos_window_impl.h
 //  aura
 //
-//  Created by Camilo Sasuke Tsumanuma on 2013-09-18.
+//  Created by Camilo Sasuke Thomas Borregaard Sørensen on 2013-09-18.
 //  From windowing_macos on 2022-05-11 02:15 <3ThomasBorregaardSorensen!!
 //
 //

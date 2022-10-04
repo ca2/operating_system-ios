@@ -2,8 +2,8 @@
 //  app.h
 //  app
 //
-//  Created by Camilo Sasuke Tsumanuma on 12/05/14.
-//  Copyright (c) 2014 Camilo Sasuke Tsumanuma. All rights reserved.
+//  Created by Camilo Sasuke Thomas Borregaard Sørensen on 12/05/14.
+//  Copyright (c) 2014 Camilo Sasuke Thomas Borregaard Sørensen. All rights reserved.
 //
 
 #ifndef app_app_h

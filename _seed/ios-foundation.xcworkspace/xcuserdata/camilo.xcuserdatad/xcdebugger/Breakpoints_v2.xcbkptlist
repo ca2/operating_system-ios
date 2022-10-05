@@ -404,7 +404,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F1CECEB9-9239-4BE3-8616-72E4DC1F3564"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/tab_impact.cpp"
@@ -420,7 +420,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "352836DF-72FC-4BAD-8221-EFFD76554C3E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app-core/addressbook/edit_impact.cpp"
@@ -429,6 +429,22 @@
             startingLineNumber = "536"
             endingLineNumber = "536"
             landmarkName = "edit_impact::on_message_create(pmessage)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "711207AD-8FE4-42B6-8383-A80A67BEFD11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/base/user/user/tab_impact.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "634"
+            endingLineNumber = "634"
+            landmarkName = "tab_impact::_on_change_cur_sel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

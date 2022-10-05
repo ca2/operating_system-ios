@@ -148,7 +148,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BFB30A95-6191-4AEF-A482-D5F20BC72CE7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/core/user/simple/toolbar.cpp"
@@ -196,7 +196,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F408AB21-35C9-4222-8C16-1BA2001B5E44"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app-core/addressbook/pane_impact.cpp"
@@ -212,7 +212,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3D05A4CD-AB00-43C8-B33E-333873E21F7F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/toolbar.cpp"
@@ -220,15 +220,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2005"
             endingLineNumber = "2005"
-            landmarkName = "toolbar::erase_tool_item_state(atom, estateErase)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "841AEEF0-344D-4A80-8E74-7DCD7114D886"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/toolbar.cpp"
@@ -236,8 +236,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1995"
             endingLineNumber = "1995"
-            landmarkName = "toolbar::add_tool_item_state(atom, estateAdd)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -356,7 +356,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2A777657-FBE0-4544-8859-C1093625480B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/impact.cpp"
@@ -372,7 +372,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0C26D17A-8F0A-46FC-915D-E2D04359DE7F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/impact.cpp"
@@ -388,7 +388,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DBFAFCB3-8D34-46D7-921A-C1A59FB1BD41"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../source/app/base/user/user/tab_impact.cpp"
@@ -445,6 +445,22 @@
             startingLineNumber = "634"
             endingLineNumber = "634"
             landmarkName = "tab_impact::_on_change_cur_sel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "286C96EA-46A3-4193-8D55-179D98B46CDF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/core/user/simple/toolbar.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
+            landmarkName = "simple_toolbar::_001DrawItem(pgraphics, iItem)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

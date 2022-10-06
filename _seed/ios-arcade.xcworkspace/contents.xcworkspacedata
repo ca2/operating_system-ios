@@ -5,24 +5,6 @@
       location = "group:../../../source/app-simple/drawing/__implement/_ios_app_simple_drawing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../source/game/game_of_life/__implement/_game_game_of_life.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/tictactoe/__implement/_game_tictactoe.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/tetris/__implement/_game_tetris.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/arkanoid/__implement/_game_arkanoid.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/sokoban/__implement/_game_sokoban.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../source/game/pacman/__implement/_game_pacman.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../source/game/game_of_life/__implement/_ios_game_game_of_life.xcodeproj">
    </FileRef>
    <FileRef

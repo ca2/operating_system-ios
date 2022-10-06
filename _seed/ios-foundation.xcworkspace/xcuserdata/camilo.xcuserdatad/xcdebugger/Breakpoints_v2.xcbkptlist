@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "5DE9F7ED-7D77-4BFE-91FB-D1030E3B439A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
@@ -58,8 +58,8 @@
             filePath = "../../../source/app/base/user/user/tab.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2628"
-            endingLineNumber = "2628"
+            startingLineNumber = "2579"
+            endingLineNumber = "2579"
             landmarkName = "tab::on_message_create(pmessage)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,10 +218,10 @@
             filePath = "../../../source/app/base/user/user/toolbar.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2005"
-            endingLineNumber = "2005"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "2009"
+            endingLineNumber = "2009"
+            landmarkName = "toolbar::erase_tool_item_state(atom, estateErase)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,10 +234,10 @@
             filePath = "../../../source/app/base/user/user/toolbar.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1995"
-            endingLineNumber = "1995"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1999"
+            endingLineNumber = "1999"
+            landmarkName = "toolbar::add_tool_item_state(atom, estateAdd)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -461,6 +461,38 @@
             startingLineNumber = "673"
             endingLineNumber = "673"
             landmarkName = "simple_toolbar::_001DrawItem(pgraphics, iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96FB6260-6679-47AF-8307-E3E295DE68F4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/base/user/user/toolbar.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1526"
+            endingLineNumber = "1526"
+            landmarkName = "toolbar::on_message_create(pmessage)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAE69DEF-CF25-4DD6-9A2C-03F8FF305C1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../source/app/aura/user/user/interaction.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17926"
+            endingLineNumber = "17926"
+            landmarkName = "interaction::on_message_mouse_move(pmessage)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

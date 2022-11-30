@@ -69,15 +69,19 @@ void ns_main_monitor_cgrect(CGRect * p);
 
 
 
-int get_main_screen_rectangle(RECTANGLE_I32 * pr)
+RECTANGLE_I32 get_main_screen_rectangle()
 {
+
+   RECTANGLE_I32 rectangle{};
    
    CGRect r;
    
    ns_main_monitor_cgrect(&r);
    
-   __copy(pr, r);
+   screen_coordinates_aware_copy(rectangle, r);
+
+   return rectangle;
    
-   return true;
+   //return true;
    
 }

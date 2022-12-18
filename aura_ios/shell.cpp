@@ -109,7 +109,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 
    ////      i32 iImage = 0x80000000;
 //
-//      if (::str::begins_ci(imagekey.m_strPath, "uifs:"))
+//      if (::str::case_insensitive_begins(imagekey.m_strPath, "uifs:"))
 //      {
 //
 //         ::file::path path = pcontext->m_papexcontext->dir().matter("cloud.ico");
@@ -131,7 +131,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //         return iImage;
 //
 //      }
-//      else if (::str::begins_ci(imagekey.m_strPath, "fs:"))
+//      else if (::str::case_insensitive_begins(imagekey.m_strPath, "fs:"))
 //      {
 //
 //         ::file::path path = pcontext->m_papexcontext->dir().matter("remote.ico");
@@ -153,7 +153,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //         return iImage;
 //
 //      }
-//      else if (::str::begins_ci(imagekey.m_strPath, "ftp:"))
+//      else if (::str::case_insensitive_begins(imagekey.m_strPath, "ftp:"))
 //      {
 //
 //         ::file::path path = pcontext->m_papexcontext->dir().matter("ftp.ico");
@@ -176,10 +176,10 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //
 //      }
 //
-//      if (::str::ends_ci(imagekey.m_strPath, ".aura"))
+//      if (::str::case_insensitive_ends(imagekey.m_strPath, ".aura"))
 //      {
 //         string str = pcontext->m_papexcontext->file().as_string(imagekey.m_strPath);
-//         if (::str::begins_eat_ci(str, "ca2prompt\r\n"))
+//         if (::str::case_insensitive_begins_eat(str, "ca2prompt\r\n"))
 //         {
 //            str.trim();
 //            /*HICON hicon16 = (HICON) ::LoadImage(nullptr, pcontext->m_papexcontext->dir().matter(str + "/mainframe/icon.ico"), IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
@@ -242,7 +242,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //
 //      string strExtension;
 //
-//      if (::str::ends_ci(imagekey.m_strPath, ".sln"))
+//      if (::str::case_insensitive_ends(imagekey.m_strPath, ".sln"))
 //      {
 //         output_debug_string("test");
 //      }
@@ -260,7 +260,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //
 //      string strIcon16;
 //
-//      if (::str::ends_ci(getfileimage.m_imagekey.m_strPath, ".desktop"))
+//      if (::str::case_insensitive_ends(getfileimage.m_imagekey.m_strPath, ".desktop"))
 //      {
 //
 //         auto pcontext = m_pcontext;
@@ -284,7 +284,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //
 //         string strIcon = stra[0];
 //
-//         ::str::begins_eat_ci(strIcon, "icon=");
+//         ::str::case_insensitive_begins_eat(strIcon, "icon=");
 //
 //         strIcon48 = strIcon;
 //

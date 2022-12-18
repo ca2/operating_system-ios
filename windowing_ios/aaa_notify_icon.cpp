@@ -68,13 +68,13 @@
 ////
 ////      string str(str1);
 ////
-////      if(::str::begins_eat_ci(str, "app_veriwell_"))
+////      if(::str::case_insensitive_begins_eat(str, "app_veriwell_"))
 ////      {
 ////
 ////         strFolder+="app-veriwell";
 ////
 ////      }
-////      else if(::str::begins_eat_ci(str, "app_core_"))
+////      else if(::str::case_insensitive_begins_eat(str, "app_core_"))
 ////      {
 ////
 ////         strFolder+="app-core";

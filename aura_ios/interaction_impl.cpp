@@ -255,7 +255,7 @@ namespace aura_ios
 //   }
 
 
-//   bool interaction_impl::create_window_ex(::user::interaction * pinteraction, __pointer(::user::system) pusersystem, ::user::interaction *  puiParent, id id)
+//   bool interaction_impl::create_window_ex(::user::interaction * pinteraction, ::pointer < ::user::system > pusersystem, ::user::interaction *  puiParent, id id)
 //   {
 //
 //      if (!native_create_window_ex(pinteraction, cs,
@@ -400,7 +400,7 @@ bool interaction_impl::_is_window() const
 ////      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx;
 ////      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy;
 //
-////      __copy(rectangle, rectParam);
+////      copy(rectangle, rectParam);
 ////
 ////      if (pusersystem->m_createstruct.hwndParent == MESSAGE_WINDOW_PARENT)
 ////      {
@@ -596,7 +596,7 @@ bool interaction_impl::_is_window() const
       //      MESSAGE_LINK(e_message_create            , pchannel, this, &interaction_impl::on_message_create);
       //      MESSAGE_LINK(e_message_set_cursor         , pchannel, this, &interaction_impl::_001OnSetCursor);
       //      MESSAGE_LINK(e_message_erase_background        , pchannel, this, &interaction_impl::_001OnEraseBkgnd);
-      //      MESSAGE_LINK(e_message_move              , pchannel, this, &interaction_impl::_001OnMove);
+      //      MESSAGE_LINK(e_message_reposition              , pchannel, this, &interaction_impl::_001OnMove);
       //      MESSAGE_LINK(e_message_size              , pchannel, this, &interaction_impl::_001OnSize);
       MESSAGE_LINK(e_message_show_window, pchannel, this, &interaction_impl::_001OnShowWindow);
       //      MESSAGE_LINK(ca2m_PRODEVIAN_SYNCH , pchannel, this, &interaction_impl::_001OnProdevianSynch);
@@ -633,7 +633,7 @@ bool interaction_impl::_is_window() const
 //
 //      }
 //
-//      __pointer(::message::move) pmove(pmessage);
+//      ::pointer < ::message::move > pmove(pmessage);
 //
 //      m_puserinteraction->window_state().m_point = pmove->m_point;
 //
@@ -682,7 +682,7 @@ bool interaction_impl::_is_window() const
 //
 //      }
 //
-//      __pointer(::message::size) psize(pmessage);
+//      ::pointer < ::message::size > psize(pmessage);
 //
 //      m_puserinteraction->window_state().m_size = psize->m_size;
 //
@@ -1041,7 +1041,7 @@ bool interaction_impl::_is_window() const
 //
 //   }
 //
-//      if (pmessage->m_atom == e_message_size || pmessage->m_atom == e_message_move)
+//      if (pmessage->m_atom == e_message_size || pmessage->m_atom == e_message_reposition)
 //      {
 //
 //         //         win_update_graqhics();
@@ -1051,7 +1051,7 @@ bool interaction_impl::_is_window() const
 //      if (bKeyMessage)
 //      {
 //
-//         __pointer(::message::key) pkey(pmessage);
+//         ::pointer < ::message::key > pkey(pmessage);
 //         
 //         //auto psession = get_session()->m_paurasession;
 //         
@@ -1190,7 +1190,7 @@ bool interaction_impl::_is_window() const
 ////
 ////         }
 ////
-////         __pointer(::message::mouse) pmouse =  pusermessage;
+////         ::pointer < ::message::mouse > pmouse =  pusermessage;
 ////
 ////         auto psession = get_session();
 ////
@@ -1302,7 +1302,7 @@ bool interaction_impl::_is_window() const
 //
 //              }
 //
-//              __pointer(::message::mouse) pmouse = pmessage;
+//              ::pointer < ::message::mouse > pmouse = pmessage;
 //
 //              auto psession = get_session();
 //
@@ -1555,7 +1555,7 @@ bool interaction_impl::_is_window() const
 //         
 //         auto pwindowing = m_pwindowing;
 //
-//         __pointer(::user::interaction) puiFocus = m_puserinteractionKeyboardFocus;
+//         ::pointer < ::user::interaction > puiFocus = m_puserinteractionKeyboardFocus;
 //
 //         if (puiFocus)
 //         {
@@ -1655,7 +1655,7 @@ bool interaction_impl::_is_window() const
 
    /*
 
-   __pointer(::user::frame_window) interaction_impl::top_level_frame()
+   ::pointer < ::user::frame_window > interaction_impl::top_level_frame()
    {
       if (get_handle() == nullptr) // no oswindow attached
          return nullptr;
@@ -1831,11 +1831,11 @@ bool interaction_impl::_is_window() const
 //      ASSERT(puiStop == nullptr || puiStop->is_window());
 //      ASSERT(pmessage != nullptr);
 //
-//      __pointer(::user::message) pusermessage(pmessage);
+//      ::pointer < ::user::message > pusermessage(pmessage);
 //      // walk from the target user::interaction up to the hWndStop user::interaction checking
 //      //  if any user::interaction wants to translate this message
 //
-//      for (__pointer(::user::interaction) pinteraction = pusermessage->m_puserinteraction; pinteraction != nullptr; pinteraction->get_parent())
+//      for (::pointer < ::user::interaction > pinteraction = pusermessage->m_puserinteraction; pinteraction != nullptr; pinteraction->get_parent())
 //      {
 //
 //         pinteraction->pre_translate_message(pmessage);
@@ -2372,7 +2372,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::_001OnPrint(::message::message * pmessage)
    {
       throw ::exception(error_not_implemented);;
-      //      __pointer(::user::message) pusermessage(pmessage);
+      //      ::pointer < ::user::message > pusermessage(pmessage);
       //
       //      if(pusermessage->m_wparam == nullptr)
       //         return;
@@ -4047,7 +4047,7 @@ bool interaction_impl::_is_window() const
 //
 //   void interaction_impl::_001OnSetCursor(::message::message * pmessage)
 //   {
-//      __pointer(::user::message) pusermessage(pmessage);
+//      ::pointer < ::user::message > pusermessage(pmessage);
 //      if (psession->get_cursor() != nullptr
 //            && psession->get_cursor()->m_ecursor != cursor_system)
 //      {
@@ -4463,7 +4463,7 @@ bool interaction_impl::_is_window() const
 //   void interaction_impl::_001OnEraseBkgnd(::message::message * pmessage)
 //   {
 //
-//      __pointer(::message::erase_bkgnd) perasebkgnd(pmessage);
+//      ::pointer < ::message::erase_bkgnd > perasebkgnd(pmessage);
 //
 //      perasebkgnd->m_bRet = true;
 //

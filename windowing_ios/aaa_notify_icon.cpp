@@ -141,7 +141,7 @@
 //   }
 //
 //
-//   bool notify_icon::ModifyIcon(__pointer(::draw2d::icon) hicon, bool bForce)
+//   bool notify_icon::ModifyIcon(::pointer < ::draw2d::icon > hicon, bool bForce)
 //   {
 //
 //      if(!m_bCreated)
@@ -282,7 +282,7 @@
 ////            try
 ////            {
 ////
-////               __pointer(::user::interaction) pframe = (m_wndptraHidden.element_at(0));
+////               ::pointer < ::user::interaction > pframe = (m_wndptraHidden.element_at(0));
 ////
 ////               if (pframe != nullptr)
 ////               {

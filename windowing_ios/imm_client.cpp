@@ -67,7 +67,7 @@ void imm_client::_001OnKillFocus(::message::message * pmessage)
 void imm_client::_011OnChar(::message::message * pmessage)
 {
 
-   __pointer(::user::message) pusermessage(pmessage);
+   ::pointer < ::user::message > pusermessage(pmessage);
 
    if (pmessage->m_atom == e_message_char)
    {
@@ -127,11 +127,11 @@ void imm_client::insert_text(string str, bool bForceNewStep, const ::action_cont
 void imm_client::_001OnIme(::message::message * pmessage)
 {
 
-   synchronous_lock synchronouslock(mutex());
+   synchronous_lock synchronouslock(synchronization());
 
 #ifdef WINDOWS_DESKTOP
 
-   __pointer(::user::message) pusermessage(pmessage);
+   ::pointer < ::user::message > pusermessage(pmessage);
 
    if (pmessage->m_atom == WM_INPUTLANGCHANGE)
    {
@@ -513,7 +513,7 @@ void imm_client::_001OnKeyDown(::message::message * pmessage)
 
 #ifdef WINDOWS_DESKTOP
 
-   __pointer(::message::key) pkey(pmessage);
+   ::pointer < ::message::key > pkey(pmessage);
 
    if (pkey->m_ekey == ::user::e_key_escape)
    {
@@ -683,7 +683,7 @@ int imm_client::on_text_composition_message(int iMessage)
 
       com.dwStyle = CFS_FORCE_POSITION;
 
-      __copy(com.ptCurrentPos, rectangle.top_left());
+      copy(com.ptCurrentPos, rectangle.top_left());
 
       com.ptCurrentPos.y -= 100;
 
@@ -693,7 +693,7 @@ int imm_client::on_text_composition_message(int iMessage)
 
       com.dwStyle = CFS_RECT;
 
-      __copy(com.rcArea, rect2);
+      copy(com.rcArea, rect2);
 
       //ShowCaret(get_handle());
 
@@ -733,7 +733,7 @@ int imm_client::on_text_composition_message(int iMessage)
 
       can.dwStyle = CFS_CANDIDATEPOS;
 
-      __copy(can.ptCurrentPos, rectangle.bottom_left());
+      copy(can.ptCurrentPos, rectangle.bottom_left());
 
       if (::ImmSetCandidateWindow(imm, &can))
       {

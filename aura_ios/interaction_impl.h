@@ -111,11 +111,11 @@ namespace aura_ios
       // advanced creation (allows access to extended styles)
 //      virtual bool create_window_ex(
 //      ::user::interaction * pinteraction,
-//      __pointer(::user::system) pusersystem,
+//      ::pointer < ::user::system > pusersystem,
 //      ::user::interaction * puiParent,
 //      id id) override;
 //
-//      virtual bool _native_create_window_ex(__pointer(::user::system) pusersystem) override;
+//      virtual bool _native_create_window_ex(::pointer < ::user::system > pusersystem) override;
 //
 //      virtual bool DestroyWindow() override;
 

@@ -77,7 +77,7 @@ void message_box::do_asynchronously()
 //
 //   }
 
-//__pointer(::conversation) node::create_new_message_box_conversation()
+//::pointer < ::conversation > node::create_new_message_box_conversation()
 //   {
 //
 //      return __new(class message_box());

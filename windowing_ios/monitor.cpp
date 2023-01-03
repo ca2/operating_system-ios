@@ -38,7 +38,7 @@ namespace windowing_ios
       
       ns_monitor_cgrect((int) m_iIndex, &r);
       
-      __copy(prectangle, r);
+      copy(prectangle, r);
       
       //return ::success;
       
@@ -52,7 +52,7 @@ namespace windowing_ios
       
       ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
       
-      __copy(prectangle, rectWorkspace);
+      copy(prectangle, rectWorkspace);
       
       //return ::success;
       

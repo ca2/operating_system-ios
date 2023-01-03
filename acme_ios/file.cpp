@@ -68,7 +68,7 @@ namespace acme_ios
 
    }
 
-//   __pointer(::file::file) file::Duplicate() const
+//   ::pointer < ::file::file > file::Duplicate() const
 //   {
 //      ASSERT_VALID(this);
 //      ASSERT(m_iFile != (::u32)hFileNull);

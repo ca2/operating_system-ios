@@ -181,7 +181,7 @@ namespace windowing_ios
    }
 
 
-   __pointer(::windowing::cursor) windowing::get_cursor(enum_cursor ecursor)
+   ::pointer < ::windowing::cursor > windowing::get_cursor(enum_cursor ecursor)
    {
    
       return nullptr;

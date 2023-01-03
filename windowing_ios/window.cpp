@@ -103,7 +103,7 @@ namespace windowing_ios
 
 
          //#ifndef LINUX
-         //MESSAGE_LINK(e_message_move, pchannel, this, &window::_001OnMove);
+         //MESSAGE_LINK(e_message_reposition, pchannel, this, &window::_001OnMove);
          //MESSAGE_LINK(e_message_size, pchannel, this, &window::_001OnSize);
          //#endif
 
@@ -178,7 +178,7 @@ namespace windowing_ios
    //      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx;
    //      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy;
 
-   //      __copy(rectangle, rectParam);
+   //      copy(rectangle, rectParam);
    //
    //      if (pusersystem->m_createstruct.hwndParent == MESSAGE_WINDOW_PARENT)
    //      {
@@ -837,7 +837,7 @@ namespace windowing_ios
 
       critical_section_lock slDisplay(m_puserinteractionimpl->cs_display());
 
-      __pointer(::graphics::graphics) pbuffer = m_puserinteractionimpl->m_pgraphics;
+      ::pointer < ::graphics::graphics > pbuffer = m_puserinteractionimpl->m_pgraphics;
 
       if(!pbuffer)
       {
@@ -997,7 +997,7 @@ namespace windowing_ios
 //   bool window::ios_window_key_up(unsigned int uiKeyCode)
 //   {
 //
-//      __pointer(::user::message) spbase;
+//      ::pointer < ::user::message > spbase;
 //
 //      auto pkey  = __new(::message::key);
 //
@@ -1133,7 +1133,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 ////      if(pinteraction)
 ////      {
 ////
-////         __pointer(::user::plain_edit) pedit = pinteraction;
+////         ::pointer < ::user::plain_edit > pedit = pinteraction;
 ////
 ////         if(pedit)
 ////         {
@@ -1166,7 +1166,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       m_pointMouseCursor.y = y;
 
-      //__pointer(::user::message) spbase;
+      //::pointer < ::user::message > spbase;
 
       if (!this->is_active_window())
       {
@@ -1473,7 +1473,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
 //      {
 //
-//         id id = e_message_move;
+//         id id = e_message_reposition;
 //
 //         wparam wparam = 0;
 //
@@ -1489,7 +1489,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
 //      {
 //
-//         ::atom id = e_message_move;
+//         ::atom id = e_message_reposition;
 //
 //         wparam wparam = 0;
 //
@@ -1542,7 +1542,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //         TRACE("window::ios_window_resized effective position is different from requested position");
    //
-   //         puserinteraction->post_message(e_message_move, 0, puserinteraction->window_state().m_point.lparam());
+   //         puserinteraction->post_message(e_message_reposition, 0, puserinteraction->window_state().m_point.lparam());
    //
    //      }
    //
@@ -1598,7 +1598,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    ////      if (bMove)
    ////      {
    ////
-   ////         puserinteraction->post_message(e_message_move, 0, pt.lparam());
+   ////         puserinteraction->post_message(e_message_reposition, 0, pt.lparam());
    ////
    ////      }
 
@@ -1613,7 +1613,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      ::rectangle_i32 rectSize;
    //
-   //      __copy(rectSize, rectangle);
+   //      copy(rectSize, rectangle);
    //
    //      if(puserinteraction->window_state().rectangle_i32() != rectSize)
    //      {
@@ -1661,7 +1661,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       {
       
-         ::atom id = e_message_move;
+         ::atom id = e_message_reposition;
          
          wparam wparam = 0;
          
@@ -1684,7 +1684,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      ::point_i32 pointMove;
    //
-   //      __copy(pointMove, point);
+   //      copy(pointMove, point);
    //
    //      if (puserinteraction->m_eflagLayouting)
    //      {
@@ -1695,7 +1695,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      }
    //
-   //      ///__pointer(::message::move) pmove(pmessage);
+   //      ///::pointer < ::message::move > pmove(pmessage);
    //
    //      if (puserinteraction->layout().sketch().m_point != pointMove)
    //      {
@@ -2405,9 +2405,9 @@ void window::ios_window_text_view_did_begin_editing()
    void window::destroy_window()
    {
 
-      __pointer(::user::primitive_impl) pimplThis = m_puserinteractionimpl;
+      ::pointer < ::user::primitive_impl > pimplThis = m_puserinteractionimpl;
 
-      __pointer(::user::interaction) puiThis = pimplThis->m_puserinteraction;
+      ::pointer < ::user::interaction > puiThis = pimplThis->m_puserinteraction;
 
       try
       {

@@ -124,7 +124,7 @@ namespace windowing_ios
 
       //destroy_buffer();
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       //int w;
 

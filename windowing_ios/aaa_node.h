@@ -27,7 +27,7 @@ namespace windowing_ios
       
    
       
-      void implement(__pointer(::acme::node) & pnode, __pointer(::acme::system) & psystem) override;
+      void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
 
       
       void _will_finish_launching() override;
@@ -42,7 +42,7 @@ namespace windowing_ios
 //      void install_mouse_hook(::matter * pmatterListener) override;
 //      void uninstall_mouse_hook(::matter * pmatterListener) override;
 //
-       __pointer(::conversation) create_new_message_box_conversation() override;
+       ::pointer < ::conversation > create_new_message_box_conversation() override;
 
       
    };

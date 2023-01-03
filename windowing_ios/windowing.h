@@ -20,7 +20,7 @@ namespace windowing_ios
    public:
       
       
-      __pointer(::windowing::display)           m_pdisplay;
+      ::pointer < ::windowing::display >           m_pdisplay;
       
       //__pointer(class window)                   m_pwindowActive;
       
@@ -31,11 +31,11 @@ namespace windowing_ios
       ///__pointer(class window)
          //m_pwindowKeyboardFocus;
       
-      //__pointer(host_interaction)               m_phostinteraction;
+      //::pointer < host_interaction >               m_phostinteraction;
       
       map < void *, __pointer(class window) >   m_nsmap;
 
-      __pointer(text_editor_interface)          m_ptexteditorinterface;
+      ::pointer < text_editor_interface >          m_ptexteditorinterface;
 
       
       windowing();
@@ -60,7 +60,7 @@ namespace windowing_ios
 
       void defer_create_main_menu(const string_array & straParent, const string_array & straMenu, const string_array & straId) override;
       
-      __pointer(::windowing::cursor) get_cursor(enum_cursor ecursor) override;
+      ::pointer < ::windowing::cursor > get_cursor(enum_cursor ecursor) override;
       
       void windowing_post(const ::procedure & procedure) override;
       
@@ -83,7 +83,7 @@ namespace windowing_ios
       
 //      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
 //       
-//      __pointer(::conversation) create_new_message_box_conversation() override;
+//      ::pointer < ::conversation > create_new_message_box_conversation() override;
 
    };
       

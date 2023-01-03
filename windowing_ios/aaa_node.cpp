@@ -14,7 +14,7 @@
 void ui_application_main(int argc, char * argv[], const char * pszCommandLine);
 
 //
-//__pointer(menu_shared) create_menu_shared(const string_array & straParent, const string_array & straMenu, const string_array & straId);
+//::pointer < menu_shared > create_menu_shared(const string_array & straParent, const string_array & straMenu, const string_array & straId);
 
 
 void windowing_macos_application_main(void * pApplication, int argc, char *argv[]);
@@ -46,7 +46,7 @@ namespace windowing_ios
 
 
 
-   void node::implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem)
+   void node::implement(::pointer < ::acme::node > & pnode, __pointer(class ::system) & psystem)
    {
 
       //auto psystem = m_psystem->m_papexsystem;

@@ -223,7 +223,7 @@ void node::on_start_system()
 
 
 
-   void node::implement(__pointer(::acme::node) & pnode, __pointer(class ::acme::system) & psystem)
+   void node::implement(::pointer < ::acme::node > & pnode, __pointer(class ::acme::system) & psystem)
    {
       
       //auto psystem = m_psystem->m_papexsystem;
@@ -243,7 +243,7 @@ void node::on_start_system()
    }
 
 
-__pointer(::conversation) node::create_new_message_box_conversation()
+::pointer < ::conversation > node::create_new_message_box_conversation()
    {
 
       return __new(class ::windowing_ios::message_box());

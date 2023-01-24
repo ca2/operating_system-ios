@@ -112,7 +112,7 @@ namespace windowing_ios
                if(puserinteraction)
                {
                    
-                   auto rectangle = puserinteraction->get_window_rect();
+                   auto rectangle = puserinteraction->window_rectangle();
                    string strText;
                    
                    puserinteraction->_001GetText(strText);

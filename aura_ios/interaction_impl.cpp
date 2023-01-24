@@ -422,7 +422,7 @@ bool interaction_impl::_is_window() const
 //
 //         }
 //
-//         auto rectangle = m_puserinteraction-> get_window_rect();
+//         auto rectangle = m_puserinteraction-> window_rectangle();
 //
 //         m_oswindow = oswindow_get(new_aura_window(this, rectangle, uStyle));
 //
@@ -492,7 +492,7 @@ bool interaction_impl::_is_window() const
 //   {
 //      /*      if (pusersystem->m_createstruct.lpszClass == nullptr)
 //       {
-///xcore/app/aura/node/macos/macos_interaction_impl.cpp:712:44: No member named 'get_window_rect' in 'user::interaction_impl'       // make sure the default user::interaction class is registered
+///xcore/app/aura/node/macos/macos_interaction_impl.cpp:712:44: No member named 'window_rectangle' in 'user::interaction_impl'       // make sure the default user::interaction class is registered
 //       VERIFY(__end_defer_register_class(__WND_REG, &pusersystem->m_createstruct.lpszClass));
 //
 //       // no WNDCLASS provided - use child user::interaction default
@@ -844,7 +844,7 @@ bool interaction_impl::_is_window() const
 
       ::rectangle_i32 rectangle;
       
-      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(rectangle);
+      ((::user::interaction_impl *) this)->m_puserinteraction->window_rectangle(rectangle);
       
 //      dumpcontext << "\nrect = " << rectangle_i32;
       dumpcontext << "\nparent ::user::interaction * = " << (void *)((::user::interaction_impl *) this)->get_parent();
@@ -1234,7 +1234,7 @@ bool interaction_impl::_is_window() const
 ////
 ////#ifndef __APPLE__
 ////
-////                     ::get_window_rect(get_handle(), &rectangle);
+////                     ::window_rectangle(get_handle(), &rectangle);
 ////
 ////#endif
 ////
@@ -1242,7 +1242,7 @@ bool interaction_impl::_is_window() const
 ////                  else
 ////                  {
 ////
-////                     m_puserinteraction->get_window_rect(rectangle);
+////                     m_puserinteraction->window_rectangle(rectangle);
 ////
 ////                  }
 ////
@@ -1337,14 +1337,14 @@ bool interaction_impl::_is_window() const
 ////     //
 ////     //               ::rectangle_i32 rectWindow32;
 ////     //
-////     //               ::get_window_rect((oswindow) get_handle(), &rectWindow32);
+////     //               ::window_rectangle((oswindow) get_handle(), &rectWindow32);
 ////     //
 ////     //               ::copy(rectWindow, rectWindow32);
 ////     //
 ////     //            }
 ////     //            else
 ////                 {
-////                    m_puserinteraction->get_window_rect(rectWindow);
+////                    m_puserinteraction->window_rectangle(rectWindow);
 ////                 }
 ////
 ////                 auto puser = psession->user();
@@ -2326,14 +2326,14 @@ bool interaction_impl::_is_window() const
 //
 //      //::rectangle_i32 rectClient;
 //
-//      //get_client_rect(rectClient);
+//      //client_rectangle(rectClient);
 //
 //
 //      //pgraphics->FillSolidRect(rectClient, 0x00000000);
 //
 //      //return;
 //
-//      //auto rectUpdate = get_window_rect();
+//      //auto rectUpdate = window_rectangle();
 //
 //      //      SetViewportOrgEx(hdc, 0, 0, nullptr);
 //
@@ -2391,7 +2391,7 @@ bool interaction_impl::_is_window() const
       //      try
       //      {
       //         ::rectangle_i32 rectWindow;
-      //         get_window_rect(rectWindow);
+      //         window_rectangle(rectWindow);
       //
       //         ::image_pointer pimage(this);
       //         if(!pimage = create_image(rectWindow.bottom_right()))
@@ -2706,7 +2706,7 @@ bool interaction_impl::_is_window() const
 //
 //      ::rectangle_i64 rectWindow;
 //
-//      if (!m_puserinteraction->get_window_rect(rectWindow))
+//      if (!m_puserinteraction->window_rectangle(rectWindow))
 //      {
 //
 //         return point(0.0, 0.0);
@@ -2718,15 +2718,15 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-//   bool interaction_impl::get_window_rect(RECTANGLE_I64 * lprect)
+//   bool interaction_impl::window_rectangle(RECTANGLE_I64 * lprect)
 //   {
 //
-//      return ::user::interaction_impl::get_window_rect(lprect);
+//      return ::user::interaction_impl::window_rectangle(lprect);
 //
 //   }
 //
 //
-//   bool interaction_impl::get_client_rect(RECTANGLE_I64 * lprect)
+//   bool interaction_impl::client_rectangle(RECTANGLE_I64 * lprect)
 //   {
 //
 //      if (!::is_window(get_handle()))
@@ -2738,7 +2738,7 @@ bool interaction_impl::_is_window() const
 //
 //      ::rectangle_i32 rect32;
 //
-//      if (!::get_client_rect(get_handle(), rect32))
+//      if (!::client_rectangle(get_handle(), rect32))
 //      {
 //
 //         return false;

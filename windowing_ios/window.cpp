@@ -220,7 +220,7 @@ namespace windowing_ios
 
       auto puser = psession->user();
 
-      auto pwindowing = (::windowing_ios::windowing *) puser->windowing1()->m_pWindowing4;
+      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
 
       m_pmacoswindowing = pwindowing->cast < class windowing >();
 

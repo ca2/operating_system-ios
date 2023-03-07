@@ -1,1 +1,1 @@
-$(WorkspaceDir)/operating-system
+$(WorkspaceDir)/operating_system

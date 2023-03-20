@@ -289,7 +289,7 @@ namespace acme_ios
          return 0;   // avoid Win32 "null-read"
 
       ASSERT(lpBuf != nullptr);
-      ASSERT(__is_valid_address(lpBuf, nCount));
+      ASSERT(::is_memory_segment_ok(lpBuf, nCount));
 
       memsize pos = 0;
       memsize sizeRead = 0;
@@ -352,7 +352,7 @@ namespace acme_ios
 
       ASSERT(lpBuf != nullptr);
       
-      ASSERT(__is_valid_address(lpBuf, nCount, false));
+      ASSERT(::is_memory_segment_ok(lpBuf, nCount, false));
 
       memsize pos = 0;
       

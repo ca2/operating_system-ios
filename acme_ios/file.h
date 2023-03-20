@@ -68,7 +68,7 @@ namespace acme_ios
       ::file::path get_file_path() const override;
       void set_file_path(const ::file::path & path) override;
 
-      void open(const ::file::path & path, const ::file::e_open & eopen) override;
+      void open(const ::file::path & path, ::file::e_open eopen) override;
 
       filesize translate(filesize uiCount, ::enum_seek eseek) override;
       void set_size(filesize uiCount) override;

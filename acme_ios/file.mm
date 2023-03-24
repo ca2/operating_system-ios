@@ -76,7 +76,7 @@ enum_status ns_symbolic_link_destination(char ** ppszDestination, const char * p
    if(ppszDestination)
    {
    
-      *ppszDestination = ns_string(strDestination);
+      *ppszDestination = __strdup(strDestination);
       
    }
    
@@ -98,7 +98,7 @@ char * ns_user_local_folder(NSSearchPathDirectory e)
       
    }
    
-   return ns_string([[pa objectAtIndex:0] path]);
+   return __strdup([[pa objectAtIndex:0] path]);
    
 }
 
@@ -187,7 +187,7 @@ char * ns_user_local_video_folder()
 //      strTarget = str;
 //   }
 //   
-//   return ns_string(strTarget);
+//   return __strdup(strTarget);
 //
 //}
 //

@@ -11,7 +11,7 @@
 UIImage * uiimage_from_image_data(const void * pdata, int cx, int cy, int scan);
 
 
-char * ns_string(NSString * str);
+char * __strdup(NSString * str);
 
 static UIPasteboard * g_ppasteboard = nullptr;
 
@@ -164,7 +164,7 @@ char * ios_clipboard_get_plain_text()
    
    NSString * strPasteboard = [pasteboard string];
    
-   return ns_string(strPasteboard);
+   return __strdup(strPasteboard);
    
 }
 

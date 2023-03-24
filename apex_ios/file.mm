@@ -20,7 +20,7 @@
 //
 //   NSString * resourcePath = [ [ NSBundle mainBundle ] resourcePath ];
 //
-//   return ns_string(resourcePath);
+//   return __strdup(resourcePath);
 //
 //}
 //
@@ -37,7 +37,7 @@
 //
 //   }
 //
-//   return ns_string([[pa objectAtIndex:0] path]);
+//   return __strdup([[pa objectAtIndex:0] path]);
 //
 //}
 //
@@ -121,7 +121,7 @@
 //   
 //   NSString * strTarget = [urlTarget absoluteString];
 //   
-//   return ns_string(strTarget);
+//   return __strdup(strTarget);
 //
 //}
 

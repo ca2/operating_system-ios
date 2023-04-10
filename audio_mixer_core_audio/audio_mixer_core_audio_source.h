@@ -10,7 +10,7 @@ namespace multimedia
 
 
       class CLASS_DECL_AUDIO_MIXER_MMSYSTEM source :
-         virtual public ::multimedia::audio_mixer::source
+         virtual public ::audio_mixer::source
       {
       public:
 
@@ -25,23 +25,23 @@ namespace multimedia
 
 
          ::multimedia::e_result mixerGetLineInfo(uint32_t dwSource, uint32_t dwDestination, uint32_t fdwInfo);
-         ::multimedia::e_result mixerGetLineInfo(uint32_t dwSource, ::multimedia::audio_mixer::destination * pdestination);
+         ::multimedia::e_result mixerGetLineInfo(uint32_t dwSource, ::audio_mixer::destination * pdestination);
 
          uint32_t GetLineID();
          const char * GetSZName();
          void update_all_controls();
          MIXERLINECONTROLS & get_mixer_line_controls();
          MIXERLINE & get_mixer_line();
-         ::multimedia::audio_mixer::control_array & get_control_array();
+         ::audio_mixer::control_array & get_control_array();
 
-         ::multimedia::audio_mixer::device * get_device();
+         ::audio_mixer::device * get_device();
 
-         void SetDestination(::multimedia::audio_mixer::destination * pdestination);
-         ::multimedia::audio_mixer::destination * get_destination();
+         void SetDestination(::audio_mixer::destination * pdestination);
+         ::audio_mixer::destination * get_destination();
 
          void OnMixerLineChange();
          //void OnArrayReallocation(void *pNewPointer);
-         //::multimedia::e_result GetControl(uint32_t dwControlType, uint32_t dwControlFlags, ::multimedia::audio_mixer::control ** ppControl);
+         //::multimedia::e_result GetControl(uint32_t dwControlType, uint32_t dwControlFlags, ::audio_mixer::control ** ppControl);
          ::multimedia::e_result GetLineControls();
 
          inline bool HasV001Controls();

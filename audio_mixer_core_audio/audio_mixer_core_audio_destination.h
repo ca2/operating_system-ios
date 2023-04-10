@@ -11,7 +11,7 @@ namespace multimedia
 
       class CLASS_DECL_AUDIO_MIXER_MMSYSTEM destination :
          virtual public ::multimedia::audio_mixer_audio_core::source,
-         virtual public ::multimedia::audio_mixer::destination
+         virtual public ::audio_mixer::destination
       {
       public:
 
@@ -26,13 +26,13 @@ namespace multimedia
          ::multimedia::e_result initialize_all_controls();
          ::multimedia::e_result initialize_source_info();
 
-         ::multimedia::audio_mixer::source_array & get_source_info();
+         ::audio_mixer::source_array & get_source_info();
          void operator delete(void *);
 
          destination & operator = (const destination & device);
 
-         ::multimedia::audio_mixer::device * get_device();
-         void set_device(::multimedia::audio_mixer::device * pdevice);
+         ::audio_mixer::device * get_device();
+         void set_device(::audio_mixer::device * pdevice);
 
 
          virtual uint32_t get_mixer_line_id();

@@ -60,11 +60,11 @@ namespace windowing_ios
          
          ::string str;
          
-         auto psz = str.get_string_buffer(len);
+         auto psz = str.get_buffer(len);
          
          pwindow->ios_window_get_text(psz, len);
          
-         str.release_string_buffer(len);
+         str.release_buffer(len);
          
          wstring wstr(str);
          

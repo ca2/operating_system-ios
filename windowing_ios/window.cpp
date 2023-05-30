@@ -175,8 +175,8 @@ namespace windowing_ios
 
    //      rectParam.left = m_pusersystem->m_createstruct.x;
    //      rectParam.top = pusersystem->m_createstruct.y;
-   //      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx;
-   //      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy;
+   //      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx();
+   //      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy();
 
    //      copy(rectangle, rectParam);
    //
@@ -789,7 +789,7 @@ namespace windowing_ios
 
       string strFormat;
 
-      strFormat.format("|-> window size_i32 %d, %d\n", sizeWindow.cx, sizeWindow.cy);
+      strFormat.format("|-> window size_i32 %d, %d\n", sizeWindow.cx(), sizeWindow.cy());
 
       printf("%s", strFormat.c_str());
       
@@ -1340,7 +1340,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //                     (pinteraction->m_pointMouseMoveSkip.y - pinteraction->m_pointMouseMove.y));
 //
 //                  if(!pinteraction->m_millisMouseMoveSkip.timeout(pinteraction->m_millisMouseMovePeriod)
-//                     && sizeDistance.cx * sizeDistance.cx + sizeDistance.cy * sizeDistance.cy < pinteraction->m_iMouseMoveSkipSquareDistance)
+//                     && sizeDistance.cx() * sizeDistance.cx() + sizeDistance.cy() * sizeDistance.cy() < pinteraction->m_iMouseMoveSkipSquareDistance)
 //                  {
 //
 //                     pinteraction->m_iMouseMoveSkipCount++;

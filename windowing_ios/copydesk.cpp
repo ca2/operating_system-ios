@@ -258,7 +258,7 @@ namespace windowing_ios
       if(pimage->colorref() != nullptr)
       {
       
-         ::copy_colorref(pimage->colorref(), w, h, pimage->scan_size(), pcolorref, iScan);
+         ::copy_image32(pimage->colorref(), w, h, pimage->scan_size(), pcolorref, iScan);
          
       }
 //      else if(pimage->m_pframea->is_set())

@@ -1026,7 +1026,7 @@ bool interaction_impl::_is_window() const
 //
 //      g_iMouseMove++;
 //
-//      //TRACE("linux::interaction_impl::message_handler e_message_mouse_move");
+//      //information("linux::interaction_impl::message_handler e_message_mouse_move");
 //      //printf("g_iMouseMove = %d\n", g_iMouseMove);
 //
 //   }
@@ -1037,7 +1037,7 @@ bool interaction_impl::_is_window() const
 //   else if(pmessage->m_atom == e_message_left_button_up)
 //   {
 //
-//      TRACE("e_message_left_button_up (0)");
+//      information("e_message_left_button_up (0)");
 //
 //   }
 //
@@ -1112,13 +1112,13 @@ bool interaction_impl::_is_window() const
 //         if (m_puserinteraction->layout().is_moving())
 //         {
 //            
-//            //TRACE("moving: skip pre translate message");
+//            //information("moving: skip pre translate message");
 //            
 //         }
 //         else if (m_puserinteraction->layout().is_sizing())
 //         {
 //            
-//            //TRACE("sizing: skip pre translate message");
+//            //information("sizing: skip pre translate message");
 //            
 //         }
 //         else
@@ -2215,7 +2215,7 @@ bool interaction_impl::_is_window() const
       if (m_puserinteraction->is_message_only_window())
       {
 
-         TRACE("good : opt out!");
+         information("good : opt out!");
 
       }
       else
@@ -2315,7 +2315,7 @@ bool interaction_impl::_is_window() const
 //         //begin_thread(pobject, &print_window::s_print_window, (LPVOID) this, ::priority_normal);
 //         //if (m_event.wait(millis(tickTimeout)).timeout())
 //         //{
-//         // TRACE("print_window::time_out");
+//         // information("print_window::time_out");
 //         // }
 //      }
 //   };
@@ -2485,7 +2485,7 @@ bool interaction_impl::_is_window() const
 //      //      if (hDC == nullptr)
 //      //      {
 //      //         // sometimes Win32 passes a nullptr hDC in the WM_CTLCOLOR message.
-//      //         //         TRACE(::ca2::trace::category_AppMsg, 0, "Warning: hDC is nullptr in interaction_impl::GrayCtlColor; WM_CTLCOLOR not processed.\n");
+//      //         //         information(::ca2::trace::category_AppMsg, 0, "Warning: hDC is nullptr in interaction_impl::GrayCtlColor; WM_CTLCOLOR not processed.\n");
 //      //         return false;
 //      //      }
 //      //
@@ -4634,7 +4634,7 @@ bool interaction_impl::_is_window() const
 //      //      msg.lparam = lparam;
 //      //
 //      //      //lResult = __process_window_procedure_exception(pe, &msg);
-//      //      //      TRACE(::ca2::trace::category_AppMsg, 0, "Warning: Uncaught exception in __activation_window_procedure (returning %ld).\n",
+//      //      //      information(::ca2::trace::category_AppMsg, 0, "Warning: Uncaught exception in __activation_window_procedure (returning %ld).\n",
 //      //      //       lResult);
 //      //      ::exception_pointer esp(pe);
 //      //   }

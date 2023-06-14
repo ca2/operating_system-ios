@@ -77,7 +77,7 @@ FT_BEGIN_HEADER
   /* IMPORTANT!                                                            */
   /*                                                                       */
   /* Each component must define the macro FT_COMPONENT to a valid FT_Trace */
-  /* value before using any TRACE macro.                                   */
+  /* value before using any information macro.                                   */
   /*                                                                       */
   /*************************************************************************/
 

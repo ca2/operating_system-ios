@@ -30,7 +30,7 @@ namespace multimedia
 
       bool wave_in::initialize_instance()
       {
-         TRACE("wave_in::initialize_instance %X\n", get_os_int());
+         information("wave_in::initialize_instance %X\n", get_os_int());
          //SetMainWnd(NULL);
          //ASSERT(GetMainWnd() == NULL);
          ::core::set_thread_priority(::core::scheduling_priority_highest);
@@ -192,7 +192,7 @@ Opened:
             
             if(::multimedia::result_success != (mmr =  waveInPrepareHeader(m_Queue, create_new_WAVEHDR(wave_in_get_buffer(), i), sizeof(WAVEHDR))))
             {
-               TRACE("ERROR OPENING Preparing INPUT DEVICE buffer");
+               information("ERROR OPENING Preparing INPUT DEVICE buffer");
                return mmr;
             }
 
@@ -242,7 +242,7 @@ Opened:
 
             if(::multimedia::result_success != (mmr = waveInUnprepareHeader(m_Queue, wave_hdr(i), sizeof(WAVEHDR))))
             {
-               TRACE("ERROR OPENING Unpreparing INPUT DEVICE buffer");
+               information("ERROR OPENING Unpreparing INPUT DEVICE buffer");
                //return mmr;
             }
 
@@ -275,7 +275,7 @@ Opened:
          if(::multimedia::result_success != (m_mmr = translate(AudioQueueStart(m_Queue, NULL))))
          {
             
-            TRACE("ERROR starting INPUT DEVICE ");
+            information("ERROR starting INPUT DEVICE ");
             
             return m_mmr;
             
@@ -304,12 +304,12 @@ Opened:
          {
             if(0 != (status = AudioQueueStop(m_Queue, 1)))
             {
-               TRACE("wave_in::wave_in_stop : ERROR OPENING stopping INPUT DEVICE ");
+               information("wave_in::wave_in_stop : ERROR OPENING stopping INPUT DEVICE ");
             }
          }
          catch(...)
          {
-            TRACE("wave_in::wave_in_stop : Exception OPENING stopping INPUT DEVICE ");
+            information("wave_in::wave_in_stop : Exception OPENING stopping INPUT DEVICE ");
          }
          m_estate = state_stopped;
 
@@ -364,7 +364,7 @@ Opened:
          {
             if(::multimedia::result_success != (mmr = wave_in_stop()))
             {
-               TRACE("wave_in::Reset error stopping input device");
+               information("wave_in::Reset error stopping input device");
                return mmr;
             }
          }
@@ -373,7 +373,7 @@ Opened:
 //            if(0 != (status = AudioQueueReset(m_Queue)))
             if(0 != (AudioQueueReset(m_Queue)))
             {
-               TRACE("wave_in::Reset error resetting input device");
+               information("wave_in::Reset error resetting input device");
                return ::multimedia::result_error;
             }
          }

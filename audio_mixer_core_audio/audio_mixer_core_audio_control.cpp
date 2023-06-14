@@ -433,7 +433,7 @@ namespace multimedia
                {
                   pslBalance->SetPos(nBalance);
                }
-               TRACE("Left %d Right %d nBalance %d\n", nLeftValue, nRightValue, nBalance);
+               information("Left %d Right %d nBalance %d\n", nLeftValue, nRightValue, nBalance);
             }
             else if(cChannels == 1)
             {

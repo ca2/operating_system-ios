@@ -66,7 +66,7 @@ typedef struct midihdr_tag {
 
 
 
-typedef UINT        MMVERSION;  /* major (high byte), minor (low byte) */
+typedef UINT        MMVERSION;  /* major (high ::u8), minor (low ::u8) */
 
 
 

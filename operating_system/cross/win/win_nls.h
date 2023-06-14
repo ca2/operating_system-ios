@@ -50,7 +50,7 @@ extern "C" {
    //  String Length Maximums.
    //
 #define MAX_LEADBYTES             12          // 5 ranges, 2 bytes ea., 0 term.
-#define MAX_DEFAULTCHAR           2           // single or double byte
+#define MAX_DEFAULTCHAR           2           // single or double ::u8
    
    //
    //  Surrogate pairs
@@ -206,12 +206,12 @@ extern "C" {
 #endif // (WINVER >= _WIN32_WINNT_WIN7)
    
 #define LCMAP_SORTKEY             0x00000400  // WC sort key (normalize)
-#define LCMAP_BYTEREV             0x00000800  // byte reversal
+#define LCMAP_BYTEREV             0x00000800  // ::u8 reversal
    
 #define LCMAP_HIRAGANA            0x00100000  // map katakana to hiragana
 #define LCMAP_KATAKANA            0x00200000  // map hiragana to katakana
-#define LCMAP_HALFWIDTH           0x00400000  // map double byte to single byte
-#define LCMAP_FULLWIDTH           0x00800000  // map single byte to double byte
+#define LCMAP_HALFWIDTH           0x00400000  // map double ::u8 to single ::u8
+#define LCMAP_FULLWIDTH           0x00800000  // map single ::u8 to double ::u8
    
 #define LCMAP_LINGUISTIC_CASING   0x01000000  // use linguistic rules for casing
    
@@ -936,13 +936,13 @@ extern "C" {
    typedef struct _cpinfo {
       UINT    MaxCharSize;                    // max length (in bytes) of a char
       BYTE    DefaultChar[MAX_DEFAULTCHAR];   // default character
-      BYTE    LeadByte[MAX_LEADBYTES];        // lead byte ranges
+      BYTE    LeadByte[MAX_LEADBYTES];        // lead ::u8 ranges
    } CPINFO, *LPCPINFO;
    
    typedef struct _cpinfoexA {
       UINT    MaxCharSize;                    // max length (in bytes) of a char
       BYTE    DefaultChar[MAX_DEFAULTCHAR];   // default character (MB)
-      BYTE    LeadByte[MAX_LEADBYTES];        // lead byte ranges
+      BYTE    LeadByte[MAX_LEADBYTES];        // lead ::u8 ranges
       WCHAR   UnicodeDefaultChar;             // default character (Unicode)
       UINT    CodePage;                       // code page id
       CHAR    CodePageName[MAX_PATH];         // code page name (Unicode)
@@ -950,7 +950,7 @@ extern "C" {
    typedef struct _cpinfoexW {
       UINT    MaxCharSize;                    // max length (in bytes) of a char
       BYTE    DefaultChar[MAX_DEFAULTCHAR];   // default character (MB)
-      BYTE    LeadByte[MAX_LEADBYTES];        // lead byte ranges
+      BYTE    LeadByte[MAX_LEADBYTES];        // lead ::u8 ranges
       WCHAR   UnicodeDefaultChar;             // default character (Unicode)
       UINT    CodePage;                       // code page id
       WCHAR   CodePageName[MAX_PATH];         // code page name (Unicode)

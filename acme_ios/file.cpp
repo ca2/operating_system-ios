@@ -299,7 +299,7 @@ namespace acme_ios
          
          readNow = (size_t) minimum(0x7fffffff, nCount);
          
-         size_t iRead = ::read(m_iFile, &((byte *)lpBuf)[pos], readNow);
+         size_t iRead = ::read(m_iFile, &((::u8 *)lpBuf)[pos], readNow);
          
          if(iRead == -1)
          {
@@ -359,7 +359,7 @@ namespace acme_ios
       while(nCount > 0)
       {
          
-         size_t iWrite = ::write(m_iFile, &((const byte *)lpBuf)[pos], (size_t) minimum(0x7fffffff, nCount));
+         size_t iWrite = ::write(m_iFile, &((const ::u8 *)lpBuf)[pos], (size_t) minimum(0x7fffffff, nCount));
          
          if(iWrite == -1)
          {
@@ -451,7 +451,7 @@ namespace acme_ios
 //       ::read
 //       ::write
 //
-//       access the system directly no buffering : direct I/O - efficient for large writes - innefficient for lots of single byte writes
+//       access the system directly no buffering : direct I/O - efficient for large writes - innefficient for lots of single ::u8 writes
 //
 //       */
 //
@@ -487,7 +487,7 @@ namespace acme_ios
 //       ::read
 //       ::write
 //
-//       access the system directly no buffering : direct I/O - efficient for large writes - innefficient for lots of single byte writes
+//       access the system directly no buffering : direct I/O - efficient for large writes - innefficient for lots of single ::u8 writes
 //
 //       */
 //
@@ -733,7 +733,7 @@ namespace acme_ios
 //      //VERIFY(FindClose(hFind));
 //
 //      // strip attribute of NORMAL bit, our API doesn't have a "normal" bit.
-//      //rStatus.m_attribute = (byte) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+//      //rStatus.m_attribute = (::u8) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 //
 //      rStatus.m_attribute = 0;
 //

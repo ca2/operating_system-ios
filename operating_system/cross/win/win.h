@@ -104,7 +104,7 @@ typedef  CONST WCHAR *PCNZWCH;
 typedef  WCHAR UNALIGNED *PUNZWCH;
 typedef  CONST WCHAR UNALIGNED *PCUNZWCH;
 //
-// ANSI (Multi-byte Character) types
+// ANSI (Multi-::u8 Character) types
 //
 
 typedef  PSTR *PZPSTR;
@@ -146,7 +146,7 @@ typedef struct {
     unsigned long  Data1;
     unsigned short Data2;
     unsigned short Data3;
-    byte           Data4[ 8 ];
+    ::u8           Data4[ 8 ];
 } GUID;
 #else
 typedef struct _GUID {

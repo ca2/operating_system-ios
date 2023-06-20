@@ -2080,14 +2080,14 @@ void window::ios_window_text_view_did_begin_editing()
    //
    //      }
       
-      INFORMATION("macos::window::ios_window_on_hide");
+      information("macos::window::ios_window_on_hide");
 
       auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
 
-         WARNING("macos::window::ios_window_on_hide (2) puserinteraction == nullptr");
+         warning("macos::window::ios_window_on_hide (2) puserinteraction == nullptr");
 
          return;
 
@@ -2167,7 +2167,7 @@ void window::ios_window_text_view_did_begin_editing()
          else if(puserinteraction->m_pinteractionimpl && puserinteraction->m_pinteractionimpl->m_durationLastExposureAddUp.elapsed() < 300_ms)
          {
 
-            INFORMATION("Ignored minituarize request (by toggle intent) because of recent full exposure.");
+            information("Ignored minituarize request (by toggle intent) because of recent full exposure.");
 
          }
          else

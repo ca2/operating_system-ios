@@ -181,7 +181,7 @@ namespace acme_ios
       if(hFile == hFileNull)
       {
 
-         int iErrNo = errno;
+         auto cerrornumber = c_error_number();
 
          if(iErrNo != ENOENT && iErrNo != ENFILE)
          {
@@ -364,7 +364,7 @@ namespace acme_ios
          if(iWrite == -1)
          {
             
-            int iErrNo = errno;
+            auto cerrornumber = c_error_number();
             
             auto estatus = errno_to_status(iErrNo);
             
@@ -409,7 +409,7 @@ namespace acme_ios
       if(posNew  == (filesize)-1)
       {
          
-         int iErrNo = errno;
+         auto cerrornumber = c_error_number();
          
          auto estatus = errno_to_status(iErrNo);
          

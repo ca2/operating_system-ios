@@ -29,7 +29,7 @@ namespace grand_central_dispatch
       {
          
          // Add a file descriptor for our test file
-         m_iFileDescriptor = ::open(pathFolder, O_EVTONLY);
+         m_iFileDescriptor = ::open(pathFolder, O_EVTONLY | O_CLOEXEC);
              
          // Get a reference to the default queue so our file notifications can go out on it
          dispatch_queue_t defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);

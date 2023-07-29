@@ -176,7 +176,7 @@ namespace acme_ios
 
       dwPermission |= S_IRGRP | S_IWGRP | S_IXGRP;
 
-      i32 hFile = ::open(m_path, dwFlags, dwPermission);
+      i32 hFile = ::open(m_path, dwFlags | O_CLOEXEC, dwPermission);
       
       if(hFile == hFileNull)
       {

@@ -1908,7 +1908,7 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      }
 //
-//      auto pprodevian = pimpl2->m_pprodevian;
+//      auto pprodevian = pimpl2->m_pgraphicsthread;
 //
 //      if(::is_null(pprodevian))
 //      {
@@ -1943,7 +1943,7 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      }
 //
-//      auto pprodevian = pimpl2->m_pprodevian;
+//      auto pprodevian = pimpl2->m_pgraphicsthread;
 //
 //      if(::is_null(pprodevian))
 //      {

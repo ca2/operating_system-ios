@@ -1979,7 +1979,7 @@ void window::ios_window_text_view_did_begin_editing()
 //      if(m_pimpl->m_puserbox != nullptr)
 //      {
 //
-//         m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = m_pimpl->m_puserbox->m_windowrectangle.m_edisplay;
+//         m_pimpl->m_puserbox->m_windowdisplayandlayout.m_edisplayPrevious = m_pimpl->m_puserbox->m_windowdisplayandlayout.m_edisplay;
 //
 //      }
 //
@@ -2010,14 +2010,14 @@ void window::ios_window_text_view_did_begin_editing()
 //      if(m_pimpl->m_puserbox)
 //      {
 //
-//         if(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious == ::e_display_iconic)
+//         if(m_pimpl->m_puserbox->m_windowdisplayandlayout.m_edisplayPrevious == ::e_display_iconic)
 //         {
 //
-//            m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious = ::e_display_normal;
+//            m_pimpl->m_puserbox->m_windowdisplayandlayout.m_edisplayPrevious = ::e_display_normal;
 //
 //         }
 //
-//         puserinteraction->_001OnDeiconify(m_pimpl->m_puserbox->m_windowrectangle.m_edisplayPrevious);
+//         puserinteraction->_001OnDeiconify(m_pimpl->m_puserbox->m_windowdisplayandlayout.m_edisplayPrevious);
 //
 //      }
 //

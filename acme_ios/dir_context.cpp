@@ -3,8 +3,8 @@
 #include "dir_system.h"
 #include "file_system.h"
 #include "acme_ios/acme_directory.h"
-//#include "_ios.h"
-//#include "aqua/xml.h"
+#include "acme/filesystem/filesystem/listing.h"
+#include "acme/platform/system.h"
 
 
 bool _ui_library_dir(char * psz, unsigned int * puiSize);
@@ -435,7 +435,7 @@ namespace acme_ios
    ::file::path dir_context::time()
    {
       
-      return m_psystem->m_papexsystem->m_pdirsystem->m_pathModule;
+      return this->module();
       
    }
 
@@ -471,7 +471,7 @@ namespace acme_ios
    ::file::path dir_context::module()
    {
 
-      return m_psystem->m_papexsystem->m_pdirsystem->m_pathModule;
+      return acmedirectory()->module();
 
    }
 
@@ -487,8 +487,8 @@ namespace acme_ios
    ::file::path dir_context::time_square(const ::string & strPrefix,const ::string & strSuffix)
    {
 
-      __UNREFERENCED_PARAMETER(strPrefix);
-      __UNREFERENCED_PARAMETER(strSuffix);
+      UNREFERENCED_PARAMETER(strPrefix);
+      UNREFERENCED_PARAMETER(strSuffix);
       return time() / "time";
 
    }
@@ -559,12 +559,12 @@ namespace acme_ios
 //   }
 
 
-   void dir_context::initialize(::object * pobject)
+   void dir_context::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::dir_context::initialize(pobject);
+      ::dir_context::initialize(pparticle);
       
 
 //      if(!estatus)
@@ -574,11 +574,11 @@ namespace acme_ios
 //
 //      }
 //
-      m_pdirsystem = m_psystem->m_papexsystem->m_pdirsystem;
+      m_pdirsystem = system()->m_pdirsystem;
       
-      m_pfilesystem = m_psystem->m_papexsystem->m_pfilesystem;
+      m_pfilesystem = system()->m_pfilesystem;
 
-      m_pdirsystem->m_pathHome = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathDocument;
+      m_pdirsystem->m_pathHome = acmedirectory()->home();
 
 //      if(!update_module_path())
 //      {

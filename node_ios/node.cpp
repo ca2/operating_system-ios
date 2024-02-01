@@ -255,14 +255,14 @@ void node::on_system_main()
 
 
 
-extern class ::acme::system * get_system();
-
-void os_on_will_finish_launching()
-{
-
-auto psystem = get_system();
-
-psystem->m_pnode->_will_finish_launching();
-
-}
+//extern class ::acme::system * get_system();
+//
+//void os_on_will_finish_launching()
+//{
+//
+//auto psystem = get_system();
+//
+//psystem->m_pnode->_will_finish_launching();
+//
+//}
 

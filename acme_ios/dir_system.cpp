@@ -22,12 +22,12 @@ namespace acme_ios
    }
 
 
-   void dir_system::initialize(::object * pobject)
+   void dir_system::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::dir_system::initialize(pobject);
+      ::dir_system::initialize(pparticle);
 //
 //      if (!estatus)
 //      {
@@ -44,7 +44,7 @@ namespace acme_ios
    ::file::path dir_system::compute_default_app_data_path()
    {
 
-      return m_psystem->m_pacmedirectory->m_pplatformdir->m_pathLibrary / "application";
+      return acmedirectory()->m_pplatformdir->m_pathLibrary / "application";
 
    }
 
@@ -54,7 +54,7 @@ namespace acme_ios
 
       ::dir_system::init_system();
       
-      m_pathHome = m_psystem->m_pacmedirectory->home();
+      m_pathHome = acmedirectory()->home();
       
       m_pathCa2Config = m_pathHome / "Library/Application Support/ca2";
       

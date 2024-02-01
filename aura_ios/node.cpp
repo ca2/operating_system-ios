@@ -11,8 +11,8 @@
 #include "aura/platform/context.h"
 
 
-bool macos_get_file_image(::image * pimage, const char * pszFilePath);
-bool macos_get_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
+bool apple_get_file_image(::image * pimage, const char * pszFilePath);
+bool apple_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
 
 
 namespace aura_ios
@@ -66,7 +66,7 @@ namespace aura_ios
 
       auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );
 
-      if(!macos_get_file_image_by_type_identifier(pimage, scopedstrTypeIdentifier))
+      if(!apple_get_file_image_by_type_identifier(pimage, scopedstrTypeIdentifier))
       {
 
          return nullptr;
@@ -83,7 +83,7 @@ namespace aura_ios
 
       auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );
 
-      if(!macos_get_file_image(pimage, path))
+      if(!apple_get_file_image(pimage, path))
       {
 
          return nullptr;

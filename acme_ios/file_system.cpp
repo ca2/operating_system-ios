@@ -31,12 +31,12 @@ namespace acme_ios
    }
 
 
-   void file_system::initialize(::object * pobject)
+   void file_system::initialize(::particle * pparticle)
    {
    
       //auto estatus =
       
-      ::file_system::initialize(pobject);
+      ::file_system::initialize(pparticle);
       
 //      if(!estatus)
 //      {

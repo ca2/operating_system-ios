@@ -13,35 +13,35 @@
 bool GetImagePixelData(unsigned int * pcr, int cx, int cy, int iScan, CGImageRef inImage);
 
 
-//bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath)
-//{
-//
-//   NSString * strFilePath = [NSString stringWithUTF8String:pszFilePath];
-//
-//   if(strFilePath == NULL)
-//   {
-//
-//      return false;
-//
-//   }
-//
-//
-//   UIImage * image = [[UIImage alloc] initWithContentsOfFile:strFilePath];;
-//
-//   if(image == NULL)
-//   {
-//
-//      return false;
-//
-//   }
-//
-//   CGImageRef i = [image CGImage];
-//
-//   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
-//
-//   return bOk;
-//
-//}
+bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath)
+{
+
+   NSString * strFilePath = [NSString stringWithUTF8String:pszFilePath];
+
+   if(strFilePath == NULL)
+   {
+
+      return false;
+
+   }
+
+
+   UIImage * image = [[UIImage alloc] initWithContentsOfFile:strFilePath];;
+
+   if(image == NULL)
+   {
+
+      return false;
+
+   }
+
+   CGImageRef i = [image CGImage];
+
+   bool bOk = GetImagePixelData(pcr, cx, cy, iScan,  i);
+
+   return bOk;
+
+}
 
 
 bool mm2_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)

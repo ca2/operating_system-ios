@@ -7,11 +7,11 @@
 //
 
 //#import <UIKit/UIKit.h>
-
+#include "acme/operating_system/ios/nano/app.h"
 
 @class iosWindowFrameView;
 
-@interface iosWindowApp : UIResponder <UIApplicationDelegate, UIDocumentInteractionControllerDelegate>
+@interface iosWindowApp : ios_app
 {
    
 @public

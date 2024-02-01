@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A40BDCA2B6B70BB0077053E /* dir_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB21412B6A15A100B01F9E /* dir_context.cpp */; };
+		9A40BDCD2B6B70C10077053E /* dir_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB21422B6A15A500B01F9E /* dir_system.cpp */; };
+		9A40BDCE2B6B70C60077053E /* file_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB21432B6A15A600B01F9E /* file_context.cpp */; };
+		9A40BDCF2B6B70C90077053E /* file_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AEB21452B6A15A700B01F9E /* file_system.cpp */; };
 		9A94DE7D282C156900F5C1CA /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F4D282A28EE00B1621E /* _factory.cpp */; };
 		9A94DE7F282C162F00F5C1CA /* acme_directory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F44282A28EE00B1621E /* acme_directory.cpp */; };
 		9A94DE80282C164100F5C1CA /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F32282A28EE00B1621E /* node.cpp */; };
@@ -281,14 +285,18 @@
 			files = (
 				9A94DE8D282C164100F5C1CA /* acme_path.cpp in Sources */,
 				9A94DEE6282C4C8100F5C1CA /* file.mm in Sources */,
+				9A40BDCF2B6B70C90077053E /* file_system.cpp in Sources */,
 				9A94DE8A282C164100F5C1CA /* file.cpp in Sources */,
 				9A94DE7D282C156900F5C1CA /* _factory.cpp in Sources */,
 				9A94DE7F282C162F00F5C1CA /* acme_directory.cpp in Sources */,
 				9A94DE87282C164100F5C1CA /* acme_file.cpp in Sources */,
+				9A40BDCD2B6B70C10077053E /* dir_system.cpp in Sources */,
 				9A94DE80282C164100F5C1CA /* node.cpp in Sources */,
+				9A40BDCE2B6B70C60077053E /* file_context.cpp in Sources */,
 				9A94DEE5282C4C7D00F5C1CA /* mm.mm in Sources */,
 				9A94DEE7282C4C8100F5C1CA /* mmos.mm in Sources */,
 				9A94DEE8282C4C8100F5C1CA /* image.mm in Sources */,
+				9A40BDCA2B6B70BB0077053E /* dir_context.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

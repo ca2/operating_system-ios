@@ -7,6 +7,10 @@
 namespace acme_ios
 {
    
+
+   class dir_system;
+   class file_system;
+
    
    class CLASS_DECL_ACME dir_context :
    virtual public ::dir_context

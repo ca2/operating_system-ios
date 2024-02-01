@@ -23,12 +23,12 @@ namespace acme_ios
    }
 
 
-   void file_context::initialize(::object * pobject)
+   void file_context::initialize(::particle * pparticle)
    {
       
       //auto estatus =
       
-      ::file_context::initialize(pobject);
+      ::file_context::initialize(pparticle);
 //
 //      if(!estatus)
 //      {
@@ -79,12 +79,12 @@ namespace acme_ios
 //   }
 
 
-   ::file_pointer file_context::get_file(const ::payload & payloadFile, ::file::e_open eopen)
+   ::file_pointer file_context::get_file(const ::payload & payloadFile, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
 
       ::file_pointer pfileresult;
 
-      pfileresult = ::file_context::get_file(payloadFile, eopen);
+      pfileresult = ::file_context::get_file(payloadFile, eopen, ppfileexception);
 
       if(!pfileresult)
       {

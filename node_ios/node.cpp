@@ -13,7 +13,12 @@
 #include "windowing_ios/message_box.h"
 
 
-void ui_application_main(int argc, char * argv[], const char * pszCommandLine);
+void ns_app_run();
+void defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
+
+
+//
+//void ui_application_main(int argc, char * argv[], const char * pszCommandLine);
 
 
 namespace node_ios
@@ -64,24 +69,24 @@ void node::_will_finish_launching()
    
 }
 
-
-void node::on_start_system()
-{
-   
-   auto psystem = system();
+//
+//void node::on_start_system()
+//{
 //   
-//   auto psession = psystem->m_pacmesession->m_paurasession;
+//   auto psystem = system();
+////   
+////   auto psession = psystem->m_pacmesession->m_paurasession;
+////   
+////   auto puser = psession->m_puser;
+////   
+////   auto pwindowing = puser->windowing();
+////   
+////   pwindowing->defer_initialize_host_window(nullptr);
 //   
-//   auto puser = psession->m_puser;
+//   psystem->defer_post_initial_request();
+//
 //   
-//   auto pwindowing = puser->windowing();
-//   
-//   pwindowing->defer_initialize_host_window(nullptr);
-   
-   psystem->defer_post_initial_request();
-
-   
-}
+//}
 
 //   bool node::is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt)
 //   {
@@ -231,26 +236,26 @@ void node::on_start_system()
 //   }
 
 
-
-//   void node::implement(::pointer < ::acme::node > & pnode, ::pointer < class ::acme::system > & psystem)
-void node::on_system_main()
-   {
-      
-      //auto psystem = m_psystem->m_papexsystem;
-      
-      auto argc = platform()->m_argc;
-      
-      auto argv = platform()->m_argv;
-      
-      //      auto papp = psystem->m_pappStartup;
-      //
-      //      void * papp = (void *) (::app *) papplication;
-      
-      ui_application_main(argc, argv, nullptr);
-      
-      //return psystem->m_estatus;
-      
-   }
+//
+////   void node::implement(::pointer < ::acme::node > & pnode, ::pointer < class ::acme::system > & psystem)
+//void node::on_system_main()
+//   {
+//      
+//      //auto psystem = m_psystem->m_papexsystem;
+//      
+//      auto argc = platform()->m_argc;
+//      
+//      auto argv = platform()->m_argv;
+//      
+//      //      auto papp = psystem->m_pappStartup;
+//      //
+//      //      void * papp = (void *) (::app *) papplication;
+//      
+//      ui_application_main(argc, argv, nullptr);
+//      
+//      //return psystem->m_estatus;
+//      
+//   }
 
 
 ::pointer < ::conversation > node::create_new_message_box_conversation()
@@ -260,6 +265,23 @@ void node::on_system_main()
 
    }
 
+
+void node::defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
+{
+   
+   ::defer_create_windowing_application_delegate(
+                                                 pApplication,
+                                                 papplicationmenu, papplicationmenucallback);
+   
+}
+
+
+void node::ns_app_run()
+{
+ 
+   ::ns_app_run();
+   
+}
 
 
 } // namespace node_ios

@@ -26,11 +26,11 @@ namespace node_ios
       node();
       ~node() override;
 
-      void on_system_main() override;
+      //void on_system_main() override;
       
       void _will_finish_launching() override;
       
-      void on_start_system() override;
+      //void on_start_system() override;
       //bool is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt) override;
 
 //
@@ -61,7 +61,13 @@ namespace node_ios
 //
 //       ::pointer < ::conversation > create_new_message_box_conversation() override;
 
-   
+      
+      void defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
+
+
+      void ns_app_run() override;
+      
+      
    };
 
 

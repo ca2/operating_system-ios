@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "interprocess_communication.h"
+#include "interprocess.h"
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include "acme/operating_system/ansi/_pthread.h"
@@ -9,7 +9,7 @@ namespace apex_ios
 {
 
 
-   interprocess_communication_base::interprocess_communication_base()
+   interprocess_base::interprocess_base()
    {
       
       //m_port = nullptr;
@@ -17,28 +17,28 @@ namespace apex_ios
    }
 
 
-   interprocess_communication_base::~interprocess_communication_base()
+   interprocess_base::~interprocess_base()
    {
       
       
    }
 
 
-   interprocess_communication_tx::interprocess_communication_tx()
+   interprocess_caller::interprocess_caller()
    {
 
       
    }
 
 
-   interprocess_communication_tx::~interprocess_communication_tx()
+   interprocess_caller::~interprocess_caller()
    {
 
       
    }
 
 
-   void interprocess_communication_tx::open(const ::string & strChannel,launcher * plauncher)
+   void interprocess_caller::open(const ::string & strChannel,launcher * plauncher)
    {
 
       m_strBaseChannel = strChannel;
@@ -59,7 +59,7 @@ namespace apex_ios
    }
 
 
-   void interprocess_communication_tx::close()
+   void interprocess_caller::close()
    {
 
 //      if(m_port == nullptr)
@@ -78,7 +78,7 @@ namespace apex_ios
    }
 
 
-   void interprocess_communication_tx::send(const ::string & strMessage, const ::duration & durationTimeout)
+   void interprocess_caller::send(const ::string & strMessage, const ::duration & durationTimeout)
    {
       
       string strUrl;
@@ -92,7 +92,7 @@ namespace apex_ios
    }
 
 
-   void interprocess_communication_tx::send(int message,void * pdata,int len, const duration & durationTimeout)
+   void interprocess_caller::send(int message,void * pdata,int len, const duration & durationTimeout)
    {
 
       if(message == 0x80000000)
@@ -124,7 +124,7 @@ namespace apex_ios
    }
 
 
-   bool interprocess_communication_tx::is_tx_ok()
+   bool interprocess_caller::is_tx_ok()
    {
 
       return m_strBaseChannel.has_char();
@@ -132,7 +132,7 @@ namespace apex_ios
    }
 
 
-   interprocess_communication_rx::interprocess_communication_rx()
+   interprocess_target::interprocess_target()
    {
 
       m_preceiver    = nullptr;
@@ -140,14 +140,14 @@ namespace apex_ios
    }
 
 
-   interprocess_communication_rx::~interprocess_communication_rx()
+   interprocess_target::~interprocess_target()
    {
 
       
    }
 
 
-   void interprocess_communication_rx::create(const ::string & strChannel)
+   void interprocess_target::create(const ::string & strChannel)
    {
 
       start_receiving();
@@ -155,14 +155,14 @@ namespace apex_ios
    }
 
 
-   void interprocess_communication_rx::destroy()
+   void interprocess_target::destroy()
    {
 
      
    }
 
 
-   bool interprocess_communication_rx::start_receiving()
+   bool interprocess_target::start_receiving()
    {
 
       m_bRunning = true;
@@ -182,7 +182,7 @@ namespace apex_ios
 
 
 
-   bool interprocess_communication_rx::on_idle()
+   bool interprocess_target::on_idle()
    {
 
       return false;
@@ -190,7 +190,7 @@ namespace apex_ios
    }
 
 
-   bool interprocess_communication_rx::is_rx_ok()
+   bool interprocess_target::is_rx_ok()
    {
 
       return m_strBaseChannel.has_char();
@@ -198,7 +198,7 @@ namespace apex_ios
    }
 
 
-   void * interprocess_communication_rx::receive()
+   void * interprocess_target::receive()
    {
 
       do

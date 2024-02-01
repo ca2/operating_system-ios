@@ -4,9 +4,9 @@
 #include "aura/platform/message_queue.h"
 #include "acme/constant/activate.h"
 #include "acme/constant/button_state.h"
-#include "aura/message.h"
+#include "acme/constant/message.h"
 #include "aura/graphics/draw2d/graphics.h"
-#include "aura/graphics/graphics/_graphics.h"
+#include "aura/graphics/graphics/graphics.h"
 #include "aura/user/user/interaction_impl.h"
 #include "aura/windowing/windowing.h"
 #include "aura/windowing/window.h"
@@ -274,7 +274,7 @@ namespace aura_ios
    void interaction_impl::update_graphics_resources()
    {
       
-      if(m_pgraphics.is_null())
+      if(m_pgraphicsgraphics.is_null())
       {
    
 //         auto estatus = __compose(m_pgraphics, __new(::graphics::multiple_buffer));
@@ -282,7 +282,7 @@ namespace aura_ios
          ///auto estatus =
          ///
          //__compose(m_pgraphics, __new(::graphics::double_buffer));
-         __compose(m_pgraphics);
+         __construct(m_pgraphicsgraphics);
          
 //         if(!estatus)
 //         {
@@ -292,7 +292,7 @@ namespace aura_ios
 //         }
 
         // estatus =
-         m_pgraphics->initialize_graphics_graphics(this);
+         m_pgraphicsgraphics->initialize_graphics_graphics(this);
       
 //         if(!estatus)
 //         {
@@ -344,19 +344,19 @@ namespace aura_ios
    }
 
 
-bool interaction_impl::_is_window() const
-{
-   
-   if(::is_null(m_pwindow))
-   {
-      
-      return false;
-      
-   }
-   
-   return true;
-   
-}
+//bool interaction_impl::_is_window() const
+//{
+//   
+//   if(::is_null(m_pwindow))
+//   {
+//      
+//      return false;
+//      
+//   }
+//   
+//   return true;
+//   
+//}
 
 //   ::e_status interaction_impl::native_create_host()
 //   {
@@ -607,7 +607,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::_001OnShowWindow(::message::message * pmessage)
    {
 
-      __UNREFERENCED_PARAMETER(pmessage);
+      UNREFERENCED_PARAMETER(pmessage);
 
 //      do_show_flags();
 //
@@ -710,7 +710,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::_001OnDestroy(::message::message * pmessage)
    {
 
-      __UNREFERENCED_PARAMETER(pmessage);
+      UNREFERENCED_PARAMETER(pmessage);
       
       auto pwindowing = m_pwindowing;
 
@@ -748,113 +748,113 @@ bool interaction_impl::_is_window() const
 
    }
 
-
-   void interaction_impl::assert_ok() const
-   {
-      
-      if (oswindow() == nullptr)
-      {
-         
-         return; // null (unattached) windows are valid
-         
-      }
-
-      // check for special wnd??? values
-      //      ASSERT(oswindow_TOP == nullptr);       // same as desktop
-      /*      if (get_handle() == oswindow_BOTTOM)
-       {
-       }
-       else if (get_handle() == oswindow_TOPMOST)
-       {
-       }
-       else if (get_handle() == oswindow_NOTOPMOST)
-       {
-       }
-       else
-       {
-       // should be a normal user::interaction
-       ASSERT(::is_window(get_handle()));
-
-       // should also be in the permanent or temporary handle ::collection::map
-       single_lock synchronouslock(afxMutexHwnd(), true);
-       hwnd_map * pMap = afxMapHWND();
-       if(pMap == nullptr) // inside thread not having windows
-       return; // let go
-       ASSERT(pMap != nullptr);
-
-       //         ::ca2::object* p=nullptr;
-       if(pMap)
-       {
-       ASSERT( (p = pMap->lookup_permanent(get_handle())) != nullptr ||
-       (p = pMap->lookup_temporary(get_handle())) != nullptr);
-       }*/
-
-      //ASSERT(dynamic_cast < ::user::interaction *  > (p) == this);   // must be us
-
-      // Note: if either of the above asserts fire and you are
-      // writing a multithreaded application, it is likely that
-      // you have passed a C++ object from one thread to another
-      // and have used that object in a way that was not intended.
-      // (only simple inline wrapper functions should be used)
-      //
-      // In general, user::interaction objects should be passed by oswindow from
-      // one thread to another.  The receiving thread can wrap
-      // the oswindow with a user::interaction object by using ::macos::interaction_impl::from_handle.
-      //
-      // It is dangerous to pass C++ objects from one thread to
-      // another, unless the objects are designed to be used in
-      // such a manner.
-      //      }*/
-      
-   }
-
-
-   void interaction_impl::dump(dump_context & dumpcontext) const
-   {
-      ::object::dump(dumpcontext);
-
-//      dumpcontext << "\nm_hWnd = " << (void *)get_handle();
-
-      /*      if (get_handle() == nullptr || get_handle() == oswindow_BOTTOM ||
-       get_handle() == oswindow_TOPMOST || get_handle() == oswindow_NOTOPMOST)
-       {
-       // not a normal user::interaction - nothing more to dump
-       return;
-       }*/
-
-      /*      if (!::is_window(get_handle()))
-       {
-       // not a valid user::interaction
-       dumpcontext << " (illegal oswindow)";
-       return; // don't do anything more
-       }*/
-
-      ::user::interaction_impl * pWnd = (::user::interaction_impl *) this;
-      if (pWnd != this)
-         dumpcontext << " (Detached or temporary user::interaction)";
-      else
-         dumpcontext << " (permanent user::interaction)";
-
-      // dump out user::interaction specific statistics
-      char szBuf[64];
-      dumpcontext << "\ncaption = \"" << szBuf << "\"";
-
-      //      ::GetClassName(get_handle(), szBuf, _countof(szBuf));
-      //    dumpcontext << "\nclass name = \"" << szBuf << "\"";
-
-      ::rectangle_i32 rectangle;
-      
-      ((::user::interaction_impl *) this)->m_puserinteraction->window_rectangle(rectangle);
-      
-//      dumpcontext << "\nrect = " << rectangle_i32;
-      dumpcontext << "\nparent ::user::interaction * = " << (void *)((::user::interaction_impl *) this)->get_parent();
-
-      //      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
-      //    if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
-      //     dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
-
-      dumpcontext << "\n";
-   }
+//
+//   void interaction_impl::assert_ok() const
+//   {
+//      
+//      if (oswindow() == nullptr)
+//      {
+//         
+//         return; // null (unattached) windows are valid
+//         
+//      }
+//
+//      // check for special wnd??? values
+//      //      ASSERT(oswindow_TOP == nullptr);       // same as desktop
+//      /*      if (get_handle() == oswindow_BOTTOM)
+//       {
+//       }
+//       else if (get_handle() == oswindow_TOPMOST)
+//       {
+//       }
+//       else if (get_handle() == oswindow_NOTOPMOST)
+//       {
+//       }
+//       else
+//       {
+//       // should be a normal user::interaction
+//       ASSERT(::is_window(get_handle()));
+//
+//       // should also be in the permanent or temporary handle ::collection::map
+//       single_lock synchronouslock(afxMutexHwnd(), true);
+//       hwnd_map * pMap = afxMapHWND();
+//       if(pMap == nullptr) // inside thread not having windows
+//       return; // let go
+//       ASSERT(pMap != nullptr);
+//
+//       //         ::ca2::object* p=nullptr;
+//       if(pMap)
+//       {
+//       ASSERT( (p = pMap->lookup_permanent(get_handle())) != nullptr ||
+//       (p = pMap->lookup_temporary(get_handle())) != nullptr);
+//       }*/
+//
+//      //ASSERT(dynamic_cast < ::user::interaction *  > (p) == this);   // must be us
+//
+//      // Note: if either of the above asserts fire and you are
+//      // writing a multithreaded application, it is likely that
+//      // you have passed a C++ object from one thread to another
+//      // and have used that object in a way that was not intended.
+//      // (only simple inline wrapper functions should be used)
+//      //
+//      // In general, user::interaction objects should be passed by oswindow from
+//      // one thread to another.  The receiving thread can wrap
+//      // the oswindow with a user::interaction object by using ::macos::interaction_impl::from_handle.
+//      //
+//      // It is dangerous to pass C++ objects from one thread to
+//      // another, unless the objects are designed to be used in
+//      // such a manner.
+//      //      }*/
+//      
+//   }
+//
+//
+//   void interaction_impl::dump(dump_context & dumpcontext) const
+//   {
+//      ::object::dump(dumpcontext);
+//
+////      dumpcontext << "\nm_hWnd = " << (void *)get_handle();
+//
+//      /*      if (get_handle() == nullptr || get_handle() == oswindow_BOTTOM ||
+//       get_handle() == oswindow_TOPMOST || get_handle() == oswindow_NOTOPMOST)
+//       {
+//       // not a normal user::interaction - nothing more to dump
+//       return;
+//       }*/
+//
+//      /*      if (!::is_window(get_handle()))
+//       {
+//       // not a valid user::interaction
+//       dumpcontext << " (illegal oswindow)";
+//       return; // don't do anything more
+//       }*/
+//
+//      ::user::interaction_impl * pWnd = (::user::interaction_impl *) this;
+//      if (pWnd != this)
+//         dumpcontext << " (Detached or temporary user::interaction)";
+//      else
+//         dumpcontext << " (permanent user::interaction)";
+//
+//      // dump out user::interaction specific statistics
+//      char szBuf[64];
+//      dumpcontext << "\ncaption = \"" << szBuf << "\"";
+//
+//      //      ::GetClassName(get_handle(), szBuf, _countof(szBuf));
+//      //    dumpcontext << "\nclass name = \"" << szBuf << "\"";
+//
+//      ::rectangle_i32 rectangle;
+//      
+//      ((::user::interaction_impl *) this)->m_puserinteraction->window_rectangle(rectangle);
+//      
+////      dumpcontext << "\nrect = " << rectangle_i32;
+//      dumpcontext << "\nparent ::user::interaction * = " << (void *)((::user::interaction_impl *) this)->get_parent();
+//
+//      //      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
+//      //    if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
+//      //     dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
+//
+//      dumpcontext << "\n";
+//   }
 
 
 //   bool interaction_impl::DestroyWindow()
@@ -893,26 +893,26 @@ bool interaction_impl::_is_window() const
    void interaction_impl::pre_translate_message(::message::message * pmessage)
    {
       
-      __UNREFERENCED_PARAMETER(pmessage);
+      UNREFERENCED_PARAMETER(pmessage);
       
       // no default processing
       
    }
 
-
-   void interaction_impl::get_window_text(string & str)
-   {
-
-      char sz[2048];
-
-      __zero(sz);
-
-      //aura_window_get_title(sz, sizeof(sz));
-
-      str = m_strWindowText;
-
-   }
-
+//
+//   void interaction_impl::get_window_text(string & str)
+//   {
+//
+//      char sz[2048];
+//
+//      __zero(sz);
+//
+//      //aura_window_get_title(sz, sizeof(sz));
+//
+//      str = m_strWindowText;
+//
+//   }
+//
 
 
    void interaction_impl::route_command(::message::command * pcommand, bool bRouteToKeyDescendant)
@@ -2208,7 +2208,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::on_message_create(::message::message * pmessage)
    {
 
-      __UNREFERENCED_PARAMETER(pmessage);
+      UNREFERENCED_PARAMETER(pmessage);
 
       default_message_handler(pmessage);
 
@@ -2238,8 +2238,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::release_graphics_resources()
    {
 
-      __release(m_pgraphics);
-
+      ::release(m_pgraphicsgraphics);
 
    }
 
@@ -2353,7 +2352,7 @@ bool interaction_impl::_is_window() const
    void interaction_impl::_001OnProdevianSynch(::message::message * pmessage)
    {
       
-      __UNREFERENCED_PARAMETER(pmessage);
+      UNREFERENCED_PARAMETER(pmessage);
       
       //      ::aura::get_system()->get_event(get_application()->get_application())->SetEvent();
       //    ::aura::get_system()->get_event(::aura::get_system()->get_twf())->wait(millis(8400));
@@ -2683,12 +2682,12 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   ::user::interaction * interaction_impl::get_wnd() const
-   {
-
-      return m_puserinteraction;
-
-   }
+//   ::user::interaction * interaction_impl::get_wnd() const
+//   {
+//
+//      return m_puserinteraction;
+//
+//   }
 
 
 //   void interaction_impl::MoveWindow(i32 x, i32 y, i32 nWidth, i32 nHeight, bool bRepaint)
@@ -2797,7 +2796,7 @@ bool interaction_impl::_is_window() const
       if(bShow)
       {
 
-         m_psystem->m_pauranode->defer_dock_application(true);
+         acmenode()->m_pauranode->defer_dock_application(true);
 
          m_puserinteraction->set_need_layout();
 
@@ -2807,7 +2806,7 @@ bool interaction_impl::_is_window() const
       else
       {
 
-         m_psystem->m_pauranode->defer_dock_application(false);
+         acmenode()->m_pauranode->defer_dock_application(false);
 
       }
 
@@ -2971,14 +2970,14 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   void interaction_impl::set_window_text(const ::string & lpszString)
-   {
-
-      m_strWindowText = lpszString;
-
-      //aura_window_set_title(m_strWindowText);
-
-   }
+//   void interaction_impl::set_window_text(const ::string & lpszString)
+//   {
+//
+//      m_strWindowText = lpszString;
+//
+//      //aura_window_set_title(m_strWindowText);
+//
+//   }
 
 //
 //   void interaction_impl::DragAcceptFiles(bool bAccept)
@@ -3097,12 +3096,12 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   void interaction_impl::UpdateWindow()
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
+//   void interaction_impl::UpdateWindow()
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
 
 
 //   void interaction_impl::SetRedraw(bool bRedraw)
@@ -3210,12 +3209,12 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   void interaction_impl::ShowOwnedPopups(bool bShow)
-   {
-
-      throw ::exception(error_not_implemented);;
-
-   }
+//   void interaction_impl::ShowOwnedPopups(bool bShow)
+//   {
+//
+//      throw ::exception(error_not_implemented);;
+//
+//   }
 
 
 //   void interaction_impl::send_message_to_descendants(const ::id & id, wparam wparam, lparam lparam, bool bDeep, bool bOnlyPerm)
@@ -3412,19 +3411,19 @@ bool interaction_impl::_is_window() const
    }
 
 
-   void interaction_impl::_001UpdateScreen()
-   {
-
-
-
-      if (m_puserinteraction->is_window_visible())
-      {
-
-         //aura_window_redraw();
-
-      }
-
-   }
+//   void interaction_impl::_001UpdateScreen()
+//   {
+//
+//
+//
+//      if (m_puserinteraction->is_window_visible())
+//      {
+//
+//         //aura_window_redraw();
+//
+//      }
+//
+//   }
 
 
 //   bool interaction_impl::DrawAnimatedRects(i32 idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 * lprcTo)
@@ -4480,17 +4479,17 @@ bool interaction_impl::_is_window() const
 //   }
 
 
-   void interaction_impl::_001OnTriggerMouseInside()
-   {
-
-      //throw ::exception(error_not_implemented);;
-      //      m_bMouseHover = true;
-      //      TRACKMOUSEEVENT tme = { sizeof(tme) };
-      //      tme.dwFlags = TME_LEAVE;
-      //      tme.hwndTrack = get_handle();
-      //      TrackMouseEvent(&tme);
-
-   }
+//   void interaction_impl::_001OnTriggerMouseInside()
+//   {
+//
+//      //throw ::exception(error_not_implemented);;
+//      //      m_bMouseHover = true;
+//      //      TRACKMOUSEEVENT tme = { sizeof(tme) };
+//      //      tme.dwFlags = TME_LEAVE;
+//      //      tme.hwndTrack = get_handle();
+//      //      TrackMouseEvent(&tme);
+//
+//   }
 
 #ifdef EXTRALOG
 

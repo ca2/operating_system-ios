@@ -1,10 +1,6 @@
 #include "framework.h"
 #include "os_context.h"
-#include "dir_system.h"
-#include "dir_context.h"
-#include "file_system.h"
-#include "file_context.h"
-#include "interprocess_communication.h"
+#include "interprocess.h"
 #include "node.h"
 #include "apex/platform/launcher.h"
 #include "launcher.h"
@@ -34,16 +30,12 @@ void apex_ios_factory(::factory::factory * pfactory)
 
    pfactory->add_factory_item < ::grand_central_dispatch::watch, ::file::watch > ();
 
-   pfactory->add_factory_item < ::apex_ios::file_context, ::file_context > ();
-   pfactory->add_factory_item < ::apex_ios::dir_context, ::dir_context > ();
-   pfactory->add_factory_item < ::apex_ios::file_system, ::file_system > ();
-   pfactory->add_factory_item < ::apex_ios::dir_system, ::dir_system > ();
 
    pfactory->add_factory_item < ::apex_ios::os_context, ::os_context > ();
    
-   pfactory->add_factory_item < ::apex_ios::interprocess_communication_base, ::interprocess_communication::base >();
-   pfactory->add_factory_item < ::apex_ios::interprocess_communication_rx, ::interprocess_communication::rx >();
-   pfactory->add_factory_item < ::apex_ios::interprocess_communication_tx, ::interprocess_communication::tx >();
+   pfactory->add_factory_item < ::apex_ios::interprocess_base, ::interprocess::base >();
+   pfactory->add_factory_item < ::apex_ios::interprocess_caller, ::interprocess::caller >();
+   pfactory->add_factory_item < ::apex_ios::interprocess_target, ::interprocess::target >();
 //   pfactory->add_factory_item < ::macos::launcher, ::launcher > ();
 //   pfactory->add_factory_item < ::macos::shell_launcher, ::shell_launcher > ();
 

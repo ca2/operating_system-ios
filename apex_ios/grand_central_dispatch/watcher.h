@@ -1,7 +1,8 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/file_watcher.h"
+#include "acme/filesystem/watcher/watch.h"
+#include "acme/filesystem/watcher/watcher.h"
 
 
 //#include <CoreServices/CoreServices.h>
@@ -43,7 +44,7 @@ namespace grand_central_dispatch
 //      void addAll();
 //      void eraseAll();
 
-      bool step() override;
+      bool file_watch_step() override;
 
       virtual void on_event(unsigned long ulEventTypes);
       
@@ -61,7 +62,7 @@ namespace grand_central_dispatch
       ~watcher() override;
 
 
-      bool step() override;
+      bool file_watcher_step() override;
 
 
    };

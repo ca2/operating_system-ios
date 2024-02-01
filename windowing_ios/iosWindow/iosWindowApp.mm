@@ -26,7 +26,7 @@ void system_call_update_app_activated();
 willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
    
-   m_pplanesystem = get_plane_system();
+   //m_pplanesystem = get_plane_system();
    
    os_on_will_finish_launching();
    
@@ -47,7 +47,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
    
-   NSString * strUrl = [ url absoluteString ];
+   //NSString * strUrl = [ url absoluteString ];
    
 //   ::function < void(bool) > function = [completion](bool bSuccess)
 //   {
@@ -56,7 +56,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 //
 //   };
    
-   m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
+   //m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
    
    return true;
    

@@ -1,6 +1,13 @@
 #include "framework.h"
 #include "os_context.h"
+#include "acme/exception/not_implemented.h"
+#include "acme/platform/context.h"
+#include "apex/filesystem/file/set.h"
 
+void ns_main_async(dispatch_block_t block);
+
+
+void ns_main_sync(dispatch_block_t block);
 
 bool ns_open_file(const char * );
 

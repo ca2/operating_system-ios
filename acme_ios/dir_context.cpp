@@ -10,7 +10,7 @@
 bool _ui_library_dir(char * psz, unsigned int * puiSize);
 
 
-namespace apex_ios
+namespace acme_ios
 {
 
 
@@ -782,7 +782,7 @@ namespace apex_ios
 //   }
 
 
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

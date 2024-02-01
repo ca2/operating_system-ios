@@ -3,6 +3,8 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include "acme/operating_system/ansi/_pthread.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
 
 
 namespace apex_ios
@@ -77,54 +79,55 @@ namespace apex_ios
 
    }
 
+//
+//   void interprocess_caller::send(const ::string & strMessage, const ::duration & durationTimeout)
+//   {
+//      
+//      string strUrl;
+//      
+//      //string strCommand = m_psystem->url()->url_encode(strMessage);
+//      
+//      strUrl = strMessage;
+//      
+//      m_psystem->node()->open_url(strUrl);
+//
+//   }
 
-   void interprocess_caller::send(const ::string & strMessage, const ::duration & durationTimeout)
+
+//   void interprocess_caller::send(int message,void * pdata,int len, const duration & durationTimeout)
+void interprocess_caller::call(const ::string & strUri, const class time & timeTimeout)
    {
-      
-      string strUrl;
-      
-      //string strCommand = m_psystem->url()->url_encode(strMessage);
-      
-      strUrl = strMessage;
-      
-      m_psystem->node()->open_url(strUrl);
 
-   }
+//      if(message == 0x80000000)
+//      {
+//         
+//         throw ::exception(error_bad_argument);
+//         
+//         
+//      }
+//
 
-
-   void interprocess_caller::send(int message,void * pdata,int len, const duration & durationTimeout)
-   {
-
-      if(message == 0x80000000)
-      {
-         
-         throw ::exception(error_bad_argument);
-         
-         
-      }
-
-
-      if(!is_tx_ok())
+      if(!is_caller_ok())
       {
          
          throw ::exception(error_wrong_state);
          
       }
 
-      memory m(pdata, len);
-
-      string strCommand = m.to_hex();
-
-      string strUrl;
+//      memory m(pdata, len);
+//
+//      string strCommand = m.to_hex();
+//
+//      string strUrl;
+//      
+//      strUrl = m_strBaseChannel + "://localhost/?command_block=" + strCommand;
       
-      strUrl = m_strBaseChannel + "://localhost/?command_block=" + strCommand;
-      
-      m_psystem->node()->open_url(strUrl);
+      system()->node()->open_url(strUri);
 
    }
 
 
-   bool interprocess_caller::is_tx_ok()
+   bool interprocess_caller::is_caller_ok()
    {
 
       return m_strBaseChannel.has_char();
@@ -135,7 +138,7 @@ namespace apex_ios
    interprocess_target::interprocess_target()
    {
 
-      m_preceiver    = nullptr;
+      //m_preceiver    = nullptr;
 
    }
 
@@ -190,7 +193,7 @@ namespace apex_ios
    }
 
 
-   bool interprocess_target::is_rx_ok()
+   bool interprocess_target::is_target_ok()
    {
 
       return m_strBaseChannel.has_char();

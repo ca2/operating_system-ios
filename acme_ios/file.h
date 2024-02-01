@@ -57,22 +57,28 @@ namespace acme_ios
       file();
       ~file() override;
 
-
-      void assert_ok() const override;
-      void dump(dump_context & dumpcontext) const override;
+//
+//      void assert_ok() const override;
+//      void dump(dump_context & dumpcontext) const override;
 
       //virtual bool has_write_mode() override;
 
       virtual filesize get_position() const override;
-      bool get_status(::file::file_status & status) const override;
+      ::file::file_status get_status() const override;
       ::file::path get_file_path() const override;
       void set_file_path(const ::file::path & path) override;
+//
+//      void open(const ::file::path & path, ::file::e_open eopen) override;
 
-      void open(const ::file::path & path, ::file::e_open eopen) override;
-
-      filesize translate(filesize uiCount, ::enum_seek eseek) override;
-      void set_size(filesize uiCount) override;
-      filesize get_size() const override;
+  
+      
+      void open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception = nullptr) override;
+      
+      //filesize translate(filesize uiCount, ::enum_seek eseek) override;
+      
+      void translate(filesize offset, ::enum_seek eseek) override;
+     void set_size(filesize uiCount) override;
+      filesize size() const override;
 
       memsize read(void * pbuffer, memsize uiCount) override;
       void write(const void * pbuffer, memsize uiCount) override;

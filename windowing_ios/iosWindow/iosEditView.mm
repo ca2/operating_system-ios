@@ -51,6 +51,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 
 #import "_mm.h"
 #import "iosEditView.h"
+#include "acme/constant/user_key.h"
 #import <CoreText/CoreText.h>
 
 #import "iosTextPosition.h"

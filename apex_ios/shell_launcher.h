@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include "apex/platform/shell_launcher.h"
+
+
 namespace apex_ios
 {
 

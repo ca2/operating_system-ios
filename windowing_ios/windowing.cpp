@@ -40,12 +40,12 @@ namespace windowing_ios
    }
 
 
-   void windowing::initialize(::object * pobject)
+   void windowing::initialize(::particle * pparticle)
    {
    
       //auto estatus =
       
-      ::windowing::windowing::initialize(pobject);
+      ::windowing::windowing::initialize(pparticle);
       
 //      if(!estatus)
 //      {
@@ -188,23 +188,23 @@ namespace windowing_ios
       
    }
 
-
-   void windowing::windowing_post(const ::procedure & procedure)
-   {
-      
-      auto routineLocal = procedure;
-
-      ns_main_async(^
-                    {
-         
-         routineLocal();
-         
-      });
-      
-      //return success;
-
-   }
-
+//
+//   void windowing::windowing_post(const ::procedure & procedure)
+//   {
+//      
+//      auto routineLocal = procedure;
+//
+//      ns_main_async(^
+//                    {
+//         
+//         routineLocal();
+//         
+//      });
+//      
+//      //return success;
+//
+//   }
+//
 
    ::windowing::window * windowing::window(oswindow oswindow)
    {

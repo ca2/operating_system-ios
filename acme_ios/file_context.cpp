@@ -7,7 +7,7 @@
 
 string matter_zip_path();
 
-namespace apex_ios
+namespace acme_ios
 {
 
 
@@ -133,7 +133,7 @@ void file_context::calculate_main_resource_memory()
 }
 
 
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

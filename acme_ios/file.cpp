@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "file.h"
 #include "acme/filesystem/file/exception.h"
+#include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include <fcntl.h>
 
@@ -85,7 +86,9 @@ namespace acme_ios
 //      return pFile;
 //   }
 
-   void file::open(const ::file::path& path, const ::file::e_open & eopenParam)
+   //void file::open(const ::file::path& path, const ::file::e_open & eopenParam)
+
+void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception)
    {
 
       if (m_iFile != (::u32)hFileNull)
@@ -95,7 +98,7 @@ namespace acme_ios
          
       }
       
-      auto eopen = eopenParam;
+      //auto eopen = eopenParam;
 
       ASSERT_VALID(this);
       ASSERT(!(eopen & ::file::e_open_text) );   // text mode not supported
@@ -107,7 +110,7 @@ namespace acme_ios
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-         m_psystem->m_pacmedirectory->create(path.folder());
+         acmedirectory()->create(path.folder());
 
       }
 
@@ -183,7 +186,7 @@ namespace acme_ios
 
          auto cerrornumber = c_error_number();
 
-         if(iErrNo != ENOENT && iErrNo != ENFILE)
+         if(cerrornumber != ENOENT && cerrornumber != ENFILE)
          {
             /*         if (pException != nullptr)
              {
@@ -203,9 +206,9 @@ namespace acme_ios
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
             
-            auto estatus = errno_to_status(iErrNo);
+            auto estatus = cerrornumber.estatus();
             
-            throw ::file::exception(estatus, __errno(iErrNo), m_path, "open == -1", eopen);
+            throw ::file::exception(estatus, cerrornumber, m_path, eopen, "open == -1");
 
             //}
 
@@ -244,12 +247,12 @@ namespace acme_ios
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
             
-            m_estatus = ::errno_to_status(iErrNo);
+            m_estatus = cerrornumber.estatus();
             
             if(eopen & ::file::e_open_no_exception_on_open)
             {
              
-               if(!failed(m_estatus))
+               if(m_estatus.succeeded())
                {
                 
                   m_estatus = error_failed;
@@ -260,7 +263,7 @@ namespace acme_ios
                
             }
 
-            throw ::file::exception(m_estatus, __errno(iErrNo), m_path, "open == -1", eopen);
+            throw ::file::exception(m_estatus, cerrornumber, m_path, eopen, "open == -1");
 
             //}
 
@@ -272,7 +275,7 @@ namespace acme_ios
       
       m_estatus = ::success;
       
-      set_ok();
+      set_ok_flag();
       
       //      m_bCloseOnDelete = true;
 
@@ -304,16 +307,16 @@ namespace acme_ios
          if(iRead == -1)
          {
             
-            i32 iErrNo = errno;
+            auto cerrornumber = c_error_number();
             
-            if(iErrNo == EAGAIN)
+            if(cerrornumber == EAGAIN)
             {
 
             }
             
-            auto estatus = errno_to_status(iErrNo);
+            auto estatus = cerrornumber.estatus();
             
-            throw ::file::exception(estatus, __errno(iErrNo), m_path, "read == -1", m_eopen);
+            throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "read == -1");
             
          }
          else if(iRead == 0)
@@ -352,7 +355,7 @@ namespace acme_ios
 
       ASSERT(lpBuf != nullptr);
       
-      ASSERT(::is_memory_segment_ok(lpBuf, nCount, false));
+      //ASSERT(::is_memory_segment_ok(lpBuf, nCount, false));
 
       memsize pos = 0;
       
@@ -366,9 +369,9 @@ namespace acme_ios
             
             auto cerrornumber = c_error_number();
             
-            auto estatus = errno_to_status(iErrNo);
+            auto estatus = cerrornumber.estatus();
             
-            throw ::file::exception(estatus, __errno(iErrNo), m_path, "write == -1", m_eopen);
+            throw ::file::exception(estatus,cerrornumber, m_path, m_eopen, "write == -1");
             
          }
          
@@ -381,18 +384,18 @@ namespace acme_ios
    }
 
 
-   filesize file::translate(filesize lOff, ::enum_seek eseek)
+   void file::translate(filesize lOff, ::enum_seek eseek)
    {
 
       if(m_iFile == (::u32)hFileNull)
       {
        //  ::file::throw_os_error( (::i32)0);
          
-         int iErrNo = -1;
+         c_error_number cerrornumber(c_error_number_t{}, -1);
          
          ::e_status estatus = ::error_failed;
          
-         throw ::file::exception(estatus, __errno(iErrNo), m_path, "m_iFile == -1", m_eopen);
+         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "m_iFile == -1");
          
       }
 
@@ -411,13 +414,13 @@ namespace acme_ios
          
          auto cerrornumber = c_error_number();
          
-         auto estatus = errno_to_status(iErrNo);
+         auto estatus = cerrornumber.estatus();
          
-         throw ::file::exception(estatus, __errno(iErrNo), m_path, "lsize == -1", m_eopen);
+         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "lsize == -1");
          
       }
 
-      return posNew;
+      //return posNew;
    }
 
    filesize file::get_position() const
@@ -433,11 +436,14 @@ namespace acme_ios
       if(pos  == (filesize)-1)
       {
          
-         auto iErrNo = errno;
          
-         auto estatus = errno_to_status(iErrNo);
+         auto cerrornumber = c_error_number();
+         
+         auto estatus = cerrornumber.estatus();
+         
+         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "lseek == -1");
 
-         throw ::file::exception(estatus, __errno(iErrNo), m_path, "lseek == -1", m_eopen);
+    
          
       }
 
@@ -514,16 +520,17 @@ namespace acme_ios
 
       m_iFile = (::u32) hFileNull;
       //      m_bCloseOnDelete = false;
-      m_path.Empty();
+      m_path.empty();
 
       if (bError)
       {
          
-         auto iErrNo = errno;
+         auto cerrornumber = c_error_number();
          
-         auto estatus = errno_to_status(iErrNo);
-      
-         throw ::file::exception(estatus, __errno(iErrNo), m_path, "close != 0", m_eopen);
+         auto estatus = cerrornumber.estatus();
+         
+         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "close != 0");
+
          
       }
       
@@ -581,56 +588,56 @@ namespace acme_ios
       if (::ftruncate(m_iFile, dwNewLen) == -1)
       {
          
-         auto iErrNo = errno;
+         auto cerrornumber = c_error_number();
          
-         auto estatus = errno_to_status(iErrNo);
+         auto estatus = cerrornumber.estatus();
          
-         throw ::file::exception(estatus, __errno(iErrNo), m_path, "ftruncate == -1", m_eopen);
-         
+         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "ftruncate == -1");
+
       }
       
    }
 
 
-   filesize file::get_size() const
+   filesize file::size() const
    {
       
       ASSERT_VALID(this);
 
-      filesize dwLen, dwCur;
-
       // seek is a non const operation
       file * pfile = (file*)this;
       
-      dwCur = pfile->set_position(0);
+      auto current = pfile->get_position();
       
-      dwLen = pfile->seek_to_end();
+      pfile->seek_to_end();
       
-      VERIFY(dwCur == pfile->set_position(dwCur));
+      auto size = pfile->get_position();
+      
+      pfile->set_position(current);
 
-      return (filesize) dwLen;
+      return size;
       
    }
 
-
-   void file::assert_ok() const
-   {
-      
-      ::file::file::assert_ok();
-      
-   }
-
-
-   void file::dump(dump_context & dumpcontext) const
-   {
-      
-      ::file::file::dump(dumpcontext);
-
-      dumpcontext << "with handle " << (::u32)m_iFile;
-      dumpcontext << " and name \"" << m_path << "\"";
-      dumpcontext << "\n";
-      
-   }
+//
+//   void file::assert_ok() const
+//   {
+//      
+//      ::file::file::assert_ok();
+//      
+//   }
+//
+//
+//   void file::dump(dump_context & dumpcontext) const
+//   {
+//      
+//      ::file::file::dump(dumpcontext);
+//
+//      dumpcontext << "with handle " << (::u32)m_iFile;
+//      dumpcontext << " and name \"" << m_path << "\"";
+//      dumpcontext << "\n";
+//      
+//   }
 
 
 //   string file::get_file_name() const
@@ -669,8 +676,10 @@ namespace acme_ios
    }
 
 
-   bool file::get_status(::file::file_status & status) const
+   ::file::file_status file::get_status() const
    {
+      
+      ::file::file_status status;
       
       ASSERT_VALID(this);
 
@@ -682,7 +691,7 @@ namespace acme_ios
          if(fstat(m_iFile, &st) == -1)
          {
             
-            return false;
+            return status;
             
          }
 
@@ -690,21 +699,30 @@ namespace acme_ios
 
          status.m_attribute = 0;
 
-         status.m_ctime = ::earth::time(st.st_mtime);
-         status.m_atime = ::earth::time(st.st_atime);
-         status.m_mtime = ::earth::time(st.st_ctime);
+         status.m_timeCreation.m_iSecond = st.st_mtimespec.tv_sec;
+         status.m_timeCreation.m_iNanosecond = st.st_mtimespec.tv_nsec;
+         status.m_timeAccess.m_iSecond = st.st_atimespec.tv_sec;
+         status.m_timeAccess.m_iNanosecond = st.st_atimespec.tv_nsec;
+         status.m_timeModification.m_iSecond = st.st_ctimespec.tv_sec;
+         status.m_timeModification.m_iNanosecond = st.st_ctimespec.tv_nsec;
 
-         if (status.m_ctime.get_time() == 0)
-            status.m_ctime = status.m_mtime;
+         if (status.m_timeCreation.m_iSecond== 0
+             && status.m_timeCreation.m_iNanosecond == 0)
+         {
+            status.m_timeCreation = status.m_timeModification;
+         }
 
-         if (status.m_atime.get_time() == 0)
-            status.m_atime = status.m_mtime;
+         if (status.m_timeAccess.m_iSecond== 0
+             && status.m_timeAccess.m_iNanosecond == 0)
+         {
+            status.m_timeAccess = status.m_timeModification;
+         }
          
-         status.m_strFullName = m_path;
+         status.m_pathFullName = m_path;
 
       }
       
-      return true;
+      return status;
       
    }
 

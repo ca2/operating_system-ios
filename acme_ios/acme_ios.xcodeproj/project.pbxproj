@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,10 +41,17 @@
 			remoteGlobalIDString = 9A8E9DA3282A2F61005FF778;
 			remoteInfo = ios_acme_apple;
 		};
+		9AEB21202B6A06CF00B01F9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A15A5D6264B54CA0080670E /* acme_apple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AC14D23297B3410006D9BD3;
+			remoteInfo = static_acme_apple;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A0C165F264A290E00B5CC33 /* acme_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; name = acme_ios.a; path = libacme_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0C165F264A290E00B5CC33 /* libacme_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libacme_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A15A5D6264B54CA0080670E /* acme_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_apple.xcodeproj; path = "../../operating_system-apple/acme_apple/acme_apple.xcodeproj"; sourceTree = "<group>"; };
 		9A78630A2650483C0034A0E1 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78630C2650483C0034A0E1 /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +85,16 @@
 		9AA14F4E282A28EE00B1621E /* acme_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acme_file.h; sourceTree = "<group>"; };
 		9AA14F4F282A28EE00B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AC2D0582653EBF000CC8096 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		9AEB211D2B6A06CF00B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
+		9AEB21222B6A06D000B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		9AEB213F2B6A15A100B01F9E /* dir_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dir_system.h; sourceTree = "<group>"; };
+		9AEB21402B6A15A100B01F9E /* file_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_context.h; sourceTree = "<group>"; };
+		9AEB21412B6A15A100B01F9E /* dir_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dir_context.cpp; sourceTree = "<group>"; };
+		9AEB21422B6A15A500B01F9E /* dir_system.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dir_system.cpp; sourceTree = "<group>"; };
+		9AEB21432B6A15A600B01F9E /* file_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_context.cpp; sourceTree = "<group>"; };
+		9AEB21442B6A15A600B01F9E /* dir_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dir_context.h; sourceTree = "<group>"; };
+		9AEB21452B6A15A700B01F9E /* file_system.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_system.cpp; sourceTree = "<group>"; };
+		9AEB21462B6A15A800B01F9E /* file_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = file_system.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -94,7 +111,7 @@
 		9A0C1660264A290E00B5CC33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A0C165F264A290E00B5CC33 /* acme_ios.a */,
+				9A0C165F264A290E00B5CC33 /* libacme_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,8 +119,9 @@
 		9A15A5D7264B54CA0080670E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A15A5DC264B54CB0080670E /* acme_apple.dylib */,
-				9A8E9EC9282A32E6005FF778 /* ios_acme_apple.a */,
+				9A15A5DC264B54CB0080670E /* libacme_apple.dylib */,
+				9A8E9EC9282A32E6005FF778 /* libios_acme_apple.a */,
+				9AEB21212B6A06CF00B01F9E /* libstatic_acme_apple.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,11 +143,13 @@
 		9AA14F1F282A28EE00B1621E /* acme_ios */ = {
 			isa = PBXGroup;
 			children = (
+				9AEB211D2B6A06CF00B01F9E /* _____debug.xcconfig */,
+				9AEB21222B6A06D000B01F9E /* _____release.xcconfig */,
 				9AA14F4F282A28EE00B1621E /* _.h */,
-				9AA14F20282A28EE00B1621E /* aaa_acme_ios.h */,
 				9AA14F49282A28EE00B1621E /* _c_mm.h */,
 				9AA14F4D282A28EE00B1621E /* _factory.cpp */,
 				9AA14F2A282A28EE00B1621E /* _mm.h */,
+				9AA14F20282A28EE00B1621E /* aaa_acme_ios.h */,
 				9AA14F4B282A28EE00B1621E /* aaa_factory_exchange.h */,
 				9AA14F44282A28EE00B1621E /* acme_directory.cpp */,
 				9AA14F47282A28EE00B1621E /* acme_directory.h */,
@@ -137,6 +157,14 @@
 				9AA14F4E282A28EE00B1621E /* acme_file.h */,
 				9AA14F2F282A28EE00B1621E /* acme_path.cpp */,
 				9AA14F3D282A28EE00B1621E /* acme_path.h */,
+				9AEB21412B6A15A100B01F9E /* dir_context.cpp */,
+				9AEB21442B6A15A600B01F9E /* dir_context.h */,
+				9AEB21422B6A15A500B01F9E /* dir_system.cpp */,
+				9AEB213F2B6A15A100B01F9E /* dir_system.h */,
+				9AEB21432B6A15A600B01F9E /* file_context.cpp */,
+				9AEB21402B6A15A100B01F9E /* file_context.h */,
+				9AEB21452B6A15A700B01F9E /* file_system.cpp */,
+				9AEB21462B6A15A800B01F9E /* file_system.h */,
 				9AA14F3C282A28EE00B1621E /* file.cpp */,
 				9AA14F30282A28EE00B1621E /* file.h */,
 				9AA14F2B282A28EE00B1621E /* file.mm */,
@@ -181,7 +209,7 @@
 			);
 			name = acme_ios;
 			productName = acme_macos;
-			productReference = 9A0C165F264A290E00B5CC33 /* acme_ios.a */;
+			productReference = 9A0C165F264A290E00B5CC33 /* libacme_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +218,8 @@
 		9A0C1657264A290E00B5CC33 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					9A0C165E264A290E00B5CC33 = {
 						CreatedOnToolsVersion = 12.5;
@@ -222,19 +251,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A15A5DC264B54CB0080670E /* acme_apple.dylib */ = {
+		9A15A5DC264B54CB0080670E /* libacme_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libacme_apple.dylib;
 			remoteRef = 9A15A5DB264B54CB0080670E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8E9EC9282A32E6005FF778 /* ios_acme_apple.a */ = {
+		9A8E9EC9282A32E6005FF778 /* libios_acme_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			name = ios_acme_apple.a;
 			path = libios_acme_apple.a;
 			remoteRef = 9A8E9EC8282A32E6005FF778 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AEB21212B6A06CF00B01F9E /* libstatic_acme_apple.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libstatic_acme_apple.a;
+			remoteRef = 9AEB21202B6A06CF00B01F9E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -270,6 +305,7 @@
 /* Begin XCBuildConfiguration section */
 		9A0C1666264A290E00B5CC33 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB211D2B6A06CF00B01F9E /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -304,6 +340,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -324,7 +361,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@executable_path";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,6 +397,7 @@
 		};
 		9A0C1667264A290E00B5CC33 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB21222B6A06D000B01F9E /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -396,6 +433,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -410,7 +448,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@executable_path";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;
@@ -458,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;

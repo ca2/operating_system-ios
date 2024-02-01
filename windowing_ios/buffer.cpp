@@ -2,6 +2,7 @@
 #include "_.h"
 #include "buffer.h"
 #include "window.h"
+#include "acme/parallelization/synchronous_lock.h"
 #include "aura/graphics/image/image.h"
 #include "aura/user/user/interaction_impl.h"
 //#include "operating_system/_operating_system.h"
@@ -33,12 +34,12 @@ namespace windowing_ios
    }
 
 
-   ::draw2d::graphics* buffer::on_begin_draw()
+   bool buffer::_on_begin_draw(::graphics::buffer_item * pbufferitem)
    {
 
-      auto& pimage = get_buffer_image();
+      auto& pimage = pbufferitem->m_pimage2;
 
-      auto sizeWindow = window_size();
+      auto sizeWindow = pbufferitem->m_size;
       
 //      if(sizeWindow.is_empty())
 //      {
@@ -109,22 +110,23 @@ namespace windowing_ios
       if (!pimage)
       {
 
-         return nullptr;
+         return false;
 
       }
 
-      return pimage->g();
+      return true;
 
    }
 
 
 
-   bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+   //bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+bool buffer::update_buffer(::graphics::buffer_item * pitem)
    {
 
       //destroy_buffer();
 
-      synchronous_lock synchronouslock(synchronization());
+      _synchronous_lock synchronouslock(synchronization());
 
       //int w;
 
@@ -137,7 +139,13 @@ namespace windowing_ios
 
       //ANativeWindow_setBuffersGeometry(m_pimpl->m_oswindow->m_engine.app->window, w, h, WINDOW_FORMAT_RGBA_8888);
 
-      ::graphics::double_buffer::update_buffer(size, iStrideParam );
+      if(!::graphics::double_buffer::update_buffer(pitem))
+      {
+         
+         return false;
+         
+         
+      }
 
       return true;
 
@@ -156,9 +164,10 @@ namespace windowing_ios
    }
 
 
-   bool buffer::update_screen(::image * pimage)
+   //bool buffer::update_screen(::image * pimage)
+   bool buffer::on_update_screen(::graphics::buffer_item * pitem)
    {
-
+      auto pimage = pitem->m_pimage2;
 //      auto pdriver = ::operating_system_driver::get();
 //
 //      LOGI("m_bRedraw = true");

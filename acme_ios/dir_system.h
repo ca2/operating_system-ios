@@ -1,11 +1,14 @@
 #pragma once
 
 
-namespace apex_ios
+#include "acme/filesystem/filesystem/dir_system.h"
+
+
+namespace acme_ios
 {
    
    
-   class CLASS_DECL_APEX dir_system :
+   class CLASS_DECL_ACME dir_system :
    virtual public ::dir_system
    {
    public:
@@ -22,9 +25,9 @@ namespace apex_ios
       //::file::path            m_pathHome;
       
       dir_system();
-      virtual ~dir_system();
+      ~dir_system() override;
       
-      virtual void initialize(::object * pobject) override;
+      void initialize(::particle * pparticle) override;
       
       //virtual void update_module_path();
 
@@ -37,7 +40,7 @@ namespace apex_ios
    };
    
    
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

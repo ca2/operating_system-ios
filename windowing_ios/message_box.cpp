@@ -2,6 +2,7 @@
 // Adapted to ios by camilo on 2022-05-30 09:01 <3ThomasBS!!
 #include "framework.h"
 #include "message_box.h"
+#include "acme/platform/sequencer.h"
 
 
 int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam,  unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);

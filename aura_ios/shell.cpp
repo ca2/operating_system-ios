@@ -30,7 +30,7 @@ namespace aura_ios
       
       m_bGetFileImageByFileImage = true;
 
-      defer_create_mutex();
+      defer_create_synchronization();
 
    }
 //   

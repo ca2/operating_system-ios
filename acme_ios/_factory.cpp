@@ -3,6 +3,11 @@
 #include "acme_file.h"
 #include "acme_directory.h"
 #include "acme_path.h"
+#include "dir_system.h"
+#include "dir_context.h"
+#include "file_system.h"
+#include "file_context.h"
+
 //#include "copydesk.h"
 //#include "file_os_watcher.h"
 //#include "acme/node/posix/pipe.h"
@@ -45,6 +50,12 @@ __FACTORY_EXPORT void acme_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < ::acme_ios::acme_directory, ::acme_directory > ();
    pfactory->add_factory_item < ::acme_ios::acme_file, ::acme_file > ();
    pfactory->add_factory_item < ::acme_ios::acme_path, ::acme_path > ();
+
+   
+   pfactory->add_factory_item < ::acme_ios::file_context, ::file_context > ();
+   pfactory->add_factory_item < ::acme_ios::dir_context, ::dir_context > ();
+//   pfactory->add_factory_item < ::acme_ios::file_system, ::file_system > ();
+   pfactory->add_factory_item < ::acme_ios::dir_system, ::dir_system > ();
 
    //create_factory < ::macos::os_context         , ::os_context       > ();
    //create_factory < ::apple::process            , ::process::process > ();

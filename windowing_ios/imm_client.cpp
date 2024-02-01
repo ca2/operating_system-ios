@@ -1,5 +1,8 @@
 #include "framework.h"
 #include "imm_client.h"
+#include "acme/constant/message.h"
+#include "acme/constant/user_key.h"
+#include "acme/parallelization/synchronous_lock.h"
 #include "aura/platform/session.h"
 #include "aura/user/user/interaction.h"
 #include "aura/message/user.h"
@@ -127,7 +130,7 @@ void imm_client::insert_text(string str, bool bForceNewStep, const ::action_cont
 void imm_client::_001OnIme(::message::message * pmessage)
 {
 
-   synchronous_lock synchronouslock(synchronization());
+   _synchronous_lock synchronouslock(synchronization());
 
 #ifdef WINDOWS_DESKTOP
 
@@ -624,7 +627,7 @@ string imm_client::get_ime_composition() const
 void imm_client::clear_ime_composition()
 {
 
-   m_strImeComposition.Empty();
+   m_strImeComposition.empty();
 
 }
 

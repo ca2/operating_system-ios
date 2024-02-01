@@ -2,7 +2,7 @@
 #pragma once
 
 
-#include "aura/graphics/graphics/_graphics.h"
+#include "aura/graphics/graphics/double_buffer.h"
 
 
 namespace windowing_ios
@@ -18,12 +18,17 @@ namespace windowing_ios
       buffer();
       ~buffer() override;
 
-      ::draw2d::graphics* on_begin_draw() override;
+      //::draw2d::graphics* on_begin_draw() override;
+       
+      bool _on_begin_draw(::graphics::buffer_item * pbufferitem) override;
 
-      bool update_buffer(const ::size_i32 & size, int iStride = -1) override;
+//      bool update_buffer(const ::size_i32 & size, int iStride = -1) override;
+      
+      bool update_buffer(::graphics::buffer_item * pitem) override;
       void destroy_buffer() override;
 
-      bool update_screen(::image * pimage) override;
+      //bool update_screen(::image * pimage) override;
+      bool on_update_screen(::graphics::buffer_item * pitem) override;
 
       //virtual ::draw2d::graphics * on_begin_draw();
 

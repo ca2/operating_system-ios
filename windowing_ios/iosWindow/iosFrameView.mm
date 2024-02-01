@@ -12,6 +12,7 @@
 //  appreciated but not required.
 //
 #import "_mm.h"
+#include "acme/constant/user_key.h"
 #import "iosFrameView.h"
 #import "iosWindowApp.h"
 #import "iosTextPosition.h"

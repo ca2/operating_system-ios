@@ -170,10 +170,10 @@ typedef ::std::type_info std_type_info;
 #include <netinet/in.h>
 
 
-#define timespec_get mach_timespec_get
+// #define timespec_get mach_timespec_get
 
 
-int mach_timespec_get(struct timespec * ptimespec, int);
+// int mach_timespec_get(struct timespec * ptimespec, int);
 
 
 #define INFINITE_TIMEOUT UINT_MAX

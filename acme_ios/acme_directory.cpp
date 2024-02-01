@@ -1,10 +1,11 @@
 // Create on 2021-03-21 20:00 <3ThomasBS_ // for Linux(question)
 // Recreated on 2021-05-16 15:05 <3ThomasBS_ // for macOS
 #include "framework.h"
+#include "acme_directory.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
-#include "acme_directory.h"
+#include "acme/platform/application.h"
 
 
 char * ios_app_library_folder();
@@ -79,7 +80,7 @@ namespace acme_ios
    ::file::path acme_directory::appdata()
    {
 
-      return ca2roaming() / "appdata" / app_relative();
+      return ca2roaming() / "appdata" / application()->m_strAppId;
 
    }
 
@@ -173,18 +174,18 @@ namespace acme_ios
 
 
    #else
-
-
-   ::file::path acme_directory::app_relative()
-   {
-
-      ::file::path path = m_psystem->m_pacmefile->module();
-
-      path = relative(path);
-
-      return path;
-
-   }
+//
+//
+//   ::file::path acme_directory::app_relative()
+//   {
+//
+//      ::file::path path = m_psystem->m_pacmefile->module();
+//
+//      path = relative(path);
+//
+//      return path;
+//
+//   }
 
 
    #endif
@@ -240,7 +241,7 @@ namespace acme_ios
 
    #else
 
-      return m_psystem->m_pacmefile->module().folder(4);
+      return acmefile()->module().folder(4);
 
    #endif
 
@@ -270,7 +271,7 @@ namespace acme_ios
 
    #else
 
-      return m_psystem->m_pacmefile->module().folder(4);
+      return acmefile()->module().folder(4);
 
    #endif
 
@@ -281,7 +282,7 @@ namespace acme_ios
    ::file::path acme_directory::install()
    {
 
-      if (m_pathInstallFolder == nullptr || m_pathInstallFolder.is_empty())
+      if (m_pathInstallFolder.is_empty())
       {
 
          return default_install();
@@ -302,7 +303,7 @@ namespace acme_ios
 
    #elif defined(__APPLE__)
 
-      return m_psystem->m_pacmefile->module().folder(3);
+      return acmefile()->module().folder(3);
 
    #else
 
@@ -412,7 +413,7 @@ namespace acme_ios
    ::file::path acme_directory::stage(string strAppId, string strPlatform, string strConfiguration)
    {
 
-      return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / time_binary_platform(strPlatform) / strConfiguration;
+      return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / strPlatform / strConfiguration;
 
    }
 

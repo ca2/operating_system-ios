@@ -26,13 +26,10 @@ namespace node_ios
 void node::_will_finish_launching()
 {
    
-   auto psystem = m_psystem->m_paurasystem;
+   auto psystem = system()->m_paurasystem;
 
    if(::is_null(psystem->m_htask))
    {
-
-      auto psystem = m_psystem->m_paurasystem;
-   
 
       auto estatus = psystem->branch();
 
@@ -59,9 +56,9 @@ void node::_will_finish_launching()
 void node::on_start_system()
 {
    
-   auto psystem = m_psystem->m_paurasystem;
+   auto psystem = system()->m_paurasystem;
    
-   auto psession = psystem->m_paurasession;
+   auto psession = psystem->m_pacmesession->m_paurasession;
    
    auto puser = psession->m_puser;
    
@@ -69,7 +66,7 @@ void node::on_start_system()
    
    pwindowing->defer_initialize_host_window(nullptr);
    
-   m_psystem->post_initial_request();
+   psystem->defer_post_initial_request();
 
    
 }
@@ -223,14 +220,15 @@ void node::on_start_system()
 
 
 
-   void node::implement(::pointer < ::acme::node > & pnode, __pointer(class ::acme::system) & psystem)
+//   void node::implement(::pointer < ::acme::node > & pnode, ::pointer < class ::acme::system > & psystem)
+void node::on_system_main()
    {
       
       //auto psystem = m_psystem->m_papexsystem;
       
-      auto argc = psystem->m_argc;
+      auto argc = platform()->m_argc;
       
-      auto argv = psystem->m_argv;
+      auto argv = platform()->m_argv;
       
       //      auto papp = psystem->m_pappStartup;
       //
@@ -246,7 +244,7 @@ void node::on_start_system()
 ::pointer < ::conversation > node::create_new_message_box_conversation()
    {
 
-      return __new(class ::windowing_ios::message_box());
+      return __create_new < class ::windowing_ios::message_box >();
 
    }
 

@@ -31,12 +31,12 @@ namespace aura_ios
    }
 
 
-   void node::initialize(::object * pobject)
+   void node::initialize(::particle * pparticle)
    {
       
       //auto estatus =
       
-      ::aura_apple::node::initialize(pobject);
+      ::aura_apple::node::initialize(pparticle);
       
 //      if(!estatus)
 //      {
@@ -47,7 +47,7 @@ namespace aura_ios
       
       //estatus =
       
-      ::apex_ios::node::initialize(pobject);
+      ::apex_ios::node::initialize(pparticle);
       
 //      if(!estatus)
 //      {
@@ -61,12 +61,12 @@ namespace aura_ios
    }
 
 
-   ::image_pointer node::get_file_image_by_type_identifier(int iSize, const char * pszTypeIdentifier)
+   ::image_pointer node::get_file_image_by_type_identifier(int iSize, const ::scoped_string & scopedstrTypeIdentifier)
    {
 
       auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );
 
-      if(!macos_get_file_image_by_type_identifier(pimage, pszTypeIdentifier))
+      if(!macos_get_file_image_by_type_identifier(pimage, scopedstrTypeIdentifier))
       {
 
          return nullptr;
@@ -78,7 +78,7 @@ namespace aura_ios
    }
 
 
-   ::image_pointer node::get_file_image(int iSize, const char * path)
+   ::image_pointer node::get_file_image(int iSize, const ::file::path & path)
    {
 
       auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );

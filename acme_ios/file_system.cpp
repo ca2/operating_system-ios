@@ -15,7 +15,7 @@ struct PROCESS_INFO_t
 };
 
 
-namespace apex_ios
+namespace acme_ios
 {
 
 
@@ -62,7 +62,7 @@ namespace apex_ios
 //   }
 
 
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

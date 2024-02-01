@@ -22,18 +22,18 @@ namespace windowing_ios
       
       ::pointer < ::windowing::display >           m_pdisplay;
       
-      //__pointer(class window)                   m_pwindowActive;
+      //::pointer < class window >                   m_pwindowActive;
       
-      //__pointer(class window)                   m_pwindowCapture;
+      //::pointer < class window >                   m_pwindowCapture;
       
-      __pointer(class window)                   m_pwindowApplicationHost;
+      ::pointer < class window >                   m_pwindowApplicationHost;
       
-      ///__pointer(class window)
+      ///::pointer < class window >
          //m_pwindowKeyboardFocus;
       
       //::pointer < host_interaction >               m_phostinteraction;
       
-      map < void *, __pointer(class window) >   m_nsmap;
+      map < void *, ::pointer < class window > >   m_nsmap;
 
       ::pointer < text_editor_interface >          m_ptexteditorinterface;
 
@@ -42,13 +42,13 @@ namespace windowing_ios
       ~windowing() override;
       
       
-      void initialize(::object * pobject) override;
+      void initialize(::particle * pparticle) override;
       
       
       ::windowing::text_editor_interface * get_text_editor_interface() override;
 
       
-      void defer_initialize_host_window(const RECTANGLE_I32* lpcrect) override;
+virtual     void defer_initialize_host_window(const RECTANGLE_I32* lpcrect);
      
       ::windowing::window * get_application_host_window() override;
       
@@ -62,7 +62,7 @@ namespace windowing_ios
       
       ::pointer < ::windowing::cursor > get_cursor(enum_cursor ecursor) override;
       
-      void windowing_post(const ::procedure & procedure) override;
+      //void windowing_post(const ::procedure & procedure) override;
       
       ::windowing::window * window(oswindow oswindow) override;
 

@@ -33,7 +33,7 @@ namespace windowing_ios
       
       
       void *                     m_pNSCursorLast;
-      class windowing *          m_pmacoswindowing;
+      class windowing *          m_pioswindowing;
       ::windowing::window *      m_pwindowCapture;
       ::point_i32                m_pointMouseCursor;
       
@@ -70,21 +70,26 @@ namespace windowing_ios
       bool has_keyboard_focus() const override;
       
       bool ios_window_has_keyboard_focus() const override;
+       
+       
+       bool _configure_window_unlocked(const class ::zorder& zorder, const ::e_activation& eactivation, bool bNoZorder, ::e_display edisplay) override;
+       bool _strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize) override;
 
-      void window_show() override;
-      
-      void show_window(const ::e_display &edisplay, const ::e_activation &eactivation) override;
+
+//      void window_show() override;
+//      
+//      void show_window(const ::e_display &edisplay, const ::e_activation &eactivation) override;
       
       void set_mouse_cursor(::windowing::cursor * pcursor) override;
-      
-      ::point_i32 get_mouse_cursor_position() override;
-      
-      bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
+//      
+//      ::point_i32 get_mouse_cursor_position() override;
+//      
+//      bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
 
       //void set_mouse_capture() override;
 
       
-      void update_screen() override;
+      void window_update_screen() override;
       
 
       void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) override;
@@ -127,8 +132,8 @@ namespace windowing_ios
       //void ios_window_iconified() override;
       //void ios_window_deiconified() override;
 
-
-      void get_cursor_position(POINT_I32 * ppoint) override;
+//
+//      void get_cursor_position(POINT_I32 * ppoint) override;
 
 
 

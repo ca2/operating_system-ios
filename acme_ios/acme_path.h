@@ -21,13 +21,13 @@ namespace acme_ios
 
 
       
-      void create_symbolic_link(const char * pszLink, const char * pszSource) override;
+      void create_symbolic_link(const ::scoped_string & scopedstrLink, const ::scoped_string & scopedstrSource) override;
 
-      bool is_symbolic_link(const char * pszLink) override;
+      bool is_symbolic_link(const ::scoped_string & scopedstrLink) override;
 
-      ::file::path symbolic_link_destination(const char * pszLink) override;
+      ::file::path symbolic_link_destination(const ::scoped_string & scopedstrLink) override;
 
-      bool has_custom_icon(const char * path) override;
+      bool has_custom_icon(const ::file::path & path) override;
       
 
    };

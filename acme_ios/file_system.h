@@ -1,11 +1,14 @@
 #pragma once
 
 
-namespace apex_ios
+#include "acme/filesystem/filesystem/file_system.h"
+
+
+namespace acme_ios
 {
 
 
-   class CLASS_DECL_APEX file_system :
+   class CLASS_DECL_ACME file_system :
       virtual public ::file_system
    {
    public:
@@ -20,7 +23,7 @@ namespace apex_ios
       ~file_system() override;
 
       
-      void initialize(::object * pobject) override;
+      void initialize(::particle * pparticle) override;
       
 
 //      virtual void update_module_path() override;
@@ -31,7 +34,7 @@ namespace apex_ios
    };
 
 
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

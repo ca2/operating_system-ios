@@ -4,6 +4,11 @@
 #include "aura/graphics/image/image.h"
 
 
+void ns_main_async(dispatch_block_t block);
+
+
+void ns_main_sync(dispatch_block_t block);
+
 bool ios_clipboard_has_changed(long & lTicket);
 
 long ios_clipboard_init();
@@ -143,12 +148,12 @@ namespace windowing_ios
 
 
 
-   void copydesk::initialize(::object * pobject)
+   void copydesk::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::user::copydesk::initialize(pobject);
+      ::user::copydesk::initialize(pparticle);
       
 //      if(!estatus)
 //      {
@@ -242,7 +247,7 @@ namespace windowing_ios
 
       int iScan = 0;
 
-      ::acme::malloc < color32_t * > pcolorref = (color32_t *) ios_clipboard_get_image(w, h, iScan);
+      ::acme::malloc < image32_t * > pcolorref = (image32_t *) ios_clipboard_get_image(w, h, iScan);
 
       if(pcolorref == nullptr)
       {
@@ -255,10 +260,10 @@ namespace windowing_ios
       
       pimage->map();
       
-      if(pimage->colorref() != nullptr)
+      if(pimage->image32() != nullptr)
       {
       
-         ::copy_image32(pimage->colorref(), w, h, pimage->scan_size(), pcolorref, iScan);
+         ::copy_image32(pimage->image32(), w, h, pimage->scan_size(), pcolorref, iScan);
          
       }
 //      else if(pimage->m_pframea->is_set())
@@ -386,7 +391,7 @@ void ios_clipboard_set_filea(const ::file::path_array & patha)
 
    auto psza = patha.c_ansi_get();
 
-   ios_clipboard_set_filea(psza.get_data(), psza.get_count());
+   ios_clipboard_set_filea(psza.data(), psza.count());
 
 }
 

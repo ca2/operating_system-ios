@@ -4,7 +4,7 @@
 //#include "_ios.h"
 
 
-namespace apex_ios
+namespace acme_ios
 {
 
 
@@ -61,7 +61,7 @@ namespace apex_ios
    }
 
 
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

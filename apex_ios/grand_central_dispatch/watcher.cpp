@@ -1,5 +1,6 @@
 #include "framework.h"
 #include "watcher.h"
+#include "acme/parallelization/manual_reset_event.h"
 
 
 namespace grand_central_dispatch
@@ -88,7 +89,7 @@ namespace grand_central_dispatch
    }
    
    
-   bool watch::step()
+   bool watch::file_watch_step()
    {
       
       return true;
@@ -194,7 +195,7 @@ namespace grand_central_dispatch
 //   }
 //
 
-   bool watcher::step()
+   bool watcher::file_watcher_step()
    {
       
       //bool done = false;
@@ -222,7 +223,7 @@ namespace grand_central_dispatch
          
       //}
       
-      auto estatus = ::file::watcher::step();
+      auto estatus = ::file::watcher::file_watcher_step();
       
       if(!estatus)
       {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,12 +37,16 @@
 		9A8E9D97282A2CE7005FF778 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
 		9AC2D16F26542E1000CC8096 /* libnode_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libnode_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEB21312B6A094F00B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		9AEB21322B6A094F00B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		9A8E9D8F282A2CE6005FF778 /* node_ios */ = {
 			isa = PBXGroup;
 			children = (
+				9AEB21322B6A094F00B01F9E /* _____debug.xcconfig */,
+				9AEB21312B6A094F00B01F9E /* _____release.xcconfig */,
 				9A8E9D94282A2CE7005FF778 /* framework.cpp */,
 				9A8E9D95282A2CE7005FF778 /* framework.h */,
 				9A8E9D96282A2CE7005FF778 /* _factory.cpp */,
@@ -56,7 +60,7 @@
 		9AA14E00282A185C00B1621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14E05282A185C00B1621E /* windowing_ios.a */,
+				9AA14E05282A185C00B1621E /* libwindowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,7 +126,8 @@
 		9AC2D16726542E1000CC8096 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					9AC2D16E26542E1000CC8096 = {
 						CreatedOnToolsVersion = 12.5;
@@ -154,10 +159,9 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9AA14E05282A185C00B1621E /* windowing_ios.a */ = {
+		9AA14E05282A185C00B1621E /* libwindowing_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			name = windowing_ios.a;
 			path = libwindowing_ios.a;
 			remoteRef = 9AA14E04282A185C00B1621E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -187,6 +191,7 @@
 /* Begin XCBuildConfiguration section */
 		9AC2D17626542E1000CC8096 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB21322B6A094F00B01F9E /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -221,6 +226,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -241,7 +247,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -279,6 +284,7 @@
 		};
 		9AC2D17726542E1000CC8096 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB21312B6A094F00B01F9E /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -313,6 +319,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -327,7 +334,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;
@@ -376,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;

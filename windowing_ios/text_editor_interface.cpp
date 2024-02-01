@@ -123,8 +123,8 @@ namespace windowing_ios
                    
                    puserinteraction->_001GetSel(iSelBeg,iSelEnd);
                    
-                   pwindow->ios_window_edit_on_set_focus(rectangle.left, rectangle.top, rectangle.right,
-                                                         rectangle.bottom,
+                   pwindow->ios_window_edit_on_set_focus(rectangle.left(), rectangle.top(), rectangle.right(),
+                                                         rectangle.bottom(),
                           strText,       iSelBeg,
                                                          iSelEnd);
 //

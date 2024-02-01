@@ -4,15 +4,19 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_file.h"
-#include "acme/user/nano/_nano.h"
+#include "acme/user/nano/window_implementation.h"
+#include "acme/platform/system.h"
 
+void ns_main_async(dispatch_block_t block);
+
+void ns_main_sync(dispatch_block_t block);
 
 string macos_get_type_identifier(const char * str);
 
 bool ns_is_system_dark_mode();
 
 void ns_app_terminate();
-void os_post_quit(::element * pelementQuit);
+//void os_post_quit(::particle * pparticleQuit);
 void ui_open_url(const char * pszUrl);
 
 void ns_launch_app(const char * psz, const char ** argv, int iFlags);
@@ -33,7 +37,7 @@ namespace acme_ios
 
       m_pAcmePosix = this;
 
-      ::factory::add_factory_item < ::nano_window_implementation >();
+      factory()->add_factory_item < ::nano_window_implementation >();
 
    }
 
@@ -44,7 +48,7 @@ namespace acme_ios
    }
 
 
-   ::string node::get_file_type_identifier(const char * path)
+   ::string node::get_file_type_identifier(const ::file::path & path)
    {
    
       string strTypeIdentifier = macos_get_type_identifier(path);
@@ -76,12 +80,12 @@ unsigned int * puiPid)
 
    }
 
-   u32 processId;
+//   u32 processId;
 
    chdir(pszDir);
 
    //if(!
-    create_process(strCmdLine, &processId);
+   auto processidentifier = create_process(strCmdLine);
 //   {
 //
 //      throw ::exception(error_failed);
@@ -91,7 +95,7 @@ unsigned int * puiPid)
    if(puiPid != nullptr)
    {
 
-      *puiPid = processId;
+      *puiPid = (::u32) processidentifier;
 
    }
 
@@ -100,7 +104,7 @@ unsigned int * puiPid)
 }
 
 
- void node::call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const ::duration & durationTimeout, ::property_set & set)
+ void node::call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode)
 {
 
    string strCmdLine;
@@ -116,22 +120,22 @@ unsigned int * puiPid)
       
    }
 
-   u32 processId;
+   //process processId;
 
    //if(!
-    create_process(strCmdLine, &processId);
+   auto processidentifier = create_process(strCmdLine);
 //   {
 //
 //      return -1;
 //
 //   }
 
-   set["pid"] = processId;
+   set["pid"] = processidentifier;
 
    while(true)
    {
 
-      if(kill(processId, 0) == -1 && errno == ESRCH) // No process can be found corresponding to processId
+      if(kill((pid_t) processidentifier, 0) == -1 && errno == ESRCH) // No process can be found corresponding to processId
          break;
 
       sleep(1_ms);
@@ -277,12 +281,12 @@ unsigned int * puiPid)
 //      }
 
 
-   void node::initialize(::object * pobject)
+   void node::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::acme::node::initialize(pobject);
+      ::acme::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -620,38 +624,45 @@ unsigned int * puiPid)
    //                           }));
    //
    //   }
+//
+//void node::element_quit::run()
+//{
+//   
+//   m_pnode->m_peventReadyToTerminateApp->set_event();
+//   
+//   auto htaskSystem = (pthread_t) m_pnode->m_htaskSystem;
+//
+//   pthread_join(htaskSystem, nullptr);
+//
+//   ns_app_terminate();
+//   
+//   delete this;
+//   
+//   //return ::success;
+//   
+//}
+//
 
-void node::element_quit::run()
-{
-   
-   m_pnode->m_peventReadyToTerminateApp->set_event();
-   
-   auto htaskSystem = (pthread_t) m_pnode->m_htaskSystem;
 
-   pthread_join(htaskSystem, nullptr);
-
-   ns_app_terminate();
-   
-   delete this;
-   
-   //return ::success;
-   
-}
-
-
-
-    void node::node_quit()
+    void node::user_post_quit()
       {
        
-       m_peventReadyToTerminateApp = __new(manual_reset_event);
+       ns_main_async(^
+                     {
+          
+          ns_app_terminate();
+          
+       });
        
-       m_peventReadyToTerminateApp->ResetEvent();
-       
-       element_quit * pelementquit = new element_quit(this);
-   
-       ::os_post_quit(pelementquit);
-       
-       m_peventReadyToTerminateApp->_wait();
+//       m_peventReadyToTerminateApp = __new(manual_reset_event);
+//       
+//       m_peventReadyToTerminateApp->ResetEvent();
+//       
+//       element_quit * pelementquit = new element_quit(this);
+//   
+//       ::os_post_quit(pelementquit);
+//       
+//       m_peventReadyToTerminateApp->_wait();
        
       }
 
@@ -739,7 +750,7 @@ void node::element_quit::run()
 
       struct sigaction sa;
 
-      __zero(sa);
+      ::zero(sa);
 
       sa.sa_handler = &ansios_sigchld_handler;
 
@@ -757,7 +768,7 @@ void node::element_quit::run()
    void node::shell_launch(const ::string & strAppId)
    {
 
-      information("::acme_ios::node::shell_launch: " << strAppId);
+      information() << "::acme_ios::node::shell_launch: " << strAppId;
       
       //throw interface_only();
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -109,7 +109,7 @@
 		9A89A574282CA2E90014794A /* buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffer.cpp; sourceTree = "<group>"; };
 		9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = text_editor_interface.cpp; sourceTree = "<group>"; };
 		9A9B9B3428483ED0005CA950 /* text_editor_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_editor_interface.h; sourceTree = "<group>"; };
-		9A9E4AD62751A3F40094A04C /* windowing_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; name = windowing_ios.a; path = libwindowing_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwindowing_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA14E06282A188C00B1621E /* aura_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_ios.xcodeproj; path = ../aura_ios/aura_ios.xcodeproj; sourceTree = "<group>"; };
 		9AA14E59282A26B000B1621E /* copydesk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = copydesk.h; sourceTree = "<group>"; };
 		9AA14E5A282A26B000B1621E /* windowing_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = windowing_c.h; sourceTree = "<group>"; };
@@ -140,6 +140,8 @@
 		9AA14EA0282A26B000B1621E /* windowing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = windowing.cpp; sourceTree = "<group>"; };
 		9AA14EA2282A26B000B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA8024A266571D600A6B449 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9AEB212F2B6A091200B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		9AEB21302B6A091200B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		9AF115A22844E8F6006B2424 /* message_box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = message_box.cpp; sourceTree = "<group>"; };
 		9AF115A32844E8F6006B2424 /* message_box.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = message_box.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +160,7 @@
 		9A440A1626548BE4000C490B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9E4AD62751A3F40094A04C /* windowing_ios.a */,
+				9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +225,8 @@
 		9AA14E56282A26B000B1621E /* windowing_ios */ = {
 			isa = PBXGroup;
 			children = (
+				9AEB21302B6A091200B01F9E /* _____debug.xcconfig */,
+				9AEB212F2B6A091200B01F9E /* _____release.xcconfig */,
 				9A750E9B282B668400C4861B /* iosWindow */,
 				9AA14EA2282A26B000B1621E /* _.h */,
 				9AA14E9A282A26B000B1621E /* _c_mm.h */,
@@ -303,7 +307,7 @@
 			);
 			name = windowing_ios;
 			productName = windowing_macos;
-			productReference = 9A9E4AD62751A3F40094A04C /* windowing_ios.a */;
+			productReference = 9A9E4AD62751A3F40094A04C /* libwindowing_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -312,7 +316,8 @@
 		9A440A0D26548BE4000C490B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					9A9E4AD52751A3F40094A04C = {
 						CreatedOnToolsVersion = 13.1;
@@ -405,6 +410,7 @@
 /* Begin XCBuildConfiguration section */
 		9A440A1C26548BE4000C490B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB21302B6A091200B01F9E /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -439,6 +445,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -459,7 +466,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,6 +504,7 @@
 		};
 		9A440A1D26548BE4000C490B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AEB212F2B6A091200B01F9E /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -532,6 +539,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -546,7 +554,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = "@rpath";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -586,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;
@@ -596,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
+				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				PLATFORM_MODIFIER = ios;
 				SDKROOT = iphoneos;

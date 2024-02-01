@@ -21,24 +21,24 @@ namespace acme_ios
    public:
 
       
-      class element_quit :
-      virtual public ::element
-      {
-      public:
-         
-         node * m_pnode;
-         
-         element_quit(node * pnode)
-         {
-            
-            m_pnode = pnode;
-            
-         }
-         
-         void run() override;
-         
-         
-      };
+//      class element_quit :
+//      virtual public ::particle
+//      {
+//      public:
+//         
+//         node * m_pnode;
+//         
+//         element_quit(node * pnode)
+//         {
+//            
+//            m_pnode = pnode;
+//            
+//         }
+//         
+//         void run() override;
+//         
+//         
+//      };
 
       //gpointer m_pGtkSettingsDefault;
       string m_strTheme;
@@ -49,11 +49,11 @@ namespace acme_ios
       ~node() override;
 
       
-      ::string get_file_type_identifier(const char * path) override;
+      ::string get_file_type_identifier(const ::file::path & path) override;
       
       
       void call_async(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, bool bPrivileged, unsigned int * puiPid = nullptr) override;
-      void call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const ::duration & durationTimeout, ::property_set & set) override;
+      void call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode) override;
 
       //virtual ::color::color get_system_color(enum_system_color esystemcolor) override;
       
@@ -66,11 +66,11 @@ namespace acme_ios
 
       //override;
 
-      void initialize(::object * pobject) override;
+      void initialize(::particle * pparticle) override;
       
-      void node_quit() override;
+      //void node_quit() override;
 
-
+      void user_post_quit() override;
 
       void install_sigchld_handler() override;
       

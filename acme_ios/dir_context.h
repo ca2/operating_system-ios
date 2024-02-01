@@ -1,11 +1,14 @@
 #pragma once
 
 
-namespace apex_ios
+#include "acme/filesystem/filesystem/dir_context.h"
+
+
+namespace acme_ios
 {
    
    
-   class CLASS_DECL_APEX dir_context :
+   class CLASS_DECL_ACME dir_context :
    virtual public ::dir_context
    {
    public:
@@ -16,10 +19,10 @@ namespace apex_ios
 
       
       dir_context();
-      virtual ~dir_context();
+      ~dir_context() override;
       
       
-      virtual void initialize(::object * pobject) override;
+      virtual void initialize(::particle * pparticle) override;
       //virtual void update_module_path();
       virtual void init_context() override;
 
@@ -79,7 +82,7 @@ namespace apex_ios
    };
    
    
-} // namespace apex_ios
+} // namespace acme_ios
 
 
 

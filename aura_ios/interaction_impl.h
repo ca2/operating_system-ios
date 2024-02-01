@@ -32,8 +32,8 @@ namespace aura_ios
       //virtual void construct(oswindow hwnd);
 
 
-      void assert_ok() const override;
-      void dump(dump_context & dumpcontext) const override;
+//      void assert_ok() const override;
+//      void dump(dump_context & dumpcontext) const override;
       
       //void native_create_host() override;
       
@@ -55,7 +55,7 @@ namespace aura_ios
 //
 //      virtual ::user::interaction *  SetOwner(::user::interaction *   pOwnerWnd) override;
 
-      virtual ::user::interaction * get_wnd() const override;
+      //virtual ::user::interaction * get_wnd() const override;
 
       void route_command(::message::command * pcommand, bool bRouteToKeyDescendant = false) override;
 //
@@ -128,7 +128,7 @@ namespace aura_ios
 //
 
 
-      bool _is_window() const override;
+      //bool _is_window() const override;
 
 //      lresult send_message(const ::id & id, wparam wParam = 0, lparam lParam = 0, const ::point_i32 & point = {}) override;
 //      bool post_message(const ::id & id, wparam wParam = 0, lparam lParam = 0) override;
@@ -141,9 +141,9 @@ namespace aura_ios
 
 
       // oswindow Text Functions
-      void set_window_text(const ::string & lpszString) override;
+      //void set_window_text(const ::string & lpszString) override;
       //strsize GetWindowText(char * lpszStringBuf, strsize nMaxCount);
-      void get_window_text(string & str) override;
+      //void get_window_text(string & str) override;
       //strsize GetWindowTextLength();
 //      void SetFont(::write_text::font* pFont, bool bRedraw = true);
       //    ::write_text::font* GetFont();
@@ -190,7 +190,7 @@ namespace aura_ios
       //virtual void Print(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const override;
       //virtual void PrintClient(::draw2d::graphics_pointer & pgraphics, ::u32 dwFlags) const override;
 
-      virtual void UpdateWindow() override;
+      //virtual void UpdateWindow() override;
 //      virtual void SetRedraw(bool bRedraw = true) override;
 ////      virtual bool GetUpdateRect(RECTANGLE_I32 * lpRect, bool bErase = false) override;
 //      virtual i32 GetUpdateRgn(::draw2d::region* pRgn, bool bErase = false) override;
@@ -203,7 +203,7 @@ namespace aura_ios
 //      virtual void window_impl_maximize();
 //      virtual void window_impl_restore();
       //virtual bool window_impl_is_visible();
-      virtual void ShowOwnedPopups(bool bShow = true) override;
+      //virtual void ShowOwnedPopups(bool bShow = true) override;
 
 
 
@@ -216,7 +216,7 @@ namespace aura_ios
 //      virtual bool LockWindowUpdate() override;
 //      virtual void UnlockWindowUpdate() override;
 //        virtual bool RedrawWindow(const ::rectangle_i32 & rectUpdate = nullptr, ::draw2d::region* prgnUpdate = nullptr, ::u32 flags = RDW_INVALIDATE | RDW_ERASE);
-      virtual void _001UpdateScreen() override;
+      //virtual void _001UpdateScreen() override;
       //virtual votru8id _001UpdateWindow(bool bUpdateBuffer = false) override;
       // xxx      virtual bool EnableScrollBar(i32 nSBFlags, ::u32 nArrowFlags = ESB_ENABLE_BOTH);
 
@@ -524,7 +524,7 @@ namespace aura_ios
 
       void _001WindowMinimize();
 
-      void _001OnTriggerMouseInside() override;
+      //void _001OnTriggerMouseInside() override;
 
       //void _001OnTimer(::timer * ptimer) override;
 

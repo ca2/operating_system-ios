@@ -31,30 +31,35 @@ namespace windowing_ios
    }
 
 
-   void monitor::get_monitor_rectangle(::RECTANGLE_I32 * prectangle)
+   ::rectangle_i32 monitor::monitor_rectangle()
    {
       
-      CGRect r;
+      CGRect rectMonitor;
       
-      ns_monitor_cgrect((int) m_iIndex, &r);
+      ns_monitor_cgrect((int) m_iIndex, &rectMonitor);
       
-      copy(prectangle, r);
+      ::rectangle_i32 rectangle;
+       
+      copy(rectangle, rectMonitor);
       
-      //return ::success;
+      return rectangle;
       
    }
 
 
-   void monitor::get_workspace_rectangle(::RECTANGLE_I32 * prectangle)
+   ::rectangle_i32 monitor::workspace_rectangle()
    {
       
       CGRect rectWorkspace;
       
       ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
       
-      copy(prectangle, rectWorkspace);
+       
+       ::rectangle_i32 rectangle;
+      copy(rectangle, rectWorkspace);
       
-      //return ::success;
+      return rectangle;
+
       
    }
 
@@ -69,19 +74,19 @@ void ns_main_monitor_cgrect(CGRect * p);
 
 
 
-RECTANGLE_I32 get_main_screen_rectangle()
-{
-
-   RECTANGLE_I32 rectangle{};
-   
-   CGRect r;
-   
-   ns_main_monitor_cgrect(&r);
-   
-   screen_coordinates_aware_copy(rectangle, r);
-
-   return rectangle;
-   
-   //return true;
-   
-}
+//RECTANGLE_I32 get_main_screen_rectangle()
+//{
+//
+//   RECTANGLE_I32 rectangle{};
+//   
+//   CGRect r;
+//   
+//   ns_main_monitor_cgrect(&r);
+//   
+//   screen_coordinates_aware_copy(rectangle, r);
+//
+//   return rectangle;
+//   
+//   //return true;
+//   
+//}

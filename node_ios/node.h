@@ -20,8 +20,9 @@ namespace node_ios
    public:
    
       
-      void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
+      //void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
 
+      void on_system_main() override;
       
       void _will_finish_launching() override;
       

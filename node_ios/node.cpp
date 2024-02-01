@@ -61,6 +61,8 @@ void node::_will_finish_launching()
 
    }
       
+   
+   system()->defer_post_initial_request();
 
    //return ::success;
    

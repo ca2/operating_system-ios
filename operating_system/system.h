@@ -184,4 +184,6 @@ typedef ::std::type_info std_type_info;
 
 
 
+#define CUBE 1
+
 

@@ -8,6 +8,10 @@
 #include "monitor.h"
 
 
+void ns_main_async(dispatch_block_t block);
+
+void ns_main_sync(dispatch_block_t block);
+
 void ns_monitor_cgrect(int i, CGRect * p);
 void ns_workspace_cgrect(int i, CGRect * p);
 
@@ -49,11 +53,15 @@ namespace windowing_ios
 
    ::rectangle_i32 monitor::workspace_rectangle()
    {
-      
-      CGRect rectWorkspace;
-      
-      ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
-      
+      __block CGRect rectWorkspace;
+
+      ns_main_sync(^()
+                   {
+         
+         ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);
+         
+         
+      });
        
        ::rectangle_i32 rectangle;
       copy(rectangle, rectWorkspace);

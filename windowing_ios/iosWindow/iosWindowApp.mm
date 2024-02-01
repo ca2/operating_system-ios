@@ -30,7 +30,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
    //os_on_will_finish_launching();
    
-   [super application:application willFinishLaunchingWithOptions:launchOptions]
+   [super application:application willFinishLaunchingWithOptions:launchOptions];
    
    return YES;
    

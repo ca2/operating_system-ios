@@ -50,7 +50,7 @@ namespace windowing_ios
       
       //LOGI("on_begin_draw");
 
-      //if (pimage->size() != sizeWindow)
+      if (!pimage || pimage->size() != sizeWindow)
       {
 
          //         if(pimage->size().area() < sizeWindow.area())

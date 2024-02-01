@@ -30,6 +30,7 @@ double get_status_bar_frame_height();
 // Init method for the object.
 //
 - (id)initWithFrame:(CGRect)contentRect
+
 {
    
 	self = [super initWithFrame:contentRect ];

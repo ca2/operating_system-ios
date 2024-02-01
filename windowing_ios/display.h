@@ -26,12 +26,15 @@ namespace windowing_ios
 
       
       ::count get_monitor_count() override;
+      
+      
+      ::point_i32 _get_mouse_cursor_position() override;
    
    };
 
 
 
-} // namespace windowing_macos
+} // namespace windowing_ios
 
 
 

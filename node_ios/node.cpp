@@ -20,6 +20,18 @@ namespace node_ios
 {
 
 
+node::node()
+{
+   
+   
+}
+
+
+node::~node()
+{
+   
+   
+}
 
 
 
@@ -56,15 +68,15 @@ void node::_will_finish_launching()
 void node::on_start_system()
 {
    
-   auto psystem = system()->m_paurasystem;
-   
-   auto psession = psystem->m_pacmesession->m_paurasession;
-   
-   auto puser = psession->m_puser;
-   
-   auto pwindowing = puser->windowing();
-   
-   pwindowing->defer_initialize_host_window(nullptr);
+   auto psystem = system();
+//   
+//   auto psession = psystem->m_pacmesession->m_paurasession;
+//   
+//   auto puser = psession->m_puser;
+//   
+//   auto pwindowing = puser->windowing();
+//   
+//   pwindowing->defer_initialize_host_window(nullptr);
    
    psystem->defer_post_initial_request();
 

@@ -21,6 +21,10 @@ namespace node_ios
    
       
       //void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
+      
+      
+      node();
+      ~node() override;
 
       void on_system_main() override;
       

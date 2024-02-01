@@ -12,7 +12,7 @@
 
 
 bool apple_get_file_image(::image * pimage, const char * pszFilePath);
-bool apple_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
+bool apple_get_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
 
 
 namespace aura_ios

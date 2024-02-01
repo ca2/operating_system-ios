@@ -313,6 +313,9 @@ namespace windowing_ios
 
       puserinteraction->m_ewindowflag |= e_window_flag_window_created;
 
+      
+      puserinteraction->post_message(e_message_pos_create);
+
       //return bOk;
 
    }

@@ -22,17 +22,19 @@ void system_call_update_app_activated();
 @implementation iosWindowApp
 
 
-//- (BOOL)application:(UIApplication *)application
-//willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
-//{
-//   
-//   //m_pplanesystem = get_plane_system();
-//   
-//   os_on_will_finish_launching();
-//   
-//   return YES;
-//   
-//}
+- (BOOL)application:(UIApplication *)application
+willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
+{
+   
+   //m_pplanesystem = get_plane_system();
+   
+   //os_on_will_finish_launching();
+   
+   [super application:application willFinishLaunchingWithOptions:launchOptions]
+   
+   return YES;
+   
+}
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions

@@ -102,11 +102,13 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 @end
 
 
-void ui_application_main(int argc, char * argv[], const char * pszCommandLine)
+void ui_application_main(int argc, char * argv[], const char * pszCommandLine, NSString * strDelegateClass);
+
+
+
+void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine)
 {
-   
-   UIApplicationMain(argc, argv, nil, NSStringFromClass([iosWindowApp class]));
+                              
+   ui_application_main(argc, argv, pszCommandLine, NSStringFromClass([iosWindowApp class]));
    
 }
-
-

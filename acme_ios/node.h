@@ -124,6 +124,9 @@ namespace acme_ios
       void open_url(const ::string & strUrl) override;
       
       
+      virtual void ns_app_run();
+      
+      
    };
 
 

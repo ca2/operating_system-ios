@@ -26,6 +26,7 @@ void ansios_sigchld_handler(int sig);
 
 
 void apex_application_run(const ::string & pszAppName, const ::string & pszProgName);
+void ns_acme_application_main(int argc, char * argv[], const char * pszCommandLine);
 
 
 namespace acme_ios
@@ -997,6 +998,16 @@ unsigned int * puiPid)
       ::ui_open_url(strUrl);
    
    }
+void node::ns_app_run()
+{
+ 
+   auto argc = platform()->m_argc;
+
+   auto argv = platform()->m_argv;
+
+   ns_acme_application_main(argc, argv, nullptr);
+   
+}
 
 
 } // namespace acme

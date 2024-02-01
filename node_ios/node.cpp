@@ -15,10 +15,7 @@
 
 void ns_app_run();
 void defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
-
-
-//
-//void ui_application_main(int argc, char * argv[], const char * pszCommandLine);
+void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine);
 
 
 namespace node_ios
@@ -269,9 +266,9 @@ void node::_will_finish_launching()
 void node::defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
 {
    
-   ::defer_create_windowing_application_delegate(
-                                                 pApplication,
-                                                 papplicationmenu, papplicationmenucallback);
+//   ::defer_create_windowing_application_delegate(
+//                                                 pApplication,
+//                                                 papplicationmenu, papplicationmenucallback);
    
 }
 
@@ -279,7 +276,11 @@ void node::defer_create_windowing_application_delegate(void * pApplication, ::ap
 void node::ns_app_run()
 {
  
-   ::ns_app_run();
+   auto argc = platform()->m_argc;
+
+   auto argv = platform()->m_argv;
+
+   ns_windowing_application_main(argc, argv, nullptr);
    
 }
 

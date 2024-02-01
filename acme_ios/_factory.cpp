@@ -54,7 +54,7 @@ __FACTORY_EXPORT void acme_ios_factory(::factory::factory * pfactory)
    
    pfactory->add_factory_item < ::acme_ios::file_context, ::file_context > ();
    pfactory->add_factory_item < ::acme_ios::dir_context, ::dir_context > ();
-//   pfactory->add_factory_item < ::acme_ios::file_system, ::file_system > ();
+   pfactory->add_factory_item < ::acme_ios::file_system, ::file_system > ();
    pfactory->add_factory_item < ::acme_ios::dir_system, ::dir_system > ();
 
    //create_factory < ::macos::os_context         , ::os_context       > ();

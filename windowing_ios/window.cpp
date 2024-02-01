@@ -598,7 +598,7 @@ namespace windowing_ios
          //ios_window_miniaturize();
          
       }
-      else if(edisplay == e_display_normal)
+      else if(windowing()->is_screen_visible(edisplay))
       {
          
          ios_window_show();
@@ -622,7 +622,8 @@ namespace windowing_ios
 //         //nsapp_activate_ignoring_other_apps(1);
 //         
 //      }
-      else if(edisplay == e_display_none || edisplay == e_display_hide)
+      //else if(edisplay == e_display_none || edisplay == e_display_hide)
+      else
       {
          
          //ios_window_resign_key();
@@ -775,6 +776,11 @@ namespace windowing_ios
 
    void window::window_update_screen()
    {
+      
+      
+      configure_window_unlocked();
+      
+      __update_graphics_buffer();
       
       ios_window_redraw();
       

@@ -5,7 +5,7 @@
 #include "acme/platform/sequencer.h"
 
 
-int ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam,  unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);
+int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, unsigned int uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
 
 
 CLASS_DECL_ACME class ::acme::system * get_system();

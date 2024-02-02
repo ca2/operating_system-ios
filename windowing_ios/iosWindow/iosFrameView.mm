@@ -1131,7 +1131,7 @@ double get_status_bar_frame_height()
 {
 
    CGFloat statusBarHeight;
-      if (@available(iOS 13, *)) {
+      //if (@available(iOS 13, *)) {
          UIWindowScene *windowScene = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
          UIWindow *keyWindow = nil;
          if ([windowScene isKindOfClass:[UIWindowScene class]]) {
@@ -1147,9 +1147,9 @@ double get_status_bar_frame_height()
          CGRect statusFrame = keyWindow.windowScene.statusBarManager.statusBarFrame;
          statusBarHeight = statusFrame.size.height;
           NSLog(@"statusBarHeight: %f", statusBarHeight);
-      } else {
-          statusBarHeight = UIApplication.sharedApplication.statusBarFrame.size.height;
-      }
+//      } else {
+//          statusBarHeight = UIApplication.sharedApplication.statusBarFrame.size.height;
+//      }
    
    return statusBarHeight;
 }

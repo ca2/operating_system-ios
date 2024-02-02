@@ -9,7 +9,8 @@
 //#import <UIKit/UIKit.h>
 #include "acme/operating_system/ios/nano/app.h"
 
-@class iosWindowFrameView;
+@class iosWindow;
+@class iosFrameView;
 
 @interface iosWindowApp : ios_app
 {
@@ -20,7 +21,7 @@
    
 }
 
-@property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) iosWindow * ioswindow;
 @property (strong, nonatomic) iosFrameView * iosframeview;
 
 @end

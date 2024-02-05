@@ -44,9 +44,11 @@ double get_status_bar_frame_height();
    
    [self setWindowLevel:UIWindowLevelNormal];
 
-	[self setOpaque:YES];
+	[self setOpaque:NO];
 
-   [self setBackgroundColor: [ UIColor whiteColor ] ];
+   //[self setBackgroundColor: [ UIColor whiteColor ] ];
+   
+   [self setClearsContextBeforeDrawing:FALSE];
 		
    m_controller = [[iosViewController alloc] init];
    

@@ -52,27 +52,12 @@
 
 
 
-////#include <Carbon/Carbon.h>
-//
-//
-//#if DEBUG
-//#undef DEBUG
-//#define DEBUG
-//#else
-//#undef DEBUG
-//#endif
-
-
 
 #ifndef EXPORT
 #define EXPORT
 #endif
 
 
-
-//inline void debug_break() { __asm("int $3"); }
-
-//void debug_break();
 
 #define TRUE 1
 #define FALSE 0
@@ -123,9 +108,6 @@ typedef void * PVOID;
 #define _strcmpi strcasecmp
 
 
-//#include <pthread.h>
-
-
 
 typedef unsigned short     unichar;
 typedef wchar_t            unichar32;
@@ -162,7 +144,7 @@ typedef ::std::type_info std_type_info;
 #include <malloc/malloc.h>
 
 #include <sys/types.h>
-//#include <time.h>
+
 
 #define __time_t time_t
 
@@ -170,20 +152,9 @@ typedef ::std::type_info std_type_info;
 #include <netinet/in.h>
 
 
-// #define timespec_get mach_timespec_get
-
-
-// int mach_timespec_get(struct timespec * ptimespec, int);
-
-
 #define INFINITE_TIMEOUT UINT_MAX
 
 
 #undef index
 #undef wait
-
-
-
-//#define CUBE 1
-
 

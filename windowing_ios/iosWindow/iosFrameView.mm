@@ -826,7 +826,7 @@
    
    CGContextSaveGState(context);
    
-   [ [ UIColor whiteColor ] set];
+   ///[ [ UIColor whiteColor ] set];
    
 //   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
 //   
@@ -867,7 +867,7 @@
 //         
 //      }
       
-      UIRectFill(rect);
+      //UIRectFill(rect);
       
 //      int x = p->ios_window_get_x();
 //      

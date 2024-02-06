@@ -4842,6 +4842,20 @@ namespace aura_ios
    }
 
 
+   void interaction_impl::show_software_keyboard(::user::element * pelement)
+   {
+   
+   
+   }
+
+
+   void interaction_impl::hide_software_keyboard(::user::element * pelement)
+   {
+      
+      
+   }
+
+
 } // namespace aura_ios
 
 

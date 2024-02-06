@@ -1249,6 +1249,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
           pmouse->m_lparam =::make_u32(x, y);
           pmouse->m_pointHost.x() = x;
           pmouse->m_pointHost.y() = y;
+         pmouse->m_pointAbsolute = pmouse->m_pointHost;
 
          post_message(pmouse);
 
@@ -1287,6 +1288,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_lparam =::make_u32(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
+      pmouse->m_pointAbsolute = pmouse->m_pointHost;
 
       post_message(pmouse);
 
@@ -1450,6 +1452,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_lparam =::make_u32(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
+      pmouse->m_pointAbsolute = pmouse->m_pointHost;
 
       post_message(pmouse);
       
@@ -1488,6 +1491,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_lparam =::make_u32(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
+      pmouse->m_pointAbsolute = pmouse->m_pointHost;
 
       post_message(pmouse);
 

@@ -17,9 +17,9 @@ char * ios_app_library_folder();
 
 char * ios_app_document_folder();
 
-char * ios_app_document_folder(const char * pszAppCloudContainerIdentifier);
 
 //char ** ns_app_cloud_enumerate(const char * pszPath, const char * pszAppCloudContainerIdentifier);
+
 
 namespace acme_ios
 {
@@ -74,138 +74,6 @@ namespace acme_ios
       return m_pathIosAppDocumentFolder;
       
    }
-
-
-bool acme_directory::has_app_cloud_document(const char * pszAppCloudContainerIdentifier)
-{
-   
-   ::string strAppCloudContainerIdentifier;
-   
-   strAppCloudContainerIdentifier = acmepath()->app_cloud_container_identifier(pszAppCloudContainerIdentifier);
-   
-   auto p = ios_app_document_folder(strAppCloudContainerIdentifier);
-   
-   if(::is_set(p))
-   {
-      
-      ::free(p);
-      
-      return true;
-      
-   }
-   
-   return false;
-//   if(acmedirectory()->has_app_cloud_document())
-//   {
-//      
-//      ::file::path & path = listing.insert_at(0, "icloud://");
-//
-//      path.m_iDir = 1;
-//
-//      listing.m_straTitle.insert_at(0, unitext("iCloud"));
-//
-//   }
-
-   
-}
-
-
-bool acme_directory::defer_enumerate_protocol(::file::listing& listing)
-{
-   
-   ::file::path pathFinal = listing.m_pathFinal;
-   
-   if(pathFinal.is_empty())
-   {
-      
-      pathFinal = m_pcontext->defer_process_path(listing.m_pathUser);
-      
-   }
-   
-   if(pathFinal.begins_eat("icloud://"))
-   {
-      
-      if(has_app_cloud_document())
-      {
-      
-         const char * pend = nullptr;
-      
-         auto pathServer = pathFinal.get_word("/", &pend);
-      
-         if(pathServer.is_empty())
-         {
-            
-            
-            ::file::path path;
-            
-            path = app_cloud_document();
-
-            listing.m_eflag = ::file::e_flag_folder;
-            
-            path.m_iDir = 1;
-            
-            listing.defer_add(path);
-            
-         }
-         else
-         {
-            
-            auto strPath = pathServer;
-            
-            if(strPath.begins_eat(pathServer))
-            {
-               
-               strPath.trim_left("/");
-               
-               auto pfilelistinghandler = __allocate < ::acme_apple::file_listing_handler >(listing);
-               
-               pfilelistingcallback->initialize(this);
-               
-               ::string strFolder;
-               
-               strFolder = strPath;
-               
-               ::string strAppCloudContainerIdentifier;
-               
-               strAppCloudContainerIdentifier = pathServer;
-               
-               auto start = ::time::now();
-               
-               pfilelistingcallback->_start_listing(strFolder, strAppCloudContainerIdentifier);
-               
-               pfilelistingcallback->m_manualresetevent.wait(1_minute);
-               
-               information() << "Got " << listing.size() << " items!!";
-               for(auto & path : listing)
-               {               information() << "Got :" << path;
-                  
-               }
-               information() << "Got after certain time: " << start.elapsed();
-               //            ::string_array stra;
-               //            
-               //            stra.c_add(ppsza);
-               //            
-               //            for(auto & str:stra)
-               //            {
-               //             
-               //               ::file::path path;
-               //               
-               //               path = str;
-               //               listing.defer_add(path);
-               //               
-               //            }
-               
-            }
-            
-         }
-         
-      }
-      
-   }
-   
-   return false;
-   
-}
 
 
    string acme_directory::dir_root()

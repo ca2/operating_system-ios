@@ -6,8 +6,6 @@
 #include "acme_apple/acme_directory.h"
 
 
-name
-
 namespace acme_ios
 {
 
@@ -21,7 +19,6 @@ namespace acme_ios
       ::file::path                                       m_pathLibrary;
       ::file::path                                       m_pathDocument;
       ::file::path                                       m_pathIosAppDocumentFolder;
-      ::pointer < ::acme_apple::file_listing_handler >   m_pfilelistinghandler_iCloudContainer;
       
 
       acme_directory();
@@ -60,9 +57,6 @@ namespace acme_ios
       virtual ::file::path program_files() override;
       //virtual ::file::path program_data() override;
       //virtual ::file::path app_cloud_document(const char * pszAppId) override;
-      bool has_app_cloud_document(const char * pszAppId = nullptr) override;
-      
-      bool defer_enumerate_protocol(::file::listing& listing) override;
 
       virtual ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
       virtual ::file::path sys_temp() override;

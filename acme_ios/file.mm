@@ -13,23 +13,6 @@
 
 //char * str_ns_cloud_container_id_from_app_id(const char * pszAppId);
 
-char * ios_app_document_folder(const char * pszAppCloudContainerIdentifier)
-{
-   
-   NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
-   NSURL * purl =[ [ NSFileManager defaultManager ] URLForUbiquityContainerIdentifier: strContainerIdentifier ];
-   
-   if(!purl)
-   {
-      
-      return nullptr;
-      
-   }
-   NSString* path = [[purl absoluteURL] absoluteString];
-   
-   return strdup([path UTF8String]);
-
-}
 
 char * ios_app_document_folder()
 {

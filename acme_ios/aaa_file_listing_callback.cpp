@@ -34,29 +34,43 @@ namespace acme_ios
    
    }
 
-   void file_listing_callback::_start_listing(const char * pszFolder,
-                              const char * pszContainerId)
-{
-      try {
-         ns_app_cloud_start_listing(this, pszFolder, pszContainerId);
+   
+   void file_listing_callback::_start_listing(const char * pszFolder, const char * pszAppCloudContainerIdentifier)
+   {
+      
+      try
+      {
          
-      } catch (const char * psz) {
+         ns_app_cloud_start_listing(this, pszFolder, pszAppCloudContainerIdentifier);
+         
+      }
+      catch (const char * psz)
+      {
+         
          ::string str(psz);
+         
          if(str == "failed container identifier")
          {
             
             throw ::exception(error_failed);
             
          }
+         
       }
       
-}
+   }
 
 void file_listing_callback::ns_metadata_query_callback_on_item(const char * pszName)
 {
    ::file::path path;
    
-   path = pszName;
+   ::file::path pathName;
+   
+   path = pathName.name();
+   
+   m_filelisting.m_eflag +=::file::e_flag_file;
+   
+   path.m_iDir = 0;
    
    m_filelisting.defer_add(path);
    

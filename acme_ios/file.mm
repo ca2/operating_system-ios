@@ -5,6 +5,31 @@
 //  Created by Camilo Sasuke Tsumanuma on 03/05/18.
 //
 #import "_mm.h"
+#import "acme_apple/NSMetadataQueryHandler.h"
+
+
+::enum_status ns_defer_initialize_icloud_access();
+
+
+//char * str_ns_cloud_container_id_from_app_id(const char * pszAppId);
+
+char * ios_app_document_folder(const char * pszAppCloudContainerIdentifier)
+{
+   
+   NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
+   NSURL * purl =[ [ NSFileManager defaultManager ] URLForUbiquityContainerIdentifier: strContainerIdentifier ];
+   
+   if(!purl)
+   {
+      
+      return nullptr;
+      
+   }
+   NSString* path = [[purl absoluteURL] absoluteString];
+   
+   return strdup([path UTF8String]);
+
+}
 
 char * ios_app_document_folder()
 {
@@ -56,6 +81,7 @@ enum_status ns_create_alias(const char * pszTarget, const char * pszSource)
    
 }
 
+
 enum_status ns_symbolic_link_destination(char ** ppszDestination, const char * pszLink)
 {
    
@@ -85,7 +111,6 @@ enum_status ns_symbolic_link_destination(char ** ppszDestination, const char * p
 }
 
 
-
 char * ns_user_local_folder(NSSearchPathDirectory e)
 {
    
@@ -103,7 +128,6 @@ char * ns_user_local_folder(NSSearchPathDirectory e)
 }
 
 
-
 char * ns_user_local_desktop_folder()
 {
    
@@ -118,6 +142,7 @@ char * ns_user_local_documents_folder()
    return ns_user_local_folder(NSDocumentDirectory);
    
 }
+
 
 char * ns_user_local_downloads_folder()
 {
@@ -141,6 +166,7 @@ char * ns_user_local_image_folder()
    return ns_user_local_folder(NSPicturesDirectory);
    
 }
+
 
 char * ns_user_local_video_folder()
 {
@@ -209,3 +235,132 @@ char * ns_user_local_video_folder()
 //
 //
 //
+
+
+//https://stackoverflow.com/questions/45783013/icloud-drive-read-write-nsdata
+
+
+enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * pszAppCloudContainerIdentifier, const void * p, long l)
+{
+   
+   auto estatus = ns_defer_initialize_icloud_access();
+   
+   if(estatus < 0)
+   {
+      
+      return estatus;
+      
+   }
+   
+    //Doc dir
+//    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"SampleData.zip"];
+//    NSURL *u = [[NSURL alloc] initFileURLWithPath:filePath];
+   
+   NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
+   
+   auto pszDataInspect = (const char *) p;
+    NSData *data = [[NSData alloc] initWithBytes:pszDataInspect length:l];
+   NSString * str=[[NSString alloc] initWithUTF8String:psz];
+    //Get iCloud container URL
+    NSURL *ubiq = [[NSFileManager defaultManager]URLForUbiquityContainerIdentifier:strContainerIdentifier];// in place of nil you can add your container name
+    //Create Document dir in iCloud container and upload/sync SampleData.zip
+    NSURL *ubiquitousPackage = [ubiq URLByAppendingPathComponent:str];
+    //Mydoc = [[MyDo alloc] initWithFileURL:ubiquitousPackage];
+    //Mydoc.zipDataContent = data;
+   NSError * perror = nil;
+   [data writeToURL :ubiquitousPackage options:  0 error: &perror];
+   
+   NSString * strUbiquitousPackage = [[ubiquitousPackage absoluteURL] absoluteString ];
+   
+   NSLog(@"Called [ NSData writeToURL ] ubiquitousPackage : %@", strUbiquitousPackage);
+   NSLog(@"Called [ NSData writeToURL ] ubiquitousPackage : %@", strUbiquitousPackage);
+
+   
+//    [Mydoc saveToURL:[Mydoc fileURL] forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success)
+//     {
+//         if (success)
+//         {
+//             NSLog(@"SampleData.zip: Synced with icloud");
+//         }
+//         else
+//             NSLog(@"SampleData.zip: Syncing FAILED with icloud");
+//
+//     }];
+   
+   return ::success;
+   
+}
+
+
+
+  // 3 Download data from the iCloud Container
+
+//NSString * ns_cloud_container_id_from_app_id(const char * pszAppId)
+//{
+//
+//   char * p = str_ns_cloud_container_id_from_app_id(pszAppId);
+//   
+//   NSString * str = [[NSString alloc] initWithUTF8String:p];
+//   
+//   ::free(p);
+//   
+//   return st;
+//   
+//}
+
+enum_status ns_cloud_get_data_with_container_id(void ** pp, long & l, const char * psz, const char * pszAppCloudContainerIdentifier)
+{
+   
+   ns_defer_initialize_icloud_access();
+
+    //--------------------------Get data back from iCloud -----------------------------//
+    id token = [[NSFileManager defaultManager] ubiquityIdentityToken];
+    if (token == nil)
+    {
+        NSLog(@"ICloud Is not LogIn");
+    }
+    else
+    {
+       
+       NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
+
+        NSLog(@"ICloud Is LogIn");
+       NSString * str = [[NSString alloc] initWithUTF8String:psz];
+        NSError *error = nil;
+        NSURL *ubiq = [[NSFileManager defaultManager]URLForUbiquityContainerIdentifier:strContainerIdentifier];// in place of nil you can add your container name
+        NSURL *ubiquitousPackage = [ubiq URLByAppendingPathComponent:str];
+        BOOL isFileDounloaded = [[NSFileManager defaultManager]startDownloadingUbiquitousItemAtURL:ubiquitousPackage error:&error];
+        if (isFileDounloaded) {
+            NSLog(@"%d",isFileDounloaded);
+//            NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//            //changing the file name as SampleData.zip is already present in doc directory which we have used for upload
+//            NSString* fileName = [NSString stringWithFormat:@"RecSampleData.zip"];
+//            NSString* fileAtPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+            NSData *dataFile = [NSData dataWithContentsOfURL:ubiquitousPackage];
+//            BOOL fileStatus = [dataFile writeToFile:fileAtPath atomically:NO];
+//            if (fileStatus) {
+//                NSLog(@"success");
+//            }
+           auto p = ::malloc([dataFile length]);
+           NSRange r;
+           r.location = 0;
+           r.length = [dataFile length];
+           [dataFile getBytes:p range: r];
+           *pp = p;
+           l = [ dataFile length];
+           return ::success;
+        }
+        else{
+            NSLog(@"%d",isFileDounloaded);
+           
+   
+        }
+   }
+   
+   return error_failed;
+   
+}
+
+
+

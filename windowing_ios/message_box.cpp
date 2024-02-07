@@ -28,7 +28,7 @@ void message_box::do_asynchronously()
 //      m_strDetails = strDetails;
 //
 //      m_emessagebox = emessagebox;
-       
+   
       ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
                      m_strDetails,
                                      [this](enum_dialog_result eresult)
@@ -43,6 +43,8 @@ void message_box::do_asynchronously()
          m_psequencer->on_sequence();
            
        });
+   
+   
 
    }
 

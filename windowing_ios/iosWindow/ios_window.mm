@@ -38,6 +38,15 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle
    {
       
       iosWindow * pioswindow = [iosWindow alloc];
+      
+      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+
+      if(!papp.ioswindow)
+      {
+         
+         papp.ioswindow = pioswindow;
+         
+      }
        
       pwindow->m_pioswindow = pioswindow;
        

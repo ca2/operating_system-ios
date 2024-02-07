@@ -18,10 +18,14 @@
 @public
    
    struct plane_system * m_pplanesystem;
+   bool m_b_iCloudInitialized;
+   enum_status m_estatus_iCloud;
    
 }
 
 @property (strong, nonatomic) iosWindow * ioswindow;
 @property (strong, nonatomic) iosFrameView * iosframeview;
+
+-(enum_status)defer_initialize_icloud_access;
 
 @end

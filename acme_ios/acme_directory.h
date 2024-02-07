@@ -18,13 +18,17 @@ namespace acme_ios
       
       ::file::path         m_pathLibrary;
       ::file::path         m_pathDocument;
+      ::file::path         m_pathIosAppDocumentFolder;
       
 
       acme_directory();
       ~acme_directory() override;
 
       
+      void on_initialize_particle() override;
       
+      
+      virtual ::file::path __ios_app_document_folder();
 
       virtual ::file::path install() override;
       virtual ::file::path default_install() override;
@@ -52,6 +56,11 @@ namespace acme_ios
       virtual ::file::path program_files_x86() override;
       virtual ::file::path program_files() override;
       //virtual ::file::path program_data() override;
+      //virtual ::file::path app_cloud_document(const char * pszAppId) override;
+      bool has_app_cloud_document(const char * pszAppId = nullptr) override;
+      
+      bool defer_enumerate_protocol(::file::listing& listing) override;
+
       virtual ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
       virtual ::file::path sys_temp() override;
       virtual ::string dir_root() override;

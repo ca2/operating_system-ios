@@ -41,6 +41,8 @@ namespace acme_ios
 //      //virtual bool  name_is(const ::file::path & path) override;
 //      virtual bool  has_subdir(const ::file::path & path) override;
       
+      bool fast_has_subdir(const ::file::path & path) override;
+
       virtual ::file::listing & root_ones(::file::listing & listing) override;
 //      virtual bool create(const ::file::path & path) override;
 //      virtual bool erase(const ::file::path & path, bool bRecursive = true) override;
@@ -58,6 +60,9 @@ namespace acme_ios
       //virtual ::file::path ca2module() override;
       virtual ::file::path time_square(const ::string & strPrefix = nullptr, const ::string & strSuffix = nullptr);
       virtual ::file::path time_log();
+      
+      
+      ::file::path document() override;
       
       
       //virtual ::file::path trash_that_is_not_trash(const ::file::path & path) override;

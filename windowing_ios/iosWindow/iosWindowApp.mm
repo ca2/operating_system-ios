@@ -11,6 +11,8 @@
 
 //void os_on_will_finish_launching();
 
+//void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
+
 i32 defer_run_system();
 
 i32 defer_run_system(const char * pszFileName);
@@ -30,11 +32,16 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
    //os_on_will_finish_launching();
    
+   m_b_iCloudInitialized = false;
+   
+   m_estatus_iCloud = error_not_initialized;
+   
    [super application:application willFinishLaunchingWithOptions:launchOptions];
    
    return YES;
    
 }
+
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
@@ -44,6 +51,41 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    
 }
 
+
+- (enum_status)defer_initialize_icloud_access
+{
+   
+   if(m_b_iCloudInitialized)
+   {
+      
+      return self->m_estatus_iCloud;
+      
+   }
+   
+   m_b_iCloudInitialized = true;
+   
+   if ([ [ NSFileManager defaultManager ] URLForUbiquityContainerIdentifier: nil] != nil)
+   {
+      
+      NSLog(@"iCloud is available\n");
+      
+      self->m_estatus_iCloud = success;
+      
+   }
+   else
+   {
+      
+      NSLog(@"This tutorial requires iCloud, but it is not available.\n");
+      
+      self->m_estatus_iCloud = error_icloud_not_available;
+      
+      application_send_status(error_icloud_not_available);
+      
+   }
+   
+   return self->m_estatus_iCloud;
+
+}
 
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
@@ -68,9 +110,11 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 - (UIInterfaceOrientationMask)application:(UIApplication *)application
   supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
+
    return UIInterfaceOrientationMaskAll;
    
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -112,3 +156,23 @@ void ns_windowing_application_main(int argc, char * argv[], const char * pszComm
    ui_application_main(argc, argv, pszCommandLine, NSStringFromClass([iosWindowApp class]));
    
 }
+
+
+::enum_status ns_defer_initialize_icloud_access()
+{
+   
+   __block enum_status estatus;
+   
+   ns_main_sync(^{
+      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+
+      estatus = [ papp defer_initialize_icloud_access ];
+
+   });
+   
+   return estatus;
+   
+}
+
+
+

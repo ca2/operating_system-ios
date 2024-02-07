@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/file_context.h"
+#include "acme_darwin/file_context.h"
 
 
 namespace acme_ios
@@ -9,7 +9,7 @@ namespace acme_ios
 
 
    class CLASS_DECL_ACME file_context :
-      virtual public ::file_context
+      virtual public ::acme_darwin::file_context
    {
    public:
 
@@ -30,6 +30,10 @@ namespace acme_ios
       //virtual ::file_pointer get_file(const ::payload & payloadFile, ::file::e_open eopen) override;
       
       ::file_pointer get_file(const ::payload & payloadFile, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception = nullptr) override;
+      
+      
+      ::file_pointer defer_get_protocol_file(const ::scoped_string & scopedstrProtocol, const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception = nullptr) override;
+
       
       void calculate_main_resource_memory() override;
 

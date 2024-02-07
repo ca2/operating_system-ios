@@ -5,6 +5,7 @@
 #include "acme_ios/acme_directory.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/system.h"
+#include "acme/primitive/primitive/url.h"
 
 
 bool _ui_library_dir(char * psz, unsigned int * puiSize);
@@ -26,6 +27,23 @@ namespace acme_ios
    
    
    }
+
+
+bool dir_context::fast_has_subdir(const ::file::path & path)
+{
+   
+   ::string strProtocol = url()->get_protocol(path);
+   
+   if(strProtocol == "icloud")
+   {
+      
+      return true;
+      
+   }
+   
+   return ::dir_context::fast_has_subdir(path);
+   
+}
 
 
    ::file::listing & dir_context::root_ones(::file::listing & listing)
@@ -500,6 +518,14 @@ namespace acme_ios
       return appdata() / "log";
 
    }
+
+
+::file::path dir_context::document()
+{
+   
+   return acmedirectory()->app_cloud_document();
+   
+}
 
    
 //   bool dir_context::rm(const ::file::path & psz, bool bRecursive)

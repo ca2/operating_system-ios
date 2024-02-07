@@ -252,6 +252,7 @@ namespace windowing_ios
 
 
       pwindowing->m_nsmap[m_pioswindow] = this;
+      
 
          //puserinteraction->place(rectParam);
 

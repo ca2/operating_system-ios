@@ -35,6 +35,7 @@ bool m_bDirty;
   
    bool m_bCanBecomeFirstResponder;
    double m_dStatusBarFrameHeight;
+   
   
    virtual void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) = 0;
    virtual void ios_window_mouse_down(int iGesture, double x, double y) = 0;

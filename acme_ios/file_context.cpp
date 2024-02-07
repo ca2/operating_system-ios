@@ -1,9 +1,15 @@
 #include "framework.h"
 #include "file_context.h"
+#include "icloud_file.h"
+#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/platform/application.h"
+#include "acme/primitive/primitive/url.h"
 
 
 #include <sys/stat.h>
 
+::enum_status ns_defer_initialize_icloud_access();
 
 string matter_zip_path();
 
@@ -28,7 +34,7 @@ namespace acme_ios
       
       //auto estatus =
       
-      ::file_context::initialize(pparticle);
+      ::acme_darwin::file_context::initialize(pparticle);
 //
 //      if(!estatus)
 //      {
@@ -95,6 +101,87 @@ namespace acme_ios
 
       return pfileresult;
 
+   }
+
+// C++ string at STL
+
+// STL - Standard Template Library
+
+// ::std::string
+
+
+// Qt is a C++ framework
+
+// Qt string is called QString
+
+
+// MFC is Microsoft Foundation Classes (for C++)
+
+// MFC string is called CString
+
+// MFC wide string is called CStringW
+
+
+// ATL is Microsoft Active Template Library (for C++)
+
+// ATL string is called ATLString
+
+
+// ca2 is a C++ Framework
+
+// ca2 string is called string
+
+
+   ::file_pointer file_context::defer_get_protocol_file(const ::scoped_string & scopedstrProtocol, const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception)
+   {
+      
+      if(scopedstrProtocol == "icloud")
+      {
+         
+         auto estatus = ns_defer_initialize_icloud_access();
+         
+         if(estatus == error_icloud_not_available)
+         {
+            
+            application()->application_on_status(estatus);
+            
+            throw ::exception(estatus);
+            
+            return nullptr;
+            
+         }
+       
+         auto pfile = __create_new < ::acme_ios::icloud_file >();
+         
+         ::string strName;
+         
+         ::string strAppCloudContainerIdentifier;
+         
+         acmepath()->defer_get_app_cloud_path_name(strName, strAppCloudContainerIdentifier, path);
+         
+         pfile->m_pathName = "Documents";
+         
+         pfile->m_pathName /= strName;
+         
+         pfile->m_strAppCloudContainerIdentifier = strAppCloudContainerIdentifier;
+         
+         pfile->m_eopen = eopen;
+         
+         if(eopen & ::file::e_open_read)
+         {
+         
+            auto memory = acmefile()->get_app_cloud_data(pfile->m_pathName, nullptr);
+            
+            pfile->get_memory()->assign(memory);
+         
+         }
+         
+         return pfile;
+      
+      }
+    
+      return ::acme_posix::file_context::defer_get_protocol_file(scopedstrProtocol, path, eopen, pfileexception);
+      
    }
 
 

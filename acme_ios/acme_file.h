@@ -25,8 +25,16 @@ namespace acme_ios
       acme_file();
       ~acme_file() override;
 
+      bool _is_icloud_app_document(const ::file::path & path);
       
+      void touch(const ::file::path & path) override;
+      void touch_app_cloud(const ::file::path & path, const char * pszContainerId = nullptr) override;
       //::file::path module() override;
+      
+      
+      void put_app_cloud_data(const ::file::path & path, const char * pszContainerId, const ::block & block) override;
+      
+      ::memory get_app_cloud_data(const ::file::path & path, const char * pszContainerId) override;
       
 
    };

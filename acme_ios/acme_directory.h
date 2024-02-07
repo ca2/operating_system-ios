@@ -6,6 +6,8 @@
 #include "acme_apple/acme_directory.h"
 
 
+name
+
 namespace acme_ios
 {
 
@@ -16,14 +18,15 @@ namespace acme_ios
    public:
 
       
-      ::file::path         m_pathLibrary;
-      ::file::path         m_pathDocument;
-      ::file::path         m_pathIosAppDocumentFolder;
+      ::file::path                                       m_pathLibrary;
+      ::file::path                                       m_pathDocument;
+      ::file::path                                       m_pathIosAppDocumentFolder;
+      ::pointer < ::acme_apple::file_listing_handler >   m_pfilelistinghandler_iCloudContainer;
       
 
       acme_directory();
       ~acme_directory() override;
-
+      
       
       void on_initialize_particle() override;
       

@@ -2,7 +2,6 @@
 // Recreated on 2021-05-16 15:05 <3ThomasBS_ // for macOS
 #include "framework.h"
 #include "acme_directory.h"
-#include "file_listing_callback.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
@@ -10,6 +9,7 @@
 #include "acme/platform/application.h"
 #include "acme/primitive/primitive/url.h"
 #include "acme/primitive/time/_text_stream.h"
+#include "acme_apple/file_listing_handler.h"
 
 
 char * ios_app_library_folder();
@@ -157,7 +157,7 @@ bool acme_directory::defer_enumerate_protocol(::file::listing& listing)
                
                strPath.trim_left("/");
                
-               auto pfilelistingcallback = __allocate < file_listing_callback >(listing);
+               auto pfilelistinghandler = __allocate < ::acme_apple::file_listing_handler >(listing);
                
                pfilelistingcallback->initialize(this);
                

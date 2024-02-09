@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/listing.h"
 #include "acme/user/nano/window_implementation.h"
 #include "acme/platform/system.h"
 
@@ -998,20 +999,21 @@ unsigned int * puiPid)
       ::ui_open_url(strUrl);
    
    }
-void node::ns_app_run()
-{
- 
-   auto argc = platform()->m_argc;
 
-   auto argv = platform()->m_argv;
 
-   ns_acme_application_main(argc, argv, nullptr);
-   
-}
+   void node::ns_app_run()
+   {
+    
+      auto argc = platform()->m_argc;
+
+      auto argv = platform()->m_argv;
+
+      ns_acme_application_main(argc, argv, nullptr);
+      
+   }
 
 
 } // namespace acme
-
 
 
 void * get_system_mmos(void * pSystem)
@@ -1022,6 +1024,7 @@ void * get_system_mmos(void * pSystem)
    return psystem->m_pmmos;
 
 }
+
 
 void set_system_mmos(void * pSystem, void * pmmos)
 {

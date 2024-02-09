@@ -22,16 +22,18 @@ class ios_window;
 @class iosViewController;
 
 
-@interface iosWindow : UIWindow
+@interface iosWindow : UIWindow < UIDocumentPickerDelegate >
 {
 @public
    
    
     ios_window            * m_pwindow;
     iosViewController    * m_controller;
+   bool m_bForOpeningFile;
    
 }
 
+-(void) pickBrowse;
 
 @end
 

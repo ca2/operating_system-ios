@@ -66,6 +66,9 @@ bool m_bDirty;
    virtual bool ios_window_become_first_responder() = 0;
    virtual void ios_window_text_view_did_begin_editing() = 0;
    
+   virtual void ios_window_pick_browse();
+   virtual void ios_window_did_pick_document_at_url(const char * pszUrl) = 0;
+   
    double _get_status_bar_frame_height();
 
    

@@ -417,6 +417,13 @@ void ios_window::ios_window_hide()
 //}
 
 
+void ios_window::ios_window_pick_browse()
+{
+
+   [ m_pioswindow pickBrowse ];
+   
+}
+
 
 void ios_window::ios_window_get_frame(CGRect * prect)
 {

@@ -2501,7 +2501,18 @@ void window::ios_window_text_view_did_begin_editing()
 
    }
 
+void window::pick_browse()
+{
+   ios_window_pick_browse();
 
+   
+}
+void window::ios_window_did_pick_document_at_url(const char * pszUrl)
+{
+   
+   application()->did_pick_document_at_url(pszUrl);
+   
+}
 
 } // namespace windowing_ios
 

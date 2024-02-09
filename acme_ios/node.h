@@ -126,7 +126,7 @@ namespace acme_ios
       
       virtual void ns_app_run();
       
-      
+
    };
 
 

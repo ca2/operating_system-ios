@@ -156,6 +156,11 @@ namespace windowing_ios
       
       void bring_to_front() override;
       
+      
+      void pick_browse() override;
+      
+      void ios_window_did_pick_document_at_url(const char * pszUrl) override;
+
 
    };
 

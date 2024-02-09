@@ -107,16 +107,19 @@ double get_status_bar_frame_height();
 
 -(void) pickBrowse
 {
-   
+   self->m_bForOpeningFile = true;
+   self->m_pUserControllerForSaving = nullptr;
+
    //void ns_pick_viewer_document()
    ns_main_async(^{
       {
          
       //   auto picker = [[UIDocumentPickerViewController alloc]
         //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
-         self->m_bForOpeningFile = true;
+//         auto picker = [[UIDocumentPickerViewController alloc]
+//          initForOpeningContentTypes:@[ UTTypeFolder ]];
          auto picker = [[UIDocumentPickerViewController alloc]
-          initForOpeningContentTypes:@[ UTTypeFolder ]];
+          initForOpeningContentTypes:@[ UTTypeImage ]];
          picker.delegate = self;
          [self->m_controller presentViewController:picker animated:YES completion:nil];
       }
@@ -125,7 +128,34 @@ double get_status_bar_frame_height();
 
 }
 
+-(void)pickBrowseForSavingUserController:(void *)pUserController
+{
+   self->m_bForOpeningFile = false;
+   self->m_pUserControllerForSaving = pUserController;
 
+   
+   //void ns_pick_viewer_document()
+   ns_main_async(^{
+      {
+         
+      //   auto picker = [[UIDocumentPickerViewController alloc]
+        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
+         //self->m_bForOpeningFile = true;
+         auto UTTypePhotoComposite = [UTType typeWithIdentifier:@"com.app-core.photo-composite"];
+//         auto picker = [[UIDocumentPickerViewController alloc]
+//          initForOpeningContentTypes:@[ UTTypeFolder ]];
+         auto picker = [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeImage, UTTypePhotoComposite ]];
+         picker.delegate = self;
+         [self->m_controller presentViewController:picker animated:YES completion:nil];
+      }
+
+   });
+//
+//   get_app()->::app_core_photo::application::m_ppaneimpact->filemanager_document("file_manager_save")->FileManagerSaveAs(this);
+
+//}
+}
 /**
  *  This delegate method is called when user will either upload or download the file.
  *

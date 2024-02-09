@@ -160,7 +160,7 @@ namespace windowing_ios
       void pick_browse() override;
       
       void ios_window_did_pick_document_at_url(const char * pszUrl) override;
-
+      void on_prompt_write_file(::user::controller *pusercontroller) override;
 
    };
 

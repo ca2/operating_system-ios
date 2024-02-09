@@ -30,10 +30,12 @@ class ios_window;
     ios_window            * m_pwindow;
     iosViewController    * m_controller;
    bool m_bForOpeningFile;
+   void * m_pUserControllerForSaving;
    
 }
 
 -(void) pickBrowse;
+-(void) pickBrowseForSavingUserController:(void *) pUserController;
 
 @end
 

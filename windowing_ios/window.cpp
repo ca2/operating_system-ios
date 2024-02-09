@@ -2513,6 +2513,14 @@ void window::ios_window_did_pick_document_at_url(const char * pszUrl)
    application()->did_pick_document_at_url(pszUrl);
    
 }
+void window::on_prompt_write_file(::user::controller *pusercontroller)
+{
+   void * pUserController = pusercontroller;
+   
+   ios_window_pick_browse_for_saving_user_controller(pUserController);
+ 
+
+}
 
 } // namespace windowing_ios
 

@@ -26,6 +26,6 @@
 @property (strong, nonatomic) iosWindow * ioswindow;
 @property (strong, nonatomic) iosFrameView * iosframeview;
 
--(enum_status)defer_initialize_icloud_access;
+-(enum_status)deferInitializeiCloudContainerAccess;
 
 @end

@@ -8,7 +8,7 @@
 #import "acme_apple/NSMetadataQueryHandler.h"
 
 
-::enum_status ns_defer_initialize_icloud_access();
+::enum_status ns_defer_initialize_icloud_container_access();
 
 
 //char * str_ns_cloud_container_id_from_app_id(const char * pszAppId);
@@ -226,7 +226,7 @@ char * ns_user_local_video_folder()
 enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * pszAppCloudContainerIdentifier, const void * p, long l)
 {
    
-   auto estatus = ns_defer_initialize_icloud_access();
+   auto estatus = ns_defer_initialize_icloud_container_access();
    
    if(estatus < 0)
    {
@@ -295,7 +295,7 @@ enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * p
 enum_status ns_cloud_get_data_with_container_id(void ** pp, long & l, const char * psz, const char * pszAppCloudContainerIdentifier)
 {
    
-   ns_defer_initialize_icloud_access();
+   ns_defer_initialize_icloud_container_access();
 
     //--------------------------Get data back from iCloud -----------------------------//
     id token = [[NSFileManager defaultManager] ubiquityIdentityToken];

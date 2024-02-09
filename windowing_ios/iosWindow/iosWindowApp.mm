@@ -52,7 +52,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 }
 
 
-- (enum_status)defer_initialize_icloud_access
+- (enum_status)deferInitializeiCloudContainerAccess
 {
    
    if(m_b_iCloudInitialized)
@@ -158,15 +158,16 @@ void ns_windowing_application_main(int argc, char * argv[], const char * pszComm
 }
 
 
-::enum_status ns_defer_initialize_icloud_access()
+::enum_status ns_defer_initialize_icloud_container_access()
 {
    
    __block enum_status estatus;
    
    ns_main_sync(^{
+      
       iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
 
-      estatus = [ papp defer_initialize_icloud_access ];
+      estatus = [ papp deferInitializeiCloudContainerAccess ];
 
    });
    

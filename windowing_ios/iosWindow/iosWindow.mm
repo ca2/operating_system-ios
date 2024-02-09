@@ -107,8 +107,10 @@ double get_status_bar_frame_height();
 
 -(void) pickBrowse
 {
+   
    self->m_bForOpeningFile = true;
    self->m_pUserControllerForSaving = nullptr;
+   self->m_bForOpeningMedia = false;
 
    //void ns_pick_viewer_document()
    ns_main_async(^{
@@ -128,11 +130,13 @@ double get_status_bar_frame_height();
 
 }
 
+
 -(void)pickBrowseForSavingUserController:(void *)pUserController
 {
+   
    self->m_bForOpeningFile = false;
    self->m_pUserControllerForSaving = pUserController;
-
+   self->m_bForOpeningMedia = false;
    
    //void ns_pick_viewer_document()
    ns_main_async(^{
@@ -214,6 +218,43 @@ double get_status_bar_frame_height();
    
 }
 
+
+-(void) pickMedia : (const char *) pszType
+{
+   
+   self->m_bForOpeningFile = false;
+   self->m_pUserControllerForSaving = nullptr;
+   self->m_bForOpeningMedia = true;
+   
+   //void ns_pick_viewer_document()
+   ns_main_async(^{
+      {
+         MPMediaPickerController *mediaPicker;
+         if(!strcmp(pszType, "type_music"))
+         {
+            mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+         }
+         else
+         {
+            throw "pickMedia : unrecognized media type";
+         }
+         mediaPicker.delegate = self;
+         mediaPicker.allowsPickingMultipleItems = NO; // this is the default
+         [self presentViewController:mediaPicker animated:YES completion:nil];
+
+      //   auto picker = [[UIDocumentPickerViewController alloc]
+        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
+//         auto picker = [[UIDocumentPickerViewController alloc]
+//          initForOpeningContentTypes:@[ UTTypeFolder ]];
+         //auto picker = [[UIDocumentPickerViewController alloc]
+         // initForOpeningContentTypes:@[ UTTypeImage ]];
+         //picker.delegate = self;
+         //[self->m_controller presentViewController:picker animated:YES completion:nil];
+      }
+
+   });
+
+}
 
 
 @end

@@ -23,7 +23,7 @@ void ns_workspace_cgrect(int i, CGRect * prect);
 #endif
 
 
-#ifndef __MM
+#ifndef __OBJECTIVE_CPP__
 
 #error "MM?!?!?!!!???"
 

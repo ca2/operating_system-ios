@@ -84,6 +84,8 @@
 		9A5D73A8265701DC00D5C39E /* libaura_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D73AA265701F400D5C39E /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D73B226570CAE00D5C39E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9A60D0D92B766FA20082B17B /* UploadAudioViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UploadAudioViewController.mm; sourceTree = "<group>"; };
+		9A60D0DC2B7670120082B17B /* UploadAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadAudioViewController.h; sourceTree = "<group>"; };
 		9A62EBFF26F04B7B00EA958E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		9A750E9E282B668400C4861B /* aaa_iosTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosTextView.h; sourceTree = "<group>"; };
 		9A750EA2282B668500C4861B /* iosFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosFrameView.h; sourceTree = "<group>"; };
@@ -264,6 +266,8 @@
 				9AA14E7C282A26B000B1621E /* windowing_ios.cpp */,
 				9AA14EA0282A26B000B1621E /* windowing.cpp */,
 				9AA14E83282A26B000B1621E /* windowing.h */,
+				9A60D0DC2B7670120082B17B /* UploadAudioViewController.h */,
+				9A60D0D92B766FA20082B17B /* UploadAudioViewController.mm */,
 			);
 			name = windowing_ios;
 			sourceTree = "<group>";

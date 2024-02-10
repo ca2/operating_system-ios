@@ -6,6 +6,8 @@
 //
 #include "framework.h"
 #include "media_picker.h"
+#include "aqua/multimedia/media_item_picker_callback.h"
+#include "media_apple/media_item.h"
 #include "windowing_ios/window.h"
 
 namespace media_ios
@@ -20,22 +22,22 @@ void media_picker::set_windowing_window(::windowing::window * pwindow)
 
 void media_picker::pick_media(const char * pszMediaType)
 {
+   
    ios_media_picker_pick_media(pszMediaType, m_pioswindow);
    
    
 }
 
 
-void window::ios_window_did_pick_apple_media(platform_media_item_t * pplatformmediaitem)
+void media_picker::ios_media_picker_did_pick_platform_media_item(platform_media_item_t * pplatformmediaitem)
 {
    
-   auto papplemediaitem = node()->m_pauranode->create_media_item_from_platform_media_item(ppl);
    
-   papplemediaitem->attach(pmediaitem);
+   auto papplemediaitem = __allocate<::media_apple::media_item>();
    
-   ::pointer < ::aqua::media_item > paquamediaitem = papplemediaitem;
+   papplemediaitem->attach(pplatformmediaitem);
    
-   application()->m_paquaapplication->did_pick_media_item(paquamediaitem);
+   m_ppickercallback->did_pick_media_item(papplemediaitem);
    
 }
 

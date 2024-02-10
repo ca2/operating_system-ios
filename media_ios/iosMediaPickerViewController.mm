@@ -7,22 +7,26 @@
 
 // in UploadAudioViewController.m file
 
-#import "iosAudioPickerViewController.h"
+#import "iosMediaPickerViewController.h"
 //#import < AudioToolbox/AudioToolbox.h>
 
 //@interface UploadAudioViewController ()
 //
 //@end
-
+#include "windowing_ios/iosWindow/iosWindow.h"
+#include "windowing_ios/iosWindow/iosViewController.h"
 #include "ios_media_picker.h"
+void ns_main_async(dispatch_block_t block);
 
 
 @implementation iosMediaPickerViewController
 
 
--(id)init
+-(id)initWithMediaPicker:(ios_media_picker*) piosmediapicker
 {
-
+   
+   //self.mediapickerHold = self;
+   m_piosmediapicker = piosmediapicker;
     self = [super init];
     if (self) {
         // Custom initialization
@@ -37,9 +41,9 @@
 
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Upload Audio";
-    self.musicPlayer = [MPMusicPlayerController iPodMusicPlayer];
-    self.audioData=nil;
+//    self.title = @"Upload Audio";
+//    self.musicPlayer = [MPMusicPlayerController iPodMusicPlayer];
+//    self.audioData=nil;
 
 }
 
@@ -94,17 +98,17 @@
 //}
 
 
-
--(void) pickMedia : (const char *) pszType
+-(void) pickMedia : (const char *) pszType window :(iosWindow *) pioswindow
 {
    
-   self->m_bForOpeningFile = false;
-   self->m_pUserControllerForSaving = nullptr;
-   self->m_bForOpeningMedia = true;
-   
+//   self->m_bForOpeningFile = false;
+//   self->m_pUserControllerForSaving = nullptr;
+//   self->m_bForOpeningMedia = true;
+//   
    //void ns_pick_viewer_document()
-   ns_main_async(^{
-      {
+         
+         [pioswindow->m_controller addChildViewController:self];
+         
          MPMediaPickerController *mediaPicker;
          if(!strcmp(pszType, "audio"))
          {
@@ -116,7 +120,7 @@
          }
          mediaPicker.delegate = self;
          mediaPicker.allowsPickingMultipleItems = NO; // this is the default
-         [self->m_controller presentViewController:mediaPicker animated:YES completion:nil];
+         [self presentViewController:mediaPicker animated:YES completion:nil];
 
       //   auto picker = [[UIDocumentPickerViewController alloc]
         //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
@@ -126,16 +130,15 @@
          // initForOpeningContentTypes:@[ UTTypeImage ]];
          //picker.delegate = self;
          //[self->m_controller presentViewController:picker animated:YES completion:nil];
-      }
+      //}
 
-   });
 
 }
 
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 
     // We need to dismiss the picker
-    [m_controller dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
     // Assign the selected item(s) to the music player and start playback.
     if ([mediaItemCollection count] < 1) {
@@ -146,14 +149,14 @@
    
    auto pMediaItem = (__bridge_retained void *) pmediaitem;
 
-   auto papplemedia = (apple_media_t *) pMediaItem;
+   auto pplatformmediaitem = (platform_media_item_t *) pMediaItem;
    
-   if (m_bForOpeningMedia)
-   {
+   //if (m_bForOpeningMedia)
+   //{
       
-      m_pwindow->ios_window_did_pick_apple_media(papplemedia);
+      m_piosmediapicker->ios_media_picker_did_pick_platform_media_item(pplatformmediaitem);
       
-   }
+   //}
 
    //[self handleExportTapped];
 
@@ -170,109 +173,116 @@
 }
 
 
+//
+//-(void)handleExportTapped{
+//
+//    // get the special URL
+//    if (! song) {
+//        return;
+//    }
+//
+//    //[self startLoaderWithLabel:@"Preparing for upload..."];
+//
+//    NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
+//    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
+//
+//    NSLog (@"Core Audio %@ directly open library URL %@",
+//           coreAudioCanOpenURL (assetURL) ? @"can" : @"cannot",
+//           assetURL);
+//
+//    NSLog (@"compatible presets for songAsset: %@",
+//           [AVAssetExportSession exportPresetsCompatibleWithAsset:songAsset]);
+//
+//
+//    /* approach 1: export just the song itself
+//     */
+//    AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
+//                                      initWithAsset: songAsset
+//                                      presetName: AVAssetExportPresetAppleM4A];
+//    NSLog (@"created exporter. supportedFileTypes: %@", exporter.supportedFileTypes);
+//    exporter.outputFileType = @"com.apple.m4a-audio";
+//    NSString *exportFile = [myDocumentsDirectory() stringByAppendingPathComponent: @"exported.m4a"];
+//    // end of approach 1
+//
+//    // set up export (hang on to exportURL so convert to PCM can find it)
+//    myDeleteFile(exportFile);
+//    //[exportURL release];
+//    exportURL = [NSURL fileURLWithPath:exportFile];
+//    exporter.outputURL = exportURL;
+//
+//    // do the export
+//    [exporter exportAsynchronouslyWithCompletionHandler:^{
+//        int exportStatus = exporter.status;
+//        switch (exportStatus) {
+//            case AVAssetExportSessionStatusFailed: {
+//                // log error to text view
+//                NSError *exportError = exporter.error;
+//                NSLog (@"AVAssetExportSessionStatusFailed: %@", exportError);
+//                //errorView.text = exportError ? [exportError description] : @"Unknown failure";
+//                //errorView.hidden = NO;
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//            case AVAssetExportSessionStatusCompleted: {
+//                NSLog (@"AVAssetExportSessionStatusCompleted");
+//                //fileNameLabel.text = [exporter.outputURL lastPathComponent];
+//                // set up AVPlayer
+//                //[self setUpAVPlayerForURL: exporter.outputURL];
+//                ///////////////// get audio data from url
+//
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//
+//                NSURL *audioUrl = exportURL;
+//                NSLog(@"Audio Url=%@",audioUrl);
+//                self.audioData = [NSData dataWithContentsOfURL:audioUrl];
+//
+//                break;
+//            }
+//            case AVAssetExportSessionStatusUnknown: {
+//                NSLog (@"AVAssetExportSessionStatusUnknown");
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//            case AVAssetExportSessionStatusExporting: {
+//                NSLog (@"AVAssetExportSessionStatusExporting");
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//            case AVAssetExportSessionStatusCancelled: {
+//                NSLog (@"AVAssetExportSessionStatusCancelled");
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//            case AVAssetExportSessionStatusWaiting: {
+//                NSLog (@"AVAssetExportSessionStatusWaiting");
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//            default: {
+//                NSLog (@"didn't get export status");
+//                //[self stopLoader];
+//                //[self showAlertWithMessage:@"There ia an error!"];
+//                break;
+//            }
+//        }
+//    }];
+//
+//
+//
+//}
+//
 
--(void)handleExportTapped{
-
-    // get the special URL
-    if (! song) {
-        return;
-    }
-
-    //[self startLoaderWithLabel:@"Preparing for upload..."];
-
-    NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
-    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
-
-    NSLog (@"Core Audio %@ directly open library URL %@",
-           coreAudioCanOpenURL (assetURL) ? @"can" : @"cannot",
-           assetURL);
-
-    NSLog (@"compatible presets for songAsset: %@",
-           [AVAssetExportSession exportPresetsCompatibleWithAsset:songAsset]);
+// generic error handler from upcoming "Core Audio" book (thanks, Kevin!)
+// if result is nonzero, prints error message and exits program.
 
 
-    /* approach 1: export just the song itself
-     */
-    AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
-                                      initWithAsset: songAsset
-                                      presetName: AVAssetExportPresetAppleM4A];
-    NSLog (@"created exporter. supportedFileTypes: %@", exporter.supportedFileTypes);
-    exporter.outputFileType = @"com.apple.m4a-audio";
-    NSString *exportFile = [myDocumentsDirectory() stringByAppendingPathComponent: @"exported.m4a"];
-    // end of approach 1
-
-    // set up export (hang on to exportURL so convert to PCM can find it)
-    myDeleteFile(exportFile);
-    //[exportURL release];
-    exportURL = [NSURL fileURLWithPath:exportFile];
-    exporter.outputURL = exportURL;
-
-    // do the export
-    [exporter exportAsynchronouslyWithCompletionHandler:^{
-        int exportStatus = exporter.status;
-        switch (exportStatus) {
-            case AVAssetExportSessionStatusFailed: {
-                // log error to text view
-                NSError *exportError = exporter.error;
-                NSLog (@"AVAssetExportSessionStatusFailed: %@", exportError);
-                //errorView.text = exportError ? [exportError description] : @"Unknown failure";
-                //errorView.hidden = NO;
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-            case AVAssetExportSessionStatusCompleted: {
-                NSLog (@"AVAssetExportSessionStatusCompleted");
-                //fileNameLabel.text = [exporter.outputURL lastPathComponent];
-                // set up AVPlayer
-                //[self setUpAVPlayerForURL: exporter.outputURL];
-                ///////////////// get audio data from url
-
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-
-                NSURL *audioUrl = exportURL;
-                NSLog(@"Audio Url=%@",audioUrl);
-                self.audioData = [NSData dataWithContentsOfURL:audioUrl];
-
-                break;
-            }
-            case AVAssetExportSessionStatusUnknown: {
-                NSLog (@"AVAssetExportSessionStatusUnknown");
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-            case AVAssetExportSessionStatusExporting: {
-                NSLog (@"AVAssetExportSessionStatusExporting");
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-            case AVAssetExportSessionStatusCancelled: {
-                NSLog (@"AVAssetExportSessionStatusCancelled");
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-            case AVAssetExportSessionStatusWaiting: {
-                NSLog (@"AVAssetExportSessionStatusWaiting");
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-            default: {
-                NSLog (@"didn't get export status");
-                //[self stopLoader];
-                //[self showAlertWithMessage:@"There ia an error!"];
-                break;
-            }
-        }
-    }];
-
-
-
-}
+@end
 
 
 #pragma mark conveniences
@@ -296,9 +306,6 @@ void myDeleteFile (NSString* path){
 
 }
 
-// generic error handler from upcoming "Core Audio" book (thanks, Kevin!)
-// if result is nonzero, prints error message and exits program.
-
 static void CheckResult(OSStatus result, const char *operation)
 {
 
@@ -320,7 +327,7 @@ static void CheckResult(OSStatus result, const char *operation)
 
 }
 
-#pragma mark core audio test
+//#pragma mark core audio test
 
 BOOL coreAudioCanOpenURL (NSURL* url){
 
@@ -336,10 +343,6 @@ BOOL coreAudioCanOpenURL (NSURL* url){
     return openErr ? NO : YES;
 
 }
-
-@end
-
-
 
 //
 //

@@ -6,12 +6,13 @@
 //
 #pragma once
 
-
+#include "acme/_start.h"
 #include "acme/_.h"
 
+class ios_window;
 
-#ifdef __OBJETIVE_CPP__
-@interface iosAudioPickerViewController;
+#ifdef __OBJECTIVE_CPP__
+@class iosMediaPickerViewController;
 #endif
 
 
@@ -22,11 +23,13 @@ class ios_media_picker
 {
 public:
    
-#ifdef __OBJETIVE_CPP__
+#ifdef __OBJECTIVE_CPP__
    iosMediaPickerViewController * m_pioscontroller;
 #else
    void * m_pIosController;
 #endif
+   
+   ios_media_picker();
    
    virtual void ios_media_picker_pick_media(const char * pszMediaType, ios_window * pioswindow);
    virtual void ios_media_picker_did_pick_platform_media_item(platform_media_item_t * pplatformmediaitem) = 0;

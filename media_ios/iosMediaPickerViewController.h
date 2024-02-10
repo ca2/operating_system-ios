@@ -29,6 +29,7 @@
 //
 
 class ios_media_picker;
+@class iosWindow;
 
 
 @interface iosMediaPickerViewController : UIViewController<MPMediaPickerControllerDelegate>
@@ -40,12 +41,14 @@ class ios_media_picker;
    
 }
 
-
+-(id)initWithMediaPicker:(ios_media_picker *) piosmediapicker;
 //@property (nonatomic, retain) NSData *audioData;
 //@synthesize musicPlayer,audioData;
 //@synthesize audioData;
 
+@property (nonatomic, strong)iosMediaPickerViewController * mediapickerHold;
 
+-(void) pickMedia : (const char *) pszType window :(iosWindow *) pioswindow;
 
 @end
 

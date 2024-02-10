@@ -1,5 +1,5 @@
 #include "framework.h"
-
+#include "media_picker.h"
 
 //namespace coreimage_imaging
 //{
@@ -24,7 +24,7 @@
 //
 //} // namespace coreimage_imaging
 
-void media_apple_facotry(::factory::factory * pfactory);
+__FACTORY_EXPORT void media_apple_factory(::factory::factory * pfactory);
 
 __FACTORY_EXPORT void media_ios_factory(::factory::factory * pfactory)
 {
@@ -35,7 +35,7 @@ __FACTORY_EXPORT void media_ios_factory(::factory::factory * pfactory)
 //   pfactory->add_factory_item<::media_ios::media_ios>("media_ios::media_ios");
 
    
-   pfactory->add_factory_item<::media_ios::media_picker, ::aqua::media_picker>();
+   pfactory->add_factory_item<::media_ios::media_picker, ::aqua::media_item_picker>();
 
 }
 

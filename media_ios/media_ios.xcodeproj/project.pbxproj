@@ -13,8 +13,7 @@
 		9A20ECC32B7715BD008A08A2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECAD2B7715BD008A08A2 /* _.h */; };
 		9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */; };
 		9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */; };
-		9A20ED302B771E50008A08A2 /* media_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2E2B771E50008A08A2 /* media_ios.cpp */; };
-		9A20ED312B771E50008A08A2 /* media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* media_ios.h */; };
+		9A20ED312B771E50008A08A2 /* aaa_media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */; };
 		9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED322B772398008A08A2 /* media_picker.cpp */; };
 		9A20ED352B772398008A08A2 /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED332B772398008A08A2 /* media_picker.h */; };
 		9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DDE182B7734D200477878 /* ios_media_picker.mm */; };
@@ -35,10 +34,24 @@
 			remoteGlobalIDString = 9A9E4AD62751A3F40094A04C;
 			remoteInfo = windowing_ios;
 		};
+		9A4DDE612B774C3600477878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9E4AD52751A3F40094A04C;
+			remoteInfo = windowing_ios;
+		};
+		9A4DDE682B7757E500477878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A20EBE82B771090008A08A2;
+			remoteInfo = media_apple;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A20EC642B77153F008A08A2 /* libmedia_ios.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmedia_ios.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A20EC642B77153F008A08A2 /* libmedia_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmedia_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = media_apple.xcodeproj; path = "../../operating_system-apple/media_apple/media_apple.xcodeproj"; sourceTree = "<group>"; };
 		9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		9A20EC8C2B7715BD008A08A2 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
@@ -51,8 +64,8 @@
 		9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
 		9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };
 		9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosMediaPickerViewController.mm; sourceTree = "<group>"; };
-		9A20ED2E2B771E50008A08A2 /* media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_ios.cpp; sourceTree = "<group>"; };
-		9A20ED2F2B771E50008A08A2 /* media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_ios.h; sourceTree = "<group>"; };
+		9A20ED2E2B771E50008A08A2 /* aaa_media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_media_ios.cpp; sourceTree = "<group>"; };
+		9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_media_ios.h; sourceTree = "<group>"; };
 		9A20ED322B772398008A08A2 /* media_picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_picker.cpp; sourceTree = "<group>"; };
 		9A20ED332B772398008A08A2 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
 		9A20ED362B772E0E008A08A2 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
@@ -83,7 +96,7 @@
 		9A20EC652B77153F008A08A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A20EC642B77153F008A08A2 /* libmedia_ios.dylib */,
+				9A20EC642B77153F008A08A2 /* libmedia_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +117,8 @@
 				9A20ECAD2B7715BD008A08A2 /* _.h */,
 				9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */,
 				9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */,
+				9A20ED2E2B771E50008A08A2 /* aaa_media_ios.cpp */,
+				9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */,
 				9A20ECA82B7715BD008A08A2 /* _factory.cpp */,
 				9A20EC8C2B7715BD008A08A2 /* framework.cpp */,
 				9A20ECA42B7715BD008A08A2 /* framework.h */,
@@ -111,8 +126,6 @@
 				9A4DDE182B7734D200477878 /* ios_media_picker.mm */,
 				9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */,
 				9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */,
-				9A20ED2E2B771E50008A08A2 /* media_ios.cpp */,
-				9A20ED2F2B771E50008A08A2 /* media_ios.h */,
 				9A20ED322B772398008A08A2 /* media_picker.cpp */,
 				9A20ED332B772398008A08A2 /* media_picker.h */,
 			);
@@ -136,7 +149,7 @@
 			files = (
 				9A20ED352B772398008A08A2 /* media_picker.h in Headers */,
 				9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */,
-				9A20ED312B771E50008A08A2 /* media_ios.h in Headers */,
+				9A20ED312B771E50008A08A2 /* aaa_media_ios.h in Headers */,
 				9A20ECC32B7715BD008A08A2 /* _.h in Headers */,
 				9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */,
 			);
@@ -156,10 +169,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				9A4DDE692B7757E500477878 /* PBXTargetDependency */,
+				9A4DDE622B774C3600477878 /* PBXTargetDependency */,
 			);
 			name = media_ios;
 			productName = media_ios;
-			productReference = 9A20EC642B77153F008A08A2 /* libmedia_ios.dylib */;
+			productReference = 9A20EC642B77153F008A08A2 /* libmedia_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +243,6 @@
 			files = (
 				9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */,
 				9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */,
-				9A20ED302B771E50008A08A2 /* media_ios.cpp in Sources */,
 				9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */,
 				9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */,
 				9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */,
@@ -237,16 +251,29 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9A4DDE622B774C3600477878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = windowing_ios;
+			targetProxy = 9A4DDE612B774C3600477878 /* PBXContainerItemProxy */;
+		};
+		9A4DDE692B7757E500477878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = media_apple;
+			targetProxy = 9A4DDE682B7757E500477878 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		9A20EC6B2B77153F008A08A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -276,10 +303,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -290,24 +321,52 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(WorkspaceDir)/../operating_system/storage-$(PLATFORM_MODIFIER)/library",
+				);
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = (
+					.,
+					"$(WorkspaceDir)/source",
+					"$(WorkspaceDir)/source/include",
+					"$(WorkspaceDir)/source/app",
+					"$(WorkspaceDir)/source/app/include",
+					"$(WorkspaceDir)/operating_system",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)/include/configuration_selection/$(CONFIGURATION)",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)/include",
+					"$(WorkspaceDir)/operating_system/operating_system-apple",
+					"$(WorkspaceDir)/operating_system/operating_system-darwin",
+					"$(WorkspaceDir)/operating_system/operating_system-posix",
+					"$(WorkspaceDir)/port/_",
+					"$(WorkspaceDir)/port/include",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)/../..",
+					"$(HOME)/sensitive/sensitive/include",
+				);
+				USE_HEADERMAP = NO;
+				WorkspaceDir = "$(SRCROOT)/../../..";
 			};
 			name = Debug;
 		};
 		9A20EC6C2B77153F008A08A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A20ECAB2B7715BD008A08A2 /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -337,43 +396,73 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(WorkspaceDir)/../operating_system/storage-$(PLATFORM_MODIFIER)/library",
+				);
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = (
+					.,
+					"$(WorkspaceDir)/source",
+					"$(WorkspaceDir)/source/include",
+					"$(WorkspaceDir)/source/app",
+					"$(WorkspaceDir)/source/app/include",
+					"$(WorkspaceDir)/operating_system",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)/include/configuration_selection/$(CONFIGURATION)",
+					"$(WorkspaceDir)/operating_system/operating_system-$(PLATFORM_MODIFIER)/include",
+					"$(WorkspaceDir)/operating_system/operating_system-apple",
+					"$(WorkspaceDir)/operating_system/operating_system-darwin",
+					"$(WorkspaceDir)/operating_system/operating_system-posix",
+					"$(WorkspaceDir)/port/_",
+					"$(WorkspaceDir)/port/include",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)/../..",
+					"$(HOME)/sensitive/sensitive/include",
+				);
+				USE_HEADERMAP = NO;
+				WorkspaceDir = "$(SRCROOT)/../../..";
 			};
 			name = Release;
 		};
 		9A20EC6E2B77153F008A08A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		9A20EC6F2B77153F008A08A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				MACH_O_TYPE = staticlib;
+				PLATFORM_MODIFIER = ios;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

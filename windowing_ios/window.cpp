@@ -2508,18 +2508,26 @@ void window::pick_browse()
 
    
 }
+
+
 void window::pick_media(const char * pszMediaType)
 {
    
    auto pfactory = system()->factory("media", "ios");
    
-   __construct(m_pmediaitempicker, pfactory);
-   
-   m_pmediaitempicker->set_windowing_window(this);
-   
-   m_pmediaitempicker->pick_media(pszMediaType);
-   
+   ns_main_sync(^{
+
+      __construct(m_pmediaitempicker, pfactory);
+      
+      m_pmediaitempicker->set_windowing_window(this);
+      
+      m_pmediaitempicker->pick_media(pszMediaType);
+
+   });
+      
 }
+
+
 //
 //::pointer < ::windowing_ios::window > pioswindow = pwindow;
 //

@@ -21,7 +21,11 @@ struct platform_media_item_t;
 
 #include "aura/windowing/sandbox/window.h"
 #include "iosWindow/ios_window.h"
+namespace aqua
+{
+class media_item_picker;
 
+}//namespace aqua
 namespace windowing_ios
 {
 
@@ -37,7 +41,7 @@ namespace windowing_ios
       class windowing *          m_pioswindowing;
       ::windowing::window *      m_pwindowCapture;
       ::point_i32                m_pointMouseCursor;
-      
+      ::pointer < ::aqua::media_item_picker > m_pmediaitempicker;
       
       window();
       ~window() override;
@@ -159,7 +163,7 @@ namespace windowing_ios
       
       
       void pick_browse() override;
-      
+      void pick_media(const char * pszMediaType) override;
       void ios_window_did_pick_document_at_url(const char * pszUrl) override;
       void on_prompt_write_file(::user::controller *pusercontroller) override;
 

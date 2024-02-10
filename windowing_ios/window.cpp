@@ -13,6 +13,7 @@
 #include "windowing.h"
 #include "acme/constant/message.h"
 #include "acme/constant/user.h"
+#include "aqua/multimedia/media_item_picker.h"
 #include "aura/graphics/draw2d/draw2d.h"
 #include "aura/graphics/graphics/graphics.h"
 #include "aura/graphics/image/drawing.h"
@@ -2507,6 +2508,22 @@ void window::pick_browse()
 
    
 }
+void window::pick_media(const char * pszMediaType)
+{
+   
+   auto pfactory = system()->factory("media", "ios");
+   
+   __construct(m_pmediaitempicker, pfactory);
+   
+   m_pmediaitempicker->set_windowing_window(this);
+   
+   m_pmediaitempicker->pick_media(pszMediaType);
+   
+}
+//
+//::pointer < ::windowing_ios::window > pioswindow = pwindow;
+//
+//pioswindow->ios_window_get_ui_view_controller());
 
 void window::ios_window_did_pick_document_at_url(const char * pszUrl)
 {

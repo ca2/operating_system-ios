@@ -1,18 +1,18 @@
 #pragma once
 
 
-#include "aura/_.h"
+#include "windowing_ios/_.h"
 
 
 
 
 
-#ifdef _COREIMAGE_IMAGING_STATIC
-#define CLASS_DECL_COREIMAGE_IMAGING
-#elif defined(_COREIMAGE_IMAGING_LIBRARY)
-#define CLASS_DECL_COREIMAGE_IMAGING  CLASS_DECL_EXPORT
+#ifdef _MEDIA_IOS_STATIC
+#define CLASS_DECL_MEDIA_IOS
+#elif defined(_MEDIA_IOS_LIBRARY)
+#define CLASS_DECL_MEDIA_IOS  CLASS_DECL_EXPORT
 #else
-#define CLASS_DECL_COREIMAGE_IMAGING  CLASS_DECL_IMPORT
+#define CLASS_DECL_MEDIA_IOS  CLASS_DECL_IMPORT
 #endif
 
 

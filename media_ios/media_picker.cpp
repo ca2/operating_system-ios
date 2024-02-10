@@ -4,16 +4,23 @@
 //
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 10/02/24.
 //
-
+#include "framework.h"
 #include "media_picker.h"
+#include "windowing_ios/window.h"
 
 namespace media_ios
 {
 
-
-void window::pick_media(const char * pszMediaType)
+void media_picker::set_windowing_window(::windowing::window * pwindow)
 {
-   ios_window_pick_media(pszMediaType);
+   m_pioswindow = pwindow;
+   
+}
+
+
+void media_picker::pick_media(const char * pszMediaType)
+{
+   ios_media_picker_pick_media(pszMediaType, m_pioswindow);
    
    
 }

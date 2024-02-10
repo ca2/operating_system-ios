@@ -17,6 +17,9 @@ class CLASS_DECL_MEDIA_IOS media_picker :
 virtual public ::aqua::media_item_picker,
 virtual public ::ios_media_picker
 {
+public:
+   
+   ::pointer < ::windowing_ios::window > m_pioswindow;
    
    void pick_media(const char * pszMediaType) override;
    

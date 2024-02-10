@@ -28,8 +28,8 @@ public:
    void * m_pIosController;
 #endif
    
-   virtual void ios_window_pick_media(const char * pszMediaType);
-   virtual void ios_window_did_pick_platform_media_item(platform_media_item_t * papplemedia) = 0;
+   virtual void ios_media_picker_pick_media(const char * pszMediaType, ios_window * pioswindow);
+   virtual void ios_media_picker_did_pick_platform_media_item(platform_media_item_t * pplatformmediaitem) = 0;
    
    
 };

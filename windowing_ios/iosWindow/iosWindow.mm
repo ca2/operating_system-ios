@@ -15,9 +15,12 @@
 #import "iosWindowApp.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
+// apple_media_t pointer is a opaque pointer to a MPMediaItem
+struct apple_media_t;
+
 void ns_workspace_cgrect(int i, CGRect * p);
 
-
+void * ns_create_media_item(void * pmediaitem);
 double get_status_bar_frame_height();
 
 
@@ -230,7 +233,7 @@ double get_status_bar_frame_height();
    ns_main_async(^{
       {
          MPMediaPickerController *mediaPicker;
-         if(!strcmp(pszType, "type_music"))
+         if(!strcmp(pszType, "audio"))
          {
             mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
          }
@@ -240,7 +243,7 @@ double get_status_bar_frame_height();
          }
          mediaPicker.delegate = self;
          mediaPicker.allowsPickingMultipleItems = NO; // this is the default
-         [self presentViewController:mediaPicker animated:YES completion:nil];
+         [self->m_controller presentViewController:mediaPicker animated:YES completion:nil];
 
       //   auto picker = [[UIDocumentPickerViewController alloc]
         //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
@@ -254,6 +257,44 @@ double get_status_bar_frame_height();
 
    });
 
+}
+
+
+-(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+
+    // We need to dismiss the picker
+    [m_controller dismissViewControllerAnimated:YES completion:nil];
+
+    // Assign the selected item(s) to the music player and start playback.
+    if ([mediaItemCollection count] < 1) {
+        return;
+    }
+   
+   MPMediaItem * pmediaitem = [ [ mediaItemCollection items ] objectAtIndex : 0 ];
+   
+   auto pMediaItem = (__bridge_retained void *) pmediaitem;
+
+   auto papplemedia = (apple_media_t *) pMediaItem;
+   
+   if (m_bForOpeningMedia)
+   {
+      
+      m_pwindow->ios_window_did_pick_apple_media(papplemedia);
+      
+   }
+
+   //[self handleExportTapped];
+
+}
+
+
+-(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+
+    // User did not select anything
+    // We need to dismiss the picker
+
+    [self dismissViewControllerAnimated:YES completion:nil ];
+   
 }
 
 

@@ -7,6 +7,7 @@
 //
 #include "framework.h"
 #include "node.h"
+#include "acme/filesystem/filesystem/file_system_options.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
 #include "aura/graphics/image/image.h"
@@ -103,14 +104,31 @@ namespace aura_ios
    void node::root_ones(::file::listing &listing)
    {
       
-      auto iPickBrowse = listing.size();
-      
-      auto & path = listing.insert_at(iPickBrowse, "pick-browse://");
-      
-      path.m_iDir = 1;
-      
-      listing.m_straTitle.insert_at(iPickBrowse, "Pick Browse...");
+      if(application()->m_pfilesystemoptions->m_straUTType.contains("public.audio"))
+      {
+         
+         auto iPickAudioMedia = listing.size();
+         
+         auto & path = listing.insert_at(iPickAudioMedia, "pick-audio-media://");
+         
+         path.m_iDir = 1;
+         
+         listing.m_straTitle.insert_at(iPickAudioMedia, "Pick Audio Media...");
+         
+      }
+else
+{
+   
+   auto iPickBrowse = listing.size();
+   
+   auto & path = listing.insert_at(iPickBrowse, "pick-browse://");
+   
+   path.m_iDir = 1;
+   
+   listing.m_straTitle.insert_at(iPickBrowse, "Pick Browse...");
 
+
+}
    //   auto & options = application()->m_filesystemoptions;
    //
    //   if(options.m_bOperatingSystemRootOnes)
@@ -289,6 +307,12 @@ namespace aura_ios
       {
 
          application()->pick_browse();
+         
+      }
+      else if(pathFinal.begins_eat("pick-audio-media://"))
+      {
+
+         application()->pick_media("audio");
          
       }
 

@@ -425,6 +425,14 @@ void ios_window::ios_window_pick_browse()
 }
 
 
+void ios_window::ios_window_pick_media(const char * pszMediaType)
+{
+
+   [ m_pioswindow pickMedia : pszMediaType ];
+   
+}
+
+
 void ios_window::ios_window_pick_browse_for_saving_user_controller(void *pUserController)
 {
    

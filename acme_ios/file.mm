@@ -6,9 +6,150 @@
 //
 #import "_mm.h"
 #import "acme_apple/NSMetadataQueryHandler.h"
+#include "acme/constant/filesystem.h"
 
 
-::enum_status ns_defer_initialize_icloud_container_access();
+enum_status ns_defer_initialize_icloud_container_access();
+
+
+::file::enum_type ns_file_type_at_path(NSString * strPath)
+{
+   
+   BOOL isDir;
+   
+   NSFileManager * fileManager = [ NSFileManager defaultManager ];
+   
+   if(![ fileManager fileExistsAtPath : strPath isDirectory : &isDir ])
+   {
+      
+      return ::file::e_type_doesnt_exist;
+      
+   }
+   
+   if(isDir)
+   {
+    
+      return ::file::e_type_folder;
+      
+   }
+   else
+   {
+      
+      return ::file::e_type_file;
+      
+   }
+   
+}
+
+
+bool ns_is_folder_at_path(NSString * strPath)
+{
+   
+   auto etype = ns_file_type_at_path(strPath);
+   
+   return etype == ::file::e_type_folder;
+   
+}
+
+
+void ns_delete_file_at_path(NSString * strFolderPath)
+{
+   
+   throw "not implemented (yet :)";
+   
+}
+
+
+void ns_create_folder_at_path(NSString * strFolderPath)
+{
+   
+   NSFileManager * fileManager = [ NSFileManager defaultManager ];
+   
+   NSError * perrorCreateDirectory = nil;
+   
+   if(![ fileManager createDirectoryAtPath : strFolderPath withIntermediateDirectories : YES attributes : nil error : &perrorCreateDirectory ])
+   {
+      
+      throw "ns_create_folder_at_path";
+      
+   }
+   
+}
+
+
+void ns_defer_create_folder_at_path(NSString * strFolderPath)
+{
+   
+   auto etype = ns_file_type_at_path(strFolderPath);
+   
+   if(etype == ::file::e_type_folder)
+   {
+      
+      return;
+      
+   }
+   else if(etype == ::file::e_type_file)
+   {
+      
+      ns_delete_file_at_path(strFolderPath);
+      
+   }
+   
+   ns_create_folder_at_path(strFolderPath);
+   
+}
+
+
+NSString * ns_get_folder_name(NSString * strPath, int iEatenCount = 1)
+{
+   
+   NSArray *components = [strPath pathComponents];
+   
+   NSLog(@"%@", components); //=> ( /, User, Test, Desktop, test.txt )
+
+   //   Then you can take only the components you need and build a new path with them, for instance
+   
+   auto c = components.count - iEatenCount;
+   
+   if(c < 0)
+   {
+      
+      throw "ns_get_folder_name";
+      
+   }
+   else if(c == 0)
+   {
+      
+      if([strPath length] <= 0)
+      {
+         
+         return @"";
+
+      }
+      else if([ strPath characterAtIndex:0 ] == '/')
+      {
+       
+         return @"/";
+         
+      }
+      else
+      {
+         
+         return @"";
+         
+      }
+      
+   }
+
+   NSString * folder =
+       [NSString pathWithComponents:
+           [components subarrayWithRange:(NSRange){ 0, c}]];
+   
+   NSLog(@"%@", folder); // iEatenCount = 2 => /User/Test/
+   
+   return folder;
+   
+}
 
 
 //char * str_ns_cloud_container_id_from_app_id(const char * pszAppId);
@@ -248,13 +389,19 @@ enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * p
     //Get iCloud container URL
     NSURL *ubiq = [[NSFileManager defaultManager]URLForUbiquityContainerIdentifier:strContainerIdentifier];// in place of nil you can add your container name
     //Create Document dir in iCloud container and upload/sync SampleData.zip
-    NSURL *ubiquitousPackage = [ubiq URLByAppendingPathComponent:str];
+    NSURL * ubiquitousPackage = [ ubiq URLByAppendingPathComponent : str ];
     //Mydoc = [[MyDo alloc] initWithFileURL:ubiquitousPackage];
     //Mydoc.zipDataContent = data;
-   NSError * perror = nil;
-   [data writeToURL :ubiquitousPackage options:  0 error: &perror];
    
-   NSString * strUbiquitousPackage = [[ubiquitousPackage absoluteURL] absoluteString ];
+   auto strUbiquitousPackageFolderPath = ns_get_folder_name([ubiquitousPackage path]);
+   
+   ns_defer_create_folder_at_path(strUbiquitousPackageFolderPath);
+  
+   NSError * perror = nil;
+   
+   [ data writeToURL : ubiquitousPackage options:  0 error: &perror ];
+   
+   NSString * strUbiquitousPackage = [ [ ubiquitousPackage absoluteURL ] absoluteString ];
    
    NSLog(@"Called [ NSData writeToURL ] ubiquitousPackage : %@", strUbiquitousPackage);
    NSLog(@"Called [ NSData writeToURL ] ubiquitousPackage : %@", strUbiquitousPackage);

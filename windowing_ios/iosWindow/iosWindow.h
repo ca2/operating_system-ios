@@ -36,7 +36,7 @@ class ios_window;
 
 -(void) pickBrowse;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;
--(void) pickMedia;
+-(void) pickMedia:(const char *)pszMediaType;
 
 @end
 

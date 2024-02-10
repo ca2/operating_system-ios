@@ -11,7 +11,7 @@ namespace media_ios
 {
 
 
-   class CLASS_DECL_MEDIA_IOS audio_picker :
+   class CLASS_DECL_MEDIA_IOS media_ios :
       virtual public ::particle
    {
    public:

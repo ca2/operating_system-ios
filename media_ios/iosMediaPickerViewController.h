@@ -27,17 +27,23 @@
 //#import <CoreMedia/CoreMedia.h>
 //
 //
+
+class ios_media_picker;
+
+
 @interface iosAudioPickerViewController : UIViewController<MPMediaPickerControllerDelegate>
 {
 
    MPMediaItem *song;
    NSURL *exportURL;
+   ios_media_picker * m_piosmediapicker;
+   
 }
 
 
-@property (nonatomic, retain) NSData *audioData;
+//@property (nonatomic, retain) NSData *audioData;
 //@synthesize musicPlayer,audioData;
-@synthesize audioData;
+//@synthesize audioData;
 
 
 

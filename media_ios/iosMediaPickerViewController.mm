@@ -14,6 +14,9 @@
 //
 //@end
 
+#include "ios_media_picker.h"
+
+
 @implementation iosAudioPickerViewController
 
 -(id)init
@@ -72,10 +75,13 @@
     if ([mediaItemCollection count] < 1) {
         return;
     }
-    song = [[mediaItemCollection items] objectAtIndex:0];
-    [self handleExportTapped];
+    //song = [[mediaItemCollection items] objectAtIndex:0];
+    //[self handleExportTapped];
+   
+   m_piosmediapicker->
 
 }
+
 
 -(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
 

@@ -11,12 +11,13 @@
 		9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECA42B7715BD008A08A2 /* framework.h */; };
 		9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ECA82B7715BD008A08A2 /* _factory.cpp */; };
 		9A20ECC32B7715BD008A08A2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECAD2B7715BD008A08A2 /* _.h */; };
-		9A20ED2C2B7719A9008A08A2 /* iosAudioPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2A2B7719A8008A08A2 /* iosAudioPickerViewController.h */; };
-		9A20ED2D2B7719A9008A08A2 /* iosAudioPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2B2B7719A8008A08A2 /* iosAudioPickerViewController.mm */; };
+		9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */; };
+		9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */; };
 		9A20ED302B771E50008A08A2 /* media_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2E2B771E50008A08A2 /* media_ios.cpp */; };
 		9A20ED312B771E50008A08A2 /* media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* media_ios.h */; };
 		9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED322B772398008A08A2 /* media_picker.cpp */; };
 		9A20ED352B772398008A08A2 /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED332B772398008A08A2 /* media_picker.h */; };
+		9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DDE182B7734D200477878 /* ios_media_picker.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +49,14 @@
 		9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
 		9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosAudioPickerViewController.mm; sourceTree = "<group>"; };
 		9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
-		9A20ED2A2B7719A8008A08A2 /* iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosAudioPickerViewController.h; sourceTree = "<group>"; };
-		9A20ED2B2B7719A8008A08A2 /* iosAudioPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosAudioPickerViewController.mm; sourceTree = "<group>"; };
+		9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };
+		9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosMediaPickerViewController.mm; sourceTree = "<group>"; };
 		9A20ED2E2B771E50008A08A2 /* media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_ios.cpp; sourceTree = "<group>"; };
 		9A20ED2F2B771E50008A08A2 /* media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_ios.h; sourceTree = "<group>"; };
 		9A20ED322B772398008A08A2 /* media_picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_picker.cpp; sourceTree = "<group>"; };
 		9A20ED332B772398008A08A2 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
+		9A20ED362B772E0E008A08A2 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
+		9A4DDE182B7734D200477878 /* ios_media_picker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_media_picker.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +107,10 @@
 				9A20ECA82B7715BD008A08A2 /* _factory.cpp */,
 				9A20EC8C2B7715BD008A08A2 /* framework.cpp */,
 				9A20ECA42B7715BD008A08A2 /* framework.h */,
-				9A20ED2A2B7719A8008A08A2 /* iosAudioPickerViewController.h */,
-				9A20ED2B2B7719A8008A08A2 /* iosAudioPickerViewController.mm */,
+				9A20ED362B772E0E008A08A2 /* ios_media_picker.h */,
+				9A4DDE182B7734D200477878 /* ios_media_picker.mm */,
+				9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */,
+				9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */,
 				9A20ED2E2B771E50008A08A2 /* media_ios.cpp */,
 				9A20ED2F2B771E50008A08A2 /* media_ios.h */,
 				9A20ED322B772398008A08A2 /* media_picker.cpp */,
@@ -130,7 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A20ED352B772398008A08A2 /* media_picker.h in Headers */,
-				9A20ED2C2B7719A9008A08A2 /* iosAudioPickerViewController.h in Headers */,
+				9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */,
 				9A20ED312B771E50008A08A2 /* media_ios.h in Headers */,
 				9A20ECC32B7715BD008A08A2 /* _.h in Headers */,
 				9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */,
@@ -221,9 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */,
 				9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */,
 				9A20ED302B771E50008A08A2 /* media_ios.cpp in Sources */,
-				9A20ED2D2B7719A9008A08A2 /* iosAudioPickerViewController.mm in Sources */,
+				9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */,
 				9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */,
 				9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */,
 			);

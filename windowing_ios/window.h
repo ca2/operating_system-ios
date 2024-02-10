@@ -160,10 +160,7 @@ namespace windowing_ios
       
       void pick_browse() override;
       
-      void pick_media(const char * pszMediaType) override;
-      
       void ios_window_did_pick_document_at_url(const char * pszUrl) override;
-      void ios_window_did_pick_platform_media_item(platform_media_item_t * papplemedia) override;
       void on_prompt_write_file(::user::controller *pusercontroller) override;
 
    };

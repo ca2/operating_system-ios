@@ -31,7 +31,7 @@
 class ios_media_picker;
 
 
-@interface iosAudioPickerViewController : UIViewController<MPMediaPickerControllerDelegate>
+@interface iosMediaPickerViewController : UIViewController<MPMediaPickerControllerDelegate>
 {
 
    MPMediaItem *song;

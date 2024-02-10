@@ -4,10 +4,10 @@
 //
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 2024-02-10 00:15 <3ThomasBorregaardSorensen!!
 //
+#include "framework.h'
+#include "media_ios.h"
 
-#include "audio_picker.hpp"
-
-void * new_iosAudioPickerViewController_as_UIViewController();
+//void * new_iosAudioPickerViewController_as_UIViewController();
 
 
 namespace media_ios

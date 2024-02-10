@@ -2796,7 +2796,7 @@ namespace aura_ios
       if(bShow)
       {
 
-         acmenode()->m_pauranode->defer_dock_application(true);
+         node()->m_pauranode->defer_dock_application(true);
 
          m_puserinteraction->set_need_layout();
 
@@ -2806,7 +2806,7 @@ namespace aura_ios
       else
       {
 
-         acmenode()->m_pauranode->defer_dock_application(false);
+         node()->m_pauranode->defer_dock_application(false);
 
       }
 

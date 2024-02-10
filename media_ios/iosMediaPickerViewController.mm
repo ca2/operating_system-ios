@@ -17,7 +17,8 @@
 #include "ios_media_picker.h"
 
 
-@implementation iosAudioPickerViewController
+@implementation iosMediaPickerViewController
+
 
 -(id)init
 {
@@ -29,6 +30,7 @@
     return self;
 
 }
+
 
 -(void)viewDidLoad
 {
@@ -63,22 +65,97 @@
     }
 
 }
+//
+//#pragma mark Media picker delegate methods
+//
+//-(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+//
+//    // We need to dismiss the picker
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//
+//    // Assign the selected item(s) to the music player and start playback.
+//    if ([mediaItemCollection count] < 1) {
+//        return;
+//    }
+//    //song = [[mediaItemCollection items] objectAtIndex:0];
+//    //[self handleExportTapped];
+//   
+//   m_piosmediapicker->
+//
+//}
+//
+//
+//-(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+//
+//    // User did not select anything
+//    // We need to dismiss the picker
+//
+//    [self dismissViewControllerAnimated:YES completion:nil ];
+//}
 
-#pragma mark Media picker delegate methods
+
+
+-(void) pickMedia : (const char *) pszType
+{
+   
+   self->m_bForOpeningFile = false;
+   self->m_pUserControllerForSaving = nullptr;
+   self->m_bForOpeningMedia = true;
+   
+   //void ns_pick_viewer_document()
+   ns_main_async(^{
+      {
+         MPMediaPickerController *mediaPicker;
+         if(!strcmp(pszType, "audio"))
+         {
+            mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+         }
+         else
+         {
+            throw "pickMedia : unrecognized media type";
+         }
+         mediaPicker.delegate = self;
+         mediaPicker.allowsPickingMultipleItems = NO; // this is the default
+         [self->m_controller presentViewController:mediaPicker animated:YES completion:nil];
+
+      //   auto picker = [[UIDocumentPickerViewController alloc]
+        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
+//         auto picker = [[UIDocumentPickerViewController alloc]
+//          initForOpeningContentTypes:@[ UTTypeFolder ]];
+         //auto picker = [[UIDocumentPickerViewController alloc]
+         // initForOpeningContentTypes:@[ UTTypeImage ]];
+         //picker.delegate = self;
+         //[self->m_controller presentViewController:picker animated:YES completion:nil];
+      }
+
+   });
+
+}
 
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 
     // We need to dismiss the picker
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [m_controller dismissViewControllerAnimated:YES completion:nil];
 
     // Assign the selected item(s) to the music player and start playback.
     if ([mediaItemCollection count] < 1) {
         return;
     }
-    //song = [[mediaItemCollection items] objectAtIndex:0];
-    //[self handleExportTapped];
    
-   m_piosmediapicker->
+   MPMediaItem * pmediaitem = [ [ mediaItemCollection items ] objectAtIndex : 0 ];
+   
+   auto pMediaItem = (__bridge_retained void *) pmediaitem;
+
+   auto papplemedia = (apple_media_t *) pMediaItem;
+   
+   if (m_bForOpeningMedia)
+   {
+      
+      m_pwindow->ios_window_did_pick_apple_media(papplemedia);
+      
+   }
+
+   //[self handleExportTapped];
 
 }
 
@@ -89,7 +166,10 @@
     // We need to dismiss the picker
 
     [self dismissViewControllerAnimated:YES completion:nil ];
+   
 }
+
+
 
 -(void)handleExportTapped{
 
@@ -236,7 +316,7 @@ static void CheckResult(OSStatus result, const char *operation)
 
     fprintf(stderr, "Error: %s (%s)\n", operation, errorString);
 
-    exit(1);
+    //exit(1);
 
 }
 
@@ -261,14 +341,14 @@ BOOL coreAudioCanOpenURL (NSURL* url){
 
 
 
-
-
-void * new_iosAudioPickerViewController_as_UIViewController()
-{
-   
-   iosAudioPickerViewController * pcontroller =
-   [[iosAudioPickerViewController alloc] init];
-   
-   return (__bridge_retained void *)pcontroller;
-   
-}
+//
+//
+//void * new_iosAudioPickerViewController_as_UIViewController()
+//{
+//   
+//   iosAudioPickerViewController * pcontroller =
+//   [[iosAudioPickerViewController alloc] init];
+//   
+//   return (__bridge_retained void *)pcontroller;
+//   
+//}

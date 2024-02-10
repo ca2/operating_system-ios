@@ -12,7 +12,7 @@
 //  appreciated but not required.
 //
 #include "acme/constant/user.h"
-#import <MediaPlayer/MediaPlayer.h>
+//#import <MediaPlayer/MediaPlayer.h>
 
 ::user::enum_key event_key(UIEvent * event);
 
@@ -22,7 +22,7 @@ class ios_window;
 @class iosViewController;
 
 
-@interface iosWindow : UIWindow < UIDocumentPickerDelegate, MPMediaPickerControllerDelegate >
+@interface iosWindow : UIWindow < UIDocumentPickerDelegate >
 {
 @public
    
@@ -36,7 +36,6 @@ class ios_window;
 
 -(void) pickBrowse;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;
--(void) pickMedia:(const char *)pszMediaType;
 
 @end
 

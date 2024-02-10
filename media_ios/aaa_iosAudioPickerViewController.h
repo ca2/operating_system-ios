@@ -27,7 +27,7 @@
 //#import <CoreMedia/CoreMedia.h>
 //
 //
-//@interface UploadAudioViewController : UIViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,MPMediaPickerControllerDelegate,AVAudioRecorderDelegate, AVAudioPlayerDelegate,AVAudioSessionDelegate>{
+@interface iosAudioPickerViewController : UIViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,MPMediaPickerControllerDelegate,AVAudioRecorderDelegate, AVAudioPlayerDelegate,AVAudioSessionDelegate>{
 //   
 //   MPMediaItem *song;
 //   NSURL *exportURL;

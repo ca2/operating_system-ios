@@ -1,8 +1,8 @@
 //
-//  picker.cpp
+//  media_picker.cpp
 //  media_ios
 //
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 10/02/24.
 //
 
-#include "picker.h"
+#include "media_picker.h"

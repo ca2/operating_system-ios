@@ -15,6 +15,7 @@ namespace media_ios
 
 void media_picker::set_windowing_window(::windowing::window * pwindow)
 {
+   
    m_pioswindow = pwindow;
    
 }
@@ -25,7 +26,6 @@ void media_picker::pick_media(const char * pszMediaType)
    
    ios_media_picker_pick_media(pszMediaType, m_pioswindow);
    
-   
 }
 
 
@@ -34,6 +34,8 @@ void media_picker::ios_media_picker_did_pick_platform_media_item(platform_media_
    
    
    auto papplemediaitem = __allocate<::media_apple::media_item>();
+   
+   papplemediaitem->initialize(this);
    
    papplemediaitem->attach(pplatformmediaitem);
    

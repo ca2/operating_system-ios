@@ -7,6 +7,7 @@
 #include "framework.h"
 #include "media_ios.h"
 
+
 //void * new_iosAudioPickerViewController_as_UIViewController();
 
 
@@ -33,7 +34,7 @@ void * media_ios::new_object(const char * psz)
    if(!strcmp(psz, "iosAudioPickerViewController as UIViewController"))
    {
       
-      return new_iosAudioPickerViewController_as_UIViewController();
+//      return new_iosAudioPickerViewController_as_UIViewController();
       
    }
    

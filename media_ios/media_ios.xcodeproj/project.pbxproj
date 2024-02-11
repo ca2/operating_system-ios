@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0D1C7B2B787B5E00E4B572 /* media_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2E2B771E50008A08A2 /* media_ios.cpp */; };
 		9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20EC8C2B7715BD008A08A2 /* framework.cpp */; };
 		9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECA42B7715BD008A08A2 /* framework.h */; };
 		9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ECA82B7715BD008A08A2 /* _factory.cpp */; };
 		9A20ECC32B7715BD008A08A2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECAD2B7715BD008A08A2 /* _.h */; };
 		9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */; };
 		9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */; };
-		9A20ED312B771E50008A08A2 /* aaa_media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */; };
+		9A20ED312B771E50008A08A2 /* media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* media_ios.h */; };
 		9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED322B772398008A08A2 /* media_picker.cpp */; };
 		9A20ED352B772398008A08A2 /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED332B772398008A08A2 /* media_picker.h */; };
 		9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DDE182B7734D200477878 /* ios_media_picker.mm */; };
@@ -48,6 +49,13 @@
 			remoteGlobalIDString = 9A20EBE82B771090008A08A2;
 			remoteInfo = media_apple;
 		};
+		9A8F51852B7774C4007EDC5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A4DDE7B2B775A1E00477878;
+			remoteInfo = media_apple;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +72,8 @@
 		9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
 		9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };
 		9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosMediaPickerViewController.mm; sourceTree = "<group>"; };
-		9A20ED2E2B771E50008A08A2 /* aaa_media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_media_ios.cpp; sourceTree = "<group>"; };
-		9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_media_ios.h; sourceTree = "<group>"; };
+		9A20ED2E2B771E50008A08A2 /* media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_ios.cpp; sourceTree = "<group>"; };
+		9A20ED2F2B771E50008A08A2 /* media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_ios.h; sourceTree = "<group>"; };
 		9A20ED322B772398008A08A2 /* media_picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_picker.cpp; sourceTree = "<group>"; };
 		9A20ED332B772398008A08A2 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
 		9A20ED362B772E0E008A08A2 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
@@ -104,7 +112,8 @@
 		9A20EC7D2B7715A9008A08A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A20EC812B7715A9008A08A2 /* libmedia_apple.dylib */,
+				9A8F51862B7774C4007EDC5C /* libmedia_apple.a */,
+				9A20EC812B7715A9008A08A2 /* libios_media_apple.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,8 +126,6 @@
 				9A20ECAD2B7715BD008A08A2 /* _.h */,
 				9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */,
 				9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */,
-				9A20ED2E2B771E50008A08A2 /* aaa_media_ios.cpp */,
-				9A20ED2F2B771E50008A08A2 /* aaa_media_ios.h */,
 				9A20ECA82B7715BD008A08A2 /* _factory.cpp */,
 				9A20EC8C2B7715BD008A08A2 /* framework.cpp */,
 				9A20ECA42B7715BD008A08A2 /* framework.h */,
@@ -126,6 +133,8 @@
 				9A4DDE182B7734D200477878 /* ios_media_picker.mm */,
 				9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */,
 				9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */,
+				9A20ED2E2B771E50008A08A2 /* media_ios.cpp */,
+				9A20ED2F2B771E50008A08A2 /* media_ios.h */,
 				9A20ED322B772398008A08A2 /* media_picker.cpp */,
 				9A20ED332B772398008A08A2 /* media_picker.h */,
 			);
@@ -149,7 +158,7 @@
 			files = (
 				9A20ED352B772398008A08A2 /* media_picker.h in Headers */,
 				9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */,
-				9A20ED312B771E50008A08A2 /* aaa_media_ios.h in Headers */,
+				9A20ED312B771E50008A08A2 /* media_ios.h in Headers */,
 				9A20ECC32B7715BD008A08A2 /* _.h in Headers */,
 				9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */,
 			);
@@ -220,10 +229,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A20EC812B7715A9008A08A2 /* libmedia_apple.dylib */ = {
+		9A20EC812B7715A9008A08A2 /* libios_media_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libmedia_apple.dylib;
+			path = libios_media_apple.a;
 			remoteRef = 9A20EC802B7715A9008A08A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -232,6 +241,13 @@
 			fileType = "compiled.mach-o.dylib";
 			path = libwindowing_ios.a;
 			remoteRef = 9A20ECDE2B7717EB008A08A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A8F51862B7774C4007EDC5C /* libmedia_apple.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libmedia_apple.a;
+			remoteRef = 9A8F51852B7774C4007EDC5C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -245,6 +261,7 @@
 				9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */,
 				9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */,
 				9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */,
+				9A0D1C7B2B787B5E00E4B572 /* media_ios.cpp in Sources */,
 				9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +464,8 @@
 		9A20EC6E2B77153F008A08A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
@@ -458,6 +477,8 @@
 		9A20EC6F2B77153F008A08A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;

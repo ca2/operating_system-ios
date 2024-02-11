@@ -6,23 +6,31 @@
 //
 #pragma once
 
-//
-//namespace media_ios
-//{
-//
-//
-//   class CLASS_DECL_MEDIA_IOS media_ios :
-//      virtual public ::particle
-//   {
-//   public:
-//   
-//      // "iosAudioPickerViewController as UIViewController"
-//      void * new_object(const char * psz) override;
-//   
-//   };
-//   
-//   
-//} // namespace media_ios
-//   
+
+#include "media_apple/media_apple.h"
+
+
+namespace media_ios
+{
+
+
+   class CLASS_DECL_MEDIA_IOS media_ios :
+      virtual public ::media_apple::media_apple
+   {
+   public:
+      
+      
+      media_ios();
+      ~media_ios() override;
+      
+   
+      // "iosAudioPickerViewController as UIViewController"
+      void * new_object(const char * psz) override;
+   
+   };
+   
+   
+} // namespace media_ios
+   
 
 

@@ -8,7 +8,7 @@
 
 #include "_mm.h"
 #import "iosWindowApp.h"
-
+#include <AVFoundation/AVFoundation.h>
 //void os_on_will_finish_launching();
 
 //void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
@@ -46,6 +46,11 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
+   
+   NSError *setCategoryErr = nil;
+   NSError *activationErr  = nil;
+   [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:&setCategoryErr];
+   [[AVAudioSession sharedInstance] setActive:YES error:&activationErr];
    
    return YES;
    

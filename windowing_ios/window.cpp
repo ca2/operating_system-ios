@@ -19,6 +19,8 @@
 #include "aura/graphics/image/drawing.h"
 #include "aura/graphics/image/image.h"
 #include "acme/parallelization/synchronous_lock.h"
+#include "aqua/multimedia/media_item_picker_callback.h"
+#include "aqua/platform/application.h"
 #include "aura/platform/session.h"
 #include "aura/user/user/interaction_graphics_thread.h"
 #include "aura/user/user/interaction_impl.h"
@@ -2518,6 +2520,8 @@ void window::pick_media(const char * pszMediaType)
    ns_main_sync(^{
 
       __construct(m_pmediaitempicker, pfactory);
+      
+      m_pmediaitempicker->m_ppickercallback = application()->m_paquaapplication;
       
       m_pmediaitempicker->set_windowing_window(this);
       

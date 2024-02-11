@@ -18,7 +18,7 @@ char * ios_app_library_folder();
 char * ios_app_document_folder();
 
 
-//char ** ns_app_cloud_enumerate(const char * pszPath, const char * pszAppCloudContainerIdentifier);
+//char ** ns_app_cloud_enumerate(const char * pszPath, const char * psz_iCloudContainerIdentifier);
 
 
 namespace acme_ios
@@ -61,7 +61,7 @@ namespace acme_ios
 
       //m_pathDocument = ::string_from_strdup(ios_app_document_folder(strContainerIdentifier));
 
-      m_pathDocument = app_cloud_document();
+      m_pathDocument = icloud_container_documents();
       
       m_pathIosAppDocumentFolder = ::string_from_strdup(ios_app_document_folder());
       

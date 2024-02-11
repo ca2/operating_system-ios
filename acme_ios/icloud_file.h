@@ -22,7 +22,7 @@ namespace acme_ios
 
       
       ::file::path      m_pathName;
-      ::string          m_strAppCloudContainerIdentifier;
+      ::string          m_str_iCloudContainerIdentifier;
 
 
       icloud_file();

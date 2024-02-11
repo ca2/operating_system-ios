@@ -56,7 +56,7 @@ namespace acme_ios
       virtual ::file::path program_files_x86() override;
       virtual ::file::path program_files() override;
       //virtual ::file::path program_data() override;
-      //virtual ::file::path app_cloud_document(const char * pszAppId) override;
+      //virtual ::file::path icloud_container(const char * pszAppId) override;
 
       virtual ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
       virtual ::file::path sys_temp() override;

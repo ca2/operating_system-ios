@@ -107,33 +107,47 @@ void ns_main_async(dispatch_block_t block);
 //   
    //void ns_pick_viewer_document()
          
-         [pioswindow->m_controller addChildViewController:self];
-         
-         MPMediaPickerController *mediaPicker;
-         if(!strcmp(pszType, "audio"))
-         {
-            mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
-         }
-         else
-         {
-            throw "pickMedia : unrecognized media type";
-         }
-         mediaPicker.delegate = self;
-         mediaPicker.allowsPickingMultipleItems = NO; // this is the default
-         [self presentViewController:mediaPicker animated:YES completion:nil];
-
+   if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"])
+   {
+       //device is simulator
+       UIAlertView *alert1;
+       alert1 = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"There is no Audio file in the Device" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok",nil];
+       alert1.tag=2;
+       [alert1 show];
+       //[alert1 release],alert1=nil;
+   }
+   else
+   {
+      
+      [pioswindow->m_controller addChildViewController:self];
+      
+      MPMediaPickerController *mediaPicker;
+      if(!strcmp(pszType, "audio"))
+      {
+         mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+      }
+      else
+      {
+         throw "pickMedia : unrecognized media type";
+      }
+      mediaPicker.delegate = self;
+      mediaPicker.allowsPickingMultipleItems = NO; // this is the default
+      [self presentViewController:mediaPicker animated:YES completion:nil];
+      
       //   auto picker = [[UIDocumentPickerViewController alloc]
-        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
-//         auto picker = [[UIDocumentPickerViewController alloc]
-//          initForOpeningContentTypes:@[ UTTypeFolder ]];
-         //auto picker = [[UIDocumentPickerViewController alloc]
-         // initForOpeningContentTypes:@[ UTTypeImage ]];
-         //picker.delegate = self;
-         //[self->m_controller presentViewController:picker animated:YES completion:nil];
+      //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
+      //         auto picker = [[UIDocumentPickerViewController alloc]
+      //          initForOpeningContentTypes:@[ UTTypeFolder ]];
+      //auto picker = [[UIDocumentPickerViewController alloc]
+      // initForOpeningContentTypes:@[ UTTypeImage ]];
+      //picker.delegate = self;
+      //[self->m_controller presentViewController:picker animated:YES completion:nil];
       //}
-
+      
+   }
 
 }
+
 
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 

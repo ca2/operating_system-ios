@@ -364,7 +364,7 @@ char * ns_user_local_video_folder()
 //https://stackoverflow.com/questions/45783013/icloud-drive-read-write-nsdata
 
 
-enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * pszAppCloudContainerIdentifier, const void * p, long l)
+enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * psz_iCloudContainerIdentifier, const void * p, long l)
 {
    
    auto estatus = ns_defer_initialize_icloud_container_access();
@@ -381,7 +381,7 @@ enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * p
 //    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"SampleData.zip"];
 //    NSURL *u = [[NSURL alloc] initFileURLWithPath:filePath];
    
-   NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
+   NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:psz_iCloudContainerIdentifier];
    
    auto pszDataInspect = (const char *) p;
     NSData *data = [[NSData alloc] initWithBytes:pszDataInspect length:l];
@@ -439,7 +439,7 @@ enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * p
 //   
 //}
 
-enum_status ns_cloud_get_data_with_container_id(void ** pp, long & l, const char * psz, const char * pszAppCloudContainerIdentifier)
+enum_status ns_cloud_get_data_with_container_id(void ** pp, long & l, const char * psz, const char * psz_iCloudContainerIdentifier)
 {
    
    ns_defer_initialize_icloud_container_access();
@@ -453,7 +453,7 @@ enum_status ns_cloud_get_data_with_container_id(void ** pp, long & l, const char
     else
     {
        
-       NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:pszAppCloudContainerIdentifier];
+       NSString * strContainerIdentifier = [[NSString alloc] initWithUTF8String:psz_iCloudContainerIdentifier];
 
         NSLog(@"ICloud Is LogIn");
        NSString * str = [[NSString alloc] initWithUTF8String:psz];

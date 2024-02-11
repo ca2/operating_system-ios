@@ -161,15 +161,15 @@ namespace acme_ios
             
             ::string strName;
             
-            ::string strAppCloudContainerIdentifier;
+            ::string str_iCloudContainerIdentifier;
             
-            acmepath()->defer_get_app_cloud_path_name(strName, strAppCloudContainerIdentifier, path);
+            acmepath()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
             
             pfile->m_pathName = "Documents";
             
             pfile->m_pathName /= strName;
             
-            pfile->m_strAppCloudContainerIdentifier = strAppCloudContainerIdentifier;
+            pfile->m_str_iCloudContainerIdentifier = str_iCloudContainerIdentifier;
             
             pfile->m_eopen = eopen;
             

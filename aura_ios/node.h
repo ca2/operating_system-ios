@@ -42,7 +42,8 @@ namespace aura_ios
       
       bool defer_enumerate_protocol(::file::listing& listing) override;
 
-      
+      bool defer_process_protocol_path(::file::path & path) override;
+
       
    };
 

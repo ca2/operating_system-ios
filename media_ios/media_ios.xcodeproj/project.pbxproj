@@ -18,6 +18,9 @@
 		9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED322B772398008A08A2 /* media_picker.cpp */; };
 		9A20ED352B772398008A08A2 /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED332B772398008A08A2 /* media_picker.h */; };
 		9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DDE182B7734D200477878 /* ios_media_picker.mm */; };
+		9A8699CE2B799CC200937A3C /* media.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8699CD2B799CC200937A3C /* media.mm */; };
+		9A869F312B79ADEF00937A3C /* media_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A869F2E2B79ADEE00937A3C /* media_player.cpp */; };
+		9A869F322B79ADEF00937A3C /* media_player.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A869F302B79ADEE00937A3C /* media_player.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		9A20ED332B772398008A08A2 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
 		9A20ED362B772E0E008A08A2 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
 		9A4DDE182B7734D200477878 /* ios_media_picker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_media_picker.mm; sourceTree = "<group>"; };
+		9A8699CD2B799CC200937A3C /* media.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = media.mm; sourceTree = "<group>"; };
+		9A869F2E2B79ADEE00937A3C /* media_player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media_player.cpp; sourceTree = "<group>"; };
+		9A869F302B79ADEE00937A3C /* media_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = media_player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +118,7 @@
 		9A20EC7D2B7715A9008A08A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A8F51862B7774C4007EDC5C /* libmedia_apple.a */,
+				9A8F51862B7774C4007EDC5C /* libmedia_apple.dylib */,
 				9A20EC812B7715A9008A08A2 /* libios_media_apple.a */,
 			);
 			name = Products;
@@ -137,6 +143,9 @@
 				9A20ED2F2B771E50008A08A2 /* media_ios.h */,
 				9A20ED322B772398008A08A2 /* media_picker.cpp */,
 				9A20ED332B772398008A08A2 /* media_picker.h */,
+				9A869F2E2B79ADEE00937A3C /* media_player.cpp */,
+				9A869F302B79ADEE00937A3C /* media_player.h */,
+				9A8699CD2B799CC200937A3C /* media.mm */,
 			);
 			name = media_ios;
 			sourceTree = "<group>";
@@ -158,6 +167,7 @@
 			files = (
 				9A20ED352B772398008A08A2 /* media_picker.h in Headers */,
 				9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */,
+				9A869F322B79ADEF00937A3C /* media_player.h in Headers */,
 				9A20ED312B771E50008A08A2 /* media_ios.h in Headers */,
 				9A20ECC32B7715BD008A08A2 /* _.h in Headers */,
 				9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */,
@@ -243,10 +253,10 @@
 			remoteRef = 9A20ECDE2B7717EB008A08A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8F51862B7774C4007EDC5C /* libmedia_apple.a */ = {
+		9A8F51862B7774C4007EDC5C /* libmedia_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libmedia_apple.a;
+			path = libmedia_apple.dylib;
 			remoteRef = 9A8F51852B7774C4007EDC5C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -262,7 +272,9 @@
 				9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */,
 				9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */,
 				9A0D1C7B2B787B5E00E4B572 /* media_ios.cpp in Sources */,
+				9A869F312B79ADEF00937A3C /* media_player.cpp in Sources */,
 				9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */,
+				9A8699CE2B799CC200937A3C /* media.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

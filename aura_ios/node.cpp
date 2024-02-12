@@ -7,6 +7,7 @@
 //
 #include "framework.h"
 #include "node.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/file_system_options.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
@@ -153,7 +154,7 @@ namespace aura_ios
          application()->pick_browse();
          
       }
-      else if(pathFinal.begins_eat("pick-audio-media://"))
+      else if(pathFinal.begins_eat("apple.music://"))
       {
 
          application()->pick_media("audio");
@@ -161,6 +162,43 @@ namespace aura_ios
       }
 
       return ::acme_ios::node::defer_enumerate_protocol(listing);
+      
+   }
+
+
+   bool node::defer_process_protocol_path(::file::path & path)
+   {
+      
+      if(path.begins("pick-browse://"))
+      {
+
+         return true;
+         
+      }
+      else if(path.begins("apple.music://"))
+      {
+
+         return true;
+         
+      }
+
+      if(application()->m_pfilesystemoptions->m_b_iCloudContainer)
+      {
+         
+         auto path_iCloudContainer = acmedirectory()->icloud_container2();
+         
+         if(path.begins_eat(path_iCloudContainer))
+         {
+            
+            path = acmedirectory()->icloud_container2_final() / path;
+            
+            return true;
+            
+         }
+         
+      }
+      
+      return false;
       
    }
 

@@ -53,7 +53,7 @@ virtual     void defer_initialize_host_window(const RECTANGLE_I32* lpcrect);
       ::windowing::window * get_application_host_window() override;
       
       
-      ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
+//      ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
 
       void os_menu_item_enable(void * pitem, bool bEnable) override;
       void os_menu_item_check(void * pitem, bool bCheck) override;

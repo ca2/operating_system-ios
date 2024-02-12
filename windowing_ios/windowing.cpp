@@ -134,16 +134,16 @@ namespace windowing_ios
    }
 
 
-   ::windowing::window *windowing::new_window(::user::interaction_impl *pimpl)
-   {
-
-      auto pwindow = __create < ::windowing::window >();
-      
-      pwindow->create_window(pimpl);
-
-      return pwindow;
-
-   }
+//   ::windowing::window *windowing::new_window(::user::interaction_impl *pimpl)
+//   {
+//
+//      auto pwindow = __create < ::windowing::window >();
+//      
+//      pwindow->create_window(pimpl);
+//
+//      return pwindow;
+//
+//   }
 
 
    void windowing::os_menu_item_enable(void * pitem, bool bEnable)

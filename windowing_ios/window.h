@@ -47,7 +47,7 @@ namespace windowing_ios
       ~window() override;
       
       
-      void create_window(::user::interaction_impl * pimpl) override;
+      void create_window() override;
       
 
       //void ios_window_add_ref() override;

@@ -6,7 +6,7 @@
 //
 #include "framework.h"
 #include "media_player.h"
-#include "media_item.h"
+#include "media_apple/media_item.h"
 #include "aqua/multimedia/media_player_command.h"
 
 #include <dispatch/dispatch.h>

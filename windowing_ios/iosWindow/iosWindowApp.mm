@@ -57,42 +57,6 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 }
 
 
-- (enum_status)deferInitializeiCloudContainerAccess
-{
-   
-   if(m_b_iCloudInitialized)
-   {
-      
-      return self->m_estatus_iCloud;
-      
-   }
-   
-   m_b_iCloudInitialized = true;
-   
-   if ([ [ NSFileManager defaultManager ] URLForUbiquityContainerIdentifier: nil] != nil)
-   {
-      
-      NSLog(@"iCloud is available\n");
-      
-      self->m_estatus_iCloud = success;
-      
-   }
-   else
-   {
-      
-      NSLog(@"This tutorial requires iCloud, but it is not available.\n");
-      
-      self->m_estatus_iCloud = error_icloud_not_available;
-      
-      application_send_status(error_icloud_not_available);
-      
-   }
-   
-   return self->m_estatus_iCloud;
-
-}
-
-
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
    
@@ -163,7 +127,7 @@ void ns_windowing_application_main(int argc, char * argv[], const char * pszComm
 }
 
 
-::enum_status ns_defer_initialize_icloud_container_access()
+::enum_status ios_defer_initialize_icloud_container_access()
 {
    
    __block enum_status estatus;

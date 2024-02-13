@@ -21,7 +21,6 @@
 		9A94DEE6282C4C8100F5C1CA /* file.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F2B282A28EE00B1621E /* file.mm */; };
 		9A94DEE7282C4C8100F5C1CA /* mmos.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F34282A28EE00B1621E /* mmos.mm */; };
 		9A94DEE8282C4C8100F5C1CA /* image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F2D282A28EE00B1621E /* image.mm */; };
-		9AB09AA12B71FD9E00E2C3A5 /* icloud_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB09AA02B71F82800E2C3A5 /* icloud_file.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +88,6 @@
 		9AA14F4D282A28EE00B1621E /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
 		9AA14F4E282A28EE00B1621E /* acme_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acme_file.h; sourceTree = "<group>"; };
 		9AA14F4F282A28EE00B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9AB09A9D2B71F82800E2C3A5 /* icloud_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = icloud_file.h; sourceTree = "<group>"; };
-		9AB09AA02B71F82800E2C3A5 /* icloud_file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = icloud_file.cpp; sourceTree = "<group>"; };
 		9AC2D0582653EBF000CC8096 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9AEB211D2B6A06CF00B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		9AEB21222B6A06D000B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
@@ -177,8 +174,6 @@
 				9AA14F2B282A28EE00B1621E /* file.mm */,
 				9AA14F2C282A28EE00B1621E /* framework.cpp */,
 				9AA14F46282A28EE00B1621E /* framework.h */,
-				9AB09AA02B71F82800E2C3A5 /* icloud_file.cpp */,
-				9AB09A9D2B71F82800E2C3A5 /* icloud_file.h */,
 				9AA14F2D282A28EE00B1621E /* image.mm */,
 				9AA14F26282A28EE00B1621E /* list_serial_ports.cpp */,
 				9AA14F25282A28EE00B1621E /* mm.mm */,
@@ -302,7 +297,6 @@
 				9A94DEE7282C4C8100F5C1CA /* mmos.mm in Sources */,
 				9A94DEE8282C4C8100F5C1CA /* image.mm in Sources */,
 				9A40BDCA2B6B70BB0077053E /* dir_context.cpp in Sources */,
-				9AB09AA12B71FD9E00E2C3A5 /* icloud_file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

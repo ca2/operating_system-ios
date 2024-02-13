@@ -1,6 +1,6 @@
 #include "framework.h"
 #include "file_context.h"
-#include "icloud_file.h"
+//#include "icloud_file.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/filesystem/filesystem/file_system_options.h"
@@ -35,7 +35,7 @@ namespace acme_ios
       
       //auto estatus =
       
-      ::acme_darwin::file_context::initialize(pparticle);
+      ::acme_apple::file_context::initialize(pparticle);
 //
 //      if(!estatus)
 //      {
@@ -136,59 +136,59 @@ namespace acme_ios
    ::file_pointer file_context::defer_get_protocol_file(const ::scoped_string & scopedstrProtocol, const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception)
    {
       
-      if(scopedstrProtocol == "icloud")
-      {
-         
-         auto pfilesystemoptions = application()->m_pfilesystemoptions;
-         
-         if(pfilesystemoptions->m_b_iCloudContainer)
-         {
-            
-            auto estatus = ns_defer_initialize_icloud_container_access();
-            
-            if(estatus == error_icloud_not_available)
-            {
-               
-               application()->application_on_status(estatus);
-               
-               throw ::exception(estatus);
-               
-               return nullptr;
-               
-            }
-            
-            auto pfile = __create_new < ::acme_ios::icloud_file >();
-            
-            ::string strName;
-            
-            ::string str_iCloudContainerIdentifier;
-            
-            acmepath()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
-            
-            //pfile->m_pathName = "Documents";
-            
-            pfile->m_pathName /= strName;
-            
-            pfile->m_str_iCloudContainerIdentifier = str_iCloudContainerIdentifier;
-            
-            pfile->m_eopen = eopen;
-            
-            if(eopen & ::file::e_open_read)
-            {
-               
-               auto memory = acmefile()->get_app_cloud_data(pfile->m_pathName, nullptr);
-               
-               pfile->get_memory()->assign(memory);
-               
-            }
-            
-            return pfile;
-            
-         }
-      
-      }
+//      if(scopedstrProtocol == "icloud")
+//      {
+//         
+//         auto pfilesystemoptions = application()->m_pfilesystemoptions;
+//         
+//         if(pfilesystemoptions->m_b_iCloudContainer)
+//         {
+//            
+//            auto estatus = ns_defer_initialize_icloud_container_access();
+//            
+//            if(estatus == error_icloud_not_available)
+//            {
+//               
+//               application()->application_on_status(estatus);
+//               
+//               throw ::exception(estatus);
+//               
+//               return nullptr;
+//               
+//            }
+//            
+//            auto pfile = __create_new < ::acme_ios::icloud_file >();
+//            
+//            ::string strName;
+//            
+//            ::string str_iCloudContainerIdentifier;
+//            
+//            acmepath()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
+//            
+//            //pfile->m_pathName = "Documents";
+//            
+//            pfile->m_pathName /= strName;
+//            
+//            pfile->m_str_iCloudContainerIdentifier = str_iCloudContainerIdentifier;
+//            
+//            pfile->m_eopen = eopen;
+//            
+//            if(eopen & ::file::e_open_read)
+//            {
+//               
+//               auto memory = acmefile()->get_app_cloud_data(pfile->m_pathName, nullptr);
+//               
+//               pfile->get_memory()->assign(memory);
+//               
+//            }
+//            
+//            return pfile;
+//            
+//         }
+//      
+//      }
     
-      return ::acme_posix::file_context::defer_get_protocol_file(scopedstrProtocol, path, eopen, pfileexception);
+      return ::acme_apple::file_context::defer_get_protocol_file(scopedstrProtocol, path, eopen, pfileexception);
       
    }
 

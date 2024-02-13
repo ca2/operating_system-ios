@@ -140,7 +140,7 @@ namespace windowing_ios
    }
 
 
-   void window::create_window(::user::interaction_impl * pimpl)
+   void window::create_window()
    {
 
       //if (::is_window(get_handle()))
@@ -159,7 +159,7 @@ namespace windowing_ios
       //      pusersystem->m_createstruct.hwndParent = hWndParent;
       //   pusersystem->m_createstruct.hMenu = hWndParent == nullptr ? nullptr : nIDorHMenu;
 
-      auto puserinteraction = pimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       auto pusersystem = puserinteraction->m_pusersystem;
 
@@ -224,28 +224,28 @@ namespace windowing_ios
          //and because cgrect origin is bottom-left and,
          //the origin of screen is at bottom.
 
-      m_puserinteractionimpl = pimpl;
+      //m_puserinteractionimpl = pimpl;
       
        auto psession = m_pcontext->m_pacmesession->m_paurasession;
 
       auto puser = psession->user();
 
-      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
+//      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
 
-      m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(pwindowing);
+      m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
 
-      m_pwindowing = pwindowing;
+//      m_pwindowing = pwindowing;
 
-      pimpl->m_pwindowing = pwindowing;
-      
-      pimpl->m_pwindow = this;
-      
-      pimpl->m_puserinteraction->m_pwindow = this;
+//      pimpl->m_pwindowing = pwindowing;
+//      
+//      pimpl->m_pwindow = this;
+//      
+//      pimpl->m_puserinteraction->m_pwindow = this;
       
       set_oswindow(this);
 
       
-      install_message_routing(puserinteraction);
+//      install_message_routing(puserinteraction);
 
 
 
@@ -254,7 +254,7 @@ namespace windowing_ios
          set_os_data(pNSWindow);
 
 
-      pwindowing->m_nsmap[m_pioswindow] = this;
+      m_pioswindowing->m_nsmap[m_pioswindow] = this;
       
 
          //puserinteraction->place(rectParam);

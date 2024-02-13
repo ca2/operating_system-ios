@@ -57,7 +57,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
       
       listing.defer_add(path);
 
-      listing.m_straTitle.add("File ::apex::get_system()");
+      listing.m_straTitle.add("File System");
 
       return listing;
 

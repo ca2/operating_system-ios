@@ -24,6 +24,9 @@ namespace media_ios
       ~media_ios() override;
       
    
+      void on_initialize_particle() override;
+      
+      
       // "iosAudioPickerViewController as UIViewController"
       void * new_object(const char * psz) override;
    

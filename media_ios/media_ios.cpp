@@ -8,6 +8,9 @@
 #include "media_ios.h"
 
 
+void ios_av_session_initialize();
+
+
 //void * new_iosAudioPickerViewController_as_UIViewController();
 
 
@@ -26,6 +29,17 @@ media_ios::~media_ios()
 {
    
 }
+
+
+void media_ios::on_initialize_particle()
+{
+   
+   ::particle::on_initialize_particle();
+   
+   ios_av_session_initialize();
+   
+}
+
 
 // "iosAudioPickerViewController as UIViewController"
 void * media_ios::new_object(const char * psz)

@@ -6,6 +6,8 @@
 //
 //
 
+#include "iosEditView.h"
+
 @class iosFrameView;
 @class iosEditView;
 @protocol iosEditTextDelegate;

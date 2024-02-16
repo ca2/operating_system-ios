@@ -19,6 +19,7 @@
 #include "aura/graphics/image/drawing.h"
 #include "aura/graphics/image/image.h"
 #include "acme/parallelization/synchronous_lock.h"
+#include "acme/primitive/collection/string_array.h"
 #include "aqua/multimedia/media_item_picker_callback.h"
 #include "aqua/platform/application.h"
 #include "aura/platform/session.h"
@@ -29,6 +30,9 @@
 #include "acme/parallelization/message_queue.h"
 #include "aura/message/user.h"
 #include <CoreGraphics/CoreGraphics.h>
+
+string_array string_array_from_strdup_count(const char ** pszaUrl, long lCount);
+
 
 void ns_main_async(dispatch_block_t block);
 
@@ -2543,6 +2547,17 @@ void window::ios_window_did_pick_document_at_url(const char * pszUrl)
    application()->did_pick_document_at_url(pszUrl);
    
 }
+
+
+void window::ios_window_did_pick_document_at_urls(const char ** pszaUrl, long lCount)
+{
+   
+   auto straUrl = string_array_from_strdup_count(pszaUrl, lCount);
+   
+   application()->did_pick_document_at_urls(straUrl);
+   
+}
+
 
 void window::on_prompt_write_file(::user::controller *pusercontroller)
 {

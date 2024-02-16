@@ -19,7 +19,7 @@ ns_main_async(^()
               {
    
    
-   NSError * perror = nil;
+   //NSError * perror = nil;
    //   [[AVAudioSession sharedInstance ] setCategory:AVAudioSessionCategoryPlayback
    //
    //
@@ -32,7 +32,7 @@ ns_main_async(^()
    
    [controller setQueueWithItemCollection:collection];
    [controller setNowPlayingItem:item];
-   [controller setVolume:1.0f];
+   //[controller setVolume:1.0f];
    [controller prepareToPlay];
    [controller play];
    

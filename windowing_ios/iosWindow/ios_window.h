@@ -68,6 +68,7 @@ bool m_bDirty;
    
    virtual void ios_window_pick_browse();
    virtual void ios_window_did_pick_document_at_url(const char * pszUrl) = 0;
+   virtual void ios_window_did_pick_document_at_urls(const char ** pszaUrl, long lCount) = 0;
 
    virtual void ios_window_pick_browse_for_saving_user_controller(void * pUserController);
    double _get_status_bar_frame_height();

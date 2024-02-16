@@ -121,24 +121,24 @@ void ns_windowing_application_main(int argc, char * argv[], const char * pszComm
    ui_application_main(argc, argv, pszCommandLine, NSStringFromClass([iosWindowApp class]));
    
 }
-
-
-::enum_status ios_defer_initialize_icloud_container_access()
-{
-   
-   __block enum_status estatus;
-   
-   ns_main_sync(^{
-      
-      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
-
-      estatus = [ papp deferInitializeiCloudContainerAccess ];
-
-   });
-   
-   return estatus;
-   
-}
-
-
-
+//
+//
+//::enum_status ios_defer_initialize_icloud_container_access()
+//{
+//   
+//   __block enum_status estatus;
+//   
+//   ns_main_sync(^{
+//      
+//      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+//
+//      estatus = [ papp deferInitializeiCloudContainerAccess ];
+//
+//   });
+//   
+//   return estatus;
+//   
+//}
+//
+//
+//

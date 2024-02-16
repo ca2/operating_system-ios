@@ -167,15 +167,40 @@ double get_status_bar_frame_height();
  *  This delegate method is called when user will either upload or download the file.
  *
  *  @param controller UIDocumentPickerViewController object
- *  @param url        url of the file
+ *  @param urls        urls of the files
  */
 
-- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls
 {
+
     if (m_bForOpeningFile)
     {
        
-       m_pwindow->ios_window_did_pick_document_at_url([[url path]UTF8String]);
+       long l = [urls count];
+       
+       if(l == 1)
+       {
+          
+          m_pwindow->ios_window_did_pick_document_at_url([[[urls objectAtIndex:0] path]UTF8String]);
+          
+       }
+       else
+       {
+          
+          auto psza = (const char **) malloc(sizeof(const char *) * l);
+          
+          auto p = psza;
+          
+          for(NSURL * url in urls)
+          {
+           
+             *p++ = strdup([[url path]UTF8String]);
+             
+          }
+          
+          m_pwindow->ios_window_did_pick_document_at_urls(psza, l);
+          
+       }
      
 //        // Condition called when user download the file
 //        NSData *fileData = [NSData dataWithContentsOfURL:url];

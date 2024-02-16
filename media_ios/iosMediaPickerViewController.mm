@@ -16,6 +16,11 @@
 #include "windowing_ios/iosWindow/iosWindow.h"
 #include "windowing_ios/iosWindow/iosViewController.h"
 #include "ios_media_picker.h"
+
+
+int _ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);
+
+
 void ns_main_async(dispatch_block_t block);
 
 
@@ -47,28 +52,34 @@ void ns_main_async(dispatch_block_t block);
 
 }
 
-#pragma mark Browse Audio from Device
-
--(void)PickAudioForIndex_iPhone
-{
-
-    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
-        //device is simulator
-        UIAlertView *alert1;
-        alert1 = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"There is no Audio file in the Device" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok",nil];
-        alert1.tag=2;
-        [alert1 show];
-        //[alert1 release],alert1=nil;
-    }else{
-
-        MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
-        mediaPicker.delegate = self;
-        mediaPicker.allowsPickingMultipleItems = NO; // this is the default
-        [self presentViewController:mediaPicker animated:YES completion:nil];
-
-    }
-
-}
+//#pragma mark Browse Audio from Device
+//
+//int _ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);
+//
+//
+//-(void)PickAudioForIndex_iPhone
+//{
+//
+//    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
+//        //device is simulator
+//       _ui_MessageBoxA(
+//                       "There is no Audio file in the Device",
+//                       "Alert", e_message_box_okd, "", {})
+//        UIAlertView *alert1;
+//        alert1 = [[UIAlertView alloc] initWithTitle:@"Alert" message:@" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok",nil];
+//        alert1.tag=2;
+//        [alert1 show];
+//        //[alert1 release],alert1=nil;
+//    }else{
+//
+//        MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+//        mediaPicker.delegate = self;
+//        mediaPicker.allowsPickingMultipleItems = NO; // this is the default
+//        [self presentViewController:mediaPicker animated:YES completion:nil];
+//
+//    }
+//
+//}
 //
 //#pragma mark Media picker delegate methods
 //
@@ -110,10 +121,18 @@ void ns_main_async(dispatch_block_t block);
    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"])
    {
        //device is simulator
-       UIAlertView *alert1;
-       alert1 = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"There is no Audio file in the Device" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok",nil];
-       alert1.tag=2;
-       [alert1 show];
+//       UIAlertView *alert1;
+//       alert1 = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"There is no Audio file in the Device" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok",nil];
+//       alert1.tag=2;
+//       [alert1 show];
+      
+      _ui_MessageBoxA(
+                      "There is no Audio file in the Device",
+                      "Alert",
+                      e_message_box_ok,
+                      "",
+                      [](enum_dialog_result){}
+                      );
        //[alert1 release],alert1=nil;
    }
    else
@@ -320,26 +339,26 @@ void myDeleteFile (NSString* path){
 
 }
 
-static void CheckResult(OSStatus result, const char *operation)
-{
-
-    if (result == noErr) return;
-
-    char errorString[20];
-    // see if it appears to be a 4-char-code
-    *(UInt32 *)(errorString + 1) = CFSwapInt32HostToBig(result);
-    if (isprint(errorString[1]) && isprint(errorString[2]) && isprint(errorString[3]) && isprint(errorString[4])) {
-        errorString[0] = errorString[5] = '\'';
-        errorString[6] = '\0';
-    } else
-        // no, format it as an integer
-        sprintf(errorString, "%d", (int)result);
-
-    fprintf(stderr, "Error: %s (%s)\n", operation, errorString);
-
-    //exit(1);
-
-}
+//static void CheckResult(OSStatus result, const char *operation)
+//{
+//
+//    if (result == noErr) return;
+//
+//    char errorString[20];
+//    // see if it appears to be a 4-char-code
+//    *(UInt32 *)(errorString + 1) = CFSwapInt32HostToBig(result);
+//    if (isprint(errorString[1]) && isprint(errorString[2]) && isprint(errorString[3]) && isprint(errorString[4])) {
+//        errorString[0] = errorString[5] = '\'';
+//        errorString[6] = '\0';
+//    } else
+//        // no, format it as an integer
+//        sprintf(errorString, "%d", (int)result);
+//
+//    fprintf(stderr, "Error: %s (%s)\n", operation, errorString);
+//
+//    //exit(1);
+//
+//}
 
 //#pragma mark core audio test
 

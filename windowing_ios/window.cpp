@@ -226,9 +226,9 @@ namespace windowing_ios
 
       //m_puserinteractionimpl = pimpl;
       
-       auto psession = m_pcontext->m_pacmesession->m_paurasession;
+       //auto psession = m_pcontext->m_pacmesession->m_paurasession;
 
-      auto puser = psession->user();
+      //auto puser = psession->user();
 
 //      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
 

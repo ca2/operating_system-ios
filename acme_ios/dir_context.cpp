@@ -53,7 +53,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
       
       path = "/";
       
-      path.m_iDir = 1;
+      path.m_etype = ::file::e_type_existent_folder;
       
       listing.defer_add(path);
 
@@ -505,8 +505,8 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    ::file::path dir_context::time_square(const ::string & strPrefix,const ::string & strSuffix)
    {
 
-      UNREFERENCED_PARAMETER(strPrefix);
-      UNREFERENCED_PARAMETER(strSuffix);
+      __UNREFERENCED_PARAMETER(strPrefix);
+      __UNREFERENCED_PARAMETER(strSuffix);
       return time() / "time";
 
    }

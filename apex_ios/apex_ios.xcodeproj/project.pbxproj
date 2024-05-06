@@ -16,7 +16,6 @@
 		9A94DE9D282C165600F5C1CA /* keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F13282A289E00B1621E /* keyboard.cpp */; };
 		9A94DE9E282C165600F5C1CA /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F09282A289E00B1621E /* user.cpp */; };
 		9A94DEA2282C165600F5C1CA /* launcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F1E282A289E00B1621E /* launcher.cpp */; };
-		9A94DEA4282C165600F5C1CA /* os_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14F15282A289E00B1621E /* os_context.cpp */; };
 		9A94DF00282C685E00F5C1CA /* watcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A94DEFE282C685E00F5C1CA /* watcher.h */; };
 		9A94DF01282C685E00F5C1CA /* watcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A94DEFF282C685E00F5C1CA /* watcher.cpp */; };
 /* End PBXBuildFile section */
@@ -100,14 +99,12 @@
 		9AA14F02282A289E00B1621E /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		9AA14F03282A289E00B1621E /* user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 		9AA14F04282A289E00B1621E /* aaa_apex_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aaa_apex_ios.h; sourceTree = "<group>"; };
-		9AA14F06282A289E00B1621E /* os_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = os_context.h; sourceTree = "<group>"; };
 		9AA14F07282A289E00B1621E /* user.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = user.mm; sourceTree = "<group>"; };
 		9AA14F09282A289E00B1621E /* user.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = user.cpp; sourceTree = "<group>"; };
 		9AA14F0A282A289E00B1621E /* keyboard_mm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = keyboard_mm.mm; sourceTree = "<group>"; };
 		9AA14F0B282A289E00B1621E /* interprocess.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interprocess.cpp; sourceTree = "<group>"; };
 		9AA14F0D282A289E00B1621E /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9AA14F13282A289E00B1621E /* keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard.cpp; sourceTree = "<group>"; };
-		9AA14F15282A289E00B1621E /* os_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = os_context.cpp; sourceTree = "<group>"; };
 		9AA14F17282A289E00B1621E /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
 		9AA14F18282A289E00B1621E /* interprocess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = interprocess.h; sourceTree = "<group>"; };
 		9AA14F1A282A289E00B1621E /* mm_oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mm_oswindow.h; sourceTree = "<group>"; };
@@ -115,6 +112,7 @@
 		9AA14F1E282A289E00B1621E /* launcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = launcher.cpp; sourceTree = "<group>"; };
 		9AEB21232B6A08AD00B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		9AEB21282B6A08AE00B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		9AFDDC032BE8A04800555778 /* aaa_os_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aaa_os_context.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -185,6 +183,7 @@
 		9AA14EE0282A289D00B1621E /* apex_ios */ = {
 			isa = PBXGroup;
 			children = (
+				9AFDDC032BE8A04800555778 /* aaa_os_context.cpp */,
 				9A94DEFD282C685E00F5C1CA /* grand_central_dispatch */,
 				9AEB21232B6A08AD00B01F9E /* _____debug.xcconfig */,
 				9AEB21282B6A08AE00B01F9E /* _____release.xcconfig */,
@@ -209,8 +208,6 @@
 				9AA14EF2282A289D00B1621E /* node.cpp */,
 				9AA14EF5282A289D00B1621E /* node.h */,
 				9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */,
-				9AA14F15282A289E00B1621E /* os_context.cpp */,
-				9AA14F06282A289E00B1621E /* os_context.h */,
 				9AA14EF8282A289D00B1621E /* shell_launcher.cpp */,
 				9AA14EF6282A289D00B1621E /* shell_launcher.h */,
 				9AA14EF4282A289D00B1621E /* shell_macos_mm.mm */,
@@ -342,7 +339,6 @@
 				9A94DE93282C165600F5C1CA /* node.cpp in Sources */,
 				9A94DE94282C165600F5C1CA /* shell_launcher.cpp in Sources */,
 				9A94DE9B282C165600F5C1CA /* framework.cpp in Sources */,
-				9A94DEA4282C165600F5C1CA /* os_context.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

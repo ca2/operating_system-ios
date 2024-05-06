@@ -4,6 +4,8 @@
 
 #include "aura/user/user/copydesk.h"
 
+#include <CoreFoundation/CoreFoundation.h>
+
 
 namespace windowing_ios
 {

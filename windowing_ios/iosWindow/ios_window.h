@@ -15,8 +15,10 @@
 #ifdef __OBJC__
 @class iosWindow;
 typedef UIWindow * ui_window_ptr;
+#include <UIKit/UIKit.h>
 #else
 typedef void * ui_window_ptr;
+#include <CoreGraphics/CoreGraphics.h>
 #endif
 
 class ios_window

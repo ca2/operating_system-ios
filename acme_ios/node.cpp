@@ -7,7 +7,7 @@
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/user/nano/window_implementation.h"
 #include "acme/platform/system.h"
-
+#include <CoreFoundation/CoreFoundation.h>
 void ns_main_async(dispatch_block_t block);
 
 void ns_main_sync(dispatch_block_t block);
@@ -993,7 +993,7 @@ unsigned int * puiPid)
 //
 
 
-   void node::open_url(const ::string & strUrl)
+   void node::open_url_link_at_system_browser(const ::string & strUrl, const string & strProfile)
    {
       
       ::ui_open_url(strUrl);

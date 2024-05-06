@@ -121,9 +121,10 @@ namespace acme_ios
 //         virtual bool shell_execute_sync(const ::string & pszFile, const ::string & pszParams, ::duration durationTimeout );
       
       
-      void open_url(const ::string & strUrl) override;
+      //void open_url(const ::string & strUrl) override;
       
-      
+      void open_url_link_at_system_browser(const string & strUrl, const string & strProfile = {}) override;
+
       virtual void ns_app_run();
       
 

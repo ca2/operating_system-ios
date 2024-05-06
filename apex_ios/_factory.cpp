@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "os_context.h"
+//#include "os_context.h"
 #include "interprocess.h"
 #include "node.h"
 #include "apex/platform/launcher.h"
@@ -31,7 +31,7 @@ void apex_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < ::grand_central_dispatch::watch, ::file::watch > ();
 
 
-   pfactory->add_factory_item < ::apex_ios::os_context, ::os_context > ();
+//   pfactory->add_factory_item < ::apex_ios::os_context, ::os_context > ();
    
    pfactory->add_factory_item < ::apex_ios::interprocess_base, ::interprocess::base >();
    pfactory->add_factory_item < ::apex_ios::interprocess_caller, ::interprocess::caller >();

@@ -607,7 +607,7 @@ namespace aura_ios
    void interaction_impl::_001OnShowWindow(::message::message * pmessage)
    {
 
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
 
 //      do_show_flags();
 //
@@ -710,7 +710,7 @@ namespace aura_ios
    void interaction_impl::_001OnDestroy(::message::message * pmessage)
    {
 
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       
       auto pwindowing = m_pwindowing;
 
@@ -893,7 +893,7 @@ namespace aura_ios
    void interaction_impl::pre_translate_message(::message::message * pmessage)
    {
       
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       
       // no default processing
       
@@ -2208,7 +2208,7 @@ namespace aura_ios
    void interaction_impl::on_message_create(::message::message * pmessage)
    {
 
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
 
       default_message_handler(pmessage);
 
@@ -2352,7 +2352,7 @@ namespace aura_ios
    void interaction_impl::_001OnProdevianSynch(::message::message * pmessage)
    {
       
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       
       //      ::aura::get_system()->get_event(get_application()->get_application())->SetEvent();
       //    ::aura::get_system()->get_event(::aura::get_system()->get_twf())->wait(millis(8400));

@@ -122,7 +122,7 @@ void interprocess_caller::call(const ::string & strUri, const class time & timeT
 //      
 //      strUrl = m_strBaseChannel + "://localhost/?command_block=" + strCommand;
       
-      system()->node()->open_url(strUri);
+      system()->node()->open_url_link_at_system_browser(strUri);
 
    }
 

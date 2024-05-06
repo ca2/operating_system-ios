@@ -3,6 +3,7 @@
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/operating_system/shared_posix/c_error_number.h"
 #include <fcntl.h>
 
 
@@ -13,6 +14,8 @@
 #elif defined(__APPLE__)
 #include <dlfcn.h>
 #include <sys/stat.h>
+#include <errno.h>
+#include <unistd.h>
 #endif
 
 //__STATIC inline bool IsDirSep(WCHAR ch)

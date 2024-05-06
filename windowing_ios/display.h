@@ -25,7 +25,7 @@ namespace windowing_ios
       ~display() override;
 
       
-      ::count get_monitor_count() override;
+      ::raw::count get_monitor_count() override;
       
       
       ::point_i32 _get_mouse_cursor_position() override;

@@ -3,6 +3,7 @@
 #include "launcher.h"
 #undef USE_MISC
 
+#include <unistd.h>
 
 namespace apex_ios
 {

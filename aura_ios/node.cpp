@@ -114,7 +114,7 @@ namespace aura_ios
          
          auto & path = listing.insert_at(iPickAudioMedia, "apple.music://");
          
-         path.m_iDir = 1;
+         path.m_etype = ::file::e_type_existent_folder;
          
          listing.m_straTitle.insert_at(iPickAudioMedia, "Apple Music");
          
@@ -126,7 +126,7 @@ namespace aura_ios
          
          auto & path = listing.insert_at(iPickBrowse, "pick-browse://");
          
-         path.m_iDir = 1;
+         path.m_etype = ::file::e_type_existent_folder;
          
          listing.m_straTitle.insert_at(iPickBrowse, "Pick Browse...");
 

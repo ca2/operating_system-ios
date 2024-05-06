@@ -4,6 +4,8 @@
 #include "acme/platform/context.h"
 #include "apex/filesystem/file/set.h"
 
+#include <CoreFoundation/CoreFoundation.h>
+
 void ns_main_async(dispatch_block_t block);
 
 

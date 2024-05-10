@@ -81,9 +81,9 @@ namespace apex_ios
             
          }
 
-         ::count c = ansi_length(pszMessage);
+         ::collection::collection::count c = ansi_length(pszMessage);
 
-         ::count cSend;
+         ::collection::collection::count cSend;
 
          memory m;
 
@@ -137,9 +137,9 @@ namespace apex_ios
 
          memory m(pdata, len);
 
-         ::count c = len;
+         ::collection::collection::count c = len;
 
-         ::count cSend;
+         ::collection::collection::count cSend;
 
          SInt32 status = CFMessagePortSendRequest(m_port,
                                   message,

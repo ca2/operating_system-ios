@@ -309,7 +309,7 @@ namespace multimedia
          return NULL;
       }
 
-      ::audio_mixer::user::control * control::GetControlByIndex(::index iIndex)
+      ::audio_mixer::user::control * control::GetControlByIndex(::collection::collection::index iIndex)
       {
          return this->element_at(iIndex);
       }
@@ -822,7 +822,7 @@ namespace multimedia
                         m_mixercontroldetails.cChannels = 1;
 
 
-                     ::index iSel = pmutecontrol->get_data().m_iIndex;
+                     ::collection::collection::index iSel = pmutecontrol->get_data().m_iIndex;
 
                      //m_mixercontroldetails.cChannels      = cChannels;
                      m_mixercontroldetails.cMultipleItems = m_mixercontrol.cMultipleItems;

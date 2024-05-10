@@ -581,7 +581,7 @@ unsigned int * puiPid)
    //
    //                              synchronous_lock slSession(psession->mutex());
    //
-   //                              ::collection::collection::count iMonitorCount = gdk_display_get_n_monitors(pdisplay);
+   //                              ::collection::count iMonitorCount = gdk_display_get_n_monitors(pdisplay);
    //
    //                              psession->m_rectaWorkspace.set_size(iMonitorCount);
    //

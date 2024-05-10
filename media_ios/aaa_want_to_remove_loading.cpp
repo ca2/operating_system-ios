@@ -77,7 +77,7 @@ namespace coreimage_imaging
 
       u8 * pbSrc = (u8 *)pdata;
 
-      ::collection::collection::count c = (count)pimage->area();
+      ::collection::count c = (count)pimage->area();
 
       while (c-- > 0)
       {

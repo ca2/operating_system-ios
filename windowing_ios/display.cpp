@@ -31,7 +31,7 @@ namespace windowing_ios
    }
 
 
-   ::raw::collection::collection::count display::get_monitor_count()
+   ::raw::collection::count display::get_monitor_count()
    {
     
       return ns_monitor_count();

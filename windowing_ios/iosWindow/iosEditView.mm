@@ -1071,41 +1071,44 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (void)selectionChanged
 {
    
+   ns_main_async(^{
+      [ self setNeedsDisplay ];
+      
+   //   // If not in editing mode, we don't show the caret.
+   //    if (!self.editing) {
+   ////        [self.caretView removeFromSuperview];
+   //        return;
+   //    }
+   ////   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
+   ////
+   ////
+   ////   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
+   ////   long length = end - beg;
+   //   /*
+   //
+   //     If there is no selection range (always true for this sample), find the insert point rect and create a caretView to draw the caret at this position.
+   //     */
+   //    if (self.rangeSelected.length == 0) {
+   ////        self.caretView.frame = [self caretRectForIndex:(int)self.selectedTextRange.location];
+   ////        if (self.caretView.superview == nil) {
+   ////            [self addSubview:self.caretView];
+   ////            [self setNeedsDisplay];
+   ////        }
+   ////        // Set up a timer to "blink" the caret.
+   ////        [self.caretView delayBlink];
+   //    }
+   //    else {
+   //      // If there is an actual selection, don't draw the insertion caret.
+   ////        [self.caretView removeFromSuperview];
+   ////        [self setNeedsDisplay];
+   //    }
+   //
+   //    if (self.rangeMarked.location != NSNotFound) {
+   ////        [self setNeedsDisplay];
+   //    }
+   });
    
-   [ self setNeedsDisplay ];
-   
-//   // If not in editing mode, we don't show the caret.
-//    if (!self.editing) {
-////        [self.caretView removeFromSuperview];
-//        return;
-//    }
-////   long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
-////
-////
-////   long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
-////   long length = end - beg;
-//   /*
-//    
-//     If there is no selection range (always true for this sample), find the insert point rect and create a caretView to draw the caret at this position.
-//     */
-//    if (self.rangeSelected.length == 0) {
-////        self.caretView.frame = [self caretRectForIndex:(int)self.selectedTextRange.location];
-////        if (self.caretView.superview == nil) {
-////            [self addSubview:self.caretView];
-////            [self setNeedsDisplay];
-////        }
-////        // Set up a timer to "blink" the caret.
-////        [self.caretView delayBlink];
-//    }
-//    else {
-//      // If there is an actual selection, don't draw the insertion caret.
-////        [self.caretView removeFromSuperview];
-////        [self setNeedsDisplay];
-//    }
-//
-//    if (self.rangeMarked.location != NSNotFound) {
-////        [self setNeedsDisplay];
-//    }
+
 }
 
 

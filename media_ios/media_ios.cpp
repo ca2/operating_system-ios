@@ -45,7 +45,8 @@ void media_ios::on_initialize_particle()
 void * media_ios::new_object(const char * psz)
 {
    
-   if(!strcmp(psz, "iosAudioPickerViewController as UIViewController"))
+   ::string str(psz);
+   if(str == "iosAudioPickerViewController as UIViewController")
    {
       
 //      return new_iosAudioPickerViewController_as_UIViewController();

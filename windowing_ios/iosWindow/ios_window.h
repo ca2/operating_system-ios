@@ -8,9 +8,10 @@
 
 #pragma once
 
-
+#ifdef __OBJC__
 //#include "acme/user/user/_const_key.h"
-
+#import <UIKit/UIKit.h>
+#endif
 
 #ifdef __OBJC__
 @class iosWindow;

@@ -39,7 +39,7 @@ namespace acme_ios
 
       m_pAcmePosix = this;
 
-      factory()->add_factory_item < ::nano_window_implementation >();
+      factory()->add_factory_item < ::nano::user::window_implementation >();
 
    }
 

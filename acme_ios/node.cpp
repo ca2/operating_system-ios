@@ -1006,9 +1006,9 @@ unsigned int * puiPid)
     
       auto argc = platform()->m_argc;
 
-      auto argv = platform()->m_argv;
+      auto args = platform()->m_args;
 
-      ns_acme_application_main(argc, argv, nullptr);
+      ns_acme_application_main(argc, args, nullptr);
       
    }
 

@@ -60,32 +60,48 @@ void node::_will_finish_launching()
       //psystem->release();
 
    }
-      
    
+   
+   if(!session()->m_paurasession->user()->windowing())
+   {
+      
+      session()->m_paurasession->user()->create_windowing();
+      
+   }
+   
+   auto psession = psystem->m_pacmesession->m_paurasession;
+   
+   auto puser = psession->m_puser;
+   
+   auto pwindowing = puser->windowing();
+   
+   pwindowing->defer_initialize_host_window(nullptr);
+
    system()->defer_post_initial_request();
 
    //return ::success;
    
 }
 
-//
-//void node::on_start_system()
-//{
-//   
-//   auto psystem = system();
-////   
-////   auto psession = psystem->m_pacmesession->m_paurasession;
-////   
-////   auto puser = psession->m_puser;
-////   
-////   auto pwindowing = puser->windowing();
-////   
-////   pwindowing->defer_initialize_host_window(nullptr);
-//   
-//   psystem->defer_post_initial_request();
-//
-//   
-//}
+
+void node::on_start_system()
+{
+   
+   ::aura_ios::node::on_start_system();
+   
+   
+   //psystem->defer_post_initial_request();
+
+   
+}
+
+
+
+void node::on_app_activated()
+{
+   
+   
+}
 
 //   bool node::is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt)
 //   {

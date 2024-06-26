@@ -48,6 +48,29 @@ namespace windowing_ios
    }
    
 
+   bool display::get_zoomed_window_site(::collection::index iWorkspace, ::rectangle_i32 & rectangle)
+   {
+
+      return get_monitor_rectangle(iWorkspace, rectangle);
+      
+   }
+
+
+int display::get_zoomed_title_bar_height()
+{
+   
+   ::rectangle_i32 r1;
+   get_monitor_rectangle(0, r1);
+   
+   ::rectangle_i32 r2;
+   get_workspace_rectangle(0, r2);
+ 
+   return ::abs(r2.top() - r1.top());
+   
+}
+
+
+
 } // namespace windowing_ios
 
 

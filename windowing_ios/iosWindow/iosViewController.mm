@@ -26,6 +26,15 @@ double get_status_bar_frame_height();
    return YES;
 }
 
+
+-(void)dealloc
+{
+   
+   
+   
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

@@ -826,7 +826,7 @@
    
    CGContextSaveGState(context);
    
-   ///[ [ UIColor whiteColor ] set];
+   //[ [ UIColor blueColor ] setFill];
    
 //   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
 //   
@@ -866,8 +866,32 @@
 //         //CGContextTranslateCTM(context, -cy / 2, -cx / 2);
 //         
 //      }
+//      {
+//         
+//            CGContextSetBlendMode(context, kCGBlendModeCopy);
+//
+//            CGContextSetRGBFillColor(context, 255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 155 / 255.0f);
+//            
+//            auto rectArtifact2 = rect;
+//            
+////            rectArtifact2.size.width /= 4;
+////            
+////            rectArtifact2.size.height /= 4;
+//            
+//            //rectArtifact2.origin.x = rect.size.width - rectArtifact2.size.width;
+//            
+//            //rectArtifact2.origin.y = rect.size.height - rectArtifact2.size.height;
+//         
+//         rectArtifact2.origin.x = 0;
+//         rectArtifact2.origin.y = 0;
+//
+//            CGContextFillRect(context, rectArtifact2);
+//            
+//         }
+//      //UIRectFill(rect);
       
-      //UIRectFill(rect);
+      //if(0)
+      {
       
 //      int x = p->ios_window_get_x();
 //      
@@ -876,7 +900,8 @@
 //      CGContextTranslateCTM(context, x, y);
       
       p->ios_window_draw(context, rect.size);
-      
+      }
+
    }
    
    CGContextRestoreGState(context);

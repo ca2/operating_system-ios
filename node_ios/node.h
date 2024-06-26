@@ -44,7 +44,8 @@ namespace node_ios
 //      
 //      void _will_finish_launching() override;
 //      
-//      void on_start_system() override;
+      void on_app_activated() override;
+      void on_start_system() override;
       //bool is_keyboard_hook_enabled(::user::interaction * puserinteractionEnablePrompt) override;
 
 //

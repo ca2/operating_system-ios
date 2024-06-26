@@ -13,6 +13,7 @@
 //
 #import "_mm.h"
 #import "iosWindowApp.h"
+#import "iosViewController.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 // apple_media_t pointer is a opaque pointer to a MPMediaItem
@@ -45,6 +46,8 @@ double get_status_bar_frame_height();
       
    }
    
+   self.m_thiswindow = self;
+   
    [self setWindowLevel:UIWindowLevelNormal];
 
 	[self setOpaque:NO];
@@ -52,8 +55,17 @@ double get_status_bar_frame_height();
    //[self setBackgroundColor: [ UIColor whiteColor ] ];
    
    [self setClearsContextBeforeDrawing:FALSE];
+   
+   iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+   
+   
+   papp.m_iosviewcontroller = [[iosViewController alloc] init];
+   
+   iosViewController * pcontroller = papp.m_iosviewcontroller;
 		
-   m_controller = [[iosViewController alloc] init];
+   self.m_initialcontroller = pcontroller;
+   
+   m_controller = pcontroller;
    
    m_controller->m_ioswindow = self;
 
@@ -67,6 +79,15 @@ double get_status_bar_frame_height();
    rect.origin.y = 0;
    rect.size = contentRect.size;
    
+   [NSNotificationCenter.defaultCenter addObserver:self
+                                            selector:@selector(windowDidBecomeVisible:)
+                                                name:UIWindowDidBecomeVisibleNotification
+                                              object:self];
+   [NSNotificationCenter.defaultCenter addObserver:self
+                                            selector:@selector(windowDidBecomeHidden:)
+                                                name:UIWindowDidBecomeHiddenNotification
+                                              object:self];
+
    m_pwindow->m_dStatusBarFrameHeight = get_status_bar_frame_height();
    
    m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
@@ -75,6 +96,12 @@ double get_status_bar_frame_height();
    
 }
 
+-(void)dealloc
+{
+   
+   
+   
+}
 
 - (void)create_view
 {
@@ -104,7 +131,7 @@ double get_status_bar_frame_height();
    
    iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
    
-   papp.iosframeview = frameView;
+   papp.m_iosframeview = frameView;
    
 }
 
@@ -247,6 +274,19 @@ double get_status_bar_frame_height();
 }
 
 
+- (void)windowDidBecomeVisible:(NSNotification*)pnotification
+{
+   
+   m_pwindow->ios_window_on_show();
+   
+}
+
+- (void)windowDidBecomeHidden:(NSNotification*)pnotification
+{
+   
+   m_pwindow->ios_window_on_hide();
+   
+}
 
 
 @end

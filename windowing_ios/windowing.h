@@ -26,7 +26,7 @@ namespace windowing_ios
       
       //::pointer < class window >                   m_pwindowCapture;
       
-      ::pointer < class window >                   m_pwindowApplicationHost;
+      //::pointer < class window >                   m_pwindowApplicationHost;
       
       ///::pointer < class window >
          //m_pwindowKeyboardFocus;
@@ -48,11 +48,11 @@ namespace windowing_ios
       ::windowing::text_editor_interface * get_text_editor_interface() override;
 
       
-virtual     void defer_initialize_host_window(const RECTANGLE_I32* lpcrect);
+     void defer_initialize_host_window(const ::rectangle_i32* lpcrect) override;
      
       ::windowing::window * get_application_host_window() override;
       
-      
+      void clear_active_window(::thread *, ::windowing::window *) override;
 //      ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
 
       void os_menu_item_enable(void * pitem, bool bEnable) override;

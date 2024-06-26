@@ -11,6 +11,7 @@
 
 @class iosWindow;
 @class iosFrameView;
+@class iosViewController;
 
 @interface iosWindowApp : ios_app
 {
@@ -23,8 +24,9 @@
    
 }
 
-@property (strong, nonatomic) iosWindow * ioswindow;
-@property (strong, nonatomic) iosFrameView * iosframeview;
+@property (strong, nonatomic) iosWindow * m_ioswindow;
+@property (strong, nonatomic) iosFrameView * m_iosframeview;
+@property (strong, nonatomic) iosViewController *m_iosviewcontroller;
 
 //-(enum_status)deferInitializeiCloudContainerAccess;
 

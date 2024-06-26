@@ -34,6 +34,11 @@ class ios_window;
    bool m_bForOpeningMedia;
 }
 
+
+@property(strong) iosWindow *m_thiswindow;
+@property UIViewController *m_initialcontroller;
+
+
 -(void) pickBrowse;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;
 

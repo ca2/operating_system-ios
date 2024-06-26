@@ -8,10 +8,13 @@
 
 #include "_mm.h"
 #import "iosWindowApp.h"
+#include "acme/constant/id.h"
 //#include <AVFoundation/AVFoundation.h>
 //void os_on_will_finish_launching();
 
 //void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
+void system_id_update(void* pSystem, ::i64 iUpdate, ::i64 iPayload);
+void * application_system(void * pApplication);
 
 i32 defer_run_system();
 
@@ -47,7 +50,8 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
    
-   
+   system_id_update(application_system(m_pApplication), id_app_activated, 0);
+
    return YES;
    
 }

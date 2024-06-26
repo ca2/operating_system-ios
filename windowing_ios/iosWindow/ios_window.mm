@@ -41,10 +41,10 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle
       
       iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
 
-      if(!papp.ioswindow)
+      if(!papp.m_ioswindow)
       {
          
-         papp.ioswindow = pioswindow;
+         papp.m_ioswindow = pioswindow;
          
       }
        
@@ -79,6 +79,8 @@ void ios_window::ios_window_show()
    ns_main_async(^{
       
       [m_pioswindow makeKeyAndVisible];
+      //iosViewController * pcontroller = m_pioswindow->m_controller;
+      //[pcontroller presentViewController:pcontroller animated:TRUE completion:nil];
       
    });
 }

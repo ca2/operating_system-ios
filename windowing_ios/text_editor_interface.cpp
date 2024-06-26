@@ -115,13 +115,13 @@ namespace windowing_ios
                    auto rectangle = puserinteraction->window_rectangle();
                    string strText;
                    
-                   puserinteraction->_001GetText(strText);
+                   puserinteraction->get_text(strText);
                    
                    strsize iSelBeg = 0;
                    
                    strsize iSelEnd = 0;
                    
-                   puserinteraction->_001GetSel(iSelBeg,iSelEnd);
+                   puserinteraction->get_text_selection(iSelBeg,iSelEnd);
                    
                    pwindow->ios_window_edit_on_set_focus(rectangle.left(), rectangle.top(), rectangle.right(),
                                                          rectangle.bottom(),

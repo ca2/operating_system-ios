@@ -477,10 +477,6 @@ namespace aura_ios
 //      void OnMDIActivate(bool bActivate,
 //                         ::user::interaction * pActivateWnd, ::user::interaction * pDeactivateWnd);
 
-      // menu loop notification messages
-//      void OnEnterMenuLoop(bool bIstrack_popup_menu);
-//      void OnExitMenuLoop(bool bIstrack_popup_menu);
-
       // Win4 messages
       //xxx      void OnStyleChanged(i32 nStyleType, LPSTYLESTRUCT lpStyleStruct);
       //xxx      void OnStyleChanging(i32 nStyleType, LPSTYLESTRUCT lpStyleStruct);

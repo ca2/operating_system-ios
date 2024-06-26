@@ -98,38 +98,43 @@ namespace windowing_ios
 
    }
 
+void windowing::clear_active_window(::thread *, ::windowing::window *)
+{
 
-   void windowing::defer_initialize_host_window(const RECTANGLE_I32* lpcrect)
+   
+
+}
+   void windowing::defer_initialize_host_window(const ::rectangle_i32* lpcrect)
    {
-      
-      if(::is_set(m_pwindowApplicationHost))
-      {
-         
-         return;
-         
-      }
-      
-      __construct(m_phostinteraction);
-      
-      m_phostinteraction->create_host();
-      
-      m_phostinteraction->display();
-      
+      ::sandbox_windowing::windowing::defer_initialize_host_window(lpcrect);
+//      if(::is_set(m_pwindowApplicationHost))
+//      {
+//         
+//         return;
+//         
+//      }
+//      
+//      __construct(m_phostinteraction);
+//      
+//      m_phostinteraction->create_host();
+//      
+//      m_phostinteraction->display();
+//      
 //      m_phostinteraction->set_need_layout();
 //      
 //      m_phostinteraction->set_need_redraw();
 //      
 //      m_phostinteraction->post_redraw();
-      
-      m_pwindowApplicationHost = m_phostinteraction->window();
+//      
+//      m_pwindowApplicationHost = m_phostinteraction->window();
 
    }
 
 
    ::windowing::window * windowing::get_application_host_window()
    {
-
-      return m_pwindowApplicationHost;
+      return ::sandbox_windowing::windowing::get_application_host_window();
+      //return m_pwindowApplicationHost;
 
    }
 

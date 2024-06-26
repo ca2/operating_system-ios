@@ -263,9 +263,9 @@ namespace windowing_ios
 
          //puserinteraction->place(rectParam);
 
-      auto ptask = ::get_task();
+      //auto ptask = ::get_task();
       
-      puserinteraction->m_pthreadUserInteraction = ptask;
+      //puserinteraction->m_pthreadUserInteraction = ptask;
          
          //puserinteraction->place(rectParam);
 
@@ -785,10 +785,11 @@ namespace windowing_ios
    void window::window_update_screen()
    {
       
+      ::sandbox_windowing::window::window_update_screen();
       
       configure_window_unlocked();
       
-      __update_graphics_buffer();
+      //__update_graphics_buffer();
       
       ios_window_redraw();
       
@@ -1134,9 +1135,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       if(pinteraction)
       {
          
-         pinteraction->_001SetText(pszText, ::e_source_user);
+         pinteraction->set_text(pszText, ::e_source_user);
 
-         pinteraction->_001SetSel(iSel, iEnd, ::e_source_user);
+         pinteraction->set_text_selection(iSel, iEnd, ::e_source_user);
          
       }
       

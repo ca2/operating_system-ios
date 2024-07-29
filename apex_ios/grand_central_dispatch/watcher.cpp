@@ -21,12 +21,14 @@ namespace grand_central_dispatch
    }
 
 
-   bool watch::open(const ::file::path & pathFolder, bool bRecursive)
+   bool watch::open(const ::file::path & pathFolderParam, bool bRecursive)
    {
       
-      manual_reset_event ev;
+      auto pevent = __create_new < manual_reset_event >();
       
-      fork([this, &ev, pathFolder]()
+      auto pathFolder = pathFolderParam;
+      
+      fork([this, pevent, pathFolder]()
       {
          
          // Add a file descriptor for our test file
@@ -68,14 +70,14 @@ namespace grand_central_dispatch
    //              }
          });
          
-         ev.SetEvent();
+         pevent->SetEvent();
          
          // Start monitoring the test file
          dispatch_resume(m_dispatchsource);
 
       });
       
-      ev.wait();
+      pevent->wait();
       
       if(!::file::watch::open(pathFolder, bRecursive))
       {

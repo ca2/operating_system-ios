@@ -39,7 +39,7 @@ class ios_window;
 @property UIViewController *m_initialcontroller;
 
 
--(void) pickBrowse;
+-(void) pickBrowse:(char **) ppszUTType;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;
 
 @end

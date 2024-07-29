@@ -16,6 +16,8 @@
 #import "iosViewController.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
+
+NSArray < UTType * > * uttypea_from_strdupa(char ** pp);
 // apple_media_t pointer is a opaque pointer to a MPMediaItem
 struct apple_media_t;
 
@@ -135,7 +137,7 @@ double get_status_bar_frame_height();
    
 }
 
--(void) pickBrowse
+-(void) pickBrowse :(char ** ) ppszUTType
 {
    
    self->m_bForOpeningFile = true;
@@ -150,8 +152,12 @@ double get_status_bar_frame_height();
         //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
 //         auto picker = [[UIDocumentPickerViewController alloc]
 //          initForOpeningContentTypes:@[ UTTypeFolder ]];
+         //@[ UTTypeImage ]]
+         auto uttypea = uttypea_from_strdupa(ppszUTType);
+//         auto uttypea = [[NSMutableArray alloc] init];
+//         [uttypea addObject:[UTType  typeWithIdentifier:[[NSString alloc] initWithUTF8String:psz];
          auto picker = [[UIDocumentPickerViewController alloc]
-          initForOpeningContentTypes:@[ UTTypeImage ]];
+          initForOpeningContentTypes:uttypea];
          picker.delegate = self;
          [self->m_controller presentViewController:picker animated:YES completion:nil];
       }
@@ -290,3 +296,32 @@ double get_status_bar_frame_height();
 
 
 @end
+
+
+NSArray < UTType * > * uttypea_from_strdupa(char ** pp)
+{
+
+   NSMutableArray < UTType * > * uttypea = [[NSMutableArray < UTType * > alloc] init];
+   
+   auto ppiterator = pp;
+
+   while (*ppiterator != nullptr)
+   {
+      
+      NSString * str = [[NSString alloc] initWithUTF8String:*ppiterator];
+      
+      UTType * type = [UTType  typeWithIdentifier: str];
+
+      [uttypea addObject: type];
+      
+      ::free(*ppiterator);
+      
+      ppiterator++;
+
+   }
+
+   free(pp);
+
+   return uttypea;
+
+}

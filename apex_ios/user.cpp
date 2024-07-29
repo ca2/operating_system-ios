@@ -37,7 +37,7 @@ char** mm_browse_file_open(void * psystem, const char ** pszStartDir, bool bMult
 string_array apple_browse_file_open(class ::acme::system * psystem, const char ** pszStartDir, bool bMulti)
 {
    
-   return stringa_from_strdup(mm_browse_file_open(psystem, pszStartDir, bMulti));
+   return stringa_from_strdupa(mm_browse_file_open(psystem, pszStartDir, bMulti));
 
 }
 

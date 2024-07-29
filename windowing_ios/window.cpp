@@ -13,6 +13,7 @@
 #include "windowing.h"
 #include "acme/constant/message.h"
 #include "acme/constant/user.h"
+#include "acme/filesystem/filesystem/file_system_options.h"
 #include "aqua/multimedia/media_item_picker.h"
 #include "aura/graphics/draw2d/draw2d.h"
 #include "aura/graphics/graphics/graphics.h"
@@ -20,6 +21,7 @@
 #include "aura/graphics/image/image.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/primitive/collection/string_array.h"
+#include "acme/primitive/collection/str_array.h"
 #include "aqua/multimedia/media_item_picker_callback.h"
 #include "aqua/platform/application.h"
 #include "aura/platform/session.h"
@@ -2511,8 +2513,9 @@ void window::ios_window_text_view_did_begin_editing()
 
 void window::pick_browse()
 {
-   ios_window_pick_browse();
-
+   
+   auto ppszUTType = strdupa_from_stringa(application()->m_pfilesystemoptions->m_straUTType);
+   ios_window_pick_browse(ppszUTType);
    
 }
 

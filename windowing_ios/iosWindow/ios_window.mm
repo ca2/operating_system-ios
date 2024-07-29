@@ -419,10 +419,10 @@ void ios_window::ios_window_hide()
 //}
 
 
-void ios_window::ios_window_pick_browse()
+void ios_window::ios_window_pick_browse(char ** ppszUTType)
 {
 
-   [ m_pioswindow pickBrowse ];
+   [ m_pioswindow pickBrowse : ppszUTType ];
    
 }
 

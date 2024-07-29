@@ -60,7 +60,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
    
-   //NSString * strUrl = [ url absoluteString ];
+   NSString * strUrl = [ url absoluteString ];
    
 //   ::function < void(bool) > function = [completion](bool bSuccess)
 //   {
@@ -70,6 +70,8 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 //   };
    
    //m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
+   
+   system_id_update(application_system(m_pApplication), id_did_pick_document_at_url, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
    
    return true;
    

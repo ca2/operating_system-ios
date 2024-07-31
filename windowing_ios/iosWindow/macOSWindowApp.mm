@@ -14,7 +14,6 @@
 
 //void on_start_system(void * pSystem);
 
-//void macos_calc_dark_mode();
 void os_system_start();
 //int file_put_contents(const char * path, const char * contents);
 //void file_add_contents_raw(const char * path, const char * psz);
@@ -202,8 +201,6 @@ if(str != nil)
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
-   
-   //macos_calc_dark_mode();
    
    node_will_finish_launching(application_system(m_pApplication));
 
@@ -1027,23 +1024,7 @@ void ns_create_main_menu()
 //
 
 
-//
-//namespace user
-//{
-//
-//
-//
-//
-//   bool is_dark_mode()
-//   {
-//      
-//         
-//      return g_bMacosDarkMode;
-//      
-//   }
-//
-//
-//} // namespace user
+
 
 
 

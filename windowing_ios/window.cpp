@@ -1129,7 +1129,24 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   bool window::ios_window_on_text(const char * pszText, long iSel, long iEnd)
+   strsize utf8_len_from_unicode_len_from_utf8_string(const char * pszText, strsize iUnicodeLen)
+   {
+      
+      auto p = pszText;
+      
+      for(strsize i = 0; i < iUnicodeLen; i++)
+      {
+       
+         unicode_increment(p);
+         
+      }
+
+      return p - pszText;
+
+   }
+
+
+   bool window::ios_window_on_text(const char * pszText, long iUnicodeBeg, long iUnicodeEnd)
    {
       
       auto pinteraction = m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
@@ -1139,7 +1156,11 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          
          pinteraction->set_text(pszText, ::e_source_user);
 
-         pinteraction->set_text_selection(iSel, iEnd, ::e_source_user);
+         strsize iBeg = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeBeg);
+         
+         strsize iEnd = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeEnd);
+         
+         pinteraction->set_text_selection(iBeg, iEnd, ::e_source_user);
          
       }
       

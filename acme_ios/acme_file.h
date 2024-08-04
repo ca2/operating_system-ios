@@ -36,6 +36,10 @@ namespace acme_ios
       
       ::memory get_app_cloud_data(const ::file::path & path, const char * pszContainerId) override;
       
+      void put_documents_cloud_data(const ::file::path & path, const ::block & block) override;
+
+      ::memory get_documents_cloud_data(const ::file::path & path) override;
+      
 
    };
 

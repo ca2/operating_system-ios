@@ -65,14 +65,14 @@ namespace windowing_ios
          pwindow->ios_window_get_text(psz, len);
          
          str.release_buffer(len);
+////         
+////         wstring wstr(str);
          
-         wstring wstr(str);
+         auto iUnicodeBeg = ansi_to_wd32_len(str, iBeg);
          
-         auto iUtf8Beg = wd32_to_ansi_len(wstr, iBeg);
+         auto iUnicodeEnd = ansi_to_wd32_len(str, iEnd);
          
-         auto iUtf8End = wd32_to_ansi_len(wstr, iEnd);
-         
-         pwindow->ios_window_set_sel(iUtf8Beg, iUtf8End);
+         pwindow->ios_window_set_sel(iUnicodeBeg, iUnicodeEnd);
           
       }
 

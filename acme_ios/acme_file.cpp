@@ -18,6 +18,10 @@
 
 ::enum_status ns_cloud_get_data_with_container_id(void ** ppdata, long & l, const char * psz, const char * psz_iCloudContainerIdentifier);
 
+::enum_status ns_cloud_set_documents_data(const char * psz, const void * p, long l);
+
+::enum_status ns_cloud_get_documents_data(void ** ppdata, long & l, const char * psz);
+
 
 namespace acme_ios
 {
@@ -114,6 +118,46 @@ namespace acme_ios
       return m;
       
    }
+
+
+void acme_file::put_documents_cloud_data(const ::file::path & path, const ::block & block)
+{
+
+   ns_cloud_set_documents_data(path.c_str(), block.data(), block.size());
+
+}
+
+
+::memory acme_file::get_documents_cloud_data(const ::file::path & path)
+{
+   
+   ::memory m;
+   
+   void * p = nullptr;
+
+   long l = 0;
+   
+   ::e_status estatus = ns_cloud_get_documents_data(&p, l, path);
+   
+   if(estatus.failed())
+   {
+      
+      throw ::exception(estatus);
+      
+   }
+   
+   if(::is_set(p))
+   {
+      
+      m.assign(p, l);
+      
+      ::free(p);
+      
+   }
+      
+   return m;
+   
+}
 
 
 //   ::file::path acme_file::module()

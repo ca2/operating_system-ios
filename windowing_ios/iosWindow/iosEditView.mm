@@ -895,9 +895,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    
    UITextRange * range = self.selectedTextRange;
 
-   
    long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
-   
    
    long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
 

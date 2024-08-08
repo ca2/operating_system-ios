@@ -41,6 +41,7 @@
 		9A94DEC9282C43AE00F5C1CA /* monitor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E76282A26B000B1621E /* monitor.mm */; };
 		9A9B9B3528483ED0005CA950 /* text_editor_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9B3328483ED0005CA950 /* text_editor_interface.cpp */; };
 		9A9B9B3628483ED0005CA950 /* text_editor_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A9B9B3428483ED0005CA950 /* text_editor_interface.h */; };
+		9AA56BB92C6276F500BF56ED /* document_picker_delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA56BB82C6276F500BF56ED /* document_picker_delegate.mm */; };
 		9AF115A42844E8F6006B2424 /* message_box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AF115A22844E8F6006B2424 /* message_box.cpp */; };
 		9AF115A52844E8F6006B2424 /* message_box.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AF115A32844E8F6006B2424 /* message_box.h */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,8 @@
 		9AA14E9E282A26B000B1621E /* SBSystemPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBSystemPreferences.h; sourceTree = "<group>"; };
 		9AA14EA0282A26B000B1621E /* windowing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = windowing.cpp; sourceTree = "<group>"; };
 		9AA14EA2282A26B000B1621E /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
+		9AA56BB82C6276F500BF56ED /* document_picker_delegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = document_picker_delegate.mm; sourceTree = "<group>"; };
+		9AA56BBB2C62774900BF56ED /* document_picker_delegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = document_picker_delegate.h; sourceTree = "<group>"; };
 		9AA8024A266571D600A6B449 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9AEB212F2B6A091200B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
 		9AEB21302B6A091200B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 		9A750E9B282B668400C4861B /* iosWindow */ = {
 			isa = PBXGroup;
 			children = (
+				9AA56BBB2C62774900BF56ED /* document_picker_delegate.h */,
+				9AA56BB82C6276F500BF56ED /* document_picker_delegate.mm */,
 				9A750EB1282B668500C4861B /* ios_window.h */,
 				9A750EAF282B668500C4861B /* ios_window.mm */,
 				9A750EA3282B668500C4861B /* iosEditView.h */,
@@ -396,6 +401,7 @@
 				9A94DEC3282C3FE000F5C1CA /* icon.cpp in Sources */,
 				9A750ECD282B668500C4861B /* ios_window.mm in Sources */,
 				9A94DEBA282C3FE000F5C1CA /* windowing_ios.cpp in Sources */,
+				9AA56BB92C6276F500BF56ED /* document_picker_delegate.mm in Sources */,
 				9A750ED1282B668500C4861B /* iosEditView.mm in Sources */,
 				9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */,
 			);

@@ -1236,34 +1236,34 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    
    //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
-   if ([touches count] == 1)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      if ([touch tapCount] == 1)
-      {
-         
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
-         
-         p->ios_window_mouse_down(0, x, y);
-         
-         //         if(allTouchesEnded)
-         //         {
-         //
-         //            p->ios_window_mouse_up(x, y);
-         //
-         //         }
-         
-      }
-      
-   }
+//   if ([touches count] == 1)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      if ([touch tapCount] == 1)
+//      {
+//         
+//         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
+//         
+//         p->ios_window_mouse_down(0, x, y);
+//         
+//         //         if(allTouchesEnded)
+//         //         {
+//         //
+//         //            p->ios_window_mouse_up(x, y);
+//         //
+//         //         }
+//         
+//      }
+//      
+//   }
    
 }
 
@@ -1289,41 +1289,41 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    
    [super touchesMoved:touches withEvent:event];
    
-   ios_window * p = m_ioswindow->m_pwindow;
-   
-   if ([touches count] == 1)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      if ([touch tapCount] == 1)
-      {
-         
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
-         
-         p->ios_window_mouse_moved(0, x, y);
-         
-      }
-      else
-      {
-         
-         //            twoFingerTapIsPossible = NO;
-         
-      }
-      
-   }
-   else if([touches count] <= 0)
-   {
-      
-      p->ios_window_mouse_up(0, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.x, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.y);
-      
-   }
+//   ios_window * p = m_ioswindow->m_pwindow;
+//   
+//   if ([touches count] == 1)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      if ([touch tapCount] == 1)
+//      {
+//         
+//         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan = point;
+//         
+//         p->ios_window_mouse_moved(0, x, y);
+//         
+//      }
+//      else
+//      {
+//         
+//         //            twoFingerTapIsPossible = NO;
+//         
+//      }
+//      
+//   }
+//   else if([touches count] <= 0)
+//   {
+//      
+//      p->ios_window_mouse_up(0, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.x, m_ioswindow->m_controller->m_iosframeview->m_pointLastTouchBegan.y);
+//      
+//   }
    
 }
 
@@ -1333,64 +1333,64 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    
    [super touchesEnded:touches withEvent:event];
    
-   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
-   
-   ios_window * p = m_ioswindow->m_pwindow;
-   
-   if ([touches count] == 1 && allTouchesEnded)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      // --------------------------------------------------------
-      //
-      //   tap/ClickCount == 0 :
-      //   not properly a tap/click,
-      //   (but-a/"->"){eco/green-lang): drag.
-      //   So, still send mouse up message, at the final location.
-      //
-      if ([touch tapCount] == 0)
-      {
-         
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         p->ios_window_mouse_up(0, x, y);
-         
-      }
-      else if ([touch tapCount] == 1)
-      {
-         
-         // if touch is a single tap, store its location so we can average it with the second touch location
-         
-         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
-         
-         //CGRect e = [[UIScreen mainScreen] applicationFrame];
-         
-         //int H = (int) e.size.height;
-         
-         int x = point.x;
-         
-         //int y = H - point.y;
-         
-         int y = point.y;
-         
-         p->ios_window_mouse_up(0, x, y);
-         
-      }
-      else
-      {
-         
-         //            twoFingerTapIsPossible = NO;
-         
-      }
-      
-   }
-   
-   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+//   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+//   
+//   ios_window * p = m_ioswindow->m_pwindow;
+//   
+//   if ([touches count] == 1 && allTouchesEnded)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      // --------------------------------------------------------
+//      //
+//      //   tap/ClickCount == 0 :
+//      //   not properly a tap/click,
+//      //   (but-a/"->"){eco/green-lang): drag.
+//      //   So, still send mouse up message, at the final location.
+//      //
+//      if ([touch tapCount] == 0)
+//      {
+//         
+//         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         p->ios_window_mouse_up(0, x, y);
+//         
+//      }
+//      else if ([touch tapCount] == 1)
+//      {
+//         
+//         // if touch is a single tap, store its location so we can average it with the second touch location
+//         
+//         CGPoint point = [touch locationInView:m_ioswindow->m_controller->m_iosframeview];
+//         
+//         //CGRect e = [[UIScreen mainScreen] applicationFrame];
+//         
+//         //int H = (int) e.size.height;
+//         
+//         int x = point.x;
+//         
+//         //int y = H - point.y;
+//         
+//         int y = point.y;
+//         
+//         p->ios_window_mouse_up(0, x, y);
+//         
+//      }
+//      else
+//      {
+//         
+//         //            twoFingerTapIsPossible = NO;
+//         
+//      }
+//      
+//   }
+//   
+//   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
    
 }
 

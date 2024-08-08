@@ -6,11 +6,14 @@
 //
 #include "framework.h"
 #include "node.h"
+#include "acme/primitive/collection/str_array.h"
+#include "aura/platform/application.h"
 #include "aura/platform/session.h"
 #include "aura/platform/system.h"
 #include "aura/user/user/user.h"
 #include "aura/windowing/windowing.h"
 #include "windowing_ios/message_box.h"
+#include "windowing_ios/window.h"
 
 
 void ns_app_run();
@@ -301,6 +304,57 @@ void node::ns_app_run()
    ns_windowing_application_main(argc, args, nullptr);
    
 }
+
+
+   void node::_node_file_dialog(::file::file_dialog * pdialog)
+   {
+
+      auto puserinteraction = application()->m_pauraapplication->m_puserinteractionMain;
+      
+      if(!puserinteraction)
+      {
+         
+         return;
+         
+      }
+      
+      auto pwindow = puserinteraction->window();
+      
+      if(!pwindow)
+      {
+         
+         return;
+         
+      }
+      
+      ::pointer < ::windowing_ios::window > pioswindow = pwindow;
+      
+      ::string_array stra;
+      
+      stra.add("application.txt");
+      
+      auto ppszUTType = strdupa_from_stringa(stra);
+      
+      ::pointer < ::file::file_dialog > pfiledialog = pdialog;
+      
+      ::function < void(const ::file::path & path) > callback = [pfiledialog](const ::file::path & path)
+      {
+        
+         if(path.has_char())
+         {
+            
+            pfiledialog->m_patha.add(path);
+            
+         }
+         
+         pfiledialog->m_function(pfiledialog);
+         
+      };
+      
+      pioswindow->ios_window_pick_browse(ppszUTType, callback);
+
+      
+   }
 
 
 } // namespace node_ios

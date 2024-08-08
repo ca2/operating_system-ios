@@ -68,7 +68,9 @@ namespace node_ios
 
       void ns_app_run() override;
       
-      
+      void _node_file_dialog(::file::file_dialog * pdialog) override;
+
+
    };
 
 

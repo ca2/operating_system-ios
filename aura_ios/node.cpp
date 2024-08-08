@@ -150,8 +150,13 @@ namespace aura_ios
       
       if(pathFinal.begins_eat("pick-browse://"))
       {
+         
+         auto callback = [this](const ::file::path & path)
+         {
+            
+         };
 
-         application()->pick_browse();
+         application()->pick_browse(callback);
          
       }
       else if(pathFinal.begins_eat("apple.music://"))

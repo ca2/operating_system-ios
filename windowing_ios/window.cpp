@@ -28,6 +28,7 @@
 #include "aura/user/user/interaction_graphics_thread.h"
 #include "aura/user/user/interaction_impl.h"
 #include "aura/user/user/user.h"
+#include "acme/constant/user_key.h"
 #include "acme/operating_system/_.h"
 #include "acme/parallelization/message_queue.h"
 #include "aura/message/user.h"
@@ -1154,14 +1155,12 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       if(pinteraction)
       {
          
-         pinteraction->set_text(pszText, ::e_source_user);
-
          strsize iBeg = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeBeg);
          
          strsize iEnd = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeEnd);
          
-         pinteraction->set_text_selection(iBeg, iEnd, ::e_source_user);
-         
+         pinteraction->set_text_and_selection(pszText, iBeg, iEnd, ::e_source_user);
+
       }
       
       return true;
@@ -1273,6 +1272,19 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
             id = e_message_left_button_down;
 
+            auto psession = get_session();
+
+            try
+            {
+
+               psession->set_key_pressed(::user::e_key_left_button, true);
+
+            }
+            catch (...)
+            {
+
+            }
+
          }
          
           pmouse->m_pwindow = this;
@@ -1311,6 +1323,20 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       {
 
          id = e_message_left_button_up;
+         
+         auto psession = get_session();
+
+         try
+         {
+
+            psession->set_key_pressed(::user::e_key_left_button, false);
+
+         }
+         catch (...)
+         {
+
+         }
+
 
       }
       
@@ -2532,11 +2558,12 @@ void window::ios_window_text_view_did_begin_editing()
 
    }
 
-void window::pick_browse()
+void window::pick_browse(const ::function < void(const ::file::path & ) > & callback)
 {
    
    auto ppszUTType = strdupa_from_stringa(application()->m_pfilesystemoptions->m_straUTType);
-   ios_window_pick_browse(ppszUTType);
+   
+   ios_window_pick_browse(ppszUTType, callback);
    
 }
 

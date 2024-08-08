@@ -8,15 +8,16 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/platform/application.h"
 #include "acme_file.h"
 
 //
 //string apple_app_module_path();
 //
 
-::enum_status ns_cloud_set_data_with_container_id(const char * psz, const char * psz_iCloudContainerIdentifier, const void * p, long l);
+::e_status ns_cloud_set_data_with_container_id(const char * psz, const char * psz_iCloudContainerIdentifier, const void * p, long l);
 
-::enum_status ns_cloud_get_data_with_container_id(void ** ppdata, long & l, const char * psz, const char * psz_iCloudContainerIdentifier);
+::e_status ns_cloud_get_data_with_container_id(void ** ppdata, long & l, const char * psz, const char * psz_iCloudContainerIdentifier);
 
 ::enum_status ns_cloud_set_documents_data(const char * psz, const void * p, long l);
 
@@ -25,6 +26,21 @@
 
 namespace acme_ios
 {
+
+   
+   icloud_container::icloud_container()
+   {
+      
+      m_bInitialized = false;
+      
+   }
+
+
+   icloud_container::~icloud_container()
+   {
+   
+      
+   }
 
    
    acme_file::acme_file()
@@ -82,8 +98,30 @@ namespace acme_ios
    }
 
 
+   void acme_file::defer_initialize_icloud_container(const char * pszContainerId)
+   {
+      
+      auto & picloudcontainer = m_map_iCloudContainer[pszContainerId];
+      
+      if(picloudcontainer && picloudcontainer->m_bInitialized)
+      {
+       
+         return;
+         
+      }
+      
+      __defer_construct_new(picloudcontainer);
+      
+      
+      
+      
+   }
+
+
    ::memory acme_file::get_app_cloud_data(const ::file::path & path, const char * psz_iCloudContainerIdentifier)
    {
+      
+      defer_initialize_icloud_container(psz_iCloudContainerIdentifier);
       
       ::string strName;
       

@@ -419,10 +419,10 @@ void ios_window::ios_window_hide()
 //}
 
 
-void ios_window::ios_window_pick_browse(char ** ppszUTType)
+void ios_window::ios_window_pick_browse(char ** ppszUTType, const ::function < void(const ::file::path & path) > & callback)
 {
 
-   [ m_pioswindow pickBrowse : ppszUTType ];
+   [ m_pioswindow pickBrowse : ppszUTType callback : callback];
    
 }
 

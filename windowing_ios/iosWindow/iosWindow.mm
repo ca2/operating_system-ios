@@ -15,9 +15,9 @@
 #import "iosWindowApp.h"
 #import "iosViewController.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
+#include "document_picker_delegate.h"
 
 
-NSArray < UTType * > * uttypea_from_strdupa(char ** pp);
 // apple_media_t pointer is a opaque pointer to a MPMediaItem
 struct apple_media_t;
 
@@ -49,6 +49,8 @@ double get_status_bar_frame_height();
    }
    
    self.m_thiswindow = self;
+   
+   m_documentpickerdelegates = [[NSMutableArray < document_picker_delegate * > alloc] init];
    
    [self setWindowLevel:UIWindowLevelNormal];
 
@@ -137,29 +139,32 @@ double get_status_bar_frame_height();
    
 }
 
--(void) pickBrowse :(char ** ) ppszUTType
+-(void) pickBrowse :(char ** ) ppszUTType callback : (const ::function < void(const ::file::path & ) > &) callback
 {
    
-   self->m_bForOpeningFile = true;
-   self->m_pUserControllerForSaving = nullptr;
-   self->m_bForOpeningMedia = false;
+   auto picker = [ [ document_picker_delegate alloc ] initForOpeningFile : ppszUTType callback : callback];
+   
+   [m_documentpickerdelegates addObject:picker];
 
    //void ns_pick_viewer_document()
    ns_main_async(^{
       {
+//         
+//      //   auto picker = [[UIDocumentPickerViewController alloc]
+//        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
+////         auto picker = [[UIDocumentPickerViewController alloc]
+////          initForOpeningContentTypes:@[ UTTypeFolder ]];
+//         //@[ UTTypeImage ]]
+//         auto uttypea = uttypea_from_strdupa(ppszUTType);
+////         auto uttypea = [[NSMutableArray alloc] init];
+////         [uttypea addObject:[UTType  typeWithIdentifier:[[NSString alloc] initWithUTF8String:psz];
+////         self->m_bForOpeningFile = true;
+////         self->m_pUserControllerForSaving = nullptr;
+////         self->m_bForOpeningMedia = false;
+
          
-      //   auto picker = [[UIDocumentPickerViewController alloc]
-        //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
-//         auto picker = [[UIDocumentPickerViewController alloc]
-//          initForOpeningContentTypes:@[ UTTypeFolder ]];
-         //@[ UTTypeImage ]]
-         auto uttypea = uttypea_from_strdupa(ppszUTType);
-//         auto uttypea = [[NSMutableArray alloc] init];
-//         [uttypea addObject:[UTType  typeWithIdentifier:[[NSString alloc] initWithUTF8String:psz];
-         auto picker = [[UIDocumentPickerViewController alloc]
-          initForOpeningContentTypes:uttypea];
-         picker.delegate = self;
-         [self->m_controller presentViewController:picker animated:YES completion:nil];
+         [ picker start : self->m_controller ];
+         
       }
 
    });
@@ -170,9 +175,9 @@ double get_status_bar_frame_height();
 -(void)pickBrowseForSavingUserController:(void *)pUserController
 {
    
-   self->m_bForOpeningFile = false;
-   self->m_pUserControllerForSaving = pUserController;
-   self->m_bForOpeningMedia = false;
+//   self->m_bForOpeningFile = false;
+//   self->m_pUserControllerForSaving = pUserController;
+//   self->m_bForOpeningMedia = false;
    
    //void ns_pick_viewer_document()
    ns_main_async(^{
@@ -181,13 +186,13 @@ double get_status_bar_frame_height();
       //   auto picker = [[UIDocumentPickerViewController alloc]
         //  initForOpeningContentTypes:@[ UTTypeFolder, UTTypeZIP //]];
          //self->m_bForOpeningFile = true;
-         auto UTTypePhotoComposite = [UTType typeWithIdentifier:@"com.app-core.photo-composite"];
+//         auto UTTypePhotoComposite = [UTType typeWithIdentifier:@"com.app-core.photo-composite"];
+////         auto picker = [[UIDocumentPickerViewController alloc]
+////          initForOpeningContentTypes:@[ UTTypeFolder ]];
 //         auto picker = [[UIDocumentPickerViewController alloc]
-//          initForOpeningContentTypes:@[ UTTypeFolder ]];
-         auto picker = [[UIDocumentPickerViewController alloc]
-          initForOpeningContentTypes:@[ UTTypeImage, UTTypePhotoComposite ]];
-         picker.delegate = self;
-         [self->m_controller presentViewController:picker animated:YES completion:nil];
+//          initForOpeningContentTypes:@[ UTTypeImage, UTTypePhotoComposite ]];
+//         picker.delegate = self;
+//         [self->m_controller presentViewController:picker animated:YES completion:nil];
       }
 
    });
@@ -196,77 +201,18 @@ double get_status_bar_frame_height();
 
 //}
 }
+
+
 /**
  *  This delegate method is called when user will either upload or download the file.
  *
  *  @param controller UIDocumentPickerViewController object
  *  @param urls        urls of the files
  */
-
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls
 {
 
-    if (m_bForOpeningFile)
-    {
-       
-       long l = [urls count];
-       
-       if(l == 1)
-       {
-          
-          m_pwindow->ios_window_did_pick_document_at_url([[[urls objectAtIndex:0] path]UTF8String]);
-          
-       }
-       else
-       {
-          
-          auto psza = (const char **) malloc(sizeof(const char *) * l);
-          
-          auto p = psza;
-          
-          for(NSURL * url in urls)
-          {
-           
-             *p++ = strdup([[url path]UTF8String]);
-             
-          }
-          
-          m_pwindow->ios_window_did_pick_document_at_urls(psza, l);
-          
-       }
-     
-//        // Condition called when user download the file
-//        NSData *fileData = [NSData dataWithContentsOfURL:url];
-//        // NSData of the content that was downloaded - Use this to upload on the server or save locally in directory
-//       
-//        //Showing alert for success
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//           
-//            NSString *alertMessage = [NSString stringWithFormat:@"Successfully downloaded file %@", [url lastPathComponent]];
-//            UIAlertController *alertController = [UIAlertController
-//                                                  alertControllerWithTitle:@"UIDocumentView"
-//                                                  message:alertMessage
-//                                                  preferredStyle:UIAlertControllerStyleAlert];
-//            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-//            [self->m_controller presentViewController:alertController animated:YES completion:nil];
-//           
-//        });
-    }
-//    else  if (controller.documentPickerMode == UIDocumentPickerModeExportToService)
-//    {
-//        // Called when user uploaded the file - Display success alert
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//           
-//            NSString *alertMessage = [NSString stringWithFormat:@"Successfully uploaded file %@", [url lastPathComponent]];
-//            UIAlertController *alertController = [UIAlertController
-//                                                  alertControllerWithTitle:@"UIDocumentView"
-//                                                  message:alertMessage
-//                                                  preferredStyle:UIAlertControllerStyleAlert];
-//            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-//            [self presentViewController:alertController animated:YES completion:nil];
-//           
-//        });
-//    }
+   NSLog(@"documentPicker:didPickDocumentsAtURLs:");
    
 }
 
@@ -276,6 +222,17 @@ double get_status_bar_frame_height();
  *  @param controller - document picker object
  */
 - (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {
+   
+   
+   NSLog(@"documentPickerWasCancelled:");
+   
+}
+
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURL:(NSURL *)url
+{
+
+   NSLog(@"documentPicker:didPickDocumentsAtURL:");
    
 }
 
@@ -310,7 +267,20 @@ NSArray < UTType * > * uttypea_from_strdupa(char ** pp)
       
       NSString * str = [[NSString alloc] initWithUTF8String:*ppiterator];
       
-      UTType * type = [UTType  typeWithIdentifier: str];
+      UTType * type;
+      
+      if([str hasSuffix:@".txt"])
+      {
+         
+         type = [UTType  typeWithIdentifier: @"public.plain-text"];
+         
+      }
+      else
+      {
+         
+         type = [UTType  typeWithIdentifier: str];
+         
+      }
 
       [uttypea addObject: type];
       

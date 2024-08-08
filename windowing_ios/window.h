@@ -162,7 +162,7 @@ namespace windowing_ios
       void bring_to_front() override;
       
       
-      void pick_browse() override;
+      void pick_browse(const ::function < void(const ::file::path & ) > & callback) override;
       void pick_media(const char * pszMediaType) override;
       void ios_window_did_pick_document_at_url(const char * pszUrl) override;
       void ios_window_did_pick_document_at_urls(const char ** pszaUrl, long lCount) override;

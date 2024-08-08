@@ -113,6 +113,7 @@ namespace windowing_ios
                {
                    
                    auto rectangle = puserinteraction->window_rectangle();
+                  
                    string strText;
                    
                    puserinteraction->get_text(strText);
@@ -122,11 +123,15 @@ namespace windowing_ios
                    strsize iSelEnd = 0;
                    
                    puserinteraction->get_text_selection(iSelBeg,iSelEnd);
+                  
+                  auto iUnicodeBeg = ansi_to_wd32_len(strText, iSelBeg);
+                  
+                  auto iUnicodeEnd = ansi_to_wd32_len(strText, iSelEnd);
                    
                    pwindow->ios_window_edit_on_set_focus(rectangle.left(), rectangle.top(), rectangle.right(),
                                                          rectangle.bottom(),
-                          strText,       iSelBeg,
-                                                         iSelEnd);
+                          strText,       iUnicodeBeg,
+                                                         iUnicodeEnd);
 //
                }
                

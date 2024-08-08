@@ -20,6 +20,7 @@
 class ios_window;
 
 @class iosViewController;
+@class document_picker_delegate;
 
 
 @interface iosWindow : UIWindow < UIDocumentPickerDelegate >
@@ -29,9 +30,9 @@ class ios_window;
    
     ios_window            * m_pwindow;
     iosViewController    * m_controller;
-   bool m_bForOpeningFile;
-   void * m_pUserControllerForSaving;
-   bool m_bForOpeningMedia;
+   
+   NSMutableArray < document_picker_delegate *  > * __strong m_documentpickerdelegates;
+
 }
 
 
@@ -39,7 +40,7 @@ class ios_window;
 @property UIViewController *m_initialcontroller;
 
 
--(void) pickBrowse:(char **) ppszUTType;
+-(void) pickBrowse:(char **) ppszUTType callback: (const ::function < void(const ::file::path & path) > &) callback;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;
 
 @end

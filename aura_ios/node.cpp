@@ -11,6 +11,7 @@
 #include "acme/filesystem/filesystem/file_system_options.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
+#include "acme/handler/request.h"
 #include "aura/graphics/image/image.h"
 #include "aura/platform/context.h"
 
@@ -153,6 +154,14 @@ namespace aura_ios
          
          auto callback = [this](const ::file::path & path)
          {
+            
+            auto prequest = __create_new <::request>();
+            
+            prequest->m_payloadFile = path;
+            
+            prequest->m_ecommand = ::e_command_file_open;
+
+            application()->request(prequest);
             
          };
 

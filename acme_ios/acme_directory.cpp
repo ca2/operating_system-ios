@@ -13,7 +13,7 @@
 
 
 char * ios_app_library_folder();
-
+char * ios_home_folder_path_dup();
 
 char * ios_app_document_folder();
 
@@ -61,7 +61,9 @@ namespace acme_ios
 
       //m_pathDocument = ::string_from_strdup(ios_app_document_folder(strContainerIdentifier));
 
-      m_pathDocument = icloud_container_documents();
+      //m_pathDocument = icloud_container_documents();
+      
+      m_pathDocument = ::string_from_strdup(ios_home_folder_path_dup());
       
       m_pathIosAppDocumentFolder = ::string_from_strdup(ios_app_document_folder());
       

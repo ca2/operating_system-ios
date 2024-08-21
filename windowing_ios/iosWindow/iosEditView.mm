@@ -1232,7 +1232,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    
    [super touchesBegan:touches withEvent:event];
    
-   ios_window * p = m_ioswindow->m_pwindow;
+//   ios_window * p = m_ioswindow->m_pwindow;
    
    //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    

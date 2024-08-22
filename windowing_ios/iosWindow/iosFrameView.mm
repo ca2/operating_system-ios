@@ -19,11 +19,16 @@
 #import "iosTextRange.h"
 
 
+double get_status_bar_frame_height();
+
+
 @implementation iosFrameView
 
 
 - (id)initWithFrame:(CGRect)frame
 {
+   
+   m_bGotStatusBarFrameHeight = false;
    
    self = [super initWithFrame:frame];
    
@@ -819,6 +824,18 @@
 
 - (void)drawRect:(CGRect)rect
 {
+   
+   if(!m_bGotStatusBarFrameHeight)
+   {
+      
+      m_bGotStatusBarFrameHeight = true;
+    
+      auto dStatusBarFrameHeight = get_status_bar_frame_height();
+      
+      m_ioswindow->m_pwindow->m_dStatusBarFrameHeight = dStatusBarFrameHeight;
+
+      
+   }
    
    CGContextRef context = UIGraphicsGetCurrentContext();
    

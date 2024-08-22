@@ -12,6 +12,7 @@
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
 #include "acme/handler/request.h"
+#include "aura/graphics/image/context_image.h"
 #include "aura/graphics/image/image.h"
 #include "aura/platform/context.h"
 
@@ -72,7 +73,7 @@ namespace aura_ios
    ::image_pointer node::get_file_image_by_type_identifier(int iSize, const ::scoped_string & scopedstrTypeIdentifier)
    {
 
-      auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );
+      auto pimage = context_image()->create_image( { iSize, iSize } );
 
       if(!apple_get_file_image_by_type_identifier(pimage, scopedstrTypeIdentifier))
       {
@@ -89,7 +90,7 @@ namespace aura_ios
    ::image_pointer node::get_file_image(int iSize, const ::file::path & path)
    {
 
-      auto pimage = m_pcontext->m_pauracontext->create_image( { iSize, iSize } );
+      auto pimage = context_image()->create_image( { iSize, iSize } );
 
       if(!apple_get_file_image(pimage, path))
       {

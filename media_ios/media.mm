@@ -46,7 +46,7 @@ void ios_av_session_initialize()
    NSError *setCategoryErr = nil;
    NSError *activationErr  = nil;
    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:&setCategoryErr];
-   [[AVAudioSession sharedInstance] setActive:YES error:&activationErr];
+   //[[AVAudioSession sharedInstance] setActive:YES error:&activationErr];
    
 }
 

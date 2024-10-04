@@ -6,7 +6,7 @@
 //
 #include "framework.h"
 #include "node.h"
-#include "acme/primitive/collection/str_array.h"
+#include "acme/prototype/collection/str_array.h"
 #include "aura/platform/application.h"
 #include "aura/platform/session.h"
 #include "aura/platform/system.h"

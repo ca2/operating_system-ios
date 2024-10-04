@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "acme/primitive/collection/str_array.h"
+#include "acme/prototype/collection/str_array.h"
 
 //
 //int_bool GetCursorPos(POINT_I32 * ppointCursor)

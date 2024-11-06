@@ -153,7 +153,7 @@ void node::reboot()
     if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCE,
     SHTDN_REASON_MAJOR_SOFTWARE | SHTDN_REASON_MINOR_INSTALLATION))
     {
-    ::u32 dwLastError = ::get_last_error();
+    unsigned int dwLastError = ::get_last_error();
     return false;
     }*/
    //reset the previlages
@@ -171,13 +171,13 @@ void node::reboot()
 ////      throw ::not_implemented();
 //      return;
 //
-//      /*      ::u32 dwPid;
+//      /*      unsigned int dwPid;
 //       while(get_pid_by_title(pszName, dwPid))
 //       {
 //       HANDLE hProcess = OpenProcess( PROCESS_QUERY_INFORMATION |
 //       PROCESS_VM_READ,
 //       false, dwPid );
-//       TerminateProcess(hProcess, (::u32) -1);
+//       TerminateProcess(hProcess, (unsigned int) -1);
 //       CloseHandle(hProcess);
 //       ::EnumWindows((WNDENUMPROC)
 //       CKillProcessHelper::TerminateAppEnum,
@@ -198,7 +198,7 @@ void node::reboot()
 //   }
 
 
-//   bool os_context::get_pid_by_path(const char * pszName, ::u32 & dwPid)
+//   bool os_context::get_pid_by_path(const char * pszName, unsigned int & dwPid)
 //   {
 //      u32_array dwa;
 //      get_all_processes(dwa);
@@ -214,7 +214,7 @@ void node::reboot()
 //   }
 //
 
-//   bool os_context::get_pid_by_title(const char * pszName, ::u32 & dwPid)
+//   bool os_context::get_pid_by_title(const char * pszName, unsigned int & dwPid)
 //   {
 //      u32_array dwa;
 //      get_all_processes(dwa);
@@ -238,7 +238,7 @@ void node::reboot()
 //   }
 
 
-//   ::file::path os_context::get_process_path(::u32 dwPid)
+//   ::file::path os_context::get_process_path(unsigned int dwPid)
 //   {
 //      /*
 //       string strName = ":<unknown>";
@@ -252,7 +252,7 @@ void node::reboot()
 //       if (nullptr != hProcess )
 //       {
 //       HMODULE hMod;
-//       ::u32 cbNeeded;
+//       unsigned int cbNeeded;
 //
 //       if(EnumProcessModules( hProcess, &hMod, sizeof(hMod),
 //       &cbNeeded) )
@@ -277,18 +277,18 @@ void node::reboot()
 //
 //      /*
 //       dwa.set_size(0);
-//       ::u32 cbNeeded = 0;
+//       unsigned int cbNeeded = 0;
 //       while(cbNeeded == natural(dwa.get_count()))
 //       {
 //       dwa.set_size(dwa.get_count() + 1024);
 //       if(!EnumProcesses(
 //       dwa.get_data(),
-//       (::u32) (dwa.get_count() * sizeof(::u32)),
+//       (unsigned int) (dwa.get_count() * sizeof(unsigned int)),
 //       &cbNeeded))
 //       {
 //       return;
 //       }
-//       dwa.set_size(cbNeeded / sizeof(::u32));
+//       dwa.set_size(cbNeeded / sizeof(unsigned int));
 //       }*/
 //   }
 //
@@ -299,7 +299,7 @@ void node::reboot()
 //      return "";
 //      /*
 //       string strPath;
-//       ::u32 dwSize = 1;
+//       unsigned int dwSize = 1;
 //       while(natural(strPath.get_length() + 1) == dwSize)
 //       {
 //       dwSize = ::GetModuleFileName(
@@ -832,7 +832,7 @@ void node::reboot()
 //   }
 //
 
-void node::raise_exception( ::u32 dwExceptionCode, ::u32 dwExceptionFlags)
+void node::raise_exception( unsigned int dwExceptionCode, unsigned int dwExceptionFlags)
 {
 
    throw ::not_implemented();

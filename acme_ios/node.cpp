@@ -82,7 +82,7 @@ unsigned int * puiPid)
 
    }
 
-//   u32 processId;
+//   unsigned int processId;
 
    chdir(pszDir);
 
@@ -97,7 +97,7 @@ unsigned int * puiPid)
    if(puiPid != nullptr)
    {
 
-      *puiPid = (::u32) processidentifier;
+      *puiPid = (unsigned int) processidentifier;
 
    }
 
@@ -804,7 +804,7 @@ unsigned int * puiPid)
 //   }
 
    
-   int node::_create_process2(const char * _cmd_line, u32 * pprocessId)
+   int node::_create_process2(const char * _cmd_line, unsigned int * pprocessId)
    {
       char *   exec_path_name;
       char *   cmd_line;
@@ -860,7 +860,7 @@ unsigned int * puiPid)
    }
 
 
-//   bool node::process_modules(string_array& stra, u32 processID)
+//   bool node::process_modules(string_array& stra, unsigned int processID)
 //   {
 //
 //      throw interface_only();
@@ -896,7 +896,7 @@ unsigned int * puiPid)
 ////   }
 //
 ////
-////   string node::module_path_from_pid(u32 pid)
+////   string node::module_path_from_pid(unsigned int pid)
 ////   {
 ////
 ////      return "";
@@ -904,7 +904,7 @@ unsigned int * puiPid)
 ////   }
 //
 //
-//   bool node::is_shared_library_busy(u32 processid, const string_array& stra)
+//   bool node::is_shared_library_busy(unsigned int processid, const string_array& stra)
 //   {
 //
 //      throw interface_only();
@@ -924,7 +924,7 @@ unsigned int * puiPid)
 //   }
 //
 //
-//   bool node::process_contains_module(string& strImage, ::u32 processID, const ::string & pszLibrary)
+//   bool node::process_contains_module(string& strImage, unsigned int processID, const ::string & pszLibrary)
 //   {
 //
 //      throw interface_only();
@@ -942,7 +942,7 @@ unsigned int * puiPid)
 //   }
 //
 //
-////   int_bool node::is_process_running(::u32 pid)
+////   int_bool node::is_process_running(unsigned int pid)
 ////   {
 ////
 ////      throw interface_only();

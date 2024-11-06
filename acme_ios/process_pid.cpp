@@ -344,7 +344,7 @@ namespace acme
          for(auto & processId : ida2)
          {
           
-            auto strPath = module_path_from_pid((::u32) processId);
+            auto strPath = module_path_from_pid((unsigned int) processId);
             
             if(strPath == pszModulePath)
             {

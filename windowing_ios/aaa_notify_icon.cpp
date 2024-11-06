@@ -309,7 +309,7 @@
 ////
 ////      }
 ////
-////      m_plistener->OnNotifyIconMessage(m_uiId, (::u32) pbase->m_lparam);
+////      m_plistener->OnNotifyIconMessage(m_uiId, (unsigned int) pbase->m_lparam);
 ////
 ////   }
 //

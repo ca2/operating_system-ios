@@ -84,11 +84,11 @@ namespace acme_ios
 //         ::e_status launch_app(const ::string & psz, const char ** argv, int iFlags) override;
       
       
-      virtual int _create_process2(const char * _cmd_line, u32 * pprocessId);
+      virtual int _create_process2(const char * _cmd_line, unsigned int * pprocessId);
       
-//         ::e_status create_process(const ::string & pszCommandLine, u32 * pprocessId) override;
+//         ::e_status create_process(const ::string & pszCommandLine, unsigned int * pprocessId) override;
       
-//         bool process_modules(string_array& stra, u32 processID) override;
+//         bool process_modules(string_array& stra, unsigned int processID) override;
 //
 //         bool load_modules_diff(string_array& straOld, string_array& straNew, const ::string & pszExceptDir) override;
 //
@@ -96,19 +96,19 @@ namespace acme_ios
 //
 //         id_array module_path_get_pid(const ::string & pszModulePath, bool bModuleNameIsPropertyFormatted = false) override;
 //
-//         string module_path_from_pid(u32 pid) override;
+//         string module_path_from_pid(unsigned int pid) override;
 //
-//         string command_line_from_pid(u32 pid) override;
+//         string command_line_from_pid(unsigned int pid) override;
 //
-//         bool is_shared_library_busy(u32 processid, const string_array& stra) override;
+//         bool is_shared_library_busy(unsigned int processid, const string_array& stra) override;
 //
 //         bool is_shared_library_busy(const string_array& stra) override;
 //
-//         bool process_contains_module(string& strImage, ::u32 processID, const ::string & pszLibrary) override;
+//         bool process_contains_module(string& strImage, unsigned int processID, const ::string & pszLibrary) override;
 //
 //         void shared_library_process(dword_array& dwa, string_array& straProcesses, const ::string & pszLibrary) override;
 //
-////         int_bool is_process_running(::u32 pid) override;
+////         int_bool is_process_running(unsigned int pid) override;
 //
 //         string get_environment_variable(const ::string & pszEnvironmentVariable) override;
 //

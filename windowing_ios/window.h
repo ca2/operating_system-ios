@@ -89,7 +89,7 @@ namespace windowing_ios
 //      
 //      ::point_i32 get_mouse_cursor_position() override;
 //      
-//      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, ::u32 nFlags) override;
+//      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, unsigned int nFlags) override;
 
       //void set_mouse_capture() override;
 

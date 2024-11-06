@@ -33,7 +33,7 @@ namespace acme_ios
    file::file()
    {
 
-      m_iFile = (::u32) hFileNull;
+      m_iFile = (unsigned int) hFileNull;
 
    }
 
@@ -47,7 +47,7 @@ namespace acme_ios
 //
 //   }
 //
-//   file::file(::object * pobject, const char * lpszFileName, ::u32 nOpenFlags) :
+//   file::file(::object * pobject, const char * lpszFileName, unsigned int nOpenFlags) :
 //      ::object(pobject)
 //   {
 //
@@ -61,9 +61,9 @@ namespace acme_ios
    file::~file()
    {
 
-//      if (m_iFile != (::u32)hFileNull && m_bCloseOnDelete)
+//      if (m_iFile != (unsigned int)hFileNull && m_bCloseOnDelete)
       //       close();
-      if (m_iFile != (::u32)hFileNull)
+      if (m_iFile != (unsigned int)hFileNull)
       {
        
          close();
@@ -75,7 +75,7 @@ namespace acme_ios
 //   ::pointer < ::file::file > file::Duplicate() const
 //   {
 //      ASSERT_VALID(this);
-//      ASSERT(m_iFile != (::u32)hFileNull);
+//      ASSERT(m_iFile != (unsigned int)hFileNull);
 //
 //      int iNew = dup(m_iFile);
 //
@@ -83,8 +83,8 @@ namespace acme_ios
 //         return nullptr;
 //
 //      file* pFile = new file(get_app(), iNew);
-//      pFile->m_iFile = (::u32)iNew;
-//      ASSERT(pFile->m_iFile != (::u32)hFileNull);
+//      pFile->m_iFile = (unsigned int)iNew;
+//      ASSERT(pFile->m_iFile != (unsigned int)hFileNull);
 ////      pFile->m_bCloseOnDelete = m_bCloseOnDelete;
 //      return pFile;
 //   }
@@ -94,7 +94,7 @@ namespace acme_ios
 void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * pfileexception)
    {
 
-      if (m_iFile != (::u32)hFileNull)
+      if (m_iFile != (unsigned int)hFileNull)
       {
          
          close();
@@ -117,7 +117,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
       }
 
-      m_iFile = (::u32)hFileNull;
+      m_iFile = (unsigned int)hFileNull;
       
       m_path = path;
       
@@ -125,7 +125,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
       ASSERT((::file::e_open_read|::file::e_open_write|::file::e_open_read_write) == 3);
       
-      ::u32 dwFlags =  0;
+      unsigned int dwFlags =  0;
       
       switch (eopen & 3)
       {
@@ -176,7 +176,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
          
       }
 
-      ::u32 dwPermission = 0;
+      unsigned int dwPermission = 0;
 
       dwPermission |= S_IRUSR | S_IWUSR | S_IXUSR;
 
@@ -289,7 +289,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    memsize file::read(void * lpBuf, memsize nCount)
    {
       ASSERT_VALID(this);
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       if (nCount == 0)
          return 0;   // avoid Win32 "null-read"
@@ -347,7 +347,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ASSERT_VALID(this);
       
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       if (nCount == 0)
       {
@@ -390,7 +390,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::translate(filesize lOff, ::enum_seek eseek)
    {
 
-      if(m_iFile == (::u32)hFileNull)
+      if(m_iFile == (unsigned int)hFileNull)
       {
        //  ::file::throw_os_error( (int)0);
          
@@ -403,14 +403,14 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       }
 
       ASSERT_VALID(this);
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
       ASSERT(eseek == ::e_seek_set || eseek == ::e_seek_from_end || eseek == ::e_seek_current);
       ASSERT(::e_seek_set == SEEK_SET && ::e_seek_from_end == SEEK_END && ::e_seek_current == SEEK_CUR);
 
       int lLoOffset = lOff & 0xffffffff;
       //int lHiOffset = (lOff >> 32) & 0xffffffff;
 
-      filesize posNew = ::lseek(m_iFile, lLoOffset, (::u32)eseek);
+      filesize posNew = ::lseek(m_iFile, lLoOffset, (unsigned int)eseek);
       //      posNew |= ((filesize) lHiOffset) << 32;
       if(posNew  == (filesize)-1)
       {
@@ -429,7 +429,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    filesize file::get_position() const
    {
       ASSERT_VALID(this);
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       int lLoOffset = 0;
       //      int lHiOffset = 0;
@@ -466,7 +466,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //      /*ASSERT_VALID(this);
 //
-//       if (m_iFile == (::u32)hFileNull)
+//       if (m_iFile == (unsigned int)hFileNull)
 //       return;
 //
 //       if (!::FlushFileBuffers((HANDLE)m_iFile))
@@ -476,7 +476,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //   filesize file::get_position() const
 //   {
 //      ASSERT_VALID(this);
-//      ASSERT(m_iFile != (::u32)hFileNull);
+//      ASSERT(m_iFile != (unsigned int)hFileNull);
 //
 //      int lLoOffset = 0;
 //      //      int lHiOffset = 0;
@@ -502,7 +502,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //      /*ASSERT_VALID(this);
 //
-         if (m_iFile == (::u32)hFileNull)
+         if (m_iFile == (unsigned int)hFileNull)
        return;
       
       //::flush(m_iFile);
@@ -515,13 +515,13 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::close()
    {
       ASSERT_VALID(this);
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       bool bError = false;
-      if (m_iFile != (::u32)hFileNull)
+      if (m_iFile != (unsigned int)hFileNull)
          bError = ::close(m_iFile) != 0;
 
-      m_iFile = (::u32) hFileNull;
+      m_iFile = (unsigned int) hFileNull;
       //      m_bCloseOnDelete = false;
       m_path.empty();
 
@@ -542,11 +542,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //   void file::Abort()
 //   {
 //      ASSERT_VALID(this);
-//      if (m_iFile != (::u32)hFileNull)
+//      if (m_iFile != (unsigned int)hFileNull)
 //      {
 //         // close but ignore errors
 //         ::close(m_iFile);
-//         m_iFile = (::u32)hFileNull;
+//         m_iFile = (unsigned int)hFileNull;
 //      }
 //      m_strFileName.Empty();
 //   }
@@ -558,7 +558,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ASSERT_VALID(this);
       
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       /*if (!::LockFile((HANDLE)m_iFile, LODWORD(dwPos), HIDWORD(dwPos), LODWORD(dwCount), HIDWORD(dwCount)))
        ::macos::file_exception::throw_os_error( (int)::get_last_error());*/
@@ -571,7 +571,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ASSERT_VALID(this);
       
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       /*      if (!::UnlockFile((HANDLE)m_iFile,  LODWORD(dwPos), HIDWORD(dwPos), LODWORD(dwCount), HIDWORD(dwCount)))
        ::macos::file_exception::throw_os_error( (int)::get_last_error());*/
@@ -584,7 +584,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ASSERT_VALID(this);
       
-      ASSERT(m_iFile != (::u32)hFileNull);
+      ASSERT(m_iFile != (unsigned int)hFileNull);
 
       translate((int)dwNewLen, (::enum_seek)::e_seek_set);
 
@@ -636,7 +636,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //      
 //      ::file::file::dump(dumpcontext);
 //
-//      dumpcontext << "with handle " << (::u32)m_iFile;
+//      dumpcontext << "with handle " << (unsigned int)m_iFile;
 //      dumpcontext << " and name \"" << m_path << "\"";
 //      dumpcontext << "\n";
 //      
@@ -758,7 +758,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //      rStatus.m_attribute = 0;
 //
-//      // get just the low ::u32 of the file size_i32
+//      // get just the low unsigned int of the file size_i32
 //      //ASSERT(findFileData.nFileSizeHigh == 0);
 //      //rStatus.m_size = (int)findFileData.nFileSizeLow;
 //

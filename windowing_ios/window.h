@@ -149,7 +149,7 @@ namespace windowing_ios
       void frame_toggle_restore() override;
       
       
-      void non_top_most_upper_window_rects(::rectangle_i32_array & recta) override;
+      void non_top_most_upper_window_rects(::rectangle_int_array & recta) override;
 
 
       bool post_message(::message::message * pmessage);

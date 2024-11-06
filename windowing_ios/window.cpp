@@ -1627,7 +1627,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //
 //      }
       
-      m_puserinteractionimpl->m_puserinteraction->place(::rectangle_i32_dimension(0, 0, cx, cy));
+      m_puserinteractionimpl->m_puserinteraction->place(::rectangle_int_dimension(0, 0, cx, cy));
                                                         
       m_puserinteractionimpl->m_puserinteraction->set_need_redraw();
       
@@ -2303,7 +2303,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-   void window::non_top_most_upper_window_rects(::rectangle_i32_array & recta)
+   void window::non_top_most_upper_window_rects(::rectangle_int_array & recta)
    {
       
       

@@ -17,8 +17,8 @@ namespace apex_ios
 {
 
 
-   class dir_system;
-   class dir_context;
+   class directory_system;
+   class directory_context;
 
    class file_system;
    class file_context;

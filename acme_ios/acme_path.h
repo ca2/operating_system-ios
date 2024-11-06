@@ -3,21 +3,21 @@
 #pragma once
 
 
-#include "acme_apple/acme_path.h"
+#include "acme_apple/path_system.h"
 
 
 namespace acme_ios
 {
 
 
-   class CLASS_DECL_ACME_MACOS acme_path :
-      virtual public ::acme_apple::acme_path
+   class CLASS_DECL_ACME_MACOS path_system :
+      virtual public ::acme_apple::path_system
    {
    public:
 
 
-      acme_path();
-      ~acme_path() override;
+      path_system();
+      ~path_system() override;
 
 
       

@@ -37,7 +37,7 @@
 string_array string_array_from_strdup_count(const char ** pszaUrl, long lCount);
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 void ns_set_cursor(void * pNSCursor);
 void * ns_get_cursor();
@@ -49,10 +49,10 @@ double get_status_bar_frame_height();
 void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
-void ns_main_sync(dispatch_block_t block);
+void ns_main_send(dispatch_block_t block);
 
 namespace windowing_ios
 {
@@ -87,7 +87,7 @@ namespace windowing_ios
    void window::on_message_destroy(::message::message * pmessage)
    {
       
-      ns_main_sync(^{
+      ns_main_send(^{
          
          
          ::ios_window::ios_window_hide();
@@ -722,10 +722,10 @@ namespace windowing_ios
 //   }
    
 
-   bool window::_strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize)
+   bool window::_strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize)
    {
 //
-//      ns_main_async(^(){
+//      ns_main_post(^(){
 //         CGRect r;
 //
 //         ios_window_get_frame(&r);
@@ -2253,7 +2253,7 @@ void window::ios_window_text_view_did_begin_editing()
    void window::frame_toggle_restore()
 {
       
-      ns_main_async(^()
+      ns_main_post(^()
                      {
          
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
@@ -2573,7 +2573,7 @@ void window::pick_media(const char * pszMediaType)
    
    auto pfactory = system()->factory("media", "ios");
    
-   ns_main_sync(^{
+   ns_main_send(^{
 
       __construct(m_pmediaitempicker, pfactory);
       

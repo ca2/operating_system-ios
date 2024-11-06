@@ -10,10 +10,10 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
-void ns_main_sync(dispatch_block_t block);
+void ns_main_send(dispatch_block_t block);
 
 bool ns_open_file(const char * );
 
@@ -202,7 +202,7 @@ void node::reboot()
 //   {
 //      u32_array dwa;
 //      get_all_processes(dwa);
-//      for(i32 i = 0; i < dwa.get_count(); i++)
+//      for(int i = 0; i < dwa.get_count(); i++)
 //      {
 //         if(get_process_path(dwa[i]).compare_ci(pszName) == 0)
 //         {
@@ -218,7 +218,7 @@ void node::reboot()
 //   {
 //      u32_array dwa;
 //      get_all_processes(dwa);
-//      for(i32 i = 0; i < dwa.get_count(); i++)
+//      for(int i = 0; i < dwa.get_count(); i++)
 //      {
 //         if(get_process_path(dwa[i]).title().compare_ci(pszName) == 0)
 //         {
@@ -326,7 +326,7 @@ void node::reboot()
 
     key1.QueryValue("DefaultConnectionSettings", mem);
 
-    bool bAutoDetect = (((::u8 *) mem.get_data())[8] & 0x08) != 0;
+    bool bAutoDetect = (((unsigned char *) mem.get_data())[8] & 0x08) != 0;
 
     return bAutoDetect;
     */
@@ -443,7 +443,7 @@ void node::reboot()
 //       keyPlugin.SetValue("Path", ::apex::get_system()->m_strCa2Module("npca2.dll"));
 //       keyPlugin.SetValue("ProductName", "ca2 plugin for NPAPI");
 //       keyPlugin.SetValue("Vendor", "ca2 Desenvolvimento de Software Ltda.");
-//       keyPlugin.SetValue("Version", get_app()->m_psystem->m_pacmefile->as_string(pcontext->m_papexcontext->dir().ca2("appdata/x86/ca2_build.txt")));
+//       keyPlugin.SetValue("Version", get_app()->m_psystem->file_system()->as_string(papplication->dir().ca2("appdata/x86/ca2_build.txt")));
 //
 //       registry::Key keyApplicationCa2;
 //
@@ -871,7 +871,7 @@ void node::initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch)
    {
 
       //string strDir;
-      //strDir = pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
+      //strDir = papplication->dir().path(getenv("HOME"), "Pictures");
       //imagefileset.add_search(strDir);
       string strDir;
       strDir = "/Library/Wallpaper";
@@ -892,7 +892,7 @@ void node::file_open(const ::file::path & path, const string & strParams, const 
 
    auto pathProcessed = get_context()->defer_process_path(path);
 
-   ns_main_async(^
+   ns_main_post(^
    {
 
       ns_open_file(pathProcessed.c_str());
@@ -907,7 +907,7 @@ void node::file_open(const ::file::path & path, const string & strParams, const 
 } // namespace apex_ios
 
 //
-//void * get_system_mmos(void * pSystem)
+//void * get_system_mmos(::platform::system * psystem)
 //{
 //   
 //   auto psystem = (class ::system *) pSystem;
@@ -917,7 +917,7 @@ void node::file_open(const ::file::path & path, const string & strParams, const 
 //}
 //
 //
-//void set_system_mmos(void * pSystem, void * pmmos)
+//void set_system_mmos(::platform::system * psystem, void * pmmos)
 //{
 //   
 //   auto psystem = (class ::system *) pSystem;

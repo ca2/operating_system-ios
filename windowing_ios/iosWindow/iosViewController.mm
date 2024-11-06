@@ -265,7 +265,7 @@ double get_status_bar_frame_height();
 -(void)onEditSetFocus : (CGRect) rect withText: (NSString *) strText withSelBeg:(long)iSelBeg withSelEnd:(long)iSelEnd
 {
    
-   ns_main_async(^()
+   ns_main_post(^()
    {
    
       [ self deferEdit : rect ];
@@ -311,7 +311,7 @@ double get_status_bar_frame_height();
 -(void)onEditKillFocus
 {
    
-   ns_main_async(^{
+   ns_main_post(^{
       if(self->m_ioseditview && [ self->m_ioseditview isFirstResponder ])
       {
       

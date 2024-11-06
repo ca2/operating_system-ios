@@ -1,15 +1,15 @@
 //
-//  acme_file.cpp
+//  file_system.cpp
 //  acme_macos
 //
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 18/08/21.
 //
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/filesystem/filesystem/acme_file.h"
-#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/file_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/platform/application.h"
-#include "acme_file.h"
+#include "file_system.h"
 
 //
 //string apple_app_module_path();
@@ -43,7 +43,7 @@ namespace acme_ios
    }
 
    
-   acme_file::acme_file()
+   file_system::file_system()
    {
 
       m_pplatformfile = this;
@@ -51,17 +51,17 @@ namespace acme_ios
    }
 
 
-   acme_file::~acme_file()
+   file_system::~file_system()
    {
 
 
    }
 
 
-   void acme_file::touch(const ::file::path & path)
+   void file_system::touch(const ::file::path & path)
    {
 
-      if(acmedirectory()->is_icloud_container(path))
+      if(directory_system()->is_icloud_container(path))
       {
          
          touch_app_cloud(path);
@@ -69,7 +69,7 @@ namespace acme_ios
       }
       else
       {
-         ::acme_apple::acme_file::touch(path);
+         ::acme_apple::file_system::touch(path);
          
          
       }
@@ -77,28 +77,28 @@ namespace acme_ios
    }
 
 
-   void acme_file::touch_app_cloud(const ::file::path & path, const char * pszAppId)
+   void file_system::touch_app_cloud(const ::file::path & path, const char * pszAppId)
    {
 
 
    }
 
 
-   void acme_file::put_app_cloud_data(const ::file::path & path, const char * psz_iCloudContainerIdentifier, const ::block & block)
+   void file_system::put_app_cloud_data(const ::file::path & path, const char * psz_iCloudContainerIdentifier, const ::block & block)
    {
       
       ::string strName;
       
       ::string str_iCloudContainerIdentifier(psz_iCloudContainerIdentifier);
       
-      acmepath()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
+      path_system()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
       
       ns_cloud_set_data_with_container_id(strName.c_str(), str_iCloudContainerIdentifier, block.data(), block.size());
 
    }
 
 
-   void acme_file::defer_initialize_icloud_container(const char * pszContainerId)
+   void file_system::defer_initialize_icloud_container(const char * pszContainerId)
    {
       
       auto & picloudcontainer = m_map_iCloudContainer[pszContainerId];
@@ -118,7 +118,7 @@ namespace acme_ios
    }
 
 
-   ::memory acme_file::get_app_cloud_data(const ::file::path & path, const char * psz_iCloudContainerIdentifier)
+   ::memory file_system::get_app_cloud_data(const ::file::path & path, const char * psz_iCloudContainerIdentifier)
    {
       
       defer_initialize_icloud_container(psz_iCloudContainerIdentifier);
@@ -127,7 +127,7 @@ namespace acme_ios
       
       ::string str_iCloudContainerIdentifier;
       
-      acmepath()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
+      path_system()->defer_get_icloud_container_path_name(strName, str_iCloudContainerIdentifier, path);
       
       ::memory m;
       
@@ -158,7 +158,7 @@ namespace acme_ios
    }
 
 
-void acme_file::put_documents_cloud_data(const ::file::path & path, const ::block & block)
+void file_system::put_documents_cloud_data(const ::file::path & path, const ::block & block)
 {
 
    ns_cloud_set_documents_data(path.c_str(), block.data(), block.size());
@@ -166,7 +166,7 @@ void acme_file::put_documents_cloud_data(const ::file::path & path, const ::bloc
 }
 
 
-::memory acme_file::get_documents_cloud_data(const ::file::path & path)
+::memory file_system::get_documents_cloud_data(const ::file::path & path)
 {
    
    ::memory m;
@@ -198,7 +198,7 @@ void acme_file::put_documents_cloud_data(const ::file::path & path, const ::bloc
 }
 
 
-//   ::file::path acme_file::module()
+//   ::file::path file_system::module()
 //   {
 //
 //      ::file::path path = apple_app_module_path();

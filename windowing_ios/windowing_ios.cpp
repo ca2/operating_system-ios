@@ -16,7 +16,7 @@
 //
 //::mutex * g_pmutexOsWindowData = nullptr;
 //
-//void ns_main_async(dispatch_block_t block);
+//void ns_main_post(dispatch_block_t block);
 //
 //int oswindow_find(NSWindow * window)
 //{
@@ -513,7 +513,7 @@
 //   else
 //   {
 //
-//      ns_main_async(^()
+//      ns_main_post(^()
 //      {
 //
 //         w->m_pimpl->call_message_handler(e_message_destroy, 0, 0);
@@ -843,7 +843,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //      if (!window_id) continue;
 //
-//      ::i32 iWindowId = -1;
+//      int iWindowId = -1;
 //
 //      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
 //
@@ -1101,7 +1101,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //      
 //      if (!window_id) continue;
 //      
-//      ::i32 iWindowId = -1;
+//      int iWindowId = -1;
 //      
 //      CFNumberGetValue(window_id, kCFNumberSInt32Type, &iWindowId);
 //      

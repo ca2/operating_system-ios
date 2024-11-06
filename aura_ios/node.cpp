@@ -7,7 +7,7 @@
 //
 #include "framework.h"
 #include "node.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/filesystem/filesystem/file_system_options.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
@@ -200,12 +200,12 @@ namespace aura_ios
       if(application()->m_pfilesystemoptions->m_b_iCloudContainer)
       {
          
-         auto path_iCloudContainer = acmedirectory()->icloud_container2();
+         auto path_iCloudContainer = directory_system()->icloud_container2();
          
          if(path.begins_eat(path_iCloudContainer))
          {
             
-            path = acmedirectory()->icloud_container2_final() / path;
+            path = directory_system()->icloud_container2_final() / path;
             
             return true;
             

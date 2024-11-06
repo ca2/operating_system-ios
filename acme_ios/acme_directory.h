@@ -3,15 +3,15 @@
 #pragma once
 
 
-#include "acme_apple/acme_directory.h"
+#include "acme_apple/directory_system.h"
 
 
 namespace acme_ios
 {
 
 
-   class CLASS_DECL_ACME_MACOS acme_directory :
-      virtual public ::acme_apple::acme_directory
+   class CLASS_DECL_ACME_MACOS directory_system :
+      virtual public ::acme_apple::directory_system
    {
    public:
 
@@ -21,8 +21,8 @@ namespace acme_ios
       ::file::path                                       m_pathIosAppDocumentFolder;
       
 
-      acme_directory();
-      ~acme_directory() override;
+      directory_system();
+      ~directory_system() override;
       
       
       void on_initialize_particle() override;
@@ -79,8 +79,8 @@ namespace acme_ios
 
       virtual void set_path_install_folder(const ::string & strPath) override;
 
-      //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate);
-      //virtual ::file::path _shell_get_special_folder_path(i32 csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
+      //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, int csidl, bool fCreate);
+      //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
       //virtual ::file::path _get_known_folder(REFKNOWNFOLDERID kfid);
 
       //virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;

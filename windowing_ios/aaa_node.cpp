@@ -46,7 +46,7 @@ namespace windowing_ios
 
 
 
-   void node::implement(::pointer < ::acme::node > & pnode, ::pointer < class ::system > & psystem)
+   void node::implement(::pointer < ::platform::node > & pnode, ::pointer < class ::system > & psystem)
    {
 
       //auto psystem = m_psystem->m_papexsystem;

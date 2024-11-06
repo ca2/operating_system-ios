@@ -14,13 +14,13 @@
 
 //void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
 void system_id_update(void* pSystem, ::i64 iUpdate, ::i64 iPayload);
-void * application_system(void * pApplication);
+void * application_system(::platform::application * papplication);
 
-i32 defer_run_system();
+int defer_run_system();
 
-i32 defer_run_system(const char * pszFileName);
+int defer_run_system(const char * pszFileName);
 
-i32 defer_run_system(char * * psza, int c);
+int defer_run_system(char * * psza, int c);
 
 void system_call_update_app_activated();
 
@@ -134,7 +134,7 @@ void ns_windowing_application_main(int argc, char * argv[], const char * pszComm
 //   
 //   __block enum_status estatus;
 //   
-//   ns_main_sync(^{
+//   ns_main_send(^{
 //      
 //      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
 //

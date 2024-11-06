@@ -4,10 +4,10 @@
 #include "aura/graphics/image/image.h"
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
-void ns_main_sync(dispatch_block_t block);
+void ns_main_send(dispatch_block_t block);
 
 bool ios_clipboard_has_changed(long & lTicket);
 
@@ -67,7 +67,7 @@ namespace windowing_ios
       m_ds = CreateDispatchTimer(secondsToFire, queue, ^ { _os_step(); });
 
       
-      ns_main_sync(^()
+      ns_main_send(^()
       {
          _on_os_clipboard_changed();
       });
@@ -135,7 +135,7 @@ namespace windowing_ios
    bool copydesk::_set_filea(const ::file::path_array & patha, enum_op eop)
    {
 
-      ns_main_sync(^
+      ns_main_send(^
       {
          
          ios_clipboard_set_filea(patha);
@@ -338,7 +338,7 @@ namespace windowing_ios
    void copydesk::_os_step()
    {
       
-      ns_main_async(^()
+      ns_main_post(^()
       {
          
          if(_os_clipboard_has_changed())

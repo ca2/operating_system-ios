@@ -41,7 +41,7 @@ namespace aura_ios
    }
 //
 //
-//   i32 shell::get_image_by_extension(image_key & key, color32_t crBk)
+//   int shell::get_image_by_extension(image_key & key, color32_t crBk)
 //   {
 //
 //      return 0x80000000;
@@ -50,10 +50,10 @@ namespace aura_ios
 //
 //
 //
-//   i32 shell::get_foo_image(image_key imagekey, color32_t crBk)
+//   int shell::get_foo_image(image_key imagekey, color32_t crBk)
 //   {
 //
-//      i32 iImage = -1;
+//      int iImage = -1;
 //
 //      m_imagemap.set_at(imagekey, iImage);
 //
@@ -69,9 +69,9 @@ namespace aura_ios
 //
 //      if (         auto psystem = m_psystem;
 //
-//         auto pacmedirectory = psystem->m_pacmedirectory;
+//         auto pdirectorysystem = psystem->directory_system();
 //
-//pacmedirectory->is(strPath))
+//pdirectorysystem->is(strPath))
 //      {
 //         return folder_file_system;
 //      }
@@ -107,12 +107,12 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
       
   
 
-   ////      i32 iImage = 0x80000000;
+   ////      int iImage = 0x80000000;
 //
 //      if (::str::case_insensitive_begins(imagekey.m_strPath, "uifs:"))
 //      {
 //
-//         ::file::path path = pcontext->m_papexcontext->dir().matter("cloud.ico");
+//         ::file::path path = papplication->dir().matter("cloud.ico");
 //
 ////            for (auto iSize : m_iaSize)
 ////            {
@@ -134,7 +134,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //      else if (::str::case_insensitive_begins(imagekey.m_strPath, "fs:"))
 //      {
 //
-//         ::file::path path = pcontext->m_papexcontext->dir().matter("remote.ico");
+//         ::file::path path = papplication->dir().matter("remote.ico");
 //
 ////            for (auto iSize : m_iaSize)
 ////            {
@@ -156,7 +156,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //      else if (::str::case_insensitive_begins(imagekey.m_strPath, "ftp:"))
 //      {
 //
-//         ::file::path path = pcontext->m_papexcontext->dir().matter("ftp.ico");
+//         ::file::path path = papplication->dir().matter("ftp.ico");
 //
 ////            for (auto iSize : m_iaSize)
 ////            {
@@ -178,12 +178,12 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //
 //      if (::str::case_insensitive_ends(imagekey.m_strPath, ".aura"))
 //      {
-//         string str = pcontext->m_papexcontext->file().as_string(imagekey.m_strPath);
+//         string str = papplication->file().as_string(imagekey.m_strPath);
 //         if (::str::case_insensitive_begins_eat(str, "ca2prompt\r\n"))
 //         {
 //            str.trim();
-//            /*HICON hicon16 = (HICON) ::LoadImage(nullptr, pcontext->m_papexcontext->dir().matter(str + "/mainframe/icon.ico"), IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
-//            HICON hicon48 = (HICON) ::LoadImage(nullptr, pcontext->m_papexcontext->dir().matter(str + "/mainframe/icon.ico"), IMAGE_ICON, 48, 48, LR_LOADFROMFILE);
+//            /*HICON hicon16 = (HICON) ::LoadImage(nullptr, papplication->dir().matter(str + "/mainframe/icon.ico"), IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+//            HICON hicon48 = (HICON) ::LoadImage(nullptr, papplication->dir().matter(str + "/mainframe/icon.ico"), IMAGE_ICON, 48, 48, LR_LOADFROMFILE);
 //            synchronous_lock sl1(m_pil48Hover->mutex());
 //            synchronous_lock sl2(m_pil48->mutex());
 //            iImage = m_pil16->add_icon_os_data(hicon16);
@@ -212,7 +212,7 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //      if (iFind >= 0 || iFind2 >= 2)
 //      {
 //         string strProtocol = string(imagekey.m_strPath).Left(maximum(iFind, iFind2));
-//         i32 i = 0;
+//         int i = 0;
 //
 //         while (i < strProtocol.get_length() && ansi_char_is_alphanumeric(strProtocol[i]))
 //         {
@@ -263,9 +263,9 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
 //      if (::str::case_insensitive_ends(getfileimage.m_imagekey.m_strPath, ".desktop"))
 //      {
 //
-//         auto pcontext = m_pcontext;
+//         auto papplication = application();
 //
-//         string str = pcontext->m_papexcontext->file().as_string(getfileimage.m_imagekey.m_strPath);
+//         string str = papplication->file().as_string(getfileimage.m_imagekey.m_strPath);
 //
 //         string_array stra;
 //
@@ -492,10 +492,10 @@ bool shell::_get_file_image(_get_file_image_ & getfileimage)
       
 //
 //
-//   i32 shell::impl_get_file_image(const image_key & imagekey)
+//   int shell::impl_get_file_image(const image_key & imagekey)
 //   {
 //
-//      i32 iImage = 0x80000000;
+//      int iImage = 0x80000000;
 //
 //      image_key * pstore = new image_key(imagekey);
 //

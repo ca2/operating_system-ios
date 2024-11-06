@@ -1,10 +1,10 @@
 // Create on 2021-03-21 20:00 <3ThomasBS_ // for Linux(question)
 // Recreated on 2021-05-16 15:05 <3ThomasBS_ // for macOS
 #include "framework.h"
-#include "acme_directory.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/filesystem/filesystem/acme_file.h"
-#include "acme/filesystem/filesystem/acme_path.h"
+#include "directory_system.h"
+#include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/file_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
 #include "acme/prototype/prototype/url.h"
@@ -25,7 +25,7 @@ namespace acme_ios
 {
 
    
-   acme_directory::acme_directory()
+   directory_system::directory_system()
    {
       
       m_pathLibrary = ::string_from_strdup(ios_app_library_folder());
@@ -36,17 +36,17 @@ namespace acme_ios
    }
 
 
-   acme_directory::~acme_directory()
+   directory_system::~directory_system()
    {
 
 
    }
 
 
-   void acme_directory::on_initialize_particle()
+   void directory_system::on_initialize_particle()
    {
       
-      ::acme_apple::acme_directory::on_initialize_particle();
+      ::acme_apple::directory_system::on_initialize_particle();
       
    //   ::string strAppIdForIdentifier;
    //
@@ -70,7 +70,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::__ios_app_document_folder()
+   ::file::path directory_system::__ios_app_document_folder()
    {
       
       return m_pathIosAppDocumentFolder;
@@ -78,7 +78,7 @@ namespace acme_ios
    }
 
 
-   string acme_directory::dir_root()
+   string directory_system::dir_root()
    {
 
       return __ios_app_document_folder() / ".config/ca2";
@@ -86,7 +86,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::get_memory_map_base_folder_path() 
+   ::file::path directory_system::get_memory_map_base_folder_path() 
    {
 
       return __ios_app_document_folder() / ".config/ca2/memory_map";
@@ -94,7 +94,7 @@ namespace acme_ios
    }
 
 
-//   ::file::path acme_directory::home()
+//   ::file::path directory_system::home()
 //   {
 //
 //      return getenv("HOME");
@@ -102,7 +102,7 @@ namespace acme_ios
 //   }
 
 
-   ::file::path acme_directory::program_data()
+   ::file::path directory_system::program_data()
    {
 
       return __ios_app_document_folder() / "application";
@@ -110,7 +110,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::roaming()
+   ::file::path directory_system::roaming()
    {
 
       return __ios_app_document_folder() / "Library/Application Support";
@@ -118,7 +118,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::appdata()
+   ::file::path directory_system::appdata()
    {
 
       return ca2roaming() / "appdata" / application()->m_strAppId;
@@ -126,7 +126,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::public_system()
+   ::file::path directory_system::public_system()
    {
 
       return public_root() / "system";
@@ -134,7 +134,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::system()
+   ::file::path directory_system::system()
    {
 
       return ca2roaming() / "system";
@@ -142,7 +142,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::config()
+   ::file::path directory_system::config()
    {
 
       return ca2roaming() / "config";
@@ -150,7 +150,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::local()
+   ::file::path directory_system::local()
    {
 
       return ca2roaming() / "local";
@@ -158,7 +158,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::sensitive()
+   ::file::path directory_system::sensitive()
    {
 
    #ifdef LINUX
@@ -174,7 +174,7 @@ namespace acme_ios
    }
 
 
-   string acme_directory::system_short_name()
+   string directory_system::system_short_name()
    {
 
    #ifdef _UWP
@@ -185,14 +185,14 @@ namespace acme_ios
 
       ::file::path pathSystemShortName = localconfig() / "system_short_name.txt";
 
-      return m_pacmefile->as_string(pathSystemShortName).trimmed();
+      return file_system()->as_string(pathSystemShortName).trimmed();
 
    #endif
 
    }
 
 
-   ::file::path acme_directory::relative(::file::path path)
+   ::file::path directory_system::relative(::file::path path)
    {
 
       path.find_replace(":", "");
@@ -206,7 +206,7 @@ namespace acme_ios
    #ifdef _UWP
 
 
-   ::file::path acme_directory::app_relative()
+   ::file::path directory_system::app_relative()
    {
 
       return "";
@@ -217,10 +217,10 @@ namespace acme_ios
    #else
 //
 //
-//   ::file::path acme_directory::app_relative()
+//   ::file::path directory_system::app_relative()
 //   {
 //
-//      ::file::path path = m_psystem->m_pacmefile->module();
+//      ::file::path path = m_psystem->file_system()->module();
 //
 //      path = relative(path);
 //
@@ -233,7 +233,7 @@ namespace acme_ios
 
 
 
-   ::file::path acme_directory::inplace_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
    #ifdef LINUX_DESKTOP
@@ -278,18 +278,18 @@ namespace acme_ios
 
    #elif defined(ANDROID)
 
-      return pacmedirectory->roaming();
+      return pdirectorysystem->roaming();
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
    }
 
 
-   ::file::path acme_directory::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
    #ifdef LINUX_DESKTOP
@@ -308,11 +308,11 @@ namespace acme_ios
 
    #elif defined(ANDROID)
 
-      return pacmedirectory->roaming();
+      return pdirectorysystem->roaming();
 
    #else
 
-      return acmefile()->module().folder(4);
+      return file_system()->module().folder(4);
 
    #endif
 
@@ -320,7 +320,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::install()
+   ::file::path directory_system::install()
    {
 
       if (m_pathInstallFolder.is_empty())
@@ -335,16 +335,16 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::default_install()
+   ::file::path directory_system::default_install()
    {
 
    #ifdef ANDROID
 
-      return pacmedirectory->roaming();
+      return pdirectorysystem->roaming();
 
    #elif defined(__APPLE__)
 
-      return acmefile()->module().folder(3);
+      return file_system()->module().folder(3);
 
    #else
 
@@ -355,7 +355,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::beforeca2()
+   ::file::path directory_system::beforeca2()
    {
 
       return file_path_folder(install());
@@ -373,7 +373,7 @@ namespace acme_ios
    #include <Shlobj.h>
 
 
-   ::file::path acme_directory::program_files_x86()
+   ::file::path directory_system::program_files_x86()
    {
 
       wstring wstrModuleFolder(get_buffer, sizeof(unichar) * 8);
@@ -398,7 +398,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::program_files()
+   ::file::path directory_system::program_files()
    {
 
       wstring wstrModuleFolder(get_buffer, sizeof(unichar) * 8);
@@ -428,7 +428,7 @@ namespace acme_ios
    #else
 
 
-   ::file::path acme_directory::program_files_x86()
+   ::file::path directory_system::program_files_x86()
    {
 
       ::file::path path("/opt/ca2");
@@ -438,7 +438,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::program_files()
+   ::file::path directory_system::program_files()
    {
 
       ::file::path path("/opt/ca2");
@@ -451,7 +451,7 @@ namespace acme_ios
    #endif
 
 
-   ::file::path acme_directory::stage(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::stage(string strAppId, string strPlatform, string strConfiguration)
    {
 
       return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / strPlatform / strConfiguration;
@@ -462,7 +462,7 @@ namespace acme_ios
 //   #ifdef LINUX
 
 
-   ::file::path acme_directory::home()
+   ::file::path directory_system::home()
    {
 
       return m_pathDocument;
@@ -476,14 +476,14 @@ namespace acme_ios
    #if defined(_UWP) || defined(__APPLE__) || defined(LINUX) || defined(ANDROID)
 
 
-//   ::file::path acme_directory::bookmark()
+//   ::file::path directory_system::bookmark()
 //   {
 //
 //      auto psystem = m_psystem;
 //
-//      auto pacmedirectory = psystem->m_pacmedirectory;
+//      auto pdirectorysystem = psystem->directory_system();
 //
-//      return pacmedirectory->localconfig() / "bookmark";
+//      return pdirectorysystem->localconfig() / "bookmark";
 //
 //   }
 
@@ -494,7 +494,7 @@ namespace acme_ios
    #ifdef _UWP
 
 
-   ::file::path acme_directory::home()
+   ::file::path directory_system::home()
    {
 
       return "";
@@ -507,7 +507,7 @@ namespace acme_ios
 
 
 
-   void acme_directory::set_path_install_folder(const ::string & strPath)
+   void directory_system::set_path_install_folder(const ::string & strPath)
    {
 
       m_pathInstallFolder = strPath;
@@ -515,7 +515,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::bookmark()
+   ::file::path directory_system::bookmark()
    {
 
       return localconfig() / "bookmark";
@@ -526,7 +526,7 @@ namespace acme_ios
 
 
 
-   ::file::path acme_directory::sys_temp()
+   ::file::path directory_system::sys_temp()
    {
 
       return appdata() / "time";
@@ -534,7 +534,7 @@ namespace acme_ios
    }
 
 
-   //::string acme_directory::dir_root()
+   //::string directory_system::dir_root()
    //{
 
    //   return "";
@@ -542,7 +542,7 @@ namespace acme_ios
    //}
 
 
-   //::file::path acme_directory::home()
+   //::file::path directory_system::home()
    //{
 
    //   return "";
@@ -550,7 +550,7 @@ namespace acme_ios
    //}
 
 
-   //::file::path acme_directory::program_data()
+   //::file::path directory_system::program_data()
    //{
 
    //   return "";
@@ -558,7 +558,7 @@ namespace acme_ios
    //}
 
 
-   ::file::path acme_directory::ca2appdata()
+   ::file::path directory_system::ca2appdata()
    {
 
       return ca2roaming() / "appdata";
@@ -567,14 +567,14 @@ namespace acme_ios
 
 
 
-   ::file::path acme_directory::public_root()
+   ::file::path directory_system::public_root()
    {
 
       return program_data() / "ca2";
 
    }
 
-   ::file::path acme_directory::ca2roaming()
+   ::file::path directory_system::ca2roaming()
    {
 
       return roaming() / "ca2";
@@ -582,7 +582,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::localconfig()
+   ::file::path directory_system::localconfig()
    {
 
       return ca2roaming() / "localconfig";
@@ -590,15 +590,15 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_directory::module()
+   ::file::path directory_system::module()
    {
 
-      return ::acme_directory::module();
+      return ::directory_system::module();
 
    }
 
    //
-   //::file::path acme_directory::base_module()
+   //::file::path directory_system::base_module()
    //{
    //
    //   return "";
@@ -606,23 +606,14 @@ namespace acme_ios
    //}
    //
 
-   //::file::path acme_directory::ca2_module()
+   //::file::path directory_system::ca2_module()
    //{
    //
    //   return "";
    //
    //}
    //
-   ::file::path acme_directory::archive()
-   {
-
-      return "";
-
-   }
-
-
-
-   ::file::path acme_directory::tool()
+   ::file::path directory_system::archive()
    {
 
       return "";
@@ -630,7 +621,16 @@ namespace acme_ios
    }
 
 
-   //::file::path acme_directory::roaming()
+
+   ::file::path directory_system::tool()
+   {
+
+      return "";
+
+   }
+
+
+   //::file::path directory_system::roaming()
    //{
 
    //   return "";
@@ -638,7 +638,7 @@ namespace acme_ios
    //}
 
 
-   ::file::path acme_directory::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
+   ::file::path directory_system::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
    {
 
       ::file::path_array stra;
@@ -647,7 +647,7 @@ namespace acme_ios
 
       string strCandidate;
 
-      for (i32 i = 0; i < stra.get_count(); i++)
+      for (int i = 0; i < stra.get_count(); i++)
       {
 
          strCandidate = stra[i] / pszTopic;
@@ -667,7 +667,7 @@ namespace acme_ios
    }
 
 
-   //::file::path acme_directory::get_memory_map_base_folder_path()
+   //::file::path directory_system::get_memory_map_base_folder_path()
    //{
 
    //   return "";
@@ -675,7 +675,7 @@ namespace acme_ios
    //}
 
 
-   ::file::path acme_directory::user_appdata_local()
+   ::file::path directory_system::user_appdata_local()
    {
 
       //return _shell_get_special_folder_path(CSIDL_LOCAL_APPDATA);

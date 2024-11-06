@@ -39,7 +39,7 @@ void windowing_ios_factory(::factory::factory * pfactory)
 
    pfactory->add_factory_item < windowing_ios::host_interaction, ::sandbox_windowing::host_interaction > ();
 
-//   pfactory->add_factory_item < windowing_ios::node, ::acme::node > ();
+//   pfactory->add_factory_item < windowing_ios::node, ::platform::node > ();
    pfactory->add_factory_item < windowing_ios::display, ::windowing::display > ();
    pfactory->add_factory_item < windowing_ios::monitor, ::windowing::monitor > ();
    pfactory->add_factory_item < windowing_ios::buffer, ::graphics::graphics > ();

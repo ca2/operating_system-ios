@@ -1,6 +1,6 @@
 #include "framework.h"
-#include "dir_system.h"
-#include "acme_ios/acme_directory.h"
+#include "directory_system.h"
+#include "acme_ios/directory_system.h"
 //#include "_ios.h"
 
 
@@ -8,26 +8,26 @@ namespace acme_ios
 {
 
 
-   dir_system::dir_system()
+   directory_system::directory_system()
    {
 
 
    }
 
 
-   dir_system::~dir_system()
+   directory_system::~directory_system()
    {
 
 
    }
 
 
-   void dir_system::initialize(::particle * pparticle)
+   void directory_system::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::dir_system::initialize(pparticle);
+      ::directory_system::initialize(pparticle);
 //
 //      if (!estatus)
 //      {
@@ -41,20 +41,20 @@ namespace acme_ios
    }
 
 
-   ::file::path dir_system::compute_default_app_data_path()
+   ::file::path directory_system::compute_default_app_data_path()
    {
 
-      return acmedirectory()->m_pplatformdir->m_pathLibrary / "application";
+      return directory_system()->m_pplatformdir->m_pathLibrary / "application";
 
    }
 
 
-   void dir_system::init_system()
+   void directory_system::init_system()
    {
 
-      ::dir_system::init_system();
+      ::directory_system::init_system();
       
-      m_pathHome = acmedirectory()->home();
+      m_pathHome = directory_system()->home();
       
       m_pathCa2Config = m_pathHome / "Library/Application Support/ca2";
       

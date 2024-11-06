@@ -34,7 +34,7 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle
    
    __block UIWindow * puiwindow = nullptr;
    
-   ns_main_sync(^()
+   ns_main_send(^()
    {
       
       iosWindow * pioswindow = [iosWindow alloc];
@@ -76,7 +76,7 @@ UIWindow * new_ios_window(ios_window * pwindow, CGRect rect, unsigned int uStyle
 void ios_window::ios_window_show()
 {
    
-   ns_main_async(^{
+   ns_main_post(^{
       
       [m_pioswindow makeKeyAndVisible];
       //iosViewController * pcontroller = m_pioswindow->m_controller;
@@ -95,7 +95,7 @@ void ios_window::ios_window_redraw()
 //      //[m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 //      [m_pioswindow setNeedsDisplay];
 //   });
-   ns_main_async(^{
+   ns_main_post(^{
 
       
 //      [CATransaction begin];
@@ -116,7 +116,7 @@ void ios_window::ios_window_redraw()
 //void ios_window::ios_window_redraw_sync()
 //{
 //
-//   ns_main_async(^{
+//   ns_main_post(^{
 //
 //      [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 //
@@ -130,7 +130,7 @@ void ios_window::ios_window_redraw()
 void ios_window::ios_window_invalidate()
 {
    
-   ns_main_async(^{
+   ns_main_post(^{
       
       [m_pioswindow->m_controller->m_iosframeview setNeedsDisplay];
 
@@ -144,7 +144,7 @@ void ios_window::ios_window_invalidate()
 void ios_window::ios_window_show_keyboard(bool bShow)
 {
    
-   ns_main_async(^
+   ns_main_post(^
    {
 
       if(bShow)
@@ -438,7 +438,7 @@ void ios_window::ios_window_pick_browse_for_saving_user_controller(void *pUserCo
 void ios_window::ios_window_get_frame(CGRect * prect)
 {
    
-   ns_main_sync(^{
+   ns_main_send(^{
       *prect = [m_pioswindow frame];
    });
    

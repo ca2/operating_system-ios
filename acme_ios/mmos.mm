@@ -4,16 +4,16 @@
 ::e_status __call(::particle * pparticle);
 void millis_sleep(::u64 uMillis);
 
-void system_id_update(void * pSystem, ::i64 iUpdate, ::i64 iPayload);
+void system_id_update(::platform::system * psystem, ::i64 iUpdate, ::i64 iPayload);
 //void system_call_update_wallpaper_changed();
 
 bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz);
 
-void * get_system_mmos(void * pSystem);
-void set_system_mmos(void * pSystem, void * pmmos);
+void * get_system_mmos(::platform::system * psystem);
+void set_system_mmos(::platform::system * psystem, void * pmmos);
 
 
-void init_mmos(void * pSystem)
+void init_mmos(::platform::system * psystem)
 {
 
    auto pmmos = ([[mmos alloc] init]);
@@ -38,7 +38,7 @@ void init_mmos(void * pSystem)
    
 }
 
-void term_mmos(void * pSystem)
+void term_mmos(::platform::system * psystem)
 {
    
    auto pmmos = (__bridge_transfer mmos *) get_system_mmos(pSystem);
@@ -48,7 +48,7 @@ void term_mmos(void * pSystem)
 }
 
 //
-//void ns_main_async(dispatch_block_t block)
+//void ns_main_post(dispatch_block_t block)
 //{
 //   
 //   //   dispatch_block_t block = ^{
@@ -381,7 +381,7 @@ void term_mmos(void * pSystem)
 @end
 
 
-bool mm1a_get_file_image(void * pSystem, unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
+bool mm1a_get_file_image(::platform::system * psystem, unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
 {
    
    auto pmmos = (__bridge mmos *) get_system_mmos(pSystem);
@@ -443,12 +443,12 @@ void ns_log(const char * pszLog)
 
 
 
-char * mm_browse_folder(void * pSystem, const char * pszStartDir, bool bCanCreateDirectories)
+char * mm_browse_folder(::platform::system * psystem, const char * pszStartDir, bool bCanCreateDirectories)
 {
 
    __block char * p = NULL;
 
-   ns_main_sync(^
+   ns_main_send(^
    {
 
       mmos * pos = (__bridge mmos *) get_system_mmos(pSystem);
@@ -475,12 +475,12 @@ char * mm_browse_folder(void * pSystem, const char * pszStartDir, bool bCanCreat
 }
 
 
-char** mm_browse_file_open(void * pSystem, const char ** pszStartDir, bool bMulti)
+char** mm_browse_file_open(::platform::system * psystem, const char ** pszStartDir, bool bMulti)
 {
 
    __block char ** pp = NULL;
 
-   ns_main_sync(^
+   ns_main_send(^
    {
 
       mmos * pos = (__bridge mmos *) get_system_mmos(pSystem);

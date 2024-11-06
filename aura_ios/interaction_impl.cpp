@@ -739,7 +739,7 @@ namespace aura_ios
 
       ::user::interaction_impl::post_non_client_destroy();
 
-//      ns_main_async(^()
+//      ns_main_post(^()
 //      {
 //      
 //         aura_window_destroy();
@@ -1251,14 +1251,14 @@ namespace aura_ios
 ////               if (rectangle.left >= 0)
 ////               {
 ////
-////                  pmouse->m_point.x += (::i32)rectangle.left;
+////                  pmouse->m_point.x += (int)rectangle.left;
 ////
 ////               }
 ////
 ////               if (rectangle.top >= 0)
 ////               {
 ////
-////                  pmouse->m_point.y += (::i32)rectangle.top;
+////                  pmouse->m_point.y += (int)rectangle.top;
 ////
 ////               }
 ////
@@ -1363,14 +1363,14 @@ namespace aura_ios
 ////                    if(rectWindow.left >= rcMonitor.left)
 ////                    {
 ////
-////                       pmouse->m_point.x += (::i32) rectWindow.left;
+////                       pmouse->m_point.x += (int) rectWindow.left;
 ////
 ////                    }
 ////
 ////                    if(rectWindow.top >= rcMonitor.top)
 ////                    {
 ////
-////                       pmouse->m_point.y += (::i32) rectWindow.top;
+////                       pmouse->m_point.y += (int) rectWindow.top;
 ////
 ////                    }
 ////
@@ -1381,14 +1381,14 @@ namespace aura_ios
 ////                    if(rectWindow.left >= 0)
 ////                    {
 ////
-////                       pmouse->m_point.x += (::i32) rectWindow.left;
+////                       pmouse->m_point.x += (int) rectWindow.left;
 ////
 ////                    }
 ////
 ////                    if(rectWindow.top >= 0)
 ////                    {
 ////
-////                       pmouse->m_point.y += (::i32) rectWindow.top;
+////                       pmouse->m_point.y += (int) rectWindow.top;
 ////
 ////                    }
 ////
@@ -1683,7 +1683,7 @@ namespace aura_ios
 
 
 
-//   i32 interaction_impl::message_box(const char * lpszText, const char * lpszCaption, ::u32 nType)
+//   int interaction_impl::message_box(const char * lpszText, const char * lpszCaption, ::u32 nType)
 //   {
 //
 //      string strCaption;
@@ -1693,7 +1693,7 @@ namespace aura_ios
 //      else
 //         lpszCaption = strCaption;
 //
-//      i32 nResult = ::message_box_synchronous((oswindow)get_handle(), lpszText, lpszCaption, nType);
+//      int nResult = ::message_box_synchronous((oswindow)get_handle(), lpszText, lpszCaption, nType);
 //
 //      return nResult;
 //
@@ -1714,12 +1714,12 @@ namespace aura_ios
 //      return 0;
 //   }
 //
-//   void interaction_impl::SetScrollRange(i32 nBar, i32 nMinPos, i32 nMaxPos, bool bRedraw)
+//   void interaction_impl::SetScrollRange(int nBar, int nMinPos, int nMaxPos, bool bRedraw)
 //   {
 //      //::SetScrollRange(get_handle(), nBar, nMinPos, nMaxPos, bRedraw);
 //   }
 //
-//   void interaction_impl::GetScrollRange(i32 nBar, LPINT lpMinPos, LPINT lpMaxPos) const
+//   void interaction_impl::GetScrollRange(int nBar, LPINT lpMinPos, LPINT lpMaxPos) const
 //   {
 //      //::GetScrollRange(get_handle(), nBar, lpMinPos, lpMaxPos);
 //   }
@@ -1727,14 +1727,14 @@ namespace aura_ios
 //   // Turn on/off non-control scrollbars
 //   //   for WS_?SCROLL scrollbars - show/hide them
 //   //   for control scrollbar - enable/disable them
-//   void interaction_impl::EnableScrollBarCtrl(i32 nBar, bool bEnable)
+//   void interaction_impl::EnableScrollBarCtrl(int nBar, bool bEnable)
 //   {
 //      // WS_?SCROLL scrollbar - show or hide
 //      ShowScrollBar(nBar, bEnable);
 //   }
 //
 //   /*
-//    bool interaction_impl::SetScrollInfo(i32 nBar, LPSCROLLINFO lpScrollInfo, bool bRedraw)
+//    bool interaction_impl::SetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, bool bRedraw)
 //    {
 //    ASSERT(lpScrollInfo != nullptr);
 //
@@ -1744,7 +1744,7 @@ namespace aura_ios
 //    return true;
 //    }
 //
-//    bool interaction_impl::GetScrollInfo(i32 nBar, LPSCROLLINFO lpScrollInfo, ::u32 nMask)
+//    bool interaction_impl::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, ::u32 nMask)
 //    {
 //    UNREFERENCED_PARAMETER(nMask);
 //    ASSERT(lpScrollInfo != nullptr);
@@ -1755,10 +1755,10 @@ namespace aura_ios
 //    */
 //
 //
-//   i32 interaction_impl::GetScrollLimit(i32 nBar)
+//   int interaction_impl::GetScrollLimit(int nBar)
 //   {
 //
-//      i32 nMin = 0, nMax = 0;
+//      int nMin = 0, nMax = 0;
 //
 //      GetScrollRange(nBar, &nMin, &nMax);
 //
@@ -1767,7 +1767,7 @@ namespace aura_ios
 //   }
 //
 //
-//   void interaction_impl::ScrollWindow(i32 xAmount, i32 yAmount,
+//   void interaction_impl::ScrollWindow(int xAmount, int yAmount,
 //                                       const RECTANGLE_I32 * lpRect, const RECTANGLE_I32 * lpClipRect)
 //   {
 //
@@ -1917,7 +1917,7 @@ namespace aura_ios
 //      case e_message_command:
 //      {
 //         // reflect the message through the message ::collection::map as OCM_COMMAND
-//         /* xxx         i32 nCode = HIWORD(wparam);
+//         /* xxx         int nCode = HIWORD(wparam);
 //          if (interaction_impl::_001OnCommand(0, MAKELONG(nCode, WM_REFLECT_BASE+e_message_command), nullptr, nullptr))
 //          {
 //          if (pResult != nullptr)
@@ -1932,7 +1932,7 @@ namespace aura_ios
 //       {
 //       // reflect the message through the message ::collection::map as OCM_NOTIFY
 //       NMHDR* pNMHDR = (NMHDR*)lparam;
-//       //            i32 nCode = pNMHDR->code;
+//       //            int nCode = pNMHDR->code;
 //       //            __NOTIFY notify;
 //       //          notify.pResult = pResult;
 //       //        notify.pNMHDR = pNMHDR;
@@ -2082,10 +2082,10 @@ namespace aura_ios
 //      //
 //      //      LRESULT lResult;
 //      //      if (ReflectLastMsg(lpInfo->hWnd, &lResult))
-//      //         return (i32)lResult;    // eat it
+//      //         return (int)lResult;    // eat it
 //      //
 //      //      // not handled - do default
-//      //      return (i32)Default();
+//      //      return (int)Default();
 //   }
 
 
@@ -2690,7 +2690,7 @@ namespace aura_ios
 //   }
 
 
-//   void interaction_impl::MoveWindow(i32 x, i32 y, i32 nWidth, i32 nHeight, bool bRepaint)
+//   void interaction_impl::MoveWindow(int x, int y, int nWidth, int nHeight, bool bRepaint)
 //   {
 //
 //      ASSERT(::is_window(get_handle()));
@@ -2813,7 +2813,7 @@ namespace aura_ios
    }
 
 
-//   bool interaction_impl::ShowWindow(i32 nCmdShow)
+//   bool interaction_impl::ShowWindow(int nCmdShow)
 //   {
 //
 //      return ::user::interaction_impl::ShowWindow(nCmdShow);
@@ -2869,7 +2869,7 @@ namespace aura_ios
 //   }
 //
 //
-//   ::i32 interaction_impl::GetWindowLong(i32 nIndex)
+//   int interaction_impl::GetWindowLong(int nIndex)
 //   {
 //
 //      return get_window_long(nIndex);
@@ -2877,7 +2877,7 @@ namespace aura_ios
 //   }
 //
 //
-//   ::i32 interaction_impl::SetWindowLong(i32 nIndex, ::i32 lValue)
+//   int interaction_impl::SetWindowLong(int nIndex, int lValue)
 //   {
 //
 //      return set_window_long(nIndex, lValue);
@@ -3004,7 +3004,7 @@ namespace aura_ios
 //   }
 
 //
-//   i32 interaction_impl::SetWindowRgn(HRGN hRgn, bool bRedraw)
+//   int interaction_impl::SetWindowRgn(HRGN hRgn, bool bRedraw)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3012,7 +3012,7 @@ namespace aura_ios
 //   }
 //
 //
-//   i32 interaction_impl::GetWindowRgn(HRGN hRgn)
+//   int interaction_impl::GetWindowRgn(HRGN hRgn)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3120,7 +3120,7 @@ namespace aura_ios
 //   }
 //
 //
-//   i32 interaction_impl::GetUpdateRgn(::draw2d::region* pRgn, bool bErase)
+//   int interaction_impl::GetUpdateRgn(::draw2d::region* pRgn, bool bErase)
 //   {
 //
 //      throw ::exception(error_not_implemented);
@@ -3426,7 +3426,7 @@ namespace aura_ios
 //   }
 
 
-//   bool interaction_impl::DrawAnimatedRects(i32 idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 * lprcTo)
+//   bool interaction_impl::DrawAnimatedRects(int idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 * lprcTo)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3566,10 +3566,10 @@ namespace aura_ios
 //
 //
 //   // Helper for radio buttons
-//   i32 interaction_impl::GetCheckedRadioButton(i32 nIDFirstButton, i32 nIDLastButton)
+//   int interaction_impl::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
 //   {
 //
-//      for (i32 nID = nIDFirstButton; nID <= nIDLastButton; nID++)
+//      for (int nID = nIDFirstButton; nID <= nIDLastButton; nID++)
 //      {
 //
 //         if (IsDlgButtonChecked(nID))
@@ -3586,7 +3586,7 @@ namespace aura_ios
 //   }
 //
 //
-//   void interaction_impl::CheckDlgButton(i32 nIDButton, ::u32 nCheck)
+//   void interaction_impl::CheckDlgButton(int nIDButton, ::u32 nCheck)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3594,7 +3594,7 @@ namespace aura_ios
 //   }
 //
 //
-//   void interaction_impl::CheckRadioButton(i32 nIDFirstButton, i32 nIDLastButton, i32 nIDCheckButton)
+//   void interaction_impl::CheckRadioButton(int nIDFirstButton, int nIDLastButton, int nIDCheckButton)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3602,7 +3602,7 @@ namespace aura_ios
 //   }
 //
 //
-//   i32 interaction_impl::DlgDirList(char * lpPathSpec, i32 nIDListBox, i32 nIDStaticPath, ::u32 nFileType)
+//   int interaction_impl::DlgDirList(char * lpPathSpec, int nIDListBox, int nIDStaticPath, ::u32 nFileType)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3610,7 +3610,7 @@ namespace aura_ios
 //   }
 //
 //
-//   i32 interaction_impl::DlgDirListComboBox(char * lpPathSpec, i32 nIDComboBox, i32 nIDStaticPath, ::u32 nFileType)
+//   int interaction_impl::DlgDirListComboBox(char * lpPathSpec, int nIDComboBox, int nIDStaticPath, ::u32 nFileType)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3618,7 +3618,7 @@ namespace aura_ios
 //   }
 //
 //
-//   bool interaction_impl::DlgDirSelect(char * lpString, i32 nSize, i32 nIDListBox)
+//   bool interaction_impl::DlgDirSelect(char * lpString, int nSize, int nIDListBox)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3626,7 +3626,7 @@ namespace aura_ios
 //   }
 //
 //
-//   bool interaction_impl::DlgDirSelectComboBox(char * lpString, i32 nSize, i32 nIDComboBox)
+//   bool interaction_impl::DlgDirSelectComboBox(char * lpString, int nSize, int nIDComboBox)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3650,7 +3650,7 @@ namespace aura_ios
 //   }
 //
 //
-//   ::u32 interaction_impl::IsDlgButtonChecked(i32 nIDButton) const
+//   ::u32 interaction_impl::IsDlgButtonChecked(int nIDButton) const
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3658,7 +3658,7 @@ namespace aura_ios
 //   }
 //
 //
-//   LPARAM interaction_impl::SendDlgItemMessage(i32 nID, const ::id & id, wparam wparam, lparam lparam)
+//   LPARAM interaction_impl::SendDlgItemMessage(int nID, const ::id & id, wparam wparam, lparam lparam)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3666,7 +3666,7 @@ namespace aura_ios
 //   }
 //
 //
-//   void interaction_impl::SetDlgItemInt(i32 nID, ::u32 nValue, bool bSigned)
+//   void interaction_impl::SetDlgItemInt(int nID, ::u32 nValue, bool bSigned)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3674,7 +3674,7 @@ namespace aura_ios
 //   }
 //
 //
-//   void interaction_impl::SetDlgItemText(i32 nID, const char * lpszString)
+//   void interaction_impl::SetDlgItemText(int nID, const char * lpszString)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -3682,7 +3682,7 @@ namespace aura_ios
 //   }
 //
 //
-//   i32 interaction_impl::ScrollWindowEx(i32 greekdeltax, i32 greekdeltay, const RECTANGLE_I32 * lpRectScroll, const RECTANGLE_I32 * lpRectClip, ::draw2d::region* prgnUpdate, RECTANGLE_I32 * lpRectUpdate, ::u32 flags)
+//   int interaction_impl::ScrollWindowEx(int greekdeltax, int greekdeltay, const RECTANGLE_I32 * lpRectScroll, const RECTANGLE_I32 * lpRectClip, ::draw2d::region* prgnUpdate, RECTANGLE_I32 * lpRectUpdate, ::u32 flags)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -4014,7 +4014,7 @@ namespace aura_ios
 //   {
 //      Default();
 //   }
-//   void interaction_impl::OnMove(i32, i32)
+//   void interaction_impl::OnMove(int, int)
 //   {
 //      Default();
 //   }
@@ -4062,7 +4062,7 @@ namespace aura_ios
 //   {
 //      Default();
 //   }
-//   void interaction_impl::OnSize(::u32, i32, i32)
+//   void interaction_impl::OnSize(::u32, int, int)
 //   {
 //      Default();
 //   }
@@ -4234,9 +4234,9 @@ namespace aura_ios
 //   {
 //      Default();
 //   }
-//   i32 interaction_impl::OnMouseActivate(::user::interaction *, ::u32, ::u32)
+//   int interaction_impl::OnMouseActivate(::user::interaction *, ::u32, ::u32)
 //   {
-//      return (i32)Default();
+//      return (int)Default();
 //   }
 //   void interaction_impl::OnMouseMove(::u32, point_i32)
 //   {
@@ -4341,9 +4341,9 @@ namespace aura_ios
 //      Default();
 //   }
    // Win4 support
-   //   void interaction_impl::OnStyleChanged(i32, LPSTYLESTRUCT)
+   //   void interaction_impl::OnStyleChanged(int, LPSTYLESTRUCT)
    //   { Default(); }
-   //   void interaction_impl::OnStyleChanging(i32, LPSTYLESTRUCT)
+   //   void interaction_impl::OnStyleChanging(int, LPSTYLESTRUCT)
    //   { Default(); }
 //   void interaction_impl::OnSizing(::u32, RECTANGLE_I32 *)
 //   {
@@ -4451,7 +4451,7 @@ namespace aura_ios
 //   }
 //
 //
-//   LRESULT CALLBACK __cbt_filter_hook(i32 code, wparam wparam, lparam lparam)
+//   LRESULT CALLBACK __cbt_filter_hook(int code, wparam wparam, lparam lparam)
 //   {
 //
 //      throw ::exception(error_not_implemented);;
@@ -4694,10 +4694,10 @@ namespace aura_ios
 //   }
 
 
-//   void interaction_impl::ns_main_async(dispatch_block_t block)
+//   void interaction_impl::ns_main_post(dispatch_block_t block)
 //   {
 //
-//      ::ns_main_async(block);
+//      ::ns_main_post(block);
 //
 //   }
 

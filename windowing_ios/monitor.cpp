@@ -12,9 +12,9 @@
 #include <CoreGraphics/CoreGraphics.h>
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
-void ns_main_sync(dispatch_block_t block);
+void ns_main_send(dispatch_block_t block);
 
 void ns_monitor_cgrect(int i, CGRect * p);
 void ns_workspace_cgrect(int i, CGRect * p);
@@ -59,7 +59,7 @@ namespace windowing_ios
    {
       __block CGRect rectWorkspace;
 
-      ns_main_sync(^()
+      ns_main_send(^()
                    {
          
          ns_workspace_cgrect((int) m_iIndex, &rectWorkspace);

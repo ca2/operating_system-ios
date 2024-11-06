@@ -16,7 +16,7 @@
 //bool macos_get_cursor_position(POINT_I32 * ppointCursor);
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
 //void * ns_get_key_window();
@@ -199,7 +199,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //      
 //      auto routineLocal = procedure;
 //
-//      ns_main_async(^
+//      ns_main_post(^
 //                    {
 //         
 //         routineLocal();
@@ -381,7 +381,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //   
 //            nsapp_activation_policy_regular();
 //            
-//            ns_main_async(^()
+//            ns_main_post(^()
 //                          {
 //
 //            ProcessSerialNumber psn = { 0, kCurrentProcess };
@@ -400,7 +400,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //   
 //            nsapp_activation_policy_accessory();
 //            
-//            ns_main_async(^()
+//            ns_main_post(^()
 //                          {
 //            //hide icon on Dock
 //            ProcessSerialNumber psn = { 0, kCurrentProcess };

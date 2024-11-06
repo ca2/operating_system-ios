@@ -24,7 +24,7 @@ void apex_ios_factory(::factory::factory * pfactory)
    
    acme_ios_factory(pfactory);
 
-   pfactory->add_factory_item < ::apex_ios::node, ::acme::node > ();
+   pfactory->add_factory_item < ::apex_ios::node, ::platform::node > ();
 
    pfactory->add_factory_item < ::grand_central_dispatch::watcher, ::file::watcher > ();
 

@@ -27,7 +27,7 @@ namespace windowing_ios
       
    
       
-      void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
+      void implement(::pointer < ::platform::node > & pnode, ::pointer < ::platform::system > & psystem) override;
 
       
       void _will_finish_launching() override;

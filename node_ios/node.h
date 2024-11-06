@@ -20,7 +20,7 @@ namespace node_ios
    public:
    
       
-      //void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
+      //void implement(::pointer < ::platform::node > & pnode, ::pointer < ::platform::system > & psystem) override;
       
       
       node();
@@ -39,7 +39,7 @@ namespace node_ios
 //
       
       
-//      void implement(::pointer < ::acme::node > & pnode, ::pointer < ::acme::system > & psystem) override;
+//      void implement(::pointer < ::platform::node > & pnode, ::pointer < ::platform::system > & psystem) override;
 //
 //      
 //      void _will_finish_launching() override;
@@ -63,7 +63,7 @@ namespace node_ios
 //       ::pointer < ::conversation > create_new_message_box_conversation() override;
 
       
-      void defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
+      void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
 
 
       void ns_app_run() override;

@@ -1,8 +1,8 @@
 // Create on 2021-03-22 09:12 <3ThomasBS_ // at Linux(Question)
 // Recreated on 2021-05-16 15:07 <3ThomasBS_ // for macOS
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_path.h"
-#include "acme_path.h"
+#include "acme/filesystem/filesystem/path_system.h"
+#include "path_system.h"
 
 //enum
 //{
@@ -22,7 +22,7 @@ namespace acme_ios
 {
 
    
-   acme_path::acme_path()
+   path_system::path_system()
    {
 
       //m_pplatformpath = this;
@@ -30,14 +30,14 @@ namespace acme_ios
    }
 
 
-   acme_path::~acme_path()
+   path_system::~path_system()
    {
 
 
    }
 
 
-//   ::file::path acme_path::app_module()
+//   ::file::path path_system::app_module()
 //   {
 //
 //      ::file::path path = apple_app_module_path();
@@ -48,7 +48,7 @@ namespace acme_ios
 //
 
 
-   void acme_path::create_symbolic_link(const ::scoped_string & scopedstrLink, const ::scoped_string & scopedstrSource)
+   void path_system::create_symbolic_link(const ::scoped_string & scopedstrLink, const ::scoped_string & scopedstrSource)
    {
       
       if(!ns_create_alias(scopedstrLink, scopedstrSource))
@@ -63,7 +63,7 @@ namespace acme_ios
    }
 
 
-   bool acme_path::is_symbolic_link(const ::scoped_string & scopedstrLink)
+   bool path_system::is_symbolic_link(const ::scoped_string & scopedstrLink)
    {
       
       auto estatus = ns_symbolic_link_destination(nullptr, scopedstrLink);
@@ -80,7 +80,7 @@ namespace acme_ios
    }
 
 
-   ::file::path acme_path::symbolic_link_destination(const ::scoped_string & scopedstrLink)
+   ::file::path path_system::symbolic_link_destination(const ::scoped_string & scopedstrLink)
    {
       
       string strDestination;
@@ -103,7 +103,7 @@ namespace acme_ios
    }
 
 
-   bool acme_path::has_custom_icon(const ::file::path & path)
+   bool path_system::has_custom_icon(const ::file::path & path)
    {
 
 //      FSRef ref;

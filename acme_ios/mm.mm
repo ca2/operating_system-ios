@@ -262,7 +262,7 @@ bool GetImagePixelData(unsigned int * pcr, int cx, int cy, int iScan, CGImageRef
 //void os_post_quit(::element * pelementQuit)
 //{
 //
-//   ns_main_async(^()
+//   ns_main_post(^()
 //   {
 //
 //      pelementQuit->run();

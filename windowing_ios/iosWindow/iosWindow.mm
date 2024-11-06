@@ -145,7 +145,7 @@ double get_status_bar_frame_height();
    [m_documentpickerdelegates addObject:picker];
 
    //void ns_pick_viewer_document()
-   ns_main_async(^{
+   ns_main_post(^{
       {
 //         
 //      //   auto picker = [[UIDocumentPickerViewController alloc]
@@ -178,7 +178,7 @@ double get_status_bar_frame_height();
 //   self->m_bForOpeningMedia = false;
    
    //void ns_pick_viewer_document()
-   ns_main_async(^{
+   ns_main_post(^{
       {
          
       //   auto picker = [[UIDocumentPickerViewController alloc]

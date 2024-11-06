@@ -8,7 +8,7 @@
 int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, unsigned int uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
 
 
-CLASS_DECL_ACME class ::acme::system * get_system();
+CLASS_DECL_ACME class ::platform::system * get_system();
 
 namespace windowing_ios
 {

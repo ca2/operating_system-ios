@@ -3,14 +3,14 @@
 //
 #include "framework.h"
 #include "node.h"
-#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/nano/user/window_implementation.h"
 #include "acme/platform/system.h"
 #include <CoreFoundation/CoreFoundation.h>
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
-void ns_main_sync(dispatch_block_t block);
+void ns_main_send(dispatch_block_t block);
 
 string macos_get_type_identifier(const char * str);
 
@@ -288,7 +288,7 @@ unsigned int * puiPid)
 
       //auto estatus =
       
-      ::acme::node::initialize(pparticle);
+      ::platform::node::initialize(pparticle);
 
 //      if(!estatus)
 //      {
@@ -341,7 +341,7 @@ unsigned int * puiPid)
    //
    //      bool bOk2 = true;
    //
-   //      //if(m_psystem->m_pacmedirectory->system_short_name().contains_ci("manjaro"))
+   //      //if(m_psystem->directory_system()->system_short_name().contains_ci("manjaro"))
    //      {
    //
    //         bOk2 = ::node_gnome::gsettings_set("org.gnome.desktop.wm.preferences", "theme", strUserTheme);
@@ -649,7 +649,7 @@ unsigned int * puiPid)
     void node::user_post_quit()
       {
        
-       ns_main_async(^
+       ns_main_post(^
                      {
           
           ns_app_terminate();
@@ -995,20 +995,20 @@ unsigned int * puiPid)
 } // namespace acme
 
 
-void * get_system_mmos(void * pSystem)
+void * get_system_mmos(::platform::system * psystem)
 {
 
-   auto psystem = (class ::acme::system *) pSystem;
+   auto psystem = (class ::platform::system *) pSystem;
 
    return psystem->m_pmmos;
 
 }
 
 
-void set_system_mmos(void * pSystem, void * pmmos)
+void set_system_mmos(::platform::system * psystem, void * pmmos)
 {
 
-   auto psystem = (class ::acme::system *) pSystem;
+   auto psystem = (class ::platform::system *) pSystem;
 
    psystem->m_pmmos = pmmos;
 

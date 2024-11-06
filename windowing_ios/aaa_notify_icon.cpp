@@ -1,5 +1,5 @@
 #include "framework.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 
 //
 //static ::user::notify_icon * g_pnotifyiconLast = nullptr;
@@ -116,7 +116,7 @@
 ////      }
 //   
 //   
-//      ::file::path pathFolder = m_psystem->m_pacmedirectory->ca2roaming() / "matter/icon/128";
+//      ::file::path pathFolder = m_psystem->directory_system()->ca2roaming() / "matter/icon/128";
 //
 //      string strIconName = get_application()->m_strAppId;
 //

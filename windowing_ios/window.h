@@ -78,7 +78,7 @@ namespace windowing_ios
        
        
        bool _configure_window_unlocked(const class ::zorder& zorder, const ::e_activation& eactivation, bool bNoZorder, ::e_display edisplay) override;
-       bool _strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize) override;
+       bool _strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize) override;
 
 
 //      void window_show() override;
@@ -89,7 +89,7 @@ namespace windowing_ios
 //      
 //      ::point_i32 get_mouse_cursor_position() override;
 //      
-//      bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
+//      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, ::u32 nFlags) override;
 
       //void set_mouse_capture() override;
 

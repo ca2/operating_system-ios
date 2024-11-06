@@ -1,29 +1,29 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/dir_context.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 
 
 namespace acme_ios
 {
    
 
-   class dir_system;
+   class directory_system;
    class file_system;
 
    
-   class CLASS_DECL_ACME dir_context :
-   virtual public ::dir_context
+   class CLASS_DECL_ACME directory_context :
+   virtual public ::directory_context
    {
    public:
       
       
-      ::pointer < dir_system >      m_pdirsystem;
+      ::pointer < directory_system >      m_pdirsystem;
       ::pointer < file_system >     m_pfilesystem;
 
       
-      dir_context();
-      ~dir_context() override;
+      directory_context();
+      ~directory_context() override;
       
       
       virtual void initialize(::particle * pparticle) override;

@@ -17,7 +17,7 @@
 
 
 void ns_app_run();
-void defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
+void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine);
 
 
@@ -255,7 +255,7 @@ void node::on_app_activated()
 
 
 //
-////   void node::implement(::pointer < ::acme::node > & pnode, ::pointer < class ::acme::system > & psystem)
+////   void node::implement(::pointer < ::platform::node > & pnode, ::pointer < class ::platform::system > & psystem)
 //void node::on_system_main()
 //   {
 //      
@@ -284,7 +284,7 @@ void node::on_app_activated()
    }
 
 
-void node::defer_create_windowing_application_delegate(void * pApplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
+void node::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
 {
    
 //   ::defer_create_windowing_application_delegate(
@@ -362,7 +362,7 @@ void node::ns_app_run()
 
 
 
-//extern class ::acme::system * get_system();
+//extern class ::platform::system * get_system();
 //
 //void os_on_will_finish_launching()
 //{

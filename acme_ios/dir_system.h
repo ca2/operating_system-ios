@@ -1,15 +1,15 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/dir_system.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 
 
 namespace acme_ios
 {
    
    
-   class CLASS_DECL_ACME dir_system :
-   virtual public ::dir_system
+   class CLASS_DECL_ACME directory_system :
+   virtual public ::directory_system
    {
    public:
       
@@ -24,8 +24,8 @@ namespace acme_ios
       ::file::path            m_strCa2AppData;
       //::file::path            m_pathHome;
       
-      dir_system();
-      ~dir_system() override;
+      directory_system();
+      ~directory_system() override;
       
       void initialize(::particle * pparticle) override;
       

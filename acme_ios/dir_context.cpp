@@ -1,8 +1,8 @@
 #include "framework.h"
-#include "dir_context.h"
-#include "dir_system.h"
+#include "directory_context.h"
+#include "directory_system.h"
 #include "file_system.h"
-#include "acme_ios/acme_directory.h"
+#include "acme_ios/directory_system.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/system.h"
 #include "acme/prototype/prototype/url.h"
@@ -15,21 +15,21 @@ namespace acme_ios
 {
 
 
-   dir_context::dir_context()
+   directory_context::directory_context()
    {
 
 
    }
 
 
-   dir_context::~dir_context()
+   directory_context::~directory_context()
    {
    
    
    }
 
 
-bool dir_context::fast_has_subdir(const ::file::path & path)
+bool directory_context::fast_has_subdir(const ::file::path & path)
 {
    
    ::string strProtocol = url()->get_protocol(path);
@@ -41,12 +41,12 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
       
    }
    
-   return ::dir_context::fast_has_subdir(path);
+   return ::directory_context::fast_has_subdir(path);
    
 }
 
 
-   ::file::listing & dir_context::root_ones(::file::listing & listing)
+   ::file::listing & directory_context::root_ones(::file::listing & listing)
    {
       
       ::file::path path;
@@ -64,10 +64,10 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-//   bool dir_context::enumerate(::file::listing & listing)
+//   bool directory_context::enumerate(::file::listing & listing)
 //   {
 //
-//      return ::dir_context::enumerate(listing);
+//      return ::directory_context::enumerate(listing);
 //
 ////      if(listing.m_bRecursive)
 ////      {
@@ -82,7 +82,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 ////
 ////            ___scoped_restore(listing.m_eextract);
 ////
-////            if(::dir_context::ls(listing))
+////            if(::directory_context::ls(listing))
 ////            {
 ////
 ////               listing = ::error_failed;
@@ -95,16 +95,16 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 ////
 ////            dira.ls_dir(listing.m_pathFinal);
 ////
-////            for(i32 i = 0; i < dira.get_count(); i++)
+////            for(int i = 0; i < dira.get_count(); i++)
 ////            {
 ////
-////               ::file::path dir_context = dira[i];
+////               ::file::path directory_context = dira[i];
 ////
-////               if(dir_context == listing.m_pathFinal)
+////               if(directory_context == listing.m_pathFinal)
 ////                  continue;
 ////
 ////               listing.m_pathUser.Empty();
-////               listing.m_pathFinal = dir_context;
+////               listing.m_pathFinal = directory_context;
 ////
 ////               if(listing.m_eextract != extract_all)
 ////               {
@@ -157,7 +157,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 ////      else
 ////      {
 ////
-////         if(::dir_context::ls(listing).succeeded())
+////         if(::directory_context::ls(listing).succeeded())
 ////         {
 ////
 ////            return listing;
@@ -198,16 +198,16 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 //
 
-//   bool dir_context::is(const ::file::path & path)
+//   bool directory_context::is(const ::file::path & path)
 //   {
 //
-//      return ::dir_context::is(path);
+//      return ::directory_context::is(path);
 //
 ////      auto psystem = m_psystem;
 ////
-////      auto pacmedirectory = psystem->m_pacmedirectory;
+////      auto pdirectorysystem = psystem->directory_system();
 ////
-////      if(pacmedirectory->is(path))
+////      if(pdirectorysystem->is(path))
 ////      {
 ////
 ////         return true;
@@ -245,7 +245,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 //
 //
-////   bool dir_context::mk(const ::file::path & pcsz)
+////   bool directory_context::mk(const ::file::path & pcsz)
 ////   {
 ////
 ////      if(is(pcsz))
@@ -295,9 +295,9 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 ////
 ////            if(!         auto psystem = m_psystem;
 ////
-////         auto pacmedirectory = psystem->m_pacmedirectory;
+////         auto pdirectorysystem = psystem->directory_system();
 ////
-////pacmedirectory->is(stra[i]))
+////pdirectorysystem->is(stra[i]))
 ////            {
 ////
 ////               return false;
@@ -320,7 +320,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    //         string_array straPath;
    //         string_array straTitle;
    //         ls(papp, psz, &straPath, &straTitle);
-   //         for(i32 i = 0; i < straPath.get_count(); i++)
+   //         for(int i = 0; i < straPath.get_count(); i++)
    //         {
    //            if(is(straPath[i], papp))
    //            {
@@ -409,7 +409,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 
 
 
-//   ::file::path dir_context::trash_that_is_not_trash(const ::file::path & psz)
+//   ::file::path directory_context::trash_that_is_not_trash(const ::file::path & psz)
 //   {
 //      if(psz == nullptr)
 //         return "";
@@ -440,7 +440,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 
 
-//   bool dir_context::has_subdir(const ::file::path & pszDir)
+//   bool directory_context::has_subdir(const ::file::path & pszDir)
 //   {
 //      ::file::listing stra(get_context());
 //      stra.ls_dir(pszDir);
@@ -450,7 +450,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 
 
 
-   ::file::path dir_context::time()
+   ::file::path directory_context::time()
    {
       
       return this->module();
@@ -458,19 +458,19 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   ::file::path dir_context::stage()
+   ::file::path directory_context::stage()
    {
       
       return install() / "stage";
       
    }
 
-   ::file::path dir_context::stageapp()
+   ::file::path directory_context::stageapp()
    {
       return stage() / "basis";
    }
 
-//   ::file::path dir_context::netseed()
+//   ::file::path directory_context::netseed()
 //   {
 //      return m_strNetSeedFolder;
 //   }
@@ -486,23 +486,23 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 
 
-   ::file::path dir_context::module()
+   ::file::path directory_context::module()
    {
 
-      return acmedirectory()->module();
+      return directory_system()->module();
 
    }
 
 
-//   ::file::path dir_context::ca2module()
+//   ::file::path directory_context::ca2module()
 //   {
 //
-//      return ::apex::get_system()->m_pdirsystem->m_pathCa2Module;
+//      return ::apex::get_system()->directory_system()->m_pathCa2Module;
 //
 //   }
 
 
-   ::file::path dir_context::time_square(const ::string & strPrefix,const ::string & strSuffix)
+   ::file::path directory_context::time_square(const ::string & strPrefix,const ::string & strSuffix)
    {
 
       __UNREFERENCED_PARAMETER(strPrefix);
@@ -512,7 +512,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   ::file::path dir_context::time_log()
+   ::file::path directory_context::time_log()
    {
 
       return appdata() / "log";
@@ -520,15 +520,15 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-::file::path dir_context::document()
+::file::path directory_context::document()
 {
    
-   return acmedirectory()->icloud_container_documents();
+   return directory_system()->icloud_container_documents();
    
 }
 
    
-//   bool dir_context::rm(const ::file::path & psz, bool bRecursive)
+//   bool directory_context::rm(const ::file::path & psz, bool bRecursive)
 //   {
 //      if(bRecursive)
 //      {
@@ -551,7 +551,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //
 //
    
-//   ::file::path dir_context::name(const ::file::path & str)
+//   ::file::path directory_context::name(const ::file::path & str)
 //   {
 //
 //      strsize iLast = str.get_length() - 1;
@@ -585,12 +585,12 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 
 
-   void dir_context::initialize(::particle * pparticle)
+   void directory_context::initialize(::particle * pparticle)
    {
 
       //auto estatus =
       
-      ::dir_context::initialize(pparticle);
+      ::directory_context::initialize(pparticle);
       
 
 //      if(!estatus)
@@ -600,11 +600,11 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //
 //      }
 //
-      m_pdirsystem = system()->m_pdirsystem;
+      m_pdirsystem = system()->directory_system();
       
       m_pfilesystem = system()->m_pfilesystem;
 
-      m_pdirsystem->m_pathHome = acmedirectory()->home();
+      m_pdirsystem->m_pathHome = directory_system()->home();
 
 //      if(!update_module_path())
 //      {
@@ -656,9 +656,9 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //
 //      m_pdirsystem->m_strCommonAppData = str / "commonappdata";
 
-//      m_pdirsystem->m_pathAppData = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathLibrary / "AppData";
+//      m_pdirsystem->m_pathAppData = m_psystem->directory_system()->m_pplatformdir->m_pathLibrary / "AppData";
 
-//      m_pdirsystem->m_strCommonAppData = m_psystem->m_pacmedirectory->m_pplatformdir->m_pathLibrary / "CommonAppData";
+//      m_pdirsystem->m_strCommonAppData = m_psystem->directory_system()->m_pplatformdir->m_pathLibrary / "CommonAppData";
 
       string str;
 
@@ -675,7 +675,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   void dir_context::init_context()
+   void directory_context::init_context()
    {
 
 //      xml::document doc;
@@ -683,7 +683,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //      string strPath = appdata() / "configuration/directory.xml";
 //
 //
-//      string strDocument = pcontext->m_papexcontext->file().as_string(strPath);
+//      string strDocument = papplication->file().as_string(strPath);
 //
 //      if(doc.load(strDocument))
 //      {
@@ -752,7 +752,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 //
 //
-//   ::file::path dir_context::appdata()
+//   ::file::path directory_context::appdata()
 //   {
 //
 //      return m_pdirsystem->m_strCa2AppData;
@@ -760,7 +760,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 
 
-   ::file::path dir_context::commonappdata_root()
+   ::file::path directory_context::commonappdata_root()
    {
 
       return m_pdirsystem->m_strCommonAppData;
@@ -768,7 +768,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   ::file::path dir_context::userquicklaunch()
+   ::file::path directory_context::userquicklaunch()
    {
 
       return m_pdirsystem->m_pathAppData / "Microsoft/Internet Explorer/Quick Launch";
@@ -776,7 +776,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   ::file::path dir_context::userprograms()
+   ::file::path directory_context::userprograms()
    {
 
       return m_pdirsystem->m_strPrograms;
@@ -784,7 +784,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-   ::file::path dir_context::commonprograms()
+   ::file::path directory_context::commonprograms()
    {
 
       return m_pdirsystem->m_strCommonPrograms;
@@ -792,7 +792,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
    }
 
 
-//   bool dir_context::is_inside_time(const ::file::path & pszPath)
+//   bool directory_context::is_inside_time(const ::file::path & pszPath)
 //   {
 //
 //      return is_inside(time(), pszPath);
@@ -800,7 +800,7 @@ bool dir_context::fast_has_subdir(const ::file::path & path)
 //   }
 //
 //
-//   bool dir_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
+//   bool directory_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
 //   {
 //
 //      return ::str::case_insensitive_begins(pszDir, pszPath);

@@ -1,5 +1,5 @@
 //
-//  acme_file.hpp
+//  file_system.hpp
 //  acme_macos
 //
 //  Created by Camilo Sasuke Thomas Borregaard Sørensen on 18/08/21.
@@ -8,7 +8,7 @@
 #pragma once
 
 
-#include "acme_apple/acme_file.h"
+#include "acme_apple/file_system.h"
 
 
 namespace acme_ios
@@ -29,8 +29,8 @@ namespace acme_ios
    };
 
 
-   class CLASS_DECL_ACME_MACOS acme_file :
-      virtual public ::acme_apple::acme_file
+   class CLASS_DECL_ACME_MACOS file_system :
+      virtual public ::acme_apple::file_system
    {
    public:
       
@@ -38,8 +38,8 @@ namespace acme_ios
       string_map < ::pointer < icloud_container > > m_map_iCloudContainer;
       
       
-      acme_file();
-      ~acme_file() override;
+      file_system();
+      ~file_system() override;
 
       bool _is_icloud_app_document(const ::file::path & path);
       

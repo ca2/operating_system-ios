@@ -912,7 +912,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    [self clearPreviousLayoutInformation];
 
    
-   ns_main_async(^{
+   ns_main_post(^{
 
    [self setNeedsDisplay];
       
@@ -1069,7 +1069,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 - (void)selectionChanged
 {
    
-   ns_main_async(^{
+   ns_main_post(^{
       [ self setNeedsDisplay ];
       
    //   // If not in editing mode, we don't show the caret.

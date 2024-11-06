@@ -227,7 +227,7 @@ extern "C" {
 #define DUMMYUNIONNAME5  u5
 #define DUMMYUNIONNAME6  u6
 #define DUMMYUNIONNAME7  u7
-#define DUMMYUNIONNAME8  u8
+#define DUMMYUNIONNAME8  unsigned char
 #endif /* !defined(NONAMELESSUNION) */
 
 #ifndef __C89_NAMELESS
@@ -2474,7 +2474,7 @@ struct _TEB;
 static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 {
     struct _TEB *teb;
-    __asm__(".::u8 0x64\n\tmovl (0x18),%0" : "=r" (teb));
+    __asm__(".unsigned char 0x64\n\tmovl (0x18),%0" : "=r" (teb));
     return teb;
 }
 #elif defined(__i386__) && defined(_MSC_VER)
@@ -2489,7 +2489,7 @@ static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 {
     struct _TEB *teb;
-    __asm__(".::u8 0x65\n\tmovq (0x30),%0" : "=r" (teb));
+    __asm__(".unsigned char 0x65\n\tmovq (0x30),%0" : "=r" (teb));
     return teb;
 }
 #elif defined(__x86_64__) && defined (_MSC_VER)

@@ -45,8 +45,8 @@ namespace windowing_ios
       virtual bool _os_has_plain_text();
 
 
-      bool _desk_to_image(::image * pimage) override;
-      bool _image_to_desk(const ::image * pimage) override;
+      bool _desk_to_image(::image::image * pimage) override;
+      bool _image_to_desk(const ::image::image * pimage) override;
       bool _has_image() override;
 
       virtual bool _os_has_image();

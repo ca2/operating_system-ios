@@ -49,7 +49,7 @@
 
 //- (CGRect)caretRectForIndex:(int)index;
 //- (CGRect)firstRectForRange:(NSRange)range;
-//- (NSInteger)closestIndexToPoint:(CGPoint)point_i32;
+//- (NSInteger)closestIndexToPoint:(CGPoint)int_point;
  
 //+ (UIColor *)caretColor;
 //Working with Marked and Selected Text

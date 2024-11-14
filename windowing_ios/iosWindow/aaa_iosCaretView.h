@@ -1,6 +1,6 @@
 /*
      File: iosCaretView.h
- Abstract:  SimpleCaretView draws a basic text "caret", used as an insertion point_i32 cursor in iosTextView.
+ Abstract:  SimpleCaretView draws a basic text "caret", used as an insertion int_point cursor in iosTextView.
  
   Version: 2.0
  

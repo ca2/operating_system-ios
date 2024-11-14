@@ -2,93 +2,93 @@
 // Adapted to ios by camilo on 2022-05-30 09:01 <3ThomasBS!!
 #include "framework.h"
 #include "message_box.h"
-#include "acme/platform/sequencer.h"
-
-
-int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, unsigned int uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
-
-
-CLASS_DECL_ACME class ::platform::system * get_system();
-
-namespace windowing_ios
-{
-
-
-//   void message_box::do_conversation(const ::string& strMessage, const ::string& strTitle, const ::e_message_box& emessagebox, const ::string & strDetails)
-//   {
+//#include "acme/platform/sequencer.h"
 //
-//      conversation_message::initialize_conversation(strMessage, strTitle, emessagebox, strDetails);
-
-void message_box::do_asynchronously()
-{
-//      m_strMessage = strMessage;
 //
-//      m_strTitle = strTitle;
+//int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, unsigned int uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
 //
-//      m_strDetails = strDetails;
 //
-//      m_emessagebox = emessagebox;
-   
-      ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
-                     m_strDetails,
-                                     [this](enum_dialog_result eresult)
-                                     {
-           
-           m_payloadResult = eresult;
-           
-           //m_psequence->on_sequence();
-         
-         //m_psequencer->m_psequence->on_sequence();
-         //on_sequence();
-         m_psequencer->on_sequence();
-           
-       });
-   
-   
-
-   }
-
+//CLASS_DECL_ACME class ::platform::system * get_system();
 //
-//   ::string message_box::get_message_box_message()
-//   {
+//namespace windowing_ios
+//{
 //
-//      return m_strMessage;
+//
+////   void message_box::do_conversation(const ::string& strMessage, const ::string& strTitle, const ::e_message_box& emessagebox, const ::string & strDetails)
+////   {
+////
+////      conversation_message::initialize_conversation(strMessage, strTitle, emessagebox, strDetails);
+//
+//void message_box::do_asynchronously()
+//{
+////      m_strMessage = strMessage;
+////
+////      m_strTitle = strTitle;
+////
+////      m_strDetails = strDetails;
+////
+////      m_emessagebox = emessagebox;
+//   
+//      ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
+//                     m_strDetails,
+//                                     [this](enum_dialog_result eresult)
+//                                     {
+//           
+//           m_payloadResult = eresult;
+//           
+//           //m_psequence->on_sequence();
+//         
+//         //m_psequencer->m_psequence->on_sequence();
+//         //on_sequence();
+//         m_psequencer->on_sequence();
+//           
+//       });
+//   
+//   
 //
 //   }
 //
+////
+////   ::string message_box::get_message_box_message()
+////   {
+////
+////      return m_strMessage;
+////
+////   }
+////
+////
+////   ::string message_box::get_message_box_title()
+////   {
+////
+////      return m_strTitle;
+////
+////   }
+////
+////
+////   ::e_message_box message_box::get_message_box_flags()
+////   {
+////
+////      return m_emessagebox;
+////
+////   }
+////
+////
+////   ::string message_box::get_message_box_details()
+////   {
+////
+////      return m_strDetails;
+////
+////   }
 //
-//   ::string message_box::get_message_box_title()
-//   {
-//
-//      return m_strTitle;
-//
-//   }
-//
-//
-//   ::e_message_box message_box::get_message_box_flags()
-//   {
-//
-//      return m_emessagebox;
-//
-//   }
+////::pointer < ::conversation > node::create_new_message_box_conversation()
+////   {
+////
+////      return __new(class message_box());
+////
+////   }
 //
 //
-//   ::string message_box::get_message_box_details()
-//   {
+//} // namespace windowing_ios
 //
-//      return m_strDetails;
 //
-//   }
-
-//::pointer < ::conversation > node::create_new_message_box_conversation()
-//   {
 //
-//      return __new(class message_box());
-//
-//   }
-
-
-} // namespace windowing_ios
-
-
-

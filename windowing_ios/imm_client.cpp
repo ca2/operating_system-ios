@@ -75,7 +75,7 @@ void imm_client::_011OnChar(::message::message * pmessage)
    if (pmessage->m_atom == e_message_char)
    {
 
-      auto psession = m_puserinteraction->get_session();
+      auto psession = session();
 
       if (psession->is_key_pressed(::user::e_key_control)
          || psession->is_key_pressed(::user::e_key_alt))
@@ -198,7 +198,7 @@ void imm_client::_001OnIme(::message::message * pmessage)
       else
       {
 
-         ::output_debug_string("\nWM_IME_COMPOSITION " + __str((::i64)pusermessage->m_lparam.m_lparam));
+         ::output_debug_string("\nWM_IME_COMPOSITION " + __str((::huge_integer)pusermessage->m_lparam.m_lparam));
 
          if ((pmessage->m_lparam & GCS_RESULTSTR) != 0)
          {
@@ -500,7 +500,7 @@ void imm_client::_001OnIme(::message::message * pmessage)
       else
       {
 
-         output_debug_string("\n" "WM_IME_NOTIFY" " > " + __str((::i64)pusermessage->m_wparam) + "    ");
+         output_debug_string("\n" "WM_IME_NOTIFY" " > " + __str((::huge_integer)pusermessage->m_wparam) + "    ");
 
       }
 
@@ -640,8 +640,8 @@ int imm_client::on_text_composition_message(int iMessage)
    if (iMessage == TEXT_COMPOSITION_MESSAGE_UPDATE_CARET)
    {
 
-      //strsize iBeg;
-      //strsize iEnd;
+      //character_count iBeg;
+      //character_count iEnd;
 
       //_001GetSel(iBeg, iEnd);
 
@@ -653,8 +653,8 @@ int imm_client::on_text_composition_message(int iMessage)
 
       //int y = (iLine)* m_iLineHeight - get_viewport_offset().y;
       //int y2 = y + m_iLineHeight;
-      // ::point_i32 point(x, y);
-      //::rectangle_i32 r;
+      // ::int_point point(x, y);
+      //::int_rectangle r;
       //client_rectangle(rectangle);
       //rectangle.left = x;
       //rectangle.top = y;
@@ -678,7 +678,7 @@ int imm_client::on_text_composition_message(int iMessage)
 
       }
 
-      ::rectangle_i32 rectangle;
+      ::int_rectangle rectangle;
 
       m_puserinteraction->get_text_composition_area(rectangle);
 
@@ -690,7 +690,7 @@ int imm_client::on_text_composition_message(int iMessage)
 
       com.ptCurrentPos.y -= 100;
 
-      ::rectangle_i32 rect2(rectangle);
+      ::int_rectangle rect2(rectangle);
 
       rect2.offset_y(-100);
 

@@ -40,7 +40,7 @@ namespace windowing_ios
       void *                     m_pNSCursorLast;
       class windowing *          m_pioswindowing;
       ::windowing::window *      m_pwindowCapture;
-      ::point_i32                m_pointMouseCursor;
+      ::int_point                m_pointMouseCursor;
       ::pointer < ::aqua::media_item_picker > m_pmediaitempicker;
       
       window();
@@ -53,7 +53,7 @@ namespace windowing_ios
       //void ios_window_add_ref() override;
 //      void ios_window_dec_ref() override;
       
-      class windowing * windowing();
+      //class windowing * windowing();
       
       double get_top_margin() override;
       
@@ -70,9 +70,9 @@ namespace windowing_ios
       
       void set_tool_window(bool bSet) override;
       
-      bool is_active_window() const override;
+      bool is_active_window() override;
       
-      bool has_keyboard_focus() const override;
+      bool has_keyboard_focus() override;
       
       bool ios_window_has_keyboard_focus() const override;
        
@@ -87,7 +87,7 @@ namespace windowing_ios
       
       void set_mouse_cursor(::windowing::cursor * pcursor) override;
 //      
-//      ::point_i32 get_mouse_cursor_position() override;
+//      ::int_point get_mouse_cursor_position() override;
 //      
 //      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, unsigned int nFlags) override;
 
@@ -133,7 +133,7 @@ namespace windowing_ios
 
       
       void ios_window_resized(int cx, int cy) override;
-      void ios_window_moved(CGPoint point_i32) override;
+      void ios_window_moved(CGPoint int_point) override;
       //void ios_window_iconified() override;
       //void ios_window_deiconified() override;
 
@@ -149,11 +149,11 @@ namespace windowing_ios
       void frame_toggle_restore() override;
       
       
-      void non_top_most_upper_window_rects(::rectangle_int_array & recta) override;
+      void non_top_most_upper_window_rects(::int_rectangle_array & recta) override;
 
 
-      bool post_message(::message::message * pmessage);
-      bool send_message(::message::message * pmessage);
+      void post_message(::message::message * pmessage) override;
+      lresult send_message(::message::message * pmessage) override;
 
       
       void destroy_window() override;

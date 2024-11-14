@@ -56,7 +56,7 @@ namespace windowing_ios
          //         if(pimage->size().area() < sizeWindow.area())
          //         {
          //
-         //            ::size_i32 sizeImage(1920, 1080);
+         //            ::int_size sizeImage(1920, 1080);
          //
          //            if(sizeWindow.area() > sizeImage.area())
          //            {
@@ -79,7 +79,7 @@ namespace windowing_ios
          //
          //         }
 
-         //auto sizeMonitor = ::size_i32(1920, 1080);
+         //auto sizeMonitor = ::int_size(1920, 1080);
 
 
          //pimage->create(sizeWindow);
@@ -120,7 +120,7 @@ namespace windowing_ios
 
 
 
-   //bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+   //bool buffer::update_buffer(const ::int_size & size, int iStrideParam)
 bool buffer::update_buffer(::graphics::buffer_item * pitem)
    {
 

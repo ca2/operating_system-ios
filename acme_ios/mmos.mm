@@ -2,9 +2,9 @@
 #include "acme/constant/id.h"
 
 ::e_status __call(::particle * pparticle);
-void millis_sleep(::u64 uMillis);
+void millis_sleep(::huge_natural uMillis);
 
-void system_id_update(::platform::system * psystem, ::i64 iUpdate, ::i64 iPayload);
+void system_id_update(::platform::system * psystem, ::huge_integer iUpdate, ::huge_integer iPayload);
 //void system_call_update_wallpaper_changed();
 
 bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz);

@@ -22,7 +22,7 @@ void application_on_menu_action(void * pApplication, const char * pszCommand);
 void * application_system(void * pApplication);
 
 
-void system_id_update(void* pSystem, ::i64 iUpdate, ::i64 iPayload);
+void system_id_update(void* pSystem, ::huge_integer iUpdate, ::huge_integer iPayload);
 
 void node_will_finish_launching(void * pSystem);
 void system_on_open_untitled_file(void * pSystem);

@@ -28,10 +28,10 @@ namespace windowing_ios
       ::collection::count get_monitor_count() override;
       
       
-      ::point_i32 _get_mouse_cursor_position() override;
+      ::int_point _get_mouse_cursor_position() override;
    
       
-      bool get_zoomed_window_site(::collection::index iWorkspace, ::rectangle_i32 & rectangle) override;
+      bool get_zoomed_window_site(::collection::index iWorkspace, ::int_rectangle & rectangle) override;
 
       int get_zoomed_title_bar_height() override;
       

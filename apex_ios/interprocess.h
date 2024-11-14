@@ -81,7 +81,7 @@ namespace apex_ios
 
 //      void on_interprocess_receive(::string && strMessage) override;
 //      void on_interprocess_receive(int message, memory && memory) override;
-//      void on_interprocess_post(i64 a, i64 b) override;
+//      void on_interprocess_post(huge_integer a, huge_integer b) override;
 
 
       virtual bool on_idle() override;

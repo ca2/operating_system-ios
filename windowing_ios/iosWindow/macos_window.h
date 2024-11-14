@@ -32,8 +32,8 @@ public:
    bool                    m_bDestroying;
    bool                    m_bDirty;
    
-   ::i64                   m_iNanosecondLastUpdateBeg;
-   ::i64                   m_iNanosecondLastUpdateEnd;
+   ::huge_integer                   m_iNanosecondLastUpdateBeg;
+   ::huge_integer                   m_iNanosecondLastUpdateEnd;
 
    
    macos_window();
@@ -55,8 +55,8 @@ public:
    //virtual bool macos_window_key_down(unsigned int uiKeyCode) = 0;
    //virtual bool macos_window_key_up(unsigned int uiKeyCode) = 0;
    
-   virtual void macos_window_resized(CGRect rectangle_i32) = 0;
-   virtual void macos_window_moved(CGPoint point_i32) = 0;
+   virtual void macos_window_resized(CGRect int_rectangle) = 0;
+   virtual void macos_window_moved(CGPoint int_point) = 0;
    
    virtual void macos_window_iconified() = 0;
    virtual void macos_window_deiconified() = 0;

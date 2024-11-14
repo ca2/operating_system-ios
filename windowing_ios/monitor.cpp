@@ -39,14 +39,14 @@ namespace windowing_ios
    }
 
 
-   ::rectangle_i32 monitor::monitor_rectangle()
+   ::int_rectangle monitor::monitor_rectangle()
    {
       
       CGRect rectMonitor;
       
       ns_monitor_cgrect((int) m_iIndex, &rectMonitor);
       
-      ::rectangle_i32 rectangle;
+      ::int_rectangle rectangle;
        
       copy(rectangle, rectMonitor);
       
@@ -55,7 +55,7 @@ namespace windowing_ios
    }
 
 
-   ::rectangle_i32 monitor::workspace_rectangle()
+   ::int_rectangle monitor::workspace_rectangle()
    {
       __block CGRect rectWorkspace;
 
@@ -67,7 +67,7 @@ namespace windowing_ios
          
       });
        
-       ::rectangle_i32 rectangle;
+       ::int_rectangle rectangle;
       copy(rectangle, rectWorkspace);
       
       return rectangle;

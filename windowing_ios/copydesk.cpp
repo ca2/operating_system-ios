@@ -162,10 +162,10 @@ namespace windowing_ios
 //
 //      }
 
-      //    if(!m_p->CreateEx(0, ::aura::get_system()->RegisterWndClass(0), nullptr, 0, rectangle_i32(0, 0, 0, 0), nullptr, id()))
+      //    if(!m_p->CreateEx(0, ::aura::get_system()->RegisterWndClass(0), nullptr, 0, int_rectangle(0, 0, 0, 0), nullptr, id()))
       //     return false;
 
-//      if(!m_p->CreateEx(0, nullptr, nullptr, 0, rectangle_i32(0, 0, 0, 0), nullptr, id()))
+//      if(!m_p->CreateEx(0, nullptr, nullptr, 0, int_rectangle(0, 0, 0, 0), nullptr, id()))
       //       return false;
 
       //return estatus;
@@ -238,7 +238,7 @@ namespace windowing_ios
    }
 
 
-   bool copydesk::_desk_to_image(::image * pimage)
+   bool copydesk::_desk_to_image(::image::image * pimage)
    {
 
       int w = 0;
@@ -263,7 +263,7 @@ namespace windowing_ios
       if(pimage->image32() != nullptr)
       {
       
-         ::copy_image32(pimage->image32(), w, h, pimage->scan_size(), pcolorref, iScan);
+          pimage->copy({w, h}, pimage->scan_size(), pcolorref, iScan);
          
       }
 //      else if(pimage->m_pframea->is_set())
@@ -286,7 +286,7 @@ namespace windowing_ios
    }
 
 
-   bool copydesk::_image_to_desk(const ::image * pimage)
+   bool copydesk::_image_to_desk(const ::image::image * pimage)
    {
 
       bool bOk = ios_clipboard_set_image(

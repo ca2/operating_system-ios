@@ -26,7 +26,7 @@
 #include "aqua/platform/application.h"
 #include "aura/platform/session.h"
 #include "aura/user/user/interaction_graphics_thread.h"
-#include "aura/user/user/interaction_impl.h"
+//#include "aura/user/user/interaction_impl.h"
 #include "aura/user/user/user.h"
 #include "acme/constant/user_key.h"
 #include "acme/operating_system/_.h"
@@ -61,7 +61,7 @@ namespace windowing_ios
    window::window()
    {
       
-      m_pWindow4 = this;
+      //m_pWindow4 = this;
       m_pioswindowing = nullptr;
       m_pNSCursorLast = nullptr;
       m_pwindowCapture = nullptr;
@@ -108,36 +108,36 @@ namespace windowing_ios
 
       MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
-      auto pimpl = m_puserinteractionimpl.m_p;
-
-      if (!puserinteraction->m_bMessageWindow)
-      {
-
-         //MESSAGE_LINK(e_message_redraw, pchannel, pimpl, &::user::interaction_impl::_001OnRedraw);
-         //MESSAGE_LINK(e_message_apply_visual, pchannel, pimpl, &::user::interaction_impl::_001OnApplyVisual);
-
-
-         //#ifndef LINUX
-         //MESSAGE_LINK(e_message_reposition, pchannel, this, &window::_001OnMove);
-         //MESSAGE_LINK(e_message_size, pchannel, this, &window::_001OnSize);
-         //#endif
-
-
-         //MESSAGE_LINK(e_message_show_window, pchannel, this, &window::_001OnShowWindow);
-         //MESSAGE_LINK(e_message_kill_focus, pchannel, this, &window::_001OnKillFocus);
-         //MESSAGE_LINK(e_message_set_focus, pchannel, this, &window::_001OnSetFocus);
-         //MESSAGE_LINK(e_message_set_cursor, pchannel, this, &window::_001OnSetCursor);
-
-      }
+//      auto pimpl = m_puserinteractionimpl.m_p;
+//
+//      if (!puserinteraction->m_bMessageWindow)
+//      {
+//
+//         //MESSAGE_LINK(e_message_redraw, pchannel, pimpl, &::user::interaction_impl::_001OnRedraw);
+//         //MESSAGE_LINK(e_message_apply_visual, pchannel, pimpl, &::user::interaction_impl::_001OnApplyVisual);
+//
+//
+//         //#ifndef LINUX
+//         //MESSAGE_LINK(e_message_reposition, pchannel, this, &window::_001OnMove);
+//         //MESSAGE_LINK(e_message_size, pchannel, this, &window::_001OnSize);
+//         //#endif
+//
+//
+//         //MESSAGE_LINK(e_message_show_window, pchannel, this, &window::_001OnShowWindow);
+//         //MESSAGE_LINK(e_message_kill_focus, pchannel, this, &window::_001OnKillFocus);
+//         //MESSAGE_LINK(e_message_set_focus, pchannel, this, &window::_001OnSetFocus);
+//         //MESSAGE_LINK(e_message_set_cursor, pchannel, this, &window::_001OnSetCursor);
+//
+//      }
 
       //MESSAGE_LINK(e_message_destroy_window, pchannel, pimpl, &::user::interaction_impl::_001OnDestroyWindow);
 
    //   MESSAGE_LINK(WM_ACTIVATE, pchannel, this, &window::_001OnActivate);
      // MESSAGE_LINK(WM_DWMNCRENDERINGCHANGED, pchannel, this, &window::_001OnDwmNcRenderingChanged);
 
-      pimpl->install_message_routing(pchannel);
+      //pimpl->install_message_routing(pchannel);
 
 
       MESSAGE_LINK(e_message_destroy, pchannel, this, &window::on_message_destroy);
@@ -186,7 +186,7 @@ namespace windowing_ios
 
       //hook_window_create(puserinteraction);
 
-      //CGRect rectangle_i32;
+      //CGRect int_rectangle;
 
       //RECTANGLE_I32 rectParam;
 
@@ -714,7 +714,7 @@ namespace windowing_ios
    }
 
 
-//   ::point_i32 window::get_mouse_cursor_position()
+//   ::int_point window::get_mouse_cursor_position()
 //   {
 //      
 //      return m_pointMouseCursor;
@@ -809,7 +809,7 @@ namespace windowing_ios
       
 #endif
 
-      ::size_i32 sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
+      ::int_size sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
 
       #ifdef EXTRALOG
 
@@ -819,7 +819,7 @@ namespace windowing_ios
 
       string strFormat;
 
-      strFormat.format("|-> window size_i32 %d, %d\n", sizeWindow.cx(), sizeWindow.cy());
+      strFormat.format("|-> window int_size %d, %d\n", sizeWindow.cx(), sizeWindow.cy());
 
       printf("%s", strFormat.c_str());
       
@@ -836,14 +836,14 @@ namespace windowing_ios
 //
 //      str += strFormat;
 //
-//      rectangle_i32 rect1 = puserinteraction->window_rectangle();
+//      int_rectangle rect1 = puserinteraction->window_rectangle();
 //
 //      if(rect1.size() != rectLast.size())
 //      {
 //
 //         rectLast = rect1;
 //
-//         // xxxlog output_debug_string("different window rectangle_i32 size_i32 (1)");
+//         // xxxlog output_debug_string("different window int_rectangle int_size (1)");
 //
 //      }
 
@@ -954,7 +954,7 @@ namespace windowing_ios
 //
    #endif
 
-      ::size_i32 sizeMin = pimageBuffer2->size().minimum(sizeWindow);
+      ::int_size sizeMin = pimageBuffer2->size().minimum(sizeWindow);
       
       if(::is_ok(pimageBuffer2))
       {
@@ -1130,12 +1130,12 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   strsize utf8_len_from_unicode_len_from_utf8_string(const char * pszText, strsize iUnicodeLen)
+   character_count utf8_len_from_unicode_len_from_utf8_string(const char * pszText, character_count iUnicodeLen)
    {
       
       auto p = pszText;
       
-      for(strsize i = 0; i < iUnicodeLen; i++)
+      for(character_count i = 0; i < iUnicodeLen; i++)
       {
        
          unicode_increment(p);
@@ -1155,9 +1155,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       if(pinteraction)
       {
          
-         strsize iBeg = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeBeg);
+         character_count iBeg = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeBeg);
          
-         strsize iEnd = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeEnd);
+         character_count iEnd = utf8_len_from_unicode_len_from_utf8_string(pszText, iUnicodeEnd);
          
          pinteraction->set_text_and_selection(pszText, iBeg, iEnd, ::e_source_user);
 
@@ -1431,7 +1431,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //               if(pinteraction->m_millisMouseMovePeriod > 0)
 //               {
 //
-//                  ::size_i32 sizeDistance((pinteraction->m_pointMouseMoveSkip.x - pinteraction->m_pointMouseMove.x),
+//                  ::int_size sizeDistance((pinteraction->m_pointMouseMoveSkip.x - pinteraction->m_pointMouseMove.x),
 //                     (pinteraction->m_pointMouseMoveSkip.y - pinteraction->m_pointMouseMove.y));
 //
 //                  if(!pinteraction->m_millisMouseMoveSkip.timeout(pinteraction->m_millisMouseMovePeriod)
@@ -1654,10 +1654,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      }
    //
-   //      if(puserinteraction->m_sizeRequest != rectangle.size_i32)
+   //      if(puserinteraction->m_sizeRequest != rectangle.int_size)
    //      {
    //
-   //         puserinteraction->m_sizeRequest = rectangle.size_i32;
+   //         puserinteraction->m_sizeRequest = rectangle.int_size;
    //
    //         information("window::ios_window_resized effective position is different from requested position");
    //
@@ -1667,11 +1667,11 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      puserinteraction->m_point = rectangle.origin;
    //
-   //      puserinteraction->m_size = rectangle.size_i32;
+   //      puserinteraction->m_size = rectangle.int_size;
    //
-   ////      ::size_i32 sz;
+   ////      ::int_size sz;
    ////
-   ////      point_i64 pt(rectangle.origin.x, rectangle.origin.y);
+   ////      huge_integer_point pt(rectangle.origin.x, rectangle.origin.y);
    ////
    ////      bool bMove = false;
    ////
@@ -1688,7 +1688,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    ////
    ////         puserinteraction->m_rectParentClient.move_to(point);
    ////
-   ////         puserinteraction->set_size(rectangle.size_i32);
+   ////         puserinteraction->set_size(rectangle.int_size);
    ////
    ////         sz = puserinteraction->m_rectParentClient.size();
    ////
@@ -1719,11 +1719,11 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //
    //      }
    //
-   //      ::rectangle_i32 rectSize;
+   //      ::int_rectangle rectSize;
    //
    //      copy(rectSize, rectangle);
    //
-   //      if(puserinteraction->window_state().rectangle_i32() != rectSize)
+   //      if(puserinteraction->window_state().int_rectangle() != rectSize)
    //      {
    //
    //         puserinteraction->window_state().m_point = rectSize.origin();
@@ -1733,7 +1733,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //      }
    //
    //
-   //      if (puserinteraction->layout().sketch().rectangle_i32() != rectSize)
+   //      if (puserinteraction->layout().sketch().int_rectangle() != rectSize)
    //      {
    //
    //         puserinteraction->place(rectSize);
@@ -1795,7 +1795,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //      }
    //
    //
-   //      ::point_i32 pointMove;
+   //      ::int_point pointMove;
    //
    //      copy(pointMove, point);
    //
@@ -1829,7 +1829,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    //      }
    //
    //
-   ////      if(puserinteraction->m_pointRequest != point_i32)
+   ////      if(puserinteraction->m_pointRequest != int_point)
    ////      {
    ////
    ////         puserinteraction->m_pointRequest = point;
@@ -2303,7 +2303,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-   void window::non_top_most_upper_window_rects(::rectangle_int_array & recta)
+   void window::non_top_most_upper_window_rects(::int_rectangle_array & recta)
    {
       
       

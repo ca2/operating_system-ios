@@ -29,7 +29,7 @@ namespace windowing_ios
    windowing::windowing()
    {
       
-      m_pWindowing4 = this;
+      //m_pWindowing4 = this;
       
    }
 
@@ -70,7 +70,7 @@ namespace windowing_ios
 //
 //      }
       
-      m_pdisplay->m_pwindowing = this;
+      //m_pdisplay->m_pwindowing = this;
          
       //return estatus;
       
@@ -104,7 +104,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
    
 
 }
-   void windowing::defer_initialize_host_window(const ::rectangle_i32* lpcrect)
+   void windowing::defer_initialize_host_window(const ::int_rectangle* lpcrect)
    {
       ::sandbox_windowing::windowing::defer_initialize_host_window(lpcrect);
 //      if(::is_set(m_pwindowApplicationHost))

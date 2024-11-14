@@ -13,7 +13,7 @@
 //void os_on_will_finish_launching();
 
 //void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
-void system_id_update(void* pSystem, ::i64 iUpdate, ::i64 iPayload);
+void system_id_update(void* pSystem, ::huge_integer iUpdate, ::huge_integer iPayload);
 void * application_system(::platform::application * papplication);
 
 int defer_run_system();

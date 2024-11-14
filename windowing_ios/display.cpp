@@ -19,7 +19,7 @@ namespace windowing_ios
    display::display()
    {
    
-      m_pDisplay2 = this;
+      //m_pDisplay2 = this;
    
    }
 
@@ -40,7 +40,7 @@ namespace windowing_ios
 
 
 
-   ::point_i32 display::_get_mouse_cursor_position()
+   ::int_point display::_get_mouse_cursor_position()
    {
 
       return m_pointCursor2;
@@ -48,7 +48,7 @@ namespace windowing_ios
    }
    
 
-   bool display::get_zoomed_window_site(::collection::index iWorkspace, ::rectangle_i32 & rectangle)
+   bool display::get_zoomed_window_site(::collection::index iWorkspace, ::int_rectangle & rectangle)
    {
 
       return get_monitor_rectangle(iWorkspace, rectangle);
@@ -59,10 +59,10 @@ namespace windowing_ios
 int display::get_zoomed_title_bar_height()
 {
    
-   ::rectangle_i32 r1;
+   ::int_rectangle r1;
    get_monitor_rectangle(0, r1);
    
-   ::rectangle_i32 r2;
+   ::int_rectangle r2;
    get_workspace_rectangle(0, r2);
  
    return ::abs(r2.top() - r1.top());

@@ -7,7 +7,7 @@
 #include "framework.h"
 #include "window.h"
 #include "text_editor_interface.h"
-#include "aura/user/user/interaction_impl.h"
+//#include "aura/user/user/interaction_impl.h"
 
 
 namespace windowing_ios
@@ -28,14 +28,14 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_input_method_manager_selection(strsize iBeg, strsize iEnd, strsize iCandidateStart, strsize iCandidateEnd)
+   void text_editor_interface::set_input_method_manager_selection(character_count iBeg, character_count iEnd, character_count iCandidateStart, character_count iCandidateEnd)
    {
       
 
    }
 
 
-//   void text_editor_interface::set_input_method_manager_candidate_position(strsize iStart, strsize iEnd)
+//   void text_editor_interface::set_input_method_manager_candidate_position(character_count iStart, character_count iEnd)
 //   {
 //
 //   }
@@ -48,7 +48,7 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_editor_selection(strsize iBeg, strsize iEnd)
+   void text_editor_interface::set_editor_selection(character_count iBeg, character_count iEnd)
    {
 
       auto pwindow = m_pwindow;
@@ -102,12 +102,12 @@ namespace windowing_ios
        if(pwindow)
        {
            
-           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
-           
-           if(puserinteractionimpl)
+//           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
+//           
+//           if(puserinteractionimpl)
            {
                
-               auto puserinteraction = puserinteractionimpl->m_puserinteractionKeyboardFocus;
+               auto puserinteraction = pwindow->m_puserinteractionKeyboardFocus;
                
                if(puserinteraction)
                {
@@ -116,11 +116,11 @@ namespace windowing_ios
                   
                    string strText;
                    
-                   puserinteraction->get_text(strText);
+                   strText = puserinteraction->get_text();
                    
-                   strsize iSelBeg = 0;
+                   character_count iSelBeg = 0;
                    
-                   strsize iSelEnd = 0;
+                   character_count iSelEnd = 0;
                    
                    puserinteraction->get_text_selection(iSelBeg,iSelEnd);
                   
@@ -154,12 +154,12 @@ namespace windowing_ios
        if(pwindow)
        {
            
-           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
-           
-           if(puserinteractionimpl)
+//           auto puserinteractionimpl = pwindow->m_puserinteractionimpl;
+//           
+//           if(puserinteractionimpl)
            {
                
-               auto puserinteraction = puserinteractionimpl->m_puserinteractionKeyboardFocus;
+               auto puserinteraction = pwindow->m_puserinteractionKeyboardFocus;
                
                if(!puserinteraction)
                {

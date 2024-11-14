@@ -26,7 +26,7 @@
 
 -(void) deferEdit : (CGRect) frame;
 - (void)editingChanged:(id)object;
--(void)onEditSetFocus : (CGRect) rectangle_i32 withText : (NSString *) strText withSelBeg : (long) iSelBeg withSelEnd : (long) iSelEnd;
+-(void)onEditSetFocus : (CGRect) int_rectangle withText : (NSString *) strText withSelBeg : (long) iSelBeg withSelEnd : (long) iSelEnd;
 -(void)onEditKillFocus;
 
 @end

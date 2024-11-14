@@ -371,7 +371,7 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
    //   string ::file_path_folder(const ::string & str)
    //   {
    //
-   //      strsize iLast = str.get_length() - 1;
+   //      character_count iLast = str.get_length() - 1;
    //
    //      while(iLast >= 0)
    //      {
@@ -554,7 +554,7 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
 //   ::file::path directory_context::name(const ::file::path & str)
 //   {
 //
-//      strsize iLast = str.get_length() - 1;
+//      character_count iLast = str.get_length() - 1;
 //
 //      while(iLast >= 0)
 //      {

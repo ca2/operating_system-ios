@@ -38,7 +38,7 @@ namespace windowing_ios
       
       
       void *                     m_pNSCursorLast;
-      class windowing *          m_pioswindowing;
+      //class windowing *          m_pioswindowing;
       ::windowing::window *      m_pwindowCapture;
       ::int_point                m_pointMouseCursor;
       ::pointer < ::aqua::media_item_picker > m_pmediaitempicker;
@@ -53,7 +53,7 @@ namespace windowing_ios
       //void ios_window_add_ref() override;
 //      void ios_window_dec_ref() override;
       
-      //class windowing * windowing();
+      virtual ::windowing_ios::windowing * ios_windowing();
       
       double get_top_margin() override;
       
@@ -74,7 +74,7 @@ namespace windowing_ios
       
       bool has_keyboard_focus() override;
       
-      bool ios_window_has_keyboard_focus() const override;
+      bool ios_window_has_keyboard_focus() override;
        
        
        bool _configure_window_unlocked(const class ::zorder& zorder, const ::e_activation& eactivation, bool bNoZorder, ::e_display edisplay) override;

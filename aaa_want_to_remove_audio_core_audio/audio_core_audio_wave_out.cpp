@@ -31,7 +31,7 @@ namespace multimedia
          m_peffect            = NULL;
          m_dwLostSampleCount  = 0;
          m_bDone              = false;
-         m_eventRunning.ResetEvent();
+         m_eventRunning.reset_happening();
          
       }
       
@@ -332,7 +332,7 @@ namespace multimedia
          
          translate(*&m_dataformat, m_pwaveformat);
          
-         //         m_eventOpened.ResetEvent();
+         //         m_eventOpened.reset_happening();
          
          m_iBufferCount = iBufferCount;
          m_iBufferSampleCount = iBufferSampleCount;
@@ -564,7 +564,7 @@ namespace multimedia
          if(m_estate != state_playing && m_estate != state_paused)
             return ::multimedia::result_error;
          
-         m_eventStopped.ResetEvent();
+         m_eventStopped.reset_happening();
          
          m_pprebuffer->Stop();
          
@@ -726,7 +726,7 @@ namespace multimedia
             delete peffect;
          }
          
-         m_eventStopped.SetEvent();
+         m_eventStopped.set_happening();
          
          m_pplayer->OnEvent(::multimedia::audio::wave_player::EventPlaybackEnd);
          

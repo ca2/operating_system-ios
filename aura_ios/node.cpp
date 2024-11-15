@@ -12,7 +12,7 @@
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/application.h"
 #include "acme/handler/request.h"
-#include "aura/graphics/image/context_image.h"
+#include "aura/graphics/image/context.h"
 #include "aura/graphics/image/image.h"
 #include "aura/platform/context.h"
 
@@ -20,8 +20,8 @@
 //void ns_pick_viewer_document();
 
 
-bool apple_get_file_image(::image * pimage, const char * pszFilePath);
-bool apple_get_file_image_by_type_identifier(::image * pimage, const char * pszTypeIdentifier);
+bool apple_get_file_image(::image::image * pimage, const char * pszFilePath);
+bool apple_get_file_image_by_type_identifier(::image::image * pimage, const char * pszTypeIdentifier);
 
 
 namespace aura_ios
@@ -70,10 +70,10 @@ namespace aura_ios
    }
 
 
-   ::image_pointer node::get_file_image_by_type_identifier(int iSize, const ::scoped_string & scopedstrTypeIdentifier)
+   ::image::image_pointer node::get_file_image_by_type_identifier(int iSize, const ::scoped_string & scopedstrTypeIdentifier)
    {
 
-      auto pimage = context_image()->create_image( { iSize, iSize } );
+      auto pimage = image()->create_image( { iSize, iSize } );
 
       if(!apple_get_file_image_by_type_identifier(pimage, scopedstrTypeIdentifier))
       {
@@ -87,10 +87,10 @@ namespace aura_ios
    }
 
 
-   ::image_pointer node::get_file_image(int iSize, const ::file::path & path)
+   ::image::image_pointer node::get_file_image(int iSize, const ::file::path & path)
    {
 
-      auto pimage = context_image()->create_image( { iSize, iSize } );
+      auto pimage = image()->create_image( { iSize, iSize } );
 
       if(!apple_get_file_image(pimage, path))
       {
@@ -146,7 +146,7 @@ namespace aura_ios
       if(pathFinal.is_empty())
       {
          
-         pathFinal = m_pcontext->defer_process_path(listing.m_pathUser);
+         pathFinal = application()->defer_process_path(listing.m_pathUser);
          
       }
       

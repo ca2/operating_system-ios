@@ -4,7 +4,7 @@
 #include "window.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "aura/graphics/image/image.h"
-#include "aura/user/user/interaction_impl.h"
+//#include "aura/user/user/interaction_impl.h"
 //#include "operating_system/_operating_system.h"
 //#include "aura/os/android/window_android.h"
 //#include <native_window.h>
@@ -164,6 +164,22 @@ bool buffer::update_buffer(::graphics::buffer_item * pitem)
    }
 
 
+   ::windowing_ios::window * buffer::ios_window()
+   {
+      
+      ::cast < ::windowing_ios::window > pioswindowing = m_pwindow;
+      
+      if(!pioswindowing)
+      {
+         
+         return nullptr;
+         
+      }
+      
+      return pioswindowing;
+      
+   }
+
    //bool buffer::update_screen(::image * pimage)
    bool buffer::on_update_screen(::graphics::buffer_item * pitem)
    {
@@ -173,8 +189,8 @@ bool buffer::update_buffer(::graphics::buffer_item * pitem)
 //      LOGI("m_bRedraw = true");
 //
 //      pdriver->m_bRedraw = true;
-      
-      auto pwindow = (::windowing_ios::window *) m_pimpl->m_puserinteraction->window()->m_pWindow4;
+      auto pwindow = ios_window();
+      //auto pwindow = (::windowing_ios::window *) m_pimpl->m_puserinteraction->window()->m_pWindow4;
       
       pwindow->ios_window_redraw();
 

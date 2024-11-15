@@ -43,7 +43,7 @@ node::~node()
 void node::_will_finish_launching()
 {
    
-   auto psystem = system()->m_paurasystem;
+   auto psystem = system();
 
    if(::is_null(psystem->m_htask))
    {
@@ -64,19 +64,15 @@ void node::_will_finish_launching()
 
    }
    
-   
-   if(!session()->m_paurasession->user()->windowing())
-   {
-      
-      session()->m_paurasession->user()->create_windowing();
-      
-   }
-   
-   auto psession = psystem->m_pacmesession->m_paurasession;
-   
-   auto puser = psession->m_puser;
-   
-   auto pwindowing = puser->windowing();
+//   
+//   if(!session()->user()->windowing())
+//   {
+//      
+//      session()->user()->create_windowing();
+//      
+//   }
+//   
+   auto pwindowing = system()->windowing();
    
    pwindowing->defer_initialize_host_window(nullptr);
 
@@ -118,7 +114,7 @@ void node::on_app_activated()
 //
 //      }
 //
-//      manual_reset_event ev;
+//      manual_reset_happening ev;
 //
 //      puserinteractionEnablePrompt->message_box("You gonna be prompted to enable Accessibility for \""+m_psystem->m_papplicationMain->m_strAppName+"\" to enable keyboard monitoring.",
 //                     "ios Click", e_message_box_ok)->then(
@@ -275,13 +271,13 @@ void node::on_app_activated()
 //      
 //   }
 
-
-::pointer < ::conversation > node::create_new_message_box_conversation()
-   {
-
-      return __create_new < class ::windowing_ios::message_box >();
-
-   }
+//
+//::pointer < ::conversation > node::create_new_message_box_conversation()
+//   {
+//
+//      return __create_new < class ::windowing_ios::message_box >();
+//
+//   }
 
 
 void node::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
@@ -309,7 +305,7 @@ void node::ns_app_run()
    void node::_node_file_dialog(::file::file_dialog * pdialog)
    {
 
-      auto puserinteraction = application()->m_pauraapplication->m_puserinteractionMain;
+      auto puserinteraction = application()->m_puserinteractionMain;
       
       if(!puserinteraction)
       {
@@ -340,7 +336,7 @@ void node::ns_app_run()
       ::function < void(const ::file::path & path) > callback = [pfiledialog](const ::file::path & path)
       {
         
-         if(path.has_char())
+         if(path.has_character())
          {
             
             pfiledialog->m_patha.add(path);

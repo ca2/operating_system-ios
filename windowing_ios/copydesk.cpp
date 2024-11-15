@@ -263,7 +263,7 @@ namespace windowing_ios
       if(pimage->image32() != nullptr)
       {
       
-          pimage->copy({w, h}, pimage->scan_size(), pcolorref, iScan);
+          pimage->image32()->copy(w, h, pimage->scan_size(), pcolorref, iScan);
          
       }
 //      else if(pimage->m_pframea->is_set())

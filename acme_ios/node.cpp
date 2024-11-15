@@ -5,7 +5,7 @@
 #include "node.h"
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/listing.h"
-#include "acme/nano/user/window_implementation.h"
+//#include "acme/nano/user/window_implementation.h"
 #include "acme/platform/system.h"
 #include <CoreFoundation/CoreFoundation.h>
 void ns_main_post(dispatch_block_t block);
@@ -39,7 +39,7 @@ namespace acme_ios
 
       m_pAcmePosix = this;
 
-      factory()->add_factory_item < ::nano::user::window_implementation >();
+//      factory()->add_factory_item < ::nano::user::window_implementation >();
 
    }
 
@@ -656,9 +656,9 @@ unsigned int * puiPid)
           
        });
        
-//       m_peventReadyToTerminateApp = __new(manual_reset_event);
+//       m_peventReadyToTerminateApp = __new(manual_reset_happening);
 //       
-//       m_peventReadyToTerminateApp->ResetEvent();
+//       m_peventReadyToTerminateApp->reset_happening();
 //       
 //       element_quit * pelementquit = new element_quit(this);
 //   
@@ -998,8 +998,6 @@ unsigned int * puiPid)
 void * get_system_mmos(::platform::system * psystem)
 {
 
-   auto psystem = (class ::platform::system *) pSystem;
-
    return psystem->m_pmmos;
 
 }
@@ -1007,8 +1005,6 @@ void * get_system_mmos(::platform::system * psystem)
 
 void set_system_mmos(::platform::system * psystem, void * pmmos)
 {
-
-   auto psystem = (class ::platform::system *) pSystem;
 
    psystem->m_pmmos = pmmos;
 

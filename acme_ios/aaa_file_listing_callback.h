@@ -7,7 +7,7 @@
 #pragma once
 
 
-#include "acme/parallelization/manual_reset_event.h"
+#include "acme/parallelization/manual_reset_happening.h"
 #include "acme_apple/ns_metadata_query_callback.h"
 
 
@@ -23,7 +23,7 @@ namespace acme_ios
       
       
       ::file::listing  &                     m_filelisting;
-      ::manual_reset_event                   m_manualresetevent;
+      ::manual_reset_happening                   m_manualresethappening;
       
       ::pointer < file_listing_callback >    m_pfilelistingcallbackHold;
       

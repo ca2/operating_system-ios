@@ -85,7 +85,7 @@ bool m_bDirty;
    
    virtual void ios_window_get_frame(CGRect * prect);
    
-   virtual bool ios_window_has_keyboard_focus() const = 0;
+   virtual bool ios_window_has_keyboard_focus() = 0;
    virtual void ios_window_show_keyboard(bool bShow = true);
    
    virtual void ios_window_set_title(const char * pszTitle);

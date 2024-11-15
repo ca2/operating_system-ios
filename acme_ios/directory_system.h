@@ -16,6 +16,17 @@ namespace acme_ios
    public:
 
       
+      
+      ::file::path            m_strTimeFolder;
+      ::file::path            m_strNetSeedFolder;
+      ::file::path            m_strCommonAppData;
+//      ::file::path            m_strAppData;
+      ::file::path            m_strPrograms;
+      ::file::path            m_strCommonPrograms;
+      ::file::path            m_strCa2AppData;
+      //::file::path            m_pathHome;
+      
+      
       ::file::path                                       m_pathLibrary;
       ::file::path                                       m_pathDocument;
       ::file::path                                       m_pathIosAppDocumentFolder;
@@ -26,6 +37,16 @@ namespace acme_ios
       
       
       void on_initialize_particle() override;
+      
+      
+      void initialize(::particle * pparticle) override;
+      
+      //virtual void update_module_path();
+
+      ::file::path compute_default_app_data_path() override;
+
+      
+      void init_system() override;
       
       
       virtual ::file::path __ios_app_document_folder();
@@ -39,8 +60,8 @@ namespace acme_ios
       virtual ::file::path appdata() override; // appdata
       virtual ::file::path archive() override;
       virtual ::file::path tool() override;
-      virtual ::file::path public_system() override;
-      virtual ::file::path system() override;
+      //virtual ::file::path public_system() override;
+      virtual ::file::path userconfig() override;
       virtual ::file::path config() override;
       virtual ::file::path local() override;
       virtual ::file::path sensitive() override;

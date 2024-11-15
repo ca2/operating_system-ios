@@ -130,7 +130,7 @@ void interprocess_caller::call(const ::string & strUri, const class time & timeT
    bool interprocess_caller::is_caller_ok()
    {
 
-      return m_strBaseChannel.has_char();
+      return m_strBaseChannel.has_character();
 
    }
 
@@ -196,7 +196,7 @@ void interprocess_caller::call(const ::string & strUri, const class time & timeT
    bool interprocess_target::is_target_ok()
    {
 
-      return m_strBaseChannel.has_char();
+      return m_strBaseChannel.has_character();
       
    }
 

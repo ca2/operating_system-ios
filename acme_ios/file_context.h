@@ -14,8 +14,8 @@ namespace acme_ios
    public:
 
       
-      ::pointer < directory_system >      m_pdirsystem;
-      ::pointer < file_system >     m_pfilesystem;
+      ::pointer < ::acme_ios::directory_system >      m_pdirsystem;
+      ::pointer < ::acme_ios::file_system >     m_pfilesystem;
 
 
       file_context();

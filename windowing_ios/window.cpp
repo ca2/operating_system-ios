@@ -19,6 +19,7 @@
 #include "aura/graphics/graphics/graphics.h"
 #include "aura/graphics/image/drawing.h"
 #include "aura/graphics/image/image.h"
+#include "aura/graphics/image/source.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/prototype/collection/string_array.h"
 #include "acme/prototype/collection/str_array.h"
@@ -26,6 +27,7 @@
 #include "aqua/platform/application.h"
 #include "aura/platform/session.h"
 #include "aura/user/user/interaction_graphics_thread.h"
+#include "aura/user/user/interaction_thread.h"
 //#include "aura/user/user/interaction_impl.h"
 #include "aura/user/user/user.h"
 #include "acme/constant/user_key.h"
@@ -62,7 +64,7 @@ namespace windowing_ios
    {
       
       //m_pWindow4 = this;
-      m_pioswindowing = nullptr;
+      //m_pioswindowing = nullptr;
       m_pNSCursorLast = nullptr;
       m_pwindowCapture = nullptr;
       
@@ -166,15 +168,15 @@ namespace windowing_ios
       //      pusersystem->m_createstruct.hwndParent = hWndParent;
       //   pusersystem->m_createstruct.hMenu = hWndParent == nullptr ? nullptr : nIDorHMenu;
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      //auto puserinteraction = m_puserinteraction;
 
-      auto pusersystem = puserinteraction->m_pusersystem;
+      auto pusersystem = m_puserinteraction->m_pusersystem;
 
       //pusersystem->m_createstruct.hMenu = nullptr;
       //      pusersystem->m_createstruct.hInstance = ::aura::get_system()->m_hInstance;
       //pusersystem->m_createstruct.lpCreateParams = lpParam;
 
-      if (!puserinteraction->pre_create_window(pusersystem))
+      if (!m_puserinteraction->pre_create_window(pusersystem))
       {
 
          //return false;
@@ -208,7 +210,7 @@ namespace windowing_ios
 
          unsigned uStyle = 0;
 
-         if(puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
+         if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
          {
 
    #define NSWindowStyleMaskMiniaturizable (1 << 2)
@@ -217,7 +219,7 @@ namespace windowing_ios
 
          }
 
-         auto rectangle = puserinteraction-> window_rectangle();
+         auto rectangle = m_puserinteraction-> window_rectangle();
 
          CGRect cgrect;
 
@@ -239,7 +241,7 @@ namespace windowing_ios
 
 //      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
 
-      m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
+      //m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
 
 //      m_pwindowing = pwindowing;
 
@@ -261,7 +263,7 @@ namespace windowing_ios
          set_os_data(pNSWindow);
 
 
-      m_pioswindowing->m_nsmap[m_pioswindow] = this;
+      ios_windowing()->m_nsmap[m_pioswindow] = this;
       
 
          //puserinteraction->place(rectParam);
@@ -278,7 +280,7 @@ namespace windowing_ios
 
       //}
 
-      auto lresult = puserinteraction->send_message(e_message_create); //
+      auto lresult = m_puserinteraction->send_message(e_message_create); //
       //, 0, //(lparam)&cs);
 
       bool bOk = true;
@@ -305,43 +307,59 @@ namespace windowing_ios
 
       //if(pusersystem->m_createstruct.style & WS_VISIBLE)
       //if(pusersystem->m_.style & WS_VISIBLE)
-      if(puserinteraction->const_layout().design().is_screen_visible())
+      if(m_puserinteraction->const_layout().design().is_screen_visible())
       {
 
-         puserinteraction->display();
+         m_puserinteraction->display();
 
-         puserinteraction->set_need_redraw();
+         m_puserinteraction->set_need_redraw();
 
-         puserinteraction->post_redraw();
+         m_puserinteraction->post_redraw();
 
          //;//ios_window_show();
 
       }
 
-      puserinteraction->set_need_layout();
+      m_puserinteraction->set_need_layout();
 
-      puserinteraction->increment_reference_count();
+      m_puserinteraction->increment_reference_count();
 
-      puserinteraction->m_ewindowflag |= e_window_flag_window_created;
+      m_puserinteraction->m_ewindowflag |= e_window_flag_window_created;
 
-      
-      puserinteraction->post_message(e_message_pos_create);
+      m_puserinteraction->post_message(e_message_pos_create);
 
       //return bOk;
 
    }
 
 
-   class windowing * window::windowing()
+   ::windowing_ios::windowing * window::ios_windowing()
    {
       
       auto pwindowing = ::windowing::window::windowing();
       
-      auto pwindowingHere = dynamic_cast < class windowing * >(pwindowing);
+      auto pwindowingHere = dynamic_cast < class ::windowing_ios::windowing * >(pwindowing);
       
       return pwindowingHere;
       
    }
+
+
+//   ::windowing_ios::windowing * window::ios_windowing()
+//   {
+//      
+//      ::cast < ::windowing_ios::windowing > pioswindowing = system()->windowing();
+//   
+//      if(!pioswindowing)
+//      {
+//         
+//         return nullptr;
+//         
+//      }
+//      
+//      return pioswindowing;
+//      
+//   }
 
 
    double window::get_top_margin()
@@ -476,9 +494,9 @@ namespace windowing_ios
 
       //ios_window_make_key_window_and_order_front();
       
-      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing4;
+      auto pioswindowing = ios_windowing();
       
-      pwindowing->m_pwindowActive = this;
+      pioswindowing->m_pwindowActive = this;
 
       //return ::success;
 
@@ -488,9 +506,9 @@ namespace windowing_ios
    void window::set_tool_window(bool bSet)
    {
       
-      auto pwindowing = (::windowing_ios::windowing *) m_pwindowing->m_pWindowing4;
+      auto pioswindowing = ios_windowing();
       
-      pwindowing->_defer_dock_application(!bSet);
+      pioswindowing->_defer_dock_application(!bSet);
 
       //return ::success;
       
@@ -507,7 +525,7 @@ namespace windowing_ios
    }
 
 
-   bool window::is_active_window() const
+   bool window::is_active_window()
    {
 
 //      return ios_window_is_key_window();
@@ -517,19 +535,19 @@ namespace windowing_ios
    }
 
    
-   bool window::has_keyboard_focus() const
+   bool window::has_keyboard_focus()
    {
       
-      auto pwindowing = ((window*)this)->windowing();
+      auto pioswindowing = ios_windowing();
 
-      if (!pwindowing)
+      if (!pioswindowing)
       {
 
          return false;
 
       }
 
-      auto pwindowKeyboardFocus = pwindowing->m_pwindowKeyboardFocus;
+      auto pwindowKeyboardFocus = pioswindowing->m_pwindowKeyboardFocus;
 
       if (::is_null(pwindowKeyboardFocus))
       {
@@ -577,7 +595,7 @@ namespace windowing_ios
    }
 
 
-   bool window::ios_window_has_keyboard_focus() const
+   bool window::ios_window_has_keyboard_focus()
    {
    
       bool bHasKeyboardFocus = has_keyboard_focus();
@@ -851,7 +869,7 @@ namespace windowing_ios
 
       auto tickNow = ::time::now();
 
-      auto tickEllapsed = tickNow - m_puserinteractionimpl->m_timeLastDeviceDraw;
+      auto tickEllapsed = tickNow - m_timeLastDeviceDraw;
 
       if(tickEllapsed < 12_ms)
       {
@@ -861,13 +879,13 @@ namespace windowing_ios
 
       }
 
-      m_puserinteractionimpl->m_timeLastDeviceDraw = tickNow;
+      m_timeLastDeviceDraw = tickNow;
 
-      ::user::device_draw_life_time devicedrawlifetime(m_puserinteractionimpl);
+      ::windowing::device_draw_life_time devicedrawlifetime(this);
 
-      critical_section_lock slDisplay(m_puserinteractionimpl->cs_display());
+      critical_section_lock slDisplay(this->cs_display());
 
-       ::pointer < ::graphics::graphics > pbuffer = m_puserinteractionimpl->m_pgraphicsgraphics;
+       ::pointer < ::graphics::graphics > pbuffer = m_pgraphicsgraphics;
 
       if(!pbuffer)
       {
@@ -876,7 +894,7 @@ namespace windowing_ios
 
       }
       
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
       
       if(!puserinteraction)
       {
@@ -899,7 +917,7 @@ namespace windowing_ios
       
       _synchronous_lock sl1(pbufferitem->synchronization());
 
-       ::image_pointer & pimageBuffer2 = pbufferitem->m_pimage2;
+       auto & pimageBuffer2 = pbufferitem->m_pimage2;
 
       if (!pimageBuffer2)
       {
@@ -914,7 +932,7 @@ namespace windowing_ios
 
    #ifdef EXTRALOG
 
-//      if(strSize.has_char())
+//      if(strSize.has_character())
 //      {
 //
 //         s_iLastExact = -1;
@@ -969,9 +987,9 @@ namespace windowing_ios
          
       }
       
-      image_source imagesource(pimageBuffer2);
+      ::image::image_source imagesource(pimageBuffer2);
       
-      image_drawing_options imagedrawingoptions(sizeMin);
+      ::image::image_drawing_options imagedrawingoptions(sizeMin);
       
       if(sizeMin.is_empty())
       {
@@ -986,15 +1004,15 @@ namespace windowing_ios
          
       }
 
-      image_drawing imagedrawing(imagedrawingoptions, imagesource);
+      ::image::image_drawing imagedrawing(imagedrawingoptions, imagesource);
 
       g->draw(imagedrawing);
       
       //output_debug_string("ios_window_draw end\n");
       
-      m_puserinteractionimpl->m_bPendingRedraw = false;
+      m_bPendingRedraw = false;
       
-      m_puserinteractionimpl->m_timeLastRedraw.Now();
+      m_timeLastRedraw.Now();
 
    }
 
@@ -1109,7 +1127,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
 bool window::ios_window_key_up(::user::enum_key ekey)
    {
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(puserinteraction == nullptr)
       {
@@ -1150,7 +1168,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    bool window::ios_window_on_text(const char * pszText, long iUnicodeBeg, long iUnicodeEnd)
    {
       
-      auto pinteraction = m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+      auto pinteraction = m_puserinteractionKeyboardFocus;
       
       if(pinteraction)
       {
@@ -1179,7 +1197,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //   long window::ios_window_edit_hit_test(int x, int y)
 //   {
 //
-////      auto pinteraction = m_puserinteractionimpl->m_puserinteractionKeyboardFocus;
+////      auto pinteraction = m_puserinteractionKeyboardFocus;
 ////
 ////      if(pinteraction)
 ////      {
@@ -1240,7 +1258,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
                 pactivate->m_pwindow =this;
                 pactivate->m_oswindow = this;
                 pactivate->m_atom = ::e_message_activate;
-                pactivate->m_wparam = ::make_u32(e_activate_click_active, 0);
+                pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
                 pactivate->m_eactivate = e_activate_click_active;
 
                post_message(pactivate);
@@ -1272,7 +1290,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
             id = e_message_left_button_down;
 
-            auto psession = get_session();
+            auto psession = session();
 
             try
             {
@@ -1290,7 +1308,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
           pmouse->m_pwindow = this;
           pmouse->m_oswindow = this;
           pmouse->m_atom = id;
-          pmouse->m_lparam =::make_u32(x, y);
+          pmouse->m_lparam =::make_unsigned_int(x, y);
           pmouse->m_pointHost.x() = x;
           pmouse->m_pointHost.y() = y;
          pmouse->m_pointAbsolute = pmouse->m_pointHost;
@@ -1324,7 +1342,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          id = e_message_left_button_up;
          
-         auto psession = get_session();
+         auto psession = session();
 
          try
          {
@@ -1343,7 +1361,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
        pmouse->m_atom = id;
-       pmouse->m_lparam =::make_u32(x, y);
+       pmouse->m_lparam =::make_unsigned_int(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
       pmouse->m_pointAbsolute = pmouse->m_pointHost;
@@ -1396,7 +1414,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       bool bOk = true;
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(!puserinteraction)
       {
@@ -1507,7 +1525,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
        pmouse->m_atom = id;
-       pmouse->m_lparam =::make_u32(x, y);
+       pmouse->m_lparam =::make_unsigned_int(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
       pmouse->m_pointAbsolute = pmouse->m_pointHost;
@@ -1546,7 +1564,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
        pmouse->m_atom = id;
-       pmouse->m_lparam =::make_u32(x, y);
+       pmouse->m_lparam =::make_unsigned_int(x, y);
        pmouse->m_pointHost.x() = x;
        pmouse->m_pointHost.y() = y;
       pmouse->m_pointAbsolute = pmouse->m_pointHost;
@@ -1627,11 +1645,11 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //
 //      }
       
-      m_puserinteractionimpl->m_puserinteraction->place(::rectangle_int_dimension(0, 0, cx, cy));
+      m_puserinteraction->place(::int_rectangle_dimension(0, 0, cx, cy));
                                                         
-      m_puserinteractionimpl->m_puserinteraction->set_need_redraw();
+      m_puserinteraction->set_need_redraw();
       
-      m_puserinteractionimpl->m_puserinteraction->post_redraw();
+      m_puserinteraction->post_redraw();
 
       //return;
 
@@ -1757,11 +1775,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    void window::ios_window_moved(CGPoint point)
    {
       
-      
-      if(m_puserinteractionimpl->m_bEatMoveEvent)
+      if(m_bEatMoveEvent)
       {
          
-         m_puserinteractionimpl->m_bEatMoveEvent = false;
+         m_bEatMoveEvent = false;
          
          return;
          
@@ -1780,7 +1797,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
           preposition->m_pwindow = this;
           preposition->m_oswindow = this;
           preposition->m_atom = id;
-          preposition->m_lparam =::make_u32(point.x, point.y);
+          preposition->m_lparam =::make_unsigned_int(point.x, point.y);
           preposition->m_point.x() = point.x;
           preposition->m_point.y() = point.y;
 
@@ -1853,7 +1870,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //
 //      }
 
-      m_puserinteractionimpl->m_timeLastExposureAddUp.Now();
+      m_timeLastExposureAddUp.Now();
 
    }
 
@@ -1870,7 +1887,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       //this->set_active_window();
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
@@ -1897,11 +1914,11 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       }
 
-      auto pwindowing = m_pwindowing;
+      auto pwindowing = ios_windowing();
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
-      auto pwindowActive = pwindowing->get_active_window(puserinteraction->m_pthreadUserInteraction);
+      auto pwindowActive = pwindowing->get_active_window(m_puserthread);
 
       if(::is_null(pwindowActive))
       {
@@ -1917,7 +1934,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       }
 
-      pwindowing->clear_active_window(puserinteraction->m_pthreadUserInteraction, this);
+      pwindowing->clear_active_window(m_puserthread, this);
 
       //::deactivate_window(get_handle());
 
@@ -1951,7 +1968,7 @@ bool window::ios_window_become_first_responder()
 void window::ios_window_text_view_did_begin_editing()
 {
 
-   m_puserinteractionimpl->on_final_set_keyboard_focus();
+   on_final_set_keyboard_focus();
 
 }
 
@@ -2147,7 +2164,7 @@ void window::ios_window_text_view_did_begin_editing()
          
       }
       
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(puserinteraction == nullptr)
       {
@@ -2156,7 +2173,7 @@ void window::ios_window_text_view_did_begin_editing()
 
       }
 
-      m_puserinteractionimpl->m_timeLastExposureAddUp.Now();
+      m_timeLastExposureAddUp.Now();
 
       puserinteraction->send_message(e_message_show_window, 1);
 
@@ -2195,7 +2212,7 @@ void window::ios_window_text_view_did_begin_editing()
       
       information("macos::window::ios_window_on_hide");
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
@@ -2256,7 +2273,7 @@ void window::ios_window_text_view_did_begin_editing()
       ns_main_post(^()
                      {
          
-         auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+         auto puserinteraction = m_puserinteraction;
 
       if(puserinteraction->get_parent() == nullptr && puserinteraction->get_owner() == nullptr)
       {
@@ -2277,7 +2294,7 @@ void window::ios_window_text_view_did_begin_editing()
             puserinteraction->display(e_display_default, e_activation_set_foreground);
 
          }
-         else if(puserinteraction->m_pinteractionimpl && puserinteraction->m_pinteractionimpl->m_timeLastExposureAddUp.elapsed() < 300_ms)
+         else if(m_timeLastExposureAddUp.elapsed() < 300_ms)
          {
 
             information("Ignored minituarize request (by toggle intent) because of recent full exposure.");
@@ -2313,7 +2330,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-   bool window::post_message(::message::message * pmessage)
+   void window::post_message(::message::message * pmessage)
    {
 
 //      oswindow oswindow = message.oswindow;
@@ -2329,12 +2346,12 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      }
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
 
-         return false;
+         return;
 
       }
       
@@ -2405,7 +2422,7 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      pmq->m_eventNewMessage.set_event();
 
-      return true;
+      //return true;
 
    }
 
@@ -2418,7 +2435,7 @@ void window::ios_window_text_view_did_begin_editing()
 //   }
 
 
-   bool window::send_message(::message::message * pmessage)
+   lresult window::send_message(::message::message * pmessage)
    {
 
    //      oswindow oswindow = message.oswindow;
@@ -2434,16 +2451,16 @@ void window::ios_window_text_view_did_begin_editing()
    //
    //      }
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      auto puserinteraction = m_puserinteraction;
 
       if(::is_null(puserinteraction))
       {
 
-         return false;
+         return 0;
 
       }
       
-      puserinteraction->send_message(pmessage);
+      auto lresult = puserinteraction->send_message(pmessage);
 
       //::thread * pthread = nullptr;
 
@@ -2510,7 +2527,7 @@ void window::ios_window_text_view_did_begin_editing()
    //
    //      pmq->m_eventNewMessage.set_event();
 
-      return true;
+      return lresult;
 
    }
 
@@ -2518,9 +2535,9 @@ void window::ios_window_text_view_did_begin_editing()
    void window::destroy_window()
    {
 
-      ::pointer < ::user::primitive_impl > pimplThis = m_puserinteractionimpl;
+//      ::pointer < ::user::primitive_impl > pimplThis = m_puserinteractionimpl;
 
-      ::pointer < ::user::interaction > puiThis = pimplThis->m_puserinteraction;
+      ::pointer < ::user::interaction > puiThis = m_puserinteraction;
 
       try
       {
@@ -2577,7 +2594,7 @@ void window::pick_media(const char * pszMediaType)
 
       __construct(m_pmediaitempicker, pfactory);
       
-      m_pmediaitempicker->m_ppickercallback = application()->m_paquaapplication;
+      m_pmediaitempicker->m_ppickercallback = application();
       
       m_pmediaitempicker->set_windowing_window(this);
       

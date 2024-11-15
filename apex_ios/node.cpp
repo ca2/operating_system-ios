@@ -890,7 +890,7 @@ void node::initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch)
 void node::file_open(const ::file::path & path, const string & strParams, const ::file::path & strFolder)
 {
 
-   auto pathProcessed = get_context()->defer_process_path(path);
+   auto pathProcessed = application()->defer_process_path(path);
 
    ns_main_post(^
    {

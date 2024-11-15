@@ -25,7 +25,7 @@ namespace multimedia
          UInt32                                    m_NumPacketsToRead;
          array < AudioStreamPacketDescription * >  m_PacketDescs;
          bool                                      m_bDone;
-//         ::manual_reset_event                      m_eventOpened;
+//         ::manual_reset_happening                      m_eventOpened;
          int32_t                                   m_iBufferCount;
          int32_t                                   m_iBufferSampleCount;
 

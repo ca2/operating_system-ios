@@ -18,9 +18,9 @@ void init_mmos(::platform::system * psystem)
 
    auto pmmos = ([[mmos alloc] init]);
 
-   set_system_mmos(pSystem, (__bridge_retained void *) pmmos);
+   set_system_mmos(psystem, (__bridge_retained void *) pmmos);
 
-   pmmos->m_pSystem = pSystem;
+   pmmos->m_psystem = psystem;
    
    pmmos->theLock = [[NSRecursiveLock alloc] init];
    
@@ -41,7 +41,7 @@ void init_mmos(::platform::system * psystem)
 void term_mmos(::platform::system * psystem)
 {
    
-   auto pmmos = (__bridge_transfer mmos *) get_system_mmos(pSystem);
+   auto pmmos = (__bridge_transfer mmos *) get_system_mmos(psystem);
    
    [pmmos dd_fake];
    
@@ -178,7 +178,7 @@ void term_mmos(::platform::system * psystem)
 //
 //   }
    
-   return (__bridge mmos *) get_system_mmos(m_pSystem);
+   return (__bridge mmos *) get_system_mmos(m_psystem);
    
 }
 
@@ -384,7 +384,7 @@ void term_mmos(::platform::system * psystem)
 bool mm1a_get_file_image(::platform::system * psystem, unsigned int * pcr, int cx, int cy, int iScan, const char * psz)
 {
    
-   auto pmmos = (__bridge mmos *) get_system_mmos(pSystem);
+   auto pmmos = (__bridge mmos *) get_system_mmos(psystem);
    
    if(pmmos->m_iIcon == 0)
    {
@@ -451,7 +451,7 @@ char * mm_browse_folder(::platform::system * psystem, const char * pszStartDir, 
    ns_main_send(^
    {
 
-      mmos * pos = (__bridge mmos *) get_system_mmos(pSystem);
+      mmos * pos = (__bridge mmos *) get_system_mmos(psystem);
 
       NSURL * startDir = NULL;
 
@@ -483,7 +483,7 @@ char** mm_browse_file_open(::platform::system * psystem, const char ** pszStartD
    ns_main_send(^
    {
 
-      mmos * pos = (__bridge mmos *) get_system_mmos(pSystem);
+      mmos * pos = (__bridge mmos *) get_system_mmos(psystem);
 
       NSURL * startDir = NULL;
 

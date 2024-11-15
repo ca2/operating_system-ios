@@ -55,7 +55,7 @@ namespace node_ios
 //      void install_mouse_hook(::matter * pmatterListener) override;
 //      void uninstall_mouse_hook(::matter * pmatterListener) override;
 //
-       ::pointer < ::conversation > create_new_message_box_conversation() override;
+//       ::pointer < ::conversation > create_new_message_box_conversation() override;
 
 //      void install_mouse_hook(::matter * pmatterListener) override;
 //      void uninstall_mouse_hook(::matter * pmatterListener) override;

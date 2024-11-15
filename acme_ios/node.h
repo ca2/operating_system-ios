@@ -43,7 +43,7 @@ namespace acme_ios
       //gpointer m_pGtkSettingsDefault;
       string m_strTheme;
 
-      ::pointer < manual_reset_event > m_peventReadyToTerminateApp;
+      ::pointer < manual_reset_happening > m_peventReadyToTerminateApp;
 
       node();
       ~node() override;

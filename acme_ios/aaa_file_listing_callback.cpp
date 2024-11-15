@@ -22,7 +22,7 @@ namespace acme_ios
       
       m_pfilelistingcallbackHold = this;
       
-      m_manualresetevent.ResetEvent();
+      m_manualresethappening.reset_happening();
       
    }
 
@@ -79,7 +79,7 @@ void file_listing_callback::ns_metadata_query_callback_on_item(const char * pszN
 void file_listing_callback::ns_metadata_query_callback_finished()
 {
  
-   m_manualresetevent.SetEvent();
+   m_manualresethappening.set_happening();
    
 }
 

@@ -17,6 +17,9 @@ namespace windowing_ios
 
       buffer();
       ~buffer() override;
+      
+      
+      virtual ::windowing_ios::window * ios_window();
 
       //::draw2d::graphics* on_begin_draw() override;
        

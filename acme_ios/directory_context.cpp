@@ -32,7 +32,7 @@ namespace acme_ios
 bool directory_context::fast_has_subdir(const ::file::path & path)
 {
    
-   ::string strProtocol = url()->get_protocol(path);
+   ::string strProtocol = ::url::get_protocol(path);
    
    if(strProtocol == "icloud")
    {

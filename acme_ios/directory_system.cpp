@@ -43,6 +43,46 @@ namespace acme_ios
    }
 
 
+
+   void directory_system::initialize(::particle * pparticle)
+   {
+
+      //auto estatus =
+      
+      ::directory_system::initialize(pparticle);
+   //
+   //      if (!estatus)
+   //      {
+   //
+   //         return estatus;
+   //
+   //      }
+   //
+   //      return estatus;
+
+   }
+
+
+   ::file::path directory_system::compute_default_app_data_path()
+   {
+
+      return m_pathLibrary / "application";
+
+   }
+
+
+   void directory_system::init_system()
+   {
+
+      ::directory_system::init_system();
+      
+      m_pathHome = this->home();
+      
+      m_pathCa2Config = m_pathHome / "Library/Application Support/ca2";
+      
+   }
+
+
    void directory_system::on_initialize_particle()
    {
       
@@ -126,18 +166,18 @@ namespace acme_ios
    }
 
 
-   ::file::path directory_system::public_system()
+//   ::file::path directory_system::public_system()
+//   {
+//
+//      return public_root() / "system";
+//
+//   }
+
+
+   ::file::path directory_system::userconfig()
    {
 
-      return public_root() / "system";
-
-   }
-
-
-   ::file::path directory_system::system()
-   {
-
-      return ca2roaming() / "system";
+      return ca2roaming() / "user";
 
    }
 

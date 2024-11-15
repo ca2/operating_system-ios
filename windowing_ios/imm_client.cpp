@@ -185,7 +185,7 @@ void imm_client::_001OnIme(::message::message * pmessage)
 
          ::output_debug_string("\nWM_IME_COMPOSITION Cancellation...");
 
-         if (m_strImeComposition.has_char())
+         if (m_strImeComposition.has_character())
          {
 
             m_puserinteraction->edit_undo();
@@ -530,7 +530,7 @@ void imm_client::_001OnKeyDown(::message::message * pmessage)
 
       }
 
-      if (m_strImeComposition.has_char())
+      if (m_strImeComposition.has_character())
       {
 
          m_bImeCancelling = true;

@@ -1,6 +1,6 @@
 #include "framework.h"
 #include "watcher.h"
-#include "acme/parallelization/manual_reset_event.h"
+#include "acme/parallelization/manual_reset_happening.h"
 
 
 namespace grand_central_dispatch
@@ -24,7 +24,7 @@ namespace grand_central_dispatch
    bool watch::open(const ::file::path & pathFolderParam, bool bRecursive)
    {
       
-      auto pevent = __create_new < manual_reset_event >();
+      auto pevent = __create_new < manual_reset_happening >();
       
       auto pathFolder = pathFolderParam;
       
@@ -70,7 +70,7 @@ namespace grand_central_dispatch
    //              }
          });
          
-         pevent->SetEvent();
+         pevent->set_happening();
          
          // Start monitoring the test file
          dispatch_resume(m_dispatchsource);
@@ -242,7 +242,7 @@ namespace grand_central_dispatch
    watcher::watcher()
    {
 
-      m_pThis = this;
+      //m_pThis = this;
       
    }
 

@@ -50,7 +50,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
    
-   system_id_update(application_system(m_pApplication), id_app_activated, 0);
+   system_id_update(application_system(m_papplication), id_app_activated, 0);
 
    return YES;
    
@@ -71,7 +71,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    
    //m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
    
-   system_id_update(application_system(m_pApplication), id_did_pick_document_at_url, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
+   system_id_update(application_system(m_papplication), id_did_pick_document_at_url, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
    
    return true;
    

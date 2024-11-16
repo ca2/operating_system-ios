@@ -1255,6 +1255,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
    }
 
+
    void window::ios_window_mouse_down(int iButton, double x, double y)
    {
       
@@ -2671,6 +2672,16 @@ void window::on_prompt_write_file(::user::controller *pusercontroller)
       auto pwindowing = windowing();
 
       pwindowing->_main_send(procedure);
+
+   }
+
+
+   void window::_main_post(const ::procedure & procedure)
+   {
+
+      auto pwindowing = windowing();
+
+      pwindowing->_main_post(procedure);
 
    }
 

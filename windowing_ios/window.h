@@ -137,6 +137,10 @@ namespace windowing_ios
 
       
       void _main_send(const ::procedure & procedure) override;
+      
+      void _main_post(const ::procedure & procedure) override;
+      
+      
       ::oswindow oswindow() const override;
 
       

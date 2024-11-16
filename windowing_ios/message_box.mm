@@ -38,7 +38,7 @@ void message_box::add_button(const ::scoped_string & scopedstrText, enum_dialog_
    NSString * strTitle = [[NSString alloc] initWithUTF8String:
                           strText.c_str()];
    UIAlertAction* defaultAction = [UIAlertAction
-                                   actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                   actionWithTitle:strTitle style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
       
       set_dialog_result(edialogresult);
@@ -56,11 +56,10 @@ void message_box::run()
 
    
    ns_main_post(^{
-      UIApplication * application = [UIApplication sharedApplication];
-      iosWindowApp * pappdelegate = [application delegate];
+     
+      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
       
-      
-      [[pappdelegate m_iosviewcontroller ] presentViewController:alert animated:YES completion:nil];
+      [[papp m_iosviewcontroller ] presentViewController:alert animated:YES completion:nil];
 
 
    });

@@ -64,6 +64,10 @@ namespace windowing_ios
       
       //void set_keyboard_focus() override;
       
+      void show_window() override;
+      void hide_window() override;
+
+      
       void set_active_window() override;
       
       void set_foreground_window() override;
@@ -130,6 +134,10 @@ namespace windowing_ios
 
       //void profiling_on_start_draw_rectangle() override;
       //void profiling_on_end_draw_rectangle() override;
+
+      
+      void _main_send(const ::procedure & procedure) override;
+      ::oswindow oswindow() const override;
 
       
       void ios_window_resized(int cx, int cy) override;

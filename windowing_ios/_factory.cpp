@@ -31,16 +31,16 @@ void windowing_ios_factory(::factory::factory * pfactory)
    aura_ios_factory(pfactory);
 
    
-   pfactory->add_factory_item < windowing_ios::windowing, ::windowing::windowing > ();
+   pfactory->add_factory_item < windowing_ios::windowing, ::acme::windowing::windowing > ();
 
 
    pfactory->add_factory_item < windowing_ios::window,
-   ::windowing::window > ();
+   ::acme::windowing::window > ();
 
    pfactory->add_factory_item < windowing_ios::host_interaction, ::sandbox_windowing::host_interaction > ();
 
 //   pfactory->add_factory_item < windowing_ios::node, ::platform::node > ();
-   pfactory->add_factory_item < windowing_ios::display, ::windowing::display > ();
+   pfactory->add_factory_item < windowing_ios::display, ::acme::windowing::display > ();
    pfactory->add_factory_item < windowing_ios::monitor, ::windowing::monitor > ();
    pfactory->add_factory_item < windowing_ios::buffer, ::graphics::graphics > ();
 //   pfactory->add_factory_item < windowing_ios::cursor, ::windowing::cursor > ();

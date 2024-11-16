@@ -11,11 +11,11 @@
 #include "text_editor_interface.h"
 #include "host_interaction.h"
 #include "aura/windowing/display.h"
-
+#include "message_box.h"
 
 //bool macos_get_cursor_position(POINT_I32 * ppointCursor);
 
-
+void ns_main_send(dispatch_block_t block);
 void ns_main_post(dispatch_block_t block);
 
 
@@ -56,7 +56,7 @@ namespace windowing_ios
 //
 //      estatus =
       
-      __construct(m_pdisplay);
+      //__construct(m_pdisplay);
       
 
       __construct_new(m_ptexteditorinterface);
@@ -221,6 +221,13 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 
    ::windowing::display * windowing::display()
    {
+      
+      if(!m_pdisplay)
+      {
+         
+         m_pdisplay = acme_display();
+         
+      }
 
       return m_pdisplay;
 
@@ -477,6 +484,45 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //      //      return estatus;
 //
 //   }
+   
+
+void windowing::_user_send(const ::procedure & procedure)
+{
+
+   __block auto p = procedure;
+
+   ns_main_send(^{
+      
+      p();
+      
+   });
+}
+
+
+   void windowing::_user_post(const ::procedure & procedure)
+{
+      
+      __block auto p = procedure;
+
+      ns_main_post(^{
+         
+         p();
+         
+      });
+
+}
+
+
+bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * pmessagebox)
+{
+   
+   preifiedMessageBox = __allocate ::windowing_ios::message_box;
+   
+   preifiedMessageBox->on_realize(pmessagebox);
+   
+   return true;
+   
+}
 
 
 } // namespace windowing_ios

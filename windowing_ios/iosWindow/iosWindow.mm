@@ -62,7 +62,6 @@ double get_status_bar_frame_height();
    
    iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
    
-   
    papp.m_iosviewcontroller = [[iosViewController alloc] init];
    
    iosViewController * pcontroller = papp.m_iosviewcontroller;

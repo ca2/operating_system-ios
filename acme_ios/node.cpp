@@ -327,7 +327,7 @@ unsigned int * puiPid)
    //
    //      // indirect wall-changer sourceforge.net contribution
    //
-   //      auto edesktop = psystem->get_edesktop();
+   //      auto edesktop = psystem->get_eoperating_ambient();
    //
    //      switch (edesktop)
    //      {
@@ -408,7 +408,7 @@ unsigned int * puiPid)
    //
    //      auto pnode = Node;
    //
-   //      auto edesktop = psystem->get_edesktop();
+   //      auto edesktop = psystem->get_eoperating_ambient();
    //
    //      switch (edesktop)
    //      {
@@ -456,7 +456,7 @@ unsigned int * puiPid)
    //   void node::enable_wallpaper_change_notification()
    //   {
    //
-   //      auto edesktop = psystem->get_edesktop();
+   //      auto edesktop = psystem->get_eoperating_ambient();
    //
    //      switch (edesktop)
    //      {

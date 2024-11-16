@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3109222CE865950067398D /* message_box.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3109212CE8658A0067398D /* message_box.mm */; };
 		9A750E53282B5F9100C4861B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E65282A26B000B1621E /* window.cpp */; };
 		9A750E84282B601000C4861B /* windowing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EA0282A26B000B1621E /* windowing.cpp */; };
 		9A750EC0282B668500C4861B /* iosFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA2282B668500C4861B /* iosFrameView.h */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		9A1D5F6E2751BE47003D9B5F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		9A3109212CE8658A0067398D /* message_box.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = message_box.mm; sourceTree = "<group>"; };
 		9A5D7394265700D200D5C39E /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D73962657011600D5C39E /* libapex.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D73982657012A00D5C39E /* libaqua.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaqua.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +260,7 @@
 				9AA14E7F282A26B000B1621E /* keyboard.h */,
 				9AF115A22844E8F6006B2424 /* message_box.cpp */,
 				9AF115A32844E8F6006B2424 /* message_box.h */,
+				9A3109212CE8658A0067398D /* message_box.mm */,
 				9AA14E69282A26B000B1621E /* monitor.cpp */,
 				9AA14E7B282A26B000B1621E /* monitor.h */,
 				9AA14E76282A26B000B1621E /* monitor.mm */,
@@ -326,7 +329,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					9A9E4AD52751A3F40094A04C = {
 						CreatedOnToolsVersion = 13.1;
@@ -404,6 +407,7 @@
 				9AA56BB92C6276F500BF56ED /* document_picker_delegate.mm in Sources */,
 				9A750ED1282B668500C4861B /* iosEditView.mm in Sources */,
 				9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */,
+				9A3109222CE865950067398D /* message_box.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

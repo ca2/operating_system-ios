@@ -80,10 +80,17 @@ namespace windowing_ios
       
       void _defer_dock_application(int_bool bDock);
       
-      
+      void _user_send(const ::procedure & procedure) override;
+
+
+      void _user_post(const ::procedure & procedure) override;
+
 //      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
 //       
 //      ::pointer < ::conversation > create_new_message_box_conversation() override;
+      
+      bool defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * p) override;
+
 
    };
       

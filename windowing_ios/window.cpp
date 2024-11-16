@@ -251,10 +251,10 @@ namespace windowing_ios
 //      
 //      pimpl->m_puserinteraction->m_pwindow = this;
       
-      set_oswindow(this);
+      //set_oswindow(this);
 
       
-//      install_message_routing(puserinteraction);
+      install_message_routing(m_puserinteraction);
 
 
 
@@ -488,6 +488,31 @@ namespace windowing_ios
 //
 //   }
 
+
+   void window::show_window()
+   {
+   
+      main_send([this]()
+                {
+         
+         ios_window_show();
+         
+      });
+      
+   }
+
+
+   void window::hide_window()
+   {
+      
+      main_send([this]()
+                {
+         
+         ios_window_hide();
+         
+      });
+      
+   }
 
    void window::set_active_window()
    {
@@ -984,6 +1009,8 @@ namespace windowing_ios
       {
 
          output_debug_string("imageBuffer2 nok\n");
+         
+         return;
          
       }
       
@@ -2636,6 +2663,25 @@ void window::on_prompt_write_file(::user::controller *pusercontroller)
  
 
 }
+
+
+   void window::_main_send(const ::procedure & procedure)
+   {
+      
+      auto pwindowing = windowing();
+
+      pwindowing->_main_send(procedure);
+
+   }
+
+
+   ::oswindow window::oswindow() const
+   {
+
+      return as_non_const(this);
+
+   }
+
 
 } // namespace windowing_ios
 

@@ -630,7 +630,7 @@ unsigned int * puiPid)
 //void node::element_quit::run()
 //{
 //   
-//   m_pnode->m_peventReadyToTerminateApp->set_event();
+//   m_pnode->m_phappeningReadyToTerminateApp->set_event();
 //   
 //   auto htaskSystem = (pthread_t) m_pnode->m_htaskSystem;
 //
@@ -656,15 +656,15 @@ unsigned int * puiPid)
           
        });
        
-//       m_peventReadyToTerminateApp = __new(manual_reset_happening);
+//       m_phappeningReadyToTerminateApp = __new(manual_reset_happening);
 //       
-//       m_peventReadyToTerminateApp->reset_happening();
+//       m_phappeningReadyToTerminateApp->reset_happening();
 //       
 //       element_quit * pelementquit = new element_quit(this);
 //   
 //       ::os_post_quit(pelementquit);
 //       
-//       m_peventReadyToTerminateApp->_wait();
+//       m_phappeningReadyToTerminateApp->_wait();
        
       }
 

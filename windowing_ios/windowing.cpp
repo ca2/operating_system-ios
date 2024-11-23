@@ -56,7 +56,7 @@ namespace windowing_ios
 //
 //      estatus =
       
-      //__construct(m_pdisplay);
+      //__øconstruct(m_pdisplay);
       
 
       __construct_new(m_ptexteditorinterface);
@@ -114,7 +114,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //         
 //      }
 //      
-//      __construct(m_phostinteraction);
+//      __øconstruct(m_phostinteraction);
 //      
 //      m_phostinteraction->create_host();
 //      
@@ -142,7 +142,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //   ::windowing::window *windowing::new_window(::user::interaction_impl *pimpl)
 //   {
 //
-//      auto pwindow = __create < ::windowing::window >();
+//      auto pwindow = __øcreate < ::windowing::window >();
 //      
 //      pwindow->create_window(pimpl);
 //

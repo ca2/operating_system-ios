@@ -36,13 +36,13 @@ namespace music
          
          SCAST_PTR(::message::base, pbase, pobj);
          
-         sp(::music::midi::sequence::event) pevent(pbase->m_lparam);
+         sp(::music::midi::sequence::happening) pevent(pbase->m_lparam);
          
          sp(::music::midi_core_midi::sequence) pseq = pevent->m_psequence;
          
          pseq->OnEvent(pevent);
          
-         switch(pevent->m_eevent)
+         switch(pevent->m_ehappening)
          {
             case ::music::midi::sequence::EventMidiPlaybackEnd:
             {

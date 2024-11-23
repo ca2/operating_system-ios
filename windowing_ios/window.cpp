@@ -928,7 +928,7 @@ namespace windowing_ios
 
       }
       
-      auto g = __create < ::draw2d::graphics >();
+      auto g = __øcreate < ::draw2d::graphics >();
 
       g->attach(cgc);
       
@@ -2620,7 +2620,7 @@ void window::pick_media(const char * pszMediaType)
    
    ns_main_send(^{
 
-      __construct(m_pmediaitempicker, pfactory);
+      __øconstruct(m_pmediaitempicker, pfactory);
       
       m_pmediaitempicker->m_ppickercallback = application();
       

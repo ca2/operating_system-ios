@@ -66,7 +66,7 @@ namespace node_ios
       void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
 
 
-      void ns_app_run() override;
+//      void ns_app_run() override;
       
       void _node_file_dialog(::file::file_dialog * pdialog) override;
 

@@ -980,16 +980,16 @@ unsigned int * puiPid)
    }
 
 
-   void node::ns_app_run()
-   {
-    
-      auto argc = platform()->m_argc;
-
-      auto args = platform()->m_args;
-
-      ns_acme_application_main(argc, args, nullptr);
-      
-   }
+//   void node::ns_app_run()
+//   {
+//    
+//      auto argc = platform()->m_argc;
+//
+//      auto args = platform()->m_args;
+//
+//      ns_acme_application_main(argc, args, nullptr);
+//      
+//   }
 
 
 } // namespace acme

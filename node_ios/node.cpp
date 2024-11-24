@@ -16,7 +16,7 @@
 #include "windowing_ios/window.h"
 
 
-void ns_app_run();
+//void ns_app_run();
 void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine);
 
@@ -290,16 +290,16 @@ void node::defer_create_windowing_application_delegate(::platform::application *
 }
 
 
-void node::ns_app_run()
-{
- 
-   auto argc = platform()->m_argc;
-
-   auto args = platform()->m_args;
-
-   ns_windowing_application_main(argc, args, nullptr);
-   
-}
+//void node::ns_app_run()
+//{
+// 
+//   auto argc = platform()->m_argc;
+//
+//   auto args = platform()->m_args;
+//
+//   ns_windowing_application_main(argc, args, nullptr);
+//   
+//}
 
 
    void node::_node_file_dialog(::file::file_dialog * pdialog)

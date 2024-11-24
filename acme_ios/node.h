@@ -125,7 +125,7 @@ namespace acme_ios
       
       void open_url_link_at_system_browser(const string & strUrl, const string & strProfile = {}) override;
 
-      virtual void ns_app_run();
+      //virtual void ns_app_run();
       
 
    };

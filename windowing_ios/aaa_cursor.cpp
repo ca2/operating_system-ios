@@ -142,7 +142,7 @@ void * nscursor_from_cgimageref(CGImageRef image, int cx, int cy, int xHotSpot, 
 //
 //
 //
-//bool macos_get_cursor_position(POINT_I32 * ppointCursor)
+//bool macos_get_cursor_position(INT_POINT * ppointCursor)
 //{
 //
 //   HIPoint point;

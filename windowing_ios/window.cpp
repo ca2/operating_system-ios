@@ -190,7 +190,7 @@ namespace windowing_ios
 
       //CGRect int_rectangle;
 
-      //RECTANGLE_I32 rectParam;
+      //INT_RECTANGLE rectParam;
 
    //      rectParam.left = m_pusersystem->m_createstruct.x;
    //      rectParam.top = pusersystem->m_createstruct.y;
@@ -2455,7 +2455,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-//   void window::get_cursor_position(POINT_I32 * ppoint)
+//   void window::get_cursor_position(INT_POINT * ppoint)
 //   {
 //   
 //      //macos_get_cursor_position(ppoint);

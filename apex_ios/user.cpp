@@ -2,7 +2,7 @@
 #include "acme/prototype/collection/str_array.h"
 
 //
-//int_bool GetCursorPos(POINT_I32 * ppointCursor)
+//int_bool GetCursorPos(INT_POINT * ppointCursor)
 //{
 //
 //   HIPoint point;

@@ -13,7 +13,7 @@
 #include "aura/windowing/display.h"
 #include "message_box.h"
 
-//bool macos_get_cursor_position(POINT_I32 * ppointCursor);
+//bool macos_get_cursor_position(INT_POINT * ppointCursor);
 
 void ns_main_send(dispatch_block_t block);
 void ns_main_post(dispatch_block_t block);

@@ -552,7 +552,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 
 //
-//int_bool set_need_redraw(oswindow hWnd, const RECTANGLE_I32 * pcrect, HRGN hrgnUpdate, unsigned int flags)
+//int_bool set_need_redraw(oswindow hWnd, const INT_RECTANGLE * pcrect, HRGN hrgnUpdate, unsigned int flags)
 //{
 //
 //   return true;
@@ -1302,7 +1302,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //void cg_get_window_rect_list(int_rectangle_array & recta, array < CGWindowID > & windowida);
 //
-//int_bool point_is_window_origin(POINT_I32 pointHitTest, oswindow oswindowExclude, int iMargin)
+//int_bool point_is_window_origin(INT_POINT pointHitTest, oswindow oswindowExclude, int iMargin)
 //{
 //   
 //   CGWindowID windowidExclude = get_os_window_window_number(oswindowExclude);

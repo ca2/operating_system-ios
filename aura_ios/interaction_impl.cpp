@@ -2796,7 +2796,7 @@
 //      if(bShow)
 //      {
 //
-//         node()->m_pauranode->defer_dock_application(true);
+//         node()->defer_dock_application(true);
 //
 //         m_puserinteraction->set_need_layout();
 //
@@ -2806,7 +2806,7 @@
 //      else
 //      {
 //
-//         node()->m_pauranode->defer_dock_application(false);
+//         node()->defer_dock_application(false);
 //
 //      }
 //

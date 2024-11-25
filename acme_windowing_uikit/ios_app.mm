@@ -2041,15 +2041,25 @@ bool ns_app_is_running()
 }
 
 
-void ns_app_run()
+void ns_app_run(int argc, char ** args, const char * pszClass)
 {
    
    ns_app_set_running(true);
-   
-   //[ [ UIApplication sharedApplication ] run ];
-   
+    
+    NSString * strApplicationClass = [[NSString alloc] initWithUTF8String:pszClass];
+    
+   UIApplicationMain(argc, args, nil, strApplicationClass);
+
    ns_app_set_running(false);
    
+}
+
+
+char * ns_acme_application_delegate_class()
+{
+   
+    return strdup([NSStringFromClass([ios_app class])UTF8String]);
+    
 }
 
 

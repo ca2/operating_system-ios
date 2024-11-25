@@ -530,7 +530,7 @@ namespace uikit
       }
       
       
-      void window::macos_window_become_main()
+      void window::ios_window_become_main()
       {
          
          application()->application_menu_update();
@@ -538,14 +538,14 @@ namespace uikit
       }
       
       
-      void window::macos_window_resign_main()
+      void window::ios_window_resign_main()
       {
          
          
       }
       
       
-      void window::macos_window_become_key()
+      void window::ios_window_become_key()
       {
          
          //application()->application_menu_update();
@@ -553,13 +553,29 @@ namespace uikit
       }
       
       
-      void window::macos_window_resign_key()
+
+      
+      void window::ios_window_resign_key()
+      {
+         
+         
+      }
+      
+      
+      void window::ios_window_on_show()
       {
          
          
       }
 
 
+      void window::ios_window_on_hide()
+      {
+         
+         //application()->application_menu_update();
+         
+      }
+      
       } //namespace windowing
 
 

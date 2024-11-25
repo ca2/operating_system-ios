@@ -18,7 +18,8 @@ void ns_main_post(dispatch_block_t block);
 
 bool ns_app_is_running();
 
-void ns_app_run();
+//void ns_app_run(int argc, char ** args, const char * pszClass);
+
 
 void ns_app_stop();
 
@@ -171,34 +172,50 @@ bool acme_window_bridge::_is_popup_window() const
 }
 
 
-void acme_window_bridge::macos_window_become_main()
+void acme_window_bridge::ios_window_become_main()
 {
  
-   return m_pwindow->macos_window_become_main();
+   return m_pwindow->ios_window_become_main();
    
 }
 
 
-void acme_window_bridge::macos_window_resign_main()
+void acme_window_bridge::ios_window_resign_main()
 {
  
-   return m_pwindow->macos_window_resign_main();
+   return m_pwindow->ios_window_resign_main();
    
 }
 
 
-void acme_window_bridge::macos_window_become_key()
+void acme_window_bridge::ios_window_become_key()
 {
  
-   return m_pwindow->macos_window_become_key();
+   return m_pwindow->ios_window_become_key();
    
 }
 
 
-void acme_window_bridge::macos_window_resign_key()
+void acme_window_bridge::ios_window_resign_key()
 {
  
-   return m_pwindow->macos_window_resign_key();
+   return m_pwindow->ios_window_resign_key();
+   
+}
+
+
+void acme_window_bridge::ios_window_on_show()
+{
+ 
+   return m_pwindow->ios_window_on_show();
+   
+}
+
+
+void acme_window_bridge::ios_window_on_hide()
+{
+ 
+   return m_pwindow->ios_window_on_hide();
    
 }
 

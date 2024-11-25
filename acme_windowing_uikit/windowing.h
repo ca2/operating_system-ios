@@ -59,6 +59,8 @@ public:
 //    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 
     //void windowing_application_main_loop()
+    
+    virtual ::string _ns_application_delegate_class();
 
 };
 

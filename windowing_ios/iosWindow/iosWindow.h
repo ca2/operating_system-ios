@@ -11,6 +11,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
+#include "acme_windowing_uikit/ns_acme_window.h"
 #include "acme/constant/user.h"
 //#import <MediaPlayer/MediaPlayer.h>
 
@@ -23,7 +24,7 @@ class ios_window;
 @class document_picker_delegate;
 
 
-@interface iosWindow : UIWindow < UIDocumentPickerDelegate >
+@interface iosWindow : ns_acme_window
 {
 @public
    

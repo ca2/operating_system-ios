@@ -17,10 +17,13 @@
 //#include <Foundation/Foundation.h>
 #include <dispatch/dispatch.h>
 
-void ns_app_run();
+void ns_app_run(int argc, char ** args, const char * pszClass);
+
 void ns_app_do_tasks();
 void ns_app_stop();
 void ns_main_post(dispatch_block_t block);
+
+char * ns_acme_application_delegate_class();
 
 
 void acme_defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
@@ -216,7 +219,9 @@ void  windowing::run()
   
    system()->defer_post_initial_request();
    
-   ns_app_run();
+    ns_app_run(system()->m_argc,
+               system()->m_args,
+               _ns_application_delegate_class());
    
    if(::system()->m_pmanualresethappeningMainLoopEnd)
    {
@@ -331,6 +336,14 @@ void windowing::application_handle(huge_integer l, void* p)
 //    ns_app_run();
 //    
 //}
+
+
+::string windowing::_ns_application_delegate_class()
+{
+    
+    return ::string_from_strdup(ns_acme_application_delegate_class());
+    
+}
 
 
 } // namespace windowing

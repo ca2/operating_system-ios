@@ -13,6 +13,8 @@
 #include "aura/windowing/display.h"
 #include "message_box.h"
 
+
+char * ns_aura_application_delegate_class();
 //bool macos_get_cursor_position(INT_POINT * ppointCursor);
 
 void ns_main_send(dispatch_block_t block);
@@ -548,6 +550,14 @@ bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > >
    
    return true;
    
+}
+
+
+::string windowing::_ns_application_delegate_class()
+{
+    
+    return ::string_from_strdup(ns_aura_application_delegate_class());
+    
 }
 
 

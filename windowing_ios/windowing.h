@@ -98,6 +98,7 @@ virtual public ::uikit::acme::windowing::windowing
       
       bool defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * p) override;
 
+       ::string _ns_application_delegate_class() override;
 
    };
       

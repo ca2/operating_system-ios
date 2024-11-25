@@ -59,7 +59,7 @@ void acme_window_bridge::create_ns_acme_window(CGRect CGRect)
    ns_main_send(^()
    {
    
-      m_pnsacmewindow = (__bridge_retained CFTypeRef) [ [ ns_acme_window alloc ] init: CGRect with_acme_window_bridge: this];
+      m_pnsacmewindow = (__bridge_retained CFTypeRef) [ [ ns_acme_window alloc ] initWithFrame: CGRect and_with_acme_window_bridge: this];
    
    });
    

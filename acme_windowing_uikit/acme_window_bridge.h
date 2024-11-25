@@ -81,13 +81,13 @@ public:
 
    virtual void on_layout(int x, int y, int w, int h);
    
-   virtual void macos_window_become_main();
+   virtual void ios_window_become_main();
    
-   virtual void macos_window_resign_main();
+   virtual void ios_window_resign_main();
    
-   virtual void macos_window_become_key();
+   virtual void ios_window_become_key();
    
-   virtual void macos_window_resign_key();
+   virtual void ios_window_resign_key();
    
    virtual CGRect get_frame();
    
@@ -96,6 +96,10 @@ public:
    virtual bool _is_top_most() const;
    
    virtual bool _is_popup_window() const;
+    
+   virtual void ios_window_on_show();
+   
+   virtual void ios_window_on_hide();
    
 };
 

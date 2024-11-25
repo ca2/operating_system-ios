@@ -116,17 +116,23 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 
 @end
 
+//
+//void ui_application_main(int argc, char * argv[], const char * pszCommandLine, NSString * strDelegateClass);
 
-void ui_application_main(int argc, char * argv[], const char * pszCommandLine, NSString * strDelegateClass);
-
-
-
-void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine)
+char * ns_aura_application_delegate_class()
 {
-                              
-   ui_application_main(argc, argv, pszCommandLine, NSStringFromClass([iosWindowApp class]));
    
+    return strdup([NSStringFromClass([iosWindowApp class])UTF8String]);
+    
 }
+
+
+//void ns_windowing_application_main(int argc, char * argv[], const char * pszCommandLine)
+//{
+//                              
+//   ui_application_main(argc, argv, pszCommandLine, NSStringFromClass([iosWindowApp class]));
+//   
+//}
 //
 //
 //::enum_status ios_defer_initialize_icloud_container_access()

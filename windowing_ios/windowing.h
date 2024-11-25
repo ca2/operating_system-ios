@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include "acme_windowing_uikit/windowing.h"
 #include "aura/windowing/sandbox/windowing.h"
 
 
@@ -14,8 +15,9 @@ namespace windowing_ios
 {
 
 
-    class CLASS_DECL_WINDOWING_MACOS windowing :
-      virtual public ::sandbox_windowing::windowing
+    class CLASS_DECL_WINDOWING_IOS windowing :
+      virtual public ::sandbox_windowing::windowing,
+virtual public ::uikit::acme::windowing::windowing
    {
    public:
       
@@ -44,6 +46,8 @@ namespace windowing_ios
       
       void initialize(::particle * pparticle) override;
       
+       
+       void initialize_windowing() override;
       
       ::windowing::text_editor_interface * get_text_editor_interface() override;
 
@@ -68,6 +72,9 @@ namespace windowing_ios
 
       ::windowing::display * display() override;
       
+       
+       void windowing_application_main_loop() override;
+       void windowing_post_quit() override;
 //      ::windowing::window * get_active_window(::thread * pthread) override;
 
       //virtual bool post_ui_message(::message::base * pbase);

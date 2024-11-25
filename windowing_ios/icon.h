@@ -12,7 +12,7 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS icon :
+   class CLASS_DECL_WINDOWING_IOS icon :
       virtual public ::windowing::icon
    {
    public:

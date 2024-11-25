@@ -77,6 +77,14 @@ namespace windowing_ios
    }
 
 
+void windowing::initialize_windowing()
+{
+    
+    ::uikit::acme::windowing::windowing::initialize_windowing();
+    
+}
+
+
    ::windowing::text_editor_interface * windowing::get_text_editor_interface()
    {
        
@@ -232,6 +240,24 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
       return m_pdisplay;
 
    }
+
+
+void windowing::windowing_application_main_loop() 
+{
+ 
+    ::uikit::acme::windowing::windowing::windowing_application_main_loop();
+    
+}
+
+
+void windowing::windowing_post_quit()
+{
+    
+    ::uikit::acme::windowing::windowing::windowing_post_quit();
+
+    
+}
+
 
 
 //   ::windowing::window * windowing::get_active_window(::thread * pthread)

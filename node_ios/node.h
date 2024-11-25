@@ -63,7 +63,7 @@ namespace node_ios
 //       ::pointer < ::conversation > create_new_message_box_conversation() override;
 
       
-      void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
+//      void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback) override;
 
 
 //      void ns_app_run() override;

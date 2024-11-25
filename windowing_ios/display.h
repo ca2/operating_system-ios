@@ -8,6 +8,7 @@
 #pragma once
 
 
+#include "acme_windowing_uikit/display.h"
 #include "aura/windowing/display.h"
 
 
@@ -15,8 +16,9 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS display :
-      virtual public ::windowing::display
+   class CLASS_DECL_WINDOWING_IOS display :
+      virtual public ::windowing::display,
+virtual public ::uikit::acme::windowing::display
    {
    public:
       
@@ -35,7 +37,9 @@ namespace windowing_ios
 
       int get_zoomed_title_bar_height() override;
       
-      
+       ::int_size get_main_screen_size() override;
+       
+       
    };
 
 

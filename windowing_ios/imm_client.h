@@ -5,7 +5,7 @@
 #include "aura/user/user/text_composition_client.h"
 
 
-class CLASS_DECL_WINDOWING_MACOS imm_client :
+class CLASS_DECL_WINDOWING_IOS imm_client :
    virtual public ::user::text_composition_client,
    virtual public ::channel
 {

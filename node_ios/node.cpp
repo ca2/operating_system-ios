@@ -280,15 +280,15 @@ void node::on_app_activated()
 //   }
 
 
-void node::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
-{
-   
-//   ::defer_create_windowing_application_delegate(
-//                                                 pApplication,
-//                                                 papplicationmenu, papplicationmenucallback);
-   
-}
-
+//void node::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
+//{
+//   
+////   ::defer_create_windowing_application_delegate(
+////                                                 pApplication,
+////                                                 papplicationmenu, papplicationmenucallback);
+//   
+//}
+//
 
 //void node::ns_app_run()
 //{

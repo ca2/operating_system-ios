@@ -68,7 +68,12 @@ int display::get_zoomed_title_bar_height()
    return ::abs(r2.top() - r1.top());
    
 }
-
+::int_size display::get_main_screen_size()
+{
+    
+    return ::uikit::acme::windowing::display::get_main_screen_size();
+    
+}
 
 
 } // namespace windowing_ios

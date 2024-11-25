@@ -11,7 +11,7 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS copydesk :
+   class CLASS_DECL_WINDOWING_IOS copydesk :
       virtual public ::user::copydesk
    {
    public:

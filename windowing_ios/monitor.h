@@ -16,7 +16,7 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS monitor :
+   class CLASS_DECL_WINDOWING_IOS monitor :
       virtual public ::windowing::monitor
    {
    public:

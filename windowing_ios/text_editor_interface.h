@@ -14,7 +14,7 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS text_editor_interface :
+   class CLASS_DECL_WINDOWING_IOS text_editor_interface :
       virtual public ::windowing::text_editor_interface
    {
    public:

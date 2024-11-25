@@ -7,13 +7,14 @@
 #pragma once
 
 
+#include "acme_windowing_uikit/_.h"
 #include "aura_ios/_.h"
 
 
-#if defined(_WINDOWING_MACOS_LIBRARY)
-   #define CLASS_DECL_WINDOWING_MACOS  CLASS_DECL_EXPORT
+#if defined(_windowing_ios_project)
+   #define CLASS_DECL_WINDOWING_IOS  CLASS_DECL_EXPORT
 #else
-   #define CLASS_DECL_WINDOWING_MACOS  CLASS_DECL_IMPORT
+   #define CLASS_DECL_WINDOWING_IOS  CLASS_DECL_IMPORT
 #endif
 
 

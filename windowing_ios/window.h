@@ -18,7 +18,7 @@ struct platform_media_item_t;
 //
 //
 //#endif
-
+#include "acme_windowing_uikit/window.h"
 #include "aura/windowing/sandbox/window.h"
 #include "iosWindow/ios_window.h"
 namespace aqua
@@ -30,9 +30,10 @@ namespace windowing_ios
 {
 
 
-    class CLASS_DECL_WINDOWING_MACOS window :
+    class CLASS_DECL_WINDOWING_IOS window :
       virtual public ::sandbox_windowing::window,
-      virtual public ::ios_window
+      virtual public ::ios_window,
+virtual public ::uikit::acme::windowing::window
    {
    public:
       
@@ -46,10 +47,18 @@ namespace windowing_ios
       window();
       ~window() override;
       
+#ifdef _DEBUG
+
+      huge_integer increment_reference_count() override;
+      huge_integer decrement_reference_count() override;
+      huge_integer release() override;
+
+#endif
+       void on_initialize_particle() override;
       
       void create_window() override;
       
-
+       void _create_window() override;
       //void ios_window_add_ref() override;
 //      void ios_window_dec_ref() override;
       

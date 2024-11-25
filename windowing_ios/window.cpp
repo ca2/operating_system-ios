@@ -78,6 +78,41 @@ namespace windowing_ios
    }
 
 
+#ifdef _DEBUG
+
+
+huge_integer window::increment_reference_count()
+{
+    
+    return ::uikit::acme::windowing::window::increment_reference_count();
+    
+}
+
+
+huge_integer window::decrement_reference_count()
+{
+    return ::uikit::acme::windowing::window::decrement_reference_count();
+}
+
+
+huge_integer window::release()
+{
+    return ::uikit::acme::windowing::window::release();
+}
+
+
+#endif
+
+void window::on_initialize_particle()
+{
+
+    ::sandbox_windowing::window::on_initialize_particle();
+    
+    ::uikit::acme::windowing::window::on_initialize_particle();
+    
+}
+
+
    void window::on_message_create(::message::message * pmessage)
    {
       
@@ -208,64 +243,11 @@ namespace windowing_ios
    //      else
    //      {
 
-         unsigned uStyle = 0;
-
-         if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
-         {
-
-   #define NSWindowStyleMaskMiniaturizable (1 << 2)
-
-            uStyle |= NSWindowStyleMaskMiniaturizable;
-
-         }
-
-         auto rectangle = m_puserinteraction-> window_rectangle();
-
-         CGRect cgrect;
-
-         copy(cgrect, rectangle);
-
-         //__todo?
-         //windowing()->copy(cgrect, rectangle);
-         //or
-         //display()->copy(cgrect, rectangle);
-         //because rectangle origin is top-left
-         //and because cgrect origin is bottom-left and,
-         //the origin of screen is at bottom.
-
-      //m_puserinteractionimpl = pimpl;
-      
-       //auto psession = m_pcontext->m_pacmesession->m_paurasession;
-
-      //auto puser = psession->user();
-
-//      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
-
-      //m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
-
-//      m_pwindowing = pwindowing;
-
-//      pimpl->m_pwindowing = pwindowing;
-//      
-//      pimpl->m_pwindow = this;
-//      
-//      pimpl->m_puserinteraction->m_pwindow = this;
-      
-      //set_oswindow(this);
-
       
       install_message_routing(m_puserinteraction);
 
-
-
-         auto pNSWindow = new_ios_window(this, cgrect, uStyle);
-
-         set_os_data(pNSWindow);
-
-
-      ios_windowing()->m_nsmap[m_pioswindow] = this;
-      
-
+       _create_window();
+       
          //puserinteraction->place(rectParam);
 
       //auto ptask = ::get_task();
@@ -332,6 +314,67 @@ namespace windowing_ios
 
    }
 
+
+void window::_create_window()
+{
+    
+    unsigned uStyle = 0;
+
+    if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
+    {
+
+#define NSWindowStyleMaskMiniaturizable (1 << 2)
+
+       uStyle |= NSWindowStyleMaskMiniaturizable;
+
+    }
+
+
+    //__todo?
+    //windowing()->copy(cgrect, rectangle);
+    //or
+    //display()->copy(cgrect, rectangle);
+    //because rectangle origin is top-left
+    //and because cgrect origin is bottom-left and,
+    //the origin of screen is at bottom.
+
+ //m_puserinteractionimpl = pimpl;
+ 
+  //auto psession = m_pcontext->m_pacmesession->m_paurasession;
+
+ //auto puser = psession->user();
+
+//      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
+
+ //m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
+
+//      m_pwindowing = pwindowing;
+
+//      pimpl->m_pwindowing = pwindowing;
+//
+//      pimpl->m_pwindow = this;
+//
+//      pimpl->m_puserinteraction->m_pwindow = this;
+ 
+ //set_oswindow(this);
+
+
+    auto rectangle = m_puserinteraction-> window_rectangle();
+
+    CGRect cgrect;
+
+    copy(cgrect, rectangle);
+
+    
+    auto pNSWindow = new_ios_window(this, cgrect, uStyle);
+
+    set_os_data(pNSWindow);
+
+
+ ios_windowing()->m_nsmap[m_pioswindow] = this;
+ 
+
+}
 
    ::windowing_ios::windowing * window::ios_windowing()
    {

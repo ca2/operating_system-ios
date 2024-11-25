@@ -10,7 +10,7 @@ namespace windowing_ios
 {
 
 
-   class CLASS_DECL_WINDOWING_MACOS keyboard :
+   class CLASS_DECL_WINDOWING_IOS keyboard :
       virtual public ::windowing::keyboard
    {
    public:

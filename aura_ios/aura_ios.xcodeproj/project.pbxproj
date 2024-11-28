@@ -28,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9A3E31A62CF8198E007DC9EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A2FCE052C9D3ADC000CF701;
+			remoteInfo = innate_ui_uikit;
+		};
 		9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
@@ -175,6 +182,14 @@
 				07B657D3190F3CBF002DAADE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A3E31A12CF8198B007DC9EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A3E31A72CF8198E007DC9EE /* libinnate_ui_uikit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9AA14EA4282A27D400B1621E /* Products */ = {
@@ -351,6 +366,10 @@
 					ProductGroup = 9AC3F2342CF7E2120061DCC0 /* Products */;
 					ProjectRef = 9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */;
 				},
+				{
+					ProductGroup = 9A3E31A12CF8198B007DC9EE /* Products */;
+					ProjectRef = 9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -361,6 +380,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9A3E31A72CF8198E007DC9EE /* libinnate_ui_uikit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libinnate_ui_uikit.a;
+			remoteRef = 9A3E31A62CF8198E007DC9EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9A8E9EC3282A32D1005FF778 /* libios_aura_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";

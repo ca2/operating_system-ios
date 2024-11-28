@@ -105,7 +105,7 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->ios_window_mouse_up(0, x, y);
+   p->on_left_button_up(x, y, x, y);
    
    return;
    
@@ -135,7 +135,7 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->ios_window_mouse_moved(x, y, 0);
+   p->on_mouse_move(x, y, x, y);
    
    return;
    
@@ -201,7 +201,7 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->ios_window_mouse_down(0, x, y);
+   p->on_left_button_down(x, y, x, y);
    
    return;
    
@@ -560,145 +560,145 @@ double get_status_bar_frame_height();
  
  }*/
 
-
-- (void)addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-{
-   [super addGestureRecognizer:gestureRecognizer];
-   // Check the new gesture recognizer is the same kind as the one we want to implement
-   // Note:
-   // This works because `UITextTapRecognizer` is a subclass of `UITapGestureRecognizer`
-   // and the text view has some `UITextTapRecognizer` added :)
-   //   if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-   //      UITapGestureRecognizer *tgr = (UITapGestureRecognizer *)gestureRecognizer;
-   //      if ([tgr numberOfTapsRequired] == 1 &&
-   //          [tgr numberOfTouchesRequired] == 1) {
-   //         // If found then add self to its targets/actions
-   //         [tgr addTarget:self action:@selector(_handleOneFingerTap:)];
-   //      }
-   //   }
-}
-
-
-- (void)removeGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-{
-   // Check the new gesture recognizer is the same kind as the one we want to implement
-   // Read above note
-   //   if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-   //      UITapGestureRecognizer *tgr = (UITapGestureRecognizer *)gestureRecognizer;
-   //      if ([tgr numberOfTapsRequired] == 1 &&
-   //          [tgr numberOfTouchesRequired] == 1) {
-   //         // If found then remove self from its targets/actions
-   //         [tgr removeTarget:self action:@selector(_handleOneFingerTap:)];
-   //      }
-   //   }
-   [super removeGestureRecognizer:gestureRecognizer];
-   
-}
-
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-   [super touchesBegan:touches withEvent:event];
-   
-   auto pioswindow = (iosWindow *) m_pnsacmewindow;
-   
-   ios_window * p = pioswindow->m_pwindow;
-   
-   //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
-   
-   if ([touches count] == 1)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      if ([touch tapCount] == 1)
-      {
-         
-         CGPoint point = [touch locationInView:self];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         m_pointLastTouchBegan = point;
-         
-         p->ios_window_mouse_down(0, x, y);
-         
-         //         if(allTouchesEnded)
-         //         {
-         //
-         //            p->ios_window_mouse_up(x, y);
-         //
-         //         }
-         
-      }
-      
-   }
-   
-}
-
-
-//- (void) detectPan:(UIPanGestureRecognizer *) uiPanGestureRecognizer
+//
+//- (void)addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 //{
-//
-//   CGPoint translation = [uiPanGestureRecognizer translationInView:self.superview];
-//
-//   ios_window * p = pioswindow->m_pwindow;
-//
-//   int x = m_pointLastTouchBegan.x + translation.x;
-//
-//   int y = m_pointLastTouchBegan.y + translation.y;
-//
-//   p->ios_window_mouse_dragged(x, y);
-//
+//   [super addGestureRecognizer:gestureRecognizer];
+//   // Check the new gesture recognizer is the same kind as the one we want to implement
+//   // Note:
+//   // This works because `UITextTapRecognizer` is a subclass of `UITapGestureRecognizer`
+//   // and the text view has some `UITextTapRecognizer` added :)
+//   //   if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+//   //      UITapGestureRecognizer *tgr = (UITapGestureRecognizer *)gestureRecognizer;
+//   //      if ([tgr numberOfTapsRequired] == 1 &&
+//   //          [tgr numberOfTouchesRequired] == 1) {
+//   //         // If found then add self to its targets/actions
+//   //         [tgr addTarget:self action:@selector(_handleOneFingerTap:)];
+//   //      }
+//   //   }
 //}
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-   [super touchesMoved:touches withEvent:event];
-   
-   auto pioswindow = (iosWindow *) m_pnsacmewindow;
-   
-   ios_window * p = pioswindow->m_pwindow;
-   
-   if ([touches count] == 1)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      if ([touch tapCount] == 1)
-      {
-         
-         CGPoint point = [touch locationInView:self];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         m_pointLastTouchBegan = point;
-         
-         p->ios_window_mouse_moved(0, x, y);
-         
-      }
-      else
-      {
-         
-         //            twoFingerTapIsPossible = NO;
-         
-      }
-      
-   }
-   else if([touches count] <= 0)
-   {
-      
-      p->ios_window_mouse_up(0, m_pointLastTouchBegan.x, m_pointLastTouchBegan.y);
-      
-   }
-   
-}
+//
+//
+//- (void)removeGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+//{
+//   // Check the new gesture recognizer is the same kind as the one we want to implement
+//   // Read above note
+//   //   if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+//   //      UITapGestureRecognizer *tgr = (UITapGestureRecognizer *)gestureRecognizer;
+//   //      if ([tgr numberOfTapsRequired] == 1 &&
+//   //          [tgr numberOfTouchesRequired] == 1) {
+//   //         // If found then remove self from its targets/actions
+//   //         [tgr removeTarget:self action:@selector(_handleOneFingerTap:)];
+//   //      }
+//   //   }
+//   [super removeGestureRecognizer:gestureRecognizer];
+//   
+//}
+//
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//   
+//   [super touchesBegan:touches withEvent:event];
+//   
+//   auto pioswindow = (iosWindow *) m_pnsacmewindow;
+//   
+//   ios_window * p = pioswindow->m_pwindow;
+//   
+//   //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+//   
+//   if ([touches count] == 1)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      if ([touch tapCount] == 1)
+//      {
+//         
+//         CGPoint point = [touch locationInView:self];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         m_pointLastTouchBegan = point;
+//         
+//         p->ios_window_mouse_down(0, x, y);
+//         
+//         //         if(allTouchesEnded)
+//         //         {
+//         //
+//         //            p->ios_window_mouse_up(x, y);
+//         //
+//         //         }
+//         
+//      }
+//      
+//   }
+//   
+//}
+//
+//
+////- (void) detectPan:(UIPanGestureRecognizer *) uiPanGestureRecognizer
+////{
+////
+////   CGPoint translation = [uiPanGestureRecognizer translationInView:self.superview];
+////
+////   ios_window * p = pioswindow->m_pwindow;
+////
+////   int x = m_pointLastTouchBegan.x + translation.x;
+////
+////   int y = m_pointLastTouchBegan.y + translation.y;
+////
+////   p->ios_window_mouse_dragged(x, y);
+////
+////}
+//
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//   
+//   [super touchesMoved:touches withEvent:event];
+//   
+//   auto pioswindow = (iosWindow *) m_pnsacmewindow;
+//   
+//   ios_window * p = pioswindow->m_pwindow;
+//   
+//   if ([touches count] == 1)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      if ([touch tapCount] == 1)
+//      {
+//         
+//         CGPoint point = [touch locationInView:self];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         m_pointLastTouchBegan = point;
+//         
+//         p->ios_window_mouse_moved(0, x, y);
+//         
+//      }
+//      else
+//      {
+//         
+//         //            twoFingerTapIsPossible = NO;
+//         
+//      }
+//      
+//   }
+//   else if([touches count] <= 0)
+//   {
+//      
+//      p->ios_window_mouse_up(0, m_pointLastTouchBegan.x, m_pointLastTouchBegan.y);
+//      
+//   }
+//   
+//}
 
 /**
  UIResponder protocol override.
@@ -709,124 +709,124 @@ double get_status_bar_frame_height();
     return NO;
 }
 
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-   [super touchesEnded:touches withEvent:event];
-   
-   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
-   
-   auto pioswindow = (iosWindow *) m_pnsacmewindow;
-   
-   ios_window * p = pioswindow->m_pwindow;
-   
-   if ([touches count] == 1 && allTouchesEnded)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      // --------------------------------------------------------
-      //
-      //   tap/ClickCount == 0 :
-      //   not properly a tap/click,
-      //   (but-a/"->"){eco/green-lang): drag.
-      //   So, still send mouse up message, at the final location.
-      //
-      if ([touch tapCount] == 0)
-      {
-         
-         CGPoint point = [touch locationInView:self];
-         
-         int x = point.x;
-         
-         int y = point.y;
-         
-         p->ios_window_mouse_up(0, x, y);
-         
-      }
-      else if ([touch tapCount] == 1)
-      {
-         
-         // if touch is a single tap, store its location so we can average it with the second touch location
-         
-         CGPoint point = [touch locationInView:self];
-         
-         //CGRect e = [[UIScreen mainScreen] applicationFrame];
-         
-         //int H = (int) e.size.height;
-         
-         int x = point.x;
-         
-         //int y = H - point.y;
-         
-         int y = point.y;
-         
-         p->ios_window_mouse_up(0, x, y);
-         
-      }
-      else
-      {
-         
-         //            twoFingerTapIsPossible = NO;
-         
-      }
-      
-   }
-   
-   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
-   
-}
-
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   
-   [super touchesCancelled:touches withEvent:event];
-   
-   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
-   
-   auto pioswindow = (iosWindow *) m_pnsacmewindow;
-   
-   ios_window * p = pioswindow->m_pwindow;
-   
-   if ([touches count] == 1 && allTouchesEnded)
-   {
-      
-      UITouch *touch = [touches anyObject];
-      
-      //if ([touch tapCount] == 1)
-      {
-         
-         // if touch is a single tap, store its location so we can average it with the second touch location
-         
-         CGPoint point = [touch locationInView:self];
-         
-         //CGRect e = [[UIScreen mainScreen] applicationFrame];
-         
-         //int H = (int) e.size.height;
-         
-         int x = point.x;
-         
-         //            int y = H - point.y;
-         
-         int y = point.y;
-         
-         p->ios_window_mouse_up(0, x, y);
-         
-      }
-      //      else
-      //      {
-      //
-      //         //            twoFingerTapIsPossible = NO;
-      //
-      //      }
-      
-   }
-   
-   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
-   
-}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//   
+//   [super touchesEnded:touches withEvent:event];
+//   
+//   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+//   
+//   auto pioswindow = (iosWindow *) m_pnsacmewindow;
+//   
+//   ios_window * p = pioswindow->m_pwindow;
+//   
+//   if ([touches count] == 1 && allTouchesEnded)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      // --------------------------------------------------------
+//      //
+//      //   tap/ClickCount == 0 :
+//      //   not properly a tap/click,
+//      //   (but-a/"->"){eco/green-lang): drag.
+//      //   So, still send mouse up message, at the final location.
+//      //
+//      if ([touch tapCount] == 0)
+//      {
+//         
+//         CGPoint point = [touch locationInView:self];
+//         
+//         int x = point.x;
+//         
+//         int y = point.y;
+//         
+//         p->ios_window_mouse_up(0, x, y);
+//         
+//      }
+//      else if ([touch tapCount] == 1)
+//      {
+//         
+//         // if touch is a single tap, store its location so we can average it with the second touch location
+//         
+//         CGPoint point = [touch locationInView:self];
+//         
+//         //CGRect e = [[UIScreen mainScreen] applicationFrame];
+//         
+//         //int H = (int) e.size.height;
+//         
+//         int x = point.x;
+//         
+//         //int y = H - point.y;
+//         
+//         int y = point.y;
+//         
+//         p->ios_window_mouse_up(0, x, y);
+//         
+//      }
+//      else
+//      {
+//         
+//         //            twoFingerTapIsPossible = NO;
+//         
+//      }
+//      
+//   }
+//   
+//   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+//   
+//}
+//
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//   
+//   [super touchesCancelled:touches withEvent:event];
+//   
+//   BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
+//   
+//   auto pioswindow = (iosWindow *) m_pnsacmewindow;
+//   
+//   ios_window * p = pioswindow->m_pwindow;
+//   
+//   if ([touches count] == 1 && allTouchesEnded)
+//   {
+//      
+//      UITouch *touch = [touches anyObject];
+//      
+//      //if ([touch tapCount] == 1)
+//      {
+//         
+//         // if touch is a single tap, store its location so we can average it with the second touch location
+//         
+//         CGPoint point = [touch locationInView:self];
+//         
+//         //CGRect e = [[UIScreen mainScreen] applicationFrame];
+//         
+//         //int H = (int) e.size.height;
+//         
+//         int x = point.x;
+//         
+//         //            int y = H - point.y;
+//         
+//         int y = point.y;
+//         
+//         p->ios_window_mouse_up(0, x, y);
+//         
+//      }
+//      //      else
+//      //      {
+//      //
+//      //         //            twoFingerTapIsPossible = NO;
+//      //
+//      //      }
+//      
+//   }
+//   
+//   //   CGPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+//   
+//}
 
 
 //- (void)drawLayer:(CALayer *)layer

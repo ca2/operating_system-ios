@@ -53,16 +53,17 @@ public:
    
    void do_tasks();
    
-   virtual void on_left_button_up(int xHost, int yHost, int xAbsolute, int yAbsolute);
+   virtual void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
 
-   virtual void on_left_button_down(int xHost, int yHost, int xAbsolute, int yAbsolute);
+   virtual void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
 
-   virtual void on_right_button_up(int xHost, int yHost, int xAbsolute, int yAbsolute);
+   virtual void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
 
-   virtual void on_right_button_down(int xHost, int yHost, int xAbsolute, int yAbsolute);
+   virtual void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
 
-   virtual void on_mouse_move(int xHost, int yHost, int xAbsolute, int yAbsolute);
-   
+   virtual void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute);
+
+    
    virtual void on_char(int iChar);
    
    virtual void _on_draw_background(CGContextRef cg, CGSize sizeFrame);

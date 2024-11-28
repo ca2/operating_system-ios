@@ -183,10 +183,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       
       //m_ioswindow->m_pwindow->m_pointLastTouchBegan = point;
       
-      m_ioswindow->m_pwindow->ios_window_mouse_down(0, x, y);
-
-      
-//
+      m_ioswindow->m_pwindow->on_left_button_down(x, y, x, y);
 //      // Already in editing mode, set insertion point (via selectedTextRange).
 //        [self.inputDelegate selectionWillChange:self];
 //

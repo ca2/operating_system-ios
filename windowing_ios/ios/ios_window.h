@@ -42,9 +42,9 @@ bool m_bDirty;
    
   
    virtual void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) = 0;
-   virtual void ios_window_mouse_down(int iGesture, double x, double y) = 0;
-   virtual void ios_window_mouse_up(int iGesture, double x, double y) = 0;
-   virtual void ios_window_mouse_moved(int iGesture, double x, double y) = 0;
+   //virtual void ios_window_mouse_down(int iGesture, double x, double y) = 0;
+   //virtual void ios_window_mouse_up(int iGesture, double x, double y) = 0;
+   //virtual void ios_window_mouse_moved(int iGesture, double x, double y) = 0;
    virtual void ios_window_mouse_dragged(int iGesture, double x, double y) = 0;
    virtual bool ios_window_key_down(::user::enum_key ekey) = 0;
    virtual bool ios_window_key_up(::user::enum_key ekey) = 0;

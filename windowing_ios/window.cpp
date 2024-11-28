@@ -14,6 +14,7 @@
 #include "acme/constant/message.h"
 #include "acme/constant/user.h"
 #include "acme/filesystem/filesystem/file_system_options.h"
+#include "acme/user/micro/elemental.h"
 #include "aqua/multimedia/media_item_picker.h"
 #include "aura/graphics/draw2d/draw2d.h"
 #include "aura/graphics/graphics/graphics.h"
@@ -1302,14 +1303,12 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   void window::ios_window_mouse_down(int iButton, double x, double y)
+   void window::on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
    {
       
-      m_pointMouseCursor.x() = x;
+      m_pointMouseCursor.x() = xHost;
       
-      m_pointMouseCursor.y() = y;
-
-      //::pointer < ::user::message > spbase;
+      m_pointMouseCursor.y() = yHost;
 
       if (!this->is_active_window())
       {
@@ -1353,96 +1352,331 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          ::atom id;
          
-         if (iButton == 1)
-         {
+         id = e_message_left_button_down;
 
-            id = e_message_right_button_down;
-
-         }
-         else
-         {
-
-            id = e_message_left_button_down;
-
-            auto psession = session();
-
-            try
-            {
-
-               psession->set_key_pressed(::user::e_key_left_button, true);
-
-            }
-            catch (...)
-            {
-
-            }
-
-         }
-         
-          pmouse->m_pwindow = this;
-          pmouse->m_oswindow = this;
-          pmouse->m_atom = id;
-          pmouse->m_lparam =::make_unsigned_int(x, y);
-          pmouse->m_pointHost.x() = x;
-          pmouse->m_pointHost.y() = y;
-         pmouse->m_pointAbsolute = pmouse->m_pointHost;
-
-         post_message(pmouse);
-
-      }
-
-   }
-
-
-   void window::ios_window_mouse_up(int iButton, double x, double y)
-   {
-      
-      m_pointMouseCursor.x() = x;
-      
-      m_pointMouseCursor.y() = y;
-      
-      auto pmouse = __create_new < ::message::mouse >();
-
-      ::atom id;
-
-      if (iButton == 1)
-      {
-
-         id = e_message_right_button_up;
-
-      }
-      else
-      {
-
-         id = e_message_left_button_up;
-         
          auto psession = session();
 
          try
          {
 
-            psession->set_key_pressed(::user::e_key_left_button, false);
+            psession->set_key_pressed(::user::e_key_left_button, true);
 
          }
          catch (...)
          {
 
          }
+         
+         pmouse->m_pwindow = this;
+         pmouse->m_oswindow = this;
+         pmouse->m_atom = e_message_left_button_down;
+         pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
+         pmouse->m_pointHost.x() = xHost;
+         pmouse->m_pointHost.y() = yHost;
+         pmouse->m_pointAbsolute.x() = xAbsolute;
+         pmouse->m_pointAbsolute.y() = yAbsolute;
+         
+         ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
+         
+         if(pelemental)
+         {
+            
+            pelemental->fore_on_left_button_down(pmouse);
+            
+            if(pmouse->m_bRet)
+            {
+             
+               return;
+               
+            }
+            
+         }
 
+         user_interaction()->send_message(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+            
+            return;
+            
+         }
+         
+         if(pelemental)
+         {
+            
+            pelemental->back_on_left_button_down(pmouse);
+            
+            if(pmouse->m_bRet)
+            {
+             
+               return;
+               
+            }
+            
+         }
+
+      }
+
+   }
+
+
+   void window::on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
+{
+   
+   m_pointMouseCursor.x() = xHost;
+   
+   m_pointMouseCursor.y() = yHost;
+
+   if (!this->is_active_window())
+   {
+
+      try
+      {
+
+         auto pmouseactivate = __create_new < ::message::mouse_activate >();
+
+          pmouseactivate->m_pwindow =this;
+          pmouseactivate->m_oswindow = this;
+          pmouseactivate->m_atom = ::e_message_mouse_activate;
+
+         send_message(pmouseactivate);
+
+         if (pmouseactivate->m_lresult == e_mouse_activate || pmouseactivate->m_lresult == e_mouse_activate_no_activate_and_eat)
+         {
+
+            auto pactivate = __create_new < ::message::activate >();
+             pactivate->m_pwindow =this;
+             pactivate->m_oswindow = this;
+             pactivate->m_atom = ::e_message_activate;
+             pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
+             pactivate->m_eactivate = e_activate_click_active;
+
+            post_message(pactivate);
+
+         }
+
+      }
+      catch (...)
+      {
+
+      }
+
+   }
+
+   {
+
+      auto pmouse = __create_new < ::message::mouse > ();
+
+      auto psession = session();
+
+      try
+      {
+
+         psession->set_key_pressed(::user::e_key_right_button, true);
+
+      }
+      catch (...)
+      {
 
       }
       
-       pmouse->m_pwindow = this;
-       pmouse->m_oswindow = this;
-       pmouse->m_atom = id;
-       pmouse->m_lparam =::make_unsigned_int(x, y);
-       pmouse->m_pointHost.x() = x;
-       pmouse->m_pointHost.y() = y;
-      pmouse->m_pointAbsolute = pmouse->m_pointHost;
+      pmouse->m_pwindow = this;
+      pmouse->m_oswindow = this;
+      pmouse->m_atom = e_message_right_button_down;
+      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
+      pmouse->m_pointHost.x() = xHost;
+      pmouse->m_pointHost.y() = yHost;
+      pmouse->m_pointAbsolute.x() = xAbsolute;
+      pmouse->m_pointAbsolute.y() = yAbsolute;
+      
+      ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
+      
+      if(pelemental)
+      {
+         
+         pelemental->fore_on_right_button_down(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
 
-      post_message(pmouse);
+      user_interaction()->send_message(pmouse);
+      
+      if(pmouse->m_bRet)
+      {
+         
+         return;
+         
+      }
+      
+      if(pelemental)
+      {
+         
+         pelemental->back_on_right_button_down(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
 
    }
+
+}
+
+
+   void window::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
+   {
+      
+      m_pointMouseCursor.x() = xHost;
+      
+      m_pointMouseCursor.y() = yHost;
+      
+      auto pmouse = __create_new < ::message::mouse >();
+
+      
+      auto psession = session();
+
+      try
+      {
+
+         psession->set_key_pressed(::user::e_key_left_button, false);
+
+      }
+      catch (...)
+      {
+
+      }
+      
+      pmouse->m_pwindow = this;
+      pmouse->m_oswindow = this;
+      pmouse->m_atom = e_message_left_button_up;
+      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
+      pmouse->m_pointHost.x() = xHost;
+      pmouse->m_pointHost.y() = yHost;
+      pmouse->m_pointAbsolute.x() = xAbsolute;
+      pmouse->m_pointAbsolute.y() = yAbsolute;
+      
+      ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
+      
+      if(pelemental)
+      {
+         
+         pelemental->fore_on_left_button_up(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
+
+      user_interaction()->send_message(pmouse);
+      
+      if(pmouse->m_bRet)
+      {
+         
+         return;
+         
+      }
+      
+      if(pelemental)
+      {
+         
+         pelemental->back_on_left_button_up(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
+   }
+
+
+void window::on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
+{
+   
+   m_pointMouseCursor.x() = xHost;
+   
+   m_pointMouseCursor.y() = yHost;
+   
+   auto pmouse = __create_new < ::message::mouse >();
+
+   
+   auto psession = session();
+
+   try
+   {
+
+      psession->set_key_pressed(::user::e_key_right_button, false);
+
+   }
+   catch (...)
+   {
+
+   }
+   
+   pmouse->m_pwindow = this;
+   pmouse->m_oswindow = this;
+   pmouse->m_atom = e_message_right_button_up;
+   pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
+   pmouse->m_pointHost.x() = xHost;
+   pmouse->m_pointHost.y() = yHost;
+   pmouse->m_pointAbsolute.x() = xAbsolute;
+   pmouse->m_pointAbsolute.y() = yAbsolute;
+   
+   ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
+   
+   if(pelemental)
+   {
+      
+      pelemental->fore_on_right_button_up(pmouse);
+      
+      if(pmouse->m_bRet)
+      {
+       
+         return;
+         
+      }
+      
+   }
+
+   user_interaction()->send_message(pmouse);
+   
+   if(pmouse->m_bRet)
+   {
+      
+      return;
+      
+   }
+   
+   if(pelemental)
+   {
+      
+      pelemental->back_on_right_button_up(pmouse);
+      
+      if(pmouse->m_bRet)
+      {
+       
+         return;
+         
+      }
+      
+   }
+}
 
 
 //   bool window::ios_window_double_click(double x, double y)
@@ -1472,7 +1706,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //   }
 //
 
-   void window::ios_window_mouse_moved(int iGesture, double x, double y)
+   void window::on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute)
    {
       
 //      if(is_destroying())
@@ -1482,9 +1716,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 //
 //      }
       
-      m_pointMouseCursor.x() = x;
+      m_pointMouseCursor.x() = xHost;
       
-      m_pointMouseCursor.y() = y;
+      m_pointMouseCursor.y() = yHost;
       
       bool bOk = true;
 
@@ -1513,9 +1747,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          m_mouserepositionthrottling.m_timeMouseMove.Now();
 
-         m_mouserepositionthrottling.m_pointMouseMove.x() = x;
+         m_mouserepositionthrottling.m_pointMouseMove.x() = xHost;
 
-         m_mouserepositionthrottling.m_pointMouseMove.y() = y;
+         m_mouserepositionthrottling.m_pointMouseMove.y() = yHost;
 
 //            if(false)
 //            {
@@ -1578,7 +1812,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       //wparam wparam = ::make_u32(0, 0);
       
-      lparam lparam(x, y);
+      lparam lparam(xHost, yHost);
       
 //      if(ulAppleMouseButton & 1)
 //      {
@@ -1598,14 +1832,51 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
-       pmouse->m_atom = id;
-       pmouse->m_lparam =::make_unsigned_int(x, y);
-       pmouse->m_pointHost.x() = x;
-       pmouse->m_pointHost.y() = y;
-      pmouse->m_pointAbsolute = pmouse->m_pointHost;
-
-      post_message(pmouse);
+       pmouse->m_atom = e_message_mouse_move;
+      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
+      pmouse->m_pointHost.x() = xHost;
+      pmouse->m_pointHost.y() = yHost;
+      pmouse->m_pointAbsolute.x() = xAbsolute;
+      pmouse->m_pointAbsolute.y() = yAbsolute;
       
+      ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
+      
+      if(pelemental)
+      {
+         
+         pelemental->fore_on_mouse_move(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
+
+      user_interaction()->send_message(pmouse);
+      
+      if(pmouse->m_bRet)
+      {
+         
+         return;
+         
+      }
+      
+      if(pelemental)
+      {
+         
+         pelemental->back_on_mouse_move(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+          
+            return;
+            
+         }
+         
+      }
    }
 
 

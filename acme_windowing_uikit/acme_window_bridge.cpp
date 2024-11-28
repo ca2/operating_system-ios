@@ -32,7 +32,7 @@ void screen_coordinates_aware_copy(CGPoint & cgpoint, const ::int_point & point)
 void screen_coordinates_aware_copy(::int_point & point, const CGPoint & cgpoint);
 
 
-void acme_window_bridge::on_left_button_up(int xHost, int yHost, int xAbsolute, int yAbsolute)
+void acme_window_bridge::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
    
    auto pmouse = m_pwindow->__create_new <::user::mouse>();
@@ -43,12 +43,71 @@ void acme_window_bridge::on_left_button_up(int xHost, int yHost, int xAbsolute, 
    
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
    
-   pelemental->on_left_button_up(pmouse);
+   pelemental->fore_on_left_button_up(pmouse);
+   
+   if(pmouse->m_bRet)
+   {
+      
+      return;
+      
+   }
+   
+   pelemental->back_on_left_button_up(pmouse);
+      
+}
+
+
+void acme_window_bridge::on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
+{
+   
+   auto pmouse = m_pwindow->__create_new <::user::mouse>();
+   
+   pmouse->m_pointHost = {xHost, yHost};
+   
+   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
+
+   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+   
+   pelemental->fore_on_left_button_down(pmouse);
+   
+   if(pmouse->m_bRet)
+   {
+      
+      return;
+      
+   }
+      
+   pelemental->back_on_left_button_down(pmouse);
+      
+}
+
+
+void acme_window_bridge::on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
+{
+   
+   auto pmouse = m_pwindow->__create_new <::user::mouse>();
+   
+   pmouse->m_pointHost = {xHost, yHost};
+   
+   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
+   
+   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+
+   pelemental->fore_on_right_button_up(pmouse);
+   
+   if(pmouse->m_bRet)
+   {
+      
+      return;
+      
+   }
+      
+   pelemental->back_on_right_button_up(pmouse);
    
 }
 
 
-void acme_window_bridge::on_left_button_down(int xHost, int yHost, int xAbsolute, int yAbsolute)
+void acme_window_bridge::on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
    
    auto pmouse = m_pwindow->__create_new <::user::mouse>();
@@ -56,15 +115,28 @@ void acme_window_bridge::on_left_button_down(int xHost, int yHost, int xAbsolute
    pmouse->m_pointHost = {xHost, yHost};
    
    pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
-
+   
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+
+   bool bFore= pelemental->fore_on_right_button_down(pmouse);
    
-   pelemental->on_left_button_down(pmouse);
-   
+   if(!bFore)
+   {
+      
+      bool bBack = pelemental->back_on_right_button_down(pmouse);
+      
+      if(!bBack)
+      {
+         
+         printf_line("unhandled right button down");
+         
+      }
+      
+   }
 }
 
 
-void acme_window_bridge::on_right_button_up(int xHost, int yHost, int xAbsolute, int yAbsolute)
+void acme_window_bridge::on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
    
    auto pmouse = m_pwindow->__create_new <::user::mouse>();
@@ -75,40 +147,21 @@ void acme_window_bridge::on_right_button_up(int xHost, int yHost, int xAbsolute,
    
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
 
-   pelemental->on_right_button_up(pmouse);
+   bool bFore= pelemental->fore_on_mouse_move(pmouse);
    
-}
-
-
-void acme_window_bridge::on_right_button_down(int xHost, int yHost, int xAbsolute, int yAbsolute)
-{
-   
-   auto pmouse = m_pwindow->__create_new <::user::mouse>();
-   
-   pmouse->m_pointHost = {xHost, yHost};
-   
-   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
-   
-   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
-
-   pelemental->on_right_button_down(pmouse);
-   
-}
-
-
-void acme_window_bridge::on_mouse_move(int xHost, int yHost, int xAbsolute, int yAbsolute)
-{
-   
-   auto pmouse = m_pwindow->__create_new <::user::mouse>();
-   
-   pmouse->m_pointHost = {xHost, yHost};
-   
-   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
-   
-   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
-
-   pelemental->on_mouse_move(pmouse);
-   
+   if(!bFore)
+   {
+      
+      bool bBack = pelemental->back_on_mouse_move(pmouse);
+      
+      if(!bBack)
+      {
+         
+         printf_line("unhandled right button down");
+         
+      }
+      
+   }
 }
 
 

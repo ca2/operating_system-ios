@@ -113,9 +113,11 @@ virtual public ::uikit::acme::windowing::window
       
 
       void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) override;
-      void ios_window_mouse_down(int iGesture, double x, double y) override;
-      void ios_window_mouse_up(int iGesture, double x, double y) override;
-      void ios_window_mouse_moved(int iGesture, double x, double y) override;
+      void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+      void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+      void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+      void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+      void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
       void ios_window_mouse_dragged(int iGesture, double x, double y) override;
       //void ios_window_mouse_wheel(double deltaY, double x, double y) override;
       //void ios_window_double_click(int iButton, double x, double y) override;

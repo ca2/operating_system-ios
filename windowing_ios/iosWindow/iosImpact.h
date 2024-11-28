@@ -12,6 +12,7 @@
 //  appreciated but not required.
 //
 
+#include "acme_windowing_uikit/ns_acme_impact.h"
 
 #define NS_ROUND_WINDOW_FRAME_PADDING 0
 
@@ -19,7 +20,7 @@
 @class iosWindow;
 
 
-@interface iosFrameView : UIView
+@interface iosFrameView : ns_acme_impact
 {
 @public
    
@@ -29,7 +30,7 @@
    bool              m_bControl;
    bool              m_bAlt;
    bool              m_bGotStatusBarFrameHeight;
-   CGPoint           m_pointLastTouchBegan;
+   //CGPoint           m_pointLastTouchBegan;
    
    
 }
@@ -90,5 +91,7 @@
 //An input tokenizer that provides information about the granularity of text units.
 //Required.
 //@property(nonatomic, readonly) atom<UITextInputTokenizer> tokenizer;
+
+- (id)initWithFrame:(CGRect)frame and_acme_window_bridge:(acme_window_bridge*)pnanowindowbridge;
 
 @end

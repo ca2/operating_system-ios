@@ -25,12 +25,14 @@ double get_status_bar_frame_height();
 @implementation iosFrameView
 
 
-- (id)initWithFrame:(CGRect)frame
+
+- (id)initWithFrame:(CGRect)frame and_acme_window_bridge:(acme_window_bridge*)pnanowindowbridge;
+
 {
    
    m_bGotStatusBarFrameHeight = false;
    
-   self = [super initWithFrame:frame];
+   self = [super initWithFrame:frame and_acme_window_bridge:pnanowindowbridge];
    
    if (self)
    {

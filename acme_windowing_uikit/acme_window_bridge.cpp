@@ -31,6 +31,16 @@ void screen_coordinates_aware_copy(CGPoint & cgpoint, const ::int_point & point)
 
 void screen_coordinates_aware_copy(::int_point & point, const CGPoint & cgpoint);
 
+namespace uikit
+{
+
+::acme::windowing::window * acme_window_bridge::acme_windowing_window()
+{
+   
+   return m_pwindow;
+   
+}
+
 
 void acme_window_bridge::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
@@ -53,7 +63,7 @@ void acme_window_bridge::on_left_button_up(double xHost, double yHost, double xA
    }
    
    pelemental->back_on_left_button_up(pmouse);
-      
+   
 }
 
 
@@ -65,7 +75,7 @@ void acme_window_bridge::on_left_button_down(double xHost, double yHost, double 
    pmouse->m_pointHost = {xHost, yHost};
    
    pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
-
+   
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
    
    pelemental->fore_on_left_button_down(pmouse);
@@ -76,9 +86,9 @@ void acme_window_bridge::on_left_button_down(double xHost, double yHost, double 
       return;
       
    }
-      
+   
    pelemental->back_on_left_button_down(pmouse);
-      
+   
 }
 
 
@@ -92,7 +102,7 @@ void acme_window_bridge::on_right_button_up(double xHost, double yHost, double x
    pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
    
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
-
+   
    pelemental->fore_on_right_button_up(pmouse);
    
    if(pmouse->m_bRet)
@@ -101,7 +111,7 @@ void acme_window_bridge::on_right_button_up(double xHost, double yHost, double x
       return;
       
    }
-      
+   
    pelemental->back_on_right_button_up(pmouse);
    
 }
@@ -117,7 +127,7 @@ void acme_window_bridge::on_right_button_down(double xHost, double yHost, double
    pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
    
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
-
+   
    bool bFore= pelemental->fore_on_right_button_down(pmouse);
    
    if(!bFore)
@@ -146,7 +156,7 @@ void acme_window_bridge::on_mouse_move(double xHost, double yHost, double xAbsol
    pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
    
    ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
-
+   
    bool bFore= pelemental->fore_on_mouse_move(pmouse);
    
    if(!bFore)
@@ -201,7 +211,7 @@ void acme_window_bridge::on_layout(int x, int y, int w, int h)
    r.top() = y;
    r.right() = x+w;
    r.bottom() = y+h;
-
+   
    m_pwindow->m_pacmeuserinteraction->set_rectangle(r);
    
 }
@@ -210,13 +220,13 @@ void acme_window_bridge::on_layout(int x, int y, int w, int h)
 bool acme_window_bridge::_is_top_most() const
 {
    
-//   return m_pwindow->m_pacmeuserinteraction->m_bTopMost;
+   //   return m_pwindow->m_pacmeuserinteraction->m_bTopMost;
    
    ::cast<::acme::user::frame_interaction> pelemental = m_pwindow->m_pacmeuserinteraction;
    
    if(!pelemental)
    {
-    
+      
       return false;
       
    }
@@ -236,7 +246,7 @@ bool acme_window_bridge::_is_popup_window() const
 
 void acme_window_bridge::ios_window_become_main()
 {
- 
+   
    return m_pwindow->ios_window_become_main();
    
 }
@@ -244,7 +254,7 @@ void acme_window_bridge::ios_window_become_main()
 
 void acme_window_bridge::ios_window_resign_main()
 {
- 
+   
    return m_pwindow->ios_window_resign_main();
    
 }
@@ -252,7 +262,7 @@ void acme_window_bridge::ios_window_resign_main()
 
 void acme_window_bridge::ios_window_become_key()
 {
- 
+   
    return m_pwindow->ios_window_become_key();
    
 }
@@ -260,7 +270,7 @@ void acme_window_bridge::ios_window_become_key()
 
 void acme_window_bridge::ios_window_resign_key()
 {
- 
+   
    return m_pwindow->ios_window_resign_key();
    
 }
@@ -268,7 +278,7 @@ void acme_window_bridge::ios_window_resign_key()
 
 void acme_window_bridge::ios_window_on_show()
 {
- 
+   
    return m_pwindow->ios_window_on_show();
    
 }
@@ -276,7 +286,7 @@ void acme_window_bridge::ios_window_on_show()
 
 void acme_window_bridge::ios_window_on_hide()
 {
- 
+   
    return m_pwindow->ios_window_on_hide();
    
 }
@@ -297,3 +307,6 @@ ios_window * acme_window_bridge::_ios_window()
    return nullptr;
    
 }
+
+
+} // namespace uikit

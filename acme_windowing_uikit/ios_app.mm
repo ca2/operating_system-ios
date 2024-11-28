@@ -7,6 +7,8 @@
 //
 #include "framework.h"
 #include "ios_app.h"
+#include "impact_controller.h"
+#include "ns_acme_window.h"
 #include "acme/constant/id.h"
 #include "acme/operating_system/argcargv.h"
 #include "acme/constant/id.h"
@@ -205,6 +207,17 @@ void acme_defer_create_windowing_application_delegate(::platform::application * 
 
 //- (void)applicationWillFinishLaunching:(NSNotification *)notification
 
+
+-(void) create_ns_acme_window
+{
+   
+   auto bounds = [[UIScreen mainScreen] bounds];
+   
+   m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame: bounds];
+   
+}
+
+
 - (BOOL)application:(UIApplication *)application
 willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
@@ -225,6 +238,17 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 
    
    node_will_finish_launching(application_system(m_papplication));
+   
+   //auto bounds = [[UIScreen mainScreen] bounds];
+   
+   
+   [self create_ns_acme_window];
+   
+   //m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame: bounds];
+   //[m_pnsacmewindow setWindowScene: windowScene];
+   system_id_update(application_system(m_papplication), id_initialize_host_window, 0);
+   //[m_pnsacmewindow create_impact];
+   
 
 //   NSAppleEventManager *appleEventManager = [NSAppleEventManager sharedAppleEventManager];
 //
@@ -886,6 +910,20 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    
    system_id_update(application_system(m_papplication), id_app_activated, 0);
 
+   [ m_pnsacmewindow controlling_impact ];
+
+   system_id_update(application_system(m_papplication), id_defer_create_context_button, 0);
+
+   system_id_update(application_system(m_papplication), id_defer_post_initial_request, 0);
+
+   
+   
+      // Make the window key and visible
+   [m_pnsacmewindow makeKeyAndVisible];
+   
+
+   
+   
    return YES;
    
 }
@@ -1233,6 +1271,36 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    }
    
 }
+//
+//- (UISceneConfiguration *)application:(UIApplication *)application
+//    configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
+//                                   options:(UISceneConnectionOptions *)options {
+//    // Create and return a new scene configuration
+//    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration"
+//                                           sessionRole:connectingSceneSession.role];
+//}
+
+
+- (void) scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
+    UIWindowScene *windowScene = (UIWindowScene *)scene;
+   m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame:[[ windowScene screen] bounds]];
+   [m_pnsacmewindow setWindowScene: windowScene];
+   system_id_update(application_system(m_papplication), id_initialize_host_window, 0);
+   
+   //[ m_pnsacmewindow create_impact];
+
+//    // Create a simple subview
+//    UIView *mySubview = [[UIView alloc] initWithFrame:CGRectMake(50, 100, 200, 200)];
+//    mySubview.backgroundColor = [UIColor redColor];
+//
+//    // Add the subview to the window
+//    [self.window addSubview:mySubview];
+//
+    // Make the window key and visible
+    [self.window makeKeyAndVisible];
+}
+
+
 
 
 //
@@ -2298,7 +2366,7 @@ void ui_application_main(int argc, char * argv[], const char * pszCommandLine, N
 //   NSString * strDelegateClass = [ [ NSString alloc ] initWithUTF8String: pszDelegateClass ];
    
    UIApplicationMain(argc, argv, nil, strDelegateClass);
-   //NSStringFromClass([iosWindowApp class])
+   //NSStringFromClass([iosApp class])
 }
 
 
@@ -2315,7 +2383,7 @@ void ns_acme_application_main(int argc, char * argv[], const char * pszCommandLi
 void os_menu_item_enable(void * pitem, bool bEnable)
 {
 
-   UIMenuItem * pmenuitem = (__bridge UIMenuItem *) pitem;
+   //UIMenuItem * pmenuitem = (__bridge UIMenuItem *) pitem;
 
    //ns_main_post(^()
 //   {
@@ -2330,7 +2398,7 @@ void os_menu_item_enable(void * pitem, bool bEnable)
 void os_menu_item_check(void * pitem, bool bCheck)
 {
 
-   UIMenuItem * pmenuitem = (__bridge UIMenuItem *) pitem;
+   //UIMenuItem * pmenuitem = (__bridge UIMenuItem *) pitem;
 
 //   ns_main_post(^()
 //   {
@@ -2580,4 +2648,18 @@ void acme_ios_application_main(::platform::application * papplication, int argc,
    UIApplicationMain(argc, argv, nil, NSStringFromClass([ios_app class]));
    
    
+}
+
+
+void mm_clipboard_set_plain_text(const char * psz)
+{
+   
+   UIPasteboard * pasteboard = [UIPasteboard generalPasteboard];
+   
+   NSString * strPasteboard = [NSString stringWithUTF8String: psz];
+
+   //[pasteboard clearContents];
+   
+   [pasteboard setString:strPasteboard];
+
 }

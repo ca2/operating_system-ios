@@ -4,7 +4,7 @@
 #pragma once
 
 
-#include "acme/windowing/windowing.h"
+#include "acme/windowing/sandbox/windowing.h"
 
 
 class application_menu_callback;
@@ -21,7 +21,7 @@ namespace windowing
 
 
 class CLASS_DECL_ACME_WINDOWING_UIKIT windowing :
-virtual public ::acme::windowing::windowing
+virtual public ::acme::sandbox_windowing::windowing
 {
 public:
     
@@ -37,7 +37,7 @@ public:
     void _main_post(const ::procedure & procedure) override;
     void display_error_trap_push(int i) override;
     void display_error_trap_pop_ignored(int i) override;
-    
+   void set_clipboard_text(const char * psz) override;
     //   ::e_status x11_initialize() override;
     //   void * x11_get_display() override;
     //   void x11_sync(const ::procedure & procedure) override;

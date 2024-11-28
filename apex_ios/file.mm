@@ -145,11 +145,3 @@
 
 
 
-char * ios_matter_zip_path()
-{
-   
-   NSString* path = [[NSBundle mainBundle] pathForResource:@"_matter" ofType:@"zip" ];
-   
-   return strdup([path UTF8String]);
-   
-}

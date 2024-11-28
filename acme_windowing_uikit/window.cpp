@@ -3,6 +3,7 @@
 //
 #include "framework.h"
 #include "window.h"
+#include "windowing.h"
 #include "acme_window_bridge.h"
 #include "acme/nano/graphics/device.h"
 #include "acme/constant/id.h"
@@ -107,7 +108,7 @@ namespace uikit
       //   }
       
       
-      void window::_draw(CGContextRef cgcontextref)
+      void window::_draw_background(CGContextRef cgcontextref)
       {
          
          {
@@ -125,7 +126,7 @@ namespace uikit
             if (pelemental)
             {
                
-               pelemental->draw(m_pnanodevice);
+               pelemental->draw_background(m_pnanodevice);
                
             }
             
@@ -133,7 +134,34 @@ namespace uikit
          //m_pinterface->draw(pnanodevice);
          
       }
-      
+
+      void window::_draw_foreground(CGContextRef cgcontextref)
+      {
+         
+         {
+            
+            //nano()->graphics();
+            
+            __øconstruct(m_pnanodevice);
+            
+            m_pnanodevice->attach(cgcontextref);
+            
+            ::pointer < ::micro::elemental > pelemental;
+            
+            pelemental = m_pacmeuserinteraction;
+            
+            if (pelemental)
+            {
+               
+               pelemental->draw_foreground(m_pnanodevice);
+               
+            }
+            
+         }
+         //m_pinterface->draw(pnanodevice);
+         
+      }
+
       
       bool window::is_active_window()
       {
@@ -189,10 +217,18 @@ namespace uikit
       }
       
       
+      void window::acme_window_bridging()
+      {
+      
+         m_pacmewindowbridge = __allocate acme_window_bridge();
+         
+      }
+      
+      
       void window::_create_window()
       {
          
-         m_pacmewindowbridge = __allocate acme_window_bridge();
+         acme_window_bridging();
          
          CGRect cgrect;
          
@@ -202,7 +238,15 @@ namespace uikit
          
          m_pacmewindowbridge->m_pwindow = this;
          
-         m_pacmewindowbridge->create_ns_acme_window(cgrect);
+         m_pacmewindowbridge->attach_ns_acme_window(cgrect);
+         
+         if(!system()->acme_windowing()->get_application_host_window())
+         {
+            
+            ::cast < ::uikit::acme::windowing::windowing > pwindowing = system()->acme_windowing();
+            
+            pwindowing->m_pwindowApplicationHost = this;
+         }
          
          //nano_window_on_create();
          

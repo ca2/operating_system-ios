@@ -74,6 +74,7 @@ namespace acme_ios
 
       void install_sigchld_handler() override;
       
+      void _will_finish_launching() override;
       
       void shell_launch(const ::string & strAppId) override;
 

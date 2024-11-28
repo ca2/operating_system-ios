@@ -43,7 +43,8 @@ struct mf_context
 //   mf_context* mfc;
    //APPLE_KEYBOARD_TYPE appleKeyboardType;
    //ns_nano_window * m_pnanowindow;
-   acme_window_bridge * m_pacmewindowbridge;
+   ns_acme_window * m_pnsacmewindow;
+   //acme_window_bridge * m_pacmewindowbridge;
    //UITrackingArea * trackingArea;
    bool m_bLShift;
    bool m_bRShift;
@@ -58,6 +59,6 @@ struct mf_context
    
 }
 
-- (id)initWithFrame:(CGRect)frame and_acme_window_bridge:(acme_window_bridge*)pnanowindowbridge;
+- (id)initWithFrame:(CGRect)frame andWindow:(ns_acme_window *) pnsacmewindow;
 
 @end

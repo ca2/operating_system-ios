@@ -10,21 +10,21 @@
 		9A3109222CE865950067398D /* message_box.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A3109212CE8658A0067398D /* message_box.mm */; };
 		9A750E53282B5F9100C4861B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14E65282A26B000B1621E /* window.cpp */; };
 		9A750E84282B601000C4861B /* windowing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA14EA0282A26B000B1621E /* windowing.cpp */; };
-		9A750EC0282B668500C4861B /* iosFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA2282B668500C4861B /* iosFrameView.h */; };
-		9A750EC1282B668500C4861B /* iosEditView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA3282B668500C4861B /* iosEditView.h */; };
+		9A750EC0282B668500C4861B /* iosImpact.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA2282B668500C4861B /* iosImpact.h */; };
+		9A750EC1282B668500C4861B /* iosEditImpact.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA3282B668500C4861B /* iosEditImpact.h */; };
 		9A750EC3282B668500C4861B /* iosWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EA5282B668500C4861B /* iosWindow.mm */; };
-		9A750EC4282B668500C4861B /* iosViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA6282B668500C4861B /* iosViewController.h */; };
+		9A750EC4282B668500C4861B /* iosImpactController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA6282B668500C4861B /* iosImpactController.h */; };
 		9A750EC5282B668500C4861B /* iosTextPosition.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EA7282B668500C4861B /* iosTextPosition.mm */; };
-		9A750EC6282B668500C4861B /* iosWindowApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA8282B668500C4861B /* iosWindowApp.h */; };
+		9A750EC6282B668500C4861B /* iosApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA8282B668500C4861B /* iosApp.h */; };
 		9A750EC7282B668500C4861B /* iosWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EA9282B668500C4861B /* iosWindow.h */; };
 		9A750EC8282B668500C4861B /* iosTextRange.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EAA282B668500C4861B /* iosTextRange.mm */; };
 		9A750EC9282B668500C4861B /* iosTextPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EAB282B668500C4861B /* iosTextPosition.h */; };
-		9A750ECC282B668500C4861B /* iosViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EAE282B668500C4861B /* iosViewController.mm */; };
+		9A750ECC282B668500C4861B /* iosImpactController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EAE282B668500C4861B /* iosImpactController.mm */; };
 		9A750ECD282B668500C4861B /* ios_window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EAF282B668500C4861B /* ios_window.mm */; };
 		9A750ECF282B668500C4861B /* ios_window.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EB1282B668500C4861B /* ios_window.h */; };
-		9A750ED1282B668500C4861B /* iosEditView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB3282B668500C4861B /* iosEditView.mm */; };
-		9A750ED2282B668500C4861B /* iosWindowApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB4282B668500C4861B /* iosWindowApp.mm */; };
-		9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB7282B668500C4861B /* iosFrameView.mm */; };
+		9A750ED1282B668500C4861B /* iosEditImpact.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB3282B668500C4861B /* iosEditImpact.mm */; };
+		9A750ED2282B668500C4861B /* iosApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB4282B668500C4861B /* iosApp.mm */; };
+		9A750ED5282B668500C4861B /* iosImpact.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A750EB7282B668500C4861B /* iosImpact.mm */; };
 		9A750ED7282B668500C4861B /* iosTextRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A750EB9282B668500C4861B /* iosTextRange.h */; };
 		9A89A570282C8D1A0014794A /* host_interaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A89A56E282C8D1A0014794A /* host_interaction.cpp */; };
 		9A89A571282C8D1A0014794A /* host_interaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A89A56F282C8D1A0014794A /* host_interaction.h */; };
@@ -90,23 +90,21 @@
 		9A60D0D92B766FA20082B17B /* UploadAudioViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UploadAudioViewController.mm; sourceTree = "<group>"; };
 		9A60D0DC2B7670120082B17B /* UploadAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadAudioViewController.h; sourceTree = "<group>"; };
 		9A62EBFF26F04B7B00EA958E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
-		9A750E9E282B668400C4861B /* aaa_iosTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosTextView.h; sourceTree = "<group>"; };
-		9A750EA2282B668500C4861B /* iosFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosFrameView.h; sourceTree = "<group>"; };
-		9A750EA3282B668500C4861B /* iosEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosEditView.h; sourceTree = "<group>"; };
+		9A750EA2282B668500C4861B /* iosImpact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosImpact.h; sourceTree = "<group>"; };
+		9A750EA3282B668500C4861B /* iosEditImpact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosEditImpact.h; sourceTree = "<group>"; };
 		9A750EA5282B668500C4861B /* iosWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosWindow.mm; sourceTree = "<group>"; };
-		9A750EA6282B668500C4861B /* iosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosViewController.h; sourceTree = "<group>"; };
+		9A750EA6282B668500C4861B /* iosImpactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosImpactController.h; sourceTree = "<group>"; };
 		9A750EA7282B668500C4861B /* iosTextPosition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosTextPosition.mm; sourceTree = "<group>"; };
-		9A750EA8282B668500C4861B /* iosWindowApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosWindowApp.h; sourceTree = "<group>"; };
+		9A750EA8282B668500C4861B /* iosApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosApp.h; sourceTree = "<group>"; };
 		9A750EA9282B668500C4861B /* iosWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosWindow.h; sourceTree = "<group>"; };
 		9A750EAA282B668500C4861B /* iosTextRange.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosTextRange.mm; sourceTree = "<group>"; };
 		9A750EAB282B668500C4861B /* iosTextPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosTextPosition.h; sourceTree = "<group>"; };
-		9A750EAE282B668500C4861B /* iosViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosViewController.mm; sourceTree = "<group>"; };
+		9A750EAE282B668500C4861B /* iosImpactController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosImpactController.mm; sourceTree = "<group>"; };
 		9A750EAF282B668500C4861B /* ios_window.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_window.mm; sourceTree = "<group>"; };
 		9A750EB1282B668500C4861B /* ios_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_window.h; sourceTree = "<group>"; };
-		9A750EB3282B668500C4861B /* iosEditView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosEditView.mm; sourceTree = "<group>"; };
-		9A750EB4282B668500C4861B /* iosWindowApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosWindowApp.mm; sourceTree = "<group>"; };
-		9A750EB5282B668500C4861B /* aaa_iosTextView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosTextView.mm; sourceTree = "<group>"; };
-		9A750EB7282B668500C4861B /* iosFrameView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosFrameView.mm; sourceTree = "<group>"; };
+		9A750EB3282B668500C4861B /* iosEditImpact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosEditImpact.mm; sourceTree = "<group>"; };
+		9A750EB4282B668500C4861B /* iosApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosApp.mm; sourceTree = "<group>"; };
+		9A750EB7282B668500C4861B /* iosImpact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosImpact.mm; sourceTree = "<group>"; };
 		9A750EB9282B668500C4861B /* iosTextRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosTextRange.h; sourceTree = "<group>"; };
 		9A89A56E282C8D1A0014794A /* host_interaction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = host_interaction.cpp; sourceTree = "<group>"; };
 		9A89A56F282C8D1A0014794A /* host_interaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host_interaction.h; sourceTree = "<group>"; };
@@ -195,31 +193,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9A750E9B282B668400C4861B /* iosWindow */ = {
+		9A750E9B282B668400C4861B /* ios */ = {
 			isa = PBXGroup;
 			children = (
 				9AA56BBB2C62774900BF56ED /* document_picker_delegate.h */,
 				9AA56BB82C6276F500BF56ED /* document_picker_delegate.mm */,
 				9A750EB1282B668500C4861B /* ios_window.h */,
 				9A750EAF282B668500C4861B /* ios_window.mm */,
-				9A750EA3282B668500C4861B /* iosEditView.h */,
-				9A750EB3282B668500C4861B /* iosEditView.mm */,
+				9A750EA3282B668500C4861B /* iosEditImpact.h */,
+				9A750EB3282B668500C4861B /* iosEditImpact.mm */,
 				9A750EAB282B668500C4861B /* iosTextPosition.h */,
 				9A750EA7282B668500C4861B /* iosTextPosition.mm */,
 				9A750EB9282B668500C4861B /* iosTextRange.h */,
 				9A750EAA282B668500C4861B /* iosTextRange.mm */,
-				9A750E9E282B668400C4861B /* aaa_iosTextView.h */,
-				9A750EB5282B668500C4861B /* aaa_iosTextView.mm */,
-				9A750EA6282B668500C4861B /* iosViewController.h */,
-				9A750EAE282B668500C4861B /* iosViewController.mm */,
+				9A750EA6282B668500C4861B /* iosImpactController.h */,
+				9A750EAE282B668500C4861B /* iosImpactController.mm */,
 				9A750EA9282B668500C4861B /* iosWindow.h */,
 				9A750EA5282B668500C4861B /* iosWindow.mm */,
-				9A750EA8282B668500C4861B /* iosWindowApp.h */,
-				9A750EB4282B668500C4861B /* iosWindowApp.mm */,
-				9A750EA2282B668500C4861B /* iosFrameView.h */,
-				9A750EB7282B668500C4861B /* iosFrameView.mm */,
+				9A750EA8282B668500C4861B /* iosApp.h */,
+				9A750EB4282B668500C4861B /* iosApp.mm */,
+				9A750EA2282B668500C4861B /* iosImpact.h */,
+				9A750EB7282B668500C4861B /* iosImpact.mm */,
 			);
-			path = iosWindow;
+			path = ios;
 			sourceTree = "<group>";
 		};
 		9AA14E07282A188C00B1621E /* Products */ = {
@@ -236,7 +232,7 @@
 			children = (
 				9AEB21302B6A091200B01F9E /* _____debug.xcconfig */,
 				9AEB212F2B6A091200B01F9E /* _____release.xcconfig */,
-				9A750E9B282B668400C4861B /* iosWindow */,
+				9A750E9B282B668400C4861B /* ios */,
 				9AA14EA2282A26B000B1621E /* _.h */,
 				9AA14E9A282A26B000B1621E /* _c_mm.h */,
 				9AA14E9D282A26B000B1621E /* _factory.cpp */,
@@ -287,16 +283,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A750EC6282B668500C4861B /* iosWindowApp.h in Headers */,
+				9A750EC6282B668500C4861B /* iosApp.h in Headers */,
 				9A750ECF282B668500C4861B /* ios_window.h in Headers */,
-				9A750EC0282B668500C4861B /* iosFrameView.h in Headers */,
+				9A750EC0282B668500C4861B /* iosImpact.h in Headers */,
 				9A89A571282C8D1A0014794A /* host_interaction.h in Headers */,
 				9AF115A52844E8F6006B2424 /* message_box.h in Headers */,
-				9A750EC4282B668500C4861B /* iosViewController.h in Headers */,
+				9A750EC4282B668500C4861B /* iosImpactController.h in Headers */,
 				9A750EC7282B668500C4861B /* iosWindow.h in Headers */,
 				9A750ED7282B668500C4861B /* iosTextRange.h in Headers */,
 				9A89A575282CA2E90014794A /* buffer.h in Headers */,
-				9A750EC1282B668500C4861B /* iosEditView.h in Headers */,
+				9A750EC1282B668500C4861B /* iosEditImpact.h in Headers */,
 				9A9B9B3628483ED0005CA950 /* text_editor_interface.h in Headers */,
 				9A750EC9282B668500C4861B /* iosTextPosition.h in Headers */,
 			);
@@ -396,17 +392,17 @@
 				9A94DE79282C0F2500F5C1CA /* _factory.cpp in Sources */,
 				9A750E53282B5F9100C4861B /* window.cpp in Sources */,
 				9A94DEC5282C43AE00F5C1CA /* copydesk.mm in Sources */,
-				9A750ED2282B668500C4861B /* iosWindowApp.mm in Sources */,
+				9A750ED2282B668500C4861B /* iosApp.mm in Sources */,
 				9A750EC3282B668500C4861B /* iosWindow.mm in Sources */,
 				9A94DEBB282C3FE000F5C1CA /* monitor.cpp in Sources */,
-				9A750ECC282B668500C4861B /* iosViewController.mm in Sources */,
+				9A750ECC282B668500C4861B /* iosImpactController.mm in Sources */,
 				9A750EC5282B668500C4861B /* iosTextPosition.mm in Sources */,
 				9A94DEC3282C3FE000F5C1CA /* icon.cpp in Sources */,
 				9A750ECD282B668500C4861B /* ios_window.mm in Sources */,
 				9A94DEBA282C3FE000F5C1CA /* windowing_ios.cpp in Sources */,
 				9AA56BB92C6276F500BF56ED /* document_picker_delegate.mm in Sources */,
-				9A750ED1282B668500C4861B /* iosEditView.mm in Sources */,
-				9A750ED5282B668500C4861B /* iosFrameView.mm in Sources */,
+				9A750ED1282B668500C4861B /* iosEditImpact.mm in Sources */,
+				9A750ED5282B668500C4861B /* iosImpact.mm in Sources */,
 				9A3109222CE865950067398D /* message_box.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,13 +31,13 @@
 @implementation ns_acme_impact
 
 
-- (id) initWithFrame: (CGRect) frame and_acme_window_bridge: (acme_window_bridge *) pnanowindowbridge
+- (id) initWithFrame: (CGRect) frame andWindow: (ns_acme_window *) pnsacmewindow
 {
 
    self                 = [super initWithFrame:frame];
    
    
-   m_pacmewindowbridge  = pnanowindowbridge;
+   m_pnsacmewindow      = pnsacmewindow;
    
    m_bLShift            = false;
    m_bRShift            = false;
@@ -366,7 +366,7 @@
    
    [super touchesBegan:touches withEvent:event];
    
-    auto * p = m_pacmewindowbridge;
+   auto * p = m_pnsacmewindow->m_pacmewindowbridge;
    
    //BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
@@ -423,7 +423,7 @@
    
    [super touchesMoved:touches withEvent:event];
    
-    auto * p = m_pacmewindowbridge;
+   auto * p = m_pnsacmewindow->m_pacmewindowbridge;
    
    if ([touches count] == 1)
    {
@@ -478,7 +478,7 @@
    
    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
-    auto * p = m_pacmewindowbridge;
+   auto * p = m_pnsacmewindow->m_pacmewindowbridge;
    
    if ([touches count] == 1 && allTouchesEnded)
    {
@@ -545,7 +545,7 @@
    
    BOOL allTouchesEnded = ([touches count] == [[event touchesForView:self] count]);
    
-    auto * p = m_pacmewindowbridge;
+   auto * p = m_pnsacmewindow->m_pacmewindowbridge;
    
    if ([touches count] == 1 && allTouchesEnded)
    {
@@ -618,7 +618,7 @@
 - (void) drawRect: (CGRect) rect
 {
 
-   acme_window_bridge * p = m_pacmewindowbridge;
+   auto * p = m_pnsacmewindow->m_pacmewindowbridge;
    
    if(p == NULL)
    {
@@ -633,7 +633,9 @@
     
     CGContextSaveGState(context);
     
-    //[ [ UIColor blueColor ] setFill];
+//    [ [ UIColor blueColor ] setFill];
+   
+  // UIRectFill(rect);
     
  //   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
  //
@@ -656,10 +658,10 @@
     
     //int cy = rect.size.height;
     
-    if(m_pacmewindowbridge != nil)
+    //if(m_pacmewindowbridge != nil)
     {
        
-        auto * p = m_pacmewindowbridge;
+        //auto * p = m_pacmewindowbridge;
        
  //      if(orientation == UIInterfaceOrientationPortrait)
  //      {
@@ -673,28 +675,28 @@
  //         //CGContextTranslateCTM(context, -cy / 2, -cx / 2);
  //
  //      }
- //      {
- //
- //            CGContextSetBlendMode(context, kCGBlendModeCopy);
- //
- //            CGContextSetRGBFillColor(context, 255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 155 / 255.0f);
- //
- //            auto rectArtifact2 = rect;
- //
- ////            rectArtifact2.size.width /= 4;
- ////
- ////            rectArtifact2.size.height /= 4;
- //
- //            //rectArtifact2.origin.x = rect.size.width - rectArtifact2.size.width;
- //
- //            //rectArtifact2.origin.y = rect.size.height - rectArtifact2.size.height;
- //
- //         rectArtifact2.origin.x = 0;
- //         rectArtifact2.origin.y = 0;
- //
- //            CGContextFillRect(context, rectArtifact2);
- //
- //         }
+//       {
+// 
+//             CGContextSetBlendMode(context, kCGBlendModeCopy);
+// 
+//             CGContextSetRGBFillColor(context, 255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 155 / 255.0f);
+// 
+//             auto rectArtifact2 = rect;
+// 
+//             rectArtifact2.size.width /= 4;
+// //
+// //            rectArtifact2.size.height /= 4;
+// //
+// //            //rectArtifact2.origin.x = rect.size.width - rectArtifact2.size.width;
+// //
+// //            //rectArtifact2.origin.y = rect.size.height - rectArtifact2.size.height;
+// 
+//          rectArtifact2.origin.x = 0;
+//          rectArtifact2.origin.y = 0;
+// 
+//             CGContextFillRect(context, rectArtifact2);
+// //
+//          }
  //      //UIRectFill(rect);
        
        //if(0)
@@ -706,7 +708,8 @@
  //
  //      CGContextTranslateCTM(context, x, y);
        
-           p->_on_draw_frame(context, rect.size);
+           p->_on_draw_background(context, rect.size);
+          p->_on_draw_foreground(context, rect.size);
        }
 
     }

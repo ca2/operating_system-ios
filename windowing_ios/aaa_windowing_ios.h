@@ -10,7 +10,7 @@
 #include "aura_ios/_aura_ios.h"
 
 
-#include "iosWindow/ios_window.h"
+#include "ios/ios_window.h"
 
 
 #include "aura/windowing/sandbox/_sandbox.h"

@@ -120,15 +120,24 @@ void acme_window_bridge::on_char(int iChar)
 }
 
 
-void acme_window_bridge::_on_draw_frame(CGContextRef cg, CGSize sizeFrame)
+void acme_window_bridge::_on_draw_background(CGContextRef cg, CGSize sizeFrame)
 {
    
    //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));
    
-   m_pwindow->_draw(cg);
+   m_pwindow->_draw_background(cg);
    
 }
 
+
+void acme_window_bridge::_on_draw_foreground(CGContextRef cg, CGSize sizeFrame)
+{
+   
+   //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));
+   
+   m_pwindow->_draw_foreground(cg);
+   
+}
 
 
 void acme_window_bridge::on_layout(int x, int y, int w, int h)
@@ -229,3 +238,9 @@ void acme_window_bridge::do_tasks()
 
 
 
+ios_window * acme_window_bridge::_ios_window()
+{
+   
+   return nullptr;
+   
+}

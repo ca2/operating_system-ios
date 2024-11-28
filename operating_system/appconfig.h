@@ -6,5 +6,11 @@
 #define default_imaging imaging_coreimage
 #define default_audio audio_core_audio
 #define default_music_midi music_midi_core_midi
+#define default_acme acme_ios
+#define default_acme_windowing acme_windowing_uikit
+#define default_nano_graphics nano_graphics_quartz2d
+#define default_apex apex_ios
+#define default_innate_ui innate_ui_uikit
+
 
 

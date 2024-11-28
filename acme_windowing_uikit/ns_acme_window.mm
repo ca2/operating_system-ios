@@ -9,6 +9,7 @@
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 //#include <Carbon/Carbon.h>
+#include "impact_controller.h"
 #include "ns_acme_window.h"
 #include "acme_window_bridge.h"
 #include "ns_acme_impact.h"
@@ -26,7 +27,7 @@ void ns_main_send(dispatch_block_t block);
 @implementation ns_acme_window
 
 
-- (id)initWithFrame:(CGRect)contentRect and_with_acme_window_bridge:(acme_window_bridge *) pacmewindowbridge
+- (id)initWithFrame:(CGRect)contentRect
 
 {
    
@@ -38,7 +39,7 @@ void ns_main_send(dispatch_block_t block);
       return NULL;
       
    }
-    m_pacmewindowbridge = pacmewindowbridge;
+    //m_pacmewindowbridge = pacmewindowbridge;
    self.m_thiswindow = self;
    
 //   m_documentpickerdelegates = [[NSMutableArray < document_picker_delegate * > alloc] init];
@@ -51,11 +52,11 @@ void ns_main_send(dispatch_block_t block);
    
    [self setClearsContextBeforeDrawing:FALSE];
    
-//   iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+//   iosApp * papp = (iosApp *) [[UIApplication sharedApplication] delegate];
 //   
-//   papp.m_iosviewcontroller = [[iosViewController alloc] init];
+//   papp.m_iosviewcontroller = [[iosImpactController alloc] init];
 //   
-//   iosViewController * pcontroller = papp.m_iosviewcontroller;
+//   iosImpactController * pcontroller = papp.m_iosviewcontroller;
 //        
 //   self.m_initialcontroller = pcontroller;
 //   
@@ -67,12 +68,7 @@ void ns_main_send(dispatch_block_t block);
 //   
 //   [self setRootViewController:m_controller];
    
-   CGRect rect;
-   
-   rect.origin.x = 0;
-   rect.origin.y = 0;
-   rect.size = contentRect.size;
-   
+
    [NSNotificationCenter.defaultCenter addObserver:self
                                             selector:@selector(windowDidBecomeVisible:)
                                                 name:UIWindowDidBecomeVisibleNotification
@@ -82,13 +78,24 @@ void ns_main_send(dispatch_block_t block);
                                                 name:UIWindowDidBecomeHiddenNotification
                                               object:self];
 
-    m_pacmewindowbridge->on_layout(0,0,rect.size.width, rect.size.height);
+ 
+   //[ self create_impact];
    
     return self;
    
 }
+- (void)setBridge:(acme_window_bridge *)pbridge
+{
+   m_pacmewindowbridge = pbridge;
+   
+   CGRect rect = [self bounds];
+   
+  
+   
+   m_pacmewindowbridge->on_layout(0,0,rect.size.width, rect.size.height);
+  
+}
 
-//
 //- (void)create_view
 //{
 //
@@ -97,30 +104,31 @@ void ns_main_send(dispatch_block_t block);
 //   bounds.origin.x = 0;
 //   bounds.origin.y = 0;
 //
-//    iosFrameView * frameView = [[iosFrameView alloc] initWithFrame : bounds] ;
+//   ns_acme_impact * pimpact = [[ns_acme_impact alloc] initWithFrame : bounds] ;
 //   
-//      m_controller->m_iosframeview = frameView;
+//   pimpact->m_pacmewindowbridge = m_pacmewindowbridge;
+//      //m_controller->m_piosimpact = frameView;
 //   
-//   frameView->m_ioswindow =  self;
+//   //frameView->m_ioswindow =  self;
 //   
-//   frameView->m_bShift = false;
-//   frameView->m_bControl = false;
-//   frameView->m_bAlt = false;
+//   //frameView->m_bShift = false;
+//   //frameView->m_bControl = false;
+//   //frameView->m_bAlt = false;
 //   
-//   [frameView setTintColor:[UIColor clearColor]];
+//   [pimpact setTintColor:[UIColor clearColor]];
 //
-//    [frameView setFrame : bounds];
+//    [pimpact setFrame : bounds];
 //   
-//    [frameView setAutoresizingMask: 0];
+//    [pimpact setAutoresizingMask: 0];
 //   
-//   [m_controller.view addSubview: frameView];
+//   [self addSubview: pimpact];
 //   
-//   iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
-//   
-//   papp.m_iosframeview = frameView;
+////   iosApp * papp = (iosApp *) [[UIApplication sharedApplication] delegate];
+////   
+////   papp.m_piosimpact = frameView;
 //   
 //}
-//
+
 //-(void) pickBrowse :(char ** ) ppszUTType callback : (const ::function < void(const ::file::path & ) > &) callback
 //{
 //   
@@ -434,30 +442,71 @@ void ns_main_send(dispatch_block_t block);
    
 }
 
-
-- (void)create_impact
+-(void)layoutSubviews
 {
-
    CGRect bounds = [ self frame ];
    
-   bounds.origin.x = 0;
-    
-    bounds.origin.y = 0;
-
-   m_pnsacmeimpact = [ [ ns_acme_impact alloc ] initWithFrame: bounds and_acme_window_bridge: m_pacmewindowbridge ];
-   
-   //m_pimpactChild = pimpact;
-   
-    [ super addSubview: m_pnsacmeimpact ];
-   
    [ m_pnsacmeimpact setFrame: bounds ];
+}
+//
+//-(void)create_ns_acme_impact
+//{
+//   
+//   CGRect bounds = [ self frame ];
+//   bounds.origin.x = 0;
+//    
+//    bounds.origin.y = 0;
+//
+//   m_pnsacmeimpact = [ [ ns_acme_impact alloc ] initWithFrame: bounds andWindow: m_pacmewindowbridge ];
+//
+//   
+//}
+//
+//- (void)create_impact
+//{
+//
+//
+//   [ self create_ns_acme_impact ];
+//   
+//   //m_pimpactChild = pimpact;
+//   
+//   [ self addSubview: m_pnsacmeimpact ];
+//   
+//   //[ m_pnsacmeimpact setFrame: bounds ];
+//   
+//   [ m_pnsacmeimpact setAutoresizingMask: 0 ];
+//   
+//   [ m_pnsacmeimpact setHidden:false];
+//   
+//   [m_pnsacmeimpact setAlpha: 1.0f];
+//
+//   //   [ m_pnsacmeimpact  ];
+//   
+//}
+
+
+-(void)create_impact_controller
+{
    
-   [ m_pnsacmeimpact setAutoresizingMask: 0 ];
-   
-   //[ m_pnsacmeimpact display ];
+   // Create and set the impact Controllation agent
+   m_pimpactcontroller = [[impact_controller alloc] init];
    
 }
 
+
+-(void) controlling_impact
+{
+   
+   [ self create_impact_controller ];
+
+   //   // Create and set the rootViewController
+//   m_pimpactcontroller = [[impact_controller alloc] init]; // Your custom view controller
+   
+   m_pimpactcontroller->m_pnsacmewindow = self;
+   
+   [self setRootViewController: m_pimpactcontroller];
+   
+}
 
 @end
 

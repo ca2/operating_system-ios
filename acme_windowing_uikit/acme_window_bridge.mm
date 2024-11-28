@@ -40,7 +40,7 @@ acme_window_bridge::~acme_window_bridge()
    
    pnsacmewindow->m_pacmewindowbridge = nullptr;
    
-   pnsacmewindow->m_pnsacmeimpact->m_pacmewindowbridge = nullptr;
+   pnsacmewindow->m_pnsacmeimpact->m_pnsacmewindow = nil;
    
    ns_main_post(^{
    
@@ -53,13 +53,21 @@ acme_window_bridge::~acme_window_bridge()
 }
 
 
-void acme_window_bridge::create_ns_acme_window(CGRect CGRect)
+void acme_window_bridge::attach_ns_acme_window(CGRect CGRect)
 {
    
    ns_main_send(^()
    {
+      
+      //auto rect = [[UIScreen mainScreen]bounds];
+      
+      ios_app * p = (ios_app*)[[UIApplication sharedApplication] delegate];
    
-      m_pnsacmewindow = (__bridge_retained CFTypeRef) [ [ ns_acme_window alloc ] initWithFrame: CGRect and_with_acme_window_bridge: this];
+      m_pnsacmewindow = (__bridge_retained CFTypeRef) p->m_pnsacmewindow;
+      
+      [p->m_pnsacmewindow setBridge: this];
+      
+      
    
    });
    
@@ -169,7 +177,13 @@ void acme_window_bridge::redraw()
       
       auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
       
-      [ pnsacmewindow setNeedsDisplay];
+      ns_main_post(^{
+         [ pnsacmewindow setNeedsDisplay];
+         auto pimpact = pnsacmewindow->m_pnsacmeimpact;
+         [ pimpact setNeedsDisplay];
+      });
+      
+      
       
    }
    
@@ -278,7 +292,7 @@ void acme_window_bridge::set_position(int x, int y)
    
    CGRect frame = [ pnsacmewindow frame ];
    
-   int w = frame.size.width;
+   //int w = frame.size.width;
    
    int h = frame.size.height;
    

@@ -37,7 +37,7 @@ void windowing_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < windowing_ios::window,
    ::acme::windowing::window > ();
 
-   pfactory->add_factory_item < windowing_ios::host_interaction, ::sandbox_windowing::host_interaction > ();
+   pfactory->add_factory_item < windowing_ios::host_interaction, ::acme::sandbox_windowing::host_interaction > ();
 
 //   pfactory->add_factory_item < windowing_ios::node, ::platform::node > ();
    pfactory->add_factory_item < windowing_ios::display, ::acme::windowing::display > ();
@@ -52,6 +52,8 @@ void windowing_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < windowing_ios::keyboard, ::windowing::keyboard > ();
 
    pfactory->add_factory_item < windowing_ios::copydesk, ::user::copydesk > ();
+   
+   //pfactory->add_factory_item < windowing_ios::host_interaction, ::acme::sandbox_windowing::host_interaction > ();
    
    pfactory->add_factory_item < ::windowing::desktop_environment > ();
 

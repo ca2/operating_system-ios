@@ -25,6 +25,8 @@
 
 #include "acme_notification_callback.h"
 class application_menu_callback;
+@class ns_acme_window;
+@class impact_controller;
 
 @interface ios_app : UIResponder <UIApplicationDelegate, UIDocumentInteractionControllerDelegate>
 {
@@ -33,8 +35,9 @@ class application_menu_callback;
    ::platform::application *               m_papplication;
    
    NSMutableArray *     m_windowcontrollera;
-   
+   UINavigationController * navigationController;
    acme_notification_callback *      m_pacmenotificationcallback;
+   ns_acme_window * m_pnsacmewindow;
 
 //}
 //

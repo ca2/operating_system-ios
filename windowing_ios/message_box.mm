@@ -6,7 +6,7 @@
 //
 #include "framework.h"
 #include "message_box.h"
-#include "iosWindow/iosWindowApp.h"
+#include "ios/iosApp.h"
 
 namespace windowing_ios
 {
@@ -57,7 +57,7 @@ void message_box::run()
    
    ns_main_post(^{
      
-      iosWindowApp * papp = (iosWindowApp *) [[UIApplication sharedApplication] delegate];
+      iosApp * papp = (iosApp *) [[UIApplication sharedApplication] delegate];
       
       [[papp m_iosviewcontroller ] presentViewController:alert animated:YES completion:nil];
 

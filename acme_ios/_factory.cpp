@@ -7,6 +7,7 @@
 #include "directory_context.h"
 #include "file_system.h"
 #include "file_context.h"
+#include "node.h"
 
 //#include "copydesk.h"
 //#include "file_os_watcher.h"
@@ -56,6 +57,8 @@ __FACTORY_EXPORT void acme_ios_factory(::factory::factory * pfactory)
    pfactory->add_factory_item < ::acme_ios::directory_context, ::directory_context > ();
    pfactory->add_factory_item < ::acme_ios::file_system, ::file_system > ();
    pfactory->add_factory_item < ::acme_ios::directory_system, ::directory_system > ();
+
+   pfactory->add_factory_item < ::acme_ios::node, ::platform::node > ();
 
    //create_factory < ::macos::os_context         , ::os_context       > ();
    //create_factory < ::apple::process            , ::process::process > ();

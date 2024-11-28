@@ -10,7 +10,7 @@
 
 #include "aura_apple/node.h"
 #include "apex_ios/node.h"
-#include "aura/windowing/sandbox/node.h"
+//#include "aura/windowing/sandbox/node.h"
 
 
 namespace aura_ios
@@ -19,8 +19,8 @@ namespace aura_ios
 
    class CLASS_DECL_AURA_MACOS node :
       virtual public ::aura_apple::node,
-      virtual public ::apex_ios::node,
-      virtual public ::sandboxed::node
+      virtual public ::apex_ios::node
+//,    virtual public ::sandboxed::node
    {
    public:
       

@@ -43,40 +43,39 @@ node::~node()
 void node::_will_finish_launching()
 {
    
-   auto psystem = system();
-
-   if(::is_null(psystem->m_htask))
-   {
-
-      auto estatus = psystem->branch();
-
-      if(!estatus)
-      {
-
-         //return estatus;
-         return;
-
-      }
-
-      // release the initial allocation from platform_create_system as
-      // task::begin_synch holds a reference to the running system task.
-      //psystem->release();
-
-   }
-   
-//   
-//   if(!session()->user()->windowing())
+//   auto psystem = system();
+//
+//   if(::is_null(psystem->m_htask))
 //   {
-//      
-//      session()->user()->create_windowing();
-//      
+//
+//      auto estatus = psystem->branch();
+//
+//      if(!estatus)
+//      {
+//
+//         //return estatus;
+//         return;
+//
+//      }
+//
+//      // release the initial allocation from platform_create_system as
+//      // task::begin_synch holds a reference to the running system task.
+//      //psystem->release();
+//
 //   }
 //   
-   auto pwindowing = system()->windowing();
+////   
+////   if(!session()->user()->windowing())
+////   {
+////      
+////      session()->user()->create_windowing();
+////      
+////   }
+////
    
-   pwindowing->defer_initialize_host_window(nullptr);
-
-   system()->defer_post_initial_request();
+   auto pwindowing = system()->acme_windowing();
+   
+   pwindowing->_will_finish_launching();
 
    //return ::success;
    

@@ -313,65 +313,68 @@ void window::on_initialize_particle()
       //return bOk;
 
    }
-
+void window::acme_window_bridging()
+{
+   m_pacmewindowbridge = this;
+}
 
 void window::_create_window()
 {
-    
-    unsigned uStyle = 0;
-
-    if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
-    {
-
-#define NSWindowStyleMaskMiniaturizable (1 << 2)
-
-       uStyle |= NSWindowStyleMaskMiniaturizable;
-
-    }
-
-
-    //__todo?
-    //windowing()->copy(cgrect, rectangle);
-    //or
-    //display()->copy(cgrect, rectangle);
-    //because rectangle origin is top-left
-    //and because cgrect origin is bottom-left and,
-    //the origin of screen is at bottom.
-
- //m_puserinteractionimpl = pimpl;
- 
-  //auto psession = m_pcontext->m_pacmesession->m_paurasession;
-
- //auto puser = psession->user();
-
-//      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
-
- //m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
-
-//      m_pwindowing = pwindowing;
-
-//      pimpl->m_pwindowing = pwindowing;
+//    
+//    unsigned uStyle = 0;
 //
-//      pimpl->m_pwindow = this;
+//    if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
+//    {
 //
-//      pimpl->m_puserinteraction->m_pwindow = this;
- 
- //set_oswindow(this);
+//#define NSWindowStyleMaskMiniaturizable (1 << 2)
+//
+//       uStyle |= NSWindowStyleMaskMiniaturizable;
+//
+//    }
+//
+//
+//    //__todo?
+//    //windowing()->copy(cgrect, rectangle);
+//    //or
+//    //display()->copy(cgrect, rectangle);
+//    //because rectangle origin is top-left
+//    //and because cgrect origin is bottom-left and,
+//    //the origin of screen is at bottom.
+//
+// //m_puserinteractionimpl = pimpl;
+// 
+//  //auto psession = m_pcontext->m_pacmesession->m_paurasession;
+//
+// //auto puser = psession->user();
+//
+////      auto pwindowing = (::windowing_ios::windowing *) puser->windowing()->m_pWindowing4;
+//
+// //m_pioswindowing = dynamic_cast < class ::windowing_ios::windowing * >(m_pwindowing.m_p);
+//
+////      m_pwindowing = pwindowing;
+//
+////      pimpl->m_pwindowing = pwindowing;
+////
+////      pimpl->m_pwindow = this;
+////
+////      pimpl->m_puserinteraction->m_pwindow = this;
+// 
+// //set_oswindow(this);
+//
+//
+//    auto rectangle = m_puserinteraction-> window_rectangle();
+//
+//    CGRect cgrect;
+//
+//    copy(cgrect, rectangle);
+//
+//    
+//    auto pNSWindow = new_ios_window(this, cgrect, uStyle);
+//
+//    set_os_data(pNSWindow);
 
-
-    auto rectangle = m_puserinteraction-> window_rectangle();
-
-    CGRect cgrect;
-
-    copy(cgrect, rectangle);
-
-    
-    auto pNSWindow = new_ios_window(this, cgrect, uStyle);
-
-    set_os_data(pNSWindow);
-
-
- ios_windowing()->m_nsmap[m_pioswindow] = this;
+   ::uikit::acme::windowing::window::_create_window();
+ //ios_windowing()->m_nsmap[m_pnsacmewindow] = this;
  
 
 }
@@ -977,7 +980,7 @@ void window::_create_window()
       
       //auto rectClient = puserinteraction->client_rectangle();
 
-      g->set_alpha_mode(::draw2d::e_alpha_mode_set);
+      g->set_alpha_mode(::draw2d::e_alpha_mode_blend);
 
       _synchronous_lock slGraphics(pbuffer->synchronization());
        

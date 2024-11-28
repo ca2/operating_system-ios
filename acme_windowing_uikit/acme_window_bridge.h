@@ -9,11 +9,7 @@
 #pragma once
 
 
-#ifdef __OBJC__
-
-@class ns_acme_window;
-
-#endif
+class ios_window;
 
 namespace macos
 {
@@ -49,7 +45,7 @@ public:
    acme_window_bridge();
    ~acme_window_bridge() override;
    
-   void create_ns_acme_window(CGRect cgrect);
+   void attach_ns_acme_window(CGRect cgrect);
    
    void display();
    
@@ -69,7 +65,9 @@ public:
    
    virtual void on_char(int iChar);
    
-   virtual void _on_draw_frame(CGContextRef cg, CGSize sizeFrame);
+   virtual void _on_draw_background(CGContextRef cg, CGSize sizeFrame);
+   
+   virtual void _on_draw_foreground(CGContextRef cg, CGSize sizeFrame);
    
    virtual void redraw();
 
@@ -100,6 +98,9 @@ public:
    virtual void ios_window_on_show();
    
    virtual void ios_window_on_hide();
+   
+   
+   virtual ios_window * _ios_window();
    
 };
 

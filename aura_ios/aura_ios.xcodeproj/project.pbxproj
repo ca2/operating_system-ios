@@ -63,6 +63,20 @@
 			remoteGlobalIDString = 9A15A5AC264B54430080670E;
 			remoteInfo = aura_apple;
 		};
+		9AC3F2362CF7E2120061DCC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A2FCE042C9D3ADC000CF701;
+			remoteInfo = innate_ui_uikit;
+		};
+		9AC3F2392CF7E2130061DCC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A2FCE052C9D3ADC000CF701;
+			remoteInfo = innate_ui_uikit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +118,8 @@
 		9AA14ECD282A284E00B1621E /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = "<group>"; };
+		9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-ios/innate_ui_uikit/innate_ui_uikit.xcodeproj"; sourceTree = "<absolute>"; };
 		9AEB212B2B6A08D500B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
 		9AEB212C2B6A08D500B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,17 +218,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9AC3F2342CF7E2120061DCC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9AC3F23A2CF7E2130061DCC0 /* libinnate_ui_uikit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
 				9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */,
 				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
+				9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9AA14EB3282A284D00B1621E /* aura_ios */,
 				07B657D0190F3CBF002DAADE /* music_midi_core_audio_iosTests */,
 				07B657B9190F3CBF002DAADE /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
+				9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +300,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9AC3F2372CF7E2120061DCC0 /* PBXTargetDependency */,
 				9A8E9EF2282A34E8005FF778 /* PBXTargetDependency */,
 				9A8E9EF0282A34DE005FF778 /* PBXTargetDependency */,
 			);
@@ -320,6 +347,10 @@
 					ProductGroup = 9AC2CFB12653DAD200CC8096 /* Products */;
 					ProjectRef = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
 				},
+				{
+					ProductGroup = 9AC3F2342CF7E2120061DCC0 /* Products */;
+					ProjectRef = 9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -349,6 +380,13 @@
 			fileType = "compiled.mach-o.dylib";
 			path = libaura_apple.dylib;
 			remoteRef = 9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9AC3F23A2CF7E2130061DCC0 /* libinnate_ui_uikit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libinnate_ui_uikit.a;
+			remoteRef = 9AC3F2392CF7E2130061DCC0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -398,6 +436,11 @@
 			isa = PBXTargetDependency;
 			name = ios_aura_apple;
 			targetProxy = 9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */;
+		};
+		9AC3F2372CF7E2120061DCC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = innate_ui_uikit;
+			targetProxy = 9AC3F2362CF7E2120061DCC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

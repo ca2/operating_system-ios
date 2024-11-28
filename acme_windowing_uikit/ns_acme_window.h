@@ -14,17 +14,18 @@
 
 class acme_window_bridge;
 @class ns_acme_impact;
-
+@class impact_controller;
 
 @interface ns_acme_window : UIWindow < UIDocumentPickerDelegate >
 {
 @public
    
+   impact_controller *        m_pimpactcontroller;
    acme_window_bridge *       m_pacmewindowbridge;
    ns_acme_impact *           m_pnsacmeimpact;
    //NSWindowController *       m_pwindowcontroller;
 //    ios_window            * m_pwindow;
-    //iosViewController    * m_controller;
+    //iosImpactController    * m_controller;
 //    NSMutableArray < document_picker_delegate *  > * __strong m_documentpickerdelegates;
 
 }
@@ -38,7 +39,9 @@ class acme_window_bridge;
 //-(instancetype) init: (CGRect) rectangle with_acme_window_bridge:(acme_window_bridge * )pacmewindowbridge;
 //
 
-- (instancetype)initWithFrame:(CGRect)contentRect and_with_acme_window_bridge:(acme_window_bridge *) pacmewindowbridge;
-
+- (instancetype)initWithFrame:(CGRect)contentRect;
+-(void) setBridge:(acme_window_bridge *) pbridge;
+//-(void)create_impact;
+-(void)controlling_impact;
 @end
  

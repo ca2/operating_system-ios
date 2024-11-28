@@ -23,7 +23,7 @@ namespace windowing
 } // namespace windowing_window
 
 
-using oswindow_t = ::windowing::window;
+using oswindow_t = ::acme::windowing::window;
 
 
 using oswindow = oswindow_t *;

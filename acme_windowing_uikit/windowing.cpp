@@ -16,7 +16,7 @@
 //#include <X11/Xutil.h>
 //#include <Foundation/Foundation.h>
 #include <dispatch/dispatch.h>
-
+void mm_clipboard_set_plain_text(const char * psz);
 void ns_app_run(int argc, char ** args, const char * pszClass);
 
 void ns_app_do_tasks();
@@ -197,6 +197,14 @@ void windowing::windowing_post_quit()
 }
 
 
+void windowing::set_clipboard_text(const char * psz)
+{
+   
+   mm_clipboard_set_plain_text(psz);
+   
+}
+
+
 bool windowing::handle_messages()
 {
    
@@ -217,7 +225,7 @@ void  windowing::run()
                                                application()->application_menu(),
                                                application());
   
-   system()->defer_post_initial_request();
+   //system()->defer_post_initial_request();
    
     ns_app_run(system()->m_argc,
                system()->m_args,

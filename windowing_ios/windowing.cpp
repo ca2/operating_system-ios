@@ -141,7 +141,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
    }
 
 
-   ::windowing::window * windowing::get_application_host_window()
+   ::acme::windowing::window * windowing::get_application_host_window()
    {
       return ::sandbox_windowing::windowing::get_application_host_window();
       //return m_pwindowApplicationHost;
@@ -221,7 +221,8 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //   }
 //
 
-   ::windowing::window * windowing::window(oswindow oswindow)
+
+   ::acme::windowing::window * windowing::window(oswindow oswindow)
    {
 
       return oswindow;
@@ -544,11 +545,13 @@ void windowing::_user_send(const ::procedure & procedure)
 bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * pmessagebox)
 {
    
-   preifiedMessageBox = __allocate ::windowing_ios::message_box;
+   return ::uikit::acme::windowing::windowing::defer_realize(preifiedMessageBox,pmessagebox);
+//
+  // preifiedMessageBox = __allocate ::windowing_ios::message_box;
    
-   preifiedMessageBox->on_realize(pmessagebox);
+   //preifiedMessageBox->on_realize(pmessagebox);
    
-   return true;
+   //return true;
    
 }
 

@@ -182,18 +182,7 @@ bool mm_clipboard_has_plain_text()
 //https://stackoverflow.com/questions/3655038/how-to-copy-textfield-to-osx-clipboard
 //On OSX
 
-void mm_clipboard_set_plain_text(const char * psz)
-{
-   
-   NSPasteboard * pasteboard = [NSPasteboard generalPasteboard];
-   
-   NSString * strPasteboard = [NSString stringWithUTF8String: psz];
 
-   [pasteboard clearContents];
-   
-   [pasteboard setString:strPasteboard forType:NSStringPboardType];
-
-}
 
 
 void * ns_image_get_image_data(int & width, int & height, int & iScan,UIImage * pimage);

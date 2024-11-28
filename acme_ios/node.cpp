@@ -7,6 +7,7 @@
 #include "acme/filesystem/filesystem/listing.h"
 //#include "acme/nano/user/window_implementation.h"
 #include "acme/platform/system.h"
+#include "acme/windowing/windowing.h"
 #include <CoreFoundation/CoreFoundation.h>
 void ns_main_post(dispatch_block_t block);
 
@@ -743,6 +744,16 @@ unsigned int * puiPid)
 
       //return ::success;
 
+   }
+
+
+   void node::_will_finish_launching()
+   {
+      
+      auto pwindowing = system()->acme_windowing();
+      
+      pwindowing->_will_finish_launching();
+      
    }
 
 

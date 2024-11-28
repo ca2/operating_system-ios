@@ -10,10 +10,10 @@
 #include "aura_ios/_mm.h"
 
 
-#import "iosWindow/iosWindow.h"
+#import "ios/iosWindow.h"
 
 
-#include "iosWindow/ios_window.h"
+#include "ios/ios_window.h"
 
 
 #include "_c_mm.h"
@@ -22,16 +22,16 @@
 UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
 
 
-#import "iosWindow/iosEditView.h"
+#import "ios/iosEditImpact.h"
 
 
-#import "iosWindow/iosFrameView.h"
+#import "ios/iosImpact.h"
 
 
-#import "iosWindow/iosWindowApp.h"
+#import "ios/iosApp.h"
 
 
-#import "iosWindow/iosViewController.h"
+#import "ios/iosImpactController.h"
 
 
 

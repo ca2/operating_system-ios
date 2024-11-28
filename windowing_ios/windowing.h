@@ -35,7 +35,7 @@ virtual public ::uikit::acme::windowing::windowing
       
       //::pointer < host_interaction >               m_phostinteraction;
       
-      map < void *, ::pointer < class window > >   m_nsmap;
+      //map < void *, ::pointer < class window > >   m_nsmap;
 
       ::pointer < text_editor_interface >          m_ptexteditorinterface;
 
@@ -54,7 +54,7 @@ virtual public ::uikit::acme::windowing::windowing
       
      void defer_initialize_host_window(const ::int_rectangle* lpcrect) override;
      
-      ::windowing::window * get_application_host_window() override;
+      ::acme::windowing::window * get_application_host_window() override;
       
       void clear_active_window(::thread *, ::windowing::window *) override;
 //      ::windowing::window * new_window(::user::interaction_impl *pimpl) override;
@@ -68,7 +68,7 @@ virtual public ::uikit::acme::windowing::windowing
       
       //void windowing_post(const ::procedure & procedure) override;
       
-      ::windowing::window * window(oswindow oswindow) override;
+      ::acme::windowing::window * window(oswindow oswindow) override;
 
       ::windowing::display * display() override;
       

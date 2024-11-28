@@ -20,7 +20,7 @@ struct platform_media_item_t;
 //#endif
 #include "acme_windowing_uikit/window.h"
 #include "aura/windowing/sandbox/window.h"
-#include "iosWindow/ios_window.h"
+#include "ios/ios_window.h"
 namespace aqua
 {
 class media_item_picker;
@@ -57,6 +57,8 @@ virtual public ::uikit::acme::windowing::window
        void on_initialize_particle() override;
       
       void create_window() override;
+      
+      void acme_window_bridging() override;
       
        void _create_window() override;
       //void ios_window_add_ref() override;

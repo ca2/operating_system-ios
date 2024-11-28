@@ -14,7 +14,7 @@
 //
 //@end
 #include "windowing_ios/iosWindow/iosWindow.h"
-#include "windowing_ios/iosWindow/iosViewController.h"
+#include "windowing_ios/iosWindow/iosImpactController.h"
 #include "ios_media_picker.h"
 
 

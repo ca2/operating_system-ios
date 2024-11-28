@@ -77,6 +77,8 @@ namespace uikit
 
       //virtual void _on_event(XEvent *pevent);
       
+      virtual void acme_window_bridging();
+      
       void _main_post(const ::procedure & procedure) override;
 
       virtual void _update_window();
@@ -85,7 +87,9 @@ namespace uikit
 
       virtual bool message_loop_step();
 
-      virtual void _draw(CGContextRef cgcontextref);
+      virtual void _draw_background(CGContextRef cgcontextref);
+      
+      virtual void _draw_foreground(CGContextRef cgcontextref);
 
       //virtual void on_draw(::nano::graphics::device * pnanodevice);
 

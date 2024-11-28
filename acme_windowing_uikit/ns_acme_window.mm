@@ -84,8 +84,11 @@ void ns_main_send(dispatch_block_t block);
     return self;
    
 }
-- (void)setBridge:(acme_window_bridge *)pbridge
+
+
+- (void)setBridge:(::uikit::acme_window_bridge *)pbridge
 {
+   
    m_pacmewindowbridge = pbridge;
    
    CGRect rect = [self bounds];

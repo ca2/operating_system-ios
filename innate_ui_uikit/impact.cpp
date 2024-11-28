@@ -427,26 +427,28 @@ namespace innate_ui_uikit
 //   }
 
 
-   void impact::adjust_for_client_size(int cx, int cy)
+   void impact::adjust_for_client_size(const ::int_size & sizeParam)
    {
 
-      set_position(0, 0);
+      set_position({0, 0});
+      
+      auto size = sizeParam;
 
 #if !defined(APPLE_IOS)
       
-      cx += 8;
+      size.cx() += 8;
       
-      cy += 40;
+      size.cy() += 40;
       
 #endif
       
       auto sizeMaximum = system()->acme_windowing()->acme_display()->get_main_screen_size();
       
-      cx = minimum(cx, sizeMaximum.cx());
+      size.cx() = minimum(size.cx(), sizeMaximum.cx());
 
-      cy = minimum(cy, sizeMaximum.cy());
+      size.cy() = minimum(size.cy(), sizeMaximum.cy());
       
-      set_size(cx, cy);
+      set_size(size);
 
       // sync([this, size]()
       //    {      //

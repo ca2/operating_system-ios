@@ -51,7 +51,7 @@ namespace innate_ui_uikit
 
       //void set_position(const ::int_point & point) override;
       //void set_size(const ::int_size & size) override;
-      void adjust_for_client_size(int cx, int cy) override;
+      void adjust_for_client_size(const ::int_size & size) override;
 
       ::innate_ui_uikit::innate_ui * innate_ui();
 

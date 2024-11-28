@@ -9,6 +9,7 @@
 #pragma once
 
 
+#include "acme/prototype/geometry2d/size.h"
 #include "apex/innate_ui/window.h"
 //#include "acme/_operating_system.h"
 //#include "acme/operating_system/windows/window.h"
@@ -39,10 +40,11 @@ namespace innate_ui_uikit
       
       bool           m_bImpactPoint;
       bool           m_bImpactSize;
-      int            m_iImpactX;
-      int            m_iImpactY;
-      int            m_iImpactW;
-      int            m_iImpactH;
+      ::int_point    m_pointImpact;
+      
+      char           m_someDummyPaddingForClangQuestion[8];
+      
+      ::int_size     m_sizeImpact;
 
 
       __impact();
@@ -71,9 +73,9 @@ namespace innate_ui_uikit
       void show() override;
       void hide() override;
 
-      void set_position(int x, int y) override;
-      void set_size(int cx, int cy) override;
-      void adjust_for_client_size(int cx, int cy) override;
+      void set_position(const ::int_point & point) override;
+      void set_size(const ::int_size & size) override;
+      void adjust_for_client_size(const ::int_size & size) override;
 
       virtual void __defer_size_position();
       

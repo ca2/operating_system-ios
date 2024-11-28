@@ -257,7 +257,7 @@ double get_status_bar_frame_height();
    
 }
 
--(void)setBridge:(acme_window_bridge *)pbridge
+-(void)setBridge:(::uikit::acme_window_bridge *)pbridge
 {
  
    [super setBridge:pbridge];

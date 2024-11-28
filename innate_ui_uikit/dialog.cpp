@@ -30,16 +30,16 @@ namespace innate_ui_uikit
    }
 
 
-void dialog::set_size(int cx, int cy)
+void dialog::set_size(const ::int_size & size)
 {
 
-   m_iImpactW = cx;
+   m_sizeImpact = size;
    
-   m_iImpactH = cy;
-   
-   m_iDialogW = cx;
-   
-   m_iDialogH = cy;
+//   m_iImpactH = cy;
+//   
+//   m_iDialogW = cx;
+//   
+//   m_iDialogH = cy;
    
    m_bImpactSize = true;
    
@@ -60,10 +60,10 @@ void dialog::__defer_size_position()
 {
    
    __set_size_position(
-                       m_iImpactX,
-                       m_iImpactY,
-                       m_iDialogW,
-                       m_iDialogH);
+                       m_pointImpact.x(),
+                       m_pointImpact.y(),
+                       m_sizeImpact.cx(),
+                       m_sizeImpact.cy());
 
 }
    // void dialog::_get_class(WNDCLASSEXW & wcex)

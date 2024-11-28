@@ -12,7 +12,10 @@
 #import <UIKit/UIKit.h>
 #include <CoreGraphics/CoreGraphics.h>
 
+namespace uikit
+{
 class acme_window_bridge;
+} // namespace uikit
 @class ns_acme_impact;
 @class impact_controller;
 
@@ -20,9 +23,9 @@ class acme_window_bridge;
 {
 @public
    
-   impact_controller *        m_pimpactcontroller;
-   acme_window_bridge *       m_pacmewindowbridge;
-   ns_acme_impact *           m_pnsacmeimpact;
+   impact_controller *              m_pimpactcontroller;
+   ::uikit::acme_window_bridge *    m_pacmewindowbridge;
+   ns_acme_impact *                 m_pnsacmeimpact;
    //NSWindowController *       m_pwindowcontroller;
 //    ios_window            * m_pwindow;
     //iosImpactController    * m_controller;
@@ -40,7 +43,7 @@ class acme_window_bridge;
 //
 
 - (instancetype)initWithFrame:(CGRect)contentRect;
--(void) setBridge:(acme_window_bridge *) pbridge;
+-(void) setBridge:(::uikit::acme_window_bridge *) pbridge;
 //-(void)create_impact;
 -(void)controlling_impact;
 @end

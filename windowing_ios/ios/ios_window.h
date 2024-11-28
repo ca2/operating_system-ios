@@ -23,7 +23,7 @@
 //#endif
 
 class ios_window :
-   virtual public acme_window_bridge
+   virtual public uikit::acme_window_bridge
 {
 public:
 

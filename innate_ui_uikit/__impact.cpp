@@ -405,11 +405,13 @@ void __impact::__defer_size_position()
 {
  
    __set_size_position(
-                       m_iImpactX,
-                       m_iImpactY,
-                       m_iImpactW, m_iImpactH);
+                       m_pointImpact.x(),
+                       m_pointImpact.y(),
+                       m_sizeImpact.cx(),
+                       m_sizeImpact.cy());
    
 }
+
 
 void __impact::_defer_size_position()
 {
@@ -448,12 +450,10 @@ void __impact::_defer_size_position()
 }
 
 
-   void __impact::set_position(int x, int y)
+   void __impact::set_position(const ::int_point & point)
    {
 
-      m_iImpactX = x;
-      
-      m_iImpactY = y;
+      m_pointImpact = point;
 
       m_bImpactPoint = true;
       
@@ -462,12 +462,10 @@ void __impact::_defer_size_position()
    }
 
 
-   void __impact::set_size(int cx, int cy)
+   void __impact::set_size(const ::int_size & size)
    {
 
-      m_iImpactW = cx;
-      
-      m_iImpactH = cy;
+      m_sizeImpact = size;
       
       m_bImpactSize = true;
       
@@ -485,18 +483,20 @@ void __impact::_defer_size_position()
    }
 
 
-   void __impact::adjust_for_client_size(int cx, int cy)
+   void __impact::adjust_for_client_size(const ::int_size & sizeParam)
    {
 
+      auto size = sizeParam;
+      
 #if !defined(APPLE_IOS)
       
-      cx += 8;
+      size.cx() += 8;
       
-      cy += 40;
+      size.cy() += 40;
       
 #endif
 
-      set_size(cx, cy);
+      set_size(size);
 
       // sync([this, size]()
       //    {

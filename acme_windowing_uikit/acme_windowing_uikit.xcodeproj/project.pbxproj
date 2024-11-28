@@ -43,6 +43,13 @@
 			remoteGlobalIDString = 9A0C165E264A290E00B5CC33;
 			remoteInfo = acme_ios;
 		};
+		9AC3F3022CF8BB670061DCC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9AC3F2AB2CF81F7A0061DCC0 /* acme_windowing_kit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AC3F2D22CF820650061DCC0;
+			remoteInfo = ios_acme_windowing_kit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +224,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9AC3F3032CF8BB670061DCC0 /* PBXTargetDependency */,
 				9A28CB9F2CF3DDEF00C6D8B1 /* PBXTargetDependency */,
 			);
 			name = acme_windowing_uikit;
@@ -312,6 +320,11 @@
 			isa = PBXTargetDependency;
 			name = acme_ios;
 			targetProxy = 9A28CB9E2CF3DDEF00C6D8B1 /* PBXContainerItemProxy */;
+		};
+		9AC3F3032CF8BB670061DCC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ios_acme_windowing_kit;
+			targetProxy = 9AC3F3022CF8BB670061DCC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

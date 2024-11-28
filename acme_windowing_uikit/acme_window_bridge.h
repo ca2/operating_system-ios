@@ -9,6 +9,8 @@
 #pragma once
 
 
+#include "acme_windowing_kit/acme_window_bridge.h"
+
 class ios_window;
 
 namespace macos
@@ -48,7 +50,7 @@ public:
    acme_window_bridge();
    ~acme_window_bridge() override;
    
-   virtual ::acme::windowing::window * acme_windowing_window();
+   virtual ::acme::windowing::window * acme_windowing_window() override;
 
    
    void attach_ns_acme_window(CGRect cgrect);
@@ -59,15 +61,15 @@ public:
    
    void do_tasks();
    
-   virtual void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
-   
-   virtual void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
-   
-   virtual void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
-   
-   virtual void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
-   
-   virtual void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute);
+//   virtual void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
+//   
+//   virtual void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
+//   
+//   virtual void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
+//   
+//   virtual void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute);
+//   
+//   virtual void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute);
    
    
    virtual void on_char(int iChar);

@@ -591,7 +591,7 @@ namespace uikit
       
       void window::ios_window_become_key()
       {
-         
+         m_bIsActiveCached = true;
          //application()->application_menu_update();
          
       }
@@ -601,7 +601,7 @@ namespace uikit
       
       void window::ios_window_resign_key()
       {
-         
+         m_bIsActiveCached = false;
          
       }
       

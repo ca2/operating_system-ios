@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		9A1CC3FF2CF2DBCD004A00CB /* acme_macos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_macos.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-macos/acme_macos/acme_macos.xcodeproj"; sourceTree = "<absolute>"; };
 		9A1CC40A2CF2DBE5004A00CB /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A28CB982CF3DDDF00C6D8B1 /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = "<group>"; };
+		9A28CB982CF3DDDF00C6D8B1 /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A28CB9B2CF3DDEF00C6D8B1 /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-ios/acme_ios/acme_ios.xcodeproj"; sourceTree = "<absolute>"; };
 		9A4754152CF6048400ED30AE /* host_interaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = host_interaction.h; sourceTree = "<group>"; };
 		9A4754162CF6048400ED30AE /* host_interaction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = host_interaction.cpp; sourceTree = "<group>"; };

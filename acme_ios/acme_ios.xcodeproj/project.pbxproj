@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		9A0C165F264A290E00B5CC33 /* libacme_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libacme_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A15A5D6264B54CA0080670E /* acme_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_apple.xcodeproj; path = "../../operating_system-apple/acme_apple/acme_apple.xcodeproj"; sourceTree = "<group>"; };
+		9A15A5D6264B54CA0080670E /* acme_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_apple.xcodeproj; path = "../../operating_system-apple/acme_apple/acme_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9A5403FC2CE70FE40009869E /* directory_context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = directory_context.h; sourceTree = "<group>"; };
 		9A5403FD2CE70FE40009869E /* directory_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = directory_context.cpp; sourceTree = "<group>"; };
 		9A5403FE2CE70FE40009869E /* directory_system.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = directory_system.h; sourceTree = "<group>"; };

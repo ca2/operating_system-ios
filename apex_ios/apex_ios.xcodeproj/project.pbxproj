@@ -102,7 +102,7 @@
 
 /* Begin PBXFileReference section */
 		9A0C1695264A2AA700B5CC33 /* libapex_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libapex_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A15A5EA264B54EE0080670E /* apex_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_apple.xcodeproj; path = "../../operating_system-apple/apex_apple/apex_apple.xcodeproj"; sourceTree = "<group>"; };
+		9A15A5EA264B54EE0080670E /* apex_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_apple.xcodeproj; path = "../../operating_system-apple/apex_apple/apex_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9A28CB6C2CF3D9E500C6D8B1 /* nano_graphics_quartz2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nano_graphics_quartz2d.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-apple/nano_graphics_quartz2d/nano_graphics_quartz2d.xcodeproj"; sourceTree = "<absolute>"; };
 		9A28CB7F2CF3DD4000C6D8B1 /* acme_windowing_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_windowing_uikit.xcodeproj; path = ../acme_windowing_uikit/acme_windowing_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A46D24026784388000B22D0 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,7 @@
 		9A7862A92650292A0034A0E1 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A94DEFE282C685E00F5C1CA /* watcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = watcher.h; sourceTree = "<group>"; };
 		9A94DEFF282C685E00F5C1CA /* watcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = watcher.cpp; sourceTree = "<group>"; };
-		9AA14EAC282A282000B1621E /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = "<group>"; };
+		9AA14EAC282A282000B1621E /* acme_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = acme_ios.xcodeproj; path = ../acme_ios/acme_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9AA14EE5282A289D00B1621E /* app.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = app.mm; sourceTree = "<group>"; };
 		9AA14EE8282A289D00B1621E /* NSPasteboard++.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSPasteboard++.mm"; sourceTree = "<group>"; };
 		9AA14EE9282A289D00B1621E /* _mm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };

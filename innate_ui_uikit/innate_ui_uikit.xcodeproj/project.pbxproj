@@ -64,7 +64,7 @@
 		9A2FCFCE2C9D3C3F000CF701 /* dialog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dialog.cpp; sourceTree = "<group>"; };
 		9A2FCFCF2C9D3C3F000CF701 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A7E172B2C9DEE2700EE8CA6 /* dialog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = dialog.mm; sourceTree = "<group>"; };
-		9A7E172D2C9DF5C900EE8CA6 /* apex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex.xcodeproj; path = ../../../source/app/apex/apex.xcodeproj; sourceTree = "<group>"; };
+		9A7E172D2C9DF5C900EE8CA6 /* apex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex.xcodeproj; path = ../../../source/app/apex/apex.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A7E173F2C9DF5E700EE8CA6 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A7E17422C9DF5F700EE8CA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9A7E17442C9DF64400EE8CA6 /* apex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex.xcodeproj; path = /Users/camilo/workspace/main/source/app/apex/apex.xcodeproj; sourceTree = "<absolute>"; };

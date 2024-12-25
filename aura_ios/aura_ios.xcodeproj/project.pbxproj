@@ -107,7 +107,7 @@
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = "<group>"; };
+		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9AA14EB4282A284D00B1621E /* shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
 		9AA14EB7282A284D00B1621E /* _mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _mm.h; sourceTree = "<group>"; };
 		9AA14EB8282A284D00B1621E /* aaa_aura_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_aura_ios.h; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		9AA14ECC282A284E00B1621E /* shell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
 		9AA14ECD282A284E00B1621E /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = "<group>"; };
+		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9AC3F2332CF7E2120061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-ios/innate_ui_uikit/innate_ui_uikit.xcodeproj"; sourceTree = "<absolute>"; };
 		9AEB212B2B6A08D500B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };

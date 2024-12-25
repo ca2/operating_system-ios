@@ -63,14 +63,14 @@
 
 /* Begin PBXFileReference section */
 		9A20EC642B77153F008A08A2 /* libmedia_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmedia_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = media_apple.xcodeproj; path = "../../operating_system-apple/media_apple/media_apple.xcodeproj"; sourceTree = "<group>"; };
+		9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = media_apple.xcodeproj; path = "../../operating_system-apple/media_apple/media_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
 		9A20EC8C2B7715BD008A08A2 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A20ECA42B7715BD008A08A2 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A20ECA82B7715BD008A08A2 /* _factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
 		9A20ECAB2B7715BD008A08A2 /* _____release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
 		9A20ECAD2B7715BD008A08A2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
+		9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosAudioPickerViewController.mm; sourceTree = "<group>"; };
 		9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
 		9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };

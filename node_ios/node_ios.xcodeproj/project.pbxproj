@@ -35,7 +35,7 @@
 		9A8E9D95282A2CE7005FF778 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A8E9D96282A2CE7005FF778 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
 		9A8E9D97282A2CE7005FF778 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = "<group>"; };
+		9AA14DFF282A185C00B1621E /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9AC2D16F26542E1000CC8096 /* libnode_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libnode_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEB21312B6A094F00B01F9E /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
 		9AEB21322B6A094F00B01F9E /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };

@@ -31,7 +31,7 @@ namespace windowing_ios
       void destroy_buffer() override;
 
       //bool update_screen(::image * pimage) override;
-      bool on_update_screen(::graphics::buffer_item * pitem) override;
+      void on_update_screen(::graphics::buffer_item * pitem) override;
 
       //virtual ::draw2d::graphics * on_begin_draw();
 

@@ -81,7 +81,7 @@ virtual public ::uikit::acme::windowing::window
       
       void set_active_window() override;
       
-      void set_foreground_window() override;
+       void set_foreground_window(::user::activation_token * puseractivationtoken) override;
       
       void set_tool_window(bool bSet) override;
       
@@ -92,7 +92,7 @@ virtual public ::uikit::acme::windowing::window
       bool ios_window_has_keyboard_focus() override;
        
        
-       bool _configure_window_unlocked(const class ::zorder& zorder, const ::e_activation& eactivation, bool bNoZorder, ::e_display edisplay) override;
+       bool _configure_window_unlocked(const class ::zorder& zorder, const ::user::activation& eactivation, bool bNoZorder, ::e_display edisplay) override;
        bool _strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize) override;
 
 
@@ -171,7 +171,7 @@ virtual public ::uikit::acme::windowing::window
       void ios_window_on_hide() override;
       //void ios_window_on_miniaturize() override;
 
-      void frame_toggle_restore() override;
+      void frame_toggle_restore(::user::activation_token * puseractivationtoken) override;
       
       
       void non_top_most_upper_window_rects(::int_rectangle_array & recta) override;

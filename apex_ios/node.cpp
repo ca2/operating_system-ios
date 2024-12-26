@@ -37,7 +37,7 @@ namespace apex_ios
    node::node()
    {
 
-      m_pAcmePlatform = this;
+      //m_pAcmePlatform = this;
 
    }
 

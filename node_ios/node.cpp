@@ -95,7 +95,7 @@ void node::on_start_system()
 
 
 
-void node::on_app_activated()
+void node::on_app_activated(::user::activation_token * puseractivationtoken)
 {
    
    

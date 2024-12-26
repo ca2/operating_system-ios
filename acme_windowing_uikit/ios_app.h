@@ -24,7 +24,7 @@
 #import <UIKit/UIKit.h>
 
 #include "acme_notification_callback.h"
-class application_menu_callback;
+class command_handler;
 @class ns_acme_window;
 @class impact_controller;
 
@@ -56,7 +56,7 @@ class application_menu_callback;
    
 //   acme_notification_callback *           m_pacmenotificationcallback;
    ::application_menu *                   m_papplicationmenu;
-   ::application_menu_callback *          m_papplicationmenucallback;
+   ::command_handler *                    m_pcommandhandler;
 
 }
 
@@ -66,7 +66,7 @@ class application_menu_callback;
 -(void) continueInitialization;
 -(void) show_about_box;
 -(void) try_close_application;
--(id) initWithApplicationMenu:(::application_menu *) papplicationmenu andItsCallback: (::application_menu_callback *) papplicationmenucallback;
+-(id) initWithApplicationMenu:(::application_menu *) papplicationmenu andCommandHandler: (::command_handler *) pcommandhandler;
 -(void) application_menu_update;
 -(void) application_handle: (long long) l withPointer :(void *) p;
 

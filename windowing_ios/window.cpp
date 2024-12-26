@@ -587,7 +587,7 @@ void window::_create_window()
    }
 
 
-   void window::set_foreground_window()
+   void window::set_foreground_window(::user::activation_token * puseractivationtoken)
    {
       
       //ios_window_order_front();
@@ -688,7 +688,7 @@ void window::_create_window()
 //   }
 
 
-   bool window::_configure_window_unlocked(const class ::zorder& zorder, const ::e_activation& eactivation, bool bNoZorder, ::e_display edisplay)
+   bool window::_configure_window_unlocked(const class ::zorder& zorder, const ::user::activation& activation, bool bNoZorder, ::e_display edisplay)
    {
 
       //windowing_output_debug_string("\n::windowing_macos::window::show_window 1");
@@ -2612,7 +2612,7 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //   }
 
-   void window::frame_toggle_restore()
+   void window::frame_toggle_restore(::user::activation_token * puseractivationtoken)
 {
       
       ns_main_post(^()
@@ -2636,7 +2636,7 @@ void window::ios_window_text_view_did_begin_editing()
 
             puserinteraction->order(::e_zorder_top);
 
-            puserinteraction->display(e_display_default, e_activation_set_foreground);
+            puserinteraction->display(e_display_default, { ::user::e_activation_set_foreground, nullptr});
 
          }
          else if(m_timeLastExposureAddUp.elapsed() < 300_ms)
@@ -2648,7 +2648,7 @@ void window::ios_window_text_view_did_begin_editing()
          else
          {
 
-            puserinteraction->display(e_display_iconic, e_activation_no_activate);
+            puserinteraction->display(e_display_iconic, {::user::e_activation_no_activate, nullptr});
 
          }
 

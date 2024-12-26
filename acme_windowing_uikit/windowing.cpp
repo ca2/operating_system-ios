@@ -26,7 +26,7 @@ void ns_main_post(dispatch_block_t block);
 char * ns_acme_application_delegate_class();
 
 
-void acme_defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
+void acme_defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler);
 
 //void apple_defer_nano_application_create(::platform::system * psystem);
 
@@ -314,12 +314,12 @@ void windowing::display_error_trap_pop_ignored(int i)
 //
 //    }
 
-void windowing::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
+void windowing::defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler)
 {
 
    ::acme_defer_create_windowing_application_delegate(
                                                  papplication,
-                                                 papplicationmenu, papplicationmenucallback);
+                                                      papplicationmenu, pcommandhandler);
 
 }
 

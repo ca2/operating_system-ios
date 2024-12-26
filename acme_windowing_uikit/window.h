@@ -49,7 +49,7 @@ class acme_window_bridge;
       //::atom                          m_atomLeftButtonUp;
       //::atom                             m_atomResult;
       //::pointer<::nano::user::child>        m_pchildFocus;
-
+      bool                                      m_bIsActiveCached;
 
       window();
       ~window() override;

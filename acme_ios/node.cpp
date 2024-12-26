@@ -38,7 +38,7 @@ namespace acme_ios
    node::node()
    {
 
-      m_pAcmePosix = this;
+      //m_pAcmePosix = this;
 
 //      factory()->add_factory_item < ::nano::user::window_implementation >();
 

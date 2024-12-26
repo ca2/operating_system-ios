@@ -47,6 +47,7 @@ namespace uikit
       window::window()
       {
          
+         m_bIsActiveCached = false;
          //macos_defer_initialize_nano_callbacks();
          
       }
@@ -117,7 +118,7 @@ namespace uikit
             
             __øconstruct(m_pnanodevice);
             
-            m_pnanodevice->attach(cgcontextref);
+            m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
             ::pointer < ::micro::elemental > pelemental;
             
@@ -144,7 +145,7 @@ namespace uikit
             
             __øconstruct(m_pnanodevice);
             
-            m_pnanodevice->attach(cgcontextref);
+            m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
             ::pointer < ::micro::elemental > pelemental;
             
@@ -591,6 +592,7 @@ namespace uikit
       
       void window::ios_window_become_key()
       {
+         
          m_bIsActiveCached = true;
          //application()->application_menu_update();
          

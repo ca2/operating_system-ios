@@ -181,7 +181,7 @@ bool buffer::update_buffer(::graphics::buffer_item * pitem)
    }
 
    //bool buffer::update_screen(::image * pimage)
-   bool buffer::on_update_screen(::graphics::buffer_item * pitem)
+   void buffer::on_update_screen(::graphics::buffer_item * pitem)
    {
       auto pimage = pitem->m_pimage2;
 //      auto pdriver = ::operating_system_driver::get();
@@ -217,7 +217,7 @@ bool buffer::update_buffer(::graphics::buffer_item * pitem)
 
       //ANativeWindow_unlockAndPost(m_pimpl->m_oswindow->m_engine.app->window);
 
-      return true;
+      //return true;
 
    }
 

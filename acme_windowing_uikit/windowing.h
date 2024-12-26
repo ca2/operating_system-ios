@@ -7,7 +7,7 @@
 #include "acme/windowing/sandbox/windowing.h"
 
 
-class application_menu_callback;
+class command_handler;
 
 
 namespace uikit
@@ -54,7 +54,7 @@ public:
 
    bool handle_messages() override;
    
-   virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
+   virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler);
 
 //    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 

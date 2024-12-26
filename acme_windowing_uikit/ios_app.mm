@@ -14,7 +14,7 @@
 #include "acme/constant/id.h"
 #include "acme/operating_system/argcargv.h"
 #include "acme/platform/application_menu.h"
-#include "acme/platform/application_menu_callback.h"
+#include "acme/handler/command_handler.h"
 #include <Foundation/Foundation.h>
 
 //#include "app.h"
@@ -25,7 +25,7 @@ void ns_main_post(dispatch_block_t block);
 
 void os_system_start();
 
-void application_on_menu_action(::platform::application * papplication, const char * pszCommand);
+void application_handle_command(::platform::application * papplication, const char * pszCommand, ::user::activation_token * puseractivationtoken);
 
 ::platform::system * application_system(::platform::application * papplication);
 
@@ -47,8 +47,8 @@ void ns_main_send(dispatch_block_t block);
 void ns_main_post(dispatch_block_t block);
 
 void os_system_start();
-
-void application_on_menu_action(::platform::application * papplication, const char * pszCommand);
+//
+//void application_on_menu_action(::platform::application * papplication, const char * pszCommand);
 
 ::platform::system * application_system(::platform::application * papplication);
 
@@ -69,7 +69,7 @@ void ns_create_menu(UIMenu * menu, ::application_menu * papplicationmenu, bool b
 void ns_apple_set_application_delegate(::platform::application * papplication, ios_app * pappdelegate);
 void * apple_get_application_delegate(::platform::application * papplication);
 
-void acme_defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback)
+void acme_defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler)
 {
    
    ios_app * pappdelegate = (__bridge ios_app *) apple_get_application_delegate(papplication);
@@ -77,7 +77,7 @@ void acme_defer_create_windowing_application_delegate(::platform::application * 
    if(pappdelegate == nullptr)
    {
       
-      pappdelegate = [ [ ios_app alloc] initWithApplicationMenu: papplicationmenu andItsCallback: papplicationmenucallback];
+       pappdelegate = [ [ ios_app alloc] initWithApplicationMenu: papplicationmenu andCommandHandler: pcommandhandler];
       
       ns_apple_set_application_delegate(papplication, pappdelegate);
       
@@ -547,7 +547,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 
 
 
-- (id)initWithApplicationMenu:(::application_menu *) papplicationmenu andItsCallback:(::application_menu_callback *)papplicationmenucallback
+- (id)initWithApplicationMenu:(::application_menu *) papplicationmenu andCommandHandler:(::command_handler *)pcommandhandler
 {
 
    [UIApplication sharedApplication];
@@ -575,7 +575,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 
    m_papplicationmenu = papplicationmenu;
    
-   m_papplicationmenucallback = papplicationmenucallback;
+   m_pcommandhandler = pcommandhandler;
    
    [self application_menu_update];
 
@@ -724,7 +724,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 -(void)show_about_box
 {
    
-   application_on_menu_action(m_papplication, "show_about_box");
+   application_handle_command(m_papplication, "show_about_box", nullptr);
    
 }
 
@@ -732,7 +732,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 -(void)try_close_application
 {
    
-   application_on_menu_action(m_papplication, "try_close_application");
+   application_handle_command(m_papplication, "try_close_application", nullptr);
    
 }
 

@@ -304,7 +304,7 @@ void node::on_app_activated(::user::activation_token * puseractivationtoken)
    void node::_node_file_dialog(::file::file_dialog * pdialog)
    {
 
-      auto puserinteraction = application()->m_puserinteractionMain;
+      auto puserinteraction = application()->m_pacmeuserinteractionMain;
       
       if(!puserinteraction)
       {

@@ -82,11 +82,9 @@
 		9A00E61F26616D1400517464 /* libaura.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A00E62126616D1400517464 /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
-		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
-		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		A1CFD778154F5EAA007447E2 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,8 +173,6 @@
 				9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */,
 				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
 				9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */,
-				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
-				9AA1B449176361950019E812 /* Cocoa.framework */,
 				07B657D0190F3CBF002DAADE /* music_midi_core_audio_iosTests */,
 				07B657B9190F3CBF002DAADE /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,

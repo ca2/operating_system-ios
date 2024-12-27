@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -128,6 +128,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1610;
+				ORGANIZATIONNAME = "ca2 Software Development";
 				TargetAttributes = {
 					9AC2D16E26542E1000CC8096 = {
 						CreatedOnToolsVersion = 12.5;
@@ -135,6 +136,7 @@
 				};
 			};
 			buildConfigurationList = 9AC2D16A26542E1000CC8096 /* Build configuration list for PBXProject "node_ios" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -142,7 +144,6 @@
 				Base,
 			);
 			mainGroup = 9AC2D16626542E1000CC8096;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 9AC2D17026542E1000CC8096 /* Products */;
 			projectDirPath = "";
 			projectReferences = (

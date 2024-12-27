@@ -30,6 +30,20 @@
 			remoteGlobalIDString = 9AC2D16F26542E1000CC8096;
 			remoteInfo = node_ios;
 		};
+		9ADCC2102D1E6F3400099200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A88130F2D1E696500BBEEF3 /* write_text_quartz2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A64C1712660C62C0074030F;
+			remoteInfo = write_text_quartz2d;
+		};
+		9ADCC2122D1E6F3400099200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A88130F2D1E696500BBEEF3 /* write_text_quartz2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A882EE12844AA66004113D1;
+			remoteInfo = ios_write_text_quartz2d;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +57,14 @@
 		9A3105AA2CE783100067398D /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
 		9A3105AB2CE783100067398D /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
 		9A3108D22CE78AAB0067398D /* node_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = node_ios.xcodeproj; path = "/Users/camilo/workspace/main/operating_system/operating_system-ios/node_ios/node_ios.xcodeproj"; sourceTree = "<absolute>"; };
+		9A88130F2D1E696500BBEEF3 /* write_text_quartz2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = write_text_quartz2d.xcodeproj; path = "../../operating_system-apple/write_text_quartz2d/write_text_quartz2d.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		9A31058F2CE781E60067398D = {
 			isa = PBXGroup;
 			children = (
+				9A88130F2D1E696500BBEEF3 /* write_text_quartz2d.xcodeproj */,
 				9A3108D22CE78AAB0067398D /* node_ios.xcodeproj */,
 				9A31059F2CE782B30067398D /* operating_ambient_ios */,
 				9A3105992CE781E60067398D /* Products */,
@@ -82,6 +98,15 @@
 			isa = PBXGroup;
 			children = (
 				9A3108D92CE78AAC0067398D /* libnode_ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9ADCC1FE2D1E6F3400099200 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCC2112D1E6F3400099200 /* libwrite_text_quartz2d.dylib */,
+				9ADCC2132D1E6F3400099200 /* libios_write_text_quartz2d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +176,10 @@
 					ProductGroup = 9A3108D32CE78AAB0067398D /* Products */;
 					ProjectRef = 9A3108D22CE78AAB0067398D /* node_ios.xcodeproj */;
 				},
+				{
+					ProductGroup = 9ADCC1FE2D1E6F3400099200 /* Products */;
+					ProjectRef = 9A88130F2D1E696500BBEEF3 /* write_text_quartz2d.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -165,6 +194,20 @@
 			fileType = "compiled.mach-o.dylib";
 			path = libnode_ios.a;
 			remoteRef = 9A3108D82CE78AAC0067398D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9ADCC2112D1E6F3400099200 /* libwrite_text_quartz2d.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libwrite_text_quartz2d.dylib;
+			remoteRef = 9ADCC2102D1E6F3400099200 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9ADCC2132D1E6F3400099200 /* libios_write_text_quartz2d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libios_write_text_quartz2d.a;
+			remoteRef = 9ADCC2122D1E6F3400099200 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

@@ -86,16 +86,6 @@
 		9A869F302B79ADEE00937A3C /* media_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = media_player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		9A20EC622B77153F008A08A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		9A20EC5B2B77153F008A08A2 = {
 			isa = PBXGroup;
@@ -183,7 +173,6 @@
 			buildPhases = (
 				9A20EC602B77153F008A08A2 /* Headers */,
 				9A20EC612B77153F008A08A2 /* Sources */,
-				9A20EC622B77153F008A08A2 /* Frameworks */,
 			);
 			buildRules = (
 			);

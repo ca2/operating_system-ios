@@ -8,14 +8,14 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
 void ios_play_media_item(void * pMPMediaItem)
 {
    
    
-ns_main_async(^()
+ns_main_post(^()
               {
    
    
@@ -44,7 +44,7 @@ void ios_av_session_initialize()
 {
  
    NSError *setCategoryErr = nil;
-   NSError *activationErr  = nil;
+   //NSError *activationErr  = nil;
    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:&setCategoryErr];
    //[[AVAudioSession sharedInstance] setActive:YES error:&activationErr];
    

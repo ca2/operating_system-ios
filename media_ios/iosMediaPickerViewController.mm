@@ -13,15 +13,15 @@
 //@interface UploadAudioViewController ()
 //
 //@end
-#include "windowing_ios/iosWindow/iosWindow.h"
-#include "windowing_ios/iosWindow/iosImpactController.h"
+#include "windowing_ios/ios/iosWindow.h"
+#include "windowing_ios/ios/iosImpactController.h"
 #include "ios_media_picker.h"
 
 
 int _ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, unsigned int uType, const char * pszDetails, ::function < void (enum_dialog_result) > function);
 
 
-void ns_main_async(dispatch_block_t block);
+//void ns_main_async(dispatch_block_t block);
 
 
 @implementation iosMediaPickerViewController
@@ -138,7 +138,7 @@ void ns_main_async(dispatch_block_t block);
    else
    {
       
-      [pioswindow->m_controller addChildViewController:self];
+      [pioswindow->m_pimpactcontroller addChildViewController:self];
       
       MPMediaPickerController *mediaPicker;
       if(!strcmp(pszType, "audio"))

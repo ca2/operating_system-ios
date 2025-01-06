@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		07B657CA190F3CBF002DAADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B657BA190F3CBF002DAADE /* Foundation.framework */; };
-		07B657D5190F3CBF002DAADE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B657D3190F3CBF002DAADE /* InfoPlist.strings */; };
-		07B657D7190F3CBF002DAADE /* music_midi_core_audio_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B657D6190F3CBF002DAADE /* music_midi_core_audio_iosTests.m */; };
+		9AB54BB62D2B5D3000AFBCB1 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */; };
+		9AB54BB72D2B5D3000AFBCB1 /* shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */; };
+		9AB54BB82D2B5D3000AFBCB1 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */; };
+		9AB54BB92D2B5D3000AFBCB1 /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */; };
+		9AB54BBA2D2B5D3000AFBCB1 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB22D2B5D3000AFBCB1 /* node.cpp */; };
+		9AB54BBB2D2B5D3000AFBCB1 /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB52D2B5D3000AFBCB1 /* shell.mm */; };
+		9AB54BBC2D2B5D3000AFBCB1 /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BB12D2B5D3000AFBCB1 /* node.h */; };
+		9AB54BBD2D2B5D3000AFBCB1 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BAF2D2B5D3000AFBCB1 /* framework.h */; };
+		9AB54BBE2D2B5D3000AFBCB1 /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BB32D2B5D3000AFBCB1 /* shell.h */; };
+		9AB54BBF2D2B5D3000AFBCB1 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BAA2D2B5D3000AFBCB1 /* _.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +75,6 @@
 /* Begin PBXFileReference section */
 		07B657BA190F3CBF002DAADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07B657C7190F3CBF002DAADE /* aura_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aura_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		07B657D2190F3CBF002DAADE /* music_midi_core_audio_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "music_midi_core_audio_iosTests-Info.plist"; sourceTree = "<group>"; };
-		07B657D4190F3CBF002DAADE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		07B657D6190F3CBF002DAADE /* music_midi_core_audio_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = music_midi_core_audio_iosTests.m; sourceTree = "<group>"; };
 		9A00E60C26616C9C00517464 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A00E60E26616C9C00517464 /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A00E61026616C9C00517464 /* libacme_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +90,18 @@
 		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9AB54BAA2D2B5D3000AFBCB1 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
+		9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
+		9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
+		9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
+		9AB54BAF2D2B5D3000AFBCB1 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9AB54BB12D2B5D3000AFBCB1 /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		9AB54BB22D2B5D3000AFBCB1 /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		9AB54BB32D2B5D3000AFBCB1 /* shell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
+		9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shell.cpp; sourceTree = "<group>"; };
+		9AB54BB52D2B5D3000AFBCB1 /* shell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
 		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		A1CFD778154F5EAA007447E2 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,22 +141,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		07B657D0190F3CBF002DAADE /* music_midi_core_audio_iosTests */ = {
+		07B657D0190F3CBF002DAADE /* aura_ios */ = {
 			isa = PBXGroup;
 			children = (
-				07B657D6190F3CBF002DAADE /* music_midi_core_audio_iosTests.m */,
-				07B657D1190F3CBF002DAADE /* Supporting Files */,
+				9AB54BAA2D2B5D3000AFBCB1 /* _.h */,
+				9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */,
+				9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */,
+				9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */,
+				9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */,
+				9AB54BAF2D2B5D3000AFBCB1 /* framework.h */,
+				9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */,
+				9AB54BB12D2B5D3000AFBCB1 /* node.h */,
+				9AB54BB22D2B5D3000AFBCB1 /* node.cpp */,
+				9AB54BB32D2B5D3000AFBCB1 /* shell.h */,
+				9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */,
+				9AB54BB52D2B5D3000AFBCB1 /* shell.mm */,
 			);
-			path = music_midi_core_audio_iosTests;
-			sourceTree = "<group>";
-		};
-		07B657D1190F3CBF002DAADE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				07B657D2190F3CBF002DAADE /* music_midi_core_audio_iosTests-Info.plist */,
-				07B657D3190F3CBF002DAADE /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = aura_ios;
 			sourceTree = "<group>";
 		};
 		9A3E31A12CF8198B007DC9EE /* Products */ = {
@@ -173,7 +191,7 @@
 				9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */,
 				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
 				9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */,
-				07B657D0190F3CBF002DAADE /* music_midi_core_audio_iosTests */,
+				07B657D0190F3CBF002DAADE /* aura_ios */,
 				07B657B9190F3CBF002DAADE /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
@@ -195,6 +213,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB54BBC2D2B5D3000AFBCB1 /* node.h in Headers */,
+				9AB54BBD2D2B5D3000AFBCB1 /* framework.h in Headers */,
+				9AB54BBE2D2B5D3000AFBCB1 /* shell.h in Headers */,
+				9AB54BBF2D2B5D3000AFBCB1 /* _.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +346,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B657D5190F3CBF002DAADE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +356,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B657D7190F3CBF002DAADE /* music_midi_core_audio_iosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +363,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB54BB62D2B5D3000AFBCB1 /* _factory.cpp in Sources */,
+				9AB54BB72D2B5D3000AFBCB1 /* shell.cpp in Sources */,
+				9AB54BB82D2B5D3000AFBCB1 /* framework.cpp in Sources */,
+				9AB54BB92D2B5D3000AFBCB1 /* file_image.cpp in Sources */,
+				9AB54BBA2D2B5D3000AFBCB1 /* node.cpp in Sources */,
+				9AB54BBB2D2B5D3000AFBCB1 /* shell.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,17 +391,6 @@
 			targetProxy = 9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		07B657D3190F3CBF002DAADE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				07B657D4190F3CBF002DAADE /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		07B657DA190F3CBF002DAADE /* Debug */ = {
@@ -440,6 +455,7 @@
 		};
 		A1CFD77A154F5EAA007447E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
@@ -530,6 +546,7 @@
 		};
 		A1CFD77B154F5EAA007447E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;

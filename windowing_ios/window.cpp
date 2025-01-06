@@ -49,7 +49,7 @@ double get_status_bar_frame_height();
 
 #define WHEEL_DELTA 120
 //#define EXTRALOG
-void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
+//void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
 
 
 void ns_main_post(dispatch_block_t block);
@@ -146,7 +146,7 @@ void window::on_initialize_particle()
 
       MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
 
-      auto puserinteraction = m_puserinteraction;
+      //auto puserinteraction = user_interaction();
 
 //      auto pimpl = m_puserinteractionimpl.m_p;
 //
@@ -204,15 +204,15 @@ void window::on_initialize_particle()
       //      pusersystem->m_createstruct.hwndParent = hWndParent;
       //   pusersystem->m_createstruct.hMenu = hWndParent == nullptr ? nullptr : nIDorHMenu;
 
-      //auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
-      auto pusersystem = m_puserinteraction->m_pusersystem;
+      auto pusersystem = puserinteraction->m_pusersystem;
 
       //pusersystem->m_createstruct.hMenu = nullptr;
       //      pusersystem->m_createstruct.hInstance = ::aura::get_system()->m_hInstance;
       //pusersystem->m_createstruct.lpCreateParams = lpParam;
 
-      if (!m_puserinteraction->pre_create_window(pusersystem))
+      if (!puserinteraction->pre_create_window(pusersystem))
       {
 
          //return false;
@@ -245,7 +245,7 @@ void window::on_initialize_particle()
    //      {
 
       
-      install_message_routing(m_puserinteraction);
+      install_message_routing(puserinteraction);
 
        _create_window();
        
@@ -263,7 +263,7 @@ void window::on_initialize_particle()
 
       //}
 
-      auto lresult = m_puserinteraction->send_message(e_message_create); //
+      auto lresult = puserinteraction->send_message(e_message_create); //
       //, 0, //(lparam)&cs);
 
       bool bOk = true;
@@ -290,26 +290,26 @@ void window::on_initialize_particle()
 
       //if(pusersystem->m_createstruct.style & WS_VISIBLE)
       //if(pusersystem->m_.style & WS_VISIBLE)
-      if(m_puserinteraction->const_layout().design().is_screen_visible())
+      if(puserinteraction->const_layout().design().is_screen_visible())
       {
 
-         m_puserinteraction->display();
+         puserinteraction->display();
 
-         m_puserinteraction->set_need_redraw();
+         puserinteraction->set_need_redraw();
 
-         m_puserinteraction->post_redraw();
+         puserinteraction->post_redraw();
 
          //;//ios_window_show();
 
       }
 
-      m_puserinteraction->set_need_layout();
+      puserinteraction->set_need_layout();
 
-      m_puserinteraction->increment_reference_count();
+      puserinteraction->increment_reference_count();
 
-      m_puserinteraction->m_ewindowflag |= e_window_flag_window_created;
+      puserinteraction->m_ewindowflag |= e_window_flag_window_created;
 
-      m_puserinteraction->post_message(e_message_pos_create);
+      puserinteraction->post_message(e_message_pos_create);
 
       //return bOk;
 
@@ -324,7 +324,7 @@ void window::_create_window()
 //    
 //    unsigned uStyle = 0;
 //
-//    if(m_puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
+//    if(puserinteraction->m_ewindowflag & ::e_window_flag_miniaturizable)
 //    {
 //
 //#define NSWindowStyleMaskMiniaturizable (1 << 2)
@@ -358,12 +358,12 @@ void window::_create_window()
 ////
 ////      pimpl->m_pwindow = this;
 ////
-////      pimpl->m_puserinteraction->m_pwindow = this;
+////      pimpl->puserinteraction->m_pwindow = this;
 // 
 // //set_oswindow(this);
 //
 //
-//    auto rectangle = m_puserinteraction-> window_rectangle();
+//    auto rectangle = puserinteraction-> window_rectangle();
 //
 //    CGRect cgrect;
 //
@@ -966,7 +966,7 @@ void window::_create_window()
 
       }
       
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
       
       if(!puserinteraction)
       {
@@ -1201,7 +1201,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
 bool window::ios_window_key_up(::user::enum_key ekey)
    {
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(puserinteraction == nullptr)
       {
@@ -1722,7 +1722,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
       bool bOk = true;
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(!puserinteraction)
       {
@@ -1990,11 +1990,13 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
       
-      m_puserinteraction->place(::int_rectangle_dimension(0, 0, cx, cy));
-                                                        
-      m_puserinteraction->set_need_redraw();
+      auto puserinteraction = user_interaction();
       
-      m_puserinteraction->post_redraw();
+      puserinteraction->place(::int_rectangle_dimension(0, 0, cx, cy));
+                                                        
+      puserinteraction->set_need_redraw();
+      
+      puserinteraction->post_redraw();
 
       //return;
 
@@ -2232,7 +2234,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
       //this->set_active_window();
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(::is_null(puserinteraction))
       {
@@ -2261,7 +2263,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
       auto pwindowing = ios_windowing();
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       auto pwindowActive = pwindowing->get_active_window(m_puserthread);
 
@@ -2509,7 +2511,7 @@ void window::ios_window_text_view_did_begin_editing()
          
       }
       
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(puserinteraction == nullptr)
       {
@@ -2557,7 +2559,7 @@ void window::ios_window_text_view_did_begin_editing()
       
       information("macos::window::ios_window_on_hide");
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(::is_null(puserinteraction))
       {
@@ -2618,7 +2620,7 @@ void window::ios_window_text_view_did_begin_editing()
       ns_main_post(^()
                      {
          
-         auto puserinteraction = m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
       if(puserinteraction->get_parent() == nullptr && puserinteraction->get_owner() == nullptr)
       {
@@ -2691,7 +2693,7 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      }
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(::is_null(puserinteraction))
       {
@@ -2796,7 +2798,7 @@ void window::ios_window_text_view_did_begin_editing()
    //
    //      }
 
-      auto puserinteraction = m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if(::is_null(puserinteraction))
       {
@@ -2881,13 +2883,13 @@ void window::ios_window_text_view_did_begin_editing()
    {
 
 //      ::pointer < ::user::primitive_impl > pimplThis = m_puserinteractionimpl;
-
-      ::pointer < ::user::interaction > puiThis = m_puserinteraction;
+      
+      auto puserinteraction = user_interaction();
 
       try
       {
 
-         puiThis->send_message(e_message_destroy);
+         puserinteraction->send_message(e_message_destroy);
 
       }
       catch (...)
@@ -2898,7 +2900,7 @@ void window::ios_window_text_view_did_begin_editing()
       try
       {
 
-         puiThis->send_message(e_message_non_client_destroy);
+         puserinteraction->send_message(e_message_non_client_destroy);
 
       }
       catch (...)

@@ -114,5 +114,5 @@ bool m_bDirty;
 };
 
 #ifdef __OBJC__
-UIWindow * new_ios_window(ios_window * pwindow, CGRect int_rectangle, unsigned int uStyle);
+//UIWindow * new_ios_window(ios_window * pwindow, CGRect int_rectangle, unsigned int uStyle);
 #endif

@@ -19,7 +19,7 @@
 #include "_c_mm.h"
 
 
-UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
+//UIWindow * new_ios_window(ios_window * papexwindow, CGRect rectangle, unsigned int uStyle);
 
 
 #import "ios/iosEditImpact.h"

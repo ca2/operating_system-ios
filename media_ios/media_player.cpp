@@ -12,7 +12,7 @@
 #include <dispatch/dispatch.h>
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 void ios_play_media_item(void * pMPMediaItem);
 
@@ -35,7 +35,7 @@ namespace media_ios
    }
 
 
-   void media_player::OnEvent(::aqua::enum_player_happening ehappening, ::aqua::media_player_command * pcommand)
+   void media_player::OnHappening(::aqua::enum_player_happening ehappening, ::aqua::media_player_command * pcommand)
    {
    
       switch(ehappening)
@@ -63,7 +63,7 @@ void media_player::post_command(::aqua::media_player_command* pcommand)
 {
    
    pcommand->increment_reference_count();
- ns_main_async(^()
+ ns_main_post(^()
                {
     
     player_command_procedure(pcommand);

@@ -6,11 +6,12 @@
 //
 
 #include "ios_media_picker.h"
-#include "windowing_ios/iosWindow/ios_window.h"
+#include "windowing_ios/ios/ios_window.h"
+#include "windowing_ios/ios/iosWindow.h"
 #include "iosMediaPickerViewController.h"
 
 
-void ns_main_async(dispatch_block_t block);
+void ns_main_post(dispatch_block_t block);
 
 
 ios_media_picker::ios_media_picker()
@@ -24,8 +25,12 @@ ios_media_picker::ios_media_picker()
 void ios_media_picker::ios_media_picker_pick_media(const char * pszMediaType, ios_window * pioswindow)
 {
    
-   ns_main_async(^{
-      [ m_pioscontroller pickMedia : pszMediaType window:pioswindow->m_pioswindow ];
+   ns_main_post(^{
+      
+      
+      auto pnsioswindow = (iosWindow *) (__bridge ns_acme_window *) pioswindow->m_pnsacmewindow;
+      
+      [ m_pioscontroller pickMedia : pszMediaType window : pnsioswindow ];
       
    });
    

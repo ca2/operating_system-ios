@@ -66,7 +66,7 @@ namespace uikit
 #ifdef _DEBUG
       
       
-      huge_integer window::increment_reference_count()
+      long long window::increment_reference_count()
       {
          
          return ::acme::windowing::window::increment_reference_count();
@@ -74,7 +74,7 @@ namespace uikit
       }
       
       
-      huge_integer window::decrement_reference_count()
+      long long window::decrement_reference_count()
       {
          
          return ::acme::windowing::window::decrement_reference_count();
@@ -82,7 +82,7 @@ namespace uikit
       }
       
       
-      huge_integer window::release()
+      long long window::release()
       {
          
          return ::acme::windowing::window::release();

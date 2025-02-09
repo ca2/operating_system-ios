@@ -44,7 +44,7 @@
 //{
 //
 //
-//   huge_integer g_iMouseMove = 0;
+//   long long g_iMouseMove = 0;
 //
 //
 //   ::aura::application * g_pappPreTranslateMouseMessage = nullptr;
@@ -970,13 +970,13 @@
 ////      if (pfnWndProc == nullptr)
 ////      {
 ////
-////         lresult = ::DefWindowProcW(m_oswindow, pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+////         lresult = ::DefWindowProcW(m_oswindow, pmessage->m_atom.long_long, pmessage->m_wparam, pmessage->m_lparam);
 ////
 ////      }
 ////      else
 ////      {
 ////
-////         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+////         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, pmessage->m_atom.long_long, pmessage->m_wparam, pmessage->m_lparam);
 ////
 ////      }
 //      
@@ -2156,13 +2156,13 @@
 ////            if(bUpdateScreen)
 ////            {
 ////
-////               huge_natural now = get_nanos();
+////               unsigned long long now = get_nanos();
 ////
-////               huge_natural delta1 = now - m_uiLastUpdateBeg;
+////               unsigned long long delta1 = now - m_uiLastUpdateBeg;
 ////
-////               huge_integer delta2 = (huge_integer) m_uiLastUpdateBeg - (huge_integer) m_uiLastUpdateEnd;
+////               long long delta2 = (long long) m_uiLastUpdateBeg - (long long) m_uiLastUpdateEnd;
 ////
-////               huge_natural frameNanos = 1000000000LL / get_config_fps();
+////               unsigned long long frameNanos = 1000000000LL / get_config_fps();
 ////
 ////               if(delta1 < frameNanos || (delta2 > 0 && delta2 < 10000000000LL))
 ////               {

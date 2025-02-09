@@ -82,7 +82,7 @@ namespace windowing_ios
 #ifdef _DEBUG
 
 
-huge_integer window::increment_reference_count()
+long long window::increment_reference_count()
 {
     
     return ::uikit::acme::windowing::window::increment_reference_count();
@@ -90,13 +90,13 @@ huge_integer window::increment_reference_count()
 }
 
 
-huge_integer window::decrement_reference_count()
+long long window::decrement_reference_count()
 {
     return ::uikit::acme::windowing::window::decrement_reference_count();
 }
 
 
-huge_integer window::release()
+long long window::release()
 {
     return ::uikit::acme::windowing::window::release();
 }
@@ -2036,7 +2036,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //
    ////      ::int_size sz;
    ////
-   ////      huge_integer_point pt(rectangle.origin.x, rectangle.origin.y);
+   ////      long_long_point pt(rectangle.origin.x, rectangle.origin.y);
    ////
    ////      bool bMove = false;
    ////

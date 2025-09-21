@@ -116,7 +116,7 @@ namespace uikit
             
             //nano()->graphics();
             
-            __øconstruct(m_pnanodevice);
+            øconstruct(m_pnanodevice);
             
             m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
@@ -143,7 +143,7 @@ namespace uikit
             
             //nano()->graphics();
             
-            __øconstruct(m_pnanodevice);
+            øconstruct(m_pnanodevice);
             
             m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
@@ -221,7 +221,7 @@ namespace uikit
       void window::acme_window_bridging()
       {
       
-         m_pacmewindowbridge = __allocate acme_window_bridge();
+         m_pacmewindowbridge = øallocate acme_window_bridge();
          
       }
       
@@ -535,7 +535,7 @@ namespace uikit
          //
          //      ns_app_run();
          //
-         //      //   auto pmessagebox = pparticle->__create_new < ::nano::user::message_box >();
+         //      //   auto pmessagebox = pparticle->øcreate_new < ::nano::user::message_box >();
          //      //
          //      //   atom idResult;
          //      //

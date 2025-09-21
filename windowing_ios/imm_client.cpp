@@ -29,22 +29,22 @@ void imm_client::initialize_text_composition_client(::channel * pchannel, ::user
 
    m_puserinteraction = puserinteraction;
 
-   MESSAGE_LINK(e_message_set_focus, pchannel, this, &::imm_client::_001OnSetFocus);
-   MESSAGE_LINK(e_message_kill_focus, pchannel, this, &::imm_client::_001OnKillFocus);
-//   MESSAGE_LINK(WM_IME_SETCONTEXT, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_STARTCOMPOSITION, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_COMPOSITION, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_ENDCOMPOSITION, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_NOTIFY, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_KEYDOWN, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_KEYUP, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_IME_SELECT, pchannel, this, &::imm_client::_001OnIme);
-//   MESSAGE_LINK(WM_INPUTLANGCHANGE, pchannel, this, &::imm_client::_001OnIme);
+   USER_MESSAGE_LINK(::user::e_message_set_focus, pchannel, this, &::imm_client::_001OnSetFocus);
+   USER_MESSAGE_LINK(::user::e_message_kill_focus, pchannel, this, &::imm_client::_001OnKillFocus);
+//   USER_MESSAGE_LINK(WM_IME_SETCONTEXT, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_STARTCOMPOSITION, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_COMPOSITION, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_ENDCOMPOSITION, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_NOTIFY, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_KEYDOWN, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_KEYUP, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_IME_SELECT, pchannel, this, &::imm_client::_001OnIme);
+//   USER_MESSAGE_LINK(WM_INPUTLANGCHANGE, pchannel, this, &::imm_client::_001OnIme);
 //
-   MESSAGE_LINK(e_message_char, pchannel, this, &::imm_client::_011OnChar);
-//   MESSAGE_LINK(WM_IME_CHAR, pchannel, this, &::imm_client::_011OnChar);
+   USER_MESSAGE_LINK(::user::e_message_char, pchannel, this, &::imm_client::_011OnChar);
+//   USER_MESSAGE_LINK(WM_IME_CHAR, pchannel, this, &::imm_client::_011OnChar);
 
-   MESSAGE_LINK(e_message_key_down, pchannel, this, &::imm_client::_001OnKeyDown);
+   USER_MESSAGE_LINK(::user::e_message_key_down, pchannel, this, &::imm_client::_001OnKeyDown);
 
 
 }

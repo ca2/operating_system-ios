@@ -157,7 +157,7 @@ namespace acme_ios
 //               
 //            }
 //            
-//            auto pfile = __create_new < ::acme_ios::icloud_file >();
+//            auto pfile = øcreate_new < ::acme_ios::icloud_file >();
 //            
 //            ::string strName;
 //            

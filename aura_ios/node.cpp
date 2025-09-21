@@ -156,7 +156,7 @@ namespace aura_ios
          auto callback = [this](const ::file::path & path)
          {
             
-            auto prequest = __create_new <::request>();
+            auto prequest = øcreate_new <::request>();
             
             prequest->m_payloadFile = path;
             

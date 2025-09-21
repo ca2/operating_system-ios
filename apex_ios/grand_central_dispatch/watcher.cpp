@@ -24,7 +24,7 @@ namespace grand_central_dispatch
    bool watch::open(const ::file::path & pathFolderParam, bool bRecursive)
    {
       
-      auto pevent = __create_new < manual_reset_happening >();
+      auto pevent = øcreate_new < manual_reset_happening >();
       
       auto pathFolder = pathFolderParam;
       

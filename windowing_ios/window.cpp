@@ -144,7 +144,7 @@ void window::on_initialize_particle()
 
       ::windowing::window::install_message_routing(pchannel);
 
-      MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
+      USER_MESSAGE_LINK(::user::e_message_create, pchannel, this, &window::on_message_create);
 
       //auto puserinteraction = user_interaction();
 
@@ -153,34 +153,34 @@ void window::on_initialize_particle()
 //      if (!puserinteraction->m_bMessageWindow)
 //      {
 //
-//         //MESSAGE_LINK(e_message_redraw, pchannel, pimpl, &::user::interaction_impl::_001OnRedraw);
-//         //MESSAGE_LINK(e_message_apply_visual, pchannel, pimpl, &::user::interaction_impl::_001OnApplyVisual);
+//         //USER_MESSAGE_LINK(::user::e_message_redraw, pchannel, pimpl, &::user::interaction_impl::_001OnRedraw);
+//         //USER_MESSAGE_LINK(::user::e_message_apply_visual, pchannel, pimpl, &::user::interaction_impl::_001OnApplyVisual);
 //
 //
 //         //#ifndef LINUX
-//         //MESSAGE_LINK(e_message_reposition, pchannel, this, &window::_001OnMove);
-//         //MESSAGE_LINK(e_message_size, pchannel, this, &window::_001OnSize);
+//         //USER_MESSAGE_LINK(::user::e_message_reposition, pchannel, this, &window::_001OnMove);
+//         //USER_MESSAGE_LINK(::user::e_message_size, pchannel, this, &window::_001OnSize);
 //         //#endif
 //
 //
-//         //MESSAGE_LINK(e_message_show_window, pchannel, this, &window::_001OnShowWindow);
-//         //MESSAGE_LINK(e_message_kill_focus, pchannel, this, &window::_001OnKillFocus);
-//         //MESSAGE_LINK(e_message_set_focus, pchannel, this, &window::_001OnSetFocus);
-//         //MESSAGE_LINK(e_message_set_cursor, pchannel, this, &window::_001OnSetCursor);
+//         //USER_MESSAGE_LINK(::user::e_message_show_window, pchannel, this, &window::_001OnShowWindow);
+//         //USER_MESSAGE_LINK(::user::e_message_kill_focus, pchannel, this, &window::_001OnKillFocus);
+//         //USER_MESSAGE_LINK(::user::e_message_set_focus, pchannel, this, &window::_001OnSetFocus);
+//         //USER_MESSAGE_LINK(::user::e_message_set_cursor, pchannel, this, &window::_001OnSetCursor);
 //
 //      }
 
-      //MESSAGE_LINK(e_message_destroy_window, pchannel, pimpl, &::user::interaction_impl::_001OnDestroyWindow);
+      //USER_MESSAGE_LINK(::user::e_message_destroy_window, pchannel, pimpl, &::user::interaction_impl::_001OnDestroyWindow);
 
-   //   MESSAGE_LINK(WM_ACTIVATE, pchannel, this, &window::_001OnActivate);
-     // MESSAGE_LINK(WM_DWMNCRENDERINGCHANGED, pchannel, this, &window::_001OnDwmNcRenderingChanged);
+   //   USER_MESSAGE_LINK(WM_ACTIVATE, pchannel, this, &window::_001OnActivate);
+     // USER_MESSAGE_LINK(WM_DWMNCRENDERINGCHANGED, pchannel, this, &window::_001OnDwmNcRenderingChanged);
 
       //pimpl->install_message_routing(pchannel);
 
 
-      MESSAGE_LINK(e_message_destroy, pchannel, this, &window::on_message_destroy);
+      USER_MESSAGE_LINK(::user::e_message_destroy, pchannel, this, &window::on_message_destroy);
 
-      //MESSAGE_LINK(e_message_create, pchannel, pimpl, &::user::interaction_impl::_001OnPrioCreate);
+      //USER_MESSAGE_LINK(::user::e_message_create, pchannel, pimpl, &::user::interaction_impl::_001OnPrioCreate);
 
    }
 
@@ -975,7 +975,7 @@ void window::_create_window()
 
       }
       
-      auto g = __øcreate < ::draw2d::graphics >();
+      auto g = øcreate < ::draw2d::graphics >();
 
       g->attach(cgc);
       
@@ -1103,7 +1103,7 @@ void window::_create_window()
 //
 //      }
 //
-//      auto pkey  = __create_new < ::message::key >();
+//      auto pkey  = øcreate_new < ::message::key >();
 //
 //      pkey->m_id = e_message_key_down;
 //
@@ -1150,7 +1150,7 @@ void window::_create_window()
 bool window::ios_window_key_down(::user::enum_key ekey)
    {
       
-      {         auto pkey  = __create_new < ::message::key >();
+      {         auto pkey  = øcreate_new < ::message::key >();
 
          pkey->m_atom = e_message_key_down;
          pkey->m_ekey = ekey;
@@ -1163,7 +1163,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
 //      if(::is_set(pszUtf8) && ansi_len(pszUtf8) > 0)
 //      {
 //
-//         auto pkey = __create_new < ::message::key >();
+//         auto pkey = øcreate_new < ::message::key >();
 //
 //         pkey->set(get_oswindow(), this, e_message_text_composition, 0, 0);
 //
@@ -1210,7 +1210,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       }
 
-      auto pkey  = __create_new <::message::key >();
+      auto pkey  = øcreate_new <::message::key >();
 
 //      pkey->set(get_oswindow(), this, e_message_key_up, vk, (::lparam)(scan << 16));
    pkey->m_atom = e_message_key_up;
@@ -1316,7 +1316,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          try
          {
 
-            auto pmouseactivate = __create_new < ::message::mouse_activate >();
+            auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
 
              pmouseactivate->m_pwindow =this;
              pmouseactivate->m_oswindow = this;
@@ -1327,7 +1327,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
             if (pmouseactivate->m_lresult == e_mouse_activate || pmouseactivate->m_lresult == e_mouse_activate_no_activate_and_eat)
             {
 
-               auto pactivate = __create_new < ::message::activate >();
+               auto pactivate = øcreate_new < ::message::activate >();
                 pactivate->m_pwindow =this;
                 pactivate->m_oswindow = this;
                 pactivate->m_atom = ::e_message_activate;
@@ -1348,7 +1348,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       {
 
-         auto pmouse = __create_new < ::message::mouse > ();
+         auto pmouse = øcreate_new < ::message::mouse > ();
 
          ::atom id;
          
@@ -1433,7 +1433,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       try
       {
 
-         auto pmouseactivate = __create_new < ::message::mouse_activate >();
+         auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
 
           pmouseactivate->m_pwindow =this;
           pmouseactivate->m_oswindow = this;
@@ -1444,7 +1444,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          if (pmouseactivate->m_lresult == e_mouse_activate || pmouseactivate->m_lresult == e_mouse_activate_no_activate_and_eat)
          {
 
-            auto pactivate = __create_new < ::message::activate >();
+            auto pactivate = øcreate_new < ::message::activate >();
              pactivate->m_pwindow =this;
              pactivate->m_oswindow = this;
              pactivate->m_atom = ::e_message_activate;
@@ -1465,7 +1465,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
    {
 
-      auto pmouse = __create_new < ::message::mouse > ();
+      auto pmouse = øcreate_new < ::message::mouse > ();
 
       auto psession = session();
 
@@ -1540,7 +1540,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       m_pointMouseCursor.y() = yHost;
       
-      auto pmouse = __create_new < ::message::mouse >();
+      auto pmouse = øcreate_new < ::message::mouse >();
 
       
       auto psession = session();
@@ -1613,7 +1613,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    
    m_pointMouseCursor.y() = yHost;
    
-   auto pmouse = __create_new < ::message::mouse >();
+   auto pmouse = øcreate_new < ::message::mouse >();
 
    
    auto psession = session();
@@ -1682,7 +1682,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //   bool window::ios_window_double_click(double x, double y)
 //   {
 //
-//      auto pmouse = __create_new < ::message::mouse >();
+//      auto pmouse = øcreate_new < ::message::mouse >();
 //
 //      ::atom id;
 //
@@ -1828,7 +1828,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
       
-      auto pmouse = __create_new < ::message::mouse >();
+      auto pmouse = øcreate_new < ::message::mouse >();
       
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
@@ -1903,7 +1903,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
 
-      auto pmouse = __create_new < ::message::mouse >();
+      auto pmouse = øcreate_new < ::message::mouse >();
       
       //pmouse->set(this, this, id, wparam, lparam);
        pmouse->m_pwindow = this;
@@ -1930,7 +1930,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      lparam lparam = __MAKE_LPARAM(x, y);
 //
-//      auto pwheel  = __create_new < ::message::mouse_wheel > ();
+//      auto pwheel  = øcreate_new < ::message::mouse_wheel > ();
 //
 //      pwheel->set(this, this, id, wparam, lparam);
 //
@@ -1950,7 +1950,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(rectangle.origin.x, rectangle.origin.y);
 //
-//         auto pmove  = __create_new < ::message::move > ();
+//         auto pmove  = øcreate_new < ::message::move > ();
 //
 //         pmove->set(this, this, id, wparam, lparam);
 //
@@ -1966,7 +1966,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(0, 0);
 //
-//         auto pmove  = __create_new < ::message::move > ();
+//         auto pmove  = øcreate_new < ::message::move > ();
 //
 //         pmove->set(this, this, id, wparam, lparam);
 //
@@ -1982,7 +1982,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(cx, cy);
 //
-//         auto psize  = __create_new < ::message::size > ();
+//         auto psize  = øcreate_new < ::message::size > ();
 //
 //         psize->set(this, this, id, wparam, lparam);
 //
@@ -2139,7 +2139,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
          
          lparam lparam(point.x, point.y);
       
-         auto preposition  = __create_new < ::message::reposition > ();
+         auto preposition  = øcreate_new < ::message::reposition > ();
       
           preposition->m_pwindow = this;
           preposition->m_oswindow = this;
@@ -2939,7 +2939,7 @@ void window::pick_media(const char * pszMediaType)
    
    ns_main_send(^{
 
-      __øconstruct(m_pmediaitempicker, pfactory);
+      øconstruct(m_pmediaitempicker, pfactory);
       
       m_pmediaitempicker->m_ppickercallback = application();
       

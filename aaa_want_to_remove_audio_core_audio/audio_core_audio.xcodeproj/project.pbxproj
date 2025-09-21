@@ -86,7 +86,7 @@
 		078AEE5C191539C30091C065 /* audio_core_audio_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = audio_core_audio_iosTests.m; sourceTree = "<group>"; };
 		07A27B391808C1F3005F7B47 /* audio_core_audio_toolbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_toolbox.cpp; sourceTree = "<group>"; };
 		07A27B3A1808C1F3005F7B47 /* audio_core_audio_toolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_toolbox.h; sourceTree = "<group>"; };
-		07A27B3D1808E0C7005F7B47 /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
+		07A27B3D1808E0C7005F7B47 /* libberg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libberg.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libberg.dylib"; sourceTree = "<group>"; };
 		07A27B3F1808E0C7005F7B47 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		07A27B431808E0EA005F7B47 /* libmultimedia.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmultimedia.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libmultimedia.dylib"; sourceTree = "<group>"; };
 		07A27B451808E111005F7B47 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -191,7 +191,7 @@
 				07A27B451808E111005F7B47 /* AudioToolbox.framework */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
-				07A27B3D1808E0C7005F7B47 /* libbase.dylib */,
+				07A27B3D1808E0C7005F7B47 /* libberg.dylib */,
 				07A27B3F1808E0C7005F7B47 /* libcore.dylib */,
 				07A27B431808E0EA005F7B47 /* libmultimedia.dylib */,
 				A1CFD896154FB715007447E2 /* audio_core_audio */,

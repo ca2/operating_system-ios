@@ -29,7 +29,7 @@
 		9A7BC2952176021800CC2335 /* x123.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A7BC2942176021800CC2335 /* x123.mm */; };
 		9A7BC2962176021800CC2335 /* x123.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A7BC2942176021800CC2335 /* x123.mm */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
-		9A8CCB0117EA063800F87A02 /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAF917EA063800F87A02 /* libbase.dylib */; };
+		9A8CCB0117EA063800F87A02 /* libberg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAF917EA063800F87A02 /* libberg.dylib */; };
 		9A8CCB0817EA063800F87A02 /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0017EA063800F87A02 /* libcore.dylib */; };
 		9A8EAF7B17C5640300C458D1 /* music_midi_core_audio_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */; };
 		9A8EAF7C17C5640300C458D1 /* music_midi_core_audio_exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */; };
@@ -134,7 +134,7 @@
 		9A7BC2882175576200CC2335 /* music_midi_core_audio_message_out.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = music_midi_core_audio_message_out.h; sourceTree = "<group>"; };
 		9A7BC2942176021800CC2335 /* x123.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = x123.mm; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		9A8CCAF917EA063800F87A02 /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
+		9A8CCAF917EA063800F87A02 /* libberg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libberg.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libberg.dylib"; sourceTree = "<group>"; };
 		9A8CCB0017EA063800F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = music_midi_core_audio_exception.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = music_midi_core_audio_exception.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -179,7 +179,7 @@
 			files = (
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
-				9A8CCB0117EA063800F87A02 /* libbase.dylib in Frameworks */,
+				9A8CCB0117EA063800F87A02 /* libberg.dylib in Frameworks */,
 				9A8CCB0817EA063800F87A02 /* libcore.dylib in Frameworks */,
 				07D6C9BD18987A7200CB8AA8 /* libmultimedia.dylib in Frameworks */,
 				07D6C9BB18987A5E00CB8AA8 /* libveriwell_multimedia.dylib in Frameworks */,
@@ -252,7 +252,7 @@
 				A1CFD779154F5EAA007447E2 /* Products */,
 				07D6C9BC18987A7200CB8AA8 /* libmultimedia.dylib */,
 				07D6C9BA18987A5E00CB8AA8 /* libveriwell_multimedia.dylib */,
-				9A8CCAF917EA063800F87A02 /* libbase.dylib */,
+				9A8CCAF917EA063800F87A02 /* libberg.dylib */,
 				9A8CCB0017EA063800F87A02 /* libcore.dylib */,
 			);
 			sourceTree = "<group>";

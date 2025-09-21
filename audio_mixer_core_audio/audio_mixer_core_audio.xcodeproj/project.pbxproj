@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		079DBF481886ABF100EFFEFB /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 079DBF461886ABF100EFFEFB /* libbase.dylib */; };
+		079DBF481886ABF100EFFEFB /* libberg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 079DBF461886ABF100EFFEFB /* libberg.dylib */; };
 		079DBF491886ABF100EFFEFB /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 079DBF471886ABF100EFFEFB /* libcore.dylib */; };
 		07B6574B190F3C8B002DAADE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B6574A190F3C8B002DAADE /* XCTest.framework */; };
 		07B6574C190F3C8B002DAADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B6573C190F3C8B002DAADE /* Foundation.framework */; };
@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		077A01751B4D562C001C85FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		079DBF461886ABF100EFFEFB /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = ../../app/base/build/Release/libbase.dylib; sourceTree = "<group>"; };
+		079DBF461886ABF100EFFEFB /* libberg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libberg.dylib; path = ../../app/base/build/Release/libberg.dylib; sourceTree = "<group>"; };
 		079DBF471886ABF100EFFEFB /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = ../../app/core/build/Release/libcore.dylib; sourceTree = "<group>"; };
 		07B6573A190F3C8B002DAADE /* libios_audio_mixer_core_audio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libios_audio_mixer_core_audio.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B6573C190F3C8B002DAADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,7 +145,7 @@
 			files = (
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
-				079DBF481886ABF100EFFEFB /* libbase.dylib in Frameworks */,
+				079DBF481886ABF100EFFEFB /* libberg.dylib in Frameworks */,
 				079DBF491886ABF100EFFEFB /* libcore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,7 +191,7 @@
 				07B65752190F3C8B002DAADE /* audio_mixer_core_audio_iosTests */,
 				07B6573B190F3C8B002DAADE /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
-				079DBF461886ABF100EFFEFB /* libbase.dylib */,
+				079DBF461886ABF100EFFEFB /* libberg.dylib */,
 				079DBF471886ABF100EFFEFB /* libcore.dylib */,
 			);
 			sourceTree = "<group>";

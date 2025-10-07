@@ -2,7 +2,7 @@
 
 
 
-#include "app-core/multimedia/multimedia/multimedia.h"
+#include "app-multimedia/multimedia/multimedia/multimedia.h"
 #include <mmsystem.t.h>
 
 

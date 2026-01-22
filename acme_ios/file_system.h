@@ -29,7 +29,7 @@ namespace acme_ios
    };
 
 
-   class CLASS_DECL_ACME_MACOS file_system :
+   class CLASS_DECL_ACME_IOS file_system :
       virtual public ::acme_apple::file_system
    {
    public:

@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2022, assimp team
+Copyright (c) 2006-2024, assimp team
 
 All rights reserved.
 
@@ -58,15 +58,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma once
 #ifndef AI_CONFIG_H_INC
 #define AI_CONFIG_H_INC
-
-
-#ifdef AI_OPENGEX_IMPORTER_H
-#undef ASSIMP_USE_HUNTER
-#endif
-
-#ifdef __APPLE__
-#define ASSIMP_BUILD_NO_C4D_IMPORTER
-#endif
 
 // ###########################################################################
 // LIBRARY SETTINGS
@@ -668,7 +659,7 @@ enum aiComponent
  * Property type: bool
  */
 #define AI_CONFIG_IMPORT_FBX_EMBEDDED_TEXTURES_LEGACY_NAMING \
-	"AI_CONFIG_IMPORT_FBX_EMBEDDED_TEXTURES_LEGACY_NAMING"
+   "AI_CONFIG_IMPORT_FBX_EMBEDDED_TEXTURES_LEGACY_NAMING"
 
 // ---------------------------------------------------------------------------
 /** @brief  Set wether the importer shall not remove empty bones.
@@ -684,6 +675,19 @@ enum aiComponent
  */
 #define AI_CONFIG_FBX_CONVERT_TO_M \
     "AI_CONFIG_FBX_CONVERT_TO_M"
+
+// ---------------------------------------------------------------------------
+/** @brief  Set whether the FBX importer shall ignore the provided axis configuration
+ *
+ * If this property is set to true, the axis directions provided in the FBX file
+ * will be ignored and the file will be loaded as is.
+ *
+ * Set to true for Assimp 5.3.x and earlier behavior
+ * Equivalent to AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION
+ * Property type: Bool. Default value: false.
+ */
+#define AI_CONFIG_IMPORT_FBX_IGNORE_UP_DIRECTION \
+    "AI_CONFIG_IMPORT_FBX_IGNORE_UP_DIRECTION"
 
 // ---------------------------------------------------------------------------
 /** @brief  Will enable the skeleton struct to store bone data.
@@ -733,6 +737,12 @@ enum aiComponent
  */
 #define AI_CONFIG_IMPORT_MDL_HL1_READ_ANIMATION_EVENTS "IMPORT_MDL_HL1_READ_ANIMATION_EVENTS"
 
+// ---------------------------------------------------------------------------
+/** @brief Set whether you want to convert the HS1 coordinate system in a special way.
+ * The default value is true (S1)
+ * Property type: bool
+ */
+#define AI_CONFIG_IMPORT_MDL_HL1_TRANSFORM_COORD_SYSTEM "TRANSFORM COORDSYSTEM FOR HS! MODELS"
 // ---------------------------------------------------------------------------
 /** @brief Set whether the MDL (HL1) importer will read blend controllers.
  * \note This property requires AI_CONFIG_IMPORT_MDL_HL1_READ_ANIMATIONS to be set to true.
@@ -1059,7 +1069,6 @@ enum aiComponent
  */
 #define AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION "IMPORT_COLLADA_IGNORE_UP_DIRECTION"
 
-
 // ---------------------------------------------------------------------------
 /** @brief Specifies whether the Collada loader will ignore the provided unit size.
  *
@@ -1068,7 +1077,6 @@ enum aiComponent
  * Property type: Bool. Default value: false.
  */
 #define AI_CONFIG_IMPORT_COLLADA_IGNORE_UNIT_SIZE "IMPORT_COLLADA_IGNORE_UNIT_SIZE"
-
 
 // ---------------------------------------------------------------------------
 /** @brief Specifies whether the Collada loader should use Collada names.
@@ -1101,7 +1109,7 @@ enum aiComponent
 #define AI_CONFIG_EXPORT_POINT_CLOUDS "EXPORT_POINT_CLOUDS"
 
 /** @brief Specifies whether to use the deprecated KHR_materials_pbrSpecularGlossiness extension
- * 
+ *
  * When this flag is undefined any material with specularity will use the new KHR_materials_specular
  * extension. Enabling this flag will revert to the deprecated extension. Note that exporting
  * KHR_materials_pbrSpecularGlossiness with extensions other than KHR_materials_unlit is unsupported,
@@ -1124,18 +1132,28 @@ enum aiComponent
 #define AI_CONFIG_EXPORT_GLTF_UNLIMITED_SKINNING_BONES_PER_VERTEX \
         "USE_UNLIMITED_BONES_PER VERTEX"
 
+/** @brief Specifies whether to write the value referenced to opacity in TransparencyFactor of each material.
+ *
+ * When this flag is not defined, the TransparencyFactor value of each meterial is 1.0.
+ * By enabling this flag, the value is 1.0 - opacity;
+
+ * Property type: Bool. Default value: false.
+ */
+#define AI_CONFIG_EXPORT_FBX_TRANSPARENCY_FACTOR_REFER_TO_OPACITY \
+        "EXPORT_FBX_TRANSPARENCY_FACTOR_REFER_TO_OPACITY"
+
 /**
  * @brief Specifies the blob name, assimp uses for exporting.
- * 
- * Some formats require auxiliary files to be written, that need to be linked back into 
+ *
+ * Some formats require auxiliary files to be written, that need to be linked back into
  * the original file. For example, OBJ files export materials to a separate MTL file and
  * use the `mtllib` keyword to reference this file.
- * 
+ *
  * When exporting blobs using #ExportToBlob, assimp does not know the name of the blob
- * file and thus outputs `mtllib $blobfile.mtl`, which might not be desired, since the 
- * MTL file might be called differently. 
- * 
- * This property can be used to give the exporter a hint on how to use the magic 
+ * file and thus outputs `mtllib $blobfile.mtl`, which might not be desired, since the
+ * MTL file might be called differently.
+ *
+ * This property can be used to give the exporter a hint on how to use the magic
  * `$blobfile` keyword. If the exporter detects the keyword and is provided with a name
  * for the blob, it instead uses this name.
  */
@@ -1164,6 +1182,10 @@ enum aiComponent
  * Property type: Bool. Default value: undefined.
  */
 
-/* #undef ASSIMP_DOUBLE_PRECISION */
+//#cmakedefine ASSIMP_DOUBLE_PRECISION 1
+
+
+#define ASSIMP_BUILD_NO_VRML_IMPORTER 1
+
 
 #endif // !! AI_CONFIG_H_INC

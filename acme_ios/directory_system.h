@@ -10,7 +10,7 @@ namespace acme_ios
 {
 
 
-   class CLASS_DECL_ACME_MACOS directory_system :
+   class CLASS_DECL_ACME_IOS directory_system :
       virtual public ::acme_apple::directory_system
    {
    public:
@@ -79,7 +79,7 @@ namespace acme_ios
       //virtual ::file::path program_data() override;
       //virtual ::file::path icloud_container(const char * pszAppId) override;
 
-      virtual ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
+      virtual ::file::path stage(const ::scoped_string strAppId, const ::scoped_string strPlatform, const ::scoped_string & strConfiguration) override;
       virtual ::file::path sys_temp() override;
       virtual ::string dir_root() override;
       //virtual ::file::path home() override;
@@ -98,7 +98,7 @@ namespace acme_ios
       virtual ::file::path inplace_matter_install(string strAppId, string strPlatform, string strConfiguration) override;
 
 
-      virtual void set_path_install_folder(const ::string & strPath) override;
+      virtual void set_path_install_folder(const ::scoped_string & scopedstrPath) override;
 
       //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, int csidl, bool fCreate);
       //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);

@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/exception/not_implemented.h"
-
+#include "acme/platform/application.h"
 #include "acme/platform/context.h"
 #include "apex/filesystem/file/set.h"
 
@@ -56,10 +56,10 @@ namespace apex_ios
    }
 
 
-   string node::app_id_to_executable_name(const string & strAppId)
+   string node::app_id_to_executable_name(const ::scoped_string & scopedstrAppId)
    {
       
-      string strName = app_id_to_app_name(strAppId);
+      string strName = app_id_to_app_name(scopedstrAppId);
 
       return "_" + strName;
 
@@ -887,7 +887,7 @@ void node::initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch)
 }
 
 
-void node::file_open(const ::file::path & path, const string & strParams, const ::file::path & strFolder)
+void node::file_open(const ::file::path & path, const ::scoped_string & scopedstrParams, const ::file::path & strFolder)
 {
 
    auto pathProcessed = application()->defer_process_path(path);

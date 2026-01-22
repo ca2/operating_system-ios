@@ -40,10 +40,10 @@ namespace apex_ios
    }
 
 
-   void interprocess_caller::open(const ::string & strChannel,launcher * plauncher)
+   void interprocess_caller::open(const ::scoped_string & scopedstrChannel,launcher * plauncher)
    {
 
-      m_strBaseChannel = strChannel;
+      m_strBaseChannel = scopedstrChannel;
       //CFDataRef data;
 
       //SInt32 messageID = 0x1111; // Arbitrary
@@ -95,7 +95,7 @@ namespace apex_ios
 
 
 //   void interprocess_caller::send(int message,void * pdata,int len, const duration & durationTimeout)
-void interprocess_caller::call(const ::string & strUri, const class time & timeTimeout)
+void interprocess_caller::call(const ::scoped_string & scopedstrUri, const class time & timeTimeout)
    {
 
 //      if(message == 0x80000000)
@@ -122,7 +122,7 @@ void interprocess_caller::call(const ::string & strUri, const class time & timeT
 //      
 //      strUrl = m_strBaseChannel + "://localhost/?command_block=" + strCommand;
       
-      system()->node()->open_url_link_at_system_browser(strUri);
+      system()->node()->open_internet_link(scopedstrUri);
 
    }
 
@@ -150,7 +150,7 @@ void interprocess_caller::call(const ::string & strUri, const class time & timeT
    }
 
 
-   void interprocess_target::create(const ::string & strChannel)
+   void interprocess_target::create(const ::scoped_string & strChannel)
    {
 
       start_receiving();

@@ -37,10 +37,10 @@ namespace aura_ios
       ::image::image_pointer get_file_image(int iSize, const ::file::path & path) override;
 
 
-      void root_ones(::file::listing &listing) override;
+      void root_ones(::file::listing_base &listing) override;
       
       
-      bool defer_enumerate_protocol(::file::listing& listing) override;
+      bool defer_enumerate_protocol(::file::listing_base& listing) override;
 
       bool defer_process_protocol_path(::file::path & path) override;
 

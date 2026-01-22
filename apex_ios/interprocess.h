@@ -44,14 +44,14 @@ namespace apex_ios
 
 
 
-      void open(const ::string & strChannel, ::launcher * plauncher = nullptr) override;
+      void open(const ::scoped_string & strChannel, ::launcher * plauncher = nullptr) override;
       void close() override;
 
 
 //      void send(const ::string & strMessage, const duration & durationTimeout) override;
 //      void send(int message, void * pdata, int len, const duration & durationTimeout) override;
 
-      void call(const ::string & strUri, const class time & timeTimeout) override;
+      void call(const ::scoped_string & strUri, const class time & timeTimeout) override;
       bool is_caller_ok() override;
       
 
@@ -75,7 +75,7 @@ namespace apex_ios
       ~interprocess_target() override;
 
 
-      void create(const ::string & strChannel) override;
+      void create(const ::scoped_string & strChannel) override;
       void destroy() override;
 
 

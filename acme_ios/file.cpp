@@ -74,7 +74,7 @@ namespace acme_ios
 
 //   ::pointer < ::file::file > file::Duplicate() const
 //   {
-//      ASSERT_VALID(this);
+//      ASSERT_OK(this);
 //      ASSERT(m_iFile != (unsigned int)hFileNull);
 //
 //      int iNew = dup(m_iFile);
@@ -103,7 +103,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       //auto eopen = eopenParam;
 
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(!(eopen & ::file::e_open_text) );   // text mode not supported
 
       // file objects are always binary and CreateFile does not need flag
@@ -288,7 +288,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
    memsize file::read(void * lpBuf, memsize nCount)
    {
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
       if (nCount == 0)
@@ -345,7 +345,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::write(const void * lpBuf, memsize nCount)
    {
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
@@ -402,7 +402,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
          
       }
 
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(m_iFile != (unsigned int)hFileNull);
       ASSERT(eseek == ::e_seek_set || eseek == ::e_seek_from_end || eseek == ::e_seek_current);
       ASSERT(::e_seek_set == SEEK_SET && ::e_seek_from_end == SEEK_END && ::e_seek_current == SEEK_CUR);
@@ -428,7 +428,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
    filesize file::get_position() const
    {
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
       int lLoOffset = 0;
@@ -464,7 +464,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //       */
 //
-//      /*ASSERT_VALID(this);
+//      /*ASSERT_OK(this);
 //
 //       if (m_iFile == (unsigned int)hFileNull)
 //       return;
@@ -475,7 +475,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
 //   filesize file::get_position() const
 //   {
-//      ASSERT_VALID(this);
+//      ASSERT_OK(this);
 //      ASSERT(m_iFile != (unsigned int)hFileNull);
 //
 //      int lLoOffset = 0;
@@ -500,7 +500,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //       */
 //
-//      /*ASSERT_VALID(this);
+//      /*ASSERT_OK(this);
 //
          if (m_iFile == (unsigned int)hFileNull)
        return;
@@ -514,7 +514,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
    void file::close()
    {
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
       bool bError = false;
@@ -541,7 +541,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
 //   void file::Abort()
 //   {
-//      ASSERT_VALID(this);
+//      ASSERT_OK(this);
 //      if (m_iFile != (unsigned int)hFileNull)
 //      {
 //         // close but ignore errors
@@ -556,7 +556,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::lock(filesize dwPos, filesize dwCount)
    {
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
@@ -569,7 +569,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::unlock(filesize dwPos, filesize dwCount)
    {
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
@@ -582,7 +582,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    void file::set_size(filesize dwNewLen)
    {
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       
       ASSERT(m_iFile != (unsigned int)hFileNull);
 
@@ -605,7 +605,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
    filesize file::size() const
    {
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
 
       // seek is a non const operation
       file * pfile = (file*)this;
@@ -646,7 +646,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //   string file::get_file_name() const
 //   {
 //
-//      ASSERT_VALID(this);
+//      ASSERT_OK(this);
 //
 //      ::file::file_status status;
 //
@@ -660,7 +660,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //   string file::get_file_title() const
 //   {
 //
-//      ASSERT_VALID(this);
+//      ASSERT_OK(this);
 //
 //      ::file::file_status status;
 //
@@ -684,7 +684,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ::file::file_status status;
       
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
 
       if (m_iFile != hFileNull)
       {

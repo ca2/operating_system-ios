@@ -231,12 +231,12 @@ void  windowing::run()
                system()->m_args,
                _ns_application_delegate_class());
    
-   if(::system()->m_pmanualresethappeningMainLoopEnd)
-   {
+   //if(::system()->has_new)
+   //{
 
-      ::system()->m_pmanualresethappeningMainLoopEnd->set_happening();
+      ::system()->new_main_loop_happening()->set_happening();
 
-   }
+   //}
    
 }
 

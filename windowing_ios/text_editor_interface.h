@@ -32,7 +32,7 @@ namespace windowing_ios
 
 
       void set_editor_selection(character_count iStart, character_count iEnd) override;
-      void set_editor_text(const ::string & strText) override;
+      void set_editor_text(const ::scoped_string & strText) override;
       void show_software_keyboard() override;
       void hide_software_keyboard() override;
 

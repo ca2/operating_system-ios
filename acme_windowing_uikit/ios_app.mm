@@ -914,7 +914,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 
    system_id_update(application_system(m_papplication), id_defer_create_context_button, 0);
 
-   system_id_update(application_system(m_papplication), id_defer_post_initial_request, 0);
+   system_id_update(application_system(m_papplication), id_application_did_finish_launching, 0);
 
    
    

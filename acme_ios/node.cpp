@@ -62,9 +62,9 @@ namespace acme_ios
 
 
  void node::call_async(
-const ::string & pszPath,
-const ::string & pszParam,
-const ::string & pszDir,
+const ::scoped_string & pszPath,
+const ::scoped_string & pszParam,
+const ::scoped_string & pszDir,
 ::e_display edisplay,
 bool bPrivileged,
 unsigned int * puiPid)
@@ -107,19 +107,19 @@ unsigned int * puiPid)
 }
 
 
- void node::call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode)
+ void node::call_sync(const ::scoped_string & scopedstrPath, const ::scoped_string & scopedstrParam, const ::scoped_string & scopedstrDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode)
 {
 
    string strCmdLine;
 
-   strCmdLine = pszPath;
+   strCmdLine = scopedstrPath;
 
-   if(ansi_length(pszParam) > 0)
+   if(scopedstrParam.has_character())
    {
 
       strCmdLine +=  " ";
       
-      strCmdLine += pszParam;
+      strCmdLine += scopedstrParam;
       
    }
 
@@ -645,29 +645,29 @@ unsigned int * puiPid)
 //   
 //}
 //
-
-
-    void node::user_post_quit()
-      {
-       
-       ns_main_post(^
-                     {
-          
-          ns_app_terminate();
-          
-       });
-       
-//       m_phappeningReadyToTerminateApp = __new(manual_reset_happening);
+//
+//
+//    void node::user_post_quit()
+//      {
 //       
-//       m_phappeningReadyToTerminateApp->reset_happening();
+//       ns_main_post(^
+//                     {
+//          
+//          ns_app_terminate();
+//          
+//       });
 //       
-//       element_quit * pelementquit = new element_quit(this);
-//   
-//       ::os_post_quit(pelementquit);
+////       m_phappeningReadyToTerminateApp = __new(manual_reset_happening);
+////       
+////       m_phappeningReadyToTerminateApp->reset_happening();
+////       
+////       element_quit * pelementquit = new element_quit(this);
+////   
+////       ::os_post_quit(pelementquit);
+////       
+////       m_phappeningReadyToTerminateApp->_wait();
 //       
-//       m_phappeningReadyToTerminateApp->_wait();
-       
-      }
+//      }
 
 
    //   void * node::node_wrap_window(void * pvoidDisplay, long long window)
@@ -757,10 +757,10 @@ unsigned int * puiPid)
    }
 
 
-   void node::shell_launch(const ::string & strAppId)
+   void node::shell_launch(const ::scoped_string & scopedstrAppId)
    {
 
-      information() << "::acme_ios::node::shell_launch: " << strAppId;
+      information() << "::acme_ios::node::shell_launch: " << scopedstrAppId;
       
       //throw interface_only();
 
@@ -983,7 +983,7 @@ unsigned int * puiPid)
 //
 
 
-   void node::open_url_link_at_system_browser(const ::string & strUrl, const string & strProfile)
+   void node::open_internet_link(const ::scoped_string & strUrl, const ::scoped_string & strProfile)
    {
       
       ::ui_open_url(strUrl);

@@ -106,8 +106,8 @@ virtual public ::uikit::acme::windowing::window
 //      
 //      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, unsigned int nFlags) override;
 
-      //void set_mouse_capture() override;
-
+      void set_mouse_capture() override;
+      void release_mouse_capture() override;
       
       void window_update_screen() override;
       
@@ -174,7 +174,7 @@ virtual public ::uikit::acme::windowing::window
       void frame_toggle_restore(::user::activation_token * puseractivationtoken) override;
       
       
-      void non_top_most_upper_window_rects(::int_rectangle_array & recta) override;
+      void non_top_most_upper_window_rects(::int_rectangle_array_base & recta) override;
 
 
       void post_message(::message::message * pmessage) override;

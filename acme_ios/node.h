@@ -52,8 +52,8 @@ namespace acme_ios
       ::string get_file_type_identifier(const ::file::path & path) override;
       
       
-      void call_async(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, bool bPrivileged, unsigned int * puiPid = nullptr) override;
-      void call_sync(const ::string & pszPath, const ::string & pszParam, const ::string & pszDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode) override;
+      void call_async(const ::scoped_string & pszPath, const ::scoped_string & pszParam, const ::scoped_string & pszDir, ::e_display edisplay, bool bPrivileged, unsigned int * puiPid = nullptr) override;
+      void call_sync(const ::scoped_string & pszPath, const ::scoped_string & pszParam, const ::scoped_string & pszDir, ::e_display edisplay, const class time & timeTimeout, ::property_set & set, int * piExitCode) override;
 
       //virtual ::color::color get_system_color(enum_system_color esystemcolor) override;
       
@@ -70,13 +70,13 @@ namespace acme_ios
       
       //void node_quit() override;
 
-      void user_post_quit() override;
+      //void user_post_quit() override;
 
       void install_sigchld_handler() override;
       
       void _will_finish_launching() override;
       
-      void shell_launch(const ::string & strAppId) override;
+      void shell_launch(const ::scoped_string & strAppId) override;
 
 //         ::e_status _launch_macos_app(const ::string & pszAppFolder) override;
 //
@@ -124,7 +124,10 @@ namespace acme_ios
       
       //void open_url(const ::string & strUrl) override;
       
-      void open_url_link_at_system_browser(const string & strUrl, const string & strProfile = {}) override;
+//      void open_url_link_at_system_browser(const ::scoped_string & strUrl, const ::scoped_string & strProfile = {}) override;
+
+      void open_internet_link(const ::scoped_string & scopedstrUrl, const ::scoped_string &
+                              scopedstrProfile = {}, const ::scoped_string & scopedstrTarget = {}) override;
 
       //virtual void ns_app_run();
       

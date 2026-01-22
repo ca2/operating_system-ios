@@ -37,7 +37,7 @@
 #include "aura/message/user.h"
 #include <CoreGraphics/CoreGraphics.h>
 
-string_array string_array_from_strdup_count(const char ** pszaUrl, long lCount);
+string_array_base string_array_from_strdup_count(const char ** pszaUrl, long lCount);
 
 
 void ns_main_post(dispatch_block_t block);
@@ -263,7 +263,7 @@ void window::on_initialize_particle()
 
       //}
 
-      auto lresult = puserinteraction->send_message(e_message_create); //
+      auto lresult = puserinteraction->send_message(::user::e_message_create); //
       //, 0, //(lparam)&cs);
 
       bool bOk = true;
@@ -309,7 +309,7 @@ void window::on_initialize_particle()
 
       puserinteraction->m_ewindowflag |= e_window_flag_window_created;
 
-      puserinteraction->post_message(e_message_pos_create);
+      puserinteraction->post_message(::user::e_message_after_create);
 
       //return bOk;
 
@@ -1105,7 +1105,7 @@ void window::_create_window()
 //
 //      auto pkey  = øcreate_new < ::message::key >();
 //
-//      pkey->m_id = e_message_key_down;
+//      pkey->m_id = ::user::e_message_key_down;
 //
 //      pkey->m_strText = pszUtf8;
 //
@@ -1125,7 +1125,7 @@ void window::_create_window()
 //
 //      auto pkey  = __new(::message::key);
 //
-//      pkey->m_id = e_message_key_up;
+//      pkey->m_id = ::user::e_message_key_up;
 //
 //      pkey->m_nChar = uiKeyCode;
 //
@@ -1152,7 +1152,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
       
       {         auto pkey  = øcreate_new < ::message::key >();
 
-         pkey->m_atom = e_message_key_down;
+         pkey->m_eusermessage = ::user::e_message_key_down;
          pkey->m_ekey = ekey;
          //pkey->set(get_oswindow(), this, e_message_key_down, virtualKey, (lparam)(scanCode << 16));
          
@@ -1213,7 +1213,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       auto pkey  = øcreate_new <::message::key >();
 
 //      pkey->set(get_oswindow(), this, e_message_key_up, vk, (::lparam)(scan << 16));
-   pkey->m_atom = e_message_key_up;
+   pkey->m_eusermessage = ::user::e_message_key_up;
    pkey->m_ekey = ekey;
       puserinteraction->send_message(pkey);
 
@@ -1230,7 +1230,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       for(character_count i = 0; i < iUnicodeLen; i++)
       {
        
-         unicode_increment(p);
+         p = unicode_next(p);
          
       }
 
@@ -1242,7 +1242,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    bool window::ios_window_on_text(const char * pszText, long iUnicodeBeg, long iUnicodeEnd)
    {
       
-      auto pinteraction = m_puserinteractionKeyboardFocus;
+      ::cast <::user::interaction> pinteraction = m_pacmeuserinteractionKeyboardFocus;
       
       if(pinteraction)
       {
@@ -1320,7 +1320,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
              pmouseactivate->m_pwindow =this;
              pmouseactivate->m_oswindow = this;
-             pmouseactivate->m_atom = ::e_message_mouse_activate;
+             pmouseactivate->m_eusermessage = ::user::e_message_mouse_activate;
 
             send_message(pmouseactivate);
 
@@ -1330,7 +1330,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
                auto pactivate = øcreate_new < ::message::activate >();
                 pactivate->m_pwindow =this;
                 pactivate->m_oswindow = this;
-                pactivate->m_atom = ::e_message_activate;
+                pactivate->m_eusermessage = ::user::e_message_activate;
                 pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
                 pactivate->m_eactivate = e_activate_click_active;
 
@@ -1350,9 +1350,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          auto pmouse = øcreate_new < ::message::mouse > ();
 
-         ::atom id;
+         ::user::enum_message id;
          
-         id = e_message_left_button_down;
+         id = ::user::e_message_left_button_down;
 
          auto psession = session();
 
@@ -1369,7 +1369,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          
          pmouse->m_pwindow = this;
          pmouse->m_oswindow = this;
-         pmouse->m_atom = e_message_left_button_down;
+         pmouse->m_eusermessage = ::user::e_message_left_button_down;
          pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
          pmouse->m_pointHost.x = xHost;
          pmouse->m_pointHost.y = yHost;
@@ -1437,7 +1437,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
           pmouseactivate->m_pwindow =this;
           pmouseactivate->m_oswindow = this;
-          pmouseactivate->m_atom = ::e_message_mouse_activate;
+          pmouseactivate->m_eusermessage = ::user::e_message_mouse_activate;
 
          send_message(pmouseactivate);
 
@@ -1447,7 +1447,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
             auto pactivate = øcreate_new < ::message::activate >();
              pactivate->m_pwindow =this;
              pactivate->m_oswindow = this;
-             pactivate->m_atom = ::e_message_activate;
+             pactivate->m_eusermessage = ::user::e_message_activate;
              pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
              pactivate->m_eactivate = e_activate_click_active;
 
@@ -1482,7 +1482,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       pmouse->m_pwindow = this;
       pmouse->m_oswindow = this;
-      pmouse->m_atom = e_message_right_button_down;
+      pmouse->m_eusermessage = ::user::e_message_right_button_down;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
       pmouse->m_pointHost.y = yHost;
@@ -1558,7 +1558,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       pmouse->m_pwindow = this;
       pmouse->m_oswindow = this;
-      pmouse->m_atom = e_message_left_button_up;
+      pmouse->m_eusermessage = ::user::e_message_left_button_up;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
       pmouse->m_pointHost.y = yHost;
@@ -1631,7 +1631,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    
    pmouse->m_pwindow = this;
    pmouse->m_oswindow = this;
-   pmouse->m_atom = e_message_right_button_up;
+   pmouse->m_eusermessage = ::user::e_message_right_button_up;
    pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
    pmouse->m_pointHost.x = xHost;
    pmouse->m_pointHost.y = yHost;
@@ -1684,18 +1684,18 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      auto pmouse = øcreate_new < ::message::mouse >();
 //
-//      ::atom id;
+//      ::user::enum_message id;
 //
 //      if (iButton == 1)
 //      {
 //
-//         id = e_message_right_button_double_click;
+//         id = ::user::e_message_right_button_double_click;
 //
 //      }
 //      else
 //      {
 //
-//         id = e_message_left_button_double_click;
+//         id = ::user::e_message_left_button_double_click;
 //
 //      }
 //
@@ -1808,7 +1808,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
       }
       
-      ::atom id = e_message_mouse_move;
+      ::user::enum_message id = ::user::e_message_mouse_move;
       
       //wparam wparam = ::make_u32(0, 0);
       
@@ -1832,7 +1832,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
-       pmouse->m_atom = e_message_mouse_move;
+       pmouse->m_eusermessage = id;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
       pmouse->m_pointHost.y = yHost;
@@ -1883,7 +1883,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    void window::ios_window_mouse_dragged(int iGesture, double x, double y)
    {
       
-      ::atom id = e_message_mouse_move;
+      ::user::enum_message id = ::user::e_message_mouse_move;
 
       //wparam wparam = 0;
 
@@ -1908,7 +1908,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       //pmouse->set(this, this, id, wparam, lparam);
        pmouse->m_pwindow = this;
        pmouse->m_oswindow = this;
-       pmouse->m_atom = id;
+       pmouse->m_eusermessage = id;
        pmouse->m_lparam =::make_unsigned_int(x, y);
        pmouse->m_pointHost.x = x;
        pmouse->m_pointHost.y = y;
@@ -1922,7 +1922,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //   void window::ios_window_mouse_wheel(double deltaY, double x, double y)
 //   {
 //
-//      id id = e_message_mouse_wheel;
+//      id id = ::user::e_message_mouse_wheel;
 //
 //      short delta = deltaY * WHEEL_DELTA / 3.0;
 //
@@ -1944,7 +1944,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
 //      {
 //
-//         id id = e_message_reposition;
+//         id id = ::user::e_message_reposition;
 //
 //         wparam wparam = 0;
 //
@@ -1960,7 +1960,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
 //      {
 //
-//         ::atom id = e_message_reposition;
+//         ::user::enum_message id = ::user::e_message_reposition;
 //
 //         wparam wparam = 0;
 //
@@ -1976,7 +1976,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      {
 //
-//         ::atom id = e_message_size;
+//         ::user::enum_message id = ::user::e_message_size;
 //
 //         wparam wparam = 0;
 //
@@ -2133,7 +2133,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
       {
       
-         ::atom id = e_message_reposition;
+         ::user::enum_message id = ::user::e_message_reposition;
          
          //wparam wparam = 0;
          
@@ -2143,7 +2143,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
           preposition->m_pwindow = this;
           preposition->m_oswindow = this;
-          preposition->m_atom = id;
+          preposition->m_eusermessage = id;
           preposition->m_lparam =::make_unsigned_int(point.x, point.y);
           preposition->m_point.x = point.x;
           preposition->m_point.y = point.y;
@@ -2244,7 +2244,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       }
 
 //      puserinteraction->set_need_redraw();
-      puserinteraction->send_message(e_message_activate, 1);
+      puserinteraction->send_message(::user::e_message_activate, 1);
 
    }
 
@@ -2292,7 +2292,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //
    //      }
 
-      puserinteraction->send_message(e_message_activate, 0);
+      puserinteraction->send_message(::user::e_message_activate, 0);
 
 //      if(!is_destroying())
 //      {
@@ -2315,7 +2315,11 @@ bool window::ios_window_become_first_responder()
 void window::ios_window_text_view_did_begin_editing()
 {
 
-   on_final_set_keyboard_focus();
+   //on_final_set_keyboard_focus();
+   
+   //set_keyboard_focus(this)
+   
+   set_keyboard_focus();
 
 }
 
@@ -2522,7 +2526,7 @@ void window::ios_window_text_view_did_begin_editing()
 
       m_timeLastExposureAddUp.Now();
 
-      puserinteraction->send_message(e_message_show_window, 1);
+      puserinteraction->send_message(::user::e_message_show_window, 1);
 
       //puserinteraction->user_interaction_update_visibility_cache(true);
 
@@ -2584,7 +2588,7 @@ void window::ios_window_text_view_did_begin_editing()
 
       }
       
-      puserinteraction->message_call(e_message_show_window, 0);
+      puserinteraction->message_call(::user::e_message_show_window, 0);
 
    }
 
@@ -2667,7 +2671,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-   void window::non_top_most_upper_window_rects(::int_rectangle_array & recta)
+   void window::non_top_most_upper_window_rects(::int_rectangle_array_base & recta)
    {
       
       
@@ -2725,7 +2729,7 @@ void window::ios_window_text_view_did_begin_editing()
 //      if (pmq == nullptr)
 //      {
 //
-//         if (message.m_id == e_message_quit)
+//         if (message.m_id == ::user::e_message_quit)
 //         {
 //
 //            return false;
@@ -2745,20 +2749,20 @@ void window::ios_window_text_view_did_begin_editing()
 //
 //      synchronous_lock ml(pmq->mutex());
 //
-//      if (message.m_id == e_message_quit)
+//      if (message.m_id == ::user::e_message_quit)
 //      {
 //
 //         output_debug_string("e_message_quit thread");
 //
 //      }
 //
-//      if (message.m_id == e_message_left_button_down)
+//      if (message.m_id == ::user::e_message_left_button_down)
 //      {
 //
 //         output_debug_string("post_ui_message::e_message_left_button_down\n");
 //
 //      }
-//      else if (message.m_id == e_message_left_button_up)
+//      else if (message.m_id == ::user::e_message_left_button_up)
 //      {
 //
 //         output_debug_string("post_ui_message::e_message_left_button_up\n");
@@ -2830,7 +2834,7 @@ void window::ios_window_text_view_did_begin_editing()
    //      if (pmq == nullptr)
    //      {
    //
-   //         if (message.m_id == e_message_quit)
+   //         if (message.m_id == ::user::e_message_quit)
    //         {
    //
    //            return false;
@@ -2850,20 +2854,20 @@ void window::ios_window_text_view_did_begin_editing()
    //
    //      synchronous_lock ml(pmq->mutex());
    //
-   //      if (message.m_id == e_message_quit)
+   //      if (message.m_id == ::user::e_message_quit)
    //      {
    //
    //         output_debug_string("e_message_quit thread");
    //
    //      }
    //
-   //      if (message.m_id == e_message_left_button_down)
+   //      if (message.m_id == ::user::e_message_left_button_down)
    //      {
    //
    //         output_debug_string("post_ui_message::e_message_left_button_down\n");
    //
    //      }
-   //      else if (message.m_id == e_message_left_button_up)
+   //      else if (message.m_id == ::user::e_message_left_button_up)
    //      {
    //
    //         output_debug_string("post_ui_message::e_message_left_button_up\n");
@@ -2889,7 +2893,7 @@ void window::ios_window_text_view_did_begin_editing()
       try
       {
 
-         puserinteraction->send_message(e_message_destroy);
+         puserinteraction->send_message(::user::e_message_destroy);
 
       }
       catch (...)
@@ -2900,7 +2904,7 @@ void window::ios_window_text_view_did_begin_editing()
       try
       {
 
-         puserinteraction->send_message(e_message_non_client_destroy);
+         puserinteraction->send_message(::user::e_message_non_client_destroy);
 
       }
       catch (...)

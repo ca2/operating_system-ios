@@ -12,8 +12,8 @@ namespace acme_ios
    class file_system;
 
    
-   class CLASS_DECL_ACME directory_context :
-   virtual public ::directory_context
+   class CLASS_DECL_ACME_IOS directory_context :
+      virtual public ::directory_context
    {
    public:
       
@@ -43,7 +43,7 @@ namespace acme_ios
       
       bool fast_has_subdir(const ::file::path & path) override;
 
-      virtual ::file::listing & root_ones(::file::listing & listing) override;
+      virtual ::file::listing & root_ones(::file::listing_base & listing) override;
 //      virtual bool create(const ::file::path & path) override;
 //      virtual bool erase(const ::file::path & path, bool bRecursive = true) override;
       
@@ -58,7 +58,7 @@ namespace acme_ios
       
       virtual ::file::path module() override;
       //virtual ::file::path ca2module() override;
-      virtual ::file::path time_square(const ::string & strPrefix = nullptr, const ::string & strSuffix = nullptr);
+      virtual ::file::path time_square(const ::scoped_string & strPrefix = nullptr, const ::scoped_string & strSuffix = nullptr);
       virtual ::file::path time_log();
       
       

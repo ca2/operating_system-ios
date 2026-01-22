@@ -62,7 +62,7 @@ virtual public ::uikit::acme::windowing::windowing
       void os_menu_item_enable(void * pitem, bool bEnable) override;
       void os_menu_item_check(void * pitem, bool bCheck) override;
 
-      void defer_create_main_menu(const string_array & straParent, const string_array & straMenu, const string_array & straId) override;
+      void defer_create_main_menu(const string_array_base & straParent, const string_array_base & straMenu, const string_array_base & straId) override;
       
       ::pointer < ::windowing::cursor > get_cursor(enum_cursor ecursor) override;
       

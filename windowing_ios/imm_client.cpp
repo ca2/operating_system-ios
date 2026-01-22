@@ -72,7 +72,7 @@ void imm_client::_011OnChar(::message::message * pmessage)
 
    ::pointer < ::user::message > pusermessage(pmessage);
 
-   if (pmessage->m_atom == e_message_char)
+   if (pmessage->m_eusermessage == ::user::e_message_char)
    {
 
       auto psession = session();
@@ -556,12 +556,12 @@ void imm_client::_001OnKeyDown(::message::message * pmessage)
 }
 
 
-void imm_client::on_text_composition(string str)
+void imm_client::on_text_composition(const ::scoped_string & scopedstr)
 {
 
    //text_composition_client::on_text_composition(str);
 
-   m_puserinteraction->on_text_composition(str);
+   m_puserinteraction->on_text_composition(scopedstr);
 
 }
 

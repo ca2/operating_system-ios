@@ -177,7 +177,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
    }
 
 
-   void windowing::defer_create_main_menu(const string_array & straMenuParent, const string_array & straMenuName, const string_array & straMenuId)
+   void windowing::defer_create_main_menu(const string_array_base & straMenuParent, const string_array_base & straMenuName, const string_array_base & straMenuId)
    {
    //
    //      auto pmenushared =

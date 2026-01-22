@@ -258,10 +258,10 @@ namespace uikit
       }
       
       
-      void window::handle(::topic* ptopic, ::context* pcontext)
+      void window::handle(::topic * ptopic, ::handler_context * phandlercontext)
       {
          
-         if (ptopic->m_atom == id_set_application_dark_mode)
+         if (ptopic->m_atomMatterId == id_set_application_dark_mode)
          {
             
             //update_drawing_objects();
@@ -448,13 +448,13 @@ namespace uikit
       }
       
       
-      void window::set_capture()
+      void window::set_mouse_capture()
       {
          
       }
       
       
-      void window::release_capture()
+      void window::release_mouse_capture()
       {
          
       }

@@ -28,9 +28,9 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 
 long ios_clipboard_get_file_count();
 
-void ios_clipboard_get_filea(::file::path_array & stra);
+void ios_clipboard_get_filea(::file::path_array_base & stra);
 
-void ios_clipboard_set_filea(const ::file::path_array & stra);
+void ios_clipboard_set_filea(const ::file::path_array_base & stra);
 
 string ios_clipboard_get_plain_text();
 
@@ -113,7 +113,7 @@ namespace windowing_ios
    }
 
 
-   bool copydesk::_get_filea(::file::path_array & patha, enum_op & eop)
+   bool copydesk::_get_filea(::file::path_array_base & patha, enum_op & eop)
    {
 
       if(!has_filea())
@@ -132,7 +132,7 @@ namespace windowing_ios
    }
 
 
-   bool copydesk::_set_filea(const ::file::path_array & patha, enum_op eop)
+   bool copydesk::_set_filea(const ::file::path_array_base & patha, enum_op eop)
    {
 
       ns_main_send(^
@@ -202,10 +202,10 @@ namespace windowing_ios
    }
 
 
-   bool copydesk::_set_plain_text(const string & str)
+   bool copydesk::_set_plain_text(const ::scoped_string & scopedstr)
    {
 
-      ios_clipboard_set_plain_text(str);
+      ios_clipboard_set_plain_text(scopedstr);
 
       return true;
 

@@ -39,7 +39,7 @@ namespace windowing_ios
 
       auto& pimage = pbufferitem->m_pimage2;
 
-      auto sizeWindow = pbufferitem->m_size;
+      auto sizeWindow = pbufferitem->m_sizeBufferItemWindow;
       
 //      if(sizeWindow.is_empty())
 //      {

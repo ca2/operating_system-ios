@@ -10,7 +10,7 @@ namespace acme_ios
 {
 
 
-   class CLASS_DECL_ACME_MACOS path_system :
+   class CLASS_DECL_ACME_IOS path_system :
       virtual public ::acme_apple::path_system
    {
    public:

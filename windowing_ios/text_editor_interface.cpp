@@ -79,7 +79,7 @@ namespace windowing_ios
    }
 
 
-   void text_editor_interface::set_editor_text(const ::string& strText)
+   void text_editor_interface::set_editor_text(const ::scoped_string& strText)
    {
 
       auto pwindow = m_pwindow;
@@ -107,12 +107,12 @@ namespace windowing_ios
 //           if(puserinteractionimpl)
            {
                
-               auto puserinteraction = pwindow->m_puserinteractionKeyboardFocus;
+               auto puserinteraction = pwindow->m_pacmeuserinteractionKeyboardFocus;
                
                if(puserinteraction)
                {
                    
-                   auto rectangle = puserinteraction->window_rectangle();
+                   auto rectangle = puserinteraction->get_window_rectangle();
                   
                    string strText;
                    
@@ -159,7 +159,7 @@ namespace windowing_ios
 //           if(puserinteractionimpl)
            {
                
-               auto puserinteraction = pwindow->m_puserinteractionKeyboardFocus;
+               auto puserinteraction = pwindow->m_pacmeuserinteractionKeyboardFocus;
                
                if(!puserinteraction)
                {

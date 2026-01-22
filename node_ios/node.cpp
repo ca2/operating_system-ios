@@ -342,7 +342,7 @@ void node::on_app_activated(::user::activation_token * puseractivationtoken)
             
          }
          
-         pfiledialog->m_function(pfiledialog);
+         pfiledialog->m_procedureResponse(pfiledialog);
          
       };
       

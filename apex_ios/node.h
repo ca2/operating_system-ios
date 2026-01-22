@@ -31,7 +31,7 @@ namespace apex_ios
       int node_init_check(int * pi, char *** ppz) override;
       
       
-      string app_id_to_executable_name(const string & strAppId) override;
+      string app_id_to_executable_name(const ::scoped_string & scopedstrAppId) override;
 
 
       
@@ -82,7 +82,7 @@ namespace apex_ios
 //      virtual void post_to_all_threads(const ::atom & atom, WPARAM wParam, LPARAM lParam);
 
 
-      void file_open(const ::file::path & path, const string & strParams = "", const ::file::path & pathFolder = "") override;
+      void file_open(const ::file::path & path, const ::scoped_string & strParams = "", const ::file::path & pathFolder = "") override;
 
 
       void initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch) override;

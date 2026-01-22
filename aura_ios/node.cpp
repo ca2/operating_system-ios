@@ -104,7 +104,7 @@ namespace aura_ios
    }
 
 
-   void node::root_ones(::file::listing &listing)
+   void node::root_ones(::file::listing_base &listing)
    {
       
       ::apex_ios::node::root_ones(listing);
@@ -138,7 +138,7 @@ namespace aura_ios
    }
 
    
-   bool node::defer_enumerate_protocol(::file::listing& listing)
+   bool node::defer_enumerate_protocol(::file::listing_base& listing)
    {
       
       ::file::path pathFinal = listing.m_pathFinal;

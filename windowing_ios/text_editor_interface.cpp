@@ -128,8 +128,8 @@ namespace windowing_ios
                   
                   auto iUnicodeEnd = ansi_to_wd32_len(strText, iSelEnd);
                    
-                   pwindow->ios_window_edit_on_set_focus(rectangle.left(), rectangle.top(), rectangle.right(),
-                                                         rectangle.bottom(),
+                   pwindow->ios_window_edit_on_set_focus(rectangle.left, rectangle.top, rectangle.right,
+                                                         rectangle.bottom,
                           strText,       iUnicodeBeg,
                                                          iUnicodeEnd);
 //

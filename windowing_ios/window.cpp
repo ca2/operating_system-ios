@@ -230,8 +230,8 @@ void window::on_initialize_particle()
 
    //      rectParam.left = m_pusersystem->m_createstruct.x;
    //      rectParam.top = pusersystem->m_createstruct.y;
-   //      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx();
-   //      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy();
+   //      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx;
+   //      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy;
 
    //      copy(rectangle, rectParam);
    //
@@ -909,7 +909,7 @@ void window::_create_window()
 
       string strFormat;
 
-      strFormat.format("|-> window int_size %d, %d\n", sizeWindow.cx(), sizeWindow.cy());
+      strFormat.format("|-> window int_size %d, %d\n", sizeWindow.cx, sizeWindow.cy);
 
       printf("%s", strFormat.c_str());
       
@@ -1306,9 +1306,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    void window::on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
    {
       
-      m_pointMouseCursor.x() = xHost;
+      m_pointMouseCursor.x = xHost;
       
-      m_pointMouseCursor.y() = yHost;
+      m_pointMouseCursor.y = yHost;
 
       if (!this->is_active_window())
       {
@@ -1371,10 +1371,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          pmouse->m_oswindow = this;
          pmouse->m_atom = e_message_left_button_down;
          pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-         pmouse->m_pointHost.x() = xHost;
-         pmouse->m_pointHost.y() = yHost;
-         pmouse->m_pointAbsolute.x() = xAbsolute;
-         pmouse->m_pointAbsolute.y() = yAbsolute;
+         pmouse->m_pointHost.x = xHost;
+         pmouse->m_pointHost.y = yHost;
+         pmouse->m_pointAbsolute.x = xAbsolute;
+         pmouse->m_pointAbsolute.y = yAbsolute;
          
          ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
          
@@ -1423,9 +1423,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    void window::on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
    
-   m_pointMouseCursor.x() = xHost;
+   m_pointMouseCursor.x = xHost;
    
-   m_pointMouseCursor.y() = yHost;
+   m_pointMouseCursor.y = yHost;
 
    if (!this->is_active_window())
    {
@@ -1484,10 +1484,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       pmouse->m_oswindow = this;
       pmouse->m_atom = e_message_right_button_down;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x() = xHost;
-      pmouse->m_pointHost.y() = yHost;
-      pmouse->m_pointAbsolute.x() = xAbsolute;
-      pmouse->m_pointAbsolute.y() = yAbsolute;
+      pmouse->m_pointHost.x = xHost;
+      pmouse->m_pointHost.y = yHost;
+      pmouse->m_pointAbsolute.x = xAbsolute;
+      pmouse->m_pointAbsolute.y = yAbsolute;
       
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
@@ -1536,9 +1536,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    void window::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
    {
       
-      m_pointMouseCursor.x() = xHost;
+      m_pointMouseCursor.x = xHost;
       
-      m_pointMouseCursor.y() = yHost;
+      m_pointMouseCursor.y = yHost;
       
       auto pmouse = øcreate_new < ::message::mouse >();
 
@@ -1560,10 +1560,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       pmouse->m_oswindow = this;
       pmouse->m_atom = e_message_left_button_up;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x() = xHost;
-      pmouse->m_pointHost.y() = yHost;
-      pmouse->m_pointAbsolute.x() = xAbsolute;
-      pmouse->m_pointAbsolute.y() = yAbsolute;
+      pmouse->m_pointHost.x = xHost;
+      pmouse->m_pointHost.y = yHost;
+      pmouse->m_pointAbsolute.x = xAbsolute;
+      pmouse->m_pointAbsolute.y = yAbsolute;
       
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
@@ -1609,9 +1609,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 void window::on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
 {
    
-   m_pointMouseCursor.x() = xHost;
+   m_pointMouseCursor.x = xHost;
    
-   m_pointMouseCursor.y() = yHost;
+   m_pointMouseCursor.y = yHost;
    
    auto pmouse = øcreate_new < ::message::mouse >();
 
@@ -1633,10 +1633,10 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    pmouse->m_oswindow = this;
    pmouse->m_atom = e_message_right_button_up;
    pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-   pmouse->m_pointHost.x() = xHost;
-   pmouse->m_pointHost.y() = yHost;
-   pmouse->m_pointAbsolute.x() = xAbsolute;
-   pmouse->m_pointAbsolute.y() = yAbsolute;
+   pmouse->m_pointHost.x = xHost;
+   pmouse->m_pointHost.y = yHost;
+   pmouse->m_pointAbsolute.x = xAbsolute;
+   pmouse->m_pointAbsolute.y = yAbsolute;
    
    ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
    
@@ -1716,9 +1716,9 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
       
-      m_pointMouseCursor.x() = xHost;
+      m_pointMouseCursor.x = xHost;
       
-      m_pointMouseCursor.y() = yHost;
+      m_pointMouseCursor.y = yHost;
       
       bool bOk = true;
 
@@ -1747,9 +1747,9 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
          m_mouserepositionthrottling.m_timeMouseMove.Now();
 
-         m_mouserepositionthrottling.m_pointMouseMove.x() = xHost;
+         m_mouserepositionthrottling.m_pointMouseMove.x = xHost;
 
-         m_mouserepositionthrottling.m_pointMouseMove.y() = yHost;
+         m_mouserepositionthrottling.m_pointMouseMove.y = yHost;
 
 //            if(false)
 //            {
@@ -1761,7 +1761,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //                     (pinteraction->m_pointMouseMoveSkip.y - pinteraction->m_pointMouseMove.y));
 //
 //                  if(!pinteraction->m_millisMouseMoveSkip.timeout(pinteraction->m_millisMouseMovePeriod)
-//                     && sizeDistance.cx() * sizeDistance.cx() + sizeDistance.cy() * sizeDistance.cy() < pinteraction->m_iMouseMoveSkipSquareDistance)
+//                     && sizeDistance.cx * sizeDistance.cx + sizeDistance.cy * sizeDistance.cy < pinteraction->m_iMouseMoveSkipSquareDistance)
 //                  {
 //
 //                     pinteraction->m_iMouseMoveSkipCount++;
@@ -1834,10 +1834,10 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
        pmouse->m_oswindow = this;
        pmouse->m_atom = e_message_mouse_move;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x() = xHost;
-      pmouse->m_pointHost.y() = yHost;
-      pmouse->m_pointAbsolute.x() = xAbsolute;
-      pmouse->m_pointAbsolute.y() = yAbsolute;
+      pmouse->m_pointHost.x = xHost;
+      pmouse->m_pointHost.y = yHost;
+      pmouse->m_pointAbsolute.x = xAbsolute;
+      pmouse->m_pointAbsolute.y = yAbsolute;
       
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
@@ -1910,8 +1910,8 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
        pmouse->m_oswindow = this;
        pmouse->m_atom = id;
        pmouse->m_lparam =::make_unsigned_int(x, y);
-       pmouse->m_pointHost.x() = x;
-       pmouse->m_pointHost.y() = y;
+       pmouse->m_pointHost.x = x;
+       pmouse->m_pointHost.y = y;
       pmouse->m_pointAbsolute = pmouse->m_pointHost;
 
       post_message(pmouse);
@@ -2145,8 +2145,8 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
           preposition->m_oswindow = this;
           preposition->m_atom = id;
           preposition->m_lparam =::make_unsigned_int(point.x, point.y);
-          preposition->m_point.x() = point.x;
-          preposition->m_point.y() = point.y;
+          preposition->m_point.x = point.x;
+          preposition->m_point.y = point.y;
 
          post_message(preposition);
          

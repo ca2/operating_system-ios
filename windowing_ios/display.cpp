@@ -65,7 +65,7 @@ int display::get_zoomed_title_bar_height()
    ::int_rectangle r2;
    get_workspace_rectangle(0, r2);
  
-   return ::abs(r2.top() - r1.top());
+   return ::abs(r2.top - r1.top);
    
 }
 ::int_size display::get_main_screen_size()

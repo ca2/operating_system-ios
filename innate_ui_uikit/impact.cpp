@@ -436,17 +436,17 @@ namespace innate_ui_uikit
 
 #if !defined(APPLE_IOS)
       
-      size.cx() += 8;
+      size.cx += 8;
       
-      size.cy() += 40;
+      size.cy += 40;
       
 #endif
       
       auto sizeMaximum = system()->acme_windowing()->acme_display()->get_main_screen_size();
       
-      size.cx() = minimum(size.cx(), sizeMaximum.cx());
+      size.cx = minimum(size.cx, sizeMaximum.cx);
 
-      size.cy() = minimum(size.cy(), sizeMaximum.cy());
+      size.cy = minimum(size.cy, sizeMaximum.cy);
       
       set_size(size);
 
@@ -454,8 +454,8 @@ namespace innate_ui_uikit
       //    {      //
       //       RECT r{};
       //
-      //       r.right = r.left + size.cx();
-      //       r.bottom = r.top + size.cy();
+      //       r.right = r.left + size.cx;
+      //       r.bottom = r.top + size.cy;
       //
       //
       //       AdjustWindowRect(&r, _get_style(), FALSE);

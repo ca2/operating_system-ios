@@ -443,7 +443,7 @@ namespace uikit
       void window::set_position_unlocked(const ::int_point & point)
       {
          
-         m_pacmewindowbridge->set_position(point.x(), point.y());
+         m_pacmewindowbridge->set_position(point.x, point.y);
          
       }
       

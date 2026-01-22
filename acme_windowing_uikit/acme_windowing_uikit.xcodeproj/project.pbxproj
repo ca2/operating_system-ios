@@ -478,7 +478,6 @@
 			baseConfigurationReference = 9A7E17892C9DFCD900EE8CA6 /* _____debug.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
@@ -492,7 +491,6 @@
 			baseConfigurationReference = 9A7E178A2C9DFCD900EE8CA6 /* _____release.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = L8N5V6TZE5;
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;

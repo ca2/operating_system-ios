@@ -397,8 +397,8 @@
 ////
 //////      rectParam.left = m_pusersystem->m_createstruct.x;
 //////      rectParam.top = pusersystem->m_createstruct.y;
-//////      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx();
-//////      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy();
+//////      rectParam.right = pusersystem->m_createstruct.x + pusersystem->m_createstruct.cx;
+//////      rectParam.bottom = pusersystem->m_createstruct.y + pusersystem->m_createstruct.cy;
 ////
 //////      copy(rectangle, rectParam);
 //////
@@ -2385,8 +2385,8 @@
 //      //      ::int_size size = pbitmap->get_size();
 //      //      rectx.left = 0;
 //      //      rectx.top = 0;
-//      //      rectx.right = size.cx();
-//      //      rectx.bottom = size.cy();
+//      //      rectx.right = size.cx;
+//      //      rectx.bottom = size.cy;
 //      //      try
 //      //      {
 //      //         ::int_rectangle rectWindow;

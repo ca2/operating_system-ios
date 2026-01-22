@@ -49,9 +49,9 @@ void dialog::set_size(const ::int_size & size)
 //      [this, size]()
 //      {
 //
-//         //gtk_widget_set_size_request(m_pqwidget, size.cx(), size.cy());
-//         //m_pqwidget->resize(size.cx(), size.cy());
-//         __set_size(size.cx(), size.cy());
+//         //gtk_widget_set_size_request(m_pqwidget, size.cx, size.cy);
+//         //m_pqwidget->resize(size.cx, size.cy);
+//         __set_size(size.cx, size.cy);
 //      });
 
 }
@@ -60,10 +60,10 @@ void dialog::__defer_size_position()
 {
    
    __set_size_position(
-                       m_pointImpact.x(),
-                       m_pointImpact.y(),
-                       m_sizeImpact.cx(),
-                       m_sizeImpact.cy());
+                       m_pointImpact.x,
+                       m_pointImpact.y,
+                       m_sizeImpact.cx,
+                       m_sizeImpact.cy);
 
 }
    // void dialog::_get_class(WNDCLASSEXW & wcex)

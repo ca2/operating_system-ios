@@ -67,7 +67,7 @@ namespace windowing_ios
          //
          //
 
-         //         if(sizeWindow.cx() == 1)
+         //         if(sizeWindow.cx == 1)
          //         {
          //
          //            printf("cx=1");

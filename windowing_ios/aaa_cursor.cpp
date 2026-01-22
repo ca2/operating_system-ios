@@ -36,7 +36,7 @@ void * nscursor_from_cgimageref(CGImageRef image, int cx, int cy, int xHotSpot, 
 //      if(::is_ok(m_pimage))
 //      {
 //
-//         auto estatus = _create_from_image(m_pimage, m_szHotspotOffset.cx(), m_szHotspotOffset.cy());
+//         auto estatus = _create_from_image(m_pimage, m_szHotspotOffset.cx, m_szHotspotOffset.cy);
 //
 //         if(::succeeded(estatus))
 //         {

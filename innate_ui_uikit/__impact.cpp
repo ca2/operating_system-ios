@@ -405,10 +405,10 @@ void __impact::__defer_size_position()
 {
  
    __set_size_position(
-                       m_pointImpact.x(),
-                       m_pointImpact.y(),
-                       m_sizeImpact.cx(),
-                       m_sizeImpact.cy());
+                       m_pointImpact.x,
+                       m_pointImpact.y,
+                       m_sizeImpact.cx,
+                       m_sizeImpact.cy);
    
 }
 
@@ -475,9 +475,9 @@ void __impact::_defer_size_position()
 //      [this, size]()
 //      {
 //
-//         //gtk_widget_set_size_request(m_pqwidget, size.cx(), size.cy());
-//         //m_pqwidget->resize(size.cx(), size.cy());
-//         __set_size(size.cx(), size.cy());
+//         //gtk_widget_set_size_request(m_pqwidget, size.cx, size.cy);
+//         //m_pqwidget->resize(size.cx, size.cy);
+//         __set_size(size.cx, size.cy);
 //      });
 
    }
@@ -490,9 +490,9 @@ void __impact::_defer_size_position()
       
 #if !defined(APPLE_IOS)
       
-      size.cx() += 8;
+      size.cx += 8;
       
-      size.cy() += 40;
+      size.cy += 40;
       
 #endif
 
@@ -503,8 +503,8 @@ void __impact::_defer_size_position()
       //
       //       RECT r{};
       //
-      //       r.right = r.left + size.cx();
-      //       r.bottom = r.top + size.cy();
+      //       r.right = r.left + size.cx;
+      //       r.bottom = r.top + size.cy;
       //
       //
       //       AdjustWindowRect(&r, _get_style(), FALSE);

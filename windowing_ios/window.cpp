@@ -305,6 +305,8 @@ void window::on_initialize_particle()
 
       puserinteraction->set_need_layout();
 
+      __refdbg_add_referer;
+      
       puserinteraction->increment_reference_count();
 
       puserinteraction->m_ewindowflag |= e_window_flag_window_created;
@@ -314,9 +316,18 @@ void window::on_initialize_particle()
       //return bOk;
 
    }
-void window::acme_window_bridging()
+::particle * window::get_acme_window_bridge()
 {
-   m_pacmewindowbridge = this;
+   
+   if(!m_pacmewindowbridge)
+   {
+      m_pacmewindowbridge = this;
+      
+   }
+   
+   return m_pacmewindowbridge;
+   
+   
 }
 
 void window::_create_window()
@@ -853,26 +864,52 @@ void window::_create_window()
 
    }
 
-//
-//   void window::set_mouse_capture()
-//   {
-//
-//      auto pwindowing = (class windowing *) windowing()->m_pWindowing2;
-//      
-//      if(!pwindowing)
-//      {
-//         
-//         return;
-//         
-//         //return ::error_failed;
-//         
-//      }
-//      
-//      pwindowing->m_pwindowCapture = this;
-//
-//      //return ::success;
-//
-//   }
+
+   void window::set_mouse_capture()
+   {
+
+      auto pwindowing = ::system()->windowing();
+      
+      if(!pwindowing)
+      {
+         
+         return;
+         
+         //return ::error_failed;
+         
+      }
+      
+      pwindowing->m_pacmewindowingwindowMouseCapture = this;
+
+      //return ::success;
+
+   }
+
+
+void window::release_mouse_capture()
+{
+
+   auto pwindowing = ::system()->windowing();
+   
+   if(!pwindowing)
+   {
+      
+      return;
+      
+      //return ::error_failed;
+      
+   }
+   
+   if(pwindowing->m_pacmewindowingwindowMouseCapture == this)
+   {
+    
+      pwindowing->m_pacmewindowingwindowMouseCapture = nullptr;
+      
+   }
+
+   //return ::success;
+
+}
 
 
    void window::window_update_screen()
@@ -890,7 +927,7 @@ void window::_create_window()
 
 
 
-   void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam)
+   void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam, int iYFlipHeight, double dSizeScaler)
    {
       
 #ifdef EXTRALOG
@@ -975,114 +1012,124 @@ void window::_create_window()
 
       }
       
-      auto g = øcreate < ::draw2d::graphics >();
+      auto pgraphics = øcreate < ::draw2d::graphics >();
 
-      g->attach(cgc);
+      pgraphics->attach(cgc);
       
-      //auto rectClient = puserinteraction->client_rectangle();
-
-      g->set_alpha_mode(::draw2d::e_alpha_mode_blend);
-
-      _synchronous_lock slGraphics(pbuffer->synchronization());
-       
-       auto pbufferitem = pbuffer->get_screen_item();
+      pgraphics->m_iYFlipHeight = iYFlipHeight;
       
-      _synchronous_lock sl1(pbufferitem->synchronization());
-
-       auto & pimageBuffer2 = pbufferitem->m_pimage2;
-
-      if (!pimageBuffer2)
-      {
-
-         output_debug_string("NOT DRAWING? <<---- search and bp here !imageBuffer2 ");
-
-         return;
-
-      }
+      pgraphics->set_size_scaler(dSizeScaler);
       
-      slGraphics.unlock();
-
-   #ifdef EXTRALOG
-
-//      if(strSize.has_character())
+      draw_frame_layout(pgraphics);
+      
+      draw_frame_draw(pgraphics);
+      
+      
+      //pgraphics->fill_solid_rectangle({100.0, 100.0, 500.0, 500.0}, ::color::blue);
+//      //auto rectClient = puserinteraction->client_rectangle();
+//
+//      g->set_alpha_mode(::draw2d::e_alpha_mode_blend);
+//
+//      synchronous_lock slGraphics(pbuffer->synchronization());
+//       
+//       auto pbufferitem = pbuffer->get_screen_item();
+//      
+//      synchronous_lock sl1(pbufferitem->synchronization());
+//
+//       auto & pimageBuffer2 = pbufferitem->m_pimage2;
+//
+//      if (!pimageBuffer2)
 //      {
 //
-//         s_iLastExact = -1;
+//         output_debug_string("NOT DRAWING? <<---- search and bp here !imageBuffer2 ");
+//
+//         return;
 //
 //      }
+//      
+//      slGraphics.unlock();
 //
-//      if(s_iLastExact > 0)
+//   #ifdef EXTRALOG
+//
+////      if(strSize.has_character())
+////      {
+////
+////         s_iLastExact = -1;
+////
+////      }
+////
+////      if(s_iLastExact > 0)
+////      {
+////
+////
+////         if(s_iLastExact % 10 == 0)
+////         {
+////
+////            str = "\n.";
+////
+////         }
+////         else
+////         {
+////
+////            str = ".";
+////
+////         }
+////
+////         strFormat.Format("%d", iAge);
+////
+////         str += strFormat;
+////
+////         output_debug_string(str);
+////         
+////      }
+////      else
+////      {
+////
+////         INFO(str);
+////
+////      }
+////
+//   #endif
+//
+//      ::int_size sizeMin = pimageBuffer2->size().minimum(sizeWindow);
+//      
+//      if(::is_ok(pimageBuffer2))
 //      {
-//
-//
-//         if(s_iLastExact % 10 == 0)
-//         {
-//
-//            str = "\n.";
-//
-//         }
-//         else
-//         {
-//
-//            str = ".";
-//
-//         }
-//
-//         strFormat.Format("%d", iAge);
-//
-//         str += strFormat;
-//
-//         output_debug_string(str);
+//         
+//         //output_debug_string("imageBuffer2 ok size : " + __string(imageBuffer2->size()) + "\n");
 //         
 //      }
 //      else
 //      {
 //
-//         INFO(str);
+//         output_debug_string("imageBuffer2 nok\n");
+//         
+//         return;
+//         
+//      }
+//      
+//      ::image::image_source imagesource(pimageBuffer2);
+//      
+//      ::image::image_drawing_options imagedrawingoptions(sizeMin);
+//      
+//      if(sizeMin.is_empty())
+//      {
+//         
+//         output_debug_string("sizeMin is empty\n");
+//         
+//      }
+//      else
+//      {
 //
+//         //output_debug_string("sizeMin is " + __string(sizeMin) + "\n");
+//         
 //      }
 //
-   #endif
-
-      ::int_size sizeMin = pimageBuffer2->size().minimum(sizeWindow);
-      
-      if(::is_ok(pimageBuffer2))
-      {
-         
-         //output_debug_string("imageBuffer2 ok size : " + __string(imageBuffer2->size()) + "\n");
-         
-      }
-      else
-      {
-
-         output_debug_string("imageBuffer2 nok\n");
-         
-         return;
-         
-      }
-      
-      ::image::image_source imagesource(pimageBuffer2);
-      
-      ::image::image_drawing_options imagedrawingoptions(sizeMin);
-      
-      if(sizeMin.is_empty())
-      {
-         
-         output_debug_string("sizeMin is empty\n");
-         
-      }
-      else
-      {
-
-         //output_debug_string("sizeMin is " + __string(sizeMin) + "\n");
-         
-      }
-
-      ::image::image_drawing imagedrawing(imagedrawingoptions, imagesource);
-
-      g->draw(imagedrawing);
-      
-      //output_debug_string("ios_window_draw end\n");
+//      ::image::image_drawing imagedrawing(imagedrawingoptions, imagesource);
+//
+//      g->draw(imagedrawing);
+//      
+//      //output_debug_string("ios_window_draw end\n");
       
       m_bPendingRedraw = false;
       
@@ -1348,12 +1395,6 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       {
 
-         auto pmouse = øcreate_new < ::message::mouse > ();
-
-         ::user::enum_message id;
-         
-         id = ::user::e_message_left_button_down;
-
          auto psession = session();
 
          try
@@ -1367,6 +1408,8 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          }
          
+         auto pmouse = øcreate_new < ::message::mouse > ();
+
          pmouse->m_pwindow = this;
          pmouse->m_oswindow = this;
          pmouse->m_eusermessage = ::user::e_message_left_button_down;
@@ -1391,13 +1434,20 @@ bool window::ios_window_key_up(::user::enum_key ekey)
             }
             
          }
-
-         user_interaction()->send_message(pmouse);
          
-         if(pmouse->m_bRet)
+         auto puserinteraction = user_interaction();
+         
+         if(puserinteraction)
          {
             
-            return;
+            puserinteraction->send_message(pmouse);
+            
+            if(pmouse->m_bRet)
+            {
+               
+               return;
+               
+            }
             
          }
          
@@ -1580,13 +1630,20 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          }
          
       }
-
-      user_interaction()->send_message(pmouse);
       
-      if(pmouse->m_bRet)
+      auto puserinteraction = user_interaction();
+
+      if(::is_set(puserinteraction))
       {
          
-         return;
+         puserinteraction->send_message(pmouse);
+         
+         if(pmouse->m_bRet)
+         {
+            
+            return;
+            
+         }
          
       }
       
@@ -3015,6 +3072,12 @@ void window::on_prompt_write_file(::user::controller *pusercontroller)
       return as_non_const(this);
 
    }
+
+
+void window::show_task(bool bShow)
+{
+
+}
 
 
 } // namespace windowing_ios

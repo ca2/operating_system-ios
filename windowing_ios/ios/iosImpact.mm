@@ -867,6 +867,19 @@ double get_status_bar_frame_height();
       
    }
    
+   
+   UIWindow *window = pioswindow; // Or your specific UIWindow instance
+   CGFloat scale = window.windowScene.screen.nativeScale; // Native scale factor
+   auto impactSize = self.bounds.size;
+   
+   double dSizeScaler = scale;
+
+   //CGFloat pixelWidth = bounds.size.width * scale;
+   CGFloat pixelHeight = impactSize.height * scale;
+
+   // Get the height of the view
+   CGFloat iYFlipHeight = pixelHeight;
+   
    CGContextRef context = UIGraphicsGetCurrentContext();
    
    CGContextResetClip(context);
@@ -945,9 +958,9 @@ double get_status_bar_frame_height();
 //      int y = p->ios_window_get_y();
 //      
 //      CGContextTranslateCTM(context, x, y);
-         p->_on_draw_background(context, rect.size);
-      p->ios_window_draw(context, rect.size);
-         p->_on_draw_foreground(context, rect.size);
+         //p->_on_draw_background(context, rect.size);
+      p->ios_window_draw(context, rect.size, iYFlipHeight, dSizeScaler);
+         //p->_on_draw_foreground(context, rect.size);
       }
 
    }
@@ -1221,7 +1234,11 @@ double get_status_bar_frame_height()
          }
 
          CGRect statusFrame = keyWindow.windowScene.statusBarManager.statusBarFrame;
-         statusBarHeight = statusFrame.size.height;
+      CGFloat scale = UIScreen.mainScreen.scale;
+      CGSize sizeInPoints = keyWindow.windowScene.statusBarManager.statusBarFrame.size;
+      CGSize sizeInPixels = CGSizeMake(sizeInPoints.width * scale,
+                                       sizeInPoints.height * scale);
+         statusBarHeight = sizeInPixels.height;
           NSLog(@"statusBarHeight: %f", statusBarHeight);
 //      } else {
 //          statusBarHeight = UIApplication.sharedApplication.statusBarFrame.size.height;

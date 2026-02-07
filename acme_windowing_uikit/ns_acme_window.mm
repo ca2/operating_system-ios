@@ -27,11 +27,13 @@ void ns_main_send(dispatch_block_t block);
 @implementation ns_acme_window
 
 
-- (id)initWithFrame:(CGRect)contentRect
+- (id)initWithFrame:(CGRect)contentRect andAcmeWindowBridgeAsParticle : (::particle * ) pparticleAcmeWindowBridge
 
 {
    
-    self = [super initWithFrame:contentRect ];
+   m_pacmewindowbridge = dynamic_cast < ::uikit::acme_window_bridge * >(pparticleAcmeWindowBridge);
+   
+    self = [super initWithFrame:contentRect];
 
     if(self == NULL)
    {

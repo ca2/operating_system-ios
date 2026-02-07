@@ -13,6 +13,7 @@
 #include "acme/user/micro/elemental.h"
 #include "acme/user/user/mouse.h"
 #include "acme/windowing/windowing.h"
+#include "acme_window_bridge.h"
 #include <CoreGraphics/CoreGraphics.h>
 
 void ns_main_post(dispatch_block_t block);
@@ -218,10 +219,17 @@ namespace uikit
       }
       
       
-      void window::acme_window_bridging()
+      ::particle * window::get_acme_window_bridge()
       {
-      
-         m_pacmewindowbridge = øallocate acme_window_bridge();
+         
+         if(!m_pacmewindowbridge)
+         {
+            
+            m_pacmewindowbridge = øallocate acme_window_bridge();
+            
+         }
+         
+         return m_pacmewindowbridge;
          
       }
       
@@ -229,7 +237,7 @@ namespace uikit
       void window::_create_window()
       {
          
-         acme_window_bridging();
+         //acme_window_bridging();
          
          CGRect cgrect;
          
@@ -237,8 +245,10 @@ namespace uikit
          
          screen_coordinates_aware_copy(cgrect, rectangle);
          
-         m_pacmewindowbridge->m_pwindow = this;
-         
+         ::cast < ::uikit::acme_window_bridge> pacmewindowbridge = get_acme_window_bridge();
+         pacmewindowbridge->m_papplekitacmewindowingwindow = this;
+         pacmewindowbridge->m_puikitacmewindowingwindow = this;
+
          m_pacmewindowbridge->attach_ns_acme_window(cgrect);
          
          if(!system()->acme_windowing()->get_application_host_window())

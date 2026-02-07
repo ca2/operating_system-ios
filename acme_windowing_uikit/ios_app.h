@@ -37,7 +37,7 @@ class command_handler;
    NSMutableArray *     m_windowcontrollera;
    UINavigationController * navigationController;
    acme_notification_callback *      m_pacmenotificationcallback;
-   ns_acme_window * m_pnsacmewindow;
+   ns_acme_window * m_pnsacmewindowIosApp;
 
 //}
 //
@@ -59,6 +59,7 @@ class command_handler;
    ::command_handler *                    m_pcommandhandler;
 
 }
+-(void) create_ns_acme_window : (::particle * ) pparticleAcmeWindowBridge;
 
 //-(void)application_menu_update;
 //-(UIViewController *) addWindow:(UIWindow*)window;

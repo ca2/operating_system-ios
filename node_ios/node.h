@@ -42,7 +42,7 @@ namespace node_ios
 //      void implement(::pointer < ::platform::node > & pnode, ::pointer < ::platform::system > & psystem) override;
 //
 //      
-//      void _will_finish_launching() override;
+//      void _will_aaafinish_launching() override;
 //      
       void on_app_activated(::user::activation_token * puseractivationtoken) override;
       void on_start_system() override;

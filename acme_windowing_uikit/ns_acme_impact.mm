@@ -380,11 +380,13 @@
          
          CGPoint point = [touch locationInView:self];
          
-         int x = point.x;
+         CGFloat scale = self.window.screen.scale;
+         CGPoint pointPixels = CGPointMake(point.x * scale, point.y * scale);
          
-         int y = point.y;
+         int x = (int) pointPixels.x;
+         int y = (int) pointPixels.y;
          
-         m_pointLastTouchBegan = point;
+         m_pointLastTouchBegan = pointPixels;
          
          p->on_left_button_down(x, y, x, y);
          
@@ -435,13 +437,15 @@
          
          CGPoint point = [touch locationInView:self];
          
-         int x = point.x;
+         CGFloat scale = self.window.screen.scale;
+         CGPoint pointPixels = CGPointMake(point.x * scale, point.y * scale);
          
-         int y = point.y;
+         int x = (int) pointPixels.x;
+         int y = (int) pointPixels.y;
+
+         m_pointLastTouchBegan = pointPixels;
          
-         m_pointLastTouchBegan = point;
-         
-          p->on_mouse_move(x, y, x, y);
+         p->on_mouse_move(x, y, x, y);
          
       }
       else
@@ -497,11 +501,17 @@
          
          CGPoint point = [touch locationInView:self];
          
-         int x = point.x;
+         //int x = point.x;
          
-         int y = point.y;
+         //int y = point.y;
          
-          p->on_left_button_up(x, y, x, y);
+         CGFloat scale = self.window.screen.scale;
+         CGPoint pointPixels = CGPointMake(point.x * scale, point.y * scale);
+         
+         int x = (int) pointPixels.x;
+         int y = (int) pointPixels.y;
+
+         p->on_left_button_up(x, y, x, y);
          
       }
       else if ([touch tapCount] == 1)
@@ -511,17 +521,23 @@
          
          CGPoint point = [touch locationInView:self];
          
+         CGFloat scale = self.window.screen.scale;
+         CGPoint pointPixels = CGPointMake(point.x * scale, point.y * scale);
+         
+         int x = (int) pointPixels.x;
+         int y = (int) pointPixels.y;
+
          //CGRect e = [[UIScreen mainScreen] applicationFrame];
          
          //int H = (int) e.size.height;
          
-         int x = point.x;
+//         int x = point.x;
+//         
+//         //int y = H - point.y;
+//         
+//         int y = point.y;
          
-         //int y = H - point.y;
-         
-         int y = point.y;
-         
-          p->on_left_button_up(x, y, x, y);
+         p->on_left_button_up(x, y, x, y);
          
       }
       else
@@ -563,11 +579,18 @@
          
          //int H = (int) e.size.height;
          
-         int x = point.x;
+         //int x = point.x;
          
          //            int y = H - point.y;
          
-         int y = point.y;
+         //int y = point.y;
+         
+         CGFloat scale = self.window.screen.scale;
+         CGPoint pointPixels = CGPointMake(point.x * scale, point.y * scale);
+         
+         int x = (int) pointPixels.x;
+         int y = (int) pointPixels.y;
+
          
           p->on_left_button_up(x, y,  x, y);
          

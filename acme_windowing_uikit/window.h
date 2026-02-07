@@ -4,8 +4,7 @@
 #pragma once
 
 
-#include "acme/windowing/window.h"
-#include <CoreGraphics/CoreGraphics.h>
+#include "acme_windowing_kit/window.h"
 
 
 namespace uikit
@@ -23,7 +22,7 @@ class acme_window_bridge;
 
 
    class CLASS_DECL_ACME_WINDOWING_UIKIT window :
-      virtual public ::acme::windowing::window
+      virtual public ::apple_kit::acme::windowing::window
    {
    public:
 
@@ -32,7 +31,6 @@ class acme_window_bridge;
       //Display *                        m_pdisplay;
       //Window                           m_window;
       //cairo_surface_t *                m_psurface;
-      ::pointer<::uikit::acme_window_bridge>   m_pacmewindowbridge;
       ::pointer<::nano::graphics::device>          m_pnanodevice;
       //::pointer<::nano::graphics::font>         m_pfont;
       //color32_t                     m_colorText;
@@ -77,7 +75,7 @@ class acme_window_bridge;
 
       //virtual void _on_event(XEvent *pevent);
       
-      virtual void acme_window_bridging();
+      ::particle * get_acme_window_bridge() override;
       
       void _main_post(const ::procedure & procedure) override;
 
@@ -87,9 +85,9 @@ class acme_window_bridge;
 
       virtual bool message_loop_step();
 
-      virtual void _draw_background(CGContextRef cgcontextref);
+      void _draw_background(CGContextRef cgcontextref) override;
       
-      virtual void _draw_foreground(CGContextRef cgcontextref);
+      void _draw_foreground(CGContextRef cgcontextref) override;
 
       //virtual void on_draw(::nano::graphics::device * pnanodevice);
 

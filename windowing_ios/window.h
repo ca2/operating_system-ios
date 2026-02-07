@@ -33,7 +33,7 @@ namespace windowing_ios
     class CLASS_DECL_WINDOWING_IOS window :
       virtual public ::sandbox_windowing::window,
       virtual public ::ios_window,
-virtual public ::uikit::acme::windowing::window
+      virtual public ::uikit::acme::windowing::window
    {
    public:
       
@@ -58,7 +58,7 @@ virtual public ::uikit::acme::windowing::window
       
       void create_window() override;
       
-      void acme_window_bridging() override;
+      ::particle * get_acme_window_bridge() override;
       
        void _create_window() override;
       //void ios_window_add_ref() override;
@@ -112,7 +112,7 @@ virtual public ::uikit::acme::windowing::window
       void window_update_screen() override;
       
 
-      void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) override;
+      void ios_window_draw(CGContextRef cgc, CGSize sizeWindow, int iYFlipHeight, double dScale) override;
       void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
       void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
       void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
@@ -193,6 +193,9 @@ virtual public ::uikit::acme::windowing::window
       void ios_window_did_pick_document_at_urls(const char ** pszaUrl, long lCount) override;
       void on_prompt_write_file(::user::controller *pusercontroller) override;
 
+      
+      void show_task(bool bShow) override;
+      
    };
 
 

@@ -4,7 +4,7 @@
 ::e_status __call(::particle * pparticle);
 void millis_sleep(unsigned long long uMillis);
 
-void system_id_update(::platform::system * psystem, int iUpdate, long long iPayload);
+long long system_id_topic(::platform::system * psystem, int iId, long long llWparam, long long llLparam);
 //void system_call_update_wallpaper_changed();
 
 bool mm2_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * psz);
@@ -236,7 +236,7 @@ void term_mmos(::platform::system * psystem)
 //- (void)desktopImageChanged:(NSNotification *)notification
 //{
 //
-//   system_id_update(m_pSystem, id_wallpaper_changed, 0);
+//   system_id_topic(m_pSystem, ::user::message_wallpaper_changed, 0);
 //
 //}
 
@@ -249,7 +249,7 @@ void term_mmos(::platform::system * psystem)
 //   if([app.localizedName isEqualToString:@"ScreenSaverEngine"])
 //   {
 //
-//      system_id_update(m_pSystem, id_wallpaper_changed, 0);
+//      system_id_topic(m_pSystem, ::user::message_wallpaper_changed, 0);
 //
 //   }
    

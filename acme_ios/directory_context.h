@@ -43,7 +43,7 @@ namespace acme_ios
       
       bool fast_has_subdir(const ::file::path & path) override;
 
-      virtual ::file::listing & root_ones(::file::listing_base & listing) override;
+      virtual ::file::listing_base & root_ones(::file::listing_base & listing) override;
 //      virtual bool create(const ::file::path & path) override;
 //      virtual bool erase(const ::file::path & path, bool bRecursive = true) override;
       

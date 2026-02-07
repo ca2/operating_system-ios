@@ -115,7 +115,7 @@ void dialog::show()
 
    ios_app * papp = (ios_app * ) [[UIApplication sharedApplication] delegate];
    
-   auto pwindow = papp->m_pnsacmewindow;
+   auto pwindow = papp->m_pnsacmewindowIosApp;
    
    auto pUIView = (__bridge UIView *) m_pUIView;
    

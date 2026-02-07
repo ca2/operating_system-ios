@@ -46,7 +46,7 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
 }
 
 
-   ::file::listing & directory_context::root_ones(::file::listing & listing)
+   ::file::listing_base & directory_context::root_ones(::file::listing_base & listing)
    {
       
       ::file::path path;
@@ -368,7 +368,7 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
    //      }
    //   }
    //
-   //   string ::file_path_folder(const ::string & str)
+   //   string ::file_path_folder(const ::scoped_string & scopedstr)
    //   {
    //
    //      character_count iLast = str.get_length() - 1;
@@ -502,11 +502,11 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
 //   }
 
 
-   ::file::path directory_context::time_square(const ::string & strPrefix,const ::string & strSuffix)
+   ::file::path directory_context::time_square(const ::scoped_string & scopedstrPrefix,const ::scoped_string & scopedstrSuffix)
    {
 
-      __UNREFERENCED_PARAMETER(strPrefix);
-      __UNREFERENCED_PARAMETER(strSuffix);
+      __UNREFERENCED_PARAMETER(scopedstrPrefix);
+      __UNREFERENCED_PARAMETER(scopedstrSuffix);
       return time() / "time";
 
    }

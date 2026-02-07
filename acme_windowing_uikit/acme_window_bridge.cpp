@@ -37,7 +37,7 @@ namespace uikit
 ::acme::windowing::window * acme_window_bridge::acme_windowing_window()
 {
    
-   return m_pwindow;
+   return m_puikitacmewindowingwindow;
    
 }
 
@@ -45,13 +45,13 @@ namespace uikit
 //void acme_window_bridge::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
 //{
 //   
-//   auto pmouse = m_pwindow->øcreate_new <::user::mouse>();
+//   auto pmouse = m_puikitacmewindowingwindow->øcreate_new <::user::mouse>();
 //   
 //   pmouse->m_pointHost = {xHost, yHost};
 //   
 //   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
 //   
-//   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+//   ::cast < ::micro::elemental > pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
 //   
 //   pelemental->fore_on_left_button_up(pmouse);
 //   
@@ -70,13 +70,13 @@ namespace uikit
 //void acme_window_bridge::on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
 //{
 //   
-//   auto pmouse = m_pwindow->øcreate_new <::user::mouse>();
+//   auto pmouse = m_puikitacmewindowingwindow->øcreate_new <::user::mouse>();
 //   
 //   pmouse->m_pointHost = {xHost, yHost};
 //   
 //   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
 //   
-//   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+//   ::cast < ::micro::elemental > pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
 //   
 //   pelemental->fore_on_left_button_down(pmouse);
 //   
@@ -95,13 +95,13 @@ namespace uikit
 //void acme_window_bridge::on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
 //{
 //   
-//   auto pmouse = m_pwindow->øcreate_new <::user::mouse>();
+//   auto pmouse = m_puikitacmewindowingwindow->øcreate_new <::user::mouse>();
 //   
 //   pmouse->m_pointHost = {xHost, yHost};
 //   
 //   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
 //   
-//   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+//   ::cast < ::micro::elemental > pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
 //   
 //   pelemental->fore_on_right_button_up(pmouse);
 //   
@@ -120,13 +120,13 @@ namespace uikit
 //void acme_window_bridge::on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
 //{
 //   
-//   auto pmouse = m_pwindow->øcreate_new <::user::mouse>();
+//   auto pmouse = m_puikitacmewindowingwindow->øcreate_new <::user::mouse>();
 //   
 //   pmouse->m_pointHost = {xHost, yHost};
 //   
 //   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
 //   
-//   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+//   ::cast < ::micro::elemental > pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
 //   
 //   bool bFore= pelemental->fore_on_right_button_down(pmouse);
 //   
@@ -149,13 +149,13 @@ namespace uikit
 //void acme_window_bridge::on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute)
 //{
 //   
-//   auto pmouse = m_pwindow->øcreate_new <::user::mouse>();
+//   auto pmouse = m_puikitacmewindowingwindow->øcreate_new <::user::mouse>();
 //   
 //   pmouse->m_pointHost = {xHost, yHost};
 //   
 //   pmouse->m_pointAbsolute = {xAbsolute, yAbsolute};
 //   
-//   ::cast < ::micro::elemental > pelemental = m_pwindow->m_pacmeuserinteraction;
+//   ::cast < ::micro::elemental > pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
 //   
 //   bool bFore= pelemental->fore_on_mouse_move(pmouse);
 //   
@@ -178,7 +178,7 @@ namespace uikit
 void acme_window_bridge::on_char(int iChar)
 {
    
-   //m_pwindow->on_char(iChar);
+   //m_puikitacmewindowingwindow->on_char(iChar);
    
 }
 
@@ -188,7 +188,7 @@ void acme_window_bridge::_on_draw_background(CGContextRef cg, CGSize sizeFrame)
    
    //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));
    
-   m_pwindow->_draw_background(cg);
+   m_puikitacmewindowingwindow->_draw_background(cg);
    
 }
 
@@ -198,7 +198,7 @@ void acme_window_bridge::_on_draw_foreground(CGContextRef cg, CGSize sizeFrame)
    
    //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));
    
-   m_pwindow->_draw_foreground(cg);
+   m_puikitacmewindowingwindow->_draw_foreground(cg);
    
 }
 
@@ -212,7 +212,7 @@ void acme_window_bridge::on_layout(int x, int y, int w, int h)
    r.right = x+w;
    r.bottom = y+h;
    
-   m_pwindow->m_pacmeuserinteraction->set_rectangle(r);
+   m_puikitacmewindowingwindow->m_pacmeuserinteraction->set_rectangle(r);
    
 }
 
@@ -220,9 +220,9 @@ void acme_window_bridge::on_layout(int x, int y, int w, int h)
 bool acme_window_bridge::_is_top_most() const
 {
    
-   //   return m_pwindow->m_pacmeuserinteraction->m_bTopMost;
+   //   return m_puikitacmewindowingwindow->m_pacmeuserinteraction->m_bTopMost;
    
-   ::cast<::acme::user::frame_interaction> pelemental = m_pwindow->m_pacmeuserinteraction;
+   ::cast<::acme::user::frame_interaction> pelemental = m_puikitacmewindowingwindow->m_pacmeuserinteraction;
    
    if(!pelemental)
    {
@@ -239,7 +239,7 @@ bool acme_window_bridge::_is_top_most() const
 bool acme_window_bridge::_is_popup_window() const
 {
    
-   return m_pwindow->m_pacmeuserinteraction->is_popup_window();
+   return m_puikitacmewindowingwindow->m_pacmeuserinteraction->is_popup_window();
    
 }
 
@@ -247,7 +247,7 @@ bool acme_window_bridge::_is_popup_window() const
 void acme_window_bridge::ios_window_become_main()
 {
    
-   return m_pwindow->ios_window_become_main();
+   return m_puikitacmewindowingwindow->ios_window_become_main();
    
 }
 
@@ -255,7 +255,7 @@ void acme_window_bridge::ios_window_become_main()
 void acme_window_bridge::ios_window_resign_main()
 {
    
-   return m_pwindow->ios_window_resign_main();
+   return m_puikitacmewindowingwindow->ios_window_resign_main();
    
 }
 
@@ -263,7 +263,7 @@ void acme_window_bridge::ios_window_resign_main()
 void acme_window_bridge::ios_window_become_key()
 {
    
-   return m_pwindow->ios_window_become_key();
+   return m_puikitacmewindowingwindow->ios_window_become_key();
    
 }
 
@@ -271,7 +271,7 @@ void acme_window_bridge::ios_window_become_key()
 void acme_window_bridge::ios_window_resign_key()
 {
    
-   return m_pwindow->ios_window_resign_key();
+   return m_puikitacmewindowingwindow->ios_window_resign_key();
    
 }
 
@@ -279,7 +279,7 @@ void acme_window_bridge::ios_window_resign_key()
 void acme_window_bridge::ios_window_on_show()
 {
    
-   return m_pwindow->ios_window_on_show();
+   return m_puikitacmewindowingwindow->ios_window_on_show();
    
 }
 
@@ -287,7 +287,7 @@ void acme_window_bridge::ios_window_on_show()
 void acme_window_bridge::ios_window_on_hide()
 {
    
-   return m_pwindow->ios_window_on_hide();
+   return m_puikitacmewindowingwindow->ios_window_on_hide();
    
 }
 

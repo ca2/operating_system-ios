@@ -10,10 +10,10 @@
 #import "iosApp.h"
 #include "acme/constant/id.h"
 //#include <AVFoundation/AVFoundation.h>
-//void os_on_will_finish_launching();
+//void os_on_will_aaafinish_launching();
 
 //void application_send_status(::enum_status estatus, ::particle * pparticle = nullptr, long long ll = 0);
-void system_id_update(::platform::system * psystem, int iUpdate, long long iPayload);
+void system_id_topic(::platform::system * psystem, int iId, long long llWparam, long long llLparam);
 ::platform::system * application_system(::platform::application * papplication);
 
 int defer_run_system();
@@ -33,7 +33,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
    //m_pplanesystem = get_plane_system();
    
-   //os_on_will_finish_launching();
+   //os_on_will_aaafinish_launching();
    
    m_b_iCloudInitialized = false;
    
@@ -45,12 +45,12 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
 }
 
--(void) create_ns_acme_window
+-(void) create_ns_acme_window : (::acme::windowing::window *) pacmewindowingwindow
 {
 
    auto bounds = [[UIScreen mainScreen] bounds];
    
-   m_pnsacmewindow = [[iosWindow alloc] initWithFrame: bounds];
+   m_pnsacmewindowIosApp = [[iosWindow alloc] initWithFrame: bounds andAcmeWindowBridgeAsParticle: pacmewindowingwindow];
 
    
 }
@@ -61,7 +61,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 {
    
    return [super application:application didFinishLaunchingWithOptions:launchOptions];
-   //system_id_update(application_system(m_papplication), id_app_activated, 0);
+   //system_id_topic(application_system(m_papplication), id_app_activated, 0);
 
    //return YES;
    
@@ -82,7 +82,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    
    //m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
    
-   system_id_update(application_system(m_papplication), id_did_pick_document_at_url, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
+   system_id_topic(application_system(m_papplication), ::id_did_pick_document_at_url, 0,  (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
    
    return true;
    

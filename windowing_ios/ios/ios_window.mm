@@ -78,7 +78,7 @@ void ios_window::ios_window_show()
    
    ns_main_post(^{
       
-      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
       [pioswindow makeKeyAndVisible];
       //iosImpactController * pcontroller = pioswindow->m_pimpactcontroller;
       //[pcontroller presentViewController:pcontroller animated:TRUE completion:nil];
@@ -103,7 +103,7 @@ void ios_window::ios_window_redraw()
 //      [pioswindow->m_pimpactcontroller->m_pnsacmeimpact.layer displayIfNeeded];
 //      [CATransaction flush];
 //      [CATransaction commit];
-      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
       
       
       iosImpact * piosimpact = (iosImpact *) pioswindow->m_pnsacmeimpact;
@@ -137,7 +137,7 @@ void ios_window::ios_window_invalidate()
    
    ns_main_post(^{
 
-      auto pioswindow = (iosWindow *)(__bridge ns_acme_window*) m_pnsacmewindow;
+      auto pioswindow = (iosWindow *)(__bridge ns_acme_window*) m_pnsacmewindowAppleKit;
 
       auto piosimpact = (iosImpact *) pioswindow->m_pnsacmeimpact;
 
@@ -155,7 +155,7 @@ void ios_window::ios_window_show_keyboard(bool bShow)
    
    ns_main_post(^
    {
-      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
       if(bShow)
       {
@@ -202,7 +202,7 @@ void ios_window::ios_window_set_title(const char * pszTitle)
 {
    
 //   NSString * str = [NSString stringWithUTF8String:pszTitle];
-//   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+//   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    ns_main_send(^{
       //[pioswindow setTitle: str];
@@ -215,7 +215,7 @@ void ios_window::ios_window_set_title(const char * pszTitle)
 
 void ios_window::ios_window_get_title(char * pszTitle, long iSize)
 {
-//   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+//   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    ns_main_send(^{
       
@@ -232,7 +232,7 @@ void ios_window::ios_window_get_title(char * pszTitle, long iSize)
 void ios_window::ios_window_set_sel(long iBeg, long iEnd)
 {
 
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
    
    auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
 
@@ -267,7 +267,7 @@ void ios_window::ios_window_set_sel(long iBeg, long iEnd)
 
 void ios_window::ios_window_get_sel(long & iBeg, long & iEnd)
 {
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    // UITextView --> UIView
    auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
@@ -291,7 +291,7 @@ void ios_window::ios_window_set_text(const char * pszText)
 {
    
    NSString * text = [ [ NSString alloc] initWithUTF8String: pszText];
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
 
@@ -304,7 +304,7 @@ void ios_window::ios_window_set_text(const char * pszText)
 void ios_window::ios_window_get_text(char * pszText, long iSize)
 {
    
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    if(!pioswindow)
    {
@@ -341,7 +341,7 @@ void ios_window::ios_window_get_text(char * pszText, long iSize)
 long ios_window::ios_window_get_text_length()
 {
    
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    if(!pioswindow)
    {
@@ -398,7 +398,7 @@ void ios_window::ios_window_edit_on_set_focus(int l, int t, int r, int b, const 
 
    NSString * strText = [ NSString stringWithUTF8String: pszText ];
    
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
    
    auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
 
@@ -410,7 +410,7 @@ void ios_window::ios_window_edit_on_set_focus(int l, int t, int r, int b, const 
 void ios_window::ios_window_edit_on_kill_focus()
 {
    
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
 
@@ -422,7 +422,7 @@ void ios_window::ios_window_edit_on_kill_focus()
 void ios_window::ios_window_destroy()
 {
    
-   //auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   //auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    ns_main_send(
                 ^()
@@ -509,7 +509,7 @@ void ios_window::ios_window_hide()
 
 void ios_window::ios_window_pick_browse(char ** ppszUTType, const ::function < void(const ::file::path & path) > & callback)
 {
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    [ pioswindow pickBrowse : ppszUTType callback : callback];
    
@@ -518,7 +518,7 @@ void ios_window::ios_window_pick_browse(char ** ppszUTType, const ::function < v
 
 void ios_window::ios_window_pick_browse_for_saving_user_controller(void *pUserController)
 {
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
    [ pioswindow pickBrowseForSavingUserController : pUserController ];
    
@@ -530,7 +530,7 @@ void ios_window::ios_window_get_frame(CGRect * prect)
    
    ns_main_send(^{
       
-      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindow;
+      auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
 
       *prect = [pioswindow frame];
    });

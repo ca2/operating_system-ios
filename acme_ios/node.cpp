@@ -983,10 +983,10 @@ unsigned int * puiPid)
 //
 
 
-   void node::open_internet_link(const ::scoped_string & strUrl, const ::scoped_string & strProfile)
+   void node::open_internet_link(const ::scoped_string & scopedstrUrl, const ::scoped_string & scopedstrProfile, const ::scoped_string & scopedstrTarget)
    {
       
-      ::ui_open_url(strUrl);
+      ::ui_open_url(scopedstrUrl);
    
    }
 

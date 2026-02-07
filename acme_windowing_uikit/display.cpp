@@ -45,6 +45,15 @@ namespace uikit
    }
    
    
+   
+   bool display::is_display_opened() const
+   {
+
+      return true;
+
+   }
+
+   
    ::int_size display::get_main_screen_size()
    {
       

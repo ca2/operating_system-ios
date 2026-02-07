@@ -38,11 +38,13 @@ class acme_window_bridge;
 @property(strong) ns_acme_window *m_thiswindow;
 //@property UIViewController *m_initialcontroller;
 
+- (id)initWithFrame:(CGRect)contentRect andAcmeWindowBridgeAsParticle : (::particle* ) pparticleAcmeWindowBridge;
+
 
 //-(instancetype) init: (CGRect) rectangle with_acme_window_bridge:(acme_window_bridge * )pacmewindowbridge;
 //
 
-- (instancetype)initWithFrame:(CGRect)contentRect;
+//- (instancetype)initWithFrame:(CGRect)contentRect;
 -(void) setBridge:(::uikit::acme_window_bridge *) pbridge;
 //-(void)create_impact;
 -(void)controlling_impact;

@@ -154,9 +154,23 @@ double get_status_bar_frame_height();
       
       CGRect rect;
       
+      iosImpact * piosimpact = (iosImpact *) m_pnsacmeimpact;
+      
+      UIWindow *window = piosimpact->m_pnsacmewindow; // Or your specific UIWindow instance
+      CGFloat scale = window.windowScene.screen.nativeScale; // Native scale factor
+      auto impactSize = size;
+
+      CGFloat pixelWidth = impactSize.width * scale;
+      CGFloat pixelHeight = impactSize.height * scale;
+      
       rect.origin.x = 0;
       rect.origin.y = 0;
-      rect.size = size;
+      rect.size.width = pixelWidth;
+      rect.size.height = pixelHeight;
+
+      
+      rect.origin.x = 0;
+      rect.origin.y = 0;
       
       [ m_pnsacmeimpact setFrame: rect ];
       

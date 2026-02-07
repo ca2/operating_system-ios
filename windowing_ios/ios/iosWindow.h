@@ -40,6 +40,8 @@ class ios_window;
 //@property(strong) iosWindow *m_thiswindow;
 @property UIViewController *m_initialcontroller;
 
+- (id)initWithFrame:(CGRect)contentRect andAcmeWindowBridgeAsParticle: (::acme::windowing::window *) pacmewindowingwindow;
+
 
 -(void) pickBrowse:(char **) ppszUTType callback: (const ::function < void(const ::file::path & path) > &) callback;
 -(void) pickBrowseForSavingUserController:(void *) pUserController;

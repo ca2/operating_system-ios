@@ -42,10 +42,8 @@ virtual public ::apple_kit::acme_window_bridge
 {
 public:
    
-   bool m_bRunningAppMainLoop;
-   ::uikit::acme::windowing::window *     m_pwindow;
-   CFTypeRef                  m_pnsacmewindow;
-   
+   ::uikit::acme::windowing::window *     m_puikitacmewindowingwindow;
+
    
    acme_window_bridge();
    ~acme_window_bridge() override;
@@ -53,13 +51,13 @@ public:
    virtual ::acme::windowing::window * acme_windowing_window() override;
 
    
-   void attach_ns_acme_window(CGRect cgrect);
+   void attach_ns_acme_window(CGRect cgrect) override;
    
-   void display();
+   void display() override;
    
-   void hide();
+   void hide() override;
    
-   void do_tasks();
+   void do_tasks() override;
    
 //   virtual void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute);
 //   
@@ -74,17 +72,17 @@ public:
    
    virtual void on_char(int iChar);
    
-   virtual void _on_draw_background(CGContextRef cg, CGSize sizeFrame);
+   void _on_draw_background(CGContextRef cg, CGSize sizeFrame) override;
    
-   virtual void _on_draw_foreground(CGContextRef cg, CGSize sizeFrame);
+   void _on_draw_foreground(CGContextRef cg, CGSize sizeFrame) override;
    
-   virtual void redraw();
+   void redraw() override;
    
    //virtual void stop();
    
-   virtual void close();
+   void close() override;
    
-   virtual void set_position(int x, int y);
+   virtual void set_position(int x, int y) override;
    
    virtual void on_layout(int x, int y, int w, int h);
    
@@ -96,9 +94,9 @@ public:
    
    virtual void ios_window_resign_key();
    
-   virtual CGRect get_frame();
+   CGRect get_frame() override;
    
-   virtual void _run_modal_loop();
+   void _run_modal_loop() override;
    
    virtual bool _is_top_most() const;
    

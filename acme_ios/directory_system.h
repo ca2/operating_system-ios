@@ -73,13 +73,13 @@ namespace acme_ios
       virtual ::file::path public_root() override; // writable common root (non-bin, non-exe)
       virtual ::file::path bookmark() override;
       virtual ::file::path home() override;
-      virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;
+      virtual ::file::path pathfind(const ::scoped_string& scopedstrEnv, const ::scoped_string& scopedstrTopic, const ::scoped_string& scopedstrMode) override;
       virtual ::file::path program_files_x86() override;
       virtual ::file::path program_files() override;
       //virtual ::file::path program_data() override;
       //virtual ::file::path icloud_container(const char * pszAppId) override;
 
-      virtual ::file::path stage(const ::scoped_string strAppId, const ::scoped_string strPlatform, const ::scoped_string & strConfiguration) override;
+      virtual ::file::path stage(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & strConfiguration) override;
       virtual ::file::path sys_temp() override;
       virtual ::string dir_root() override;
       //virtual ::file::path home() override;
@@ -92,10 +92,10 @@ namespace acme_ios
       virtual string system_short_name() override;
 
 
-      //::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-      //virtual ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-      virtual ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-      virtual ::file::path inplace_matter_install(string strAppId, string strPlatform, string strConfiguration) override;
+      //::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+      //virtual ::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+      virtual ::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+      virtual ::file::path inplace_matter_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
 
 
       virtual void set_path_install_folder(const ::scoped_string & scopedstrPath) override;
@@ -104,7 +104,7 @@ namespace acme_ios
       //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
       //virtual ::file::path _get_known_folder(REFKNOWNFOLDERID kfid);
 
-      //virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;
+      //virtual ::file::path pathfind(const ::scoped_string& scopedstrEnv, const ::scoped_string& scopedstrTopic, const ::scoped_string& scopedstrMode) override;
 
       virtual ::file::path user_appdata_local() override;
 

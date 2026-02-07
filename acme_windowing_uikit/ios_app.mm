@@ -29,7 +29,7 @@ void application_handle_command(::platform::application * papplication, const ch
 
 ::platform::system * application_system(::platform::application * papplication);
 
-void system_id_update(::platform::system * psystem, int iUpdate, long long iPayload);
+long long system_id_topic(::platform::system * psystem, int iId, long long llWparam, long long llLparam);
 
 void node_will_finish_launching(::platform::system * psystem);
 void system_on_open_untitled_file(::platform::system * psystem);
@@ -52,7 +52,7 @@ void os_system_start();
 
 ::platform::system * application_system(::platform::application * papplication);
 
-void system_id_update(::platform::system * psystem, int iUpdate, long long iPayload);
+long long system_id_topic(::platform::system * psystem, int iId, long long llWparam, long long llLparam);
 
 void node_will_finish_launching(::platform::system * psystem);
 void system_on_open_untitled_file(::platform::system * psystem);
@@ -208,12 +208,12 @@ void acme_defer_create_windowing_application_delegate(::platform::application * 
 //- (void)applicationWillFinishLaunching:(NSNotification *)notification
 
 
--(void) create_ns_acme_window
+-(void) create_ns_acme_window : (::particle * ) pparticleAcmeWindowBridge
 {
    
    auto bounds = [[UIScreen mainScreen] bounds];
    
-   m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame: bounds];
+   m_pnsacmewindowIosApp = [[ns_acme_window alloc] initWithFrame: bounds andAcmeWindowBridgeAsParticle: pparticleAcmeWindowBridge];
    
 }
 
@@ -241,12 +241,15 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
    //auto bounds = [[UIScreen mainScreen] bounds];
    
+   auto ll = system_id_topic(application_system(m_papplication), ::id_initialize_host_window, 0, 0);
    
-   [self create_ns_acme_window];
+//   ::particle * pparticleAcmeWindowBridge = (::particle *) (void *) ll;
+//
+//   [self create_ns_acme_window : pparticleAcmeWindowBridge];
    
    //m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame: bounds];
    //[m_pnsacmewindow setWindowScene: windowScene];
-   system_id_update(application_system(m_papplication), id_initialize_host_window, 0);
+//   system_id_topic(application_system(m_papplication), id_initialize_host_window, 0);
    //[m_pnsacmewindow create_impact];
    
 
@@ -273,7 +276,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
    
    //MessageBox(NULL, "applicationShouldHandleReopen", "applicationShouldHandleReopen", e_message_box_ok);
    
-   system_id_update(application_system(m_papplication), id_app_activated, 0);
+   system_id_topic(application_system(m_papplication), ::id_app_activated, 0, 0);
 
    return NO;
    
@@ -891,7 +894,7 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 //   
 //   //m_pplanesystem = get_plane_system();
 //   
-//   //os_on_will_finish_launching();
+//   //os_on_will_aaa_finish_launching();
 //   
 //   //m_b_iCloudInitialized = false;
 //   
@@ -908,18 +911,18 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
    
-   system_id_update(application_system(m_papplication), id_app_activated, 0);
+   system_id_topic(application_system(m_papplication), ::id_app_activated, 0, 0);
 
-   [ m_pnsacmewindow controlling_impact ];
+   [ m_pnsacmewindowIosApp controlling_impact ];
 
-   system_id_update(application_system(m_papplication), id_defer_create_context_button, 0);
+   system_id_topic(application_system(m_papplication), ::id_defer_create_context_button, 0, 0);
 
-   system_id_update(application_system(m_papplication), id_application_did_finish_launching, 0);
+   system_id_topic(application_system(m_papplication), ::id_application_did_finish_launching, 0, 0);
 
    
    
       // Make the window key and visible
-   [m_pnsacmewindow makeKeyAndVisible];
+   [m_pnsacmewindowIosApp makeKeyAndVisible];
    
 
    
@@ -943,7 +946,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
    
    //m_pplanesystem->_main_application_handle_url([ strUrl UTF8String ], nullptr);
    
-   system_id_update(application_system(m_papplication), id_did_pick_document_at_url, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
+   system_id_topic(application_system(m_papplication), ::id_did_pick_document_at_url, 0, (::iptr) (void *) (const char*)[ strUrl UTF8String ]);
    
    return true;
    
@@ -991,7 +994,7 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 //   
 //   //MessageBox(NULL, "applicationShouldHandleReopen", "applicationShouldHandleReopen", e_message_box_ok);
 //   
-//   system_id_update(application_system(m_papplication), id_app_activated, 0);
+//   system_id_topic(application_system(m_papplication), id_app_activated, 0);
 //
 //   return NO;
 //   
@@ -1283,9 +1286,13 @@ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *
 
 - (void) scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     UIWindowScene *windowScene = (UIWindowScene *)scene;
-   m_pnsacmewindow = [[ns_acme_window alloc] initWithFrame:[[ windowScene screen] bounds]];
-   [m_pnsacmewindow setWindowScene: windowScene];
-   system_id_update(application_system(m_papplication), id_initialize_host_window, 0);
+   m_pnsacmewindowIosApp = [[ns_acme_window alloc] initWithFrame:[[ windowScene screen] bounds]];
+   [m_pnsacmewindowIosApp setWindowScene: windowScene];
+   
+   
+   auto ll = system_id_topic(application_system(m_papplication), id_initialize_host_window,0,  0);
+   
+   ::acme::windowing::window * pacmewindowingwindow = (::acme::windowing::window *) (void*) ll;
    
    //[ m_pnsacmewindow create_impact];
 

@@ -35,11 +35,13 @@ double get_status_bar_frame_height();
 //
 // Init method for the object.
 //
-- (id)initWithFrame:(CGRect)contentRect
+- (id)initWithFrame:(CGRect)contentRect andAcmeWindowBridgeAsParticle: (::particle *) pparticle
 
 {
    
-	self = [super initWithFrame:contentRect ];
+   m_pwindow = dynamic_cast < ios_window * >(pparticle);
+   
+	self = [super initWithFrame:contentRect andAcmeWindowBridgeAsParticle:pparticle ];
 
 	if(self == NULL)
    {
@@ -49,6 +51,8 @@ double get_status_bar_frame_height();
    }
    
    self.m_thiswindow = self;
+   
+   
    
    m_documentpickerdelegates = [[NSMutableArray < document_picker_delegate * > alloc] init];
    
@@ -267,9 +271,17 @@ double get_status_bar_frame_height();
    auto contentRect = [self bounds];
    CGRect rect;
    
+   UIWindow *window = self; // Or your specific UIWindow instance
+   CGFloat scale = window.windowScene.screen.nativeScale; // Native scale factor
+   CGRect bounds = window.bounds;
+
+   CGFloat pixelWidth = bounds.size.width * scale;
+   CGFloat pixelHeight = bounds.size.height * scale;
+   
    rect.origin.x = 0;
    rect.origin.y = 0;
-   rect.size = contentRect.size;
+   rect.size.width = pixelWidth;
+   rect.size.height = pixelHeight;
    m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
 
    

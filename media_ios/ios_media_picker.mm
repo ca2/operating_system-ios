@@ -28,7 +28,7 @@ void ios_media_picker::ios_media_picker_pick_media(const char * pszMediaType, io
    ns_main_post(^{
       
       
-      auto pnsioswindow = (iosWindow *) (__bridge ns_acme_window *) pioswindow->m_pnsacmewindow;
+      auto pnsioswindow = (iosWindow *) (__bridge ns_acme_window *) pioswindow->m_pnsacmewindowAppleKit;
       
       [ m_pioscontroller pickMedia : pszMediaType window : pnsioswindow ];
       

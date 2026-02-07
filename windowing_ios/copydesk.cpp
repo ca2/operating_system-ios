@@ -362,7 +362,7 @@ namespace windowing_ios
 char ** ios_clipboard_get_filea(long * pc);
 
 
-void ios_clipboard_get_filea(::file::path_array & patha)
+void ios_clipboard_get_filea(::file::path_array_base & patha)
 {
 
    long c = 0;
@@ -386,7 +386,7 @@ void ios_clipboard_get_filea(::file::path_array & patha)
 void ios_clipboard_set_filea(const char ** psza, long c);
 
 
-void ios_clipboard_set_filea(const ::file::path_array & patha)
+void ios_clipboard_set_filea(const ::file::path_array_base & patha)
 {
 
    auto psza = patha.c_ansi_get();

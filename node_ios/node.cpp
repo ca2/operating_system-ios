@@ -359,12 +359,12 @@ void node::on_app_activated(::user::activation_token * puseractivationtoken)
 
 //extern class ::platform::system * get_system();
 //
-//void os_on_will_finish_launching()
+//void os_on_will_aaa_finish_launching()
 //{
 //
 //auto psystem = get_system();
 //
-//psystem->m_pnode->_will_finish_launching();
+//psystem->m_pnode->_will_aaa_finish_launching();
 //
 //}
 

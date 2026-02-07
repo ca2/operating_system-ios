@@ -41,7 +41,7 @@ bool m_bDirty;
    double m_dStatusBarFrameHeight;
    
   
-   virtual void ios_window_draw(CGContextRef cgc, CGSize sizeWindow) = 0;
+   virtual void ios_window_draw(CGContextRef cgc, CGSize sizeWindow, int iYFlipHeight, double dSizeScaler) = 0;
    //virtual void ios_window_mouse_down(int iGesture, double x, double y) = 0;
    //virtual void ios_window_mouse_up(int iGesture, double x, double y) = 0;
    //virtual void ios_window_mouse_moved(int iGesture, double x, double y) = 0;

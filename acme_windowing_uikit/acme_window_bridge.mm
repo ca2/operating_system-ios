@@ -31,8 +31,8 @@ namespace uikit
 acme_window_bridge::acme_window_bridge()
 {
    
-   m_bRunningAppMainLoop = false;
-   m_pnsacmewindow = nullptr;
+   //m_bRunningAppMainLoop = false;
+   //m_pnsacmewindowAppleKit = nullptr;
    
 }
 
@@ -40,7 +40,7 @@ acme_window_bridge::acme_window_bridge()
 acme_window_bridge::~acme_window_bridge()
 {
    
-   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
    
    pnsacmewindow->m_pacmewindowbridge = nullptr;
    
@@ -67,9 +67,16 @@ void acme_window_bridge::attach_ns_acme_window(CGRect CGRect)
       
       ios_app * p = (ios_app*)[[UIApplication sharedApplication] delegate];
       
-      m_pnsacmewindow = (__bridge_retained CFTypeRef) p->m_pnsacmewindow;
+      if(!p->m_pnsacmewindowIosApp)
+      {
+         
+         [ p create_ns_acme_window: this];
+         
+      }
       
-      [p->m_pnsacmewindow setBridge: this];
+      m_pnsacmewindowAppleKit = (__bridge_retained CFTypeRef) p->m_pnsacmewindowIosApp;
+      
+      [p->m_pnsacmewindowIosApp setBridge: this];
       
       
       
@@ -147,7 +154,7 @@ void acme_window_bridge::display()
 void acme_window_bridge::hide()
 {
    
-   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
    
    if(!pnsacmewindow)
    {
@@ -176,10 +183,10 @@ void acme_window_bridge::hide()
 void acme_window_bridge::redraw()
 {
    
-   if(m_pnsacmewindow)
+   if(m_pnsacmewindowAppleKit)
    {
       
-      auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+      auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
       
       ns_main_post(^{
          [ pnsacmewindow setNeedsDisplay];
@@ -255,7 +262,7 @@ void acme_window_bridge::redraw()
 void acme_window_bridge::close()
 {
    
-   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
    
    if(!pnsacmewindow)
    {
@@ -279,14 +286,14 @@ void acme_window_bridge::close()
 void acme_window_bridge::set_position(int x, int y)
 {
    
-   if(!m_pnsacmewindow)
+   if(!m_pnsacmewindowAppleKit)
    {
       
       return;
       
    }
    
-   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
    
    CGPoint point;
    
@@ -418,7 +425,7 @@ void acme_window_bridge::_run_modal_loop()
 CGRect acme_window_bridge::get_frame()
 {
    
-   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindow;
+   auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;
    
    CGRect frame = [ pnsacmewindow frame ];
    

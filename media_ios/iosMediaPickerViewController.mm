@@ -129,7 +129,7 @@ int _ui_MessageBoxA(const char * pszMessageParam, const char * pszHeaderParam, u
       _ui_MessageBoxA(
                       "There is no Audio file in the Device",
                       "Alert",
-                      e_message_box_ok,
+                      ::user::e_message_box_ok,
                       "",
                       [](enum_dialog_result){}
                       );

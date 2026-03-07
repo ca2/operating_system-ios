@@ -282,7 +282,7 @@
 //         ///auto estatus =
 //         ///
 //         //__compose(m_pgraphics, __new(::graphics::double_buffer));
-//         øconstruct(m_pgraphicsgraphics);
+//         constructø(m_pgraphicsgraphics);
 //         
 ////         if(!estatus)
 ////         {
@@ -4795,7 +4795,7 @@
 ////
 ////      //auto estatus =
 ////
-////      øconstruct(m_pwindow);
+////      constructø(m_pwindow);
 ////
 ////      //if (!estatus)
 ////      //{

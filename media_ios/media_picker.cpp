@@ -33,7 +33,7 @@ void media_picker::ios_media_picker_did_pick_platform_media_item(platform_media_
 {
    
    
-   auto papplemediaitem = øallocate ::media_apple::media_item();
+   auto papplemediaitem = allocateø ::media_apple::media_item();
    
    papplemediaitem->initialize(this);
    

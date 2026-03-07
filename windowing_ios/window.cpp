@@ -3000,7 +3000,7 @@ void window::pick_media(const char * pszMediaType)
    
    ns_main_send(^{
 
-      øconstruct(m_pmediaitempicker, pfactory);
+      constructø(m_pmediaitempicker, pfactory);
       
       m_pmediaitempicker->m_ppickercallback = application();
       

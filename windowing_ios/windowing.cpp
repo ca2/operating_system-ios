@@ -58,10 +58,10 @@ namespace windowing_ios
 //
 //      estatus =
       
-      //øconstruct(m_pdisplay);
+      //constructø(m_pdisplay);
       
 
-      øconstruct_new(m_ptexteditorinterface);
+      construct_newø(m_ptexteditorinterface);
 
       
 //
@@ -124,7 +124,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //         
 //      }
 //      
-//      øconstruct(m_phostinteraction);
+//      constructø(m_phostinteraction);
 //      
 //      m_phostinteraction->create_host();
 //      
@@ -549,7 +549,7 @@ bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > >
    
    return ::uikit::acme::windowing::windowing::defer_realize(preifiedMessageBox,pmessagebox);
 //
-  // preifiedMessageBox = øallocate ::windowing_ios::message_box;
+  // preifiedMessageBox = allocateø ::windowing_ios::message_box;
    
    //preifiedMessageBox->on_realize(pmessagebox);
    

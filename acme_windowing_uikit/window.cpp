@@ -117,7 +117,7 @@ namespace uikit
             
             //nano()->graphics();
             
-            øconstruct(m_pnanodevice);
+            constructø(m_pnanodevice);
             
             m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
@@ -144,7 +144,7 @@ namespace uikit
             
             //nano()->graphics();
             
-            øconstruct(m_pnanodevice);
+            constructø(m_pnanodevice);
             
             m_pnanodevice->attach(cgcontextref, m_sizeWindow);
             
@@ -225,7 +225,7 @@ namespace uikit
          if(!m_pacmewindowbridge)
          {
             
-            m_pacmewindowbridge = øallocate acme_window_bridge();
+            m_pacmewindowbridge = allocateø acme_window_bridge();
             
          }
          

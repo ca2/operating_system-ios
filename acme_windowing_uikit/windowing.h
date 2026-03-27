@@ -25,16 +25,20 @@ virtual public ::acme::sandbox_windowing::windowing
 {
 public:
     
-    
+   ::map < ::operating_system::window, ::pointer < ::acme::windowing::window > > m_mapWindow;
     
     windowing();
     ~windowing() override;
     
     //::e_status defer_initialize_windowing() override;
     void initialize_windowing() override;
+   
+   ::acme::windowing::window * acme_windowing_window(const ::operating_system::window & operatingsystemwindow) override;
+
+   
     ::acme::windowing::display * acme_display() override;
-    void _main_send(const ::procedure & procedure) override;
-    void _main_post(const ::procedure & procedure) override;
+    void main_send(const ::procedure & procedure) override;
+    void main_post(const ::procedure & procedure) override;
     void display_error_trap_push(int i) override;
     void display_error_trap_pop_ignored(int i) override;
    void set_clipboard_text(const char * psz) override;
@@ -55,6 +59,9 @@ public:
    bool handle_messages() override;
    
    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler);
+   
+   
+   
 
 //    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 

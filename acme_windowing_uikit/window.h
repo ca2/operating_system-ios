@@ -5,6 +5,7 @@
 
 
 #include "acme_windowing_kit/window.h"
+#include "acme/operating_system/ios/window.h"
 
 
 namespace uikit
@@ -31,6 +32,7 @@ class acme_window_bridge;
       //Display *                        m_pdisplay;
       //Window                           m_window;
       //cairo_surface_t *                m_psurface;
+      ::operating_system::ios_window      m_ioswindow;
       ::pointer<::nano::graphics::device>          m_pnanodevice;
       //::pointer<::nano::graphics::font>         m_pfont;
       //color32_t                     m_colorText;
@@ -77,7 +79,7 @@ class acme_window_bridge;
       
       ::particle * get_acme_window_bridge() override;
       
-      void _main_post(const ::procedure & procedure) override;
+      void main_post(const ::procedure & procedure) override;
 
       virtual void _update_window();
 

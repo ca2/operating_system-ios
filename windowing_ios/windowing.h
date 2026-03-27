@@ -68,7 +68,7 @@ virtual public ::uikit::acme::windowing::windowing
       
       //void windowing_post(const ::procedure & procedure) override;
       
-      ::acme::windowing::window * window(oswindow oswindow) override;
+      ::acme::windowing::window * acme_windowing_window(const ::operating_system::window & operatingsystemwindow) override;
 
       ::windowing::display * display() override;
       
@@ -87,17 +87,17 @@ virtual public ::uikit::acme::windowing::windowing
       
       void _defer_dock_application(int_bool bDock);
       
-      void _user_send(const ::procedure & procedure) override;
+      void user_send(const ::procedure & procedure) override;
 
 
-      void _user_post(const ::procedure & procedure) override;
+      void user_post(const ::procedure & procedure) override;
 
 //      void clear_keyboard_focus(::windowing::window* pwindowGainingFocusIfAny) override;
 //       
 //      ::pointer < ::conversation > create_new_message_box_conversation() override;
       
-      bool defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * p) override;
-
+      //bool defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * p) override;
+      
        ::string _ns_application_delegate_class() override;
 
    };

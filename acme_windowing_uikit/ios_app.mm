@@ -2311,8 +2311,10 @@ void ensure_edit_menu(::application_menu * papplicationmenu)
       iEdit = 0;
       
    }
+   
+   papplicationmenu->m_iCurrentLayoutItemIndex = iEdit;
     
-   papplicationmenu->popup_at(iEdit, "Edit");
+   papplicationmenu->insert_popup("Edit");
       
 }
 

@@ -11,24 +11,32 @@
 namespace windowing_ios
 {
 
-void message_box::on_realize(::message_box * pmessagebox)
+void message_box::display(::dialog * pdialog)
 {
-   ::string strTextTitle(pmessagebox->m_strTitle);
-   NSString * strTitle = [[NSString alloc] initWithUTF8String:
-                          strTextTitle.c_str()];
-
-   ::string strTextMessage(pmessagebox->m_strMessage);
-   NSString * strMessage = [[NSString alloc] initWithUTF8String:
-                          strTextMessage.c_str()];
-
-   UIAlertController* alert = [UIAlertController
-                               alertControllerWithTitle:strTitle
-                               message: strMessage
-                               preferredStyle:UIAlertControllerStyleAlert];
    
-   m_pUIAlertController = (__bridge_retained void *) alert;
+   ::cast < ::message_box_payload > pmessageboxpayload = pdialog;
    
-   ::acme::user::message_box::on_realize(pmessagebox);
+   if(pmessageboxpayload)
+   {
+      ::string strTextTitle(pmessageboxpayload->m_strTitle);
+      NSString * strTitle = [[NSString alloc] initWithUTF8String:
+                             strTextTitle.c_str()];
+      
+      ::string strTextMessage(pmessageboxpayload->m_strMessage);
+      NSString * strMessage = [[NSString alloc] initWithUTF8String:
+                               strTextMessage.c_str()];
+      
+      UIAlertController* alert = [UIAlertController
+                                  alertControllerWithTitle:strTitle
+                                  message: strMessage
+                                  preferredStyle:UIAlertControllerStyleAlert];
+      
+      m_pUIAlertController = (__bridge_retained void *) alert;
+      
+      ::acme::user::message_box::display(pdialog);
+      
+   }
+   
 }
 
 

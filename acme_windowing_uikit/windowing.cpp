@@ -100,6 +100,22 @@ void windowing::initialize_windowing()
 }
 
 
+::acme::windowing::window * windowing::acme_windowing_window(const ::operating_system::window & operatingsystemwindow)
+{
+   
+   auto iterator = m_mapWindow.find(operatingsystemwindow);
+   
+   if(iterator.is_null())
+   {
+      
+      return nullptr;
+      
+   }
+   
+   return iterator->m_element2;
+   
+}
+
 
 ::acme::windowing::display  * windowing::acme_display()
 {
@@ -130,7 +146,7 @@ void windowing::initialize_windowing()
 }
 
 
-void windowing::_main_send(const ::procedure & procedure)
+void windowing::main_send(const ::procedure & procedure)
 {
     
     if(::is_main_thread())
@@ -241,7 +257,7 @@ void  windowing::run()
 }
 
 
-void windowing::_main_post(const ::procedure & procedure)
+void windowing::main_post(const ::procedure & procedure)
 {
     
     node()->user_post(procedure);

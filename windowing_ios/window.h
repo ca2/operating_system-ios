@@ -149,12 +149,12 @@ namespace windowing_ios
       //void profiling_on_end_draw_rectangle() override;
 
       
-      void _main_send(const ::procedure & procedure) override;
+      void main_send(const ::procedure & procedure) override;
       
-      void _main_post(const ::procedure & procedure) override;
+      void main_post(const ::procedure & procedure) override;
       
       
-      ::oswindow oswindow() const override;
+      ::operating_system::window operating_system_window() const override;
 
       
       void ios_window_resized(int cx, int cy) override;

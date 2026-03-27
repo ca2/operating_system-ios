@@ -224,10 +224,11 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //
 
 
-   ::acme::windowing::window * windowing::window(oswindow oswindow)
+   ::acme::windowing::window * windowing::acme_windowing_window(const ::operating_system::window & operatingsystemwindow)
    {
 
-      return oswindow;
+      return ::uikit::acme::windowing::windowing::acme_windowing_window(operatingsystemwindow);
+      //return oswindow;
 
    }
 
@@ -517,7 +518,7 @@ void windowing::windowing_post_quit()
 //   }
    
 
-void windowing::_user_send(const ::procedure & procedure)
+void windowing::user_send(const ::procedure & procedure)
 {
 
    __block auto p = procedure;
@@ -530,7 +531,7 @@ void windowing::_user_send(const ::procedure & procedure)
 }
 
 
-   void windowing::_user_post(const ::procedure & procedure)
+   void windowing::user_post(const ::procedure & procedure)
 {
       
       __block auto p = procedure;
@@ -544,19 +545,19 @@ void windowing::_user_send(const ::procedure & procedure)
 }
 
 
-bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * pmessagebox)
-{
-   
-   return ::uikit::acme::windowing::windowing::defer_realize(preifiedMessageBox,pmessagebox);
+//bool windowing::defer_realize(         ::pointer < ::reified < ::message_box > > & preifiedMessageBox, ::message_box * pmessagebox)
+//{
+//   
+//   return ::uikit::acme::windowing::windowing::defer_realize(preifiedMessageBox,pmessagebox);
+////
+//  // preifiedMessageBox = allocateø ::windowing_ios::message_box;
+//   
+//   //preifiedMessageBox->on_realize(pmessagebox);
+//   
+//   //return true;
+//   
+//}
 //
-  // preifiedMessageBox = allocateø ::windowing_ios::message_box;
-   
-   //preifiedMessageBox->on_realize(pmessagebox);
-   
-   //return true;
-   
-}
-
 
 ::string windowing::_ns_application_delegate_class()
 {

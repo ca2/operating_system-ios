@@ -28,7 +28,7 @@ namespace windowing_ios
 //      ::string get_conversation_title() override;
 //      ::e_message_box get_conversation_flags() override;
 //      ::string get_conversation_details() override;
-      void on_realize(::message_box * pmessagebox) override;
+      void display(::dialog * pdialog) override;
 
 
       void add_button(const ::scoped_string & scopedstrText, enum_dialog_result edialogresult, char chLetter) override;

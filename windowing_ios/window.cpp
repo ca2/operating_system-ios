@@ -1366,7 +1366,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
             auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
 
              pmouseactivate->m_pwindow =this;
-             pmouseactivate->m_oswindow = this;
+             pmouseactivate->m_operatingsystemwindow = this->user::element::operating_system_window();
              pmouseactivate->m_eusermessage = ::user::e_message_mouse_activate;
 
             send_message(pmouseactivate);
@@ -1376,7 +1376,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
                auto pactivate = øcreate_new < ::message::activate >();
                 pactivate->m_pwindow =this;
-                pactivate->m_oswindow = this;
+                pactivate->m_operatingsystemwindow = this->operating_system_window();
                 pactivate->m_eusermessage = ::user::e_message_activate;
                 pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
                 pactivate->m_eactivate = e_activate_click_active;
@@ -1411,7 +1411,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          auto pmouse = øcreate_new < ::message::mouse > ();
 
          pmouse->m_pwindow = this;
-         pmouse->m_oswindow = this;
+         pmouse->m_operatingsystemwindow = this->operating_system_window();
          pmouse->m_eusermessage = ::user::e_message_left_button_down;
          pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
          pmouse->m_pointHost.x = xHost;
@@ -1486,7 +1486,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
 
           pmouseactivate->m_pwindow =this;
-          pmouseactivate->m_oswindow = this;
+          pmouseactivate->m_operatingsystemwindow = this->operating_system_window();
           pmouseactivate->m_eusermessage = ::user::e_message_mouse_activate;
 
          send_message(pmouseactivate);
@@ -1496,7 +1496,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
             auto pactivate = øcreate_new < ::message::activate >();
              pactivate->m_pwindow =this;
-             pactivate->m_oswindow = this;
+             pactivate->m_operatingsystemwindow = this->operating_system_window();
              pactivate->m_eusermessage = ::user::e_message_activate;
              pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
              pactivate->m_eactivate = e_activate_click_active;
@@ -1531,7 +1531,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       }
       
       pmouse->m_pwindow = this;
-      pmouse->m_oswindow = this;
+      pmouse->m_operatingsystemwindow = this->operating_system_window();
       pmouse->m_eusermessage = ::user::e_message_right_button_down;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
@@ -1607,7 +1607,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       }
       
       pmouse->m_pwindow = this;
-      pmouse->m_oswindow = this;
+      pmouse->m_operatingsystemwindow = this->operating_system_window();
       pmouse->m_eusermessage = ::user::e_message_left_button_up;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
@@ -1687,7 +1687,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    }
    
    pmouse->m_pwindow = this;
-   pmouse->m_oswindow = this;
+   pmouse->m_operatingsystemwindow = this->operating_system_window();
    pmouse->m_eusermessage = ::user::e_message_right_button_up;
    pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
    pmouse->m_pointHost.x = xHost;
@@ -1888,7 +1888,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       auto pmouse = øcreate_new < ::message::mouse >();
       
        pmouse->m_pwindow = this;
-       pmouse->m_oswindow = this;
+       pmouse->m_operatingsystemwindow = this->operating_system_window();
        pmouse->m_eusermessage = id;
       pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
       pmouse->m_pointHost.x = xHost;
@@ -1964,7 +1964,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
       //pmouse->set(this, this, id, wparam, lparam);
        pmouse->m_pwindow = this;
-       pmouse->m_oswindow = this;
+       pmouse->m_operatingsystemwindow = this->operating_system_window();
        pmouse->m_eusermessage = id;
        pmouse->m_lparam =::make_unsigned_int(x, y);
        pmouse->m_pointHost.x = x;
@@ -2199,7 +2199,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
          auto preposition  = øcreate_new < ::message::reposition > ();
       
           preposition->m_pwindow = this;
-          preposition->m_oswindow = this;
+          preposition->m_operatingsystemwindow = this->operating_system_window();
           preposition->m_eusermessage = id;
           preposition->m_lparam =::make_unsigned_int(point.x, point.y);
           preposition->m_point.x = point.x;
@@ -3046,30 +3046,30 @@ void window::on_prompt_write_file(::user::controller *pusercontroller)
 }
 
 
-   void window::_main_send(const ::procedure & procedure)
+   void window::main_send(const ::procedure & procedure)
    {
       
       auto pwindowing = windowing();
 
-      pwindowing->_main_send(procedure);
+      pwindowing->main_send(procedure);
 
    }
 
 
-   void window::_main_post(const ::procedure & procedure)
+   void window::main_post(const ::procedure & procedure)
    {
 
       auto pwindowing = windowing();
 
-      pwindowing->_main_post(procedure);
+      pwindowing->main_post(procedure);
 
    }
 
 
-   ::oswindow window::oswindow() const
+   ::operating_system::window window::operating_system_window() const
    {
 
-      return as_non_const(this);
+      return m_ioswindow.as_operating_system_window();
 
    }
 

@@ -274,7 +274,7 @@ void node::on_app_activated(::user::activation_token * puseractivationtoken)
 //::pointer < ::conversation > node::create_new_message_box_conversation()
 //   {
 //
-//      return øcreate_new < class ::windowing_ios::message_box >();
+//      return create_newø < class ::windowing_ios::message_box >();
 //
 //   }
 

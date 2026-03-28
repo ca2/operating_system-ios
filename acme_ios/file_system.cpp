@@ -128,7 +128,7 @@ void file_system::initialize(::particle * pparticle)
          
       }
       
-      ødefer_construct_new(picloudcontainer);
+      defer_construct_newø(picloudcontainer);
       
    }
 

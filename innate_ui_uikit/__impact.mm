@@ -13,7 +13,7 @@ namespace innate_ui_uikit
 {
    
 
-//   void window::øcreate()
+//   void window::createø()
 //   {
 //
 //      // m_hwnd = CreateWindowW(_get_class_name(), L"", WS_DLGFRAME | WS_CAPTION | WS_POPUPWINDOW,

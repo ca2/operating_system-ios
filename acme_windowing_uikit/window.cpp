@@ -545,7 +545,7 @@ namespace uikit
          //
          //      ns_app_run();
          //
-         //      //   auto pmessagebox = pparticle->øcreate_new < ::nano::user::message_box >();
+         //      //   auto pmessagebox = pparticle->create_newø < ::nano::user::message_box >();
          //      //
          //      //   atom idResult;
          //      //

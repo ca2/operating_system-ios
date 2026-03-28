@@ -1012,7 +1012,7 @@ void window::release_mouse_capture()
 
       }
       
-      auto pgraphics = øcreate < ::draw2d::graphics >();
+      auto pgraphics = createø < ::draw2d::graphics >();
 
       pgraphics->attach(cgc);
       
@@ -1150,7 +1150,7 @@ void window::release_mouse_capture()
 //
 //      }
 //
-//      auto pkey  = øcreate_new < ::message::key >();
+//      auto pkey  = create_newø < ::message::key >();
 //
 //      pkey->m_id = ::user::e_message_key_down;
 //
@@ -1197,7 +1197,7 @@ void window::release_mouse_capture()
 bool window::ios_window_key_down(::user::enum_key ekey)
    {
       
-      {         auto pkey  = øcreate_new < ::message::key >();
+      {         auto pkey  = create_newø < ::message::key >();
 
          pkey->m_eusermessage = ::user::e_message_key_down;
          pkey->m_ekey = ekey;
@@ -1210,7 +1210,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
 //      if(::is_set(pszUtf8) && ansi_len(pszUtf8) > 0)
 //      {
 //
-//         auto pkey = øcreate_new < ::message::key >();
+//         auto pkey = create_newø < ::message::key >();
 //
 //         pkey->set(get_oswindow(), this, e_message_text_composition, 0, 0);
 //
@@ -1257,7 +1257,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
       }
 
-      auto pkey  = øcreate_new <::message::key >();
+      auto pkey  = create_newø <::message::key >();
 
 //      pkey->set(get_oswindow(), this, e_message_key_up, vk, (::lparam)(scan << 16));
    pkey->m_eusermessage = ::user::e_message_key_up;
@@ -1363,7 +1363,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          try
          {
 
-            auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
+            auto pmouseactivate = create_newø < ::message::mouse_activate >();
 
              pmouseactivate->m_pwindow =this;
              pmouseactivate->m_operatingsystemwindow = this->user::element::operating_system_window();
@@ -1374,7 +1374,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
             if (pmouseactivate->m_lresult == e_mouse_activate || pmouseactivate->m_lresult == e_mouse_activate_no_activate_and_eat)
             {
 
-               auto pactivate = øcreate_new < ::message::activate >();
+               auto pactivate = create_newø < ::message::activate >();
                 pactivate->m_pwindow =this;
                 pactivate->m_operatingsystemwindow = this->operating_system_window();
                 pactivate->m_eusermessage = ::user::e_message_activate;
@@ -1408,7 +1408,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
          }
          
-         auto pmouse = øcreate_new < ::message::mouse > ();
+         auto pmouse = create_newø < ::message::mouse > ();
 
          pmouse->m_pwindow = this;
          pmouse->m_operatingsystemwindow = this->operating_system_window();
@@ -1483,7 +1483,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       try
       {
 
-         auto pmouseactivate = øcreate_new < ::message::mouse_activate >();
+         auto pmouseactivate = create_newø < ::message::mouse_activate >();
 
           pmouseactivate->m_pwindow =this;
           pmouseactivate->m_operatingsystemwindow = this->operating_system_window();
@@ -1494,7 +1494,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          if (pmouseactivate->m_lresult == e_mouse_activate || pmouseactivate->m_lresult == e_mouse_activate_no_activate_and_eat)
          {
 
-            auto pactivate = øcreate_new < ::message::activate >();
+            auto pactivate = create_newø < ::message::activate >();
              pactivate->m_pwindow =this;
              pactivate->m_operatingsystemwindow = this->operating_system_window();
              pactivate->m_eusermessage = ::user::e_message_activate;
@@ -1515,7 +1515,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 
    {
 
-      auto pmouse = øcreate_new < ::message::mouse > ();
+      auto pmouse = create_newø < ::message::mouse > ();
 
       auto psession = session();
 
@@ -1590,7 +1590,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       
       m_pointMouseCursor.y = yHost;
       
-      auto pmouse = øcreate_new < ::message::mouse >();
+      auto pmouse = create_newø < ::message::mouse >();
 
       
       auto psession = session();
@@ -1670,7 +1670,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    
    m_pointMouseCursor.y = yHost;
    
-   auto pmouse = øcreate_new < ::message::mouse >();
+   auto pmouse = create_newø < ::message::mouse >();
 
    
    auto psession = session();
@@ -1739,7 +1739,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //   bool window::ios_window_double_click(double x, double y)
 //   {
 //
-//      auto pmouse = øcreate_new < ::message::mouse >();
+//      auto pmouse = create_newø < ::message::mouse >();
 //
 //      ::user::enum_message id;
 //
@@ -1885,7 +1885,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
       
-      auto pmouse = øcreate_new < ::message::mouse >();
+      auto pmouse = create_newø < ::message::mouse >();
       
        pmouse->m_pwindow = this;
        pmouse->m_operatingsystemwindow = this->operating_system_window();
@@ -1960,7 +1960,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
 
-      auto pmouse = øcreate_new < ::message::mouse >();
+      auto pmouse = create_newø < ::message::mouse >();
       
       //pmouse->set(this, this, id, wparam, lparam);
        pmouse->m_pwindow = this;
@@ -1987,7 +1987,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      lparam lparam = __MAKE_LPARAM(x, y);
 //
-//      auto pwheel  = øcreate_new < ::message::mouse_wheel > ();
+//      auto pwheel  = create_newø < ::message::mouse_wheel > ();
 //
 //      pwheel->set(this, this, id, wparam, lparam);
 //
@@ -2007,7 +2007,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(rectangle.origin.x, rectangle.origin.y);
 //
-//         auto pmove  = øcreate_new < ::message::move > ();
+//         auto pmove  = create_newø < ::message::move > ();
 //
 //         pmove->set(this, this, id, wparam, lparam);
 //
@@ -2023,7 +2023,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(0, 0);
 //
-//         auto pmove  = øcreate_new < ::message::move > ();
+//         auto pmove  = create_newø < ::message::move > ();
 //
 //         pmove->set(this, this, id, wparam, lparam);
 //
@@ -2039,7 +2039,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //         lparam lparam = __MAKE_LPARAM(cx, cy);
 //
-//         auto psize  = øcreate_new < ::message::size > ();
+//         auto psize  = create_newø < ::message::size > ();
 //
 //         psize->set(this, this, id, wparam, lparam);
 //
@@ -2196,7 +2196,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
          
          lparam lparam(point.x, point.y);
       
-         auto preposition  = øcreate_new < ::message::reposition > ();
+         auto preposition  = create_newø < ::message::reposition > ();
       
           preposition->m_pwindow = this;
           preposition->m_operatingsystemwindow = this->operating_system_window();

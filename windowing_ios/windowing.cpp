@@ -154,7 +154,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
 //   ::windowing::window *windowing::new_window(::user::interaction_impl *pimpl)
 //   {
 //
-//      auto pwindow = øcreate < ::windowing::window >();
+//      auto pwindow = createø < ::windowing::window >();
 //      
 //      pwindow->create_window(pimpl);
 //

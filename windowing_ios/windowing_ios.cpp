@@ -351,10 +351,10 @@
 //}
 //
 //
-//int_bool release_capture()
+//::i32_bool release_capture()
 //{
 //
-//   int_bool bRet = true;
+//   ::i32_bool bRet = true;
 //
 //   if(bRet)
 //   {
@@ -415,7 +415,7 @@
 //
 //}
 //
-//int_bool session_accepts_first_responder()
+//::i32_bool session_accepts_first_responder()
 //{
 //
 //   return psession->m_bAcceptsFirstResponder ? 1 : 0;
@@ -483,7 +483,7 @@
 
 
 //
-//int_bool destroy_window(oswindow w)
+//::i32_bool destroy_window(oswindow w)
 //{
 //
 //   if(is_null(w))
@@ -552,7 +552,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 
 //
-//int_bool set_need_redraw(oswindow hWnd, const INT_RECTANGLE * pcrect, HRGN hrgnUpdate, ::u32 flags)
+//::i32_bool set_need_redraw(oswindow hWnd, const INT_RECTANGLE * pcrect, HRGN hrgnUpdate, ::u32 flags)
 //{
 //
 //   return true;
@@ -598,13 +598,13 @@
 //   return nullptr;
 //
 //}
-//int_bool axis_TranslateMessage(const MESSAGE * pmessage);
+//::i32_bool axis_TranslateMessage(const MESSAGE * pmessage);
 
 //LRESULT axis_DispatchMessage(const MESSAGE * pmessage);
 
 void mm_init_workspace_rect();
 
-//int_bool os_init_windowing()
+//::i32_bool os_init_windowing()
 //{
 //
 ////   set_TranslateMessage(&axis_TranslateMessage);
@@ -1250,7 +1250,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //   
 //}
 //
-//int_bool is_window_occluded(oswindow oswindow)
+//::i32_bool is_window_occluded(oswindow oswindow)
 //{
 //
 //
@@ -1302,7 +1302,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //void cg_get_window_rect_list(int_rectangle_array & recta, array < CGWindowID > & windowida);
 //
-//int_bool point_is_window_origin(INT_POINT pointHitTest, oswindow oswindowExclude, int iMargin)
+//::i32_bool point_is_window_origin(INT_POINT pointHitTest, oswindow oswindowExclude, int iMargin)
 //{
 //   
 //   CGWindowID windowidExclude = get_os_window_window_number(oswindowExclude);

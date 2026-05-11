@@ -109,7 +109,7 @@ namespace acme_ios
 //
 //         void shared_library_process(dword_array& dwa, string_array& straProcesses, const ::string & pszLibrary) override;
 //
-////         int_bool is_process_running(::u32 pid) override;
+////         ::i32_bool is_process_running(::u32 pid) override;
 //
 //         string get_environment_variable(const ::string & pszEnvironmentVariable) override;
 //

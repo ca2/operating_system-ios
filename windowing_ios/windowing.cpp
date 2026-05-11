@@ -409,7 +409,7 @@ void windowing::windowing_post_quit()
 //   }
 
 
-   void windowing::_defer_dock_application(int_bool bDock)
+   void windowing::_defer_dock_application(::i32_bool bDock)
    {
 
 //      if (bDock)

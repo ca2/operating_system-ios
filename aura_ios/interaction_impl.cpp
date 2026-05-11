@@ -29,9 +29,9 @@
 ////};
 //
 //
-//// int_bool PeekMessage(MESSAGE * lpMsg, oswindow hWnd, ::u32 wMsgFilterMin, ::u32 wMsgFilterMax, ::u32 wRemoveMsg);
+//// ::i32_bool PeekMessage(MESSAGE * lpMsg, oswindow hWnd, ::u32 wMsgFilterMin, ::u32 wMsgFilterMax, ::u32 wRemoveMsg);
 //
-//// int_bool GetMessage(MESSAGE * lpMsg, oswindow hWnd, ::u32 wMsgFilterMin, ::u32 wMsgFilterMax);
+//// ::i32_bool GetMessage(MESSAGE * lpMsg, oswindow hWnd, ::u32 wMsgFilterMin, ::u32 wMsgFilterMax);
 //
 //::user::interaction * g_puserinteractionMouseCapture123 = nullptr;
 ////#define MESSAGE_WINDOW_PARENT (::oswindow((void *) (iptr) 1))

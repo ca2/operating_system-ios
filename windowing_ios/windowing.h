@@ -85,7 +85,7 @@ virtual public ::uikit::acme::windowing::windowing
 
       
       
-      void _defer_dock_application(int_bool bDock);
+      void _defer_dock_application(::i32_bool bDock);
       
       void user_send(const ::procedure & procedure) override;
 

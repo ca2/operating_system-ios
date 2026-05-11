@@ -953,7 +953,7 @@ bool bPrivileged,
 //   }
 //
 //
-////   int_bool node::is_process_running(::u32 pid)
+////   ::i32_bool node::is_process_running(::u32 pid)
 ////   {
 ////
 ////      throw interface_only();

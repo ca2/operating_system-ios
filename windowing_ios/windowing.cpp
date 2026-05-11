@@ -114,7 +114,7 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
    
 
 }
-::particle * windowing::defer_initialize_host_window(const ::int_rectangle* lpcrect)
+::particle * windowing::defer_initialize_host_window(const ::i32_rectangle* lpcrect)
    {
    ::particle * pparticle = ::sandbox_windowing::windowing::defer_initialize_host_window(lpcrect);
 //      if(::is_set(m_pwindowApplicationHost))

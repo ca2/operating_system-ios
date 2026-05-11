@@ -57,7 +57,7 @@ bool m_bDirty;
    virtual bool ios_window_edit_caret_rect(CGRect * prectangle, long iSel) = 0;
    
    virtual void ios_window_resized(int cx, int cy) = 0;
-   virtual void ios_window_moved(CGPoint int_point) = 0;
+   virtual void ios_window_moved(CGPoint i32_point) = 0;
 
    virtual void ios_window_did_become_key() = 0;
 
@@ -114,5 +114,5 @@ bool m_bDirty;
 };
 
 #ifdef __OBJC__
-//UIWindow * new_ios_window(ios_window * pwindow, CGRect int_rectangle, ::u32 uStyle);
+//UIWindow * new_ios_window(ios_window * pwindow, CGRect i32_rectangle, ::u32 uStyle);
 #endif

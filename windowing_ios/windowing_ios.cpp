@@ -640,7 +640,7 @@ void mm_init_workspace_rect();
 //
 //   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenAboveWindow, windowid);
 //
-//   ::int_rectangle rMainScreen;
+//   ::i32_rectangle rMainScreen;
 //
 //   get_main_screen_rectangle(rMainScreen);
 //
@@ -702,7 +702,7 @@ void mm_init_workspace_rect();
 //         if(rect.size.width > 0 && rect.size.height > 0)
 //         {
 //
-//            ::int_rectangle rectCopy;
+//            ::i32_rectangle rectCopy;
 //
 //            rectCopy.left = rect.origin.x;
 //            rectCopy.top = rMainScreen.height() - (rect.origin.y + rect.size.height);
@@ -783,7 +783,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //   CGRect rect1 = {};
 //
-//   //int_rectangle rMainScreen;
+//   //i32_rectangle rMainScreen;
 //
 //   //get_main_screen_rectangle(rMainScreen);
 //
@@ -979,7 +979,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //               if(CGRectIntersectsRect(rect1, rect))
 //               {
 //
-//                  ::int_rectangle rectCopy;
+//                  ::i32_rectangle rectCopy;
 //
 //                  rectCopy.left = rect.origin.x;
 //                  rectCopy.right = rect.origin.x + rect.size.width;
@@ -1052,7 +1052,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //   
 //   //CGRect rect1={};
 //   
-//   //int_rectangle rMainScreen;
+//   //i32_rectangle rMainScreen;
 //
 //   string strName;
 //   
@@ -1189,7 +1189,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //         
 //         CGRectMakeWithDictionaryRepresentation(dictRect, &rect);
 //         
-//         ::int_rectangle rectCopy;
+//         ::i32_rectangle rectCopy;
 //         
 //         //rectCopy.left = rectangle.origin.x;
 //         //rectCopy.top = rMainScreen.height() - (rectangle.origin.y + rectangle.size.height);
@@ -1275,11 +1275,11 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //   
 //   return true;
 //
-////   ::int_rectangle rectangle;
+////   ::i32_rectangle rectangle;
 ////
 ////   rectangle = oswindow->m_pimpl->m_puserinteraction->parent_client_rect();
 ////
-////   ::int_rectangle rectTest;
+////   ::i32_rectangle rectTest;
 ////
 ////   for(int i = 0; i < recta.get_size(); i++)
 ////   {
@@ -1313,7 +1313,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //   
 //   cg_get_window_rect_list(recta, windowida);
 //   
-//   ::int_rectangle rectTest;
+//   ::i32_rectangle rectTest;
 //
 //   for(index i = 0; i < recta.get_size(); i++)
 //   {

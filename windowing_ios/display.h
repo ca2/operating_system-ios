@@ -30,14 +30,14 @@ virtual public ::uikit::acme::windowing::display
       ::collection::count get_monitor_count() override;
       
       
-      ::int_point _get_mouse_cursor_position() override;
+      ::i32_point _get_mouse_cursor_position() override;
    
       
-      bool get_zoomed_window_site(::collection::index iWorkspace, ::int_rectangle & rectangle) override;
+      bool get_zoomed_window_site(::collection::index iWorkspace, ::i32_rectangle & rectangle) override;
 
       int get_zoomed_title_bar_height() override;
       
-       ::int_size get_main_screen_size() override;
+       ::i32_size get_main_screen_size() override;
        
        
    };

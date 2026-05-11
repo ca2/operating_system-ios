@@ -33,7 +33,7 @@ public:
    
    bool is_display_opened() const override;
    
-   ::int_size get_main_screen_size() override;
+   ::i32_size get_main_screen_size() override;
    
 };
 

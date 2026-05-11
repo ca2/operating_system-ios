@@ -41,7 +41,7 @@ namespace windowing_ios
       void *                     m_pNSCursorLast;
       //class windowing *          m_pioswindowing;
       ::windowing::window *      m_pwindowCapture;
-      ::int_point                m_pointMouseCursor;
+      ::i32_point                m_pointMouseCursor;
       ::pointer < ::aqua::media_item_picker > m_pmediaitempicker;
       
       window();
@@ -102,7 +102,7 @@ namespace windowing_ios
       
       void set_mouse_cursor(::windowing::cursor * pcursor) override;
 //      
-//      ::int_point get_mouse_cursor_position() override;
+//      ::i32_point get_mouse_cursor_position() override;
 //      
 //      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, ::u32 nFlags) override;
 
@@ -158,7 +158,7 @@ namespace windowing_ios
 
       
       void ios_window_resized(int cx, int cy) override;
-      void ios_window_moved(CGPoint int_point) override;
+      void ios_window_moved(CGPoint i32_point) override;
       //void ios_window_iconified() override;
       //void ios_window_deiconified() override;
 

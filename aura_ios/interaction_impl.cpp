@@ -391,7 +391,7 @@
 ////
 ////      hook_window_create(m_puserinteraction);
 ////
-////      CGRect int_rectangle;
+////      CGRect i32_rectangle;
 ////
 ////      INT_RECTANGLE rectParam;
 ////
@@ -428,7 +428,7 @@
 ////
 ////         m_puserinteraction->layout().window() = ::top_left(rectParam);
 ////
-////         m_puserinteraction->layout().window() = ::int_size(rectParam);
+////         m_puserinteraction->layout().window() = ::i32_size(rectParam);
 ////
 ////         __refer(m_puserinteraction->m_pthreadUserInteraction, ::get_task());
 ////
@@ -502,7 +502,7 @@
 ////   }
 ////
 //
-////   bool interaction_impl::create_window(::user::interaction * pinteraction, const char * lpszClassName,const char * lpszWindowName,::u32 uStyle, const ::int_rectangle & rectangle,::user::interaction * puiParent,id id, ::create * pcreate)
+////   bool interaction_impl::create_window(::user::interaction * pinteraction, const char * lpszClassName,const char * lpszWindowName,::u32 uStyle, const ::i32_rectangle & rectangle,::user::interaction * puiParent,id id, ::create * pcreate)
 ////   {
 ////
 ////      // can't use for desktop or pop-up windows (use CreateEx instead)
@@ -842,11 +842,11 @@
 ////      //      ::GetClassName(get_handle(), szBuf, _countof(szBuf));
 ////      //    dumpcontext << "\nclass name = \"" << szBuf << "\"";
 ////
-////      ::int_rectangle rectangle;
+////      ::i32_rectangle rectangle;
 ////      
 ////      ((::user::interaction_impl *) this)->m_puserinteraction->window_rectangle(rectangle);
 ////      
-//////      dumpcontext << "\nrect = " << int_rectangle;
+//////      dumpcontext << "\nrect = " << i32_rectangle;
 ////      dumpcontext << "\nparent ::user::interaction * = " << (void *)((::user::interaction_impl *) this)->get_parent();
 ////
 ////      //      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
@@ -1209,7 +1209,7 @@
 //////         if (m_bTranslateMouseMessageCursor)
 //////         {
 //////
-//////            ::int_rectangle rectangle;
+//////            ::i32_rectangle rectangle;
 //////
 //////            if(!pmouse->m_bTranslated)
 //////            {
@@ -1329,13 +1329,13 @@
 //////              if(m_bTranslateMouseMessageCursor && !pmouse->m_bTranslated)
 //////              {
 //////                 pmouse->m_bTranslated = true;
-//////                 ::int_rectangle rectWindow;
+//////                 ::i32_rectangle rectWindow;
 //////     //            if(m_bScreenRelativeMouseMessagePosition)
 //////     //            {
 //////     //
 //////     //               INFO("Screen Relative Mouse Message Position");
 //////     //
-//////     //               ::int_rectangle rectWindow32;
+//////     //               ::i32_rectangle rectWindow32;
 //////     //
 //////     //               ::window_rectangle((oswindow) get_handle(), &rectWindow32);
 //////     //
@@ -1356,7 +1356,7 @@
 //////                 if(pdisplay->get_monitor_count() > 0)
 //////                 {
 //////
-//////                    ::int_rectangle rcMonitor;
+//////                    ::i32_rectangle rcMonitor;
 //////
 //////                    pdisplay->get_monitor_rectangle(0, &rcMonitor);
 //////
@@ -2323,7 +2323,7 @@
 ////   void interaction_impl::_001DeferPaintLayeredWindowBackground(HDC hdc)
 ////   {
 ////
-////      //::int_rectangle rectClient;
+////      //::i32_rectangle rectClient;
 ////
 ////      //client_rectangle(rectClient);
 ////
@@ -2336,7 +2336,7 @@
 ////
 ////      //      SetViewportOrgEx(hdc, 0, 0, nullptr);
 ////
-////      //::int_rectangle rectPaint;
+////      //::i32_rectangle rectPaint;
 ////
 ////      //rectPaint = rectUpdate;
 ////
@@ -2378,18 +2378,18 @@
 //      //
 //      //      ::draw2d::graphics_pointer graphics(this);
 //      //      WIN_DC(graphics.m_p)->Attach((HDC) pusermessage->m_wparam);
-//      //      ::int_rectangle rectx;
+//      //      ::i32_rectangle rectx;
 //      //      ::draw2d::bitmap * pbitmap = &pgraphics->GetCurrentBitmap();
 //      //      ::GetCurrentObject((HDC) pusermessage->m_wparam, OBJ_BITMAP);
 //      //      //      ::u32 dw = ::get_last_error();
-//      //      ::int_size size = pbitmap->get_size();
+//      //      ::i32_size size = pbitmap->get_size();
 //      //      rectx.left = 0;
 //      //      rectx.top = 0;
 //      //      rectx.right = size.cx;
 //      //      rectx.bottom = size.cy;
 //      //      try
 //      //      {
-//      //         ::int_rectangle rectWindow;
+//      //         ::i32_rectangle rectWindow;
 //      //         window_rectangle(rectWindow);
 //      //
 //      //         ::image_pointer pimage(this);
@@ -2401,8 +2401,8 @@
 //      //         if(pgraphics->get_handle() == nullptr)
 //      //            return;
 //      //
-//      //         ::int_rectangle rectPaint;
-//      //         ::int_rectangle rectUpdate;
+//      //         ::i32_rectangle rectPaint;
+//      //         ::i32_rectangle rectUpdate;
 //      //         rectUpdate = rectWindow;
 //      //         rectPaint = rectWindow;
 //      //         rectPaint.offset(-rectPaint.top_left());
@@ -2416,12 +2416,12 @@
 //      //            _001OnDeferPaintLayeredWindowBackground(pgraphics);
 //      //         }
 //      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SelectClipRgn(nullptr);
-//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::int_point());
+//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::i32_point());
 //      //         _000OnDraw(pgraphics);
-//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::int_point());
+//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::i32_point());
 //      //         //(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->FillSolidRect(rectUpdate.left, rectUpdate.top, 100, 100, 255);
 //      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SelectClipRgn(nullptr);
-//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::int_point());
+//      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->SetViewportOrg(::i32_point());
 //      //
 //      //         pgraphics->SelectClipRgn( nullptr);
 //      //         pgraphics->BitBlt(rectPaint.left, rectPaint.top,
@@ -2735,7 +2735,7 @@
 ////
 ////      }
 ////
-////      ::int_rectangle rect32;
+////      ::i32_rectangle rect32;
 ////
 ////      if (!::client_rectangle(get_handle(), rect32))
 ////      {
@@ -2960,7 +2960,7 @@
 ////   }
 //
 //
-////   bool interaction_impl::DragDetect(const ::int_point & point) const
+////   bool interaction_impl::DragDetect(const ::i32_point & point) const
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3136,7 +3136,7 @@
 ////   }
 ////
 ////
-////   void interaction_impl::InvalidateRect(const ::int_rectangle & rectangle, bool bErase)
+////   void interaction_impl::InvalidateRect(const ::i32_rectangle & rectangle, bool bErase)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3152,7 +3152,7 @@
 ////   }
 ////
 ////
-////   void interaction_impl::ValidateRect(const ::int_rectangle & rectangle)
+////   void interaction_impl::ValidateRect(const ::i32_rectangle & rectangle)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3434,7 +3434,7 @@
 ////   }
 //
 //
-////   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::int_rectangle & rectangle, ::u32 uFlags)
+////   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::i32_rectangle & rectangle, ::u32 uFlags)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3698,7 +3698,7 @@
 ////   }
 ////
 ////
-////   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::int_point & point)
+////   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::i32_point & point)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3706,7 +3706,7 @@
 ////   }
 ////
 ////
-////   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::int_point & point, ::u32 nFlags)
+////   ::user::interaction *  interaction_impl::ChildWindowFromPoint(const ::i32_point & point, ::u32 nFlags)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3777,7 +3777,7 @@
 ////   }
 ////
 ////
-////   ::user::interaction * PASCAL interaction_impl::oswindowFromPoint(INT_POINT int_point)
+////   ::user::interaction * PASCAL interaction_impl::oswindowFromPoint(INT_POINT i32_point)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3847,16 +3847,16 @@
 ////
 ////
 ////
-////   int_point PASCAL interaction_impl::GetCaretPos()
+////   i32_point PASCAL interaction_impl::GetCaretPos()
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
-////      //      ::int_point point;
+////      //      ::i32_point point;
 ////      //      ::GetCaretPos((INT_POINT *)&point); return point;
 ////
 ////   }
 ////
-////   void PASCAL interaction_impl::SetCaretPos(INT_POINT int_point)
+////   void PASCAL interaction_impl::SetCaretPos(INT_POINT i32_point)
 ////   {
 ////
 ////      throw ::exception(error_not_implemented);;
@@ -3966,7 +3966,7 @@
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnContextMenu(::user::interaction *, int_point)
+////   void interaction_impl::OnContextMenu(::user::interaction *, i32_point)
 ////   {
 ////      Default();
 ////   }
@@ -4110,31 +4110,31 @@
 ////   {
 ////      return Default();
 ////   }
-////   void interaction_impl::OnNcLButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnNcLButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcLButtonDown(::u32, int_point)
+////   void interaction_impl::OnNcLButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcLButtonUp(::u32, int_point)
+////   void interaction_impl::OnNcLButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcMButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnNcMButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcMButtonDown(::u32, int_point)
+////   void interaction_impl::OnNcMButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcMButtonUp(::u32, int_point)
+////   void interaction_impl::OnNcMButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcMouseMove(::u32, int_point)
+////   void interaction_impl::OnNcMouseMove(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
@@ -4142,15 +4142,15 @@
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcRButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnNcRButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcRButtonDown(::u32, int_point)
+////   void interaction_impl::OnNcRButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnNcRButtonUp(::u32, int_point)
+////   void interaction_impl::OnNcRButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
@@ -4210,27 +4210,27 @@
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnLButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnLButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnLButtonDown(::u32, int_point)
+////   void interaction_impl::OnLButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnLButtonUp(::u32, int_point)
+////   void interaction_impl::OnLButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnMButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnMButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnMButtonDown(::u32, int_point)
+////   void interaction_impl::OnMButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnMButtonUp(::u32, int_point)
+////   void interaction_impl::OnMButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
@@ -4238,12 +4238,12 @@
 ////   {
 ////      return (int)Default();
 ////   }
-////   void interaction_impl::OnMouseMove(::u32, int_point)
+////   void interaction_impl::OnMouseMove(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
 ////
-////   bool interaction_impl::OnMouseWheel(::u32, short, int_point)
+////   bool interaction_impl::OnMouseWheel(::u32, short, i32_point)
 ////   {
 ////
 ////      return Default() != false;
@@ -4254,15 +4254,15 @@
 ////   {
 ////      return Default();
 ////   }
-////   void interaction_impl::OnRButtonDblClk(::u32, int_point)
+////   void interaction_impl::OnRButtonDblClk(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnRButtonDown(::u32, int_point)
+////   void interaction_impl::OnRButtonDown(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
-////   void interaction_impl::OnRButtonUp(::u32, int_point)
+////   void interaction_impl::OnRButtonUp(::u32, i32_point)
 ////   {
 ////      Default();
 ////   }
@@ -4493,9 +4493,9 @@
 //
 //#ifdef EXTRALOG
 //
-//   ::int_rectangle rectLast;
+//   ::i32_rectangle rectLast;
 //
-//   ::int_size sizeLast;
+//   ::i32_size sizeLast;
 //
 //#endif
 //
@@ -4593,7 +4593,7 @@
 ////      //      case WM_INITDIALOG:
 ////      //         {
 ////      //            ::u32 uStyle;
-////      //            ::int_rectangle rectOld;
+////      //            ::i32_rectangle rectOld;
 ////      //            ::user::interaction * pWnd = ::macos::interaction_impl::from_handle(hWnd);
 ////      //            __pre_init_dialog(pWnd, &rectOld, &uStyle);
 ////      //            bCallDefault = false;
@@ -4654,7 +4654,7 @@
 //
 //      // graphics will be already set its view port to the user::interaction for linux - cairo with xlib
 //
-//      pgraphics->set_origin(::int_point());
+//      pgraphics->set_origin(::i32_point());
 //
 //   }
 //

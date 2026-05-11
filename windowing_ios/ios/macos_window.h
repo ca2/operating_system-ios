@@ -55,8 +55,8 @@ public:
    //virtual bool macos_window_key_down(::u32 uiKeyCode) = 0;
    //virtual bool macos_window_key_up(::u32 uiKeyCode) = 0;
    
-   virtual void macos_window_resized(CGRect int_rectangle) = 0;
-   virtual void macos_window_moved(CGPoint int_point) = 0;
+   virtual void macos_window_resized(CGRect i32_rectangle) = 0;
+   virtual void macos_window_moved(CGPoint i32_point) = 0;
    
    virtual void macos_window_iconified() = 0;
    virtual void macos_window_deiconified() = 0;

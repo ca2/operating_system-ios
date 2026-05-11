@@ -52,7 +52,7 @@ virtual public ::uikit::acme::windowing::windowing
       ::windowing::text_editor_interface * get_text_editor_interface() override;
 
       
-      ::particle * defer_initialize_host_window(const ::int_rectangle* lpcrect) override;
+      ::particle * defer_initialize_host_window(const ::i32_rectangle* lpcrect) override;
      
       ::acme::windowing::window * get_application_host_window() override;
       

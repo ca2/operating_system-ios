@@ -26,11 +26,11 @@ void ns_app_stop();
 
 CLASS_DECL_ACME void ns_get_main_screen_size(int & cx, int & cy);
 
-void screen_coordinates_aware_copy(CGRect & rect, const ::int_rectangle &rectangle);
+void screen_coordinates_aware_copy(CGRect & rect, const ::i32_rectangle &rectangle);
 
-void screen_coordinates_aware_copy(CGPoint & cgpoint, const ::int_point & point);
+void screen_coordinates_aware_copy(CGPoint & cgpoint, const ::i32_point & point);
 
-void screen_coordinates_aware_copy(::int_point & point, const CGPoint & cgpoint);
+void screen_coordinates_aware_copy(::i32_point & point, const CGPoint & cgpoint);
 
 //void macos_defer_initialize_nano_callbacks();
 namespace uikit
@@ -450,7 +450,7 @@ namespace uikit
       //   }
       
       
-      void window::set_position_unlocked(const ::int_point & point)
+      void window::set_position_unlocked(const ::i32_point & point)
       {
          
          m_pacmewindowbridge->set_position(point.x, point.y);
@@ -470,18 +470,18 @@ namespace uikit
       }
       
       
-      ::int_rectangle window::get_window_rectangle_unlocked()
+      ::i32_rectangle window::get_window_rectangle_unlocked()
       {
          
          auto cgrect = m_pacmewindowbridge->get_frame();
-         ::int_rectangle r;
+         ::i32_rectangle r;
          copy(r, cgrect);
          return r;
          
       }
       
       //
-      //   void window::get_window_rectangle(::int_rectangle & rectangle)
+      //   void window::get_window_rectangle(::i32_rectangle & rectangle)
       //   {
       //
       //   }
@@ -508,7 +508,7 @@ namespace uikit
       }
       
       
-      //   ::int_size window::get_main_screen_size()
+      //   ::i32_size window::get_main_screen_size()
       //   {
       //
       //      int cx = 800;

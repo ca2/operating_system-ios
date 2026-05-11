@@ -224,7 +224,7 @@ void window::on_initialize_particle()
 
       //hook_window_create(puserinteraction);
 
-      //CGRect int_rectangle;
+      //CGRect i32_rectangle;
 
       //INT_RECTANGLE rectParam;
 
@@ -815,7 +815,7 @@ void window::_create_window()
    }
 
 
-//   ::int_point window::get_mouse_cursor_position()
+//   ::i32_point window::get_mouse_cursor_position()
 //   {
 //      
 //      return m_pointMouseCursor;
@@ -936,7 +936,7 @@ void window::release_mouse_capture()
       
 #endif
 
-      ::int_size sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
+      ::i32_size sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
 
       #ifdef EXTRALOG
 
@@ -946,7 +946,7 @@ void window::release_mouse_capture()
 
       string strFormat;
 
-      strFormat.format("|-> window int_size %d, %d\n", sizeWindow.cx, sizeWindow.cy);
+      strFormat.format("|-> window i32_size %d, %d\n", sizeWindow.cx, sizeWindow.cy);
 
       printf("%s", strFormat.c_str());
       
@@ -963,14 +963,14 @@ void window::release_mouse_capture()
 //
 //      str += strFormat;
 //
-//      int_rectangle rect1 = puserinteraction->window_rectangle();
+//      i32_rectangle rect1 = puserinteraction->window_rectangle();
 //
 //      if(rect1.size() != rectLast.size())
 //      {
 //
 //         rectLast = rect1;
 //
-//         // xxxlog output_debug_string("different window int_rectangle int_size (1)");
+//         // xxxlog output_debug_string("different window i32_rectangle i32_size (1)");
 //
 //      }
 
@@ -1091,7 +1091,7 @@ void window::release_mouse_capture()
 ////
 //   #endif
 //
-//      ::int_size sizeMin = pimageBuffer2->size().minimum(sizeWindow);
+//      ::i32_size sizeMin = pimageBuffer2->size().minimum(sizeWindow);
 //      
 //      if(::is_ok(pimageBuffer2))
 //      {
@@ -1814,7 +1814,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //               if(pinteraction->m_millisMouseMovePeriod > 0)
 //               {
 //
-//                  ::int_size sizeDistance((pinteraction->m_pointMouseMoveSkip.x - pinteraction->m_pointMouseMove.x),
+//                  ::i32_size sizeDistance((pinteraction->m_pointMouseMoveSkip.x - pinteraction->m_pointMouseMove.x),
 //                     (pinteraction->m_pointMouseMoveSkip.y - pinteraction->m_pointMouseMove.y));
 //
 //                  if(!pinteraction->m_millisMouseMoveSkip.timeout(pinteraction->m_millisMouseMovePeriod)
@@ -2076,10 +2076,10 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //
    //      }
    //
-   //      if(puserinteraction->m_sizeRequest != rectangle.int_size)
+   //      if(puserinteraction->m_sizeRequest != rectangle.i32_size)
    //      {
    //
-   //         puserinteraction->m_sizeRequest = rectangle.int_size;
+   //         puserinteraction->m_sizeRequest = rectangle.i32_size;
    //
    //         information("window::ios_window_resized effective position is different from requested position");
    //
@@ -2089,11 +2089,11 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //
    //      puserinteraction->m_point = rectangle.origin;
    //
-   //      puserinteraction->m_size = rectangle.int_size;
+   //      puserinteraction->m_size = rectangle.i32_size;
    //
-   ////      ::int_size sz;
+   ////      ::i32_size sz;
    ////
-   ////      long_long_point pt(rectangle.origin.x, rectangle.origin.y);
+   ////      i64_point pt(rectangle.origin.x, rectangle.origin.y);
    ////
    ////      bool bMove = false;
    ////
@@ -2110,7 +2110,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    ////
    ////         puserinteraction->m_rectParentClient.move_to(point);
    ////
-   ////         puserinteraction->set_size(rectangle.int_size);
+   ////         puserinteraction->set_size(rectangle.i32_size);
    ////
    ////         sz = puserinteraction->m_rectParentClient.size();
    ////
@@ -2141,11 +2141,11 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //
    //      }
    //
-   //      ::int_rectangle rectSize;
+   //      ::i32_rectangle rectSize;
    //
    //      copy(rectSize, rectangle);
    //
-   //      if(puserinteraction->window_state().int_rectangle() != rectSize)
+   //      if(puserinteraction->window_state().i32_rectangle() != rectSize)
    //      {
    //
    //         puserinteraction->window_state().m_point = rectSize.origin();
@@ -2155,7 +2155,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //      }
    //
    //
-   //      if (puserinteraction->layout().sketch().int_rectangle() != rectSize)
+   //      if (puserinteraction->layout().sketch().i32_rectangle() != rectSize)
    //      {
    //
    //         puserinteraction->place(rectSize);
@@ -2216,7 +2216,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //      }
    //
    //
-   //      ::int_point pointMove;
+   //      ::i32_point pointMove;
    //
    //      copy(pointMove, point);
    //
@@ -2250,7 +2250,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    //      }
    //
    //
-   ////      if(puserinteraction->m_pointRequest != int_point)
+   ////      if(puserinteraction->m_pointRequest != i32_point)
    ////      {
    ////
    ////         puserinteraction->m_pointRequest = point;

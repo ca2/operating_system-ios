@@ -33,7 +33,7 @@ namespace innate_ui_uikit
       
       void show() override;
       
-      void set_size(const ::int_size & size) override;
+      void set_size(const ::i32_size & size) override;
       
       void __defer_size_position() override;
       

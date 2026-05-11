@@ -30,7 +30,7 @@ namespace innate_ui_uikit
    }
 
 
-void dialog::set_size(const ::int_size & size)
+void dialog::set_size(const ::i32_size & size)
 {
 
    m_sizeImpact = size;

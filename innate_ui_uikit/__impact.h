@@ -40,11 +40,11 @@ namespace innate_ui_uikit
       
       bool           m_bImpactPoint;
       bool           m_bImpactSize;
-      ::int_point    m_pointImpact;
+      ::i32_point    m_pointImpact;
       
       char           m_someDummyPaddingForClangQuestion[8];
       
-      ::int_size     m_sizeImpact;
+      ::i32_size     m_sizeImpact;
 
 
       __impact();
@@ -73,9 +73,9 @@ namespace innate_ui_uikit
       void show() override;
       void hide() override;
 
-      void set_position(const ::int_point & point) override;
-      void set_size(const ::int_size & size) override;
-      void adjust_for_client_size(const ::int_size & size) override;
+      void set_position(const ::i32_point & point) override;
+      void set_size(const ::i32_size & size) override;
+      void adjust_for_client_size(const ::i32_size & size) override;
 
       virtual void __defer_size_position();
       

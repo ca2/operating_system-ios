@@ -758,7 +758,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 //
 //      rStatus.m_attribute = 0;
 //
-//      // get just the low ::u32 of the file int_size
+//      // get just the low ::u32 of the file i32_size
 //      //ASSERT(findFileData.nFileSizeHigh == 0);
 //      //rStatus.m_size = (int)findFileData.nFileSizeLow;
 //

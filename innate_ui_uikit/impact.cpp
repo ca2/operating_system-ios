@@ -408,7 +408,7 @@ namespace innate_ui_uikit
    }
 
 
-//   void impact::set_position(const ::int_point & pointParam)
+//   void impact::set_position(const ::i32_point & pointParam)
 //   {
 //
 //      m_point = pointParam;
@@ -417,7 +417,7 @@ namespace innate_ui_uikit
 //   }
 //
 //
-//   void impact::set_size(const ::int_size & sizeParam)
+//   void impact::set_size(const ::i32_size & sizeParam)
 //   {
 //
 //      m_size = sizeParam;
@@ -427,7 +427,7 @@ namespace innate_ui_uikit
 //   }
 
 
-   void impact::adjust_for_client_size(const ::int_size & sizeParam)
+   void impact::adjust_for_client_size(const ::i32_size & sizeParam)
    {
 
       set_position({0, 0});

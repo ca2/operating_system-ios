@@ -50,10 +50,10 @@ public:
    virtual void macos_window_mouse_dragged(double x, double y, unsigned long ulAppleMouseButton) = 0;
    virtual void macos_window_mouse_wheel(double deltaY, double x, double y) = 0;
    virtual void macos_window_double_click(int iButton, double x, double y) = 0;
-   virtual bool macos_window_key_down(unsigned int vk, unsigned int scan, const char * pszUtf8) = 0;
-   virtual bool macos_window_key_up(unsigned int vk, unsigned int scan) = 0;
-   //virtual bool macos_window_key_down(unsigned int uiKeyCode) = 0;
-   //virtual bool macos_window_key_up(unsigned int uiKeyCode) = 0;
+   virtual bool macos_window_key_down(::u32 vk, ::u32 scan, const char * pszUtf8) = 0;
+   virtual bool macos_window_key_up(::u32 vk, ::u32 scan) = 0;
+   //virtual bool macos_window_key_down(::u32 uiKeyCode) = 0;
+   //virtual bool macos_window_key_up(::u32 uiKeyCode) = 0;
    
    virtual void macos_window_resized(CGRect int_rectangle) = 0;
    virtual void macos_window_moved(CGPoint int_point) = 0;

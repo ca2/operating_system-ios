@@ -140,7 +140,7 @@ namespace acme
       // https://astojanov.wordpress.com/2011/11/16/mac-os-x-resolve-absolute-path-using-process-pid/
 
 
-      string node::module_path_from_pid(unsigned int uiPid)
+      string node::module_path_from_pid(::u32 uiPid)
       {
 
 
@@ -249,7 +249,7 @@ namespace acme
 
       #define SHOW_ZOMBIES 0
 
-      string node::command_line_from_pid(unsigned int uiPid)
+      string node::command_line_from_pid(::u32 uiPid)
       {
 
          struct proc_taskallinfo info = {};
@@ -344,7 +344,7 @@ namespace acme
          for(auto & processId : ida2)
          {
           
-            auto strPath = module_path_from_pid((unsigned int) processId);
+            auto strPath = module_path_from_pid((::u32) processId);
             
             if(strPath == pszModulePath)
             {

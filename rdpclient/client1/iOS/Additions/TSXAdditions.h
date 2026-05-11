@@ -17,7 +17,7 @@
 @interface NSString (TSXAdditions)
 + (NSString*)stringWithUUID;
 - (NSData*)dataFromHexString;
-+ (NSString*)hexStringFromData:(const unsigned char *)data ofSize:(unsigned int)size withSeparator:(NSString *)sep afterNthChar:(int)sepnth;
++ (NSString*)hexStringFromData:(const unsigned char *)data ofSize:(::u32)size withSeparator:(NSString *)sep afterNthChar:(int)sepnth;
 @end
 
 @interface NSDictionary (TSXAdditions)

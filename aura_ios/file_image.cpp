@@ -10,11 +10,11 @@
 #include "aura/message/user.h"
 
 
-bool mm1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath);
-bool mm1_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier);
+bool mm1_get_file_image(::u32 * pcr, int cx, int cy, int iScan, const char * pszFilePath);
+bool mm1_get_file_image_by_type_identifier(::u32 * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier);
 //
 //
-//bool macos1_get_file_image(unsigned int * pcr, int cx, int cy, int iScan, const char * pszFilePath)
+//bool macos1_get_file_image(::u32 * pcr, int cx, int cy, int iScan, const char * pszFilePath)
 //{
 //
 //   static ::mutex * pmutex = nullptr;
@@ -35,7 +35,7 @@ bool mm1_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, i
 //}
 //
 //
-//bool macos1_get_file_image_by_type_identifier(unsigned int * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)
+//bool macos1_get_file_image_by_type_identifier(::u32 * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)
 //{
 //
 //   static ::mutex * pmutex = nullptr;

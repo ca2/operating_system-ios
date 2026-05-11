@@ -8,7 +8,7 @@
 #include "acme/prototype/prototype/url.h"
 
 
-bool _ui_library_dir(char * psz, unsigned int * puiSize);
+bool _ui_library_dir(char * psz, ::u32 * puiSize);
 
 
 namespace acme_ios
@@ -619,7 +619,7 @@ bool directory_context::fast_has_subdir(const ::file::path & path)
 //
 //         string str;
 //
-//         unsigned int uiSize = 4096;
+//         ::u32 uiSize = 4096;
 //
 //         char * psz = str.get_buffer(uiSize);
 //

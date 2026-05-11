@@ -104,7 +104,7 @@ namespace windowing_ios
 //      
 //      ::int_point get_mouse_cursor_position() override;
 //      
-//      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, unsigned int nFlags) override;
+//      bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, ::u32 nFlags) override;
 
       void set_mouse_capture() override;
       void release_mouse_capture() override;
@@ -121,12 +121,12 @@ namespace windowing_ios
       void ios_window_mouse_dragged(int iGesture, double x, double y) override;
       //void ios_window_mouse_wheel(double deltaY, double x, double y) override;
       //void ios_window_double_click(int iButton, double x, double y) override;
-      //bool ios_window_key_down(unsigned int vk, unsigned int scan, const char * pszUtf8) override;
-      //bool ios_window_key_up(unsigned int vk, unsigned int scan) override;
+      //bool ios_window_key_down(::u32 vk, ::u32 scan, const char * pszUtf8) override;
+      //bool ios_window_key_up(::u32 vk, ::u32 scan) override;
       bool ios_window_key_down(::user::enum_key ekey) override;
       bool ios_window_key_up(::user::enum_key ekey) override;
-//      virtual bool macos_window_key_down(unsigned int uiKeyCode) override;
-//      virtual bool macos_window_key_up(unsigned int uiKeyCode) override;
+//      virtual bool macos_window_key_down(::u32 uiKeyCode) override;
+//      virtual bool macos_window_key_up(::u32 uiKeyCode) override;
       bool ios_window_on_text(const char * pszText, long iSel, long iEnd) override;
       bool ios_window_on_sel_text(long iBeg, long iEnd) override;
 

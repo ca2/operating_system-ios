@@ -49,7 +49,7 @@ double get_status_bar_frame_height();
 
 #define WHEEL_DELTA 120
 //#define EXTRALOG
-//void * new_ios_window(ios_window * papexwindow, CGRect rect, unsigned int uStyle);
+//void * new_ios_window(ios_window * papexwindow, CGRect rect, ::u32 uStyle);
 
 
 void ns_main_post(dispatch_block_t block);
@@ -1138,7 +1138,7 @@ void window::release_mouse_capture()
    }
 
 
-//   bool window::ios_window_key_down(unsigned int uiKeyCode)
+//   bool window::ios_window_key_down(::u32 uiKeyCode)
 //   {
 //
 //      auto puserinteraction = m_pimpl->m_puserinteraction;
@@ -1165,7 +1165,7 @@ void window::release_mouse_capture()
 //   }
 //
 //
-//   bool window::ios_window_key_up(unsigned int uiKeyCode)
+//   bool window::ios_window_key_up(::u32 uiKeyCode)
 //   {
 //
 //      ::pointer < ::user::message > spbase;
@@ -1193,7 +1193,7 @@ void window::release_mouse_capture()
 //
 //   }
 
-//   bool window::ios_window_key_down(unsigned int virtualKey, unsigned int scanCode, const char * pszUtf8)
+//   bool window::ios_window_key_down(::u32 virtualKey, ::u32 scanCode, const char * pszUtf8)
 bool window::ios_window_key_down(::user::enum_key ekey)
    {
       
@@ -1244,7 +1244,7 @@ bool window::ios_window_key_down(::user::enum_key ekey)
    }
 
 
-   //bool window::ios_window_key_up(unsigned int vk, unsigned int scan)
+   //bool window::ios_window_key_up(::u32 vk, ::u32 scan)
 bool window::ios_window_key_up(::user::enum_key ekey)
    {
 

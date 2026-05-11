@@ -5,7 +5,7 @@
 //#include "acme/platform/sequencer.h"
 //
 //
-//int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, unsigned int uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
+//int ui_MessageBoxA(const ::scoped_string & scopedstrMessageParam, const ::scoped_string & scopedstrHeaderParam, ::u32 uType, const ::scoped_string & scopedstrDetails, ::function < void (enum_dialog_result) > function);
 //
 //
 //CLASS_DECL_ACME class ::platform::system * get_system();
@@ -29,7 +29,7 @@
 ////
 ////      m_emessagebox = emessagebox;
 //   
-//      ui_MessageBoxA(m_strMessage, m_strTitle, (unsigned int) m_emessagebox,
+//      ui_MessageBoxA(m_strMessage, m_strTitle, (::u32) m_emessagebox,
 //                     m_strDetails,
 //                                     [this](enum_dialog_result eresult)
 //                                     {

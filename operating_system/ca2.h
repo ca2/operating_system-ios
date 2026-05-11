@@ -13,4 +13,4 @@ typedef std::type_info std_type_info;
 #include "operational_system.h"        // Target version control
 
 
-#define __int64 int64_t
+#define ::i64 int64_t

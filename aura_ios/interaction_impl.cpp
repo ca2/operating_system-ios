@@ -44,7 +44,7 @@
 //{
 //
 //
-//   long long g_iMouseMove = 0;
+//   ::i64 g_iMouseMove = 0;
 //
 //
 //   ::aura::application * g_pappPreTranslateMouseMessage = nullptr;
@@ -2160,7 +2160,7 @@
 ////
 ////               ::u64 delta1 = now - m_uiLastUpdateBeg;
 ////
-////               long long delta2 = (long long) m_uiLastUpdateBeg - (long long) m_uiLastUpdateEnd;
+////               ::i64 delta2 = (::i64) m_uiLastUpdateBeg - (::i64) m_uiLastUpdateEnd;
 ////
 ////               ::u64 frameNanos = 1000000000LL / get_config_fps();
 ////

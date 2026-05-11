@@ -32,8 +32,8 @@ public:
    bool                    m_bDestroying;
    bool                    m_bDirty;
    
-   long long                   m_iNanosecondLastUpdateBeg;
-   long long                   m_iNanosecondLastUpdateEnd;
+   ::i64                   m_iNanosecondLastUpdateBeg;
+   ::i64                   m_iNanosecondLastUpdateEnd;
 
    
    macos_window();

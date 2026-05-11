@@ -46,7 +46,7 @@ extern "C" {
 /* The __intXX types are native types defined by the MS C compiler.
  * Apps that make use of them before they get defined here, can
  * simply add to the command line:
- *    -D__int8=char -D__int16=short -D__int32=int "-D__int64=long long"
+ *    -D__int8=char -D__int16=short -D__int32=int "-D__int64=::i64"
  */
 #if !defined(_MSC_VER) && !defined(__WIDL__)
 #  ifndef __int8
@@ -58,11 +58,11 @@ extern "C" {
 #  ifndef __int32
 #    define __int32 int
 #  endif
-#  ifndef __int64
+#  ifndef ::i64
 #    if defined(_WIN64) && !defined(__MINGW64__)
-#      define __int64 long
+#      define ::i64 long
 #    else
-#      define __int64 long long
+#      define ::i64 ::i64
 #    endif
 #  endif
 #endif /* !defined(_MSC_VER) */
@@ -89,17 +89,17 @@ typedef unsigned int     ULONG32, *PULONG32;
 typedef unsigned int     DWORD32, *PDWORD32;
 
 #ifdef _MSC_VER
-typedef signed __int64   INT64, *PINT64;
-typedef unsigned __int64 UINT64, *PUINT64;
-typedef signed __int64   LONG64, *PLONG64;
-typedef unsigned __int64 ULONG64, *PULONG64;
-typedef unsigned __int64 DWORD64, *PDWORD64;
+typedef signed ::i64   INT64, *PINT64;
+typedef unsigned ::i64 UINT64, *PUINT64;
+typedef signed ::i64   LONG64, *PLONG64;
+typedef unsigned ::i64 ULONG64, *PULONG64;
+typedef unsigned ::i64 DWORD64, *PDWORD64;
 #else
-typedef signed __int64   DECLSPEC_ALIGN(8) INT64, *PINT64;
-typedef unsigned __int64 DECLSPEC_ALIGN(8) UINT64, *PUINT64;
-typedef signed __int64   DECLSPEC_ALIGN(8) LONG64, *PLONG64;
-typedef unsigned __int64 DECLSPEC_ALIGN(8) ULONG64, *PULONG64;
-typedef unsigned __int64 DECLSPEC_ALIGN(8) DWORD64, *PDWORD64;
+typedef signed ::i64   DECLSPEC_ALIGN(8) INT64, *PINT64;
+typedef unsigned ::i64 DECLSPEC_ALIGN(8) UINT64, *PUINT64;
+typedef signed ::i64   DECLSPEC_ALIGN(8) LONG64, *PLONG64;
+typedef unsigned ::i64 DECLSPEC_ALIGN(8) ULONG64, *PULONG64;
+typedef unsigned ::i64 DECLSPEC_ALIGN(8) DWORD64, *PDWORD64;
 #endif
 
 /* Basic pointer-sized integer types */
@@ -114,12 +114,12 @@ typedef ULONG_PTR                   DWORD_PTR, *PDWORD_PTR;
 
 #elif defined(_WIN64)
 
-#define __int3264 __int64
+#define __int3264 ::i64
 
-typedef signed __int64   INT_PTR, *PINT_PTR;
-typedef signed __int64   LONG_PTR, *PLONG_PTR;
-typedef unsigned __int64 UINT_PTR, *PUINT_PTR;
-typedef unsigned __int64 ULONG_PTR, *PULONG_PTR;
+typedef signed ::i64   INT_PTR, *PINT_PTR;
+typedef signed ::i64   LONG_PTR, *PLONG_PTR;
+typedef unsigned ::i64 UINT_PTR, *PUINT_PTR;
+typedef unsigned ::i64 ULONG_PTR, *PULONG_PTR;
 typedef ULONG_PTR        DWORD_PTR, *PDWORD_PTR;
 
 #else
@@ -148,8 +148,8 @@ typedef ULONG_PTR     DWORD_PTR, *PDWORD_PTR;
 #define MININT_PTR 0x8000000000000000
 #define MAXUINT_PTR 0xffffffffffffffff
 
-typedef __int64 SHANDLE_PTR;
-typedef unsigned __int64 HANDLE_PTR;
+typedef ::i64 SHANDLE_PTR;
+typedef unsigned ::i64 HANDLE_PTR;
 typedef int HALF_PTR, *PHALF_PTR;
 typedef unsigned int UHALF_PTR, *PUHALF_PTR;
 

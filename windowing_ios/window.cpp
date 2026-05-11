@@ -82,7 +82,7 @@ namespace windowing_ios
 #ifdef _DEBUG
 
 
-long long window::increment_reference_count()
+::i64 window::increment_reference_count()
 {
     
     return ::uikit::acme::windowing::window::increment_reference_count();
@@ -90,13 +90,13 @@ long long window::increment_reference_count()
 }
 
 
-long long window::decrement_reference_count()
+::i64 window::decrement_reference_count()
 {
     return ::uikit::acme::windowing::window::decrement_reference_count();
 }
 
 
-long long window::release()
+::i64 window::release()
 {
     return ::uikit::acme::windowing::window::release();
 }

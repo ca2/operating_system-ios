@@ -33,11 +33,11 @@
 #define _MACOS64
 #endif
 
-#if !defined(_MSC_VER) && !defined(__int64)
+#if !defined(_MSC_VER) && !defined(::i64)
 # if defined(_WIN64) && !defined(__MINGW64__)
-#   define __int64 long
+#   define ::i64 long
 # else
-#   define __int64 long long
+#   define ::i64 ::i64
 # endif
 #endif
 
@@ -106,7 +106,7 @@ typedef unsigned int __msvcrt_ulong;
 
 #if !defined _INTPTR_T_DEFINED && !defined _INTPTR_T
 #ifdef  _WIN64
-typedef __int64 intptr_t;
+typedef ::i64 intptr_t;
 #else
 typedef int intptr_t;
 #endif
@@ -115,7 +115,7 @@ typedef int intptr_t;
 
 #if !defined _UINTPTR_T_DEFINED && !defined _UINTPTR_T
 #ifdef  _WIN64
-typedef unsigned __int64 uintptr_t;
+typedef unsigned ::i64 uintptr_t;
 #else
 typedef unsigned int uintptr_t;
 #endif
@@ -124,7 +124,7 @@ typedef unsigned int uintptr_t;
 
 #if !defined _PTRDIFF_T_DEFINED && !defined _PTRDIFF_T
 #ifdef _WIN64
-typedef __int64 ptrdiff_t;
+typedef ::i64 ptrdiff_t;
 #else
 typedef int ptrdiff_t;
 #endif
@@ -133,7 +133,7 @@ typedef int ptrdiff_t;
 
 #if !defined _SIZE_T_DEFINED && !defined _SIZE_T
 #ifdef _WIN64
-typedef unsigned __int64 size_t;
+typedef unsigned ::i64 size_t;
 #else
 typedef unsigned int size_t;
 #endif
@@ -146,7 +146,7 @@ typedef __msvcrt_long __time32_t;
 #endif
 
 #ifndef _TIME64_T_DEFINED
-typedef __int64 DECLSPEC_ALIGN(8) __time64_t;
+typedef ::i64 DECLSPEC_ALIGN(8) __time64_t;
 #define _TIME64_T_DEFINED
 #endif
 

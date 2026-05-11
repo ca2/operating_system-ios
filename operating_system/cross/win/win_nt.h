@@ -393,11 +393,11 @@ typedef unsigned short  WCHAR,      *PWCHAR;
 #ifndef _ULONGLONG_
 # define _ULONGLONG_
 # ifdef _MSC_VER
-typedef signed __int64   LONGLONG,  *PLONGLONG;
-typedef unsigned __int64 ULONGLONG, *PULONGLONG;
+typedef signed ::i64   LONGLONG,  *PLONGLONG;
+typedef unsigned ::i64 ULONGLONG, *PULONGLONG;
 # else
-typedef signed __int64   DECLSPEC_ALIGN(8) LONGLONG,   *PLONGLONG;
-typedef unsigned __int64 DECLSPEC_ALIGN(8) ULONGLONG,  *PULONGLONG;
+typedef signed ::i64   DECLSPEC_ALIGN(8) LONGLONG,   *PLONGLONG;
+typedef unsigned ::i64 DECLSPEC_ALIGN(8) ULONGLONG,  *PULONGLONG;
 # endif
 #endif
 

@@ -903,7 +903,7 @@ CLASS_DECL_APEX bool _istlead(int ch)
 int_bool GetCursorPos(INT_POINT * lppointCursor)
 {
 
-   /*   HIPoint int_point;
+   /*   HIPoint i32_point;
 
    HICoordinateSpace space = kHICoordSpaceScreenPixel;
 

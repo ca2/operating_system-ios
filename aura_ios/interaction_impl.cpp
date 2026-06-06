@@ -2703,7 +2703,7 @@
 ////   double_point interaction_impl::client_screen_top_left()
 ////   {
 ////
-////      ::huge_int_rectangle rectWindow;
+////      ::huge_i32_rectangle rectWindow;
 ////
 ////      if (!m_puserinteraction->window_rectangle(rectWindow))
 ////      {

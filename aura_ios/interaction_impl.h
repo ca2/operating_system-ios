@@ -20,7 +20,7 @@
 //      string                           m_strWindowText;
 //      ::user::primitive *              m_pbasewnd;
 //      bool                             m_bNeedsUpdate;
-//      huge_int_rectangle                    m_rectLastOsPlacement;
+//      huge_i32_rectangle                    m_rectLastOsPlacement;
 //      bool                             m_bEnabled;
 //
 //

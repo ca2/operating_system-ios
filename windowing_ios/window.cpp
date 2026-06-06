@@ -2049,7 +2049,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
       auto puserinteraction = user_interaction();
       
-      puserinteraction->place(::int_rectangle_dimension(0, 0, cx, cy));
+      puserinteraction->place(::i32_rectangle_dimension(0, 0, cx, cy));
                                                         
       puserinteraction->set_need_redraw();
       
@@ -2728,7 +2728,7 @@ void window::ios_window_text_view_did_begin_editing()
    }
 
 
-   void window::non_top_most_upper_window_rects(::int_rectangle_array_base & recta)
+   void window::non_top_most_upper_window_rects(::i32_rectangle_array_base & recta)
    {
       
       

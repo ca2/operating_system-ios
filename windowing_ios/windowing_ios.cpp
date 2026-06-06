@@ -633,10 +633,10 @@ void mm_init_workspace_rect();
 
 //
 //// front first
-//int_rectangle_array cg_get_window_rect_list_above(CGWindowID windowid)
+//i32_rectangle_array cg_get_window_rect_list_above(CGWindowID windowid)
 //{
 //
-//   int_rectangle_array recta;
+//   i32_rectangle_array recta;
 //
 //   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenAboveWindow, windowid);
 //
@@ -762,7 +762,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 #undef FUNCTION_TRACE
 
 //
-//int_rectangle_array cg_get_window_rect_list_intersect_above(CGWindowID windowid)
+//i32_rectangle_array cg_get_window_rect_list_intersect_above(CGWindowID windowid)
 //{
 //
 //   bool bFound = false;
@@ -777,7 +777,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //#endif
 //
-//   int_rectangle_array recta;
+//   i32_rectangle_array recta;
 //
 //   CFArrayRef windowa = CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly, kCGNullWindowID);
 //
@@ -1031,7 +1031,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 #undef FUNCTION_TRACE
 
 
-//void cg_get_window_rect_list(int_rectangle_array & recta, array < CGWindowID > & windowida)
+//void cg_get_window_rect_list(i32_rectangle_array & recta, array < CGWindowID > & windowida)
 //{
 //
 //   //bool bFound = false;
@@ -1263,7 +1263,7 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //   }
 //
-//   int_rectangle_array recta = cg_get_window_rect_list_intersect_above(windowid);
+//   i32_rectangle_array recta = cg_get_window_rect_list_intersect_above(windowid);
 //
 //
 //   if(recta.is_empty())
@@ -1300,14 +1300,14 @@ string MYCFStringCopyUTF8String(CFStringRef aString)
 //
 //}
 //
-//void cg_get_window_rect_list(int_rectangle_array & recta, array < CGWindowID > & windowida);
+//void cg_get_window_rect_list(i32_rectangle_array & recta, array < CGWindowID > & windowida);
 //
 //::i32_bool point_is_window_origin(INT_POINT pointHitTest, oswindow oswindowExclude, int iMargin)
 //{
 //   
 //   CGWindowID windowidExclude = get_os_window_window_number(oswindowExclude);
 //   
-//   int_rectangle_array recta;
+//   i32_rectangle_array recta;
 //   
 //   array < CGWindowID > windowida;
 //   

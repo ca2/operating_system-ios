@@ -30,7 +30,7 @@ FT_BEGIN_HEADER
 
   typedef FT_Error
   (*FT_Kerning_TrackGetFunc)( FT_Face    face,
-                              FT_Fixed   point_size,
+                              FT_Fixed   poi32_size,
                               FT_Int     degree,
                               FT_Fixed*  akerning );
 

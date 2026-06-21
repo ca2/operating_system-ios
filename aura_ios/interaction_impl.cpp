@@ -2700,7 +2700,7 @@
 ////   }
 //
 //
-////   double_point interaction_impl::client_screen_top_left()
+////   f64_point interaction_impl::client_screen_top_left()
 ////   {
 ////
 ////      ::huge_i32_rectangle rectWindow;

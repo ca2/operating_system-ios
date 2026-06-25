@@ -192,12 +192,12 @@ void windowing::main_send(const ::procedure & procedure)
 }
 
 
-void windowing::windowing_application_main_loop()
-{
-   
-   main();
-   
-}
+//void windowing::run()
+//{
+//   
+//   main();
+//   
+//}
 
 
 void windowing::windowing_post_quit()
@@ -337,6 +337,13 @@ void windowing::defer_create_windowing_application_delegate(::platform::applicat
                                                  papplication,
                                                       papplicationmenu, pcommandhandler);
 
+}
+
+void windowing::each_window(const ::function < void(::acme::windowing::window*) > & function)
+{
+
+//   throw ::interface_only();
+ 
 }
 
 

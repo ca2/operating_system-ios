@@ -3,7 +3,7 @@
 #pragma once
 
 
-#include "acme/user/user/message_box.h"
+#include "acme/user/implementation/message_box_implementation.h"
 
 
 namespace windowing_ios
@@ -11,7 +11,7 @@ namespace windowing_ios
 
 
    class CLASS_DECL_AURA message_box :
-      virtual public ::acme::user::message_box
+      virtual public ::user_interface::message_box_implementation
    {
    public:
 
@@ -28,8 +28,8 @@ namespace windowing_ios
 //      ::string get_conversation_title() override;
 //      ::e_message_box get_conversation_flags() override;
 //      ::string get_conversation_details() override;
-      void display(::dialog * pdialog) override;
-
+      //void display(::dialog * pdialog) override;
+      void display(::e_display edisplay = e_display_default, const ::user::activation & useractivation = {}) override;
 
       void add_button(const ::scoped_string & scopedstrText, enum_dialog_result edialogresult, char chLetter) override;
       

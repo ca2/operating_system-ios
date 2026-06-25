@@ -53,9 +53,9 @@ public:
    
    void attach_ns_acme_window(CGRect cgrect) override;
    
-   void display() override;
+   void ns_show() override;
    
-   void hide() override;
+   void ns_hide() override;
    
    void do_tasks() override;
    
@@ -72,9 +72,9 @@ public:
    
    virtual void on_char(int iChar);
    
-   void _on_draw_background(CGContextRef cg, CGSize sizeFrame) override;
+   void _on_draw_background(CGContextRef cg, CGRect cgrect) override;
    
-   void _on_draw_foreground(CGContextRef cg, CGSize sizeFrame) override;
+   void _on_draw_foreground(CGContextRef cg, CGRect cgrect) override;
    
    void redraw() override;
    

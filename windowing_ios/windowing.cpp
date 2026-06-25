@@ -248,10 +248,10 @@ void windowing::clear_active_window(::thread *, ::windowing::window *)
    }
 
 
-void windowing::windowing_application_main_loop() 
+void windowing::run()
 {
  
-    ::uikit::acme::windowing::windowing::windowing_application_main_loop();
+    ::uikit::acme::windowing::windowing::run();
     
 }
 

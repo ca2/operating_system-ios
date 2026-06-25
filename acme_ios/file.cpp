@@ -3,7 +3,7 @@
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/directory_system.h"
-#include "acme/operating_system/shared_posix/c_error_number.h"
+#include "acme/operating_system/shared_posix/c_errno.h"
 #include <fcntl.h>
 
 
@@ -127,7 +127,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       
       ::u32 dwFlags =  0;
       
-      switch (eopen & 3)
+      switch (eopen & ::file::e_open_read_write)
       {
       case ::file::e_open_read:
          dwFlags |=  O_RDONLY;
@@ -143,7 +143,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
          break;
       }
 
-      switch (eopen & 0x70)
+      switch (eopen & ::file::e_open_share_mask)
       {
       default:
          ASSERT(false);  // invalid share mode?
@@ -187,9 +187,9 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       if(hFile == hFileNull)
       {
 
-         auto cerrornumber = c_error_number();
+         auto cerrno = ::c_errno();
 
-         if(cerrornumber != ENOENT && cerrornumber != ENFILE)
+         if(cerrno != ENOENT && cerrno != ENFILE)
          {
             /*         if (pException != nullptr)
              {
@@ -209,9 +209,9 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
             
-            auto estatus = cerrornumber.estatus();
+            auto estatus = cerrno.estatus();
             
-            throw ::file::exception(estatus, cerrornumber, m_path, eopen, "open == -1");
+            throw ::file::exception(estatus, cerrno, m_path, eopen, "open == -1");
 
             //}
 
@@ -250,7 +250,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
 
             //            vfxThrowFileexception(::macos::file_exception::os_error_to_exception(dwLastError), dwLastError, m_strFileName);
             
-            m_estatus = cerrornumber.estatus();
+            m_estatus = cerrno.estatus();
             
             if(eopen & ::file::e_open_no_exception_on_open)
             {
@@ -266,7 +266,7 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
                
             }
 
-            throw ::file::exception(m_estatus, cerrornumber, m_path, eopen, "open == -1");
+            throw ::file::exception(m_estatus, cerrno, m_path, eopen, "open == -1");
 
             //}
 
@@ -310,16 +310,16 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
          if(iRead == -1)
          {
             
-            auto cerrornumber = c_error_number();
+            auto cerrno = ::c_errno();
             
-            if(cerrornumber == EAGAIN)
+            if(cerrno == EAGAIN)
             {
 
             }
             
-            auto estatus = cerrornumber.estatus();
+            auto estatus = cerrno.estatus();
             
-            throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "read == -1");
+            throw ::file::exception(estatus, cerrno, m_path, m_eopen, "read == -1");
             
          }
          else if(iRead == 0)
@@ -370,11 +370,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
          if(iWrite == -1)
          {
             
-            auto cerrornumber = c_error_number();
+            auto cerrno = ::c_errno();
             
-            auto estatus = cerrornumber.estatus();
+            auto estatus = cerrno.estatus();
             
-            throw ::file::exception(estatus,cerrornumber, m_path, m_eopen, "write == -1");
+            throw ::file::exception(estatus,cerrno, m_path, m_eopen, "write == -1");
             
          }
          
@@ -394,11 +394,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       {
        //  ::file::throw_os_error( (int)0);
          
-         c_error_number cerrornumber(c_error_number_t{}, -1);
+         auto cerrno = ::c_errno(c_errno_t{}, -1);
          
          ::e_status estatus = ::error_failed;
          
-         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "m_iFile == -1");
+         throw ::file::exception(estatus, cerrno, m_path, m_eopen, "m_iFile == -1");
          
       }
 
@@ -415,11 +415,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       if(posNew  == (filesize)-1)
       {
          
-         auto cerrornumber = c_error_number();
+         auto cerrno = ::c_errno();
          
-         auto estatus = cerrornumber.estatus();
+         auto estatus = cerrno.estatus();
          
-         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "lsize == -1");
+         throw ::file::exception(estatus, cerrno, m_path, m_eopen, "lsize == -1");
          
       }
 
@@ -440,11 +440,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       {
          
          
-         auto cerrornumber = c_error_number();
+         auto cerrno = ::c_errno();
          
-         auto estatus = cerrornumber.estatus();
+         auto estatus = cerrno.estatus();
          
-         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "lseek == -1");
+         throw ::file::exception(estatus, cerrno, m_path, m_eopen, "lseek == -1");
 
     
          
@@ -528,11 +528,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       if (bError)
       {
          
-         auto cerrornumber = c_error_number();
+         auto cerrno = ::c_errno();
          
-         auto estatus = cerrornumber.estatus();
+         auto estatus = cerrno.estatus();
          
-         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "close != 0");
+         throw ::file::exception(estatus, cerrno, m_path, m_eopen, "close != 0");
 
          
       }
@@ -591,11 +591,11 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
       if (::ftruncate(m_iFile, dwNewLen) == -1)
       {
          
-         auto cerrornumber = c_error_number();
+         auto cerrno = ::c_errno();
          
-         auto estatus = cerrornumber.estatus();
+         auto estatus = cerrno.estatus();
          
-         throw ::file::exception(estatus, cerrornumber, m_path, m_eopen, "ftruncate == -1");
+         throw ::file::exception(estatus, cerrno, m_path, m_eopen, "ftruncate == -1");
 
       }
       

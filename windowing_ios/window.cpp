@@ -547,7 +547,7 @@ void window::_create_window()
 //   }
 
 
-   void window::show_window()
+   void window::ns_show()
    {
    
       main_send([this]()
@@ -560,7 +560,7 @@ void window::_create_window()
    }
 
 
-   void window::hide_window()
+   void window::ns_hide()
    {
       
       main_send([this]()
@@ -1020,9 +1020,9 @@ void window::release_mouse_capture()
       
       pgraphics->set_size_scaler(dSizeScaler);
       
-      draw_frame_layout(pgraphics);
+      frame_layout_stage(pgraphics);
       
-      draw_frame_draw(pgraphics);
+      frame_draw_stage(pgraphics);
       
       
       //pgraphics->fill_solid_rectangle({100.0, 100.0, 500.0, 500.0}, ::color::blue);
@@ -1350,12 +1350,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   void window::on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
+   void window::on_left_button_down(::user::mouse * pusermouse)
    {
       
-      m_pointMouseCursor.x = xHost;
-      
-      m_pointMouseCursor.y = yHost;
+      m_pointMouseCursor = pusermouse->m_pointHost;
 
       if (!this->is_active_window())
       {
@@ -1378,7 +1376,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
                 pactivate->m_pwindow =this;
                 pactivate->m_operatingsystemwindow = this->operating_system_window();
                 pactivate->m_eusermessage = ::user::e_message_activate;
-                pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
+                pactivate->m_wparam = ::make_u32(e_activate_click_active, 0);
                 pactivate->m_eactivate = e_activate_click_active;
 
                post_message(pactivate);
@@ -1413,11 +1411,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
          pmouse->m_pwindow = this;
          pmouse->m_operatingsystemwindow = this->operating_system_window();
          pmouse->m_eusermessage = ::user::e_message_left_button_down;
-         pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-         pmouse->m_pointHost.x = xHost;
-         pmouse->m_pointHost.y = yHost;
-         pmouse->m_pointAbsolute.x = xAbsolute;
-         pmouse->m_pointAbsolute.y = yAbsolute;
+         pmouse->m_lparam = pusermouse->m_pointHost;
+         pmouse->m_pointHost = pusermouse->m_pointHost;
+         pmouse->m_pointAbsolute = pusermouse->m_pointAbsolute;
          
          ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
          
@@ -1470,12 +1466,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-   void window::on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute)
+   void window::on_right_button_down(::user::mouse * pusermouse)
 {
    
-   m_pointMouseCursor.x = xHost;
-   
-   m_pointMouseCursor.y = yHost;
+      m_pointMouseCursor = pusermouse->m_pointHost;
 
    if (!this->is_active_window())
    {
@@ -1498,7 +1492,7 @@ bool window::ios_window_key_up(::user::enum_key ekey)
              pactivate->m_pwindow =this;
              pactivate->m_operatingsystemwindow = this->operating_system_window();
              pactivate->m_eusermessage = ::user::e_message_activate;
-             pactivate->m_wparam = ::make_unsigned_int(e_activate_click_active, 0);
+             pactivate->m_wparam = ::make_u32(e_activate_click_active, 0);
              pactivate->m_eactivate = e_activate_click_active;
 
             post_message(pactivate);
@@ -1533,12 +1527,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       pmouse->m_pwindow = this;
       pmouse->m_operatingsystemwindow = this->operating_system_window();
       pmouse->m_eusermessage = ::user::e_message_right_button_down;
-      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x = xHost;
-      pmouse->m_pointHost.y = yHost;
-      pmouse->m_pointAbsolute.x = xAbsolute;
-      pmouse->m_pointAbsolute.y = yAbsolute;
-      
+      pmouse->m_lparam = pusermouse->m_pointHost;
+      pmouse->m_pointHost = pusermouse->m_pointHost;
+      pmouse->m_pointAbsolute = pusermouse->m_pointAbsolute;
+
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
       if(pelemental)
@@ -1583,12 +1575,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
 }
 
 
-   void window::on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
+   void window::on_left_button_up(::user::mouse * pusermouse)
    {
       
-      m_pointMouseCursor.x = xHost;
-      
-      m_pointMouseCursor.y = yHost;
+      m_pointMouseCursor = pusermouse->m_pointHost;
       
       auto pmouse = create_newø < ::message::mouse >();
 
@@ -1609,12 +1599,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       pmouse->m_pwindow = this;
       pmouse->m_operatingsystemwindow = this->operating_system_window();
       pmouse->m_eusermessage = ::user::e_message_left_button_up;
-      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x = xHost;
-      pmouse->m_pointHost.y = yHost;
-      pmouse->m_pointAbsolute.x = xAbsolute;
-      pmouse->m_pointAbsolute.y = yAbsolute;
-      
+      pmouse->m_lparam = pusermouse->m_pointHost;
+      pmouse->m_pointHost = pusermouse->m_pointHost;
+      pmouse->m_pointAbsolute = pusermouse->m_pointAbsolute;
+
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
       if(pelemental)
@@ -1663,12 +1651,10 @@ bool window::ios_window_key_up(::user::enum_key ekey)
    }
 
 
-void window::on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute)
+void window::on_right_button_up(::user::mouse * pusermouse)
 {
    
-   m_pointMouseCursor.x = xHost;
-   
-   m_pointMouseCursor.y = yHost;
+   m_pointMouseCursor = pusermouse->m_pointHost;
    
    auto pmouse = create_newø < ::message::mouse >();
 
@@ -1689,12 +1675,10 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    pmouse->m_pwindow = this;
    pmouse->m_operatingsystemwindow = this->operating_system_window();
    pmouse->m_eusermessage = ::user::e_message_right_button_up;
-   pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-   pmouse->m_pointHost.x = xHost;
-   pmouse->m_pointHost.y = yHost;
-   pmouse->m_pointAbsolute.x = xAbsolute;
-   pmouse->m_pointAbsolute.y = yAbsolute;
-   
+   pmouse->m_lparam = pusermouse->m_pointHost;
+   pmouse->m_pointHost = pusermouse->m_pointHost;
+   pmouse->m_pointAbsolute = pusermouse->m_pointAbsolute;
+
    ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
    
    if(pelemental)
@@ -1763,7 +1747,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //   }
 //
 
-   void window::on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute)
+   void window::on_mouse_move(::user::mouse * pusermouse)
    {
       
 //      if(is_destroying())
@@ -1773,10 +1757,8 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 //
 //      }
       
-      m_pointMouseCursor.x = xHost;
-      
-      m_pointMouseCursor.y = yHost;
-      
+      m_pointMouseCursor = pusermouse->m_pointHost;
+
       bool bOk = true;
 
       auto puserinteraction = user_interaction();
@@ -1804,9 +1786,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
 
          m_mouserepositionthrottling.m_timeMouseMove.Now();
 
-         m_mouserepositionthrottling.m_pointMouseMove.x = xHost;
-
-         m_mouserepositionthrottling.m_pointMouseMove.y = yHost;
+         m_mouserepositionthrottling.m_pointMouseMove = pusermouse->m_pointHost;
 
 //            if(false)
 //            {
@@ -1869,7 +1849,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
       
       //wparam wparam = ::make_u32(0, 0);
       
-      lparam lparam(xHost, yHost);
+      //lparam lparam(xHost, yHost);
       
 //      if(ulAppleMouseButton & 1)
 //      {
@@ -1890,12 +1870,10 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
        pmouse->m_pwindow = this;
        pmouse->m_operatingsystemwindow = this->operating_system_window();
        pmouse->m_eusermessage = id;
-      pmouse->m_lparam =::make_unsigned_int(xHost, yHost);
-      pmouse->m_pointHost.x = xHost;
-      pmouse->m_pointHost.y = yHost;
-      pmouse->m_pointAbsolute.x = xAbsolute;
-      pmouse->m_pointAbsolute.y = yAbsolute;
-      
+      pmouse->m_lparam = pusermouse->m_pointHost;
+      pmouse->m_pointHost = pusermouse->m_pointHost;
+      pmouse->m_pointAbsolute = pusermouse->m_pointAbsolute;
+
       ::cast < ::micro::elemental > pelemental = m_pacmeuserinteraction;
       
       if(pelemental)
@@ -1937,43 +1915,43 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
    }
 
 
-   void window::ios_window_mouse_dragged(int iGesture, double x, double y)
-   {
-      
-      ::user::enum_message id = ::user::e_message_mouse_move;
-
-      //wparam wparam = 0;
-
-      lparam lparam(x, y);
-
-//      if(ulAppleMouseButton & 1)
-//      {
+//   void window::on_mouse_dragged(::useint iGesture, double x, double y)
+//   {
+//      
+//      ::user::enum_message id = ::user::e_message_mouse_move;
 //
-//         wparam |= ::user::e_button_state_left;
+//      //wparam wparam = 0;
 //
-//      }
+//      lparam lparam(x, y);
 //
-//      if(ulAppleMouseButton & 2)
-//      {
+////      if(ulAppleMouseButton & 1)
+////      {
+////
+////         wparam |= ::user::e_button_state_left;
+////
+////      }
+////
+////      if(ulAppleMouseButton & 2)
+////      {
+////
+////         wparam |= ::user::e_button_state_right;
+////
+////      }
 //
-//         wparam |= ::user::e_button_state_right;
+//      auto pmouse = create_newø < ::message::mouse >();
+//      
+//      //pmouse->set(this, this, id, wparam, lparam);
+//       pmouse->m_pwindow = this;
+//       pmouse->m_operatingsystemwindow = this->operating_system_window();
+//       pmouse->m_eusermessage = id;
+//       pmouse->m_lparam =::make_u32(x, y);
+//       pmouse->m_pointHost.x = x;
+//       pmouse->m_pointHost.y = y;
+//      pmouse->m_pointAbsolute = pmouse->m_pointHost;
 //
-//      }
-
-      auto pmouse = create_newø < ::message::mouse >();
-      
-      //pmouse->set(this, this, id, wparam, lparam);
-       pmouse->m_pwindow = this;
-       pmouse->m_operatingsystemwindow = this->operating_system_window();
-       pmouse->m_eusermessage = id;
-       pmouse->m_lparam =::make_unsigned_int(x, y);
-       pmouse->m_pointHost.x = x;
-       pmouse->m_pointHost.y = y;
-      pmouse->m_pointAbsolute = pmouse->m_pointHost;
-
-      post_message(pmouse);
-
-   }
+//      post_message(pmouse);
+//
+//   }
 
 
 //   void window::ios_window_mouse_wheel(double deltaY, double x, double y)
@@ -2201,7 +2179,7 @@ void window::on_right_button_up(double xHost, double yHost, double xAbsolute, do
           preposition->m_pwindow = this;
           preposition->m_operatingsystemwindow = this->operating_system_window();
           preposition->m_eusermessage = id;
-          preposition->m_lparam =::make_unsigned_int(point.x, point.y);
+          preposition->m_lparam =::make_u32(point.x, point.y);
           preposition->m_point.x = point.x;
           preposition->m_point.y = point.y;
 
@@ -2641,7 +2619,7 @@ void window::ios_window_text_view_did_begin_editing()
       if(puserinteraction->const_layout().window().is_screen_visible())
       {
 
-         puserinteraction->hide();
+         puserinteraction->display(e_display_hide, {});
 
       }
       

@@ -33,7 +33,7 @@ class acme_window_bridge;
       //Window                           m_window;
       //cairo_surface_t *                m_psurface;
       ::operating_system::ios_window      m_ioswindow;
-      ::pointer<::nano::graphics::device>          m_pnanodevice;
+      ::pointer<::nano::graphics::context>          m_pnanographicscontext;
       //::pointer<::nano::graphics::font>         m_pfont;
       //color32_t                     m_colorText;
       //color32_t                     m_colorFocus;
@@ -70,10 +70,12 @@ class acme_window_bridge;
       void _create_window() override;
 
       void destroy_window() override;
-
-      void show_window() override;
       
-      void hide_window() override;
+      void show_window(::user_interface::enum_show_window eshowwindow) override;
+
+      //void ns_show() override;
+      
+      //void ns_hide() override;
 
       //virtual void _on_event(XEvent *pevent);
       
@@ -145,7 +147,7 @@ class acme_window_bridge;
 
       //virtual void _wm_nodecorations(int iMap);
       
-      ::payload wait_for_dialog_result(const class ::time & timeTimeout = ::time::infinity()) override;
+      ::payload wait_for_dialog_response(const class ::time & timeTimeout = ::time::infinity()) override;
       
 //      ::i32_size get_main_screen_size() override;
       

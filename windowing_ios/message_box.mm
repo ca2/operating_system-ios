@@ -11,18 +11,15 @@
 namespace windowing_ios
 {
 
-void message_box::display(::dialog * pdialog)
+//void message_box::display(::dialog * pdialog)
+void message_box::display(::e_display edisplay, const ::user::activation & useractivation)
 {
    
-   ::cast < ::message_box_payload > pmessageboxpayload = pdialog;
-   
-   if(pmessageboxpayload)
-   {
-      ::string strTextTitle(pmessageboxpayload->m_strTitle);
+      ::string strTextTitle(m_strTitle);
       NSString * strTitle = [[NSString alloc] initWithUTF8String:
                              strTextTitle.c_str()];
       
-      ::string strTextMessage(pmessageboxpayload->m_strMessage);
+      ::string strTextMessage(m_strMessage);
       NSString * strMessage = [[NSString alloc] initWithUTF8String:
                                strTextMessage.c_str()];
       
@@ -33,9 +30,9 @@ void message_box::display(::dialog * pdialog)
       
       m_pUIAlertController = (__bridge_retained void *) alert;
       
-      ::acme::user::message_box::display(pdialog);
+      ::user_interface::message_box::display(edisplay, useractivation);
       
-   }
+   //}
    
 }
 
@@ -49,7 +46,7 @@ void message_box::add_button(const ::scoped_string & scopedstrText, enum_dialog_
                                    actionWithTitle:strTitle style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
       
-      set_dialog_result(edialogresult);
+      set_dialog_response(edialogresult);
       
    }];
    UIAlertController * alert = (__bridge UIAlertController *) m_pUIAlertController;

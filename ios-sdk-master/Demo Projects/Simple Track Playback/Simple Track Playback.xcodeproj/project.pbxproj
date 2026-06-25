@@ -7,147 +7,147 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0744C19C1D9C03EA00C051FF /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */; };
-		0744C19D1D9C03EA00C051FF /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */; };
-		0744C19E1D9C03EA00C051FF /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */; };
-		378297E518BCDF4000EFF728 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378297E418BCDF4000EFF728 /* Security.framework */; };
-		378297E718BCDF4700EFF728 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378297E618BCDF4700EFF728 /* AVFoundation.framework */; };
-		37E2C9D118B4DF7D00D5D823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D018B4DF7D00D5D823 /* Foundation.framework */; };
-		37E2C9D318B4DF7D00D5D823 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D218B4DF7D00D5D823 /* CoreGraphics.framework */; };
-		37E2C9D518B4DF7D00D5D823 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D418B4DF7D00D5D823 /* UIKit.framework */; };
-		37E2C9DB18B4DF7D00D5D823 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37E2C9D918B4DF7D00D5D823 /* InfoPlist.strings */; };
-		37E2C9DD18B4DF7D00D5D823 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E2C9DC18B4DF7D00D5D823 /* main.m */; };
-		37E2C9E118B4DF7D00D5D823 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E2C9E018B4DF7D00D5D823 /* AppDelegate.m */; };
-		37E2C9E418B4DF7D00D5D823 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E2C9E218B4DF7D00D5D823 /* Main_iPhone.storyboard */; };
-		37E2C9EA18B4DF7D00D5D823 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E2C9E918B4DF7D00D5D823 /* ViewController.m */; };
-		37E2C9EC18B4DF7D00D5D823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E2C9EB18B4DF7D00D5D823 /* Images.xcassets */; };
-		999DC7101DAFD271005C0796 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 999DC70F1DAFD271005C0796 /* WebViewController.m */; };
-		999DC7121DAFD7BF005C0796 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999DC7111DAFD7BF005C0796 /* WebKit.framework */; };
-		999DC7141DAFD7C2005C0796 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999DC7131DAFD7C2005C0796 /* SafariServices.framework */; };
-		CE0C640C1A9B61EB00B5F6F6 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C640B1A9B61EB00B5F6F6 /* LoginController.m */; };
-		CE4A60C91A9CBF9600DDA394 /* backdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4A60C81A9CBF9600DDA394 /* backdrop.png */; };
-		DD3274FE1A26C53F00957EF7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3274FD1A26C53F00957EF7 /* CoreData.framework */; };
-		DD76375C1A2039CF00AE0BDC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD76375A1A2007F100AE0BDC /* libsqlite3.dylib */; };
+		FD52E00448EF3E69DD2B5DD2 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EDFCF9BE48C5ADFA33A1B5 /* SpotifyAudioPlayback.framework */; };
+		EAF5988AE16644F301CD6B27 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5D6587D18D48108B738CEF /* SpotifyAuthentication.framework */; };
+		8224905F947627F8D7FA0383 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AE840FED529ECD21CEE231 /* SpotifyMetadata.framework */; };
+		1A65810B867C71D5EDF4E1CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323793737858F16F3FFAEAE1 /* Security.framework */; };
+		F66C22148FFB2EEAE5601812 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6F0ECBEEBB106A490324F2 /* AVFoundation.framework */; };
+		791AA264D620F59676F51F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2A92827B915E6ED6A4D8FB /* Foundation.framework */; };
+		5AB8AFF03F302B70A9DE126D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0961B3BBA6134C1D24F577 /* CoreGraphics.framework */; };
+		DE76EB70E6E4C9CC184A2D0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4347F0566AFA40D1D87E71CF /* UIKit.framework */; };
+		97CCF6B5780C9546C3004DE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF06432470FF3E21EB06F2CE /* InfoPlist.strings */; };
+		DDF82EF171D409216C3A21F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF92C43E3A676865688B11 /* main.m */; };
+		F9499DDED4924E329D4CB10E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE943660A2EAECF13638FC8D /* AppDelegate.m */; };
+		B1081279FB76684278B890B0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948E1ED82F9926B53E05D7C3 /* Main_iPhone.storyboard */; };
+		CDD153CAACC7095AED2FD3C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F150A9F0327AD3D868686E41 /* ViewController.m */; };
+		BBA5E6B7478F6CD7232CF683 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B59607A63E6C72D60E11BF /* Images.xcassets */; };
+		C1E5F0935B23B9ABD919DEE4 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F9FFDA166F00E61EC90C66 /* WebViewController.m */; };
+		F3B6A4AC6D8DFC074D3D470D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B5D58ACB9C0F63F4DA051A /* WebKit.framework */; };
+		7546E198C93D1BCB6DEB5B10 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04402FB6777CD5C03F59195A /* SafariServices.framework */; };
+		F9A2E9481967B0286566DC9B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D365A4B3C7CE40396ADDAF43 /* LoginController.m */; };
+		BC89ADC9E84937BDA1E1AA63 /* backdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B4B2757C097472DF1C42003 /* backdrop.png */; };
+		90C3FC882C7F18D23CDA4F15 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBF6D1A8B759FFAE6D2BDF9 /* CoreData.framework */; };
+		50B58873E80C90CE86D98082 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8314D6D4FEAA14703743A70C /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
-		0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
-		0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
-		378297E418BCDF4000EFF728 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		378297E618BCDF4700EFF728 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Track Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		37E2C9D018B4DF7D00D5D823 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		37E2C9D218B4DF7D00D5D823 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		37E2C9D418B4DF7D00D5D823 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		37E2C9D818B4DF7D00D5D823 /* Simple Track Playback-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Simple Track Playback-Info.plist"; sourceTree = "<group>"; };
-		37E2C9DA18B4DF7D00D5D823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		37E2C9DC18B4DF7D00D5D823 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		37E2C9DE18B4DF7D00D5D823 /* Simple Track Playback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simple Track Playback-Prefix.pch"; sourceTree = "<group>"; };
-		37E2C9DF18B4DF7D00D5D823 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		37E2C9E018B4DF7D00D5D823 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		37E2C9E318B4DF7D00D5D823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		37E2C9E818B4DF7D00D5D823 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		37E2C9E918B4DF7D00D5D823 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		37E2C9EB18B4DF7D00D5D823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		999DC70E1DAFD271005C0796 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		999DC70F1DAFD271005C0796 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		999DC7111DAFD7BF005C0796 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		999DC7131DAFD7C2005C0796 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		CE0C640A1A9B61EB00B5F6F6 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		CE0C640B1A9B61EB00B5F6F6 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		CE4A60C81A9CBF9600DDA394 /* backdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backdrop.png; sourceTree = "<group>"; };
-		CECF6ACB1A1B7EFB000A29BD /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		DD3274FD1A26C53F00957EF7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		DD76375A1A2007F100AE0BDC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		71EDFCF9BE48C5ADFA33A1B5 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		7A5D6587D18D48108B738CEF /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		C0AE840FED529ECD21CEE231 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		323793737858F16F3FFAEAE1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7D6F0ECBEEBB106A490324F2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6D0985D52EFFC6AFE341C85B /* Simple Track Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Track Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2A92827B915E6ED6A4D8FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A0961B3BBA6134C1D24F577 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4347F0566AFA40D1D87E71CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6A680FB08C79E871287AB9FA /* Simple Track Playback-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Simple Track Playback-Info.plist"; sourceTree = "<group>"; };
+		DD35110B6145C6BCDD2B6BFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5EEF92C43E3A676865688B11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73ED296E0E8A9C23272FBEAF /* Simple Track Playback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simple Track Playback-Prefix.pch"; sourceTree = "<group>"; };
+		7AF61823A42BBE1DBA177E7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE943660A2EAECF13638FC8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		726BDC2B8C7AAC1F90E04865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B84CC46B0EE507177B93D0E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F150A9F0327AD3D868686E41 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		36B59607A63E6C72D60E11BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		925541190F2358884938EA46 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		95F9FFDA166F00E61EC90C66 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		68B5D58ACB9C0F63F4DA051A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		04402FB6777CD5C03F59195A /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		73B3CA872170ADF7A164D0C9 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		D365A4B3C7CE40396ADDAF43 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		6B4B2757C097472DF1C42003 /* backdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backdrop.png; sourceTree = "<group>"; };
+		3166BB4D05846EAD05840D2F /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		1FBF6D1A8B759FFAE6D2BDF9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8314D6D4FEAA14703743A70C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		37E2C9CA18B4DF7D00D5D823 /* Frameworks */ = {
+		9971761F1E0AFCC6B9521A70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				999DC7141DAFD7C2005C0796 /* SafariServices.framework in Frameworks */,
-				999DC7121DAFD7BF005C0796 /* WebKit.framework in Frameworks */,
-				0744C19E1D9C03EA00C051FF /* SpotifyMetadata.framework in Frameworks */,
-				DD3274FE1A26C53F00957EF7 /* CoreData.framework in Frameworks */,
-				0744C19C1D9C03EA00C051FF /* SpotifyAudioPlayback.framework in Frameworks */,
-				DD76375C1A2039CF00AE0BDC /* libsqlite3.dylib in Frameworks */,
-				378297E718BCDF4700EFF728 /* AVFoundation.framework in Frameworks */,
-				378297E518BCDF4000EFF728 /* Security.framework in Frameworks */,
-				37E2C9D318B4DF7D00D5D823 /* CoreGraphics.framework in Frameworks */,
-				37E2C9D518B4DF7D00D5D823 /* UIKit.framework in Frameworks */,
-				0744C19D1D9C03EA00C051FF /* SpotifyAuthentication.framework in Frameworks */,
-				37E2C9D118B4DF7D00D5D823 /* Foundation.framework in Frameworks */,
+				7546E198C93D1BCB6DEB5B10 /* SafariServices.framework in Frameworks */,
+				F3B6A4AC6D8DFC074D3D470D /* WebKit.framework in Frameworks */,
+				8224905F947627F8D7FA0383 /* SpotifyMetadata.framework in Frameworks */,
+				90C3FC882C7F18D23CDA4F15 /* CoreData.framework in Frameworks */,
+				FD52E00448EF3E69DD2B5DD2 /* SpotifyAudioPlayback.framework in Frameworks */,
+				50B58873E80C90CE86D98082 /* libsqlite3.dylib in Frameworks */,
+				F66C22148FFB2EEAE5601812 /* AVFoundation.framework in Frameworks */,
+				1A65810B867C71D5EDF4E1CF /* Security.framework in Frameworks */,
+				5AB8AFF03F302B70A9DE126D /* CoreGraphics.framework in Frameworks */,
+				DE76EB70E6E4C9CC184A2D0E /* UIKit.framework in Frameworks */,
+				EAF5988AE16644F301CD6B27 /* SpotifyAuthentication.framework in Frameworks */,
+				791AA264D620F59676F51F9B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37E2C9C418B4DF7D00D5D823 = {
+		DEE26A03CD6327213646C98E = {
 			isa = PBXGroup;
 			children = (
-				37E2C9D618B4DF7D00D5D823 /* Simple Track Playback */,
-				37E2C9CF18B4DF7D00D5D823 /* Frameworks */,
-				37E2C9CE18B4DF7D00D5D823 /* Products */,
+				BAE0EFEB41B3F8D5788FAA18 /* Simple Track Playback */,
+				CBBC88F3B72941B23B3F37D7 /* Frameworks */,
+				310D4618B57EA8201776CB6D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		37E2C9CE18B4DF7D00D5D823 /* Products */ = {
+		310D4618B57EA8201776CB6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */,
+				6D0985D52EFFC6AFE341C85B /* Simple Track Playback.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		37E2C9CF18B4DF7D00D5D823 /* Frameworks */ = {
+		CBBC88F3B72941B23B3F37D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				999DC7131DAFD7C2005C0796 /* SafariServices.framework */,
-				999DC7111DAFD7BF005C0796 /* WebKit.framework */,
-				0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */,
-				0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */,
-				0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */,
-				DD3274FD1A26C53F00957EF7 /* CoreData.framework */,
-				DD76375A1A2007F100AE0BDC /* libsqlite3.dylib */,
-				378297E618BCDF4700EFF728 /* AVFoundation.framework */,
-				378297E418BCDF4000EFF728 /* Security.framework */,
-				37E2C9D018B4DF7D00D5D823 /* Foundation.framework */,
-				37E2C9D218B4DF7D00D5D823 /* CoreGraphics.framework */,
-				37E2C9D418B4DF7D00D5D823 /* UIKit.framework */,
+				04402FB6777CD5C03F59195A /* SafariServices.framework */,
+				68B5D58ACB9C0F63F4DA051A /* WebKit.framework */,
+				71EDFCF9BE48C5ADFA33A1B5 /* SpotifyAudioPlayback.framework */,
+				7A5D6587D18D48108B738CEF /* SpotifyAuthentication.framework */,
+				C0AE840FED529ECD21CEE231 /* SpotifyMetadata.framework */,
+				1FBF6D1A8B759FFAE6D2BDF9 /* CoreData.framework */,
+				8314D6D4FEAA14703743A70C /* libsqlite3.dylib */,
+				7D6F0ECBEEBB106A490324F2 /* AVFoundation.framework */,
+				323793737858F16F3FFAEAE1 /* Security.framework */,
+				9F2A92827B915E6ED6A4D8FB /* Foundation.framework */,
+				3A0961B3BBA6134C1D24F577 /* CoreGraphics.framework */,
+				4347F0566AFA40D1D87E71CF /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		37E2C9D618B4DF7D00D5D823 /* Simple Track Playback */ = {
+		BAE0EFEB41B3F8D5788FAA18 /* Simple Track Playback */ = {
 			isa = PBXGroup;
 			children = (
-				CECF6ACB1A1B7EFB000A29BD /* Config.h */,
-				37E2C9DF18B4DF7D00D5D823 /* AppDelegate.h */,
-				37E2C9E018B4DF7D00D5D823 /* AppDelegate.m */,
-				37E2C9E218B4DF7D00D5D823 /* Main_iPhone.storyboard */,
-				37E2C9E818B4DF7D00D5D823 /* ViewController.h */,
-				37E2C9E918B4DF7D00D5D823 /* ViewController.m */,
-				CE0C640A1A9B61EB00B5F6F6 /* LoginController.h */,
-				CE0C640B1A9B61EB00B5F6F6 /* LoginController.m */,
-				999DC70E1DAFD271005C0796 /* WebViewController.h */,
-				999DC70F1DAFD271005C0796 /* WebViewController.m */,
-				37E2C9EB18B4DF7D00D5D823 /* Images.xcassets */,
-				37E2C9D718B4DF7D00D5D823 /* Supporting Files */,
+				3166BB4D05846EAD05840D2F /* Config.h */,
+				7AF61823A42BBE1DBA177E7D /* AppDelegate.h */,
+				BE943660A2EAECF13638FC8D /* AppDelegate.m */,
+				948E1ED82F9926B53E05D7C3 /* Main_iPhone.storyboard */,
+				B84CC46B0EE507177B93D0E0 /* ViewController.h */,
+				F150A9F0327AD3D868686E41 /* ViewController.m */,
+				73B3CA872170ADF7A164D0C9 /* LoginController.h */,
+				D365A4B3C7CE40396ADDAF43 /* LoginController.m */,
+				925541190F2358884938EA46 /* WebViewController.h */,
+				95F9FFDA166F00E61EC90C66 /* WebViewController.m */,
+				36B59607A63E6C72D60E11BF /* Images.xcassets */,
+				93DECA94048F7EB4C08DB18B /* Supporting Files */,
 			);
 			path = "Simple Track Playback";
 			sourceTree = "<group>";
 		};
-		37E2C9D718B4DF7D00D5D823 /* Supporting Files */ = {
+		93DECA94048F7EB4C08DB18B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A60C81A9CBF9600DDA394 /* backdrop.png */,
-				37E2C9D818B4DF7D00D5D823 /* Simple Track Playback-Info.plist */,
-				37E2C9D918B4DF7D00D5D823 /* InfoPlist.strings */,
-				37E2C9DC18B4DF7D00D5D823 /* main.m */,
-				37E2C9DE18B4DF7D00D5D823 /* Simple Track Playback-Prefix.pch */,
+				6B4B2757C097472DF1C42003 /* backdrop.png */,
+				6A680FB08C79E871287AB9FA /* Simple Track Playback-Info.plist */,
+				BF06432470FF3E21EB06F2CE /* InfoPlist.strings */,
+				5EEF92C43E3A676865688B11 /* main.m */,
+				73ED296E0E8A9C23272FBEAF /* Simple Track Playback-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,13 +155,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37E2C9CC18B4DF7D00D5D823 /* Simple Track Playback */ = {
+		8763274F303AF22D2FEF343B /* Simple Track Playback */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37E2CA0218B4DF7D00D5D823 /* Build configuration list for PBXNativeTarget "Simple Track Playback" */;
+			buildConfigurationList = 3C8B7E55E8C1248AB80B9BB0 /* Build configuration list for PBXNativeTarget "Simple Track Playback" */;
 			buildPhases = (
-				37E2C9C918B4DF7D00D5D823 /* Sources */,
-				37E2C9CA18B4DF7D00D5D823 /* Frameworks */,
-				37E2C9CB18B4DF7D00D5D823 /* Resources */,
+				96FC7A16E446C8020B51825E /* Sources */,
+				9971761F1E0AFCC6B9521A70 /* Frameworks */,
+				7C198D5FEF3201A3BAD9FC21 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -169,24 +169,24 @@
 			);
 			name = "Simple Track Playback";
 			productName = "Empty iOS SDK Project";
-			productReference = 37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */;
+			productReference = 6D0985D52EFFC6AFE341C85B /* Simple Track Playback.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		37E2C9C518B4DF7D00D5D823 /* Project object */ = {
+		38C614D9E2A3BDDF1E403536 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Your Company";
 				TargetAttributes = {
-					37E2C9CC18B4DF7D00D5D823 = {
+					8763274F303AF22D2FEF343B = {
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = 37E2C9C818B4DF7D00D5D823 /* Build configuration list for PBXProject "Simple Track Playback" */;
+			buildConfigurationList = 19CE0C3D09133516D146C159 /* Build configuration list for PBXProject "Simple Track Playback" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -194,58 +194,58 @@
 				en,
 				Base,
 			);
-			mainGroup = 37E2C9C418B4DF7D00D5D823;
-			productRefGroup = 37E2C9CE18B4DF7D00D5D823 /* Products */;
+			mainGroup = DEE26A03CD6327213646C98E;
+			productRefGroup = 310D4618B57EA8201776CB6D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37E2C9CC18B4DF7D00D5D823 /* Simple Track Playback */,
+				8763274F303AF22D2FEF343B /* Simple Track Playback */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		37E2C9CB18B4DF7D00D5D823 /* Resources */ = {
+		7C198D5FEF3201A3BAD9FC21 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E2C9EC18B4DF7D00D5D823 /* Images.xcassets in Resources */,
-				CE4A60C91A9CBF9600DDA394 /* backdrop.png in Resources */,
-				37E2C9E418B4DF7D00D5D823 /* Main_iPhone.storyboard in Resources */,
-				37E2C9DB18B4DF7D00D5D823 /* InfoPlist.strings in Resources */,
+				BBA5E6B7478F6CD7232CF683 /* Images.xcassets in Resources */,
+				BC89ADC9E84937BDA1E1AA63 /* backdrop.png in Resources */,
+				B1081279FB76684278B890B0 /* Main_iPhone.storyboard in Resources */,
+				97CCF6B5780C9546C3004DE3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		37E2C9C918B4DF7D00D5D823 /* Sources */ = {
+		96FC7A16E446C8020B51825E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E2C9EA18B4DF7D00D5D823 /* ViewController.m in Sources */,
-				999DC7101DAFD271005C0796 /* WebViewController.m in Sources */,
-				CE0C640C1A9B61EB00B5F6F6 /* LoginController.m in Sources */,
-				37E2C9E118B4DF7D00D5D823 /* AppDelegate.m in Sources */,
-				37E2C9DD18B4DF7D00D5D823 /* main.m in Sources */,
+				CDD153CAACC7095AED2FD3C3 /* ViewController.m in Sources */,
+				C1E5F0935B23B9ABD919DEE4 /* WebViewController.m in Sources */,
+				F9A2E9481967B0286566DC9B /* LoginController.m in Sources */,
+				F9499DDED4924E329D4CB10E /* AppDelegate.m in Sources */,
+				DDF82EF171D409216C3A21F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		37E2C9D918B4DF7D00D5D823 /* InfoPlist.strings */ = {
+		BF06432470FF3E21EB06F2CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				37E2C9DA18B4DF7D00D5D823 /* en */,
+				DD35110B6145C6BCDD2B6BFB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		37E2C9E218B4DF7D00D5D823 /* Main_iPhone.storyboard */ = {
+		948E1ED82F9926B53E05D7C3 /* Main_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				37E2C9E318B4DF7D00D5D823 /* Base */,
+				726BDC2B8C7AAC1F90E04865 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		37E2CA0018B4DF7D00D5D823 /* Debug */ = {
+		12504F4A7212637855374B97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -292,7 +292,7 @@
 			};
 			name = Debug;
 		};
-		37E2CA0118B4DF7D00D5D823 /* Release */ = {
+		D9E9954EF7252C1AE3EE3DEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -325,7 +325,7 @@
 			};
 			name = Release;
 		};
-		37E2CA0318B4DF7D00D5D823 /* Debug */ = {
+		750B288D6FE27B5CF0DB7AB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -341,7 +341,7 @@
 			};
 			name = Debug;
 		};
-		37E2CA0418B4DF7D00D5D823 /* Release */ = {
+		871E3DFC97D44C36F8FD0FC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -360,25 +360,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37E2C9C818B4DF7D00D5D823 /* Build configuration list for PBXProject "Simple Track Playback" */ = {
+		19CE0C3D09133516D146C159 /* Build configuration list for PBXProject "Simple Track Playback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37E2CA0018B4DF7D00D5D823 /* Debug */,
-				37E2CA0118B4DF7D00D5D823 /* Release */,
+				12504F4A7212637855374B97 /* Debug */,
+				D9E9954EF7252C1AE3EE3DEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37E2CA0218B4DF7D00D5D823 /* Build configuration list for PBXNativeTarget "Simple Track Playback" */ = {
+		3C8B7E55E8C1248AB80B9BB0 /* Build configuration list for PBXNativeTarget "Simple Track Playback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				37E2CA0318B4DF7D00D5D823 /* Debug */,
-				37E2CA0418B4DF7D00D5D823 /* Release */,
+				750B288D6FE27B5CF0DB7AB2 /* Debug */,
+				871E3DFC97D44C36F8FD0FC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 37E2C9C518B4DF7D00D5D823 /* Project object */;
+	rootObject = 38C614D9E2A3BDDF1E403536 /* Project object */;
 }

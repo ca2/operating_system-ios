@@ -73,7 +73,8 @@ virtual public ::uikit::acme::windowing::windowing
       ::windowing::display * display() override;
       
        
-       void windowing_application_main_loop() override;
+       //void windowing_application_main_loop() override;
+      void run() override;
        void windowing_post_quit() override;
 //      ::windowing::window * get_active_window(::thread * pthread) override;
 

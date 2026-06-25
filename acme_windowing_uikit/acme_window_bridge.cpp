@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "window.h"
 #include "acme_window_bridge.h"
-#include "acme/nano/graphics/device.h"
+#include "acme/nano/graphics/context.h"
 #include "acme/constant/id.h"
 #include "acme/handler/topic.h"
 //#include "acme/platform/sequencer.h"
@@ -183,7 +183,7 @@ void acme_window_bridge::on_char(int iChar)
 }
 
 
-void acme_window_bridge::_on_draw_background(CGContextRef cg, CGSize sizeFrame)
+void acme_window_bridge::_on_draw_background(CGContextRef cg, CGRect cgrect)
 {
    
    //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));
@@ -193,7 +193,7 @@ void acme_window_bridge::_on_draw_background(CGContextRef cg, CGSize sizeFrame)
 }
 
 
-void acme_window_bridge::_on_draw_foreground(CGContextRef cg, CGSize sizeFrame)
+void acme_window_bridge::_on_draw_foreground(CGContextRef cg, CGRect cgrect)
 {
    
    //::pointer<quartz2d::nano::graphics::device>pnanodevice = ::place(new quartz2d::nano::graphics::device(cg));

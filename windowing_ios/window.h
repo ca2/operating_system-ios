@@ -75,8 +75,8 @@ namespace windowing_ios
       
       //void set_keyboard_focus() override;
       
-      void show_window() override;
-      void hide_window() override;
+      void ns_show() override;
+      void ns_hide() override;
 
       
       void set_active_window() override;
@@ -113,12 +113,17 @@ namespace windowing_ios
       
 
       void ios_window_draw(CGContextRef cgc, CGSize sizeWindow, int iYFlipHeight, double dScale) override;
-      void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
-      void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
-      void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
-      void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
-      void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
-      void ios_window_mouse_dragged(int iGesture, double x, double y) override;
+//      void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+//      void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+//      void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+//      void on_right_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+//      void on_mouse_move(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
+      void on_left_button_down(::user::mouse * pmouse) override;
+      void on_left_button_up(::user::mouse * pmouse) override;
+      void on_right_button_down(::user::mouse * pmouse) override;
+      void on_right_button_up(::user::mouse * pmouse) override;
+      void on_mouse_move(::user::mouse * pmouse) override;
+      //void ios_window_mouse_dragged(int iGesture, double x, double y) override;
       //void ios_window_mouse_wheel(double deltaY, double x, double y) override;
       //void ios_window_double_click(int iButton, double x, double y) override;
       //bool ios_window_key_down(::u32 vk, ::u32 scan, const char * pszUtf8) override;

@@ -7,143 +7,143 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A0D1C7B2B787B5E00E4B572 /* media_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2E2B771E50008A08A2 /* media_ios.cpp */; };
-		9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20EC8C2B7715BD008A08A2 /* framework.cpp */; };
-		9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECA42B7715BD008A08A2 /* framework.h */; };
-		9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ECA82B7715BD008A08A2 /* _factory.cpp */; };
-		9A20ECC32B7715BD008A08A2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ECAD2B7715BD008A08A2 /* _.h */; };
-		9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */; };
-		9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */; };
-		9A20ED312B771E50008A08A2 /* media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED2F2B771E50008A08A2 /* media_ios.h */; };
-		9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A20ED322B772398008A08A2 /* media_picker.cpp */; };
-		9A20ED352B772398008A08A2 /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A20ED332B772398008A08A2 /* media_picker.h */; };
-		9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A4DDE182B7734D200477878 /* ios_media_picker.mm */; };
-		9A8699CE2B799CC200937A3C /* media.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A8699CD2B799CC200937A3C /* media.mm */; };
-		9A869F312B79ADEF00937A3C /* media_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A869F2E2B79ADEE00937A3C /* media_player.cpp */; };
-		9A869F322B79ADEF00937A3C /* media_player.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A869F302B79ADEE00937A3C /* media_player.h */; };
+		E137D3DB23A1BA9BFB874672 /* media_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6EC44CA15FD78412AA55C45 /* media_ios.cpp */; };
+		F0999D2FD51040D33C78D833 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86EDAD8FAF04A10B7CA0203B /* framework.cpp */; };
+		A43A3BA85D3BC333D89A10FC /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 95271B0AE3B737D0EC5791A7 /* framework.h */; };
+		F7F61340C2C1AE14E960F19D /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 029B233561A096E02B2841C5 /* _factory.cpp */; };
+		56E1F42EF5F0A21DDC2AF8A6 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = C09D58D38AE550D489C696F1 /* _.h */; };
+		865003F5D66AABD05D6C5E50 /* iosMediaPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B50CF983C08B4351B5B7D847 /* iosMediaPickerViewController.h */; };
+		711C5293B2F086FBAD6D2BFF /* iosMediaPickerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B69172F7ACC6066AB93 /* iosMediaPickerViewController.mm */; };
+		09D509C966CF9329ABF7A17B /* media_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = B80C06182A5234EA7D76E121 /* media_ios.h */; };
+		7818539F5DF2959C8A34ABAD /* media_picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 464E7645C650CE243C11C8D5 /* media_picker.cpp */; };
+		A08AFEBC2FE446F42686041B /* media_picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BFD8F11CD6CC414E963D12 /* media_picker.h */; };
+		91369F5126B78F421BE9BFFB /* ios_media_picker.mm in Sources */ = {isa = PBXBuildFile; fileRef = C875CCD398AAF635E17A6A44 /* ios_media_picker.mm */; };
+		2BC927142928FADBDCDBE014 /* media.mm in Sources */ = {isa = PBXBuildFile; fileRef = D54494DA2524D4A177758FD8 /* media.mm */; };
+		D9827CC67D22EA1E782186CD /* media_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13376AD853D09B6D04BB7AC /* media_player.cpp */; };
+		05148C75933F961FDD71BB32 /* media_player.h in Headers */ = {isa = PBXBuildFile; fileRef = E833A885C1B4C1FF51C105D8 /* media_player.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A20EC802B7715A9008A08A2 /* PBXContainerItemProxy */ = {
+		A057935EBA7AF18225BD29AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+			containerPortal = 28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A20EBE92B771090008A08A2;
+			remoteGlobalIDString = C7D3FDCEF3003137F4A95B4D;
 			remoteInfo = media_apple;
 		};
-		9A20ECDE2B7717EB008A08A2 /* PBXContainerItemProxy */ = {
+		6E22FC497B90624373C081BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */;
+			containerPortal = 42369B8695218083B5603BAE /* windowing_ios.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A9E4AD62751A3F40094A04C;
+			remoteGlobalIDString = 871817C608E0C25C7D113A23;
 			remoteInfo = windowing_ios;
 		};
-		9A4DDE612B774C3600477878 /* PBXContainerItemProxy */ = {
+		E3616E969558AA0357320357 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */;
+			containerPortal = 42369B8695218083B5603BAE /* windowing_ios.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A9E4AD52751A3F40094A04C;
+			remoteGlobalIDString = 44EA8993F79B99BAB66E776E;
 			remoteInfo = windowing_ios;
 		};
-		9A4DDE682B7757E500477878 /* PBXContainerItemProxy */ = {
+		66B976B46BE99485DF0A6976 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+			containerPortal = 28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A20EBE82B771090008A08A2;
+			remoteGlobalIDString = 038F59AF7920DF51AF3A3106;
 			remoteInfo = media_apple;
 		};
-		9A8F51852B7774C4007EDC5C /* PBXContainerItemProxy */ = {
+		55DB810985CDD2DE3E323EA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+			containerPortal = 28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A4DDE7B2B775A1E00477878;
+			remoteGlobalIDString = 9FA786DBE06314086A97646D;
 			remoteInfo = media_apple;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A20EC642B77153F008A08A2 /* libmedia_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmedia_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = media_apple.xcodeproj; path = "../../operating_system-apple/media_apple/media_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
-		9A20EC8C2B7715BD008A08A2 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9A20ECA42B7715BD008A08A2 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
-		9A20ECA82B7715BD008A08A2 /* _factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
-		9A20ECAB2B7715BD008A08A2 /* _____release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
-		9A20ECAD2B7715BD008A08A2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
-		9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosAudioPickerViewController.mm; sourceTree = "<group>"; };
-		9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
-		9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };
-		9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosMediaPickerViewController.mm; sourceTree = "<group>"; };
-		9A20ED2E2B771E50008A08A2 /* media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_ios.cpp; sourceTree = "<group>"; };
-		9A20ED2F2B771E50008A08A2 /* media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_ios.h; sourceTree = "<group>"; };
-		9A20ED322B772398008A08A2 /* media_picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_picker.cpp; sourceTree = "<group>"; };
-		9A20ED332B772398008A08A2 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
-		9A20ED362B772E0E008A08A2 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
-		9A4DDE182B7734D200477878 /* ios_media_picker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_media_picker.mm; sourceTree = "<group>"; };
-		9A8699CD2B799CC200937A3C /* media.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = media.mm; sourceTree = "<group>"; };
-		9A869F2E2B79ADEE00937A3C /* media_player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media_player.cpp; sourceTree = "<group>"; };
-		9A869F302B79ADEE00937A3C /* media_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = media_player.h; sourceTree = "<group>"; };
+		5CE213A3683CB248FB6AEB8C /* libmedia_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmedia_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = media_apple.xcodeproj; path = "../../operating_system-apple/media_apple/media_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		EE5F778727EC89CAB3DAF71B /* _____debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
+		86EDAD8FAF04A10B7CA0203B /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		95271B0AE3B737D0EC5791A7 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		029B233561A096E02B2841C5 /* _factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
+		750F3AE7FC2E679C6D2E3547 /* _____release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		C09D58D38AE550D489C696F1 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
+		42369B8695218083B5603BAE /* windowing_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = windowing_ios.xcodeproj; path = ../windowing_ios/windowing_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9DA7577621EB794E15B7F779 /* aaa_iosAudioPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = aaa_iosAudioPickerViewController.mm; sourceTree = "<group>"; };
+		557C7B21AF7FAD020BCC2348 /* aaa_iosAudioPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaa_iosAudioPickerViewController.h; sourceTree = "<group>"; };
+		B50CF983C08B4351B5B7D847 /* iosMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosMediaPickerViewController.h; sourceTree = "<group>"; };
+		7E943B69172F7ACC6066AB93 /* iosMediaPickerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iosMediaPickerViewController.mm; sourceTree = "<group>"; };
+		A6EC44CA15FD78412AA55C45 /* media_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_ios.cpp; sourceTree = "<group>"; };
+		B80C06182A5234EA7D76E121 /* media_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_ios.h; sourceTree = "<group>"; };
+		464E7645C650CE243C11C8D5 /* media_picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_picker.cpp; sourceTree = "<group>"; };
+		16BFD8F11CD6CC414E963D12 /* media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = media_picker.h; sourceTree = "<group>"; };
+		4175190D3573957024DFA2F4 /* ios_media_picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_media_picker.h; sourceTree = "<group>"; };
+		C875CCD398AAF635E17A6A44 /* ios_media_picker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_media_picker.mm; sourceTree = "<group>"; };
+		D54494DA2524D4A177758FD8 /* media.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = media.mm; sourceTree = "<group>"; };
+		D13376AD853D09B6D04BB7AC /* media_player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media_player.cpp; sourceTree = "<group>"; };
+		E833A885C1B4C1FF51C105D8 /* media_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = media_player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		9A20EC5B2B77153F008A08A2 = {
+		C7934A3EF44F3DAE59AEE2E8 = {
 			isa = PBXGroup;
 			children = (
-				9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */,
-				9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */,
-				9A20EC822B7715BD008A08A2 /* media_ios */,
-				9A20EC652B77153F008A08A2 /* Products */,
+				42369B8695218083B5603BAE /* windowing_ios.xcodeproj */,
+				28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */,
+				F27610A8F818733E71ADAB7F /* media_ios */,
+				F9A66C4E0B6753C5CF81D8E9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9A20EC652B77153F008A08A2 /* Products */ = {
+		F9A66C4E0B6753C5CF81D8E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A20EC642B77153F008A08A2 /* libmedia_ios.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9A20EC7D2B7715A9008A08A2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9A8F51862B7774C4007EDC5C /* libmedia_apple.dylib */,
-				9A20EC812B7715A9008A08A2 /* libios_media_apple.a */,
+				5CE213A3683CB248FB6AEB8C /* libmedia_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A20EC822B7715BD008A08A2 /* media_ios */ = {
+		C902A5BFEFB8875ED2D10B13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */,
-				9A20ECAB2B7715BD008A08A2 /* _____release.xcconfig */,
-				9A20ECAD2B7715BD008A08A2 /* _.h */,
-				9A20ED092B771897008A08A2 /* aaa_iosAudioPickerViewController.h */,
-				9A20ECFF2B771897008A08A2 /* aaa_iosAudioPickerViewController.mm */,
-				9A20ECA82B7715BD008A08A2 /* _factory.cpp */,
-				9A20EC8C2B7715BD008A08A2 /* framework.cpp */,
-				9A20ECA42B7715BD008A08A2 /* framework.h */,
-				9A20ED362B772E0E008A08A2 /* ios_media_picker.h */,
-				9A4DDE182B7734D200477878 /* ios_media_picker.mm */,
-				9A20ED2A2B7719A8008A08A2 /* iosMediaPickerViewController.h */,
-				9A20ED2B2B7719A8008A08A2 /* iosMediaPickerViewController.mm */,
-				9A20ED2E2B771E50008A08A2 /* media_ios.cpp */,
-				9A20ED2F2B771E50008A08A2 /* media_ios.h */,
-				9A20ED322B772398008A08A2 /* media_picker.cpp */,
-				9A20ED332B772398008A08A2 /* media_picker.h */,
-				9A869F2E2B79ADEE00937A3C /* media_player.cpp */,
-				9A869F302B79ADEE00937A3C /* media_player.h */,
-				9A8699CD2B799CC200937A3C /* media.mm */,
+				6F02DAEFB0574068B1C73793 /* libmedia_apple.dylib */,
+				6D6DE6CC8F82B7030F1F551F /* libios_media_apple.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F27610A8F818733E71ADAB7F /* media_ios */ = {
+			isa = PBXGroup;
+			children = (
+				EE5F778727EC89CAB3DAF71B /* _____debug.xcconfig */,
+				750F3AE7FC2E679C6D2E3547 /* _____release.xcconfig */,
+				C09D58D38AE550D489C696F1 /* _.h */,
+				557C7B21AF7FAD020BCC2348 /* aaa_iosAudioPickerViewController.h */,
+				9DA7577621EB794E15B7F779 /* aaa_iosAudioPickerViewController.mm */,
+				029B233561A096E02B2841C5 /* _factory.cpp */,
+				86EDAD8FAF04A10B7CA0203B /* framework.cpp */,
+				95271B0AE3B737D0EC5791A7 /* framework.h */,
+				4175190D3573957024DFA2F4 /* ios_media_picker.h */,
+				C875CCD398AAF635E17A6A44 /* ios_media_picker.mm */,
+				B50CF983C08B4351B5B7D847 /* iosMediaPickerViewController.h */,
+				7E943B69172F7ACC6066AB93 /* iosMediaPickerViewController.mm */,
+				A6EC44CA15FD78412AA55C45 /* media_ios.cpp */,
+				B80C06182A5234EA7D76E121 /* media_ios.h */,
+				464E7645C650CE243C11C8D5 /* media_picker.cpp */,
+				16BFD8F11CD6CC414E963D12 /* media_picker.h */,
+				D13376AD853D09B6D04BB7AC /* media_player.cpp */,
+				E833A885C1B4C1FF51C105D8 /* media_player.h */,
+				D54494DA2524D4A177758FD8 /* media.mm */,
 			);
 			name = media_ios;
 			sourceTree = "<group>";
 		};
-		9A20ECDB2B7717EB008A08A2 /* Products */ = {
+		FA1FC5CF6BC57F2F73F4AC64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A20ECDF2B7717EB008A08A2 /* libwindowing_ios.a */,
+				1487E7E8B58829455F8E3C73 /* libwindowing_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,56 +151,56 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		9A20EC602B77153F008A08A2 /* Headers */ = {
+		FC155B0834E3BF14B1851C68 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A20ED352B772398008A08A2 /* media_picker.h in Headers */,
-				9A20ED2C2B7719A9008A08A2 /* iosMediaPickerViewController.h in Headers */,
-				9A869F322B79ADEF00937A3C /* media_player.h in Headers */,
-				9A20ED312B771E50008A08A2 /* media_ios.h in Headers */,
-				9A20ECC32B7715BD008A08A2 /* _.h in Headers */,
-				9A20ECBE2B7715BD008A08A2 /* framework.h in Headers */,
+				A08AFEBC2FE446F42686041B /* media_picker.h in Headers */,
+				865003F5D66AABD05D6C5E50 /* iosMediaPickerViewController.h in Headers */,
+				05148C75933F961FDD71BB32 /* media_player.h in Headers */,
+				09D509C966CF9329ABF7A17B /* media_ios.h in Headers */,
+				56E1F42EF5F0A21DDC2AF8A6 /* _.h in Headers */,
+				A43A3BA85D3BC333D89A10FC /* framework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9A20EC632B77153F008A08A2 /* media_ios */ = {
+		5065A6FEDDF8E1EB922482AB /* media_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A20EC6D2B77153F008A08A2 /* Build configuration list for PBXNativeTarget "media_ios" */;
+			buildConfigurationList = 6DCDB51261AC9AA34966DB1F /* Build configuration list for PBXNativeTarget "media_ios" */;
 			buildPhases = (
-				9A20EC602B77153F008A08A2 /* Headers */,
-				9A20EC612B77153F008A08A2 /* Sources */,
+				FC155B0834E3BF14B1851C68 /* Headers */,
+				6B24AE7CBBEA53E714BA23A2 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9A4DDE692B7757E500477878 /* PBXTargetDependency */,
-				9A4DDE622B774C3600477878 /* PBXTargetDependency */,
+				EBDFFD57D18D9A7C327D919F /* PBXTargetDependency */,
+				FFA9492045DA0F01E4C29F03 /* PBXTargetDependency */,
 			);
 			name = media_ios;
 			productName = media_ios;
-			productReference = 9A20EC642B77153F008A08A2 /* libmedia_ios.a */;
+			productReference = 5CE213A3683CB248FB6AEB8C /* libmedia_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9A20EC5C2B77153F008A08A2 /* Project object */ = {
+		D756C440937FC07827E3DABC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1610;
 				ORGANIZATIONNAME = "ca2 Software Development";
 				TargetAttributes = {
-					9A20EC632B77153F008A08A2 = {
+					5065A6FEDDF8E1EB922482AB = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 9A20EC5F2B77153F008A08A2 /* Build configuration list for PBXProject "media_ios" */;
+			buildConfigurationList = 8A8DF7FD50FB172C34C64435 /* Build configuration list for PBXProject "media_ios" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -208,85 +208,85 @@
 				en,
 				Base,
 			);
-			mainGroup = 9A20EC5B2B77153F008A08A2;
-			productRefGroup = 9A20EC652B77153F008A08A2 /* Products */;
+			mainGroup = C7934A3EF44F3DAE59AEE2E8;
+			productRefGroup = F9A66C4E0B6753C5CF81D8E9 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9A20EC7D2B7715A9008A08A2 /* Products */;
-					ProjectRef = 9A20EC7C2B7715A9008A08A2 /* media_apple.xcodeproj */;
+					ProductGroup = C902A5BFEFB8875ED2D10B13 /* Products */;
+					ProjectRef = 28CC87789D73A9D919C1ADBA /* media_apple.xcodeproj */;
 				},
 				{
-					ProductGroup = 9A20ECDB2B7717EB008A08A2 /* Products */;
-					ProjectRef = 9A20ECDA2B7717EB008A08A2 /* windowing_ios.xcodeproj */;
+					ProductGroup = FA1FC5CF6BC57F2F73F4AC64 /* Products */;
+					ProjectRef = 42369B8695218083B5603BAE /* windowing_ios.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				9A20EC632B77153F008A08A2 /* media_ios */,
+				5065A6FEDDF8E1EB922482AB /* media_ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A20EC812B7715A9008A08A2 /* libios_media_apple.a */ = {
+		6D6DE6CC8F82B7030F1F551F /* libios_media_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libios_media_apple.a;
-			remoteRef = 9A20EC802B7715A9008A08A2 /* PBXContainerItemProxy */;
+			remoteRef = A057935EBA7AF18225BD29AA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A20ECDF2B7717EB008A08A2 /* libwindowing_ios.a */ = {
+		1487E7E8B58829455F8E3C73 /* libwindowing_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libwindowing_ios.a;
-			remoteRef = 9A20ECDE2B7717EB008A08A2 /* PBXContainerItemProxy */;
+			remoteRef = 6E22FC497B90624373C081BF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8F51862B7774C4007EDC5C /* libmedia_apple.dylib */ = {
+		6F02DAEFB0574068B1C73793 /* libmedia_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libmedia_apple.dylib;
-			remoteRef = 9A8F51852B7774C4007EDC5C /* PBXContainerItemProxy */;
+			remoteRef = 55DB810985CDD2DE3E323EA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9A20EC612B77153F008A08A2 /* Sources */ = {
+		6B24AE7CBBEA53E714BA23A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A4DDE1B2B7734D300477878 /* ios_media_picker.mm in Sources */,
-				9A20ED342B772398008A08A2 /* media_picker.cpp in Sources */,
-				9A20ED2D2B7719A9008A08A2 /* iosMediaPickerViewController.mm in Sources */,
-				9A20ECB42B7715BD008A08A2 /* framework.cpp in Sources */,
-				9A0D1C7B2B787B5E00E4B572 /* media_ios.cpp in Sources */,
-				9A869F312B79ADEF00937A3C /* media_player.cpp in Sources */,
-				9A20ECC22B7715BD008A08A2 /* _factory.cpp in Sources */,
-				9A8699CE2B799CC200937A3C /* media.mm in Sources */,
+				91369F5126B78F421BE9BFFB /* ios_media_picker.mm in Sources */,
+				7818539F5DF2959C8A34ABAD /* media_picker.cpp in Sources */,
+				711C5293B2F086FBAD6D2BFF /* iosMediaPickerViewController.mm in Sources */,
+				F0999D2FD51040D33C78D833 /* framework.cpp in Sources */,
+				E137D3DB23A1BA9BFB874672 /* media_ios.cpp in Sources */,
+				D9827CC67D22EA1E782186CD /* media_player.cpp in Sources */,
+				F7F61340C2C1AE14E960F19D /* _factory.cpp in Sources */,
+				2BC927142928FADBDCDBE014 /* media.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9A4DDE622B774C3600477878 /* PBXTargetDependency */ = {
+		FFA9492045DA0F01E4C29F03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = windowing_ios;
-			targetProxy = 9A4DDE612B774C3600477878 /* PBXContainerItemProxy */;
+			targetProxy = E3616E969558AA0357320357 /* PBXContainerItemProxy */;
 		};
-		9A4DDE692B7757E500477878 /* PBXTargetDependency */ = {
+		EBDFFD57D18D9A7C327D919F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = media_apple;
-			targetProxy = 9A4DDE682B7757E500477878 /* PBXContainerItemProxy */;
+			targetProxy = 66B976B46BE99485DF0A6976 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		9A20EC6B2B77153F008A08A2 /* Debug */ = {
+		25D3CF48763D2FF61F614CFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A20EC8B2B7715BD008A08A2 /* _____debug.xcconfig */;
+			baseConfigurationReference = EE5F778727EC89CAB3DAF71B /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -381,9 +381,9 @@
 			};
 			name = Debug;
 		};
-		9A20EC6C2B77153F008A08A2 /* Release */ = {
+		25A3ABBDF93763BD735662C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A20ECAB2B7715BD008A08A2 /* _____release.xcconfig */;
+			baseConfigurationReference = 750F3AE7FC2E679C6D2E3547 /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -472,7 +472,7 @@
 			};
 			name = Release;
 		};
-		9A20EC6E2B77153F008A08A2 /* Debug */ = {
+		8B7B5F263F92BE9AA849B81D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
@@ -483,7 +483,7 @@
 			};
 			name = Debug;
 		};
-		9A20EC6F2B77153F008A08A2 /* Release */ = {
+		FE3FEA8758931545FB1D90A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_EXTENSION = "$(STATIC_LIBRARY_EXTENSION:default=a)";
@@ -497,25 +497,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A20EC5F2B77153F008A08A2 /* Build configuration list for PBXProject "media_ios" */ = {
+		8A8DF7FD50FB172C34C64435 /* Build configuration list for PBXProject "media_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A20EC6B2B77153F008A08A2 /* Debug */,
-				9A20EC6C2B77153F008A08A2 /* Release */,
+				25D3CF48763D2FF61F614CFF /* Debug */,
+				25A3ABBDF93763BD735662C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A20EC6D2B77153F008A08A2 /* Build configuration list for PBXNativeTarget "media_ios" */ = {
+		6DCDB51261AC9AA34966DB1F /* Build configuration list for PBXNativeTarget "media_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A20EC6E2B77153F008A08A2 /* Debug */,
-				9A20EC6F2B77153F008A08A2 /* Release */,
+				8B7B5F263F92BE9AA849B81D /* Debug */,
+				FE3FEA8758931545FB1D90A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9A20EC5C2B77153F008A08A2 /* Project object */;
+	rootObject = D756C440937FC07827E3DABC /* Project object */;
 }

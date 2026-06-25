@@ -19,7 +19,7 @@
 
 //#include "app.h"
 ::platform::application * get_platform_application();
-
+void node_did_finish_launching(::platform::system * psystem);
 
 void ns_main_post(dispatch_block_t block);
 
@@ -260,15 +260,16 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 }
 
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-   
-   //set_apex_system_as_thread();
-   //MessageBox(NULL, "applicationDidFinishLaunching", "applicationDidFinishLaunching", e_message_box_ok);
-   
-   //defer_run_system();
-   
-}
+// macOS NSApplicationDelegate callback; it is not called by UIApplication on iOS.
+//- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+//{
+//
+//   //set_apex_system_as_thread();
+//   //MessageBox(NULL, "applicationDidFinishLaunching", "applicationDidFinishLaunching", e_message_box_ok);
+//   node_did_finish_launching(application_system(m_papplication));
+//   //defer_run_system();
+//
+//}
 
 
 - (BOOL)applicationShouldHandleReopen:(UIApplication *)sender hasVisibleWindows:(BOOL)flag
@@ -911,6 +912,8 @@ willFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> 
 didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions
 {
    
+   node_did_finish_launching(application_system(m_papplication));
+
    system_id_topic(application_system(m_papplication), ::id_app_activated, 0, 0);
 
    [ m_pnsacmewindowIosApp controlling_impact ];

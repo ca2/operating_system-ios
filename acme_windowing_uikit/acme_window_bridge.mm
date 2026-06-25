@@ -121,7 +121,7 @@ void acme_window_bridge::attach_ns_acme_window(CGRect CGRect)
 }
 
 
-void acme_window_bridge::display()
+void acme_window_bridge::ns_show()
 {
    
    ns_main_post(^()
@@ -187,7 +187,7 @@ void acme_window_bridge::display()
 }
 
 
-void acme_window_bridge::hide()
+void acme_window_bridge::ns_hide()
 {
    
    auto pnsacmewindow =  (__bridge ns_acme_window *) m_pnsacmewindowAppleKit;

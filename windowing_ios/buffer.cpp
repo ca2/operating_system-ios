@@ -34,7 +34,7 @@ namespace windowing_ios
    }
 
 
-   bool buffer::_on_begin_draw(::graphics::buffer_item * pbufferitem)
+   bool buffer::_on_begin(::graphics::buffer_item * pbufferitem)
    {
 
       auto& pimage = pbufferitem->m_pimage2;

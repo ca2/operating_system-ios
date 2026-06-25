@@ -13,6 +13,7 @@
 //
 #import "_mm.h"
 #include "acme/constant/user_key.h"
+#include "acme/user/user/mouse.h"
 #import "iosImpact.h"
 #import "iosApp.h"
 #import "iosTextPosition.h"
@@ -105,7 +106,18 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->on_left_button_up(x, y, x, y);
+   
+   auto pmouse = p->create_newø <::user::mouse>();
+   
+   pmouse->m_eusermessage = ::user::e_message_left_button_up;
+   
+   //pmouse->m_keystate = ekeystateMouse;
+   
+   pmouse->m_pointHost = {x, y};
+   
+   pmouse->m_pointAbsolute = {x, y};
+   
+   p->on_left_button_up(pmouse);
    
    return;
    
@@ -135,7 +147,18 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->on_mouse_move(x, y, x, y);
+   auto pmouse = p->create_newø <::user::mouse>();
+   
+   pmouse->m_eusermessage = ::user::e_message_mouse_move;
+   
+   //pmouse->m_keystate = ekeystateMouse;
+   
+   pmouse->m_pointHost = {x, y};
+   
+   pmouse->m_pointAbsolute = {x, y};
+   
+   p->on_mouse_move(pmouse);
+   //p->on_mouse_move(x, y, x, y);
    
    return;
    
@@ -165,7 +188,18 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->ios_window_mouse_dragged(x, y, 0);
+   auto pmouse = p->create_newø <::user::mouse>();
+   
+   pmouse->m_eusermessage = ::user::e_message_mouse_move;
+   
+   pmouse->m_keystate.m_ekeystate |= ::user::e_key_state_left_button;
+   
+   pmouse->m_pointHost = {x, y};
+   
+   pmouse->m_pointAbsolute = {x, y};
+   
+   p->on_mouse_move(pmouse);
+   //p->ios_window_mouse_dragged(x, y, 0);
    
    return;
    
@@ -201,7 +235,17 @@ double get_status_bar_frame_height();
    
    int y = H - point.y;
    
-   p->on_left_button_down(x, y, x, y);
+   auto pmouse = p->create_newø <::user::mouse>();
+   
+   pmouse->m_eusermessage = ::user::e_message_mouse_move;
+   
+   pmouse->m_keystate.m_ekeystate |= ::user::e_key_state_left_button;
+   
+   pmouse->m_pointHost = {x, y};
+   
+   pmouse->m_pointAbsolute = {x, y};
+   
+   p->on_left_button_down(pmouse);
    
    return;
    

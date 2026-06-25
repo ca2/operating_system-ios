@@ -52,6 +52,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 #import "_mm.h"
 #import "iosEditImpact.h"
 #include "acme/constant/user_key.h"
+#include "acme/user/user/mouse.h"
 #import <CoreText/CoreText.h>
 
 #import "iosTextPosition.h"
@@ -183,7 +184,19 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       
       //m_ioswindow->m_pwindow->m_pointLastTouchBegan = point;
       
-      m_ioswindow->m_pwindow->on_left_button_down(x, y, x, y);
+      
+      auto pmouse = m_ioswindow->m_pwindow->create_newø <::user::mouse>();
+      
+      pmouse->m_eusermessage = ::user::e_message_left_button_up;
+      
+      //pmouse->m_keystate = ekeystateMouse;
+      
+      pmouse->m_pointHost = {x, y};
+      
+      pmouse->m_pointAbsolute = {x, y};
+      
+      m_ioswindow->m_pwindow->on_left_button_down(pmouse);
+      //m_ioswindow->m_pwindow->on_left_button_down(x, y, x, y);
 //      // Already in editing mode, set insertion point (via selectedTextRange).
 //        [self.inputDelegate selectionWillChange:self];
 //

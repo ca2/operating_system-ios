@@ -23,7 +23,7 @@ namespace windowing_ios
 
       //::draw2d::graphics* on_begin_draw() override;
        
-      bool _on_begin_draw(::graphics::buffer_item * pbufferitem) override;
+      bool _on_begin(::graphics::buffer_item * pbufferitem) override;
 
 //      bool update_buffer(const ::i32_size & size, int iStride = -1) override;
       

@@ -7,201 +7,201 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07B657CA190F3CBF002DAADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B657BA190F3CBF002DAADE /* Foundation.framework */; };
-		9AB54BB62D2B5D3000AFBCB1 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */; };
-		9AB54BB72D2B5D3000AFBCB1 /* shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */; };
-		9AB54BB82D2B5D3000AFBCB1 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */; };
-		9AB54BB92D2B5D3000AFBCB1 /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */; };
-		9AB54BBA2D2B5D3000AFBCB1 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB22D2B5D3000AFBCB1 /* node.cpp */; };
-		9AB54BBB2D2B5D3000AFBCB1 /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AB54BB52D2B5D3000AFBCB1 /* shell.mm */; };
-		9AB54BBC2D2B5D3000AFBCB1 /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BB12D2B5D3000AFBCB1 /* node.h */; };
-		9AB54BBD2D2B5D3000AFBCB1 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BAF2D2B5D3000AFBCB1 /* framework.h */; };
-		9AB54BBE2D2B5D3000AFBCB1 /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BB32D2B5D3000AFBCB1 /* shell.h */; };
-		9AB54BBF2D2B5D3000AFBCB1 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB54BAA2D2B5D3000AFBCB1 /* _.h */; };
+		C630DA6A0BC591C018B91D91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD16569C1032B8C6185081D /* Foundation.framework */; };
+		91397E9E5D7B57287D5F5B06 /* _factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF71EE7DF9D80EFBC6610776 /* _factory.cpp */; };
+		AEE4BF859C43421FF787DD2F /* shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 430FC4E878B43ACD4446F808 /* shell.cpp */; };
+		3D9DC9ED8711E563A1722FB3 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6B7BFC706E7F1DC0D520E989 /* framework.cpp */; };
+		7AC9D9D3E1FA7D1589E37731 /* file_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71D0B158D27DF606948A43F3 /* file_image.cpp */; };
+		DD2BF5B48DBA77D8B2773211 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA29D0AB2F9D3D95332D4A7 /* node.cpp */; };
+		C2DE9C69F87017110B5CC4A4 /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62F8418CD850E58AE3E09AE1 /* shell.mm */; };
+		5511C2F360B442F69F3E4B21 /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = 27554771209048DAA292B0BA /* node.h */; };
+		3A0CC003395C5C1B023B9C90 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E8731FCD5860E011F62C21 /* framework.h */; };
+		9E47EEDDD20EF1A822B8D247 /* shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 26CF822BFE39C89FDC552302 /* shell.h */; };
+		913E56C3D4C02462E8B22FFE /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = F2B5493E89DB8B8366169551 /* _.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A2D9A562D1E7E100032D9B3 /* PBXContainerItemProxy */ = {
+		3C982882FBBC5B9E5DA65180 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */;
+			containerPortal = 8D97D75E9423BE70CBC19BD8 /* innate_ui_uikit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A2FCE042C9D3ADC000CF701;
+			remoteGlobalIDString = FAF1E5F9E6495376E5260996;
 			remoteInfo = innate_ui_uikit;
 		};
-		9A3E31A62CF8198E007DC9EE /* PBXContainerItemProxy */ = {
+		79D6540CCE51AC0A6AA0E921 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */;
+			containerPortal = 8D97D75E9423BE70CBC19BD8 /* innate_ui_uikit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A2FCE052C9D3ADC000CF701;
+			remoteGlobalIDString = A01710AED35BA29EB56E86BA;
 			remoteInfo = innate_ui_uikit;
 		};
-		9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */ = {
+		1BB0EC0DB2C9C17F84BC6AF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
+			containerPortal = C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A8E9E2F282A2FEB005FF778;
+			remoteGlobalIDString = 21764A33DC27B75EF9EA7C1C;
 			remoteInfo = ios_aura_apple;
 		};
-		9A8E9EEF282A34DE005FF778 /* PBXContainerItemProxy */ = {
+		53CAEFACF52A05E613483146 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+			containerPortal = 7047F58DB5475190690CB9E1 /* apex_ios.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A0C1694264A2AA700B5CC33;
+			remoteGlobalIDString = 16CC654F9E223E3C80CC6DF4;
 			remoteInfo = apex_ios;
 		};
-		9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */ = {
+		55D2E9CDE457F2D25737EFA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
+			containerPortal = C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9A8E9E13282A2FEB005FF778;
+			remoteGlobalIDString = E9D5CC63EB4E6CD3039EEC72;
 			remoteInfo = ios_aura_apple;
 		};
-		9AA14EA9282A27D400B1621E /* PBXContainerItemProxy */ = {
+		F98EF97CB6F9DE5590D42E58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+			containerPortal = 7047F58DB5475190690CB9E1 /* apex_ios.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A0C1695264A2AA700B5CC33;
+			remoteGlobalIDString = F3241FA7FE5FB0B432D86C47;
 			remoteInfo = apex_macos;
 		};
-		9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */ = {
+		FC60D5547966C8896EE1F0EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
+			containerPortal = C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9A15A5AC264B54430080670E;
+			remoteGlobalIDString = 8A0970B34883C51ED7B831BE;
 			remoteInfo = aura_apple;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07B657BA190F3CBF002DAADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		07B657C7190F3CBF002DAADE /* aura_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aura_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E60C26616C9C00517464 /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E60E26616C9C00517464 /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61026616C9C00517464 /* libacme_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61226616CA500517464 /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61426616CB800517464 /* libapex_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61626616CC500517464 /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61826616CC500517464 /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61A26616CD300517464 /* libapex.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61C26616CD300517464 /* libapex_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E61F26616D1400517464 /* libaura.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A00E62126616D1400517464 /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
-		9A941C4F1FF34F880028686E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
-		9A941C511FF34F9E0028686E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
-		9AB54BAA2D2B5D3000AFBCB1 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
-		9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
-		9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
-		9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
-		9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
-		9AB54BAF2D2B5D3000AFBCB1 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
-		9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9AB54BB12D2B5D3000AFBCB1 /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
-		9AB54BB22D2B5D3000AFBCB1 /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
-		9AB54BB32D2B5D3000AFBCB1 /* shell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
-		9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shell.cpp; sourceTree = "<group>"; };
-		9AB54BB52D2B5D3000AFBCB1 /* shell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
-		9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		A1CFD778154F5EAA007447E2 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBD16569C1032B8C6185081D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE12A50BB8C308DFFC0228CA /* aura_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aura_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15EF9351552B6113172D5EFB /* libacme.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		A117A547853805E2DB5B09FD /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FBD9D0FF466F6CC72D4B0E0 /* libacme_macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_macos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90A3BABEF981DE03CFE903E /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE95BDF9E216484153190B12 /* libapex_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		B738466F71AE97FD116647C5 /* libacme_apple.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_apple.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA091CA2BF0564CDB88106D0 /* libacme_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libacme_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6C17B609FD67FC63E50AC0 /* libapex.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFBFCB410367B95FC7F0499 /* libapex_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libapex_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BEB3B97351D14F7F7BE3CD /* libaura.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		07EC8BF6FC38B820A8F590FB /* libaura_posix.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaura_posix.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2E4EE41C0DE58E0632353BA /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		1B267FC0586CDA386DCD0E7B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		8D9E29F7B1850C40298816A6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7047F58DB5475190690CB9E1 /* apex_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = apex_ios.xcodeproj; path = ../apex_ios/apex_ios.xcodeproj; sourceTree = SOURCE_ROOT; };
+		F2B5493E89DB8B8366169551 /* _.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
+		371732D336C5A0FDA956AA07 /* _____debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____debug.xcconfig"; sourceTree = "<group>"; };
+		35E0E455FC0C3EF24B0A888B /* _____release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "_____release.xcconfig"; sourceTree = "<group>"; };
+		CF71EE7DF9D80EFBC6610776 /* _factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = _factory.cpp; sourceTree = "<group>"; };
+		71D0B158D27DF606948A43F3 /* file_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_image.cpp; sourceTree = "<group>"; };
+		D3E8731FCD5860E011F62C21 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		6B7BFC706E7F1DC0D520E989 /* framework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		27554771209048DAA292B0BA /* node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		7AA29D0AB2F9D3D95332D4A7 /* node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		26CF822BFE39C89FDC552302 /* shell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
+		430FC4E878B43ACD4446F808 /* shell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shell.cpp; sourceTree = "<group>"; };
+		62F8418CD850E58AE3E09AE1 /* shell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
+		C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura_apple.xcodeproj; path = "../../operating_system-apple/aura_apple/aura_apple.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		8D97D75E9423BE70CBC19BD8 /* innate_ui_uikit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = innate_ui_uikit.xcodeproj; path = ../innate_ui_uikit/innate_ui_uikit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		A33EC7ABE08B5FD589CF8638 /* libaura_ios.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaura_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		07B657C4190F3CBF002DAADE /* Frameworks */ = {
+		55394EB8BB05DB6716B47A17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B657CA190F3CBF002DAADE /* Foundation.framework in Frameworks */,
+				C630DA6A0BC591C018B91D91 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07B657B9190F3CBF002DAADE /* Frameworks */ = {
+		339E147D835CF9738B6D5174 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A5A897626D304B4004AF957 /* UniformTypeIdentifiers.framework */,
-				9A00E61F26616D1400517464 /* libaura.dylib */,
-				9A00E62126616D1400517464 /* libaura_posix.dylib */,
-				9A00E61A26616CD300517464 /* libapex.dylib */,
-				9A00E61C26616CD300517464 /* libapex_posix.dylib */,
-				9A00E61626616CC500517464 /* libacme_apple.dylib */,
-				9A00E61826616CC500517464 /* libacme_posix.dylib */,
-				9A00E61426616CB800517464 /* libapex_apple.dylib */,
-				9A00E61226616CA500517464 /* libacme_posix.dylib */,
-				9A00E60C26616C9C00517464 /* libacme.dylib */,
-				9A00E60E26616C9C00517464 /* libacme_apple.dylib */,
-				9A00E61026616C9C00517464 /* libacme_macos.dylib */,
-				9A941C511FF34F9E0028686E /* CoreAudio.framework */,
-				9A941C4F1FF34F880028686E /* CoreMIDI.framework */,
-				07B657BA190F3CBF002DAADE /* Foundation.framework */,
+				D2E4EE41C0DE58E0632353BA /* UniformTypeIdentifiers.framework */,
+				D5BEB3B97351D14F7F7BE3CD /* libaura.dylib */,
+				07EC8BF6FC38B820A8F590FB /* libaura_posix.dylib */,
+				AE6C17B609FD67FC63E50AC0 /* libapex.dylib */,
+				7AFBFCB410367B95FC7F0499 /* libapex_posix.dylib */,
+				B738466F71AE97FD116647C5 /* libacme_apple.dylib */,
+				EA091CA2BF0564CDB88106D0 /* libacme_posix.dylib */,
+				DE95BDF9E216484153190B12 /* libapex_apple.dylib */,
+				B90A3BABEF981DE03CFE903E /* libacme_posix.dylib */,
+				15EF9351552B6113172D5EFB /* libacme.dylib */,
+				A117A547853805E2DB5B09FD /* libacme_apple.dylib */,
+				6FBD9D0FF466F6CC72D4B0E0 /* libacme_macos.dylib */,
+				8D9E29F7B1850C40298816A6 /* CoreAudio.framework */,
+				1B267FC0586CDA386DCD0E7B /* CoreMIDI.framework */,
+				CBD16569C1032B8C6185081D /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		07B657D0190F3CBF002DAADE /* aura_ios */ = {
+		BE0F19DEC0F6FB47D1899ACA /* aura_ios */ = {
 			isa = PBXGroup;
 			children = (
-				9AB54BAA2D2B5D3000AFBCB1 /* _.h */,
-				9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */,
-				9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */,
-				9AB54BAD2D2B5D3000AFBCB1 /* _factory.cpp */,
-				9AB54BAE2D2B5D3000AFBCB1 /* file_image.cpp */,
-				9AB54BAF2D2B5D3000AFBCB1 /* framework.h */,
-				9AB54BB02D2B5D3000AFBCB1 /* framework.cpp */,
-				9AB54BB12D2B5D3000AFBCB1 /* node.h */,
-				9AB54BB22D2B5D3000AFBCB1 /* node.cpp */,
-				9AB54BB32D2B5D3000AFBCB1 /* shell.h */,
-				9AB54BB42D2B5D3000AFBCB1 /* shell.cpp */,
-				9AB54BB52D2B5D3000AFBCB1 /* shell.mm */,
+				F2B5493E89DB8B8366169551 /* _.h */,
+				371732D336C5A0FDA956AA07 /* _____debug.xcconfig */,
+				35E0E455FC0C3EF24B0A888B /* _____release.xcconfig */,
+				CF71EE7DF9D80EFBC6610776 /* _factory.cpp */,
+				71D0B158D27DF606948A43F3 /* file_image.cpp */,
+				D3E8731FCD5860E011F62C21 /* framework.h */,
+				6B7BFC706E7F1DC0D520E989 /* framework.cpp */,
+				27554771209048DAA292B0BA /* node.h */,
+				7AA29D0AB2F9D3D95332D4A7 /* node.cpp */,
+				26CF822BFE39C89FDC552302 /* shell.h */,
+				430FC4E878B43ACD4446F808 /* shell.cpp */,
+				62F8418CD850E58AE3E09AE1 /* shell.mm */,
 			);
 			name = aura_ios;
 			sourceTree = "<group>";
 		};
-		9A3E31A12CF8198B007DC9EE /* Products */ = {
+		C1180D91E79CB1BADF5580AA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A3E31A72CF8198E007DC9EE /* libinnate_ui_uikit.a */,
+				496A817E2BF4EFFFAA8E9E55 /* libinnate_ui_uikit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9AA14EA4282A27D400B1621E /* Products */ = {
+		51BEC856FBF7702868C5EA29 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AA14EAA282A27D400B1621E /* libapex_ios.a */,
+				BB7239FB5D2F6032DC54F0B5 /* libapex_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9AC2CFB12653DAD200CC8096 /* Products */ = {
+		9C479EE417A1405E4A1A9F89 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */,
-				9A8E9EC3282A32D1005FF778 /* libios_aura_apple.a */,
+				EBF82082498BA690D60E7650 /* libaura_apple.dylib */,
+				73E4F09697704742987FB287 /* libios_aura_apple.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1CFD76D154F5EA7007447E2 = {
+		A8C774607C55BCBF0FC76AE5 = {
 			isa = PBXGroup;
 			children = (
-				9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */,
-				9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */,
-				9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */,
-				07B657D0190F3CBF002DAADE /* aura_ios */,
-				07B657B9190F3CBF002DAADE /* Frameworks */,
-				A1CFD779154F5EAA007447E2 /* Products */,
+				7047F58DB5475190690CB9E1 /* apex_ios.xcodeproj */,
+				C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */,
+				8D97D75E9423BE70CBC19BD8 /* innate_ui_uikit.xcodeproj */,
+				BE0F19DEC0F6FB47D1899ACA /* aura_ios */,
+				339E147D835CF9738B6D5174 /* Frameworks */,
+				6BD817D059BCB852E83DEF2D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A1CFD779154F5EAA007447E2 /* Products */ = {
+		6BD817D059BCB852E83DEF2D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1CFD778154F5EAA007447E2 /* libaura_ios.a */,
-				07B657C7190F3CBF002DAADE /* aura_iosTests.xctest */,
+				A33EC7ABE08B5FD589CF8638 /* libaura_ios.a */,
+				AE12A50BB8C308DFFC0228CA /* aura_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,27 +209,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A1CFD776154F5EAA007447E2 /* Headers */ = {
+		F1DC2C5E8D3536A2BC7EFD89 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB54BBC2D2B5D3000AFBCB1 /* node.h in Headers */,
-				9AB54BBD2D2B5D3000AFBCB1 /* framework.h in Headers */,
-				9AB54BBE2D2B5D3000AFBCB1 /* shell.h in Headers */,
-				9AB54BBF2D2B5D3000AFBCB1 /* _.h in Headers */,
+				5511C2F360B442F69F3E4B21 /* node.h in Headers */,
+				3A0CC003395C5C1B023B9C90 /* framework.h in Headers */,
+				9E47EEDDD20EF1A822B8D247 /* shell.h in Headers */,
+				913E56C3D4C02462E8B22FFE /* _.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		07B657C6190F3CBF002DAADE /* aura_iosTests */ = {
+		80C7A89F1146C73672A807FD /* aura_iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07B657DD190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "aura_iosTests" */;
+			buildConfigurationList = 48963A631CF7EAA08A85DDAA /* Build configuration list for PBXNativeTarget "aura_iosTests" */;
 			buildPhases = (
-				07B657C3190F3CBF002DAADE /* Sources */,
-				07B657C4190F3CBF002DAADE /* Frameworks */,
-				07B657C5190F3CBF002DAADE /* Resources */,
+				40582163EDD8205EF23B33DB /* Sources */,
+				55394EB8BB05DB6716B47A17 /* Frameworks */,
+				DD5A55554855319472835E58 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -237,47 +237,47 @@
 			);
 			name = aura_iosTests;
 			productName = music_midi_core_audio_iosTests;
-			productReference = 07B657C7190F3CBF002DAADE /* aura_iosTests.xctest */;
+			productReference = AE12A50BB8C308DFFC0228CA /* aura_iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A1CFD777154F5EAA007447E2 /* aura_ios */ = {
+		6AF9C2CE5C7806F885A79521 /* aura_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_ios" */;
+			buildConfigurationList = 5BD0349149B2999468CD86F4 /* Build configuration list for PBXNativeTarget "aura_ios" */;
 			buildPhases = (
-				A1CFD776154F5EAA007447E2 /* Headers */,
-				A1CFD774154F5EAA007447E2 /* Sources */,
+				F1DC2C5E8D3536A2BC7EFD89 /* Headers */,
+				EA5C79D27B3D5A290FB1937D /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9A2D9A572D1E7E100032D9B3 /* PBXTargetDependency */,
-				9A8E9EF2282A34E8005FF778 /* PBXTargetDependency */,
-				9A8E9EF0282A34DE005FF778 /* PBXTargetDependency */,
+				55478F43DB4DC88E974F4041 /* PBXTargetDependency */,
+				664E0F25E33D122DE32CCC05 /* PBXTargetDependency */,
+				C0345544E882C077AB83D2A2 /* PBXTargetDependency */,
 			);
 			name = aura_ios;
 			productName = os;
-			productReference = A1CFD778154F5EAA007447E2 /* libaura_ios.a */;
+			productReference = A33EC7ABE08B5FD589CF8638 /* libaura_ios.a */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A1CFD76F154F5EA7007447E2 /* Project object */ = {
+		54195DA3FAD33FA8BE735285 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1610;
 				ORGANIZATIONNAME = "ca2 Software Development";
 				TargetAttributes = {
-					07B657C6190F3CBF002DAADE = {
-						TestTargetID = A1CFD777154F5EAA007447E2;
+					80C7A89F1146C73672A807FD = {
+						TestTargetID = 6AF9C2CE5C7806F885A79521;
 					};
-					A1CFD777154F5EAA007447E2 = {
+					6AF9C2CE5C7806F885A79521 = {
 						DevelopmentTeam = L8N5V6TZE5;
 					};
 				};
 			};
-			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_ios" */;
+			buildConfigurationList = AEE5308815FA3A96245465E5 /* Build configuration list for PBXProject "aura_ios" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -285,64 +285,64 @@
 				en,
 				Base,
 			);
-			mainGroup = A1CFD76D154F5EA7007447E2;
-			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
+			mainGroup = A8C774607C55BCBF0FC76AE5;
+			productRefGroup = 6BD817D059BCB852E83DEF2D /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9AA14EA4282A27D400B1621E /* Products */;
-					ProjectRef = 9AA14EA3282A27D400B1621E /* apex_ios.xcodeproj */;
+					ProductGroup = 51BEC856FBF7702868C5EA29 /* Products */;
+					ProjectRef = 7047F58DB5475190690CB9E1 /* apex_ios.xcodeproj */;
 				},
 				{
-					ProductGroup = 9AC2CFB12653DAD200CC8096 /* Products */;
-					ProjectRef = 9AC2CFB02653DAD200CC8096 /* aura_apple.xcodeproj */;
+					ProductGroup = 9C479EE417A1405E4A1A9F89 /* Products */;
+					ProjectRef = C34A197CD91BB9E1B0B47A6F /* aura_apple.xcodeproj */;
 				},
 				{
-					ProductGroup = 9A3E31A12CF8198B007DC9EE /* Products */;
-					ProjectRef = 9AC3F22F2CF7E1FE0061DCC0 /* innate_ui_uikit.xcodeproj */;
+					ProductGroup = C1180D91E79CB1BADF5580AA /* Products */;
+					ProjectRef = 8D97D75E9423BE70CBC19BD8 /* innate_ui_uikit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				A1CFD777154F5EAA007447E2 /* aura_ios */,
-				07B657C6190F3CBF002DAADE /* aura_iosTests */,
+				6AF9C2CE5C7806F885A79521 /* aura_ios */,
+				80C7A89F1146C73672A807FD /* aura_iosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9A3E31A72CF8198E007DC9EE /* libinnate_ui_uikit.a */ = {
+		496A817E2BF4EFFFAA8E9E55 /* libinnate_ui_uikit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libinnate_ui_uikit.a;
-			remoteRef = 9A3E31A62CF8198E007DC9EE /* PBXContainerItemProxy */;
+			remoteRef = 79D6540CCE51AC0A6AA0E921 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A8E9EC3282A32D1005FF778 /* libios_aura_apple.a */ = {
+		73E4F09697704742987FB287 /* libios_aura_apple.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libios_aura_apple.a;
-			remoteRef = 9A8E9EC2282A32D1005FF778 /* PBXContainerItemProxy */;
+			remoteRef = 1BB0EC0DB2C9C17F84BC6AF8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9AA14EAA282A27D400B1621E /* libapex_ios.a */ = {
+		BB7239FB5D2F6032DC54F0B5 /* libapex_ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libapex_ios.a;
-			remoteRef = 9AA14EA9282A27D400B1621E /* PBXContainerItemProxy */;
+			remoteRef = F98EF97CB6F9DE5590D42E58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9AC2CFB52653DAD200CC8096 /* libaura_apple.dylib */ = {
+		EBF82082498BA690D60E7650 /* libaura_apple.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libaura_apple.dylib;
-			remoteRef = 9AC2CFB42653DAD200CC8096 /* PBXContainerItemProxy */;
+			remoteRef = FC60D5547966C8896EE1F0EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		07B657C5190F3CBF002DAADE /* Resources */ = {
+		DD5A55554855319472835E58 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,48 +352,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07B657C3190F3CBF002DAADE /* Sources */ = {
+		40582163EDD8205EF23B33DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1CFD774154F5EAA007447E2 /* Sources */ = {
+		EA5C79D27B3D5A290FB1937D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB54BB62D2B5D3000AFBCB1 /* _factory.cpp in Sources */,
-				9AB54BB72D2B5D3000AFBCB1 /* shell.cpp in Sources */,
-				9AB54BB82D2B5D3000AFBCB1 /* framework.cpp in Sources */,
-				9AB54BB92D2B5D3000AFBCB1 /* file_image.cpp in Sources */,
-				9AB54BBA2D2B5D3000AFBCB1 /* node.cpp in Sources */,
-				9AB54BBB2D2B5D3000AFBCB1 /* shell.mm in Sources */,
+				91397E9E5D7B57287D5F5B06 /* _factory.cpp in Sources */,
+				AEE4BF859C43421FF787DD2F /* shell.cpp in Sources */,
+				3D9DC9ED8711E563A1722FB3 /* framework.cpp in Sources */,
+				7AC9D9D3E1FA7D1589E37731 /* file_image.cpp in Sources */,
+				DD2BF5B48DBA77D8B2773211 /* node.cpp in Sources */,
+				C2DE9C69F87017110B5CC4A4 /* shell.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9A2D9A572D1E7E100032D9B3 /* PBXTargetDependency */ = {
+		55478F43DB4DC88E974F4041 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = innate_ui_uikit;
-			targetProxy = 9A2D9A562D1E7E100032D9B3 /* PBXContainerItemProxy */;
+			targetProxy = 3C982882FBBC5B9E5DA65180 /* PBXContainerItemProxy */;
 		};
-		9A8E9EF0282A34DE005FF778 /* PBXTargetDependency */ = {
+		C0345544E882C077AB83D2A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = apex_ios;
-			targetProxy = 9A8E9EEF282A34DE005FF778 /* PBXContainerItemProxy */;
+			targetProxy = 53CAEFACF52A05E613483146 /* PBXContainerItemProxy */;
 		};
-		9A8E9EF2282A34E8005FF778 /* PBXTargetDependency */ = {
+		664E0F25E33D122DE32CCC05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ios_aura_apple;
-			targetProxy = 9A8E9EF1282A34E8005FF778 /* PBXContainerItemProxy */;
+			targetProxy = 55D2E9CDE457F2D25737EFA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07B657DA190F3CBF002DAADE /* Debug */ = {
+		6EAE4E9591BDDE9D0E779410 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libmusic_midi_core_audio.dylib";
@@ -423,7 +423,7 @@
 			};
 			name = Debug;
 		};
-		07B657DB190F3CBF002DAADE /* Release */ = {
+		0BC0255090885729675F23B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libmusic_midi_core_audio.dylib";
@@ -451,9 +451,9 @@
 			};
 			name = Release;
 		};
-		A1CFD77A154F5EAA007447E2 /* Debug */ = {
+		F818DADE74A2F2C6501EAAAC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AB54BAB2D2B5D3000AFBCB1 /* _____debug.xcconfig */;
+			baseConfigurationReference = 371732D336C5A0FDA956AA07 /* _____debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
@@ -545,9 +545,9 @@
 			};
 			name = Debug;
 		};
-		A1CFD77B154F5EAA007447E2 /* Release */ = {
+		D290CB3BDE3E97D2638A8775 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AB54BAC2D2B5D3000AFBCB1 /* _____release.xcconfig */;
+			baseConfigurationReference = 35E0E455FC0C3EF24B0A888B /* _____release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
@@ -632,7 +632,7 @@
 			};
 			name = Release;
 		};
-		A1CFD77D154F5EAA007447E2 /* Debug */ = {
+		8ADCAA48A42562C548B7B49E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
@@ -644,7 +644,7 @@
 			};
 			name = Debug;
 		};
-		A1CFD77E154F5EAA007447E2 /* Release */ = {
+		799DB873BB3A233C432F73C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
@@ -659,34 +659,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		07B657DD190F3CBF002DAADE /* Build configuration list for PBXNativeTarget "aura_iosTests" */ = {
+		48963A631CF7EAA08A85DDAA /* Build configuration list for PBXNativeTarget "aura_iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07B657DA190F3CBF002DAADE /* Debug */,
-				07B657DB190F3CBF002DAADE /* Release */,
+				6EAE4E9591BDDE9D0E779410 /* Debug */,
+				0BC0255090885729675F23B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "aura_ios" */ = {
+		AEE5308815FA3A96245465E5 /* Build configuration list for PBXProject "aura_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1CFD77A154F5EAA007447E2 /* Debug */,
-				A1CFD77B154F5EAA007447E2 /* Release */,
+				F818DADE74A2F2C6501EAAAC /* Debug */,
+				D290CB3BDE3E97D2638A8775 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "aura_ios" */ = {
+		5BD0349149B2999468CD86F4 /* Build configuration list for PBXNativeTarget "aura_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1CFD77D154F5EAA007447E2 /* Debug */,
-				A1CFD77E154F5EAA007447E2 /* Release */,
+				8ADCAA48A42562C548B7B49E /* Debug */,
+				799DB873BB3A233C432F73C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A1CFD76F154F5EA7007447E2 /* Project object */;
+	rootObject = 54195DA3FAD33FA8BE735285 /* Project object */;
 }

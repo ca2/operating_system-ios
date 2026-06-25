@@ -50,7 +50,7 @@ public:
     //   void x11_display_error_trap_pop_ignored(int i) override;
    
    
-   void windowing_application_main_loop() override;
+   //void windowing_application_main_loop() override;
    void run() override;
    void windowing_post_quit() override;
    
@@ -61,7 +61,7 @@ public:
    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::command_handler * pcommandhandler);
    
    
-   
+   void each_window(const ::function < void(::acme::windowing::window*) > & function) override;
 
 //    virtual void defer_create_windowing_application_delegate(::platform::application * papplication, ::application_menu * papplicationmenu, ::application_menu_callback * papplicationmenucallback);
 

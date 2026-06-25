@@ -5,7 +5,7 @@
 #include "window.h"
 #include "windowing.h"
 #include "acme_window_bridge.h"
-#include "acme/nano/graphics/device.h"
+#include "acme/nano/graphics/context.h"
 #include "acme/constant/id.h"
 #include "acme/handler/topic.h"
 #include "acme/platform/application.h"
@@ -59,7 +59,7 @@ namespace uikit
          
          //delete_drawing_objects();
          
-         m_pnanodevice.release();
+         m_pnanographicscontext.release();
          
       }
       
@@ -117,9 +117,9 @@ namespace uikit
             
             //nano()->graphics();
             
-            constructø(m_pnanodevice);
+            constructø(m_pnanographicscontext);
             
-            m_pnanodevice->attach(cgcontextref, m_sizeWindow);
+            m_pnanographicscontext->attach(cgcontextref, m_sizeWindow, 0);
             
             ::pointer < ::micro::elemental > pelemental;
             
@@ -128,7 +128,7 @@ namespace uikit
             if (pelemental)
             {
                
-               pelemental->draw_background(m_pnanodevice);
+               pelemental->draw_background(m_pnanographicscontext);
                
             }
             
@@ -144,9 +144,9 @@ namespace uikit
             
             //nano()->graphics();
             
-            constructø(m_pnanodevice);
+            constructø(m_pnanographicscontext);
             
-            m_pnanodevice->attach(cgcontextref, m_sizeWindow);
+            m_pnanographicscontext->attach(cgcontextref, m_sizeWindow, 0);
             
             ::pointer < ::micro::elemental > pelemental;
             
@@ -155,7 +155,7 @@ namespace uikit
             if (pelemental)
             {
                
-               pelemental->draw_foreground(m_pnanodevice);
+               pelemental->draw_foreground(m_pnanographicscontext);
                
             }
             
@@ -339,20 +339,23 @@ namespace uikit
       //   }
       
       
-      void window::show_window()
+      void window::show_window(::user_interface::enum_show_window eshowwindow)
       {
          
-         set_active_window();
-         
-         m_pacmewindowbridge->display();
-         
-      }
-      
-      
-      void window::hide_window()
-      {
-         
-         m_pacmewindowbridge->hide();
+         if(eshowwindow == user_interface::e_show_window_hide)
+         {
+            
+            m_pacmewindowbridge->ns_hide();
+
+         }
+         else
+         {
+            
+            set_active_window();
+            
+            m_pacmewindowbridge->ns_show();
+            
+         }
          
       }
       
@@ -487,7 +490,7 @@ namespace uikit
       //   }
       
       
-      ::payload window::wait_for_dialog_result(const class ::time & timeTimeout)
+      ::payload window::wait_for_dialog_response(const class ::time & timeTimeout)
       {
          
          m_pacmewindowbridge->_run_modal_loop();
@@ -499,7 +502,7 @@ namespace uikit
          if (pelemental)
          {
             
-            return pelemental->get_dialog_result();
+            return pelemental->get_dialog_response();
             
          }
          

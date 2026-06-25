@@ -23,6 +23,7 @@
 #include "acme_window_bridge.h"
 #include "ns_acme_window.h"
 #include "ns_acme_impact.h"
+#include "acme/user/user/mouse.h"
 #include "acme/operating_system/macos/keyboard.h"
 #include "acme/operating_system/winpr_input.h"
 //#include <Carbon/Carbon.h>
@@ -388,7 +389,17 @@
          
          m_pointLastTouchBegan = pointPixels;
          
-         p->on_left_button_down(x, y, x, y);
+         auto pmouse = p->create_newø <::user::mouse>();
+         
+         pmouse->m_eusermessage = ::user::e_message_left_button_down;
+         
+         //pmouse->m_keystate = ekeystateMouse;
+         
+         pmouse->m_pointHost = {x, y};
+         
+         pmouse->m_pointAbsolute = {x, y};
+         
+         p->on_left_button_down(pmouse);
          
          //         if(allTouchesEnded)
          //         {
@@ -445,7 +456,18 @@
 
          m_pointLastTouchBegan = pointPixels;
          
-         p->on_mouse_move(x, y, x, y);
+         
+         auto pmouse = p->create_newø <::user::mouse>();
+         
+         pmouse->m_eusermessage = ::user::e_message_mouse_move;
+         
+         //pmouse->m_keystate = ekeystateMouse;
+         
+         pmouse->m_pointHost = {x, y};
+         
+         pmouse->m_pointAbsolute = {x, y};
+
+         p->on_mouse_move(pmouse);
          
       }
       else
@@ -459,7 +481,18 @@
    else if([touches count] <= 0)
    {
       
-       p->on_left_button_up(m_pointLastTouchBegan.x, m_pointLastTouchBegan.y, m_pointLastTouchBegan.x, m_pointLastTouchBegan.y);
+      
+      auto pmouse = p->create_newø <::user::mouse>();
+      
+      pmouse->m_eusermessage = ::user::e_message_left_button_up;
+      
+      //pmouse->m_keystate = ekeystateMouse;
+      
+      pmouse->m_pointHost = {m_pointLastTouchBegan.x, m_pointLastTouchBegan.y};
+      pmouse->m_pointAbsolute = {m_pointLastTouchBegan.x, m_pointLastTouchBegan.y};
+
+      
+       p->on_left_button_up(pmouse);
       
    }
    
@@ -510,8 +543,20 @@
          
          int x = (int) pointPixels.x;
          int y = (int) pointPixels.y;
+         
+         
+         auto pmouse = p->create_newø <::user::mouse>();
+         
+         pmouse->m_eusermessage = ::user::e_message_left_button_up;
+         
+         //pmouse->m_keystate = ekeystateMouse;
+         
+         pmouse->m_pointHost = {x, y};
+         
+         pmouse->m_pointAbsolute = {x, y};
 
-         p->on_left_button_up(x, y, x, y);
+
+         p->on_left_button_up(pmouse);
          
       }
       else if ([touch tapCount] == 1)
@@ -537,7 +582,17 @@
 //         
 //         int y = point.y;
          
-         p->on_left_button_up(x, y, x, y);
+         auto pmouse = p->create_newø <::user::mouse>();
+         
+         pmouse->m_eusermessage = ::user::e_message_left_button_up;
+         
+         //pmouse->m_keystate = ekeystateMouse;
+         
+         pmouse->m_pointHost = {x, y};
+         
+         pmouse->m_pointAbsolute = {x, y};
+         
+         p->on_left_button_up(pmouse);
          
       }
       else
@@ -591,8 +646,17 @@
          int x = (int) pointPixels.x;
          int y = (int) pointPixels.y;
 
+         auto pmouse = p->create_newø <::user::mouse>();
          
-          p->on_left_button_up(x, y,  x, y);
+         pmouse->m_eusermessage = ::user::e_message_left_button_up;
+         
+         //pmouse->m_keystate = ekeystateMouse;
+         
+         pmouse->m_pointHost = {x, y};
+         
+         pmouse->m_pointAbsolute = {x, y};
+         
+          p->on_left_button_up(pmouse);
          
       }
       //      else
@@ -731,8 +795,8 @@
  //
  //      CGContextTranslateCTM(context, x, y);
        
-           p->_on_draw_background(context, rect.size);
-          p->_on_draw_foreground(context, rect.size);
+           p->_on_draw_background(context, rect);
+          p->_on_draw_foreground(context, rect);
        }
 
     }

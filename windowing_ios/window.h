@@ -57,6 +57,8 @@ namespace windowing_ios
        void on_initialize_particle() override;
       
       void create_window() override;
+
+      void post_redraw(bool bAscendants = true) override;
       
       ::particle * get_acme_window_bridge() override;
       
@@ -112,7 +114,7 @@ namespace windowing_ios
       void window_update_screen() override;
       
 
-      void ios_window_draw(CGContextRef cgc, CGSize sizeWindow, int iYFlipHeight, double dScale) override;
+      void ios_window_draw(CGContextRef cgc, CGSize sizeWindow, CGRect cgrect, int iYFlipHeight, double dScale) override;
 //      void on_left_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
 //      void on_left_button_up(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
 //      void on_right_button_down(double xHost, double yHost, double xAbsolute, double yAbsolute) override;
@@ -205,6 +207,5 @@ namespace windowing_ios
 
 
 } // windowing_ios
-
 
 

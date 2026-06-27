@@ -377,13 +377,35 @@ long ios_window::ios_window_get_text_length()
 
 void ios_window::ios_window_edit_on_set_focus(int l, int t, int r, int b, const char * pszText, long iSelBeg, long iSelEnd)
 {
-   
+
+   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
+
+   auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
+
+   auto piosimpact = (UIView *)pioswindow->m_pnsacmeimpact;
+
+   CGFloat scale = piosimpact.contentScaleFactor;
+
+   if(scale <= 0.0)
+   {
+
+      scale = [UIScreen mainScreen].scale;
+
+   }
+
+   if(scale <= 0.0)
+   {
+
+      scale = 1.0;
+
+   }
+
    CGRect rect;
    
-   rect.origin.x = l;
-   rect.origin.y = t;
-   rect.size.width = r - l;
-   rect.size.height = b - t;
+   rect.origin.x = l / scale;
+   rect.origin.y = t / scale;
+   rect.size.width = (r - l) / scale;
+   rect.size.height = (b - t) / scale;
  
 //#define SHENNANIGAN
 //   
@@ -397,10 +419,6 @@ void ios_window::ios_window_edit_on_set_focus(int l, int t, int r, int b, const 
 
 
    NSString * strText = [ NSString stringWithUTF8String: pszText ];
-   
-   auto pioswindow = (iosWindow*)(__bridge ns_acme_window*)m_pnsacmewindowAppleKit;
-   
-   auto piosimpactcontroller = (iosImpactController*)pioswindow->m_pimpactcontroller;
 
    [ piosimpactcontroller onEditSetFocus: rect withText: strText withSelBeg: iSelBeg withSelEnd: iSelEnd];
    
@@ -544,7 +562,3 @@ double ios_window::_get_status_bar_frame_height()
    return m_dStatusBarFrameHeight;
    
 }
-
-
-
-

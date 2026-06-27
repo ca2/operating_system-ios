@@ -449,7 +449,9 @@ void ns_main_send(dispatch_block_t block);
 
 -(void)layoutSubviews
 {
-   CGRect bounds = [ self frame ];
+   // Child frames are in the receiver's coordinate system; frame may carry a
+   // non-zero screen origin while bounds always starts at the local origin.
+   CGRect bounds = [ self bounds ];
    
    [ m_pnsacmeimpact setFrame: bounds ];
 }
@@ -514,6 +516,5 @@ void ns_main_send(dispatch_block_t block);
 }
 
 @end
-
 
 

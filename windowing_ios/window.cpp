@@ -48,7 +48,7 @@ void * ns_get_cursor();
 double get_status_bar_frame_height();
 
 #define WHEEL_DELTA 120
-//#define EXTRALOG
+#define EXTRALOG
 //void * new_ios_window(ios_window * papexwindow, CGRect rect, ::u32 uStyle);
 
 
@@ -208,6 +208,8 @@ void window::on_initialize_particle()
 
       auto pusersystem = puserinteraction->m_pusersystem;
 
+      puserinteraction->m_ewindowflag |= e_window_flag_is_window;
+
       //pusersystem->m_createstruct.hMenu = nullptr;
       //      pusersystem->m_createstruct.hInstance = ::aura::get_system()->m_hInstance;
       //pusersystem->m_createstruct.lpCreateParams = lpParam;
@@ -288,6 +290,10 @@ void window::on_initialize_particle()
 
       }
 
+      // UIKit can service the redraw request synchronously.  Make the
+      // interaction drawable before asking it to display for the first time.
+      puserinteraction->m_ewindowflag |= e_window_flag_window_created;
+
       //if(pusersystem->m_createstruct.style & WS_VISIBLE)
       //if(pusersystem->m_.style & WS_VISIBLE)
       if(puserinteraction->const_layout().design().is_screen_visible())
@@ -309,13 +315,30 @@ void window::on_initialize_particle()
       
       puserinteraction->increment_reference_count();
 
-      puserinteraction->m_ewindowflag |= e_window_flag_window_created;
-
       puserinteraction->post_message(::user::e_message_after_create);
 
       //return bOk;
 
    }
+
+
+   void window::post_redraw(bool bAscendants)
+   {
+
+      if (has_destroying_flag())
+      {
+
+         return;
+
+      }
+
+      // UIKit owns presentation on iOS. The graphics thread may be present
+      // for framework bookkeeping, but it does not present this native view.
+      ios_window_redraw();
+
+   }
+
+
 ::particle * window::get_acme_window_bridge()
 {
    
@@ -927,54 +950,57 @@ void window::release_mouse_capture()
 
 
 
-   void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam, int iYFlipHeight, double dSizeScaler)
+   void window::ios_window_draw(CGContextRef cgc, CGSize sizeWindowParam, CGRect cgrect, int iYFlipHeight, double dSizeScaler)
    {
       
 #ifdef EXTRALOG
 
-      output_debug_string("ios_window_draw start\n");
+      printf_line("\n\nios_window_draw start        size %0.0fx%0.0f    damage %0.0f,%0.0f %0.0fx%0.0f",
+                  sizeWindowParam.width, sizeWindowParam.height,
+                  cgrect.origin.x, cgrect.origin.y,
+                  cgrect.size.width, cgrect.size.height);
       
 #endif
 
       ::i32_size sizeWindow(sizeWindowParam.width, sizeWindowParam.height);
 
-      #ifdef EXTRALOG
-
-      //static int s_iLastExact = -1;
-
-      string str;
-
-      string strFormat;
-
-      strFormat.format("|-> window i32_size %d, %d\n", sizeWindow.cx, sizeWindow.cy);
-
-      printf("%s", strFormat.c_str());
-      
-//      string strSize;
+//#ifdef EXTRALOG
 //
-//      if(sizeLast != sizeWindow)
-//      {
+//      //static int s_iLastExact = -1;
 //
-//         sizeLast = sizeWindow;
+//      string str;
 //
-//         strSize = strFormat;
+//      string strFormat;
 //
-//      }
+//      strFormat.format("|-> window i32_size %d, %d\n", sizeWindow.cx, sizeWindow.cy);
 //
-//      str += strFormat;
+//      printf("%s", strFormat.c_str());
+//      
+////      string strSize;
+////
+////      if(sizeLast != sizeWindow)
+////      {
+////
+////         sizeLast = sizeWindow;
+////
+////         strSize = strFormat;
+////
+////      }
+////
+////      str += strFormat;
+////
+////      i32_rectangle rect1 = puserinteraction->window_rectangle();
+////
+////      if(rect1.size() != rectLast.size())
+////      {
+////
+////         rectLast = rect1;
+////
+////         // xxxlog output_debug_string("different window i32_rectangle i32_size (1)");
+////
+////      }
 //
-//      i32_rectangle rect1 = puserinteraction->window_rectangle();
-//
-//      if(rect1.size() != rectLast.size())
-//      {
-//
-//         rectLast = rect1;
-//
-//         // xxxlog output_debug_string("different window i32_rectangle i32_size (1)");
-//
-//      }
-
-   #endif
+//   #endif
 
       auto tickNow = ::time::now();
 
@@ -994,14 +1020,7 @@ void window::release_mouse_capture()
 
       critical_section_lock slDisplay(this->cs_display());
 
-       ::pointer < ::graphics::graphics > pbuffer = m_pgraphicsgraphics;
-
-      if(!pbuffer)
-      {
-
-         return;
-
-      }
+      ::pointer < ::graphics::graphics > pbuffer = m_pgraphicsgraphics;
       
       auto puserinteraction = user_interaction();
       
@@ -1011,6 +1030,8 @@ void window::release_mouse_capture()
          return;
 
       }
+
+      //informationf("ios_window_draw id-window=%d id-buffer-set=%d", puserinteraction->is_window(), pbuffer.is_set());
       
       auto pgraphics = createø < ::draw2d::graphics >();
 
@@ -1128,8 +1149,12 @@ void window::release_mouse_capture()
 //      ::image::image_drawing imagedrawing(imagedrawingoptions, imagesource);
 //
 //      g->draw(imagedrawing);
-//      
-//      //output_debug_string("ios_window_draw end\n");
+//
+#ifdef EXTRALOG
+
+      printf_line("ios_window_draw end\n\n");
+      
+#endif
       
       m_bPendingRedraw = false;
       
@@ -1624,7 +1649,9 @@ bool window::ios_window_key_up(::user::enum_key ekey)
       if(::is_set(puserinteraction))
       {
          
-         puserinteraction->send_message(pmouse);
+         //puserinteraction->send_message(pmouse);
+         //puserinteraction->route_message(pmouse);
+         puserinteraction->message_handler(pmouse);
          
          if(pmouse->m_bRet)
          {
@@ -3059,6 +3086,3 @@ void window::show_task(bool bShow)
 
 
 } // namespace windowing_ios
-
-
-

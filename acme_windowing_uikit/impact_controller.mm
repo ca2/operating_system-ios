@@ -49,7 +49,9 @@
    //m_pimpactChild = pimpact;
    //[ m_pnsacmeimpact setFrame: bounds ];
    
-   [ m_pnsacmeimpact setAutoresizingMask: 0 ];
+   // Keep the native drawing view matched to its controller as UIKit changes
+   // the scene or safe-area geometry.
+   [ m_pnsacmeimpact setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight ];
    
    [ m_pnsacmeimpact setHidden:false];
    

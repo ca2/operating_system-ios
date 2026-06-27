@@ -896,9 +896,17 @@ double get_status_bar_frame_height();
 
 - (void)drawRect:(CGRect)rect
 {
+   //NSLog(@"iosImpact drawRect %.0fx%.0f", rect.size.width, rect.size.height);
    
    auto pioswindow = (iosWindow *) m_pnsacmewindow;
-   
+
+   if(pioswindow == nil || pioswindow->m_pwindow == nullptr)
+   {
+
+      return;
+
+   }
+
    if(!m_bGotStatusBarFrameHeight)
    {
       
@@ -912,21 +920,22 @@ double get_status_bar_frame_height();
    }
    
    
-   UIWindow *window = pioswindow; // Or your specific UIWindow instance
-   CGFloat scale = window.windowScene.screen.nativeScale; // Native scale factor
-   auto impactSize = self.bounds.size;
+   auto sizeView = self.bounds.size;
    
-   double dSizeScaler = scale;
+   double dSizeScaler = self.contentScaleFactor;
 
-   //CGFloat pixelWidth = bounds.size.width * scale;
-   CGFloat pixelHeight = impactSize.height * scale;
+   CGFloat pixelHeight = sizeView.height * dSizeScaler;
 
-   // Get the height of the view
-   CGFloat iYFlipHeight = pixelHeight;
+   int iYFlipHeight = (int) pixelHeight;
    
    CGContextRef context = UIGraphicsGetCurrentContext();
    
-   CGContextResetClip(context);
+   if(context == nullptr)
+   {
+
+      return;
+
+   }
    
    CGContextSaveGState(context);
    
@@ -1003,7 +1012,7 @@ double get_status_bar_frame_height();
 //      
 //      CGContextTranslateCTM(context, x, y);
          //p->_on_draw_background(context, rect.size);
-      p->ios_window_draw(context, rect.size, iYFlipHeight, dSizeScaler);
+      p->ios_window_draw(context, sizeView, rect, iYFlipHeight, dSizeScaler);
          //p->_on_draw_foreground(context, rect.size);
       }
 
@@ -1293,6 +1302,3 @@ double get_status_bar_frame_height()
    
    return statusBarHeight;
 }
-
-
-

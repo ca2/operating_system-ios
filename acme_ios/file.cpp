@@ -265,6 +265,8 @@ void file::open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::f
                return;
                
             }
+            
+            auto pszPath = m_path.c_str();
 
             throw ::file::exception(m_estatus, cerrno, m_path, eopen, "open == -1");
 

@@ -76,8 +76,53 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 @end
 
 
+static CGFloat iosEditImpactCoordinateScale(iosEditImpact * editImpact)
+{
+   UIView * coordinateView = editImpact.superview ? editImpact.superview : editImpact;
+   CGFloat scale = coordinateView.contentScaleFactor;
+
+   if(scale <= 0.0)
+   {
+      scale = [UIScreen mainScreen].scale;
+   }
+
+   if(scale <= 0.0)
+   {
+      scale = 1.0;
+   }
+
+   return scale;
+}
+
+
+static CGRect iosEditImpactFallbackCaretRect(iosEditImpact * editImpact)
+{
+   CGRect bounds = editImpact.bounds;
+   CGFloat height = editImpact->m_font ? [editImpact->m_font lineHeight] : 0.0;
+
+   if(height <= 0.0)
+   {
+      height = bounds.size.height;
+   }
+
+   if(height <= 0.0)
+   {
+      height = 18.0;
+   }
+
+   CGFloat y = 0.0;
+
+   if(bounds.size.height > height)
+   {
+      y = (bounds.size.height - height) / 2.0;
+   }
+
+   return CGRectMake(0.0, y, 2.0, height);
+}
+
 
 @implementation iosEditImpact
+
 
 
 @synthesize markedTextStyle = _markedTextStyle;
@@ -176,11 +221,11 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    if ([self isFirstResponder])
    {
       
-      auto point = [tap locationInView: self];
-      
-      int x = point.x;
-      
-      int y = point.y;
+      UIView * coordinateView = self.superview ? self.superview : self;
+      auto point = [tap locationInView: coordinateView];
+      CGFloat scale = iosEditImpactCoordinateScale(self);
+      int x = point.x * scale;
+      int y = point.y * scale;
       
       //m_ioswindow->m_pwindow->m_pointLastTouchBegan = point;
       
@@ -612,56 +657,49 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
  UITextInput protocol required method.
  Return the first rectangle that encloses a range of text in a document.
  */
-- (CGRect)firstRectForRange:(NSRange)range
+- (CGRect)firstRectForRange:(UITextRange *)range
 {
-    //iosTextRange *r = (iosTextRange *)range;
-   // Use underlying iosTextView to get rect for range.
-    //CGRect rect  [self firstRectForRange:r.range];
-   
-   ///{
-      
-      //long beg = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range start ] ];
-      
-      
-      //long end = [self offsetFromPosition:[self beginningOfDocument] toPosition:[range end ] ];
-      
-   long beg = range.location;
-   
-   long end = range.location + range.length;
-      CGRect rBeg;
-      
-      if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rBeg, beg))
-      {
-         
-         return CGRectNull;
-         
-      }
+   if(!range || !m_ioswindow || !m_ioswindow->m_pwindow)
+   {
+      return iosEditImpactFallbackCaretRect(self);
+   }
 
-      CGRect rEnd;
-      
-      if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rEnd, end))
-      {
-         
-         return CGRectNull;
-         
-      }
+   iosTextRange *r = (iosTextRange *)range;
+   NSRange indexedRange = r.range;
 
-      CGRect rect;
-      
-      rect.origin.x = fmin(rBeg.origin.x, rEnd.origin.x);
-      rect.origin.y = fmin(rBeg.origin.y, rEnd.origin.y);
-      float r = fmax(rBeg.origin.x + rBeg.size.width, rEnd.origin.x + rEnd.size.width);
-      float b = fmax(rBeg.origin.y + rBeg.size.height, rEnd.origin.y + rEnd.size.height);
-      rect.size.width = r - rect.origin.x;
-      rect.size.height = b - rect.origin.y;
+   if(indexedRange.location == NSNotFound)
+   {
+      return iosEditImpactFallbackCaretRect(self);
+   }
 
-      return rect;
-      
-   //}
+   long beg = indexedRange.location;
+   long end = indexedRange.location + indexedRange.length;
+   CGRect rBeg;
 
-   // Convert rect to our view coordinates.
-    //return [self convertRect:rect fromView:self];
+   if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rBeg, beg))
+   {
+      return iosEditImpactFallbackCaretRect(self);
+   }
+
+   CGRect rEnd;
+
+   if(!m_ioswindow->m_pwindow->ios_window_edit_caret_rect(&rEnd, end))
+   {
+      return iosEditImpactFallbackCaretRect(self);
+   }
+
+   CGRect rect;
+
+   rect.origin.x = fmin(rBeg.origin.x, rEnd.origin.x);
+   rect.origin.y = fmin(rBeg.origin.y, rEnd.origin.y);
+   float right = fmax(rBeg.origin.x + rBeg.size.width, rEnd.origin.x + rEnd.size.width);
+   float bottom = fmax(rBeg.origin.y + rBeg.size.height, rEnd.origin.y + rEnd.size.height);
+   rect.size.width = right - rect.origin.x;
+   rect.size.height = bottom - rect.origin.y;
+
+   return rect;
 }
+
 
 
 /*
@@ -675,6 +713,10 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
    // Get caret rect from underlying iosTextView.
     CGRect rect =  [self caretRectForIndex:
                     (int)pos.index];
+   if(CGRectIsNull(rect) || CGRectIsEmpty(rect))
+   {
+      return iosEditImpactFallbackCaretRect(self);
+   }
    // Convert rect to our view coordinates.
     return [self convertRect:rect fromView:self];
 }
@@ -1036,7 +1078,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
       
    }
    
-   return CGRectNull;
+   return iosEditImpactFallbackCaretRect(self);
    
 }
 
@@ -1431,6 +1473,5 @@ NSRange RangeIntersection(NSRange first, NSRange second)
 
     return result;
 }
-
 
 

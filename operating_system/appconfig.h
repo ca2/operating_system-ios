@@ -9,6 +9,7 @@
 #define default_acme acme_ios
 #define default_acme_windowing acme_windowing_uikit
 #define default_nano_graphics nano_graphics_quartz2d
+#define default_nano_idn nano_idn_libidn
 #define default_apex apex_ios
 #define default_innate_ui innate_ui_uikit
 

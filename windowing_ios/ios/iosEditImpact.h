@@ -86,7 +86,7 @@ Heavily leverages an existing CoreText-based editor and merely serves as the "gl
 //@property (nonatomic, getter=isEditing) BOOL editing; // Is impact in "editing" mode or not (affects drawn results).
 
 - (CGRect)caretRectForIndex:(int)index;
-- (CGRect)firstRectForRange:(NSRange)range;
+- (CGRect)firstRectForRange:(UITextRange *)range;
 ///- (NSInteger)closestIndexToPoint:(CGPoint)point;
 
 + (UIColor *)caretColor;

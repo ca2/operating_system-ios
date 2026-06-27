@@ -165,8 +165,10 @@ double get_status_bar_frame_height();
       
       rect.origin.x = 0;
       rect.origin.y = 0;
-      rect.size.width = pixelWidth;
-      rect.size.height = pixelHeight;
+      // UIView geometry is expressed in points. The backing graphics context
+      // performs its pixel conversion when iosImpact draws it.
+      rect.size.width = impactSize.width;
+      rect.size.height = impactSize.height;
 
       
       rect.origin.x = 0;
@@ -180,7 +182,8 @@ double get_status_bar_frame_height();
       
       pioswindow->m_pwindow->m_dStatusBarFrameHeight = dStatusBarFrameHeight;
       
-      pioswindow->m_pwindow->ios_window_resized(rect.size.width, rect.size.height);
+      // The framework's native size remains pixel based.
+      pioswindow->m_pwindow->ios_window_resized(pixelWidth, pixelHeight);
       
    }
    catch (...)
@@ -386,6 +389,5 @@ double get_status_bar_frame_height();
 
 
 @end
-
 
 

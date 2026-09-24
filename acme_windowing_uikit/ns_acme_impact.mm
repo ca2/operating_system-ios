@@ -24,6 +24,7 @@
 #include "ns_acme_window.h"
 #include "ns_acme_impact.h"
 #include "acme/user/user/mouse.h"
+#include "acme/operating_system/apple/cgref.h"
 #include "acme/operating_system/macos/keyboard.h"
 #include "acme/operating_system/winpr_input.h"
 //#include <Carbon/Carbon.h>
@@ -718,7 +719,8 @@
     
     CGContextResetClip(context);
     
-    CGContextSaveGState(context);
+   cg_context_scope cgcontextscoped(p->m_cgcontextref);
+    //CGContextSaveGState(context);
     
 //    [ [ UIColor blueColor ] setFill];
    
@@ -801,7 +803,7 @@
 
     }
     
-    CGContextRestoreGState(context);
+    //CGContextRestoreGState(context);
     
 //
 //   CGContextRef cgc = (CGContextRef) [[UIGraphicsContext currentContext] graphicsPort];

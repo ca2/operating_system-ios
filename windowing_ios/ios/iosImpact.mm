@@ -18,7 +18,7 @@
 #import "iosApp.h"
 #import "iosTextPosition.h"
 #import "iosTextRange.h"
-
+#include "acme/operating_system/apple/cgref.h"
 
 double get_status_bar_frame_height();
 
@@ -928,7 +928,7 @@ double get_status_bar_frame_height();
 
    int iYFlipHeight = (int) pixelHeight;
    
-   CGContextRef context = UIGraphicsGetCurrentContext();
+   CGContextRef cgcontextref = UIGraphicsGetCurrentContext();
    
    if(context == nullptr)
    {
@@ -937,7 +937,8 @@ double get_status_bar_frame_height();
 
    }
    
-   CGContextSaveGState(context);
+   cg_context_scope cgcontextscope(cgcontextref);
+   //CGContextSaveGState(context);
    
    //[ [ UIColor blueColor ] setFill];
    
@@ -1018,7 +1019,7 @@ double get_status_bar_frame_height();
 
    }
    
-   CGContextRestoreGState(context);
+   //CGContextRestoreGState(context);
    
 }
 

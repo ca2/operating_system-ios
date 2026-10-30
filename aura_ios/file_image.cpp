@@ -17,12 +17,12 @@ bool mm1_get_file_image_by_type_identifier(::u32 * pcr, int cx, int cy, int iSca
 //bool macos1_get_file_image(::u32 * pcr, int cx, int cy, int iScan, const char * pszFilePath)
 //{
 //
-//   static ::mutex * pmutex = nullptr;
+//   static ::parallelization::mutex * pmutex = nullptr;
 //
 //   if(pmutex == nullptr)
 //   {
 //
-//      pmutex = new ::mutex();
+//      pmutex = new ::parallelization::mutex();
 //
 //   }
 //
@@ -38,12 +38,12 @@ bool mm1_get_file_image_by_type_identifier(::u32 * pcr, int cx, int cy, int iSca
 //bool macos1_get_file_image_by_type_identifier(::u32 * pcr, int cx, int cy, int iScan, const char * pszTypeIdentifier)
 //{
 //
-//   static ::mutex * pmutex = nullptr;
+//   static ::parallelization::mutex * pmutex = nullptr;
 //
 //   if(pmutex == nullptr)
 //   {
 //
-//      pmutex = new ::mutex();
+//      pmutex = new ::parallelization::mutex();
 //
 //   }
 //
